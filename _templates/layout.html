@@ -1,0 +1,8 @@
+{# Import the theme's layout. #}
+{% extends '!layout.html' %}
+
+{%- block htmltitle %}
+{{ super() }}
+<link rel="stylesheet" href="{{ pathto('_static/overrides.css', 1) }}"/>
+<link rel="stylesheet" href="{{ pathto('_static/color.css', 1) }}"/>
+{%- endblock %}

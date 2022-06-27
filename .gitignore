@@ -1,0 +1,22 @@
+.DS_Store
+*.xpr
+.idea
+
+# Build results
+.doctrees
+build/
+/build-*.log.gz
+*.mo
+
+# Python compiled files
+*.pyc
+
+# Testenvironment
+.tox/
+
+# Editors
+*~
+.*.swp
+.*.swo
+.bak
+/.project

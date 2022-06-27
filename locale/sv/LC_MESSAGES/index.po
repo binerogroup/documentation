@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Binero
+# This file is distributed under the same license as the Binero
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Binero Documentation 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-30 19:59+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../index.rst:19
+msgid "Managing your cloud resources"
+msgstr ""
+
+#: ../../index.rst:28
+msgid "Cloud Concepts"
+msgstr ""
+
+#: ../../index.rst:35
+msgid "Compute"
+msgstr ""
+
+#: ../../index.rst:41
+msgid "Networking"
+msgstr ""
+
+#: ../../index.rst:47
+msgid "Block Storage"
+msgstr ""
+
+#: ../../index.rst:53
+msgid "Object Storage"
+msgstr ""
+
+#: ../../index.rst:61
+msgid "Container Engines"
+msgstr ""
+
+#: ../../index.rst:3
+msgid "Welcome to Binero.Cloud!"
+msgstr ""
+
+#: ../../index.rst:6
+msgid "Getting Started"
+msgstr ""
+
+#: ../../index.rst:8
+msgid "Get your own virtual datacenter on `binero.cloud <https://binero.cloud>`_"
+msgstr ""
+
+#: ../../index.rst:10
+msgid ""
+"You can then manage your account with us at Binero on `portal.binero.com "
+"<https://portal.binero.com>`_ and control your cloud resources using "
+"either `portal.binero.cloud <https://portal.biner.cloud>`_ or using the "
+"OpenStack Horizon dashboard on `control.binero.cloud "
+"<https://control.binero.cloud>`_ using a API user."
+msgstr ""
+
+#: ../../index.rst:14
+msgid ""
+"You can also control your cloud resources using the :doc:`managing-your-"
+"cloud/openstack-cli` or any of the official :doc:`managing-your-cloud"
+"/openstack-api`."
+msgstr ""
+
+#: ../../index.rst:17
+msgid "Index"
+msgstr ""
+

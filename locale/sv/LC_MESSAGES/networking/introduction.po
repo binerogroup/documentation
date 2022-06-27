@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Binero
+# This file is distributed under the same license as the Binero
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Binero Documentation 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-30 19:59+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../networking/introduction.rst:3
+msgid "Introduction to Networking"
+msgstr ""
+
+#: ../../networking/introduction.rst:5 ../../networking/introduction.rst:11
+#: ../../networking/introduction.rst:17 ../../networking/introduction.rst:28
+msgid "asdasd"
+msgstr ""
+
+#: ../../networking/introduction.rst:9
+msgid "Network"
+msgstr ""
+
+#: ../../networking/introduction.rst:15
+msgid "Routers"
+msgstr ""
+
+#: ../../networking/introduction.rst:20
+msgid "Floating IP addresses"
+msgstr ""
+
+#: ../../networking/introduction.rst:22
+msgid "asdad"
+msgstr ""
+
+#: ../../networking/introduction.rst:26
+msgid "Load Balancers"
+msgstr ""
+
