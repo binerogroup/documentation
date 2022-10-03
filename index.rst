@@ -43,6 +43,7 @@ Index
   :maxdepth: 2
 
   networking/introduction
+  networking/openvpn
 
 .. toctree::
   :caption: Block Storage
