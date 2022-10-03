@@ -1,11 +1,12 @@
-====================
-OpenVPN with pfSense
-====================
+==============
+OpenVPN Server
+==============
 
 Use cases
 ---------
 The use cases covered by this service template are for creating an OpenVPN
-server that provides access to a private network used by your cloud instances.
+server running in a pfSense instance which provides access to a private network
+used by your cloud instances.
 This may be used to allow secure access to your instances without requiring
 a specific floating IP for each instance that you need to access and security
 group rules to permit your IP ranges access to those instances.
@@ -22,57 +23,56 @@ Deployment
 ----------
 Log in to the `Binero.Cloud Portal <https://portal.binero.cloud/>`.
 If you have not already created a private network, you will need to do that by
-expanding "Networking" in the menu on the left side menu and clicking
-"Networks".  Create a network by pressing the "+"-symbol in the lower right
-corner of the main pane and enter an appropriate name for your private network
-(this is purely cosmetic).
+selecting :menuselection:`Networking --> Networks` from the menu pane on the
+left. Create a network by pressing :guilabel:`+` in the lower right corner of
+the main pane and enter an appropriate name for your private network (this is
+purely cosmetic).
 If you want to pick an availability zone other than "europe-se-1a", you may add
-a hint for this here. Keep the "Admin state up" checkbox checked and click
-"Create".
+a hint for this here. Keep :guilabel:`Admin state up` checked and click
+:guilabel:`Create`.
 
-Now it's time to deploy the OpenVPN service. Expand "Service Catalogue" on the
-left side menu and click "Services". In the lower right corner of the main
-pane you will click the "+"-symbol, pick the "OpenVPN" service and click "Next".
+Go to :menuselection:`Service Catalogue --> Services`.
+Click :guilabel:`+` in the lower right corner of the main pane and pick the
+OpenVPN service and click :guilabel:`Next`.
 
 Here you will pick a suitable name that will be prefixed to all resources that
 will be deployed by this template. Select your SSH keys and enter one or more
 (comma separated) IP-ranges (in CIDR-notation) that will be allowed to access
 the pfSense WebUI and SSH server for administrative access (this can be changed
-later, see :ref:`_openvpn-admin-ranges`). You may enter "0.0.0.0/32" here to
+later, see :ref:`openvpn-admin-ranges`). You may enter "0.0.0.0/0" here to
 allow administrative access from ANYWHERE (not recommended).
 
 Select the availability zone where your private network is located (if you did
 not specifically pick a different zone, this will be the default "europe-se-1a")
 and pick your private network. You can then choose a flavour to use for the
-pfSense instance. The default (tiny) gp.1x2 flavour should be good enough for
+pfSense instance. The default (tiny) "gp.1x2" flavour should be good enough for
 most use cases.
 
-After clicking "Launch" you should see the service stack listed with status
-"CREATE IN PROGRESS". Allow a few minutes for service creation to complete
-(you may have to refresh your browser window to see updated status).
-After the service stack has been created (status: "CREATE COMPLETE", you may
-open its info view by clicking the "Card". Here you will be presented with an
-URL to the pfSense WebUI. Copy the value from the "mgmt_url" output and open
-the URL in your browser to access the WebUI. As the WebUI uses a self-signed
-certificate by default, your browser will display a warning before opening the
-site (select "Advanced..." and "Accept the Risk and Continue" if you are using
+After clicking :guilabel:`Launch` you should see the service stack listed with
+the status "CREATE IN PROGRESS". Allow a few minutes for service creation to
+complete (you may have to refresh your browser window to see updated status).
+After the service stack has been created (Stack status: "CREATE COMPLETE", you
+may open its info view by clicking the "card". Here you will be presented with
+a URL to the pfSense WebUI. Copy the value from the "mgmt_url" output and open
+the URL in your browser. As the WebUI uses a self-signed certificate by default,
+your browser will display a warning before opening the site (select
+:menuselection:`Advanced --> Accept the Risk and Continue` if you are using
 Mozilla Firefox). Default username/password for the WebUI is admin/pfsense.
-After login you will need to accept the Copyright and Trademark notices for
-pfSense. You may now want to change the default password to something else (the
+After login you may want to change the default password to something else (the
 WebUI will provide instructions for doing this in a notice close to the top of
 the page).
 
 .. _openvpn-client-export:
 
-In order to access your new VPN service, select "VPN" followed by "OpenVPN" from
-the top menu of pfSense WebUI and then select the "Client Export"-tab. Scroll
-down to OpenVPN clients and pick a configuration suitable to your intended
-client. If you are running Windows, we recommend picking
-"Current Windows Installer/64-bit" if you don't already have OpenVPN installed
-and "Inline configurations/Most Clients" if you already have an OpenVPN client
-installed. For Mac OS X, we recommend installing
-`Viscosity <https://www.sparklabs.com/viscosity/` and picking "Viscosity (Mac OS
-X and Windows)/Viscosity Inline Config".
+In order to access your new VPN service, you need to download the client
+configuration file. Open :menuselection:`VPN --> OpenVPN --> Client Export` in
+pfSense WebUI. Scroll down to OpenVPN clients and pick a configuration suitable
+for your client software. If you are running Windows, we recommend picking
+:guilabel:`Current Windows Installer/64-bit` if you don't already have OpenVPN
+installed or "Inline configurations/Most Clients" if you already have an
+OpenVPN client installed. For Mac OS X, we recommend installing
+`Viscosity <https://www.sparklabs.com/viscosity/` and using the configuration
+:guilabel:`Viscosity (Mac OS X and Windows)/Viscosity Inline Config`.
 
 
 Connecting to OpenVPN server (Windows)
@@ -80,33 +80,44 @@ Connecting to OpenVPN server (Windows)
 If did not install OpenVPN by using the installer generated by pfSense, you can
 import the inline configuration file by just opening it.
 
-You can now connect opening "OpenVPN GUI", right clicking the OpenVPN GUI icon
-in Windows' taskbar notification area, select the menu matching the filename of
-the configuration file you just downloaded and select "Connect".
+You can now connect by opening :menuselection:`Start --> OpenVPN GUI`,
+right-clicking the OpenVPN GUI icon in Windows' taskbar notification area,
+selecting the menu matching the
+filename of the configuration file you just downloaded and clicking
+:guilabel:`Connect`.
 
 
 Configuring pfSense to use separate credentials per user
 --------------------------------------------------------
-First open "VPN/OpenVPN" from the top menu in pfSense WebUI and click the pen
-symbol under the "Actions" column in the server list. If you want each user to
-have to enter a username and password in addition to connecting using their
-unique certificates, you may change the "Server mode" setting to "Remote Access
-( SSL/TLS + User Auth )". Scroll down to the setting named "Duplicate
-Connection" and disable it if you only want to allow one simultaneous
-connection per user. Save your configuration.
+Open :menuselection:`VPN --> OpenVPN` in pfSense WebUI and click the pen symbol
+under the :guilabel:`Actions` column in the server list.
+If you want each user to have to enter a username and password in addition to
+authenticating with unique certificates, you may change the
+:guilabel:`Server mode` setting to :guilabel:`"Remote Access ( SSL/TLS + User
+Auth )`. Scroll down to :guilabel:`Duplicate Connection` and disable it if you
+only want to allow one simultaneous connection per user. Click :guilabel:`Save`.
 
-Now you may create some users my opening "System/User Manager" in the top menu.
-Click "Add" and enter an appropriate username and password (the username and
-password will only matter to the OpenVPN client if the "Server Mode" was set to
-"SSL/TLS + User Auth" as detailed above. Check the box at "Certificate / Click
-to create a user certificate" and enter the username as "Descriptive name".
-The defaults for Key type and Digest algorithm are acceptable but we recommend
-setting Key type to "ECDSA" / "secp384r1" and "Digest Algorithm" to "sha384"
-for smaller keys and increased security.
+Now you may create some users my opening
+:menuselection:`System --> User Manager`. Click :guilabel:`Add` and enter an
+appropriate username and password (these will only matter for OpenVPN
+authentication if the "User Auth" was added to the Server Mode above) to create
+a user certificate" and enter the username as :guilabel:`Descriptive name`.
+The defaults for :guilabel:`Key type` and :guilabel:`Digest Algorithm` are
+acceptable but we recommend setting :guilabel:`Key type` to "ECDSA" /
+"secp384r1" and :guilabel:`Digest Algorithm` to "sha384" for increased security
+and performance.
 
-The configuration for the new user(s) can now be downloaded from the "Client
-Export"-page, see :ref:`Deployment <_openvpn-client-export>`. Distribute the
-unique configurations to each user.
+The new user configuration(s) can now be downloaded from the
+:guilabel:`Client Export` page, see :ref:`Deployment <openvpn-client-export>`.
+Distribute the unique configurations to each user.
+
+
+Allowing OpenVPN clients to access private cloud instances
+----------------------------------------------------------
+Each instance that you want to access has to have a network interface connected
+to the same private network as the OpenVPN instance. After that you may add the
+security group :samp:`OpenVPN-{name}-access` to each instance that VPN clients
+should have access to.
 
 
 .. _openvpn-admin-ranges:
@@ -114,6 +125,6 @@ unique configurations to each user.
 Changing administrative IP-addresses
 ------------------------------------
 Log in to the `Binero.Cloud-portal <https://portal.binero.cloud/` and open
-"Networking" / "Security Groups" in the left side menu. Open the group named
-"OpenVPN-<name chosen during deployment"_management" and add/remove rules
-for IP-ranges permitted to access TCP Port 22, 80 and 443.
+:menuselection:`Networking --> Security Groups`. Open the group named
+:samp:`OpenVPN-{name chosen during deployment}-management` and add/remove rules
+for IP ranges permitted to access TCP Port 22, 80 and 443.
