@@ -15,14 +15,19 @@ each instance.
 The default configuration allows any number of clients to access the VPN
 service using the same credentials (one user certificate + the TLS key).
 All required certificates are automatically generated (and are thus unique)
-for each deployment of the service. For even higher security, you may choose to
-add user specific credentials through the pfSense control panel - see
-:ref:`openvpn-unique-credentials` for instructions.
+for each deployment of the service. Cipher selections and algorithms used for
+the generated keys follow the guidelines laid out by the `CNSA suite
+<https://apps.nsa.gov/iaarchive/programs/iad-initiatives/cnsa-suite.cfm>`_ for
+protecting data at "TOP SECRET" level.
+
+For even higher security, you may choose to add user specific credentials
+through the pfSense control panel - see :ref:`openvpn-unique-credentials` for
+instructions.
 
 
 Deployment
 ----------
-Log on to the `Binero cloud portal <https://portal.binero.cloud/>`.
+Log on to the `Binero cloud portal <https://portal.binero.cloud/>`_.
 If you have not already created a private network, you will need to do that by
 selecting :menuselection:`Networking --> Networks` from the menu pane on the
 left. Create a network by pressing :guilabel:`+` in the lower right corner of
@@ -74,7 +79,7 @@ for your client software. If you are running Windows, we recommend picking
 :guilabel:`Current Windows Installer/64-bit` if you don't already have OpenVPN
 installed or :guilabel:`Inline configurations/Most Clients` if you already have
 an OpenVPN client installed. For Mac OS X, we recommend installing
-`Viscosity <https://www.sparklabs.com/viscosity/` and using the configuration
+`Viscosity <https://www.sparklabs.com/viscosity/>`_ and using the configuration
 :guilabel:`Viscosity (Mac OS X and Windows)/Viscosity Inline Config`.
 
 
@@ -107,10 +112,6 @@ Now you may create some users my opening
 appropriate username and password (these will only matter for OpenVPN
 authentication if "User Auth" was added to the Server Mode above) to create a
 user certificate and enter the username as :guilabel:`Descriptive name`.
-The defaults for :guilabel:`Key type` and :guilabel:`Digest Algorithm` are
-acceptable but we recommend setting :guilabel:`Key type` to ``ECDSA`` /
-``secp384r1`` and :guilabel:`Digest Algorithm` to ``sha384`` for increased
-security and performance.
 
 The new user configuration(s) can now be downloaded from the
 :guilabel:`Client Export` page, see :ref:`Deployment <openvpn-client-export>`.
@@ -129,7 +130,7 @@ should have access to.
 
 Changing administrative IP-addresses
 ------------------------------------
-Log on to the `Binero cloud portal <https://portal.binero.cloud/` and open
+Log on to the `Binero cloud portal <https://portal.binero.cloud/>`_ and open
 :menuselection:`Networking --> Security Groups`. Open the group named
 :samp:`OpenVPN-{name chosen during deployment}-management` and add/remove rules
-for IP ranges permitted to access TCP Port 22, 80 and 443.
+for IP ranges permitted to access TCP port 22, 80 and 443.
