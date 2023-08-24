@@ -1,3 +1,5 @@
+html { font-weight: 400;}
+
 button[data-md-color-accent],
 button[data-md-color-primary] {
     width: 6.5rem;
@@ -11,17 +13,23 @@ button[data-md-color-primary] {
     cursor: pointer
 }
 
+[data-md-color-primary=binero] .md-container {
+  background-image: url('bgredcloud.png') !important;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 button[data-md-color-accent]:hover,
 button[data-md-color-primary]:hover {
     opacity: .75
 }
 
 button[data-md-color-primary=binero] {
-    background-color: #ef5350
+    background-color: #ff0028
 }
 
 [data-md-color-primary=binero] .md-typeset a {
-    color: #ef5350
+    color: #ff0028
 }
 
 [data-md-color-primary=binero] .md-header,
@@ -31,7 +39,7 @@ button[data-md-color-primary=binero] {
 
 [data-md-color-primary=binero] .md-nav__link--active,
 [data-md-color-primary=binero] .md-nav__link:active {
-    color: #ef5350
+    color: #ff0028
 }
 
 [data-md-color-primary=binero] .md-nav__item--nested>.md-nav__link {
@@ -89,12 +97,48 @@ button[data-md-color-accent=binero] {
 
 @media only screen and (max-width:76.1875em) {
     html [data-md-color-primary=binero] .md-nav--primary .md-nav__title--site {
-        background-color: #ef5350
+        background-color: #ff0028
     }
 }
 
 @media only screen and (min-width:76.25em) {
     [data-md-color-primary=binero] .md-tabs {
-        background-color: #ef5350
+        background-color: #ff0028
     }
 }
+:root, [data-md-color-scheme=default] {
+    --md-typeset-a-color: #ff0028;
+}
+
+.md-nav__link:is(:focus,:hover) {
+    color: #ff0028;
+}
+
+.md-nav__item .md-nav__link--active {
+    color: #ff0028 !important;
+}
+
+.md-nav__link:-webkit-any(:focus,:hover) {
+    color: #ff0028 !important;
+}
+
+.md-nav__link:-moz-any(:focus,:hover) {
+    color: #ff0028 !important;
+}
+
+.md-nav__link:is(:focus,:hover) {
+    color: #ff0028 !important;
+}
+
+.md-nav__sticky {
+    background-color: transparent !important;);
+
+.md-nav__link.md-nav__sticky {
+    box-shadow: none !important;
+}
+
+.md-nav__title {
+    background: none !important;
+    box-shadow: none !important;
+}
+

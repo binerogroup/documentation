@@ -1,4 +1,0 @@
-Requester Pays Buckets
-======================
-
-asda

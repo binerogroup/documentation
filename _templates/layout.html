@@ -3,6 +3,8 @@
 
 {%- block htmltitle %}
 {{ super() }}
+<link rel="canonical" href="https://docs.binero.com/{{ pagename }}.html" />
 <link rel="stylesheet" href="{{ pathto('_static/overrides.css', 1) }}"/>
 <link rel="stylesheet" href="{{ pathto('_static/color.css', 1) }}"/>
+<link rel="stylesheet" href="{{ pathto('_static/color_dark.css', 1) }}"/>
 {%- endblock %}
