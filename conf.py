@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Binero Documentation'
-copyright = u'Binero'
+copyright = u'Binero Group AB'
 author = u''
 
 # The short X.Y version
@@ -37,8 +37,7 @@ release = u'1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-]
+extensions = ['sphinx_immaterial', 'sphinx_sitemap']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -67,13 +66,16 @@ exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', '.tox']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-
+site_url = 'https://docs.binero.com/'
+html_baseurl = 'https://docs.binero.com/'
+sitemap_locales = [None]
+sitemap_url_scheme = "{link}"
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_material'
+html_theme = 'sphinx_immaterial'
 html_logo = '_static/logo.png'
 html_title = 'Binero Documentation'
 
@@ -82,19 +84,45 @@ html_title = 'Binero Documentation'
 # documentation.
 #
 html_theme_options = {
-    'nav_title': 'Binero Documentation',
-    'color_primary': 'binero',
-    'color_accent': 'binero',
-    'nav_links': {},
-    'globaltoc_depth': 2,
-    'globaltoc_collapse': True,
-    'globaltoc_includehidden': False,
-    'theme_color': '#000000',
-    'version_info': {
-        'English': '/',
-        'Svenska': '/sv/',
+    "repo_url": "https://github.com/binerogroup/documentation",
+    "repo_name": "Documentation on GitHub",
+    "edit_uri": "blob/main",
+    "palette": [
+        {
+            "scheme": "default",
+            "toggle": {
+                "icon": "material/toggle-switch-off-outline",
+                "name": "Switch to dark mode",
+            },
+            "primary": "binero"
+        },
+        {
+            "scheme": "slate",
+            "toggle": {
+                "icon": "material/toggle-switch",
+                "name": "Switch to light mode",
+            },
+            "primary": "binero-dark"
+        },
+    ],
+    "font": {
+        "text": "Inter",  # used for all the pages' text
+        "code": "Inter"  # used for literal code blocks
     },
-    'version_dropdown_text': 'Language',
+    "icon": {
+        "repo": "fontawesome/brands/github",
+        "edit": "material/file-edit-outline",
+    },
+    "features": [
+        "navigation.expand",
+        "navigation.instant",
+        "navigation.top",
+        "search.share",
+        "toc.follow",
+        "toc.sticky",
+        "content.tabs.link",
+        "announce.dismiss",
+    ]
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

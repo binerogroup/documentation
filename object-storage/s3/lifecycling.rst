@@ -1,4 +1,0 @@
-Lifecycling
-===========
-
-asdasd
