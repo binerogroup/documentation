@@ -1,0 +1,1304 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="">
+    
+    
+
+      
+        <title>GPU instances - Binero Documentation</title>
+      
+    
+<link rel="canonical" href="https://docs.binero.com/compute/gpu-instances.html" />
+<link rel="stylesheet" href="../_static/overrides.css"/>
+<link rel="stylesheet" href="../_static/color.css"/>
+<link rel="stylesheet" href="../_static/color_dark.css"/>
+    
+      
+        
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.387ed1e9e3f6bcee5.min.css?v=d3137834" />
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="binero" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-a-gpu-instance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Binero Documentation" class="md-header__button md-logo" aria-label="Binero Documentation" data-md-component="logo">
+      <img src="../_static/logo.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Binero Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GPU instances
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="binero" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="binero-dark" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/binerogroup/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Documentation on GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Binero Documentation" class="md-nav__button md-logo" aria-label="Binero Documentation" data-md-component="logo">
+      <img src="../_static/logo.png" alt="logo">
+    </a>
+    Binero Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/binerogroup/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Documentation on GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          <span class="md-ellipsis">General</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">General</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/getting-support.html" class="md-nav__link">
+        <span class="md-ellipsis">Getting support</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/outages.html" class="md-nav__link">
+        <span class="md-ellipsis">Outages</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/sla-and-terms-of-service.html" class="md-nav__link">
+        <span class="md-ellipsis">SLA and Terms of Services</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          <span class="md-ellipsis">Getting started</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Getting started</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Create account &amp; project</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/managing-your-cloud/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Managing your cloud</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/users.html" class="md-nav__link">
+        <span class="md-ellipsis">Users</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/available-services.html" class="md-nav__link">
+        <span class="md-ellipsis">Available services</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/launching-an-instance.html" class="md-nav__link">
+        <span class="md-ellipsis">Launching an instance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../regions-and-availability-zones.html" class="md-nav__link">
+        <span class="md-ellipsis">Regions and availability zones</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          <span class="md-ellipsis">Core services</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Core services" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Core services</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html"><span class="md-ellipsis">Compute</span></a>
+          
+            <label for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Compute" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Compute</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssh-keys.html" class="md-nav__link">
+        <span class="md-ellipsis">SSH-<wbr>keys</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="flavors.html" class="md-nav__link">
+        <span class="md-ellipsis">Flavors</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="launching-an-instance/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Launching an instance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resizing-an-instance/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Resizing an instance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assign-ip.html" class="md-nav__link">
+        <span class="md-ellipsis">Assigning IP to instance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="console.html" class="md-nav__link">
+        <span class="md-ellipsis">Console</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shelving-an-instance.html" class="md-nav__link">
+        <span class="md-ellipsis">Shelving an instance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="windows-instances.html" class="md-nav__link">
+        <span class="md-ellipsis">Windows instances</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span class="md-ellipsis">GPU instances</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span class="md-ellipsis">GPU instances</span>
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-gpu-instance" class="md-nav__link">
+    <span class="md-ellipsis">Setting up a GPU instance</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-driver" class="md-nav__link">
+    <span class="md-ellipsis">Installing the driver</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing the driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">Linux</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">Windows</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-the-driver" class="md-nav__link">
+    <span class="md-ellipsis">Upgrading the driver</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrading the driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id2" class="md-nav__link">
+    <span class="md-ellipsis">Linux</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id3" class="md-nav__link">
+    <span class="md-ellipsis">Windows</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="regions-and-availability-zones.html" class="md-nav__link">
+        <span class="md-ellipsis">Compute regions and availability zones</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="compute-api.html" class="md-nav__link">
+        <span class="md-ellipsis">Manage compute using the Open<wbr>Stack API</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Networking</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Storage</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          <span class="md-ellipsis">Other</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Other" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Other</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Backup</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secret-store/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Secret Store</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-catalog/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Service catalog</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../platform-automation/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Platform automation</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../images/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Images</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns.html" class="md-nav__link">
+        <span class="md-ellipsis">DNS</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openstack.html" class="md-nav__link">
+        <span class="md-ellipsis">Open<wbr>Stack</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openstack-api.html" class="md-nav__link">
+        <span class="md-ellipsis">Open<wbr>Stack API</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orchestration/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Orchestration</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Guides</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-gpu-instance" class="md-nav__link">
+    <span class="md-ellipsis">Setting up a GPU instance</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-driver" class="md-nav__link">
+    <span class="md-ellipsis">Installing the driver</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing the driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">Linux</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">Windows</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-the-driver" class="md-nav__link">
+    <span class="md-ellipsis">Upgrading the driver</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrading the driver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id2" class="md-nav__link">
+    <span class="md-ellipsis">Linux</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id3" class="md-nav__link">
+    <span class="md-ellipsis">Windows</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                  
+
+
+  <a href="https://github.com/binerogroup/documentation/blob/main/compute/gpu-instances.rst" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+  </a>
+
+<h1 id="gpu-instances">GPU instances<a class="headerlink" href="#gpu-instances" title="Link to this heading">¶</a></h1>
+<p>GPU based compute enables you to run computing tasks on a GPU (graphics processing unit). The key differences between GPUs and CPUS are:</p>
+<table class="docutils data align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>CPUs</p></th>
+<th class="head"><p>GPUs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Work mostly in sequence. Several cores and very good task switching give the impression of parallelism but a CPU is fundamentally designed to run one task at a time.</p></td>
+<td><p>Are designed to work in parallel. A vast amount of cores and threading managed in hardware enables GPUs to many simple calculations at once.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Are designed for task parallelism.</p></td>
+<td><p>Are designed for data parallelism.</p></td>
+</tr>
+<tr class="row-even"><td><p>Have a small amount of cores that can complete a single complex tasks at a very high speed.</p></td>
+<td><p>Have a large amount of cores that work in tandem on computing many simple tasks.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Have access to a large amount of (by comparison) slow RAM at a low latency. CPUs are therefore latency (operation) optimised.</p></td>
+<td><p>Have access to a (by comparison) small amount of very fast RAM at a higher latency. GPUs are therefore throughput optimised.</p></td>
+</tr>
+<tr class="row-even"><td><p>Have a very versatile instruction set, allowing it to execute complex tasks in fewer cycles but creates overhead in others.</p></td>
+<td><p>Have a limited (but highly optimised) instruction set which can execute the tasks its designed for very efficiently.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Task switching (as a result from running the OS) creates overhead.</p></td>
+<td><p>Tasks switching is not used, lots of serial data streams are processed in parallel from A to B.</p></td>
+</tr>
+<tr class="row-even"><td><p>Would always work for any given use case but may not provide good enough performance for some tasks.</p></td>
+<td><p>Would only be a valid choice for some use cases but would in those cases provide very good performance.</p></td>
+</tr>
+</tbody>
+</table>
+<p>In summary, for applications such as machine learning (ML), artificial intelligence (AI) or image processing, a GPU would likely provide a 50x to 200x increase in performance over a typical CPU doing the same work. Using a GPU, however, requires and adaptation to the APIs available from the GPU manufacturer. Binero.Cloud provides GPUs from Nvidia, supporting among others OpenCL and CUDA.</p>
+<p>Binero.clouds compute instances are all running on our high performance instance types. While the GPU is generally an <em>accelerator</em> (that is, used to speed up certain general compute processes not specifically relating to graphics), its also possible to use it as a graphics processing unit in an instance for actually accelerating 3D or high resolution 2D.</p>
+<h2 id="setting-up-a-gpu-instance">Setting up a GPU instance<a class="headerlink" href="#setting-up-a-gpu-instance" title="Link to this heading">¶</a></h2>
+<p>A GPU instance <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">is launched</span></a> the same way as any other compute instance with a few things to keep in mind:</p>
+<ul class="simple">
+<li><p>When launching a GPU, select one of the <a class="reference internal" href="flavors.html"><span class="doc">Flavors</span></a> that include GPUs.</p></li>
+<li><p>You have the option to choose a GPU with NVMe backed storage for very high performing storage. This is however not a requirement for GPU based compute, see <a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe storage</span></a> for mor information.</p></li>
+<li><p>We recommend using Ubuntu 20.04 as <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> for your GPU based instance. This is because we have tested the Nvidia driver with this image with good result. That said, its possible to run a multitude of images.</p></li>
+<li><p>When the image is up and running, you will get a maximum of 10% of the GPUs performance without a license installed. Please see below section on installing license for more information.</p></li>
+</ul>
+<h2 id="installing-the-driver">Installing the driver<a class="headerlink" href="#installing-the-driver" title="Link to this heading">¶</a></h2>
+<p>In order to use the GPU functionality, a driver from nVidia needs to be installed on the instance that has access to the virtual GPU. Please follow below instructions to install the driver.</p>
+<p>The current version of the driver that we support is: <strong>470.161.03</strong>.</p>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h3>
+<p>Follow the below steps to install the Linux driver in your instance.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>In the below example we are using Ubuntu 20.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.</p>
+</div>
+<ul class="simple">
+<li><p>Verify that the instance is able to see the graphics adapter. This can be done by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">nvidia</span></code> which would return something like <code class="docutils literal notranslate"><span class="pre">00:05.0</span> <span class="pre">VGA</span> <span class="pre">compatible</span> <span class="pre">controller:</span> <span class="pre">NVIDIA</span> <span class="pre">Corporation</span> <span class="pre">Device</span> <span class="pre">2236</span> <span class="pre">(rev</span> <span class="pre">a1)</span></code>.</p></li>
+<li><p>Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">build-essential</span> <span class="pre">dkms</span> <span class="pre">unzip</span></code></p></li>
+<li><p>Fetch the driver by running: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">wget</span> <span class="pre">https://docs.binero.com/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip</span></code>.</p></li>
+<li><p>Unzip the driver by running: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">unzip</span> <span class="pre">NVIDIA-Linux-x86_64-470.161.03-grid.run.zip</span></code>.</p></li>
+<li><p>Set execute permissions by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">NVIDIA-Linux-x86_64-470.161.03-grid.run</span></code>.</p></li>
+<li><p>Install the driver by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">./NVIDIA-Linux-x86_64-470.161.03-grid.run</span> <span class="pre">--dkms</span> <span class="pre">--no-cc-version-check</span> <span class="pre">--ui=none</span> <span class="pre">--no-questions</span></code>.</p></li>
+<li><p>Verify a successful installation by reading <code class="docutils literal notranslate"><span class="pre">/var/log/nvidia-installer.log</span></code>. The command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nvidia-smi</span></code> would give you more useful output.</p></li>
+<li><p>At this point, you need a valid license which <a class="reference external" href="/general/getting-support">our support</a> can provide. Its included in the instance monthly cost but not assigned until requested.</p></li>
+<li><p>The license should be pasted into <code class="docutils literal notranslate"><span class="pre">/etc/nvidia/ClientConfigToken/client_configuration_token.tok</span></code>.</p></li>
+<li><p>Restart Nvidia gridd by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nvidia-gridd</span></code>.</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nvidia-smi</span> <span class="pre">-q</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">License</span></code> should now return a valid license.</p></li>
+<li><p>Install Cuda toolkit and CudNN (note that below instruction is for Ubuntu, other OSes might require different install packages):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>$ wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda_12.1.0_530.30.02_linux.run
+$ chmod +x cuda_12.1.0_530.30.02_linux.run
+$ sudo ./cuda_12.1.0_530.30.02_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
+$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/libcudnn8_8.8.0.121-1+cuda12.0_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/libcudnn8-dev_8.8.0.121-1+cuda12.0_amd64.deb
+$ dpkg -i libcudnn8_8.8.0.121-1+cuda12.0_amd64.deb libcudnn8-dev_8.8.0.121-1+cuda12.0_amd64.deb
+</code></pre></div>
+</div>
+<ul class="simple">
+<li><p>Install tensor flow (this is optional):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="nb">zip</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">tensorflow</span><span class="o">==</span><span class="mf">2.6.0</span>
+</code></pre></div>
+</div>
+<p>You are now able to run GPU based computations on your instance!</p>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Download the driver <a class="reference external" href="https://docs.binero.com/474.14_grid_win10_win11_server2019_server2022_64bit_international">here</a>.</p></li>
+<li><p>Execute the file with administrative privileges and click through the installation.</p></li>
+<li><p>When the installation finishes, reboot the instance.</p></li>
+<li><p>Open the device manager by running <code class="docutils literal notranslate"><span class="pre">devmgmt.msc</span></code>.</p></li>
+<li><p>Under “display adapters” the device should now be available.</p></li>
+<li><p>At this point, you need a valid license which <a class="reference external" href="/general/getting-support">our support</a> can provide. Its included in the instance monthly cost but not assigned until requested.</p></li>
+<li><p>The license file should go in this folder: <code class="docutils literal notranslate"><span class="pre">%SystemDrive%:\Program</span> <span class="pre">Files\NVIDIA</span> <span class="pre">Corporation\vGPU</span> <span class="pre">Licensing\ClientConfigToken</span></code>. More information from Nvidia is available <a class="reference external" href="https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/#configuring-nls-licensed-client-on-windows">here</a>.</p></li>
+<li><p>Open services by running <code class="docutils literal notranslate"><span class="pre">services.msc</span></code> and restart the service <code class="docutils literal notranslate"><span class="pre">NvDisplayContainer</span></code>.</p></li>
+</ul>
+<p>You are now able to run GPU based computations on your instance!</p>
+<h2 id="upgrading-the-driver">Upgrading the driver<a class="headerlink" href="#upgrading-the-driver" title="Link to this heading">¶</a></h2>
+<p>From time to time, nVidia will release (and Binero will provide) and upgraded version of the GPU driver. This is in order to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, it will be required to maintain a working system) that the driver be updated on the instances running it. Please follow below instructions to upgrade the driver.</p>
+<p>The current version of the driver that we support is: <strong>470.161.03</strong>.</p>
+<h3 id="id2">Linux<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Follow below steps to upgrade the nVidia driver on a Linux based plattform:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">wget</span> <span class="pre">https://docs.binero.com/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip</span></code></p></li>
+<li><p>Install (if needed) unzip, for instance by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">apt-get</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">unzip</span></code></p></li>
+<li><p>Unzip the driver, for instance by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">unzip</span> <span class="pre">NVIDIA-Linux-x86_64-470.161.03-grid.run.zip</span></code></p></li>
+<li><p>Set execute permissions by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">NVIDIA-Linux-x86_64-470.161.03-grid.run</span></code></p></li>
+<li><p>Install the driver by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">./NVIDIA-Linux-x86_64-470.161.03-grid.run</span> <span class="pre">--dkms</span> <span class="pre">--no-cc-version-check</span> <span class="pre">--ui=none</span> <span class="pre">--no-questions</span></code></p></li>
+<li><p>Reboot the system.</p></li>
+<li><p>Verify version by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nvidia-smi</span></code>.</p></li>
+<li><p>To upgrade cuda, first uninstall it by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">/usr/local/cuda/bin/cuda-uninstaller</span></code> and checking all options. Then follow above guide on how to install cuda.</p></li>
+</ul>
+<h3 id="id3">Windows<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>Follow below steps to upgrade the nVidia driver on a Windows based platform:</p>
+<ul class="simple">
+<li><p>Download the driver <a class="reference external" href="https://docs.binero.com/474.14_grid_win10_win11_server2019_server2022_64bit_international">here</a>.</p></li>
+<li><p>Execute the file with administrative privileges.</p></li>
+<li><p>Follow the installation instructions.</p></li>
+<li><p>Reboot the system.</p></li>
+</ul>
+<div class="seealso admonition">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../general/getting-support.html"><span class="doc">Getting support</span></a></p></li>
+<li><p><a class="reference internal" href="../images/index.html"><span class="doc">Images</span></a></p></li>
+<li><p><a class="reference internal" href="flavors.html"><span class="doc">Flavors</span></a></p></li>
+</ul>
+</div>
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="windows-instances.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Windows instances" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Windows instances
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="regions-and-availability-zones.html" class="md-footer__link md-footer__link--next" aria-label="Next: Compute regions and availability zones" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Compute regions and availability zones
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright Binero Group AB.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    7.2.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.instant", "navigation.top", "search.share", "toc.follow", "toc.sticky", "content.tabs.link", "announce.dismiss"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+      
+        <script src="../_static/sphinx_immaterial_theme.1b5b7a2d5891aec19.min.js?v=1e7b0789"></script>
+    
+  </body>
+</html>

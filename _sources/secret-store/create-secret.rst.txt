@@ -1,0 +1,11 @@
+================
+Creating secrets
+================
+
+
+
+- Listing Secrets: To get the list of Secrets stored in Barbican, the user should select the menu bar at the top left and then select 'SECRET MANAGEMENT' from the menu items list. Clicking on the submenu item 'SECRETS' will display the list of secrets stored in Barbican. It displays all secrets present in a project. All the secrets are visible to every user of that project. The list also contains details of each Secret such as Name of the Secret, Secret ID, Secret Href, Type of Secret etc.
+- Creating a Secret: Any new sensitive information that needs to be stored can be done using this. For Creating a new Secret, the user should select the 'Addition Button' present at the bottom right of the page. The Secret Creation Page containing a form opens up, which requires the user to select a user from the dropdown and enter the password for that user along with other details. Credentials of the User are required so that would make him the owner of the secret. It requires other fields as well such as Name (mandatory) , Payload data (mandatory),Expiration Date, Bit Length, Type of Secret and also the algorithm used for encryption. The Payload Data field stores the secret data which will be encrypted and stored. Once the fields are filled the user can submit the form and would be redirected to the List Secrets page where his/her newly created secret would be listed.
+- :doc:`ACL (Access Control List) <acl>` on secrets.
+- Deletion of Secret: The Deletion of Secret can be performed by any user for a public secret. For a private secret, only the owner can delete the secret. The Credentials of the owner would be required to perform the deletion operation on a private secret.
+- Decryption of Secret: This operation helps in getting the Secret Payload Data stored. For a Public Secret, any user from the project can decrypt the secret whereas for a private secret, only the owner and the users added for that secret can decrypt it. The Authentication Credentials of the respective user needs to be provided in order to perform the decryption for private secrets.

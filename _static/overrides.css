@@ -1,8 +1,40 @@
-.md-container {
-  background-image: url('bg.jpg') !important;
+.mjjd-container {
+  /* background-image: url('bgred.png') !important; */
   background-attachment: fixed;
+  background-size: cover;
 }
 
 .md-header-nav__title {
   display: none;
+}
+
+.md-nav--primary .md-nav__title {
+    background: none !important; 
+    box-shadow: none !important; 
+}
+
+.md-nav__link.md-nav__sticky {
+    box-shadow: none !important;
+}
+
+.md-nav--secondary .md-nav__title {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.md-typeset :is(.important)>:is(.admonition-title,summary) {
+    background-color: rgba(255,0,40,.8) !important;
+    color: #ffffff !important;
+}
+
+.md-typeset :is(.important)>:is(.admonition-title,summary):before {
+    background-color: #fff !important;
+}
+
+.md-typeset :is(.admonition,details):is(.important) {
+    border-color: #ff0028 !important;
+}
+
+.md-header__topic:first-child {
+    font-weight: 400;
 }

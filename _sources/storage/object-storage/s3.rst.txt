@@ -1,0 +1,57 @@
+=================
+S3 object storage
+=================
+S3 is Amazon Web Services "Simple Storage Services" object based storage protocol. Binero.Cloud supports the S3 protocol. You are able to run S3 from any of our :doc:`../regions-and-availability-zones`, either from one availability zone at a time or both using :doc:`replication <replication>`.
+
+.. Note::
+	The complete list of S3 features as they translate to OpenStack is available `here <https://docs.ceph.com/en/latest/radosgw/s3/>`__. 
+
+Setting up credentials
+----------------------
+Creating S3 credentials (which is not the same as any other credentials in the platform) can only be done using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
+
+- Run this command: ``$ openstack ec2 credentials create``
+
+In the response, you will get various information out of which the values from the fields **access** and **secret** should be saved (they are the credentials). 
+
+.. Important::
+	The keys generated are not protected by access control within your project. This means that if you provide access to for instance developers to the project, they can read the keys.
+
+S3 client
+---------
+S3 is an API based protocol, meaning to administrate it you would use API requests. In order to simplify the management of S3 in the cloud, we recommend installing the official client from AWS, its available `here <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`__. Once its installed, you should be able to run ``$ aws --version`` and get an output. 
+
+Configure your client with your credentials (from the "setting up credentials" step above) by creating the file (on a Linux or MacOS based computer) ``~/.aws/credentials`` as such: 
+
+:: 
+
+	[default]
+	aws_access_key_id=[ACCESS_KEY]
+	aws_secret_access_key=[SECRET_KEY]
+
+When the configuration file is completed, you are now able to test reaching the cloud by for instance running this command: ``$ aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-buckets`` which will list the buckets in the account from the non replicated endpoint of availability zone europe-se-1a. If you have no buckets setup, it will return an emtpy "Buckets" array.
+
+Creating a bucket
+-----------------
+To create a bucket via S3, you would either use the API (not covered in this documentation) or the S3 client. To use the latter to create a bucket, follow these steps:
+
+- Select which :doc:`storage policy <flavors>` you want to use. Save the name.
+- Select wether or not to :doc:`replicate <replication>`.
+- Select in what :doc:`availability zone <../regions-and-availability-zones>` to store your data, save the name.
+- Based on replication (or not) as well as availability zone, choose the right :doc:`endpoint <endpoints>`. Save the endpoint-URL.
+- Based on replication (or not) the ``LocationConstraint`` will be either ``europe-se-1`` or ``europe-se-1-rep``, save the one that is right for your use-case.
+- run this command: ``$ aws --endpoint=[ENDPOINT_URL] s3api create-bucket --bucket [BUCKET_NAME] --create-bucket-configuration LocationConstraint=[LOCAL_CONSTRAINT]:[FLAVOR_NAME]``, replacing the items in angle brackets with the proper data from previous steps.
+- Verify by running this command: ``$ aws --endpoint=[ENDPOINT_URL] s3api list-buckets``
+
+You are now able to use your bucket to save data in using your credentials from your application.
+
+Deleting a bucket
+-----------------
+To delete a bucket using the aws client, follow these steps:
+
+- Run this command: ``$ aws --endpoint=[ENDPOINT_URL] s3api list-buckets``, save the name of the bucket you want to delete.
+- Run this command: ``$ aws --endpoint=[ENDPOINT_URL] s3api delete-bucket --bucket [BUCKET_NAME]``, replace [BUCKET_NAME] with the name of the bucket. 
+
+.. Note:: 
+	The delete will fail unless the bucket is empty.
+

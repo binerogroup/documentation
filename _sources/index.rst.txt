@@ -2,64 +2,56 @@
 Welcome to Binero.Cloud!
 ========================
 
-Getting Started
----------------
+Get your own **virtual datacenter** today on `Binero.cloud <https://binero.com/public-cloud-platform/publikt-moln/>`__!
 
-Get your own virtual datacenter on `binero.cloud <https://binero.cloud>`_
+Start by `registering an account with us <https://portal.binero.com/cart.php?a=add&pid=1>`__ The account will include 1000 SEK to spend on services to get you started which is enough to run a small instance for about half a year.
 
-You can then manage your account with us at Binero on `portal.binero.com <https://portal.binero.com>`_ and control
-your cloud resources using either `portal.binero.cloud <https://portal.biner.cloud>`_ or using the OpenStack Horizon
-dashboard on `control.binero.cloud <https://control.binero.cloud>`_ using a API user.
+You can then manage your account using our account management portal https://portal.binero.com  and control your cloud infrastructure using either our own cloud management portal https://portal.binero.cloud or using the OpenStack Horizon dashboard on https://control.binero.cloud by logging in with an API user created from our portal.
 
-You can also control your cloud resources using the :doc:`managing-your-cloud/openstack-cli` or any of the official :doc:`managing-your-cloud/openstack-api`.
-
-Index
------
+If you are unfamiliar with the standard OpenStack dashboard (Horizon), you are recommended to use our cloud management portal https://portal.binero.cloud as it will greatly simplify your user experience. Some advanced features (as described in this documentation) in the platform will require OpenStack Horizon or the API. The Horizon portal is documented in great detail `here <https://docs.openstack.org/horizon/latest/user/index.html>`__ and will not be exhaustively documented in this documentation.
 
 .. toctree::
-  :caption: Managing your cloud resources
-  :maxdepth: 1
+  :caption: General
+  :maxdepth: 0
+  :hidden:
 
-  managing-your-cloud/control-panel
-  managing-your-cloud/openstack-cli
-  managing-your-cloud/openstack-horizon
-  managing-your-cloud/openstack-api
-
-.. toctree::
-  :caption: Cloud Concepts
-  :maxdepth: 1
-
-  cloud-concepts/regions
-  cloud-concepts/availability-zones
+  general/getting-support
+  general/outages
+  general/sla-and-terms-of-service
 
 .. toctree::
-  :caption: Compute
-  :maxdepth: 1
+  :caption: Getting started
+  :maxdepth: 0
+  :hidden:
 
-  compute/introduction
-
-.. toctree::
-  :caption: Networking
-  :maxdepth: 2
-
-  networking/introduction
-
-.. toctree::
-  :caption: Block Storage
-  :maxdepth: 2
-
-  block-storage/introduction
+  getting-started/index
+  getting-started/managing-your-cloud/index
+  getting-started/users
+  getting-started/available-services
+  getting-started/launching-an-instance
+  regions-and-availability-zones
 
 .. toctree::
-  :caption: Object Storage
-  :maxdepth: 1
+  :caption: Core services
+  :maxdepth: 0
+  :hidden:
 
-  object-storage/introduction
-  object-storage/s3/index
-  object-storage/swift/index
+  compute/index
+  networking/index
+  storage/index
 
 .. toctree::
-  :caption: Container Engines
-  :maxdepth: 1
+  :caption: Other
+  :maxdepth: 0
+  :hidden:
 
-  container-engines/kubernetes
+  backup/index
+  secret-store/index
+  service-catalog/index
+  platform-automation/index
+  images/index
+  dns
+  openstack
+  openstack-api
+  orchestration/index
+  guides/index
