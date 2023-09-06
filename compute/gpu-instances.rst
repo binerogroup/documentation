@@ -55,7 +55,7 @@ Follow the below steps to install the Linux driver in your instance.
 
 - Verify that the instance is able to see the graphics adapter. This can be done by running ``$ lspci | grep -i nvidia`` which would return something like ``00:05.0 VGA compatible controller: NVIDIA Corporation Device 2236 (rev a1)``.
 - Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): ``$ sudo apt update; sudo apt -y install build-essential dkms unzip``
-- Fetch the driver by running: ``$ wget https://docs.binero.com/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``.
+- Fetch the driver by running: ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``.
 - Unzip the driver by running: ``$ unzip NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``.
 - Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-470.161.03-grid.run``.
 - Install the driver by running ``$ ./NVIDIA-Linux-x86_64-470.161.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
@@ -86,7 +86,7 @@ You are now able to run GPU based computations on your instance!
 
 Windows
 ^^^^^^^
-- Download the driver `here <https://docs.binero.com/474.14_grid_win10_win11_server2019_server2022_64bit_international>`__.
+- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international>`__.
 - Execute the file with administrative privileges and click through the installation.
 - When the installation finishes, reboot the instance. 
 - Open the device manager by running ``devmgmt.msc``.
@@ -110,7 +110,7 @@ Linux
 ^^^^^
 Follow below steps to upgrade the nVidia driver on a Linux based plattform:
 
-- ``$ wget https://docs.binero.com/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``
+- ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``
 - Install (if needed) unzip, for instance by running ``$ apt-get -y install unzip``
 - Unzip the driver, for instance by running ``$ unzip NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``
 - Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-470.161.03-grid.run``
@@ -123,7 +123,7 @@ Windows
 ^^^^^^^
 Follow below steps to upgrade the nVidia driver on a Windows based platform:
 
-- Download the driver `here <https://docs.binero.com/474.14_grid_win10_win11_server2019_server2022_64bit_international>`__.
+- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international>`__.
 - Execute the file with administrative privileges.
 - Follow the installation instructions. 
 - Reboot the system.
