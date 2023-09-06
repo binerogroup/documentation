@@ -86,7 +86,7 @@ You are now able to run GPU based computations on your instance!
 
 Windows
 ^^^^^^^
-- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international>`__.
+- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international.exe>`__.
 - Execute the file with administrative privileges and click through the installation.
 - When the installation finishes, reboot the instance. 
 - Open the device manager by running ``devmgmt.msc``.
@@ -123,7 +123,7 @@ Windows
 ^^^^^^^
 Follow below steps to upgrade the nVidia driver on a Windows based platform:
 
-- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international>`__.
+- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international.exe>`__.
 - Execute the file with administrative privileges.
 - Follow the installation instructions. 
 - Reboot the system.
