@@ -6,10 +6,12 @@ We use the [Sphinx framework](https://www.sphinx-doc.org/en/master/) to create a
 
 Contributions is most welcome!
 
-## Contribution guidelines
+## Contributions
 
 All documentation is using the [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) format
 and is written in English. Open a Pull Request to the main branch.
+
+Need help getting started? See [Contributing to Projects](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
 
 ## Build requirements
 
