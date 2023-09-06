@@ -22,6 +22,7 @@ Please see the various subsections to this article in order to get a good unders
   reaching-your-instances
   client-vpn/index
   site-to-site-vpn/index
+  custom-firewall-router
   reverse-dns-ptr
   regions-and-availability-zones
   network-api
