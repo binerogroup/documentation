@@ -15,14 +15,14 @@ Need help getting started? See [Contributing to Projects](https://docs.github.co
 
 ## Build requirements
 
-You need Python 3 and tox 3. Install tox 3.27.1 or earlier with pip or use the package manager of your choice.
+You need Python 3 and tox. Install tox with pip or use the package manager of your choice.
 
 ## Building the documentation
 
-Run ``tox -e docs`` to run sphinx-build. The built documentation
+Run ``tox run -e docs`` to run sphinx-build. The built documentation
 will be in the ``build/html`` directory.
 
 ## Build and preview documentation locally
 
-Run ``tox -e run`` to build the documentation and serve it locally
+Run ``tox run -e run`` to build the documentation and serve it locally
 on http://localhost:8000 for preview.

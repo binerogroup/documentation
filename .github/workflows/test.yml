@@ -7,16 +7,16 @@ jobs:
   test-pep8:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install tox
-        run: sudo apt install tox
+        run: sudo apt install -y tox
       - name: Run tox pep8 env
-        run: tox -e pep8
+        run: tox run -e pep8
   test-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install tox
-        run: sudo apt install tox
+        run: sudo apt install -y tox
       - name: Run tox docs env
-        run: tox -e docs
+        run: tox run -e docs
