@@ -2,8 +2,8 @@
 DNS
 ===
 
-General concept
----------------
+General concepts
+----------------
 Using our DNS feature, you can use the platform to control your DNS (domain) zones. In order to start using the feature, first add one or more zones, add the pointers (A, MX, etc) and finally re-point the NS pointers to our DNS servers which are: 
 
 - ns.binero.eu.
