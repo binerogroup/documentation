@@ -1,31 +1,66 @@
 ===========================================
 Launching instances using OpenStack Horizon
 ===========================================
-To launch an :doc:`instance <../index>` from :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
-.. Note::
-	If you don't have a :doc:`network </networking/virtual-router/private-subnet/index>` or :doc:`../ssh-keys` available in some of the steppes below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>` first. An SSH-key setup using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` is not available in Horizon or the terminal client as they use `api users </getting-started/users.html#api-users>`__ to login and SSH-keys are account bound.
+This will walk you through launching an :doc:`instance <../index>` from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 
-- Under "project", click "compute" and then "instances" in the sidebar menu.
-- Click "launch an instance" in the right upper corner.
-- Name your instance and optionally provide a description.
-- Under "availability zone", select an availability zone. We recommend "europe-se-1a" if you are creating you first instance (or generally if you are not sure you need to be in 1b).
-- Press "source" in the leftmost menu.
-- "Image" should be pre-choosen under "select boot source". 
-- Select a size for your persistent storage volume (the disk connected to the instance). Also note that "create new volume" is set to "yes" and "delete volume on instance delete" is set to "no" (assuming you would not specifically want the image to remain when you delete the instance which is perfectly viable).
-- On the same page, further down you can select :doc:`boot image </images/index>`. Press the arrow next to the OS you want. 
-- Press "flavor" in the leftmost menu.
-- Press the small arrow next to the :doc:`flavor <../flavors>` you want.
-- Press "Networks" in the leftmost menu.
-- Select the network you want to connect to. This could be either a :doc:`private subnet </networking/virtual-router/private-subnet/index>` (if you have one setup, if so the name is whatever you chose) or a :doc:`directly attached IP </networking/directly-attached-ips>` (the name would be based on the availability zone you previously chose). We recommend using a private subnet, for more information see our :doc:`/getting-started/launching-an-instance` guide.
-- Press "key pair" in the leftmost menu.
-- Select the SSH key you want to use (if its not already selected). This is assuming you are running a Linux instance. 
-- Press "launch instance" in the bottom right corner.
-- When the instance is provisioned it will show as status "active". 
-- By pressing its name, you are able to see its IP-configuration. There you are able to see its IP-address (both IPv4 and IPv6). To connect use either SSH or RDP (depending on image). If you are using a private subnet (and not a directly attached IP, see above), you might need to add a floating IP to be able to connect. More information in our :doc:`/networking/reaching-your-instances` article.
+.. note:: If you don't have a :doc:`network </networking/virtual-router/private-subnet/index>` or :doc:`../ssh-keys` available in
+          some of the steps below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>` first.
+          An SSH-key created or added in the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` is not available in Horizon as
+          they use `API users </getting-started/users.html#api-users>`__ and SSH-keys are owned by the user account and not the project.
 
-.. Note::
-	The cloud management portal will not setup :doc:`security groups </networking/virtual-router/security-groups/index>` which will be needed to access the instance if you are using a floating IP.
+- Under **Project**, click **Compute** and then **Instances** in the left-hand side menu.
+
+- Click the **Launch an instance** button in the upper right corner.
+
+.. caution:: If you want to create an instance in the ``europe-se-1b`` availability zone (any availability zone that is not the default
+             ``europe-se-1a``) youneed to :doc:`create the volume <../../storage/persistent-block-storage/create-volume>` in that availability
+             zone beforehand and in the **Sources** step select **Boot Source** as **Volume**. This is because we do not support attaching volumes
+             across availability zones and the instance and volume must be in the same availability zone.
+
+- Under the **Details** tab in the dialog.
+
+  - Enter an **Instance Name** for your instance and optionally provide a description.
+
+  - Select an **Availability Zone**, see :doc:`Regions and Availability Zones <../regions-and-availability-zones>`.
+
+    - We recommend the default ``europe-se-1a`` availability zone if you are creating your first instance and
+      if you are not sure that you need to use a secondary availability zone.
+
+- Under the **Sources** tab in the dialog.
+
+  - Select **Image** as **Boot Source**.
+
+  - Select **Yes** for **Create New Volume** to boot your instance from a volume, we only recommend selecting **No** here if you intend to
+    use an NVMe-based flavor.
+
+  - Select **No** for **Delete Volume on Instance Delete**. If you want the system to implicitly delete the volume together with
+    the instance, select **Yes**.
+
+  - Select the :doc:`Image </images/index>` you want to boot your instance from by pressin the arrow on the right-hand side.
+
+- Under the **Flavour** tab in the dialog.
+
+  - Select the :doc:`flavor <../flavors>` you want the instance to have by pressing the arrow on the right-hand side.
+
+- Under the **Networks** tab in the dialog.
+
+  - Select the network you want to connect your instance to by pressing the arrow on the right side. This could be
+    a :doc:`private network </networking/virtual-router/private-network/index>` if you have one or a
+    :doc:`directly attached IP </networking/directly-attached-ips>` in which case the availability zone is in the name of the network.
+    We recommend using a private subnet, for more information see our :doc:`/getting-started/launching-an-instance` guide.
+
+- Under the **Key Pair** tab in the dialog.
+
+  - Select the SSH key you want added to the instance by pressing the arrow on the right-hand side. This is optional and mostly
+    relevant for images and operating systems containing a SSH server.
+
+- Click the **Launch Instance** button in the bottom right in the dialog.
+
+When the instance is finished its status will be **Active**. You can view more details about the instance by clicking the name
+in the list.
+
+To reach your instance see the :doc:`documentation </networking/reaching-your-instances>` for that.
 
 ..  seealso::
     - :doc:`/regions-and-availability-zones`
