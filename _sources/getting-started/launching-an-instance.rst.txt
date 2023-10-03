@@ -5,8 +5,8 @@ This guide provides a step-by-step guide to easily launch your first instance on
 
 - `The cloud management portal </compute/launching-an-instance/cloud-management-portal>`_
 - `OpenStack Horizon </compute/launching-an-instance/openstack-horizon>`_
-- `OpenStack CLI </compute/launching-an-instance/openstack-cli>`_
-- `API </compute/launching-an-instance/api>`_
+- `OpenStack CLI </compute/launching-an-instance/openstack-terminal-client>`_
+- `API </compute/compute-api>`_
 
 For users starting out, we recommend using our cloud management portal as this provides an easy-to-use format that will take you from 0-100 in the shortest time possible with very little prior understanding of working with public clouds. More information on working using the other methods are available under the respective subsections for each service in this documentation.
 
@@ -87,8 +87,8 @@ At this point you are ready to provision your first compute instance! You have t
 
 - `The cloud management portal </compute/launching-an-instance/cloud-management-portal>`_
 - `OpenStack Horizon </compute/launching-an-instance/openstack-horizon>`_
-- `OpenStack CLI </compute/launching-an-instance/openstack-cli>`_
-- `API </compute/launching-an-instance/api>`_
+- `OpenStack CLI </compute/launching-an-instance/openstack-terminal-client>`_
+- `API </compute/compute-api>`_
 
 For users starting out in the platform and/or users that are not used to working with public clouds, we recommend our cloud management portal.
 
