@@ -14,3 +14,4 @@ Binero.Cloud will not provision an instance without a volume attached and the sm
   volume-operations
   detach-volume
   creating-an-instance-from-a-volume
+  multi-attached-persistent-volumes

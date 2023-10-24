@@ -2,10 +2,25 @@
 Creating secrets
 ================
 
+Creating a secret in the cloud management portal
+------------------------------------------------
+To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
+- Press "Secret management" and then "Secrets" in the sidebar menu.
+- Press the "+" icon in the bottom right corner.
+- Select a user from the dropdown and enter the password for that user along with other details. Credentials of the User are required so that would make him the owner of the secret. 
+- Enter a descriptive name of the secret.
+- Select what kind of paylod (file or text) and input it. The Payload Data field stores the secret data which will be encrypted and stored. 
+- Press "create". The secret is now stored.
 
-- Listing Secrets: To get the list of Secrets stored in Barbican, the user should select the menu bar at the top left and then select 'SECRET MANAGEMENT' from the menu items list. Clicking on the submenu item 'SECRETS' will display the list of secrets stored in Barbican. It displays all secrets present in a project. All the secrets are visible to every user of that project. The list also contains details of each Secret such as Name of the Secret, Secret ID, Secret Href, Type of Secret etc.
-- Creating a Secret: Any new sensitive information that needs to be stored can be done using this. For Creating a new Secret, the user should select the 'Addition Button' present at the bottom right of the page. The Secret Creation Page containing a form opens up, which requires the user to select a user from the dropdown and enter the password for that user along with other details. Credentials of the User are required so that would make him the owner of the secret. It requires other fields as well such as Name (mandatory) , Payload data (mandatory),Expiration Date, Bit Length, Type of Secret and also the algorithm used for encryption. The Payload Data field stores the secret data which will be encrypted and stored. Once the fields are filled the user can submit the form and would be redirected to the List Secrets page where his/her newly created secret would be listed.
-- :doc:`ACL (Access Control List) <acl>` on secrets.
-- Deletion of Secret: The Deletion of Secret can be performed by any user for a public secret. For a private secret, only the owner can delete the secret. The Credentials of the owner would be required to perform the deletion operation on a private secret.
-- Decryption of Secret: This operation helps in getting the Secret Payload Data stored. For a Public Secret, any user from the project can decrypt the secret whereas for a private secret, only the owner and the users added for that secret can decrypt it. The Authentication Credentials of the respective user needs to be provided in order to perform the decryption for private secrets.
+Creating a secret using the openstack terminal client
+-----------------------------------------------------
+To create a :doc:`secret <../index>` from the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow any of these steps:
+
+An example on adding a certificate in binary format which can be used with the loadbalancer for terminating SSL:
+
+- Run this command: ``$ openstack secret store --name='[SECRET_NAME]' -t 'application/octet-stream' -e 'base64' --payload="$(base64 < lb-cert.p12)"``, replacing the name with whatever name you want to call the certificate.
+
+An example of adding a secret for use with object encryption: 
+
+- Run this command: ``$ openstack secret store --name '[SECRET_NAME]' --payload-content-type='application/octet-stream' --payload-content-encoding='base64' --algorithm 'aes' --bit-length 256 --mode 'ctr' --secret-type 'symmetric' --payload [base64_encoded_root_secret]``, replacing the name with whatever name you want to call the secret.
