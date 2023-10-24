@@ -23,6 +23,7 @@ More information on the various ways to manage your cloud is available in the :d
   resizing-an-instance/index
   assign-ip
   console
+  hard-reboot
   shelving-an-instance
   windows-instances
   gpu-instances

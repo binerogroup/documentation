@@ -16,6 +16,7 @@ If you are unfamiliar with the standard OpenStack dashboard (Horizon), you are r
   :hidden:
 
   general/getting-support
+  general/quotas
   general/outages
   general/sla-and-terms-of-service
 
