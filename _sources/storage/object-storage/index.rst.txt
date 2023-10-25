@@ -24,3 +24,5 @@ We recommend reading through our :doc:`getting-started` guide if you are not pre
   swift
   flavors
   replication
+  object-locking
+  object-encryption

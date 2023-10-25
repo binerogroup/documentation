@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#prepare-terraform" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -757,9 +762,46 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span class="md-ellipsis">Manage Open<wbr>Stack resources using Terraform</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="#" class="md-nav__link md-nav__link--active">
         <span class="md-ellipsis">Manage Open<wbr>Stack resources using Terraform</span>
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-terraform" class="md-nav__link">
+    <span class="md-ellipsis">Prepare Terraform</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-binero-cloud-through-terraform" class="md-nav__link">
+    <span class="md-ellipsis">Working with Binero.<wbr>Cloud through Terraform</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -813,6 +855,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-terraform" class="md-nav__link">
+    <span class="md-ellipsis">Prepare Terraform</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-binero-cloud-through-terraform" class="md-nav__link">
+    <span class="md-ellipsis">Working with Binero.<wbr>Cloud through Terraform</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -831,7 +895,60 @@
   </a>
 
 <h1 id="manage-openstack-resources-using-terraform">Manage OpenStack resources using Terraform<a class="headerlink" href="#manage-openstack-resources-using-terraform" title="Link to this heading">¶</a></h1>
-<p>Comming soon!</p>
+<p>Terraform is a very popular tool that automates infrastructure in various platforms. It has an OpenStack module and as such is compatible with Binero.Cloud. In this guide, we will walk through some concepts that enable you to use it with the platform.</p>
+<h2 id="prepare-terraform">Prepare Terraform<a class="headerlink" href="#prepare-terraform" title="Link to this heading">¶</a></h2>
+<p>The official installation guide is available here: <a class="reference external" href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">here</a>.</p>
+<p>To get Terraform speaking with Binero.Cloud, you will need to configure the OpenStack provider. <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">Here</a> is a good place to get information on how to do that.</p>
+<p>Start by creating an <a class="reference internal" href="../getting-started/users.html"><span class="doc">API user</span></a> and download its OpenRC file (by pressing the small arrow next to it). The information in this file is needed to configure the Terraform provider. An example configuration file (called for instance “demo.tf”) could look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># Define required providers</span>
+<span class="n">terraform</span> <span class="p">{</span>
+<span class="n">required_version</span> <span class="o">=</span> <span class="s2">&quot;&gt;= 0.14.0&quot;</span>
+  <span class="n">required_providers</span> <span class="p">{</span>
+    <span class="n">openstack</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">source</span>  <span class="o">=</span> <span class="s2">&quot;terraform-provider-openstack/openstack&quot;</span>
+      <span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;~&gt; 1.51.1&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Configure the OpenStack Provider</span>
+<span class="n">provider</span> <span class="s2">&quot;openstack&quot;</span> <span class="p">{</span>
+  <span class="n">user_name</span>     <span class="o">=</span> <span class="s2">&quot;api-user&quot;</span>
+  <span class="n">tenant_name</span>   <span class="o">=</span> <span class="s2">&quot;api-user&quot;</span>
+  <span class="n">password</span>      <span class="o">=</span> <span class="s2">&quot;pwd&quot;</span>
+  <span class="n">auth_url</span>      <span class="o">=</span> <span class="s2">&quot;https://auth.binero.cloud:5000/v3&quot;</span>
+  <span class="n">region</span>        <span class="o">=</span> <span class="s2">&quot;europe-se-1&quot;</span>
+  <span class="n">endpoint_type</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="working-with-binero-cloud-through-terraform">Working with Binero.Cloud through Terraform<a class="headerlink" href="#working-with-binero-cloud-through-terraform" title="Link to this heading">¶</a></h2>
+<p>Covering Terraform in depth is out-of-scope for this guide. Generally speaking, Terraform will support “datasources” (information about whats available in the cloud) and “resources” (objects managed in the cloud). Below is an example of an instance setup in the cloud:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="s2">&quot;openstack_compute_flavor_v2&quot;</span> <span class="s2">&quot;demoflavor&quot;</span> <span class="p">{</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;gp.1x2&quot;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="s2">&quot;openstack_images_image_v2&quot;</span> <span class="s2">&quot;centos8&quot;</span> <span class="p">{</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;centos-8-x86_64&quot;</span>
+<span class="p">}</span>
+
+<span class="n">resource</span> <span class="s2">&quot;openstack_compute_instance_v2&quot;</span> <span class="s2">&quot;demo&quot;</span> <span class="p">{</span>
+  <span class="n">name</span>            <span class="o">=</span> <span class="s2">&quot;demo&quot;</span>
+  <span class="n">image_id</span>        <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">openstack_images_image_v2</span><span class="o">.</span><span class="n">centos8</span><span class="o">.</span><span class="n">id</span>
+  <span class="n">flavor_id</span>       <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">openstack_compute_flavor_v2</span><span class="o">.</span><span class="n">demoflavor</span><span class="o">.</span><span class="n">id</span>
+  <span class="n">key_pair</span>        <span class="o">=</span> <span class="s2">&quot;user-key&quot;</span>
+  <span class="n">security_groups</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+  <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">this</span> <span class="o">=</span> <span class="s2">&quot;that&quot;</span>
+  <span class="p">}</span>
+  <span class="n">network</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;europe-se-1-1a-net0&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<p>Creating the above example in the same demo.tf file from before and running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">terraform</span> <span class="pre">apply</span></code> will create the instance.</p>
+<p>More information on what the OpenStack provider can do is available <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">here</a>.</p>
 
 
 

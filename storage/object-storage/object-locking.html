@@ -15,10 +15,10 @@
     
 
       
-        <title>Extend a persistent volume - Binero Documentation</title>
+        <title>Object locking - Binero Documentation</title>
       
     
-<link rel="canonical" href="https://docs.binero.com/storage/persistent-block-storage/extend-volume.html" />
+<link rel="canonical" href="https://docs.binero.com/storage/object-storage/object-locking.html" />
 <link rel="stylesheet" href="../../_static/overrides.css"/>
 <link rel="stylesheet" href="../../_static/color.css"/>
 <link rel="stylesheet" href="../../_static/color_dark.css"/>
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cloud-management-portal" class="md-skip">
+        <a href="#object-locking-concept" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extend a persistent volume
+              Object locking
             
           </span>
         </div>
@@ -553,207 +553,13 @@
               
   
   
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_2" type="checkbox" id="__nav_3_3_2" checked>
-      
-      
-      
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="index.html"><span class="md-ellipsis">Persistent storage <wbr>(block)</span></a>
-          
-            <label for="__nav_3_3_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Persistent storage (block)" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          <span class="md-ellipsis">Persistent storage <wbr>(block)</span>
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="create-volume.html" class="md-nav__link">
-        <span class="md-ellipsis">Creating a persistent volume</span>
+      <a href="../persistent-block-storage/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Persistent storage <wbr>(block)</span>
       </a>
     </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          <span class="md-ellipsis">Extend a persistent volume</span>
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="#" class="md-nav__link md-nav__link--active">
-        <span class="md-ellipsis">Extend a persistent volume</span>
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cloud-management-portal" class="md-nav__link">
-    <span class="md-ellipsis">Cloud management portal</span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openstack-horizon" class="md-nav__link">
-    <span class="md-ellipsis">Open<wbr>Stack Horizon</span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openstack-terminal-client" class="md-nav__link">
-    <span class="md-ellipsis">Open<wbr>Stack Terminal Client</span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operation-inside-os" class="md-nav__link">
-    <span class="md-ellipsis">Operation inside OS</span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Operation inside OS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    <span class="md-ellipsis">Linux</span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    <span class="md-ellipsis">Windows</span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="volume-operations.html" class="md-nav__link">
-        <span class="md-ellipsis">Volume operations</span>
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="detach-volume.html" class="md-nav__link">
-        <span class="md-ellipsis">Detach a volume</span>
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="creating-an-instance-from-a-volume.html" class="md-nav__link">
-        <span class="md-ellipsis">Creating an instance from an existing volume</span>
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="multi-attached-persistent-volumes.html" class="md-nav__link">
-        <span class="md-ellipsis">Multi-<wbr>attached persistent volumes</span>
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
   
 
             
@@ -792,13 +598,203 @@
               
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_5" type="checkbox" id="__nav_3_3_5" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html"><span class="md-ellipsis">Object Storage</span></a>
+          
+            <label for="__nav_3_3_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Object Storage" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Object Storage</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../object-storage/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Object Storage</span>
+      <a href="getting-started.html" class="md-nav__link">
+        <span class="md-ellipsis">Getting started with object storage</span>
       </a>
     </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="endpoints.html" class="md-nav__link">
+        <span class="md-ellipsis">Object storage endpoints</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="s3.html" class="md-nav__link">
+        <span class="md-ellipsis">S3 object storage</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="swift.html" class="md-nav__link">
+        <span class="md-ellipsis">Swift object storage</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="flavors.html" class="md-nav__link">
+        <span class="md-ellipsis">Flavors</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="replication.html" class="md-nav__link">
+        <span class="md-ellipsis">Replicated object storage</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span class="md-ellipsis">Object locking</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span class="md-ellipsis">Object locking</span>
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#object-locking-concept" class="md-nav__link">
+    <span class="md-ellipsis">Object locking concept</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-object-locking" class="md-nav__link">
+    <span class="md-ellipsis">Using object locking</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="object-encryption.html" class="md-nav__link">
+        <span class="md-ellipsis">Object encryption</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
   
 
             
@@ -1056,50 +1052,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cloud-management-portal" class="md-nav__link">
-    <span class="md-ellipsis">Cloud management portal</span>
+  <a href="#object-locking-concept" class="md-nav__link">
+    <span class="md-ellipsis">Object locking concept</span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#openstack-horizon" class="md-nav__link">
-    <span class="md-ellipsis">Open<wbr>Stack Horizon</span>
+  <a href="#using-object-locking" class="md-nav__link">
+    <span class="md-ellipsis">Using object locking</span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openstack-terminal-client" class="md-nav__link">
-    <span class="md-ellipsis">Open<wbr>Stack Terminal Client</span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operation-inside-os" class="md-nav__link">
-    <span class="md-ellipsis">Operation inside OS</span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Operation inside OS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    <span class="md-ellipsis">Linux</span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    <span class="md-ellipsis">Windows</span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1117,71 +1079,38 @@
                   
 
 
-  <a href="https://github.com/binerogroup/documentation/blob/main/storage/persistent-block-storage/extend-volume.rst" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/binerogroup/documentation/blob/main/storage/object-storage/object-locking.rst" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
-<h1 id="extend-a-persistent-volume">Extend a persistent volume<a class="headerlink" href="#extend-a-persistent-volume" title="Link to this heading">¶</a></h1>
-<p>You are able to extend volumes to create more space available on your compute instances. This is good because you do not have to pay for space that you are not sure if you are going to need or not, from when setting up the instance and can start small.</p>
+<h1 id="object-locking">Object locking<a class="headerlink" href="#object-locking" title="Link to this heading">¶</a></h1>
+<h2 id="object-locking-concept">Object locking concept<a class="headerlink" href="#object-locking-concept" title="Link to this heading">¶</a></h2>
+<p>Object storage is often used in use-cases where objects are stored once and read many times. The objects saved are seldom (if ever) edited but should remain available. To guarantee that an object is not (accidentally or intentionally) deleted, locking can be configured. When setting up locking, it becomes impossible (even for an administrator) to delete the object. Combined with the (very) high availability of an object storage platform, this ensures the availability of data in the platform.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>While its easy to extent the volume, you cannot revert and extension because a volume cannot be shrunk (the platform cannot guarantee the space it removes is not in use on the volume - as well as the filesystem would break). Therefore, take care to only extend volumes that you will not want to shrink again. Setting up a new, smaller volume and moving the data is a possible workaround for this.</p>
+<p>Object locking can be setup for a certain time. Keep in mind that depending on mode, you cannot delete the information until the time passes, meaning you will need to pay for the storage of the object until the time of the expiration.</p>
 </div>
-<div class="important admonition">
-<p class="admonition-title">Important</p>
-<p>Manipulating the partition table of disks is always a dangerous process. We <strong>strongly</strong> recommend first <a class="reference internal" href="../../backup/index.html"><span class="doc">backing up</span></a> your instances disks before proceeding.</p>
+<h2 id="using-object-locking">Using object locking<a class="headerlink" href="#using-object-locking" title="Link to this heading">¶</a></h2>
+<p>To create a bucket with support for locking, follow these steps:</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Below guide will use the s3 object storage and the <cite>aws</cite> client. We suggest you read <a class="reference internal" href="s3.html"><span class="doc">our guide on the same</span></a> before proceeding.</p>
 </div>
-<h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To extend a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Press “Compute” and then “instances”.</p></li>
-<li><p>Press the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Press the “Volumes” tab. It might require scrolling the tabs to the right.</p></li>
-<li><p>Press the name of the volume that you want to extend.</p></li>
-<li><p>Press the “Extend volume” button (to the top right, looks like a dotted square).</p></li>
-<li><p>Enter the new size in GB and press “Extend”.</p></li>
+<li><p>Run this command to create the bucket: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">create-bucket</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--create-bucket-configuration</span> <span class="pre">LocationConstraint=europe-se-1:gp.recurring</span> <span class="pre">--object-lock-enabled-for-bucket</span></code></p></li>
+<li><p>Select either “COMPLIANCE” or “GOVERNANCE” as retention mode. COMPLIANCE will enforce the settings for all users (also administrators), GOVERNANCE will allow users with special privileges to remove objects or change the retention days.</p></li>
+<li><p>Run this command to setup locking on the bucket: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">put-object-lock-configuration</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--object-lock-configuration</span> <span class="pre">'{</span> <span class="pre">&quot;ObjectLockEnabled&quot;:</span> <span class="pre">&quot;Enabled&quot;,</span> <span class="pre">&quot;Rule&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;DefaultRetention&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;Mode&quot;:</span> <span class="pre">&quot;COMPLIANCE&quot;,</span> <span class="pre">&quot;Days&quot;:</span> <span class="pre">1</span> <span class="pre">}}}'</span></code></p></li>
 </ul>
-<h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To extend a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
-<ul class="simple">
-<li><p>Under “project”, press “Compute” and then “Instances” in the sidebar menu.</p></li>
-<li><p>Press the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Press the name of the volume under the “Volumes Attached” section.</p></li>
-<li><p>Press the drop down next to “edit volume” on the top right and select “Extend volume”.</p></li>
-<li><p>Enter the new size in GB and press “Extend Volume”.</p></li>
-</ul>
-<h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To extend a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
-<ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the name with that from previous step.</p></li>
-<li><p>Notice the “Device” column that shows you what device is referenced. If the instance only has a single device then only one row is shown, however if the instance has several, the device name should correlate with the volume name in Linux (although “vda” might be “sda”), or the device order in Windows. Save the “Volume ID” of the volume you want to extend.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span> <span class="pre">volume</span> <span class="pre">set</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">--size</span> <span class="pre">[SIZE]</span></code>, replacing the values in angle brackets with the volume ID from the previous step and the size in GB. Note the <code class="docutils literal notranslate"><span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span></code> which is currently needed due to limitation in the standard API.</p></li>
-<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">size</span></code>, replacing value with the volume ID.</p></li>
-</ul>
-<h2 id="operation-inside-os">Operation inside OS<a class="headerlink" href="#operation-inside-os" title="Link to this heading">¶</a></h2>
-<p>Above we demonstrate the process for growing a volume in the platform but there is also a need to grow the disk logged into the instance. Depending on what operating system you are running and how your disks are laid out, this process will will vary and below are just suggestions that we have found to be useful. For a complete reference, please see your operating systems documentation.</p>
-<div class="important admonition">
-<p class="admonition-title">Important</p>
-<p>Manipulating the partition table of disks is always a dangerous process. We <strong>strongly</strong> recommend first <a class="reference internal" href="../../backup/index.html"><span class="doc">backing up</span></a> your instances disks before proceeding.</p>
+<p>Objects are now protected as per the policy and days chosen. Test by adding and trying to delete an object.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Versioning of objects are implicitly enabled when locking is setup.</p>
 </div>
-<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">lsblk</span></code>, verify that the new disk size is visible on the device. If its not, reboot your machine and try again.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">growpart</span> <span class="pre">-u</span> <span class="pre">auto</span> <span class="pre">/dev/sda</span> <span class="pre">1</span></code>, use the correct device (“/dev/sda” in the example) from previous commands output. This may not work on all images, if not then we recommend reading the documentation of the Linux release.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">resize2fs</span> <span class="pre">/dev/sda1</span></code>.</p></li>
-<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">df</span> <span class="pre">-h</span> <span class="pre">/dev/sda1</span></code>.</p></li>
-</ul>
-<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Type Computer Management in the search box on the taskbar, select and hold (or right-click) Computer Management, and then select Run as administrator &gt; Yes. After Computer Management opens, go to Storage &gt; Disk Management.</p></li>
-<li><p>Select and hold (or right-click) the volume that you want to extend, and then select Extend Volume.</p></li>
-</ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="create-volume.html"><span class="doc">Creating a persistent volume</span></a></p></li>
+<li><p><a class="reference internal" href="s3.html"><span class="doc">S3 object storage</span></a></p></li>
 </ul>
 </div>
 
@@ -1212,7 +1141,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="create-volume.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating a persistent volume" rel="prev">
+        <a href="replication.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Replicated object storage" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1221,20 +1150,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Creating a persistent volume
+              Replicated object storage
             </div>
           </div>
         </a>
       
       
         
-        <a href="volume-operations.html" class="md-footer__link md-footer__link--next" aria-label="Next: Volume operations" rel="next">
+        <a href="object-encryption.html" class="md-footer__link md-footer__link--next" aria-label="Next: Object encryption" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Volume operations
+              Object encryption
             </div>
           </div>
           <div class="md-footer__button md-icon">

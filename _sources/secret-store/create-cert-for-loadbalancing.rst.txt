@@ -14,12 +14,7 @@ Follow the below steps to create a pkcs12 certificate to use with the load balan
 
 Uploading the certificate to the secret store
 ---------------------------------------------
-In order to use the certificate in the platform, it needs to be uploaded to the secret store. This is done via the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` as it needs to be in the binary format and the cloud management portal can only accept uploads in text format. To upload follow these steps:
-
-- Run this command: ``$ openstack secret store --name='[SECRET_NAME]' -t 'application/octet-stream' -e 'base64' --payload="$(base64 < lb-cert.p12)"``, replacing the name with whatever name you want to call the certificate.
-- You should get feedback that the upload was successfull.
-
-You are now able to use the secret to terminate SSL in your project. 
+You are able to follow the :doc:`guides for uploading the certificate <create-secret>` to store the certificate, either using the cloud management portal or the terminal client. 
 
 ..  seealso::
     - :doc:`/networking/load-balancing/index`
