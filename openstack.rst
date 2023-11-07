@@ -5,7 +5,7 @@ Binero.Cloud runs on `OpenStack <https://www.openstack.org>`_ which is a packagi
 
 Version
 -------
-Binero.Cloud currently runs version "Yoga" of OpenStack. We strive to keep up-to-date and our aim i too not fall more than two versions behind current while not introducing code which is not considered production ready.
+Binero.Cloud currently runs version "Yoga" of OpenStack. We strive to keep up-to-date and our aim is to not fall more than two versions behind current while not introducing code which is not considered production ready.
 
 Official documentation
 ----------------------
