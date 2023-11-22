@@ -34,7 +34,7 @@ A GPU instance :doc:`is launched <launching-an-instance/index>` the same way as 
 
 - When launching a GPU, select one of the :doc:`flavors` that include GPUs. 
 - You have the option to choose a GPU with NVMe backed storage for very high performing storage. This is however not a requirement for GPU based compute, see :doc:`/storage/nvme-storage` for mor information.
-- We recommend using Ubuntu 20.04 as :doc:`image </images/index>` for your GPU based instance. This is because we have tested the Nvidia driver with this image with good result. That said, its possible to run a multitude of images. 
+- We recommend using Ubuntu 22.04 as :doc:`image </images/index>` for your GPU based instance. This is because we have tested the Nvidia driver with this image with good result. That said, its possible to run a multitude of images. 
 - When the image is up and running, you will get a maximum of 10% of the GPUs performance without a license installed. Please see below section on installing license for more information.
 
 Installing the driver
