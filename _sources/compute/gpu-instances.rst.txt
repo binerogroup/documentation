@@ -41,7 +41,7 @@ Installing the driver
 ---------------------
 In order to use the GPU functionality, a driver from nVidia needs to be installed on the instance that has access to the virtual GPU. Please follow below instructions to install the driver.
 
-The current version of the driver that we support is: **470.161.03**.
+The current version of the driver that we support is: **535.129.03**.
 
 .. Important: 
 	After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
@@ -51,14 +51,14 @@ Linux
 Follow the below steps to install the Linux driver in your instance.
 
 .. Note:: 
-	In the below example we are using Ubuntu 20.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.
+	In the below example we are using Ubuntu 22.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.
 
 - Verify that the instance is able to see the graphics adapter. This can be done by running ``$ lspci | grep -i nvidia`` which would return something like ``00:05.0 VGA compatible controller: NVIDIA Corporation Device 2236 (rev a1)``.
 - Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): ``$ sudo apt update; sudo apt -y install build-essential dkms unzip``
-- Fetch the driver by running: ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``.
-- Unzip the driver by running: ``$ unzip NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``.
-- Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-470.161.03-grid.run``.
-- Install the driver by running ``$ ./NVIDIA-Linux-x86_64-470.161.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
+- Fetch the driver by running: ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
+- Unzip the driver by running: ``$ unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
+- Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``.
+- Install the driver by running ``$ ./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
 - Verify a successful installation by reading ``/var/log/nvidia-installer.log``. The command ``$ nvidia-smi`` would give you more useful output.
 - At this point, you need a valid license which `our support </general/getting-support>`_ can provide. Its included in the instance monthly cost but not assigned until requested.
 - The license should be pasted into ``/etc/nvidia/ClientConfigToken/client_configuration_token.tok``.
@@ -68,11 +68,11 @@ Follow the below steps to install the Linux driver in your instance.
 
 ::
 
-    $ wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda_12.1.0_530.30.02_linux.run
-    $ chmod +x cuda_12.1.0_530.30.02_linux.run
-    $ sudo ./cuda_12.1.0_530.30.02_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
-    $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/libcudnn8_8.8.0.121-1+cuda12.0_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/libcudnn8-dev_8.8.0.121-1+cuda12.0_amd64.deb
-    $ dpkg -i libcudnn8_8.8.0.121-1+cuda12.0_amd64.deb libcudnn8-dev_8.8.0.121-1+cuda12.0_amd64.deb
+    $ wget https://developer.download.nvidia.com/compute/cuda/12.3.1/local_installers/cuda_12.3.1_545.23.08_linux.run
+    $ chmod +x cuda_12.3.1_545.23.08_linux.run
+    $ sudo ./cuda_12.3.1_545.23.08_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
+    $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
+    $ dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
 
 
 - Install tensor flow (this is optional):
