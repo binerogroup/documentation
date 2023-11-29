@@ -68,9 +68,9 @@ Follow the below steps to install the Linux driver in your instance.
 
 ::
 
-    $ wget https://developer.download.nvidia.com/compute/cuda/12.3.1/local_installers/cuda_12.3.1_545.23.08_linux.run
-    $ chmod +x cuda_12.3.1_545.23.08_linux.run
-    $ sudo ./cuda_12.3.1_545.23.08_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
+    $ wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
+    $ chmod +x cuda_12.2.0_535.54.03_linux.run
+    $ sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
     $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
     $ dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
 
