@@ -9,7 +9,7 @@ In the **account management portal** you will be able to complete several tasks 
 - See your invoices.
 - Choose payment options.
 - Manage contacts (for the account management portal). 
-- Create and manage `support cases </getting-started/getting-support>`__
+- Create and manage `support cases </general/getting-support>`__
 
 
 Its available at https://portal.binero.com, you use the e-mail address you registered your account with to login and are able to setup additional users (see `Users </getting-started/users>`_ for more information). If you've forgotten your password, there is a way for you to recover it via the login page https://portal.binero.com/index.php?rp=/password/reset.
