@@ -68,9 +68,9 @@ Follow the below steps to install the Linux driver in your instance.
 
 ::
 
-    $ wget https://developer.download.nvidia.com/compute/cuda/12.3.1/local_installers/cuda_12.3.1_545.23.08_linux.run
-    $ chmod +x cuda_12.3.1_545.23.08_linux.run
-    $ sudo ./cuda_12.3.1_545.23.08_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
+    $ wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
+    $ chmod +x cuda_12.2.0_535.54.03_linux.run
+    $ sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
     $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
     $ dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
 
@@ -86,7 +86,7 @@ You are now able to run GPU based computations on your instance!
 
 Windows
 ^^^^^^^
-- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/537.70_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges and click through the installation.
 - When the installation finishes, reboot the instance. 
 - Open the device manager by running ``devmgmt.msc``.
@@ -101,29 +101,37 @@ Upgrading the driver
 --------------------
 From time to time, nVidia will release (and Binero will provide) and upgraded version of the GPU driver. This is in order to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, it will be required to maintain a working system) that the driver be updated on the instances running it. Please follow below instructions to upgrade the driver.
 
-The current version of the driver that we support is: **470.161.03**.
+The current version of the driver that we support is: Windows: **537.70** Linux **535.129.03**.
 
 .. Important: 
 	After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
 
 Linux
 ^^^^^
-Follow below steps to upgrade the nVidia driver on a Linux based plattform:
+Follow below steps to upgrade the Nvidia+cuda driver on a Linux based plattform:
 
-- ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``
+- ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``
 - Install (if needed) unzip, for instance by running ``$ apt-get -y install unzip``
-- Unzip the driver, for instance by running ``$ unzip NVIDIA-Linux-x86_64-470.161.03-grid.run.zip``
-- Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-470.161.03-grid.run``
-- Install the driver by running ``$ ./NVIDIA-Linux-x86_64-470.161.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``
+- Unzip the driver, for instance by running ``$ unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``
+- Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``
+- Install the driver by running ``$ ./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``
 - Reboot the system.
 - Verify version by running ``$ nvidia-smi``.
-- To upgrade cuda, first uninstall it by running ``$ sudo /usr/local/cuda/bin/cuda-uninstaller`` and checking all options. Then follow above guide on how to install cuda.
+- To upgrade cuda, first uninstall it by running ``$ sudo /usr/local/cuda/bin/cuda-uninstaller`` and checking all options.
+
+::
+
+    $ wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
+    $ chmod +x cuda_12.2.0_535.54.03_linux.run
+    $ sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
+    $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
+    $ dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
 
 Windows
 ^^^^^^^
 Follow below steps to upgrade the nVidia driver on a Windows based platform:
 
-- Download the driver `here <https://binero.com/downloads/474.14_grid_win10_win11_server2019_server2022_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/537.70_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges.
 - Follow the installation instructions. 
 - Reboot the system.
