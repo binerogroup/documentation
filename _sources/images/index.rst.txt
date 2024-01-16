@@ -1,39 +1,20 @@
 ======
 Images
 ======
-An image is a collection of a :doc:`persistent volume </storage/persistent-block-storage/index>` and meta data describing a :doc:`compute instance </compute/index>`. From an image, a compute instance can be provisioned, complete with its own persistent storage (for instance with a particular operating system installed and pre-configured). 
+
+A image is a prepared operating system disk that can be used to populate a :doc:`volume </storage/persistent-block-storage/index>` or boot an :doc:`instance </compute/index>` from.
 
 Public images
 -------------
-Binero.Cloud provides and maintains several images of popular operating systems that are publicly available (in the platform) and free for all to use. The following images are available in our image repository: 
 
-- alma-8-x86_64
-- centos-7-x86_64
-- centos-stream-8-x86_64
-- centos-stream-9-x86_64
-- cirros-0.4.0-x86_64
-- cirros-0.5.1-x86_64
-- debian-10-x86_64
-- debian-11-x86_64
-- fedora-36-x86_64
-- fedora-37-x86_64
-- fedora-atomic-28
-- fedora-atomic-latest
-- fedora-coreos-31-x86_64
-- opensuse-15-x86_64
-- pfsense-ce-2.6.0-x86_64
-- rocky-8-x86_64
-- ubuntu-bionic-18-x86_64
-- ubuntu-focal-20-x86_64
-- ubuntu-jammy-22-x86_64
-- windows-server-2016-gui-x86_64
-- windows-server-2019-gui-x86_64
+Binero cloud provides images of popular operating systems that are publicly available in the platform. The public images is most common operating systems or appliances.
 
-They can be used to create new instances with the operating systems and architectures that are detailed in their respective name. Each image is configured to honour :doc:`cloud-init data <cloud-init-data>`. An included image is publicly available in the platform but an instance will instantiate its own block device with the image *as base* - meaning that nothing will never write to the actual image.
+Each image is configured to honour :doc:`cloud-init data <cloud-init-data>`. An included image is publicly available in the platform but an instance will instantiate its own block device with the image *as base* - meaning that nothing will never write to the actual image.
 
 Private images
 --------------
-Its possible to create (based on an existing instance) or upload your own image. This might for instance be useful if you have a certain installation that you would frequently re-use (maybe a boot-strapped base installation that does check-in with some sort of automation framework). Alternatively, you might have had an installation at another cloud supplier and would like to re-use it in Binero.Cloud. 
+
+Its possible to create (based on an existing instance) or upload your own image. This might for instance be useful if you have a certain installation that you would frequently re-use (maybe a boot-strapped base installation that does check-in with some sort of automation framework). Alternatively, you might have had an installation at another cloud supplier and would like to re-use it in Binero cloud.
 
 Uploading an image
 ^^^^^^^^^^^^^^^^^^

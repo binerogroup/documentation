@@ -993,35 +993,12 @@
   </a>
 
 <h1 id="images">Images<a class="headerlink" href="#images" title="Link to this heading">¶</a></h1>
-<p>An image is a collection of a <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">persistent volume</span></a> and meta data describing a <a class="reference internal" href="../compute/index.html"><span class="doc">compute instance</span></a>. From an image, a compute instance can be provisioned, complete with its own persistent storage (for instance with a particular operating system installed and pre-configured).</p>
+<p>A image is a prepared operating system disk that can be used to populate a <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volume</span></a> or boot an <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a> from.</p>
 <h2 id="public-images">Public images<a class="headerlink" href="#public-images" title="Link to this heading">¶</a></h2>
-<p>Binero.Cloud provides and maintains several images of popular operating systems that are publicly available (in the platform) and free for all to use. The following images are available in our image repository:</p>
-<ul class="simple">
-<li><p>alma-8-x86_64</p></li>
-<li><p>centos-7-x86_64</p></li>
-<li><p>centos-stream-8-x86_64</p></li>
-<li><p>centos-stream-9-x86_64</p></li>
-<li><p>cirros-0.4.0-x86_64</p></li>
-<li><p>cirros-0.5.1-x86_64</p></li>
-<li><p>debian-10-x86_64</p></li>
-<li><p>debian-11-x86_64</p></li>
-<li><p>fedora-36-x86_64</p></li>
-<li><p>fedora-37-x86_64</p></li>
-<li><p>fedora-atomic-28</p></li>
-<li><p>fedora-atomic-latest</p></li>
-<li><p>fedora-coreos-31-x86_64</p></li>
-<li><p>opensuse-15-x86_64</p></li>
-<li><p>pfsense-ce-2.6.0-x86_64</p></li>
-<li><p>rocky-8-x86_64</p></li>
-<li><p>ubuntu-bionic-18-x86_64</p></li>
-<li><p>ubuntu-focal-20-x86_64</p></li>
-<li><p>ubuntu-jammy-22-x86_64</p></li>
-<li><p>windows-server-2016-gui-x86_64</p></li>
-<li><p>windows-server-2019-gui-x86_64</p></li>
-</ul>
-<p>They can be used to create new instances with the operating systems and architectures that are detailed in their respective name. Each image is configured to honour <a class="reference internal" href="cloud-init-data.html"><span class="doc">cloud-init data</span></a>. An included image is publicly available in the platform but an instance will instantiate its own block device with the image <em>as base</em> - meaning that nothing will never write to the actual image.</p>
+<p>Binero cloud provides images of popular operating systems that are publicly available in the platform. The public images is most common operating systems or appliances.</p>
+<p>Each image is configured to honour <a class="reference internal" href="cloud-init-data.html"><span class="doc">cloud-init data</span></a>. An included image is publicly available in the platform but an instance will instantiate its own block device with the image <em>as base</em> - meaning that nothing will never write to the actual image.</p>
 <h2 id="private-images">Private images<a class="headerlink" href="#private-images" title="Link to this heading">¶</a></h2>
-<p>Its possible to create (based on an existing instance) or upload your own image. This might for instance be useful if you have a certain installation that you would frequently re-use (maybe a boot-strapped base installation that does check-in with some sort of automation framework). Alternatively, you might have had an installation at another cloud supplier and would like to re-use it in Binero.Cloud.</p>
+<p>Its possible to create (based on an existing instance) or upload your own image. This might for instance be useful if you have a certain installation that you would frequently re-use (maybe a boot-strapped base installation that does check-in with some sort of automation framework). Alternatively, you might have had an installation at another cloud supplier and would like to re-use it in Binero cloud.</p>
 <h3 id="uploading-an-image">Uploading an image<a class="headerlink" href="#uploading-an-image" title="Link to this heading">¶</a></h3>
 <p>To upload an image using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
 <ul class="simple">
