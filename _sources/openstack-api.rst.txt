@@ -49,9 +49,6 @@ Endpoints
    * - `workflows </platform-automation>`_
      - mistral
      - https://api-eu-se-1.binero.cloud:8989/v2
-   * - `containers </guides/install-kubernetes-cluster-on-openstack>`_
-     - magnum
-     - https://api-eu-se-1.binero.cloud:9511/v1
    * - `images </images>`_
      - glance
      - https://api-eu-se-1.binero.cloud:9292
