@@ -704,8 +704,8 @@
   
   
     <li class="md-nav__item">
-      <a href="flavors.html" class="md-nav__link">
-        <span class="md-ellipsis">Flavors</span>
+      <a href="storage-policy.html" class="md-nav__link">
+        <span class="md-ellipsis">Storage policy</span>
       </a>
     </li>
   
@@ -757,8 +757,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flavors" class="md-nav__link">
-    <span class="md-ellipsis">Flavors</span>
+  <a href="#storage-policy" class="md-nav__link">
+    <span class="md-ellipsis">Storage policy</span>
   </a>
   
 </li>
@@ -1070,8 +1070,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flavors" class="md-nav__link">
-    <span class="md-ellipsis">Flavors</span>
+  <a href="#storage-policy" class="md-nav__link">
+    <span class="md-ellipsis">Storage policy</span>
   </a>
   
 </li>
@@ -1096,7 +1096,7 @@
   </a>
 
 <h1 id="replicated-object-storage">Replicated object storage<a class="headerlink" href="#replicated-object-storage" title="Link to this heading">¶</a></h1>
-<p>For use-cases where you would either want you storage available in the event of a disaster, or - more commonly - design your application to run on multiple sites, making sure your object storage is available from both sites will be a requirement. Please see our <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Storage regions and availability zones</span></a> article for information on where we provide object storage. Binero.cloud supports object storage replication. This works for both S3 and Swift APIs.</p>
+<p>For use-cases where you would either want you storage available in the event of a disaster, or - more commonly - design your application to run on multiple sites, making sure your object storage is available from both sites will be a requirement. Please see our <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Storage regions and availability zones</span></a> for information on where we provide object storage. Binero.cloud supports object storage replication. This works for both S3 and Swift APIs.</p>
 <p>The replication method used is called “eventually consistent”. This means that objects will replicate in the background once they’ve been added to the storage using the proper <em>end point</em> (see below). This process is usually done within 15 minutes but can take longer depending on the size of the object uploaded. Because of this, a new object will not be immediately available on both sites, but rather on the site where it was uploaded and (within a short time once its been replicated) then on the other.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1107,13 +1107,15 @@
 <p>Do not combine replication with object encryption as this could result in dataloss when updating objects from both ends.</p>
 </div>
 <h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading">¶</a></h2>
-<p>You enable using replication by connecting to a replicated endpoint. Please see <a class="reference internal" href="endpoints.html"><span class="doc">our endpoints article</span></a> for information on what our endpoints for replicated storage are. Make sure to choose the replicated endpoint local to the site that you are running your requests from (or <strong>europe-se-1a</strong> if they are not from one of our sites). If you put objects on buckets/containers that are created on either of these APIs, the objects will replicate.</p>
+<p>You enable using replication by connecting to a replicated endpoint. Please see <a class="reference internal" href="endpoints.html"><span class="doc">Object storage endpoints</span></a> for information on what our endpoints for replicated storage are. Make sure to choose the replicated endpoint local to the site that you are running your requests from (or <strong>europe-se-1a</strong> if they are not from one of our sites). If you put objects on buckets/containers that are created on either of these APIs, the objects will replicate.</p>
 <div class="important admonition">
 <p class="admonition-title">Important</p>
 <p>The various GUIs (for instance the cloud management portal) in the platform connect only to the <strong>non replicated</strong> storage in availability zone <strong>europe-se-1a</strong>. As such, if you want to create a replicated bucket/container, you will need to use a CLI tool.</p>
 </div>
-<h2 id="flavors">Flavors<a class="headerlink" href="#flavors" title="Link to this heading">¶</a></h2>
-<p>Flavors (or storage policys) that are available for replication are the ones suitable for primary storage that needs to be highly available:</p>
+<h2 id="storage-policy">Storage policy<a class="headerlink" href="#storage-policy" title="Link to this heading">¶</a></h2>
+<p>The storage policies that are available for when using replicated object storage is the policies that is
+most suitable as a primary storage with a requirement for high availability.</p>
+<p>The following storage policies is available when using replication:</p>
 <ul class="simple">
 <li><p>hp.intensive</p></li>
 <li><p>gp.recurring</p></li>
@@ -1154,7 +1156,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="flavors.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Flavors" rel="prev">
+        <a href="storage-policy.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Storage policy" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1163,7 +1165,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Flavors
+              Storage policy
             </div>
           </div>
         </a>

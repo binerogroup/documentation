@@ -749,8 +749,8 @@
   
   
     <li class="md-nav__item">
-      <a href="flavors.html" class="md-nav__link">
-        <span class="md-ellipsis">Flavors</span>
+      <a href="storage-policy.html" class="md-nav__link">
+        <span class="md-ellipsis">Storage policy</span>
       </a>
     </li>
   
@@ -1096,20 +1096,23 @@
   </a>
 
 <h1 id="object-storage-endpoints">Object storage endpoints<a class="headerlink" href="#object-storage-endpoints" title="Link to this heading">¶</a></h1>
-<p>When working with object storage using Binero.cloud, you connect to an API endpoint. This is a HTTP(s) based interface that enables you to get objects from and put objects onto the storage. There are four APIs available per <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>, two per protocol (<a class="reference internal" href="s3.html"><span class="doc">S3 object storage</span></a> and <a class="reference internal" href="swift.html"><span class="doc">Swift object storage</span></a>), one of which is replicated and one of which is not.</p>
-<p>If you want to use <a class="reference internal" href="replication.html"><span class="doc">replication</span></a> (that is, storing your data on multiple sites), you would use the replicated endpoints below. If you just want to store objects at a single site (or are unsure), you would use the standard endpoints.</p>
+<p>When using the object storage service in Binero cloud you connect to a HTTP based API endpoint using any of the available APIs (S3 or Swift API). This is how you interact with the object storage service by sending
+HTTP API requests to for example get an object or put an object into the object storage.</p>
+<p>There are four different HTTP based endpoints per <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>, two per API (<a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>), one is standalone (without replication) and one is with replication, using replication
+will cause your bucket to be replicated between the availability zones in the same region.</p>
+<p>If you want to use <a class="reference internal" href="replication.html"><span class="doc">replication</span></a>, you would use the replicated endpoints. If you just want to store objects in one availability zone or are unsure on what to choose, you would use the standalone endpoints.</p>
 <h2 id="europe-se-1a">europe-se-1a<a class="headerlink" href="#europe-se-1a" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>S3 standard: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1a.binero.cloud</span></code></p></li>
+<li><p>S3 standalone: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1a.binero.cloud</span></code></p></li>
 <li><p>S3 replicated: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1a-rep.binero.cloud</span></code></p></li>
-<li><p>Swift standard: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1a.binero.cloud/swift/v1/AUTH_[PROJECT_ID]</span></code></p></li>
+<li><p>Swift standalone: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1a.binero.cloud/swift/v1/AUTH_[PROJECT_ID]</span></code></p></li>
 <li><p>Swift replicated: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1a-rep.binero.cloud/swift/v1/AUTH_[PROJECT_ID]</span></code></p></li>
 </ul>
 <h2 id="europe-se-1b">europe-se-1b<a class="headerlink" href="#europe-se-1b" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>S3 standard: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1b.binero.cloud</span></code></p></li>
+<li><p>S3 standalone: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1b.binero.cloud</span></code></p></li>
 <li><p>S3 replicated: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1b-rep.binero.cloud</span></code></p></li>
-<li><p>Swift standard: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1b.binero.cloud/swift/v1/AUTH_[PROJECT_ID]</span></code></p></li>
+<li><p>Swift standalone: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1b.binero.cloud/swift/v1/AUTH_[PROJECT_ID]</span></code></p></li>
 <li><p>Swift replicated: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1b-rep.binero.cloud/swift/v1/AUTH_[PROJECT_ID]</span></code></p></li>
 </ul>
 <div class="seealso admonition">

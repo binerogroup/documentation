@@ -15,10 +15,10 @@
     
 
       
-        <title>Flavors - Binero Documentation</title>
+        <title>Storage policy - Binero Documentation</title>
       
     
-<link rel="canonical" href="https://docs.binero.com/storage/object-storage/flavors.html" />
+<link rel="canonical" href="https://docs.binero.com/storage/object-storage/storage-policy.html" />
 <link rel="stylesheet" href="../../_static/overrides.css"/>
 <link rel="stylesheet" href="../../_static/color.css"/>
 <link rel="stylesheet" href="../../_static/color_dark.css"/>
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flavors
+              Storage policy
             
           </span>
         </div>
@@ -712,12 +712,12 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          <span class="md-ellipsis">Flavors</span>
+          <span class="md-ellipsis">Storage policy</span>
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="#" class="md-nav__link md-nav__link--active">
-        <span class="md-ellipsis">Flavors</span>
+        <span class="md-ellipsis">Storage policy</span>
       </a>
       
         
@@ -1118,38 +1118,48 @@
                   
 
 
-  <a href="https://github.com/binerogroup/documentation/blob/main/storage/object-storage/flavors.rst" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/binerogroup/documentation/blob/main/storage/object-storage/storage-policy.rst" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
-<h1 id="flavors">Flavors<a class="headerlink" href="#flavors" title="Link to this heading">¶</a></h1>
-<p>Binero.Cloud provides various flavors of object storage. A flavor is using an underlying :doc:` storage typ &lt;../storage-types&gt;` that combines a set of features to cater to a certain use-case. Another word for flavor relating to object storage is “storage policy” - the intent is to give the user a way to (on a more granular basis) setup their solution to match the use-case when it comes to the following parameters:</p>
+<h1 id="storage-policy">Storage policy<a class="headerlink" href="#storage-policy" title="Link to this heading">¶</a></h1>
+<p>Binero cloud provides various storage policies for you to place your container/bucket on. A storage policy is using an underlying <a class="reference internal" href="../storage-types.html"><span class="doc">storage type</span></a> and additional features to accommodate different use-cases. The intent is to allow users to select on a more granual level on what they need for their use-case such as:</p>
 <ul class="simple">
-<li><p>Size of the object(s).</p></li>
-<li><p>Risk of dataloss.</p></li>
-<li><p>Frequency of accessing the objects.</p></li>
-<li><p>Price point.</p></li>
+<li><p>Size of the object(s)</p></li>
+<li><p>Risk of data loss</p></li>
+<li><p>Access frequency on object(s)</p></li>
+<li><p>Write frequency on object(s)</p></li>
+<li><p>Latency</p></li>
+<li><p>Price point</p></li>
 </ul>
-<p>The flavors available are:</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>The default storage policy on a container/bucket is <code class="docutils literal notranslate"><span class="pre">gp.recurring</span></code> unless other is specified upon creation.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>The storage policies available when using replication might differ, please see <a class="reference internal" href="replication.html"><span class="doc">replication</span></a></p>
+</div>
+<p>The storage policies available are:</p>
 <ul class="simple">
 <li><p>gp.archive</p></li>
 <li><p>gp.intermittent</p></li>
 <li><p>gp.recurring</p></li>
 <li><p>hp.intensive</p></li>
 </ul>
-<p>The various flavors have different intended use cases and will be presented in detail below. Their respective price points are available <a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">here</a>.</p>
+<p>The various storage policies have different intended use-cases as presented in detail below. Their respective price points are available <a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">here</a>.</p>
 <h2 id="gp-archive">gp.archive<a class="headerlink" href="#gp-archive" title="Link to this heading">¶</a></h2>
-<p>This flavor is classified as “general purpose” and its intended use case is archiving, that is a file-dump on which you can store data that is not intended to be read that much (or at all), for instance backup of files or instances (our <a class="reference internal" href="../../backup/index.html"><span class="doc">backup solution</span></a> use this plan).</p>
-<p>In order to keep the price down, this solution uses erasure coding which is a way to store data redundantly with minimum overhead. This method is somewhat less secure from a data integrity standpoint than replication (which the other flavors use) but can in turn be provided at a lower price point per GB. The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
+<p>This storage policy is classified as general purpose (gp) and its intended use-case is archiving, that is a file-dump on which you can store data that is not intended to be read that much (or at all), for instance backup of files or instances (our <a class="reference internal" href="../../backup/index.html"><span class="doc">backup solution</span></a> use this plan).</p>
+<p>In order to keep the price down, this solution uses erasure coding which is a way to store data redundantly with minimum overhead. This method is somewhat less secure from a data integrity standpoint than replication (which all the other storage policies use) but can in turn be provided at a lower price point per GB. The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
 <h2 id="gp-intermittent">gp.intermittent<a class="headerlink" href="#gp-intermittent" title="Link to this heading">¶</a></h2>
-<p>This flavor is classified as “general purpose” and its intended use case is storing data that is seldom requested but that requires a higher security than erasure coding.</p>
+<p>This storage policy is classified as “general purpose” and its intended use-case is storing data that is seldom requested but that requires a higher security than erasure coding.</p>
 <p>This solution uses 3-way replication (meaning each object is stored 3 times on different disks in different servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
 <h2 id="gp-recurring">gp.recurring<a class="headerlink" href="#gp-recurring" title="Link to this heading">¶</a></h2>
-<p>This flavor is classified as “general purpose” and its intended use case is storing large objects that are frequently requested (for instance video or audio material for a website).</p>
+<p>This storage policy is classified as “general purpose” and its intended use-case is storing large objects that are frequently requested (for instance video or audio material for a website).</p>
 <p>This solution uses 3-way replication (meaning each object is stored 3 times on different disks in different servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
 <h2 id="hp-intensive">hp.intensive<a class="headerlink" href="#hp-intensive" title="Link to this heading">¶</a></h2>
-<p>This flavor is classified as “high performance” and its intended use case is storing objects that are frequently requested and when user experience (i.e. latency of download) is important.</p>
+<p>This storage policy is classified as “high performance” and its intended use-case is storing objects that are frequently requested and when user experience (i.e. latency of download) is important.</p>
 <p>This solution uses 3-way replication (meaning each object is stored 3 times on different disks in different servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is SSD.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

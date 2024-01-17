@@ -1,23 +1,30 @@
 ========================
 Object storage endpoints
 ========================
-When working with object storage using Binero.cloud, you connect to an API endpoint. This is a HTTP(s) based interface that enables you to get objects from and put objects onto the storage. There are four APIs available per :doc:`availability zone <../regions-and-availability-zones>`, two per protocol (:doc:`s3` and :doc:`swift`), one of which is replicated and one of which is not. 
 
-If you want to use :doc:`replication <replication>` (that is, storing your data on multiple sites), you would use the replicated endpoints below. If you just want to store objects at a single site (or are unsure), you would use the standard endpoints.
+When using the object storage service in Binero cloud you connect to a HTTP based API endpoint using any of the available APIs (S3 or Swift API). This is how you interact with the object storage service by sending
+HTTP API requests to for example get an object or put an object into the object storage.
+
+There are four different HTTP based endpoints per :doc:`availability zone <../regions-and-availability-zones>`, two per API (:doc:`S3 API <s3>` and :doc:`Swift API <swift>`), one is standalone (without replication) and one is with replication, using replication
+will cause your bucket to be replicated between the availability zones in the same region.
+
+If you want to use :doc:`replication <replication>`, you would use the replicated endpoints. If you just want to store objects in one availability zone or are unsure on what to choose, you would use the standalone endpoints.
 
 europe-se-1a
 ^^^^^^^^^^^^
-- S3 standard: ``https://object-eu-se-1a.binero.cloud``
+
+- S3 standalone: ``https://object-eu-se-1a.binero.cloud``
 - S3 replicated: ``https://object-eu-se-1a-rep.binero.cloud``
-- Swift standard: ``https://object-eu-se-1a.binero.cloud/swift/v1/AUTH_[PROJECT_ID]``
+- Swift standalone: ``https://object-eu-se-1a.binero.cloud/swift/v1/AUTH_[PROJECT_ID]``
 - Swift replicated: ``https://object-eu-se-1a-rep.binero.cloud/swift/v1/AUTH_[PROJECT_ID]``
 
 
 europe-se-1b
 ^^^^^^^^^^^^
-- S3 standard: ``https://object-eu-se-1b.binero.cloud``
+
+- S3 standalone: ``https://object-eu-se-1b.binero.cloud``
 - S3 replicated: ``https://object-eu-se-1b-rep.binero.cloud``
-- Swift standard: ``https://object-eu-se-1b.binero.cloud/swift/v1/AUTH_[PROJECT_ID]``
+- Swift standalone: ``https://object-eu-se-1b.binero.cloud/swift/v1/AUTH_[PROJECT_ID]``
 - Swift replicated: ``https://object-eu-se-1b-rep.binero.cloud/swift/v1/AUTH_[PROJECT_ID]``
 
 ..  seealso::
