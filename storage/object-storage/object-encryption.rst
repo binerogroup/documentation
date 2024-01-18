@@ -4,36 +4,71 @@ Object encryption
 
 Object encryption concept
 -------------------------
-Objects stored on the platform can be encrypted at rest (that is, on the storage platform) using a secret that is stored in the platform :doc:`secret store </secret-store/index>`. The benefit is that the objects are secure as stored on the platform. When the objects are accessed, they are transparently decrypted using the same secret. Naturally the objects are secure in transit using HTTPS as carrier.
 
-Object encryption is an :doc:`S3 </storage/object-storage/s3>` feature and will not work using :doc:`Swift </storage/object-storage/swift>`. The object is encrypted using the stored secret upon creation. Below we will show how to setup a secret as well as an example command for creating an encrypted secret using the `aws` klient.  
+.. note:: Object encryption is a :doc:`S3 API <s3>` feature and will not work the same when using the :doc:`Swift API <swift>`.
 
-.. Important::
-	Should the stored secret be deleted, there is no way to recover the encrypted objects. Take care to backup the secret.
+.. note:: If you retrieve the object using the :doc:`Swift API <swift>` the data will still be encrypted as the
+          decryption is only when using the :doc:`S3 API <s3>`.
 
-Using object encryption
------------------------
-To enable object encryption, follow these steps:
+.. note:: When using any of our controlpanels to work with the object storage it is using the :doc:`Swift API <swift>` and
+          will thus not decrypt the object upon retrieval.
 
-.. Note::
-	Below guide will use the s3 object storage and the `aws` client. We suggest you read :doc:`our guide on the same </storage/object-storage/s3>` before proceeding. 
+.. important:: Do not combine replication with object encryption as this could result in dataloss when updating objects from both ends.
 
-- Create a secret to use. One way might be to run the command: ``$ openssl rand -base64 32`` and save the ouput (this is a base64 encoded secret).
-- :doc:`Store the secret </secret-store/create-secret>` in our secret store. Make a note of the returned `Secret href` value, which will ve needed in the coming steps.
-- The `rgwcrypt` user will need access to the secret to enable encryption. This is done via :doc:`ACLs </secret-store/acl>`. The following command, using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` will set the correct ACL: ``$ openstack acl user add --user 23646ed0e7d240ceb56eef6ec909c2ff [SECRET_HREF]``
-- Create an encrypted object in a bucket using the following example command: ``$ aws --endpoint=https://object-eu-se-1a.binero.cloud s3 cp [FILE_NAME] s3://new-bucket/ --sse=aws:kms --sse-kms-key-id [SECRET_HREF_ID]``
-- The ``SECRET_HREF_ID`` in the above command is the last part of the ``SECRET_HREF`` value. If the ``SECRET_HREF`` for instance, is ``https://api-eu-se-1.binero.cloud:9311/v1/secrets/ea7454d8-d0af-4008-bba4-71245b942bb7`` then the ``SECRET_HREF_ID`` is ``ea7454d8-d0af-4008-bba4-71245b942bb7``.
+The object storage service in Binero cloud supports encryption your data at rest (on disk) using different methods. When objects are retrieved or written to they
+are transparently decrypted by the platform. The objects are secured in-transit by using HTTPS with TLS to transport the requests.
 
-.. Important::
-	If the key is deleted, the file will not be decrypted (by the platform). 
+The examples in below methods uses the ``aws`` CLI, to get started see our :doc:`S3 documentation <s3>`.
 
-.. Note::
-	If using :doc:`swift </storage/object-storage/swift>` (which is used in the various control panels), the object will not be decrypted on download as this is an S3 feature.
+Using server-side encryption with SSE-C
+---------------------------------------
 
+The object storage service in Binero cloud supports the customer-provided keys (SSE-C) specification in the :doc:`S3 API <s3>`.
 
+When using this method you are responsible for sending an encryption key for the object in each API requests to
+retrieve or write to it. This needs to be an encryption key that works with AES-256 that is used.
+
+The data is stored at rest (on disk) with your encryption key and the encryption key is not saved by Binero. This way you don't
+have to handle the encryption or decryption of objects and only manage the encryption key sent.
+
+To get started with using SSE-C, see below:
+
+- Create a bucket to test with ``aws s3 mb s3://demo``
+
+- Create a random encryption key to use ``openssl rand 32 -out ssec.key``
+
+- Upload a object to the bucket and encrypt it with ``aws s3 cp text.txt s3://demo/text.txt --sse-c AES256 --sse-c-key fileb://ssec.key``
+
+- Download the object that we just uploaded with ``aws s3 cp s3://demo/test.txt test-download.txt --sse-c AES256 --sse-c-key fileb://ssec.key``
+
+Using server-side encryption with SSE-KMS
+-----------------------------------------
+
+.. important:: If the secret in the :doc:`secret store </secret-store/index>` service is deleted, there is no way to recover the encrypted objects. Make sure to backup the secret and the data.
+
+The object storage service in Binero cloud also supports the SSE-KMS specification in the :doc:`S3 API <s3>`.
+
+When using this method you create an encryption key and store it in our :doc:`secret store </secret-store/index>` service and send the secret ID
+with each API request. This needs to be an encryption key that works with AES-256 that is used.
+
+The data is stored at rest (on disk) with your encryption key and the encryption is stored in the :doc:`secret store </secret-store/index>` service.
+
+To get started with using SSE-KMS, see below:
+
+.. note:: The ``SECRET_HREF`` mentioned below is for example ``https://api-eu-se-1.binero.cloud:9311/v1/secrets/ea7454d8-d0af-4008-bba4-71245b942bb7`` but for your secret and in that
+          case ``SECRET_HREF_ID`` is the UUID ``ea7454d8-d0af-4008-bba4-71245b942bb7`` from that URL
+
+- Create a bucket to test with ``aws s3 mb s3://demo``
+
+- Create a random encryption key that you can store using ``openssl rand -base64 32`` and save the key.
+
+- :doc:`Create a secret </secret-store/create-secret>` in our secret store and save the returned ``Secret href`` value.
+
+- To allow the platform access to your secret (so that it can handle encryption and decryption with the key) you need to add a
+  :doc:`ACL </secret-store/acl>` using the :doc:`openstack CLI </getting-started/managing-your-cloud/openstack-terminal-client>` with command ``openstack acl user add --user 23646ed0e7d240ceb56eef6ec909c2ff [SECRET_HREF]``
+
+- Upload a object to the bucket with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3 cp test.txt s3://demo/test.txt --sse=aws:kms --sse-kms-key-id [SECRET_HREF_ID]``
 
 ..  seealso::
-  - :doc:`/storage/object-storage/s3`
-  - :doc:`/storage/object-storage/swift`
-
-
+  - :doc:`s3`
+  - :doc:`swift`

@@ -1,5 +1,5 @@
 ==============
-Object Storage
+Object storage
 ==============
 
 Object storage is a very good way to store unstructured data. Unlike a filesystem (where you would have a structured tree of files and folder) or block storage (where you would use a filesystem that kept track of stored blocks), object storage simply stores arbitrary objects.
