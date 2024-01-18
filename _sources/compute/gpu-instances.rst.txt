@@ -1,7 +1,12 @@
 =============
 GPU instances
 =============
-GPU based compute enables you to run computing tasks on a GPU (graphics processing unit). The key differences between GPUs and CPUS are:
+
+GPU based compute enables you to run computing tasks on a GPU (graphics processing unit).
+
+Binero cloud uses NVIDIA A10 GPUs in our GPU instance flavors.
+
+The key differences between GPUs and CPUs are:
 
 .. list-table::
    :widths: 50 50
@@ -30,6 +35,7 @@ Binero.clouds compute instances are all running on our high performance instance
 
 Setting up a GPU instance
 -------------------------
+
 A GPU instance :doc:`is launched <launching-an-instance/index>` the same way as any other compute instance with a few things to keep in mind:
 
 - When launching a GPU, select one of the :doc:`flavors` that include GPUs. 
@@ -39,6 +45,7 @@ A GPU instance :doc:`is launched <launching-an-instance/index>` the same way as 
 
 Installing the driver
 ---------------------
+
 In order to use the GPU functionality, a driver from nVidia needs to be installed on the instance that has access to the virtual GPU. Please follow below instructions to install the driver.
 
 The current version of the driver that we support is: **535.129.03**.
@@ -48,22 +55,22 @@ The current version of the driver that we support is: **535.129.03**.
 
 Linux
 ^^^^^
+
 Follow the below steps to install the Linux driver in your instance.
 
-.. Note:: 
-	In the below example we are using Ubuntu 22.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.
+.. note:: In the below example we are using Ubuntu 22.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.
 
-- Verify that the instance is able to see the graphics adapter. This can be done by running ``$ lspci | grep -i nvidia`` which would return something like ``00:05.0 VGA compatible controller: NVIDIA Corporation Device 2236 (rev a1)``.
-- Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): ``$ sudo apt update; sudo apt -y install build-essential dkms unzip``
-- Fetch the driver by running: ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
-- Unzip the driver by running: ``$ unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
-- Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``.
-- Install the driver by running ``$ ./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
-- Verify a successful installation by reading ``/var/log/nvidia-installer.log``. The command ``$ nvidia-smi`` would give you more useful output.
+- Verify that the instance is able to see the graphics adapter. This can be done by running ``lspci | grep -i nvidia`` which would return something like ``00:05.0 VGA compatible controller: NVIDIA Corporation Device 2236 (rev a1)``.
+- Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): ``sudo apt update; sudo apt -y install build-essential dkms unzip``
+- Fetch the driver by running: ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
+- Unzip the driver by running: ``unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
+- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``.
+- Install the driver by running ``./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
+- Verify a successful installation by reading ``/var/log/nvidia-installer.log``. The command ``nvidia-smi`` would give you more useful output.
 - At this point, you need a valid license which `our support </general/getting-support>`_ can provide. Its included in the instance monthly cost but not assigned until requested.
 - The license should be pasted into ``/etc/nvidia/ClientConfigToken/client_configuration_token.tok``.
-- Restart Nvidia gridd by running ``$ sudo systemctl restart nvidia-gridd``.
-- The command ``$ nvidia-smi -q | grep License`` should now return a valid license.
+- Restart Nvidia gridd by running ``sudo systemctl restart nvidia-gridd``.
+- The command ``nvidia-smi -q | grep License`` should now return a valid license.
 - Install Cuda toolkit and CudNN (note that below instruction is for Ubuntu, other OSes might require different install packages):
 
 ::
@@ -103,21 +110,21 @@ From time to time, nVidia will release (and Binero will provide) and upgraded ve
 
 The current version of the driver that we support is: Windows: **537.70** Linux **535.129.03**.
 
-.. Important: 
-	After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
+.. important: After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
 
 Linux
 ^^^^^
+
 Follow below steps to upgrade the Nvidia+cuda driver on a Linux based plattform:
 
-- ``$ wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``
-- Install (if needed) unzip, for instance by running ``$ apt-get -y install unzip``
-- Unzip the driver, for instance by running ``$ unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``
-- Set execute permissions by running ``$ chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``
-- Install the driver by running ``$ ./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``
+- ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``
+- Install (if needed) unzip, for instance by running ``apt-get -y install unzip``
+- Unzip the driver, for instance by running ``unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``
+- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``
+- Install the driver by running ``./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``
 - Reboot the system.
-- Verify version by running ``$ nvidia-smi``.
-- To upgrade cuda, first uninstall it by running ``$ sudo /usr/local/cuda/bin/cuda-uninstaller`` and checking all options.
+- Verify version by running ``nvidia-smi``.
+- To upgrade cuda, first uninstall it by running ``sudo /usr/local/cuda/bin/cuda-uninstaller`` and checking all options.
 
 ::
 
@@ -129,6 +136,7 @@ Follow below steps to upgrade the Nvidia+cuda driver on a Linux based plattform:
 
 Windows
 ^^^^^^^
+
 Follow below steps to upgrade the nVidia driver on a Windows based platform:
 
 - Download the driver `here <https://binero.com/downloads/537.70_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.

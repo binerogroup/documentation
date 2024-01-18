@@ -1120,7 +1120,9 @@
   </a>
 
 <h1 id="gpu-instances">GPU instances<a class="headerlink" href="#gpu-instances" title="Link to this heading">¶</a></h1>
-<p>GPU based compute enables you to run computing tasks on a GPU (graphics processing unit). The key differences between GPUs and CPUS are:</p>
+<p>GPU based compute enables you to run computing tasks on a GPU (graphics processing unit).</p>
+<p>Binero cloud uses NVIDIA A10 GPUs in our GPU instance flavors.</p>
+<p>The key differences between GPUs and CPUs are:</p>
 <table class="docutils data align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1175,17 +1177,17 @@
 <p>In the below example we are using Ubuntu 22.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.</p>
 </div>
 <ul class="simple">
-<li><p>Verify that the instance is able to see the graphics adapter. This can be done by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">nvidia</span></code> which would return something like <code class="docutils literal notranslate"><span class="pre">00:05.0</span> <span class="pre">VGA</span> <span class="pre">compatible</span> <span class="pre">controller:</span> <span class="pre">NVIDIA</span> <span class="pre">Corporation</span> <span class="pre">Device</span> <span class="pre">2236</span> <span class="pre">(rev</span> <span class="pre">a1)</span></code>.</p></li>
-<li><p>Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">build-essential</span> <span class="pre">dkms</span> <span class="pre">unzip</span></code></p></li>
-<li><p>Fetch the driver by running: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">wget</span> <span class="pre">https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code>.</p></li>
-<li><p>Unzip the driver by running: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">unzip</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code>.</p></li>
-<li><p>Set execute permissions by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.run</span></code>.</p></li>
-<li><p>Install the driver by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">./NVIDIA-Linux-x86_64-535.129.03-grid.run</span> <span class="pre">--dkms</span> <span class="pre">--no-cc-version-check</span> <span class="pre">--ui=none</span> <span class="pre">--no-questions</span></code>.</p></li>
-<li><p>Verify a successful installation by reading <code class="docutils literal notranslate"><span class="pre">/var/log/nvidia-installer.log</span></code>. The command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nvidia-smi</span></code> would give you more useful output.</p></li>
+<li><p>Verify that the instance is able to see the graphics adapter. This can be done by running <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">nvidia</span></code> which would return something like <code class="docutils literal notranslate"><span class="pre">00:05.0</span> <span class="pre">VGA</span> <span class="pre">compatible</span> <span class="pre">controller:</span> <span class="pre">NVIDIA</span> <span class="pre">Corporation</span> <span class="pre">Device</span> <span class="pre">2236</span> <span class="pre">(rev</span> <span class="pre">a1)</span></code>.</p></li>
+<li><p>Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">build-essential</span> <span class="pre">dkms</span> <span class="pre">unzip</span></code></p></li>
+<li><p>Fetch the driver by running: <code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code>.</p></li>
+<li><p>Unzip the driver by running: <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code>.</p></li>
+<li><p>Set execute permissions by running <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.run</span></code>.</p></li>
+<li><p>Install the driver by running <code class="docutils literal notranslate"><span class="pre">./NVIDIA-Linux-x86_64-535.129.03-grid.run</span> <span class="pre">--dkms</span> <span class="pre">--no-cc-version-check</span> <span class="pre">--ui=none</span> <span class="pre">--no-questions</span></code>.</p></li>
+<li><p>Verify a successful installation by reading <code class="docutils literal notranslate"><span class="pre">/var/log/nvidia-installer.log</span></code>. The command <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> would give you more useful output.</p></li>
 <li><p>At this point, you need a valid license which <a class="reference external" href="/general/getting-support">our support</a> can provide. Its included in the instance monthly cost but not assigned until requested.</p></li>
 <li><p>The license should be pasted into <code class="docutils literal notranslate"><span class="pre">/etc/nvidia/ClientConfigToken/client_configuration_token.tok</span></code>.</p></li>
-<li><p>Restart Nvidia gridd by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nvidia-gridd</span></code>.</p></li>
-<li><p>The command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nvidia-smi</span> <span class="pre">-q</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">License</span></code> should now return a valid license.</p></li>
+<li><p>Restart Nvidia gridd by running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nvidia-gridd</span></code>.</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">-q</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">License</span></code> should now return a valid license.</p></li>
 <li><p>Install Cuda toolkit and CudNN (note that below instruction is for Ubuntu, other OSes might require different install packages):</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>$ wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
@@ -1221,14 +1223,14 @@ $ dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda1
 <h3 id="id2">Linux<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <p>Follow below steps to upgrade the Nvidia+cuda driver on a Linux based plattform:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">wget</span> <span class="pre">https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code></p></li>
-<li><p>Install (if needed) unzip, for instance by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">apt-get</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">unzip</span></code></p></li>
-<li><p>Unzip the driver, for instance by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">unzip</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code></p></li>
-<li><p>Set execute permissions by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.run</span></code></p></li>
-<li><p>Install the driver by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">./NVIDIA-Linux-x86_64-535.129.03-grid.run</span> <span class="pre">--dkms</span> <span class="pre">--no-cc-version-check</span> <span class="pre">--ui=none</span> <span class="pre">--no-questions</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code></p></li>
+<li><p>Install (if needed) unzip, for instance by running <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">unzip</span></code></p></li>
+<li><p>Unzip the driver, for instance by running <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.zip</span></code></p></li>
+<li><p>Set execute permissions by running <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">NVIDIA-Linux-x86_64-535.129.03-grid.run</span></code></p></li>
+<li><p>Install the driver by running <code class="docutils literal notranslate"><span class="pre">./NVIDIA-Linux-x86_64-535.129.03-grid.run</span> <span class="pre">--dkms</span> <span class="pre">--no-cc-version-check</span> <span class="pre">--ui=none</span> <span class="pre">--no-questions</span></code></p></li>
 <li><p>Reboot the system.</p></li>
-<li><p>Verify version by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nvidia-smi</span></code>.</p></li>
-<li><p>To upgrade cuda, first uninstall it by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">/usr/local/cuda/bin/cuda-uninstaller</span></code> and checking all options.</p></li>
+<li><p>Verify version by running <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p></li>
+<li><p>To upgrade cuda, first uninstall it by running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">/usr/local/cuda/bin/cuda-uninstaller</span></code> and checking all options.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>$ wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
 $ chmod +x cuda_12.2.0_535.54.03_linux.run
