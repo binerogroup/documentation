@@ -731,6 +731,21 @@
               
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="versioning.html" class="md-nav__link">
+        <span class="md-ellipsis">Versioning</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
     
@@ -1096,11 +1111,15 @@
   </a>
 
 <h1 id="object-locking">Object locking<a class="headerlink" href="#object-locking" title="Link to this heading">¶</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="versioning.html"><span class="doc">Versioning</span></a> of objects are implicitly enabled when object locking is enabled, locking is enforced for the version of the object.</p>
+</div>
 <h2 id="object-locking-concept">Object locking concept<a class="headerlink" href="#object-locking-concept" title="Link to this heading">¶</a></h2>
 <p>Object storage is often used in use-cases where objects are stored once and read many times. The objects saved are seldom (if ever) edited but should remain available. To guarantee that an object is not (accidentally or intentionally) deleted, locking can be configured. When setting up locking, it becomes impossible (even for an administrator) to delete the object. Combined with the (very) high availability of an object storage platform, this ensures the availability of data in the platform.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Object locking can be setup for a certain time. Keep in mind that depending on mode, you cannot delete the information until the time passes, meaning you will need to pay for the storage of the object until the time of the expiration.</p>
+<p>Object locking can be setup for a certain time. Keep in mind that depending on mode, you cannot delete the information until the time passes, meaning you will need to pay for the storage of the object until the locking has expired.</p>
 </div>
 <h2 id="using-object-locking">Using object locking<a class="headerlink" href="#using-object-locking" title="Link to this heading">¶</a></h2>
 <p>To create a bucket with support for locking, follow these steps:</p>
@@ -1109,19 +1128,16 @@
 <p>Below guide will use the s3 object storage and the <cite>aws</cite> client. We suggest you read <a class="reference internal" href="s3.html"><span class="doc">our guide on the same</span></a> before proceeding.</p>
 </div>
 <ul class="simple">
-<li><p>Run this command to create the bucket: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">create-bucket</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--create-bucket-configuration</span> <span class="pre">LocationConstraint=europe-se-1:gp.recurring</span> <span class="pre">--object-lock-enabled-for-bucket</span></code></p></li>
+<li><p>Run this command to create the bucket: <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">create-bucket</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--create-bucket-configuration</span> <span class="pre">LocationConstraint=europe-se-1:gp.recurring</span> <span class="pre">--object-lock-enabled-for-bucket</span></code></p></li>
 <li><p>Select either “COMPLIANCE” or “GOVERNANCE” as retention mode. COMPLIANCE will enforce the settings for all users (also administrators), GOVERNANCE will allow users with special privileges to remove objects or change the retention days.</p></li>
-<li><p>Run this command to setup locking on the bucket: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">put-object-lock-configuration</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--object-lock-configuration</span> <span class="pre">'{</span> <span class="pre">&quot;ObjectLockEnabled&quot;:</span> <span class="pre">&quot;Enabled&quot;,</span> <span class="pre">&quot;Rule&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;DefaultRetention&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;Mode&quot;:</span> <span class="pre">&quot;COMPLIANCE&quot;,</span> <span class="pre">&quot;Days&quot;:</span> <span class="pre">1</span> <span class="pre">}}}'</span></code></p></li>
+<li><p>Run this command to setup locking on the bucket: <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">put-object-lock-configuration</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--object-lock-configuration</span> <span class="pre">'{</span> <span class="pre">&quot;ObjectLockEnabled&quot;:</span> <span class="pre">&quot;Enabled&quot;,</span> <span class="pre">&quot;Rule&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;DefaultRetention&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;Mode&quot;:</span> <span class="pre">&quot;COMPLIANCE&quot;,</span> <span class="pre">&quot;Days&quot;:</span> <span class="pre">1</span> <span class="pre">}}}'</span></code></p></li>
 </ul>
-<p>Objects are now protected as per the policy and days chosen. Test by adding and trying to delete an object.</p>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>Versioning of objects are implicitly enabled when locking is setup.</p>
-</div>
+<p>Objects are now protected as per the policy and days chosen. See the <a class="reference internal" href="versioning.html"><span class="doc">versioning</span></a> documentation on how it’s enforced with versions.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="s3.html"><span class="doc">S3 object storage</span></a></p></li>
+<li><p><a class="reference internal" href="versioning.html"><span class="doc">Versioning</span></a></p></li>
 </ul>
 </div>
 
@@ -1152,7 +1168,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="replication.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Replicated object storage" rel="prev">
+        <a href="versioning.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Versioning" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1161,7 +1177,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Replicated object storage
+              Versioning
             </div>
           </div>
         </a>

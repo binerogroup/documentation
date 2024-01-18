@@ -15,10 +15,10 @@
     
 
       
-        <title>Object encryption - Binero Documentation</title>
+        <title>Versioning - Binero Documentation</title>
       
     
-<link rel="canonical" href="https://docs.binero.com/storage/object-storage/object-encryption.html" />
+<link rel="canonical" href="https://docs.binero.com/storage/object-storage/versioning.html" />
 <link rel="stylesheet" href="../../_static/overrides.css"/>
 <link rel="stylesheet" href="../../_static/color.css"/>
 <link rel="stylesheet" href="../../_static/color_dark.css"/>
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#object-encryption-concept" class="md-skip">
+        <a href="#versioning-concept" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Object encryption
+              Versioning
             
           </span>
         </div>
@@ -731,12 +731,71 @@
               
   
   
+    
+  
+    
   
   
-    <li class="md-nav__item">
-      <a href="versioning.html" class="md-nav__link">
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span class="md-ellipsis">Versioning</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
         <span class="md-ellipsis">Versioning</span>
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#versioning-concept" class="md-nav__link">
+    <span class="md-ellipsis">Versioning concept</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-versioning" class="md-nav__link">
+    <span class="md-ellipsis">Using versioning</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suspending-versioning" class="md-nav__link">
+    <span class="md-ellipsis">Suspending versioning</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swift-api-and-versioning" class="md-nav__link">
+    <span class="md-ellipsis">Swift API and versioning</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -761,57 +820,12 @@
               
   
   
-    
-  
-    
   
   
-    <li class="md-nav__item md-nav__item--active">
-      
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          <span class="md-ellipsis">Object encryption</span>
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="#" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="object-encryption.html" class="md-nav__link">
         <span class="md-ellipsis">Object encryption</span>
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#object-encryption-concept" class="md-nav__link">
-    <span class="md-ellipsis">Object encryption concept</span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-object-encryption" class="md-nav__link">
-    <span class="md-ellipsis">Using object encryption</span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1078,15 +1092,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#object-encryption-concept" class="md-nav__link">
-    <span class="md-ellipsis">Object encryption concept</span>
+  <a href="#versioning-concept" class="md-nav__link">
+    <span class="md-ellipsis">Versioning concept</span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-object-encryption" class="md-nav__link">
-    <span class="md-ellipsis">Using object encryption</span>
+  <a href="#using-versioning" class="md-nav__link">
+    <span class="md-ellipsis">Using versioning</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suspending-versioning" class="md-nav__link">
+    <span class="md-ellipsis">Suspending versioning</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swift-api-and-versioning" class="md-nav__link">
+    <span class="md-ellipsis">Swift API and versioning</span>
   </a>
   
 </li>
@@ -1105,45 +1133,79 @@
                   
 
 
-  <a href="https://github.com/binerogroup/documentation/blob/main/storage/object-storage/object-encryption.rst" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/binerogroup/documentation/blob/main/storage/object-storage/versioning.rst" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
-<h1 id="object-encryption">Object encryption<a class="headerlink" href="#object-encryption" title="Link to this heading">¶</a></h1>
-<h2 id="object-encryption-concept">Object encryption concept<a class="headerlink" href="#object-encryption-concept" title="Link to this heading">¶</a></h2>
-<p>Objects stored on the platform can be encrypted at rest (that is, on the storage platform) using a secret that is stored in the platform <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a>. The benefit is that the objects are secure as stored on the platform. When the objects are accessed, they are transparently decrypted using the same secret. Naturally the objects are secure in transit using HTTPS as carrier.</p>
-<p>Object encryption is an <a class="reference internal" href="s3.html"><span class="doc">S3</span></a> feature and will not work using <a class="reference internal" href="swift.html"><span class="doc">Swift</span></a>. The object is encrypted using the stored secret upon creation. Below we will show how to setup a secret as well as an example command for creating an encrypted secret using the <cite>aws</cite> klient.</p>
-<div class="important admonition">
-<p class="admonition-title">Important</p>
-<p>Should the stored secret be deleted, there is no way to recover the encrypted objects. Take care to backup the secret.</p>
-</div>
-<h2 id="using-object-encryption">Using object encryption<a class="headerlink" href="#using-object-encryption" title="Link to this heading">¶</a></h2>
-<p>To enable object encryption, follow these steps:</p>
+<h1 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Link to this heading">¶</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Below guide will use the s3 object storage and the <cite>aws</cite> client. We suggest you read <a class="reference internal" href="s3.html"><span class="doc">our guide on the same</span></a> before proceeding.</p>
+<p>Versioning is a <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> feature and is also called Bucket Versioning, the
+data protection it gives when enabled is still enforced if the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> is used.</p>
+</div>
+<h2 id="versioning-concept">Versioning concept<a class="headerlink" href="#versioning-concept" title="Link to this heading">¶</a></h2>
+<p>Versioning is a means to keep multiple variants of a object in the same bucket. You can use it to store multiple versions of an
+object to preserve, retrieve and restore every version of objects stored in your bucket.</p>
+<p>This means that you can get you data back from accidental user actions such as a deleted object or application failures.</p>
+<p>If you delete a object instead of permanently delete the object a DeleteMarker is set on the object. If you overwrite a object
+instead of overwriting it a new version of the object is uploaded and the original is preserved as a version.</p>
+<p>If you list the objects in a bucket it can still says the bucket is empty even though there are objects still stored in the
+bucket since there might be older versionsing of a object that is not displayed due to DeleteMarkers.</p>
+<p>A bucket cannot be permanently deleted until all objects is deleted, with versioning that means deleting all object versions.</p>
+<p>Versioning is disabled by default on buckets and needs to be enabled.</p>
+<h2 id="using-versioning">Using versioning<a class="headerlink" href="#using-versioning" title="Link to this heading">¶</a></h2>
+<p>This guide uses the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> using the <code class="docutils literal notranslate"><span class="pre">aws</span></code> CLI client. See our <a class="reference internal" href="s3.html"><span class="doc">S3 documentation</span></a> to get started.</p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>When enabling versioning on a bucket it can never be disabled again, but it can be suspended on the bucket.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Enabling versioning on a bucket only affects new objects after it has been enabled.</p>
 </div>
 <ul class="simple">
-<li><p>Create a secret to use. One way might be to run the command: <code class="docutils literal notranslate"><span class="pre">$ openssl</span> <span class="pre">rand</span> <span class="pre">-base64</span> <span class="pre">32</span></code> and save the ouput (this is a base64 encoded secret).</p></li>
-<li><p><a class="reference internal" href="../../secret-store/create-secret.html"><span class="doc">Store the secret</span></a> in our secret store. Make a note of the returned <cite>Secret href</cite> value, which will ve needed in the coming steps.</p></li>
-<li><p>The <cite>rgwcrypt</cite> user will need access to the secret to enable encryption. This is done via <a class="reference internal" href="../../secret-store/acl.html"><span class="doc">ACLs</span></a>. The following command, using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> will set the correct ACL: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">acl</span> <span class="pre">user</span> <span class="pre">add</span> <span class="pre">--user</span> <span class="pre">23646ed0e7d240ceb56eef6ec909c2ff</span> <span class="pre">[SECRET_HREF]</span></code></p></li>
-<li><p>Create an encrypted object in a bucket using the following example command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">[FILE_NAME]</span> <span class="pre">s3://new-bucket/</span> <span class="pre">--sse=aws:kms</span> <span class="pre">--sse-kms-key-id</span> <span class="pre">[SECRET_HREF_ID]</span></code></p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">SECRET_HREF_ID</span></code> in the above command is the last part of the <code class="docutils literal notranslate"><span class="pre">SECRET_HREF</span></code> value. If the <code class="docutils literal notranslate"><span class="pre">SECRET_HREF</span></code> for instance, is <code class="docutils literal notranslate"><span class="pre">https://api-eu-se-1.binero.cloud:9311/v1/secrets/ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> then the <code class="docutils literal notranslate"><span class="pre">SECRET_HREF_ID</span></code> is <code class="docutils literal notranslate"><span class="pre">ea7454d8-d0af-4008-bba4-71245b942bb7</span></code>.</p></li>
+<li><p>Create a new empty bucket <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">create-bucket</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code></p></li>
+<li><p>To check versioning configuration on a bucket use <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">get-bucket-versioning</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code>, this returns nothing for this new empty bucket.</p></li>
+<li><p>If we upload a <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> object to the bucket now, it won’t get any versioning and the delete of that object will be permanent.</p>
+<ul>
+<li><p>Upload a <code class="docutils literal notranslate"><span class="pre">text.txt</span></code> object from your current directory <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">s3://versioning-demo/test.txt</span></code></p></li>
+<li><p>Delete the <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> object <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3</span> <span class="pre">rm</span> <span class="pre">s3://versioning-demo/test.txt</span></code></p></li>
+<li><p>Check that no versioning of the bucket exists <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">list-object-versions</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code>, this returns nothing.</p></li>
 </ul>
-<div class="important admonition">
-<p class="admonition-title">Important</p>
-<p>If the key is deleted, the file will not be decrypted (by the platform).</p>
-</div>
+</li>
+</ul>
+<p>Now let’s enable versioning on the bucket and do the same thing.</p>
+<ul class="simple">
+<li><p>Enable bucket versioning with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">put-bucket-versioning</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span> <span class="pre">--versioning-configuration</span> <span class="pre">Status=Enabled</span></code></p></li>
+<li><p>Upload then delete the <code class="docutils literal notranslate"><span class="pre">text.txt</span></code> object the same way as above.</p></li>
+<li><p>Now checking again with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">list-object-versions</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code> you can see that the
+<code class="docutils literal notranslate"><span class="pre">test.txt</span></code> object is still stored in your bucket with a DeleteMarker but still not listed in <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3</span> <span class="pre">ls</span> <span class="pre">s3://versioning-demo</span></code></p></li>
+<li><p>You can restore the <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> by deleting the DeleteMarker, from the above output take the VersionId of the DeleteMarker (not the VersionId of the object version but of the DeleteMarker)
+using <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">delete-object</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span> <span class="pre">--key</span> <span class="pre">test.txt</span> <span class="pre">--version-id</span> <span class="pre">[DeleteMarker</span> <span class="pre">VersionId]</span></code></p></li>
+<li><p>If you now see the <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> object again when listing objects with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3</span> <span class="pre">ls</span> <span class="pre">s3://versioning-demo</span></code></p></li>
+<li><p>To permanently delete the <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> object delete all versions, take the VersionId of the object version and delete with
+<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">delete-object</span> <span class="pre">--bucket</span> <span class="pre">example-bucket</span> <span class="pre">--key</span> <span class="pre">test.txt</span> <span class="pre">--version-id</span> <span class="pre">[object</span> <span class="pre">VersionId]</span></code></p></li>
+<li><p>You can verify it’s permanently gone with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">list-object-versions</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code>, this now returns nothing again.</p></li>
+</ul>
+<p>Please note that a object can have multiple versions if it’s overwritten as well so to delete it you would need to list all object
+versions and delete them if there was more than one version.</p>
+<h2 id="suspending-versioning">Suspending versioning<a class="headerlink" href="#suspending-versioning" title="Link to this heading">¶</a></h2>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If using <a class="reference internal" href="swift.html"><span class="doc">swift</span></a> (which is used in the various control panels), the object will not be decrypted on download as this is an S3 feature.</p>
+<p>Suspending versioning does not affect objects that already has versioning, only new objects will not be versioned.</p>
 </div>
+<p>If you set versioning to Enabled on a bucket you can never set it back to Disabled again but you can do is set it to Suspended.</p>
+<p>To set versioning to Suspended run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">put-bucket-versioning</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span> <span class="pre">--versioning-configuration</span> <span class="pre">Status=Suspended</span></code></p>
+<h2 id="swift-api-and-versioning">Swift API and versioning<a class="headerlink" href="#swift-api-and-versioning" title="Link to this heading">¶</a></h2>
+<p>You cannot handle bucket versioning using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> but the functionality for versioning and DeleteMarkers still apply.</p>
+<p>If you upload a object with <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">upload</span> <span class="pre">versioning-demo</span> <span class="pre">test.txt</span></code> and then for example delete it with <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">delete</span> <span class="pre">versioning-demo</span> <span class="pre">test.txt</span></code> a
+DeleteMarker is created and you can view it with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">list-object-versions</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code>.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="s3.html"><span class="doc">S3 object storage</span></a></p></li>
-<li><p><a class="reference internal" href="swift.html"><span class="doc">Swift object storage</span></a></p></li>
+<li><p><a class="reference internal" href="object-locking.html"><span class="doc">Object locking</span></a></p></li>
 </ul>
 </div>
 
@@ -1174,7 +1236,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="object-locking.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Object locking" rel="prev">
+        <a href="replication.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Replicated object storage" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1183,20 +1245,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Object locking
+              Replicated object storage
             </div>
           </div>
         </a>
       
       
         
-        <a href="../nvme-storage.html" class="md-footer__link md-footer__link--next" aria-label="Next: NVMe storage" rel="next">
+        <a href="object-locking.html" class="md-footer__link md-footer__link--next" aria-label="Next: Object locking" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              NVMe storage
+              Object locking
             </div>
           </div>
           <div class="md-footer__button md-icon">
