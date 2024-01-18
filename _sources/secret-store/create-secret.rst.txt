@@ -4,6 +4,7 @@ Creating secrets
 
 Creating a secret in the cloud management portal
 ------------------------------------------------
+
 To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
 - Press "Secret management" and then "Secrets" in the sidebar menu.
@@ -15,12 +16,27 @@ To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-c
 
 Creating a secret using the openstack terminal client
 -----------------------------------------------------
-To create a :doc:`secret <../index>` from the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow any of these steps:
 
-An example on adding a certificate in binary format which can be used with the loadbalancer for terminating SSL:
+This shows you how to create a secret :doc:`secret <../index>` using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, see below for examples.
 
-- Run this command: ``$ openstack secret store --name='[SECRET_NAME]' -t 'application/octet-stream' -e 'base64' --payload="$(base64 < lb-cert.p12)"``, replacing the name with whatever name you want to call the certificate.
+Uploading a certificate
+^^^^^^^^^^^^^^^^^^^^^^^
 
-An example of adding a secret for use with object encryption: 
+This is an example of how to upload a certificate in binary format that can be used for TLS when using
+our loadbalancer service.
 
-- Run this command: ``$ openstack secret store --name '[SECRET_NAME]' --payload-content-type='application/octet-stream' --payload-content-encoding='base64' --algorithm 'aes' --bit-length 256 --mode 'ctr' --secret-type 'symmetric' --payload [base64_encoded_root_secret]``, replacing the name with whatever name you want to call the secret.
+::
+
+    openstack secret store --name='[SECRET_NAME]' -t 'application/octet-stream' -e 'base64' --payload="$(base64 < lb-cert.p12)"
+
+Encryption key for object storage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is an example of how to upload a encryption key that can be used with the SSE-KMS specification
+in our :doc:`object storage </storage/object-storage/index>` service.
+
+You can use ``openssl rand -base64 32`` to generate a new encryption key that is base64 encoded.
+
+::
+
+    openstack secret store --name '[SECRET_NAME]' --payload-content-type='application/octet-stream' --payload-content-encoding='base64' --algorithm 'aes' --bit-length 256 --mode 'ctr' --secret-type 'symmetric' --payload [base64_encoded_payload]

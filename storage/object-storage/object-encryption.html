@@ -622,7 +622,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="index.html"><span class="md-ellipsis">Object Storage</span></a>
+          <a href="index.html"><span class="md-ellipsis">Object storage</span></a>
           
             <label for="__nav_3_3_5">
               <span class="md-nav__icon md-icon"></span>
@@ -630,10 +630,10 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Object Storage" data-md-level="3">
+      <nav class="md-nav" aria-label="Object storage" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_3_5">
           <span class="md-nav__icon md-icon"></span>
-          <span class="md-ellipsis">Object Storage</span>
+          <span class="md-ellipsis">Object storage</span>
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -802,8 +802,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-object-encryption" class="md-nav__link">
-    <span class="md-ellipsis">Using object encryption</span>
+  <a href="#using-server-side-encryption-with-sse-c" class="md-nav__link">
+    <span class="md-ellipsis">Using server-<wbr>side encryption with SSE-<wbr>C</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-server-side-encryption-with-sse-kms" class="md-nav__link">
+    <span class="md-ellipsis">Using server-<wbr>side encryption with SSE-<wbr>KMS</span>
   </a>
   
 </li>
@@ -1085,8 +1092,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-object-encryption" class="md-nav__link">
-    <span class="md-ellipsis">Using object encryption</span>
+  <a href="#using-server-side-encryption-with-sse-c" class="md-nav__link">
+    <span class="md-ellipsis">Using server-<wbr>side encryption with SSE-<wbr>C</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-server-side-encryption-with-sse-kms" class="md-nav__link">
+    <span class="md-ellipsis">Using server-<wbr>side encryption with SSE-<wbr>KMS</span>
   </a>
   
 </li>
@@ -1112,33 +1126,63 @@
 
 <h1 id="object-encryption">Object encryption<a class="headerlink" href="#object-encryption" title="Link to this heading">¶</a></h1>
 <h2 id="object-encryption-concept">Object encryption concept<a class="headerlink" href="#object-encryption-concept" title="Link to this heading">¶</a></h2>
-<p>Objects stored on the platform can be encrypted at rest (that is, on the storage platform) using a secret that is stored in the platform <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a>. The benefit is that the objects are secure as stored on the platform. When the objects are accessed, they are transparently decrypted using the same secret. Naturally the objects are secure in transit using HTTPS as carrier.</p>
-<p>Object encryption is an <a class="reference internal" href="s3.html"><span class="doc">S3</span></a> feature and will not work using <a class="reference internal" href="swift.html"><span class="doc">Swift</span></a>. The object is encrypted using the stored secret upon creation. Below we will show how to setup a secret as well as an example command for creating an encrypted secret using the <cite>aws</cite> klient.</p>
-<div class="important admonition">
-<p class="admonition-title">Important</p>
-<p>Should the stored secret be deleted, there is no way to recover the encrypted objects. Take care to backup the secret.</p>
-</div>
-<h2 id="using-object-encryption">Using object encryption<a class="headerlink" href="#using-object-encryption" title="Link to this heading">¶</a></h2>
-<p>To enable object encryption, follow these steps:</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Below guide will use the s3 object storage and the <cite>aws</cite> client. We suggest you read <a class="reference internal" href="s3.html"><span class="doc">our guide on the same</span></a> before proceeding.</p>
+<p>Object encryption is a <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> feature and will not work the same when using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>If you retrieve the object using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> the data will still be encrypted as the
+decryption is only when using the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>When using any of our controlpanels to work with the object storage it is using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> and
+will thus not decrypt the object upon retrieval.</p>
+</div>
+<div class="important admonition">
+<p class="admonition-title">Important</p>
+<p>Do not combine replication with object encryption as this could result in dataloss when updating objects from both ends.</p>
+</div>
+<p>The object storage service in Binero cloud supports encryption your data at rest (on disk) using different methods. When objects are retrieved or written to they
+are transparently decrypted by the platform. The objects are secured in-transit by using HTTPS with TLS to transport the requests.</p>
+<p>The examples in below methods uses the <code class="docutils literal notranslate"><span class="pre">aws</span></code> CLI, to get started see our <a class="reference internal" href="s3.html"><span class="doc">S3 documentation</span></a>.</p>
+<h2 id="using-server-side-encryption-with-sse-c">Using server-side encryption with SSE-C<a class="headerlink" href="#using-server-side-encryption-with-sse-c" title="Link to this heading">¶</a></h2>
+<p>The object storage service in Binero cloud supports the customer-provided keys (SSE-C) specification in the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
+<p>When using this method you are responsible for sending an encryption key for the object in each API requests to
+retrieve or write to it. This needs to be an encryption key that works with AES-256 that is used.</p>
+<p>The data is stored at rest (on disk) with your encryption key and the encryption key is not saved by Binero. This way you don’t
+have to handle the encryption or decryption of objects and only manage the encryption key sent.</p>
+<p>To get started with using SSE-C, see below:</p>
+<ul class="simple">
+<li><p>Create a bucket to test with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">s3</span> <span class="pre">mb</span> <span class="pre">s3://demo</span></code></p></li>
+<li><p>Create a random encryption key to use <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">rand</span> <span class="pre">32</span> <span class="pre">-out</span> <span class="pre">ssec.key</span></code></p></li>
+<li><p>Upload a object to the bucket and encrypt it with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">text.txt</span> <span class="pre">s3://demo/text.txt</span> <span class="pre">--sse-c</span> <span class="pre">AES256</span> <span class="pre">--sse-c-key</span> <span class="pre">fileb://ssec.key</span></code></p></li>
+<li><p>Download the object that we just uploaded with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">s3://demo/test.txt</span> <span class="pre">test-download.txt</span> <span class="pre">--sse-c</span> <span class="pre">AES256</span> <span class="pre">--sse-c-key</span> <span class="pre">fileb://ssec.key</span></code></p></li>
+</ul>
+<h2 id="using-server-side-encryption-with-sse-kms">Using server-side encryption with SSE-KMS<a class="headerlink" href="#using-server-side-encryption-with-sse-kms" title="Link to this heading">¶</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Important</p>
+<p>If the secret in the <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a> service is deleted, there is no way to recover the encrypted objects. Make sure to backup the secret and the data.</p>
+</div>
+<p>The object storage service in Binero cloud also supports the SSE-KMS specification in the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
+<p>When using this method you create an encryption key and store it in our <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a> service and send the secret ID
+with each API request. This needs to be an encryption key that works with AES-256 that is used.</p>
+<p>The data is stored at rest (on disk) with your encryption key and the encryption is stored in the <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a> service.</p>
+<p>To get started with using SSE-KMS, see below:</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SECRET_HREF</span></code> mentioned below is for example <code class="docutils literal notranslate"><span class="pre">https://api-eu-se-1.binero.cloud:9311/v1/secrets/ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> but for your secret and in that
+case <code class="docutils literal notranslate"><span class="pre">SECRET_HREF_ID</span></code> is the UUID <code class="docutils literal notranslate"><span class="pre">ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> from that URL</p>
 </div>
 <ul class="simple">
-<li><p>Create a secret to use. One way might be to run the command: <code class="docutils literal notranslate"><span class="pre">$ openssl</span> <span class="pre">rand</span> <span class="pre">-base64</span> <span class="pre">32</span></code> and save the ouput (this is a base64 encoded secret).</p></li>
-<li><p><a class="reference internal" href="../../secret-store/create-secret.html"><span class="doc">Store the secret</span></a> in our secret store. Make a note of the returned <cite>Secret href</cite> value, which will ve needed in the coming steps.</p></li>
-<li><p>The <cite>rgwcrypt</cite> user will need access to the secret to enable encryption. This is done via <a class="reference internal" href="../../secret-store/acl.html"><span class="doc">ACLs</span></a>. The following command, using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> will set the correct ACL: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">acl</span> <span class="pre">user</span> <span class="pre">add</span> <span class="pre">--user</span> <span class="pre">23646ed0e7d240ceb56eef6ec909c2ff</span> <span class="pre">[SECRET_HREF]</span></code></p></li>
-<li><p>Create an encrypted object in a bucket using the following example command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">[FILE_NAME]</span> <span class="pre">s3://new-bucket/</span> <span class="pre">--sse=aws:kms</span> <span class="pre">--sse-kms-key-id</span> <span class="pre">[SECRET_HREF_ID]</span></code></p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">SECRET_HREF_ID</span></code> in the above command is the last part of the <code class="docutils literal notranslate"><span class="pre">SECRET_HREF</span></code> value. If the <code class="docutils literal notranslate"><span class="pre">SECRET_HREF</span></code> for instance, is <code class="docutils literal notranslate"><span class="pre">https://api-eu-se-1.binero.cloud:9311/v1/secrets/ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> then the <code class="docutils literal notranslate"><span class="pre">SECRET_HREF_ID</span></code> is <code class="docutils literal notranslate"><span class="pre">ea7454d8-d0af-4008-bba4-71245b942bb7</span></code>.</p></li>
+<li><p>Create a bucket to test with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">s3</span> <span class="pre">mb</span> <span class="pre">s3://demo</span></code></p></li>
+<li><p>Create a random encryption key that you can store using <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">rand</span> <span class="pre">-base64</span> <span class="pre">32</span></code> and save the key.</p></li>
+<li><p><a class="reference internal" href="../../secret-store/create-secret.html"><span class="doc">Create a secret</span></a> in our secret store and save the returned <code class="docutils literal notranslate"><span class="pre">Secret</span> <span class="pre">href</span></code> value.</p></li>
+<li><p>To allow the platform access to your secret (so that it can handle encryption and decryption with the key) you need to add a
+<a class="reference internal" href="../../secret-store/acl.html"><span class="doc">ACL</span></a> using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">openstack CLI</span></a> with command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">acl</span> <span class="pre">user</span> <span class="pre">add</span> <span class="pre">--user</span> <span class="pre">23646ed0e7d240ceb56eef6ec909c2ff</span> <span class="pre">[SECRET_HREF]</span></code></p></li>
+<li><p>Upload a object to the bucket with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">test.txt</span> <span class="pre">s3://demo/test.txt</span> <span class="pre">--sse=aws:kms</span> <span class="pre">--sse-kms-key-id</span> <span class="pre">[SECRET_HREF_ID]</span></code></p></li>
 </ul>
-<div class="important admonition">
-<p class="admonition-title">Important</p>
-<p>If the key is deleted, the file will not be decrypted (by the platform).</p>
-</div>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>If using <a class="reference internal" href="swift.html"><span class="doc">swift</span></a> (which is used in the various control panels), the object will not be decrypted on download as this is an S3 feature.</p>
-</div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
