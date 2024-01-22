@@ -10,6 +10,8 @@ A container holding objects is called a bucket in S3 terminology.
 
 .. note:: The complete list of S3 features is available `here <https://docs.ceph.com/en/latest/radosgw/s3/>`__
 
+.. note:: See :doc:`known limitations <known-limitations>` for more information on compatibility and interoperability between the :doc:`S3 <s3>` and :doc:`Swift <swift>` APIs.
+
 Setting up credentials
 ----------------------
 
