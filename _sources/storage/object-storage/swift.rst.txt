@@ -10,6 +10,8 @@ A container holding objects is called a container in Swift terminology.
 
 .. tip:: The Swift implementation does not have as broad support as the :doc:`S3 API <s3>` among applications and libraries. If you don't need the Swift API specifically we recommend going with the :doc:`S3 API <s3>`.
 
+.. note:: See :doc:`known limitations <known-limitations>` for more information on compatibility and interoperability between the :doc:`S3 <s3>` and :doc:`Swift <swift>` APIs.
+
 Setting up credentials
 ----------------------
 
