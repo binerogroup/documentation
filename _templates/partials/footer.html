@@ -1,0 +1,12 @@
+{% extends "!partials/footer.html" %}
+{% block extracopyright %}
+{%- if hasdoc('copyright') %}
+  {% trans path=pathto('copyright'), copyright=copyright|e %}&#169;
+    <a href="{{ path }}">Copyright</a> {{ copyright }}.
+  {% endtrans %}
+  {%- else %}
+    {% trans copyright=copyright|e %}&#169; Copyright {{ copyright }} 
+  {% endtrans %}
+{%- endif %}
+&ndash;&nbsp;<a href="#" class="ch2-open-settings-btn" role="button" aria-label="Cookie Settings">Cookie settings</a>
+{% endblock %}

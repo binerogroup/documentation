@@ -70,6 +70,7 @@ site_url = 'https://docs.binero.com/'
 html_baseurl = 'https://docs.binero.com/'
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -78,6 +79,9 @@ sitemap_url_scheme = "{link}"
 html_theme = 'sphinx_immaterial'
 html_logo = '_static/logo.png'
 html_title = 'Binero Documentation'
+
+html_show_copyright = False
+html_show_sphinx = False
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
