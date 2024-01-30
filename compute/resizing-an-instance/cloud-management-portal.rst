@@ -1,10 +1,10 @@
 ==================================================
 Resizing an instance using Cloud management portal
 ==================================================
+
 To resize an `instance <../index>`_ using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
-.. Important::
-	Resizing an instance will cause the instance to shut off during the process. We recommend doing a backup of your data before proceeding.
+.. important:: Resizing an instance will cause the instance to shut off during the process. We recommend doing a backup of your data before proceeding.
 
 - Press "Compute" and then "Instances" in the sidebar menu.
 - Press the instance that you want to resize.

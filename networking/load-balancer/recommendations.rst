@@ -1,6 +1,7 @@
-==============================
-Load balancing recommendations
-==============================
+=============================
+Load Balancer recommendations
+=============================
+
 On this page, we give som recommendations for achieving the best possible load balancing setup in the platform (as well as in general).
 
 - Listeners
@@ -26,7 +27,7 @@ On this page, we give som recommendations for achieving the best possible load b
     - Software tends to work better with fewer requests (irrespectively of performance of the compute instance) than with many.
   
   - Make sure you have enough free capacity to loose a member (or even better, two) during peak load. A common issue with load balancing is that when the load rise and something happens with a single member resulting in its removal, the remaining members are overwhelmed from picking up its load, resulting in more removals due to high load leading to slower responses and the load balancer timing out. This soon spirals out of control where servers "pop" in and out of the pool as the member recovers when removed but then gets overwhelmed again. 
-  - Our recommendation is to have a (linux) load 15 value of less than 1 per CPU core on the members (ideally 0,5) during peak with one member offline (two if high availability is important).
+  - Our recommendation is to have a (Linux) load 15 value of less than 1 per CPU core on the members (ideally 0,5) during peak with one member offline (two if high availability is important).
   - A good idea might be to add a member to each pool with the backup feature enabled. That way, it will receive traffic if all other members are down and could inform of a website outage (planned or otherwise).
 
 - Health checking:
@@ -37,10 +38,7 @@ On this page, we give som recommendations for achieving the best possible load b
   - Its possible to create scripts that take many underlying considerations into account and having the load balancer test these scripts. This might give even better insight into the application.
 
 
-
-.. Note::
-	We recommend round robin algorithm and sizing your system with excess performance if availability and end user experience are important to you.
+.. note:: We recommend using the round-robin algorithm and sizing your system with excess performance if availability and end-user experience is important to you.
 
 ..  seealso::
     - :doc:`general-concept/index`
-

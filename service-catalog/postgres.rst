@@ -1,9 +1,10 @@
 ========
 Postgres
 ========
+
 `PostgreSQL <https://www.postgresql.org>`__ is a very popular OpenSource relational database. 
 
-Binero.Cloud enables you to provision PostgreSQL as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server. 
+Binero cloud enables you to provision PostgreSQL as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server. 
 
 - Give your service a name and optionally a description.
 - Select your :doc:`SSH-key </compute/ssh-keys>`. 

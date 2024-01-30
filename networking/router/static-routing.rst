@@ -4,7 +4,8 @@ Static routing
 
 General concept
 ---------------
-Routing is the process of "giving directions" to IP-packages. Routing is (normally, exclusively in the context of Binero.Clouds implementation) done based on destination. There are who key parameters:
+
+Routing is the process of "giving directions" to IP-packages. Routing is (normally, exclusively in the context of Binero clouds implementation) done based on destination. There are who key parameters:
 
 - The destination IP
 - The gateway IP for the next hop
@@ -18,15 +19,14 @@ Static routing is the process of manually defining what private subnets (network
 - The routers will use their **default route** (if present). This would normally point upstream to the internet so effectively the package would get lost in an upstream router that does not route private networks and would drop the package.
 - If there is no default route, the package would get "black holed" (that is, dropped).
 
-.. Note::
-	The next-hop of a routing entry will need to be reachable *and on a common network* (that is a network to which both the sending and receiving router are connected). Routing cannot rely on routing to reach a gateway, all gateways need to be directly accessible. A link-network is commonly use for this (but any subnet will suffice so long as the routers are both connected to it), see our :doc:`routing-between-networks` for more information.
+.. note:: The next-hop of a routing entry will need to be reachable *and on a common network* (that is a network to which both the sending and receiving router are connected). Routing cannot rely on routing to reach a gateway, all gateways need to be directly accessible. A link-network is commonly use for this (but any subnet will suffice so long as the routers are both connected to it), see our :doc:`routing-between-networks` for more information.
 
 Working with static routes
 --------------------------
+
 Below is shown how to add static routes to a :doc:`router <index>` using the various tools. Since you route based on destination (but also need to account for return traffic, that is the traffic that a requests reply would generate), you would want to add the routes to both (or several) sides with the distinction that the networks defined on each router are the ones **not local** to that router. The routing entries are therefore *not the same* on any two (ore more) routers.
 
-.. Important::
-	If you (mistakenly) add a route to a router that is already local to it (that is connected to it by an interface), the affected subnet would stop working. Only add routing entries to *remote* networks. Local networks are already routed by being connected.
+.. important:: If you (mistakenly) add a route to a router that is already local to it (that is connected to it by an interface), the affected subnet would stop working. Only add routing entries to *remote* networks. Local networks are already routed by being connected.
 
 Static routing is currently only supported using :doc:`OpenStack Horizon </getting-started/managing-your-cloud/openstack-horizon>` or the :doc:`OpenStack terminal client </getting-started/managing-your-cloud/openstack-terminal-client>`.
 
@@ -44,8 +44,8 @@ OpenStack Horizon
 OpenStack terminal client
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Run: ``$ openstack router list`` to get the list of your available routers. Save the name of the router you want to connect the subnet to.
-- Run: ``$ openstack router add route --route destination=[DESTINATION_RANGE],gateway=[GATEWAY IP] [ROUTER NAME]``, replacing the items in brackets to *destination ip range* (the network behind the neighbour router that you want to reach) in :doc:`CIDR format <private-subnet/subnet-format>`, the gateway address (the address that the neighbour router has on the network which it shares with the router you are adding the static route to - and to where you want to forward traffic) and the router name (from previous step).
+- Run: ``openstack router list`` to get the list of your available routers. Save the name of the router you want to connect the subnet to.
+- Run: ``openstack router add route --route destination=[DESTINATION_RANGE],gateway=[GATEWAY IP] [ROUTER NAME]``, replacing the items in brackets to *destination ip range* (the network behind the neighbour router that you want to reach) in :doc:`CIDR format <private-subnet/subnet-format>`, the gateway address (the address that the neighbour router has on the network which it shares with the router you are adding the static route to - and to where you want to forward traffic) and the router name (from previous step).
 
 ..  seealso::
     - :doc:`private-subnet/subnet-format`

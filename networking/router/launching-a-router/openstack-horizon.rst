@@ -1,6 +1,7 @@
 =========================================
 Launching routers using OpenStack Horizon
 =========================================
+
 To launch a :doc:`router <../index>` from the :doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`, follow these steps: 
 
 - Under "project", click "Network" and then "Routers" in the sidebar menu.
@@ -12,8 +13,7 @@ To launch a :doc:`router <../index>` from the :doc:`OpenStack Horizon portal </g
 - Under "availability zone (hints)", choose the zone that corresponds to the network you selected in previous step. 
 - Press "Create Router". 
 
-.. Note::
-	In order to connect instances to the router, it will also need a :doc:`network <../private-network/index>` and a :doc:`subnet <../private-subnet/index>` configured. 
+.. note:: In order to connect instances to the router, it will also need a :doc:`network <../private-network/index>` and a :doc:`subnet <../private-subnet/index>` configured. 
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`

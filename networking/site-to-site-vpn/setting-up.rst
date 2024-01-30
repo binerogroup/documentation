@@ -1,6 +1,7 @@
 ===========================
 Setting up site-to-site VPN
 ===========================
+
 We recommend that you first read through our :doc:`prerequisites` guide. Follow these steps to setup site-to-site VPN using the cloud management portal:
 
 - Press “VPN” and then “Ipsec” in the sidebar menu.
@@ -25,8 +26,7 @@ We recommend that you first read through our :doc:`prerequisites` guide. Follow 
   - Add the newly created security group ``IPSec-<name>-<random string>_access`` to all instances that should be accessible from the remote end of the IPSec tunnel.
   - Once you are ready, proceed to configure :doc:`the remote end <configure-remote>` of the tunnel.
 
-.. Note::
-	There are some steps included in the setup that may hit a pre-defined quota (for instance if you cant create more security groups or floating ips), these can then be raised by the support team. If the installation fails, you are able to get the reason by clicking the service and checking error messages. 
+.. note:: There are some steps included in the setup that may hit a pre-defined quota (for instance if you cant create more security groups or floating ips), these can then be raised by the support team. If the installation fails, you are able to get the reason by clicking the service and checking error messages. 
 
 ..  seealso::
     - :doc:`index`

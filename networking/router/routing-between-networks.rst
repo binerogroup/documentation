@@ -4,23 +4,23 @@ Routing between networks
 
 General concept
 ---------------
-Routing in Binero.cloud is managed using a :doc:`router <index>`. The router will connect to different :doc:`subnets<private-subnet/index>` using an interfaces that connects to a :doc:`network <private-network/index>`. A standard router typically routes automatically between all its connected subnets (that is, subnets on which the router has an IP-address). A router in Binero.cloud works the same way, traffic received by a router destined to a connected network on that router will be forwarded through the router. If the destination network is unknown to the router, it will use its *default route* (which is usually facing the internet). 
 
-.. Note::
-	If you for some reason want to use an instance as a router (perhaps you prefer some software based routing suite) instead of a router, this is a viable use case. Just create an instance with the correct interfaces setup on the various subnets. We recommend using a router as some features in the platform depends on having one setup.
+Routing in Binero cloud is managed using a :doc:`router <index>`. The router will connect to different :doc:`subnets<private-subnet/index>` using an interfaces that connects to a :doc:`network <private-network/index>`. A standard router typically routes automatically between all its connected subnets (that is, subnets on which the router has an IP-address). A router in Binero cloud works the same way, traffic received by a router destined to a connected network on that router will be forwarded through the router. If the destination network is unknown to the router, it will use its *default route* (which is usually facing the internet). 
+
+.. note:: If you for some reason want to use an instance as a router (perhaps you prefer some software based routing suite) instead of a router, this is a viable use case. Just create an instance with the correct interfaces setup on the various subnets. We recommend using a router as some features in the platform depends on having one setup.
 
 Instance configuration
 ----------------------
+
 A compute instance will also use routing to decide on what interface to egress traffic. It will do this based on destination and its routing table. Three main scenarios exist:
 
 - Traffic destined for networks on which the instance itself has an IP-address (locally connected networks) will take precedence and the instance will instead use ARP to lookup the MAC address of the receiving instance and send traffic directly to it. 
 
 - Traffic that is destined to a subnet that is in the instances routing table will be sent to the next hop (or gateway) of that subnet as stated in the routing table. The next hop would typically be a router. 
 
-- Finally, traffic that is destined to somewhere that is completely unknown to the instance (not in its routing table). This traffic is (provided one is setup) sent to the instances default route (the route that should be used when no more specific route exists). When creating a subnet in Binero.cloud, a default gateway is usually define for that subnet. The IP that is the default gateway is usually connected to a router.
+- Finally, traffic that is destined to somewhere that is completely unknown to the instance (not in its routing table). This traffic is (provided one is setup) sent to the instances default route (the route that should be used when no more specific route exists). When creating a subnet in Binero cloud, a default gateway is usually define for that subnet. The IP that is the default gateway is usually connected to a router.
 
-.. Tip::
-	While its possible to connect an instance to multiple routers, this will require you to maintain static routes on the instances themselves (as per the middle option above). This can be done via DHCP but is still cumbersome and will add complexity in maintaining the firewall when traffic ingress and egress through multiple interfaces. An easier approach is to use just a single interface facing a single router which becomes responsible for handling the upstream routing. In this scenario, only the first and third examples as per above is used.
+.. tip:: While its possible to connect an instance to multiple routers, this will require you to maintain static routes on the instances themselves (as per the middle option above). This can be done via DHCP but is still cumbersome and will add complexity in maintaining the firewall when traffic ingress and egress through multiple interfaces. An easier approach is to use just a single interface facing a single router which becomes responsible for handling the upstream routing. In this scenario, only the first and third examples as per above is used.
 
 Single router
 -------------
@@ -79,12 +79,10 @@ Once the above steps are taken, you will be able to forward traffic between rout
 
 Dynamic routing
 ---------------
-For wanting to use a dynamic routing protocol (most commonly BGP), you would need to use instances as routers. Binero.cloud only supports static routing in the routers. 
+
+For wanting to use a dynamic routing protocol (most commonly BGP), you would need to use instances as routers. Binero cloud only supports static routing in the routers. 
 
 ..  seealso::
     - :doc:`static-routing`
     - :doc:`security-groups/index`
     - :doc:`../regions-and-availability-zones`
-
-
-

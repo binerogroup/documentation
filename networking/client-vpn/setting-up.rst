@@ -1,6 +1,7 @@
 =====================
 Setting up client VPN
 =====================
+
 VPN can only be provisioned from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`. If you normally work via either OpenStack Horizon or the OpenStack API, its possible to execute a :doc:`HEAT template manually </orchestration/index>` but we recommend the cloud management portal. Keep in mind (if you don't normally use it) that there may be discrepancies (for instance on SSH keys and logins) between it and the other management options. Please see :doc:`/getting-started/managing-your-cloud/index` for more information.
 
 Follow these steps to setup client VPN using the cloud management portal:
@@ -16,8 +17,6 @@ Follow these steps to setup client VPN using the cloud management portal:
 - Press "Create". VPN creation takes considerably longer than setting up a standard instance. This is due to the (comparably) long first time bootstrap of the VPN instance when generating ciphers, etc.
 - You are now ready to proceed to do the :doc:`initial configuration <initial-configuration>` of the service.
 
-.. Note::
-	The "admin ip range" value will setup a :doc:`security group <../router/security-groups/index>` that will allow access to the new instance for initial web-management (for instance downloading the VPN config). Once this is done, further management can be accomplished by first logging into the VPN. The security group can be altered from the various portals in the event you would originate from another IP in the future and for some reason cannot start the tunnel before login into the VPN interface. Note that this should be an IP (or network) in CIDR notation.
+.. note:: The "admin ip range" value will setup a :doc:`security group <../router/security-groups/index>` that will allow access to the new instance for initial web-management (for instance downloading the VPN config). Once this is done, further management can be accomplished by first logging into the VPN. The security group can be altered from the various portals in the event you would originate from another IP in the future and for some reason cannot start the tunnel before login into the VPN interface. Note that this should be an IP (or network) in CIDR notation.
 
-.. Note::
-	There are some steps included in the setup that may hit a pre-defined quota (for instance if you cant create more security groups or floating ips), these can then be raised by the support team. If the installation fails, you are able to get the reason by clicking the service and checking error messages. 
+.. note:: There are some steps included in the setup that may hit a pre-defined quota (for instance if you cant create more security groups or floating ips), these can then be raised by the support team. If the installation fails, you are able to get the reason by clicking the service and checking error messages. 

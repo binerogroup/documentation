@@ -1,10 +1,17 @@
 ======
 Quotas
 ======
-Public cloud offerings are at risk for abusive use by individuals looking to run applications for as long as they can at no cost. To limit the impact of potential miss-use of the service, quotas exist on the amount of resources that can be provisioned in the cloud. These quotas can be adjusted in the event they do not meet a customers need. To achieve this, :doc:`contact our support-department </general/getting-support>` and as for the quotas to be raised. Assuming we have the relevant details on your account and you've payed for at least one month of usage, this is normally not a difficult process.
+
+Public cloud offerings are at risk for fraud and abuse accounts by individuals looking to consume our cloud platform at no cost.
+
+To limit the impact of potential misuse of the cloud platform, we enforce quotas on the amount of resources that can be provisioned per account.
+
+These quotas can be adjusted to accomodate your needs by :doc:`contacting our support </general/getting-support>`. Please ensure that you've
+entered relevant details on your account and has paid for atleast one months of usage.
 
 Default quotas
 --------------
+
 The default quotas, available out of the box, are as follows:
 
 - :doc:`vCores </compute/flavors>`: 40

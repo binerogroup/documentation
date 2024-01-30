@@ -4,6 +4,7 @@ Managing subnets using OpenStack Horizon
 
 Create a subnet
 ---------------
+
 To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
 - Under "project", click "Network" and then "Networks" in the sidebar menu.
@@ -23,6 +24,7 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 
 Assign subnet to router
 -----------------------
+
 To :doc:`connect-subnet-to-router`, follow these steps:
 
 - Under "project", click "Network" and then "Routers" in the sidebar menu.
@@ -36,5 +38,3 @@ To :doc:`connect-subnet-to-router`, follow these steps:
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
     - :doc:`/networking/router/index`
-
-

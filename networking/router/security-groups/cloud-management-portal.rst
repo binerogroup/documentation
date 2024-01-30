@@ -4,6 +4,7 @@ Managing security groups using the Cloud management portal
 
 Creating a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To create a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
 - Press "Networking" and then "Security groups" in the sidebar menu.
@@ -17,6 +18,7 @@ To create a :doc:`security group <index>` using the :doc:`/getting-started/manag
 
 Adding rules to a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To add rules to a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
 - Press "Networking" and then "Security groups" in the sidebar menu.
@@ -24,11 +26,11 @@ To add rules to a :doc:`security group <index>` using the :doc:`/getting-started
 - Define the rule. More info in our :doc:`designing-rules` article.
 - Press "create rule".
 
-.. Note::
-	For ease of use, we recommend using the already defined rules. These are project specific so you can also tweak them as you see fit. 
+.. note:: For ease of use, we recommend using the already defined rules. These are project specific so you can also tweak them as you see fit. 
 
 Adding a security group to an instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To add a :doc:`security group <index>` to an instance using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
 - Press "Compute" and then "Instances" in the sidebar menu.
@@ -38,8 +40,7 @@ To add a :doc:`security group <index>` to an instance using the :doc:`/getting-s
 - Select the group you want to add.
 - Press "connect group".
 
-.. Note::
-	Remember: you need to add your groups to all instances, all rules are evaluated in a per instance fashion.
+.. note:: Remember: you need to add your groups to all instances, all rules are evaluated in a per instance fashion.
 
 ..  seealso::
     - :doc:`../index`

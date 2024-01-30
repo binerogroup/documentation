@@ -1,11 +1,12 @@
 ===========================================
 Load Balanced Linux Apache MySQL PHP (LAMP)
 ===========================================
+
 Using the popular and powerful open source tools `Linux <https://www.linux.org>`__, `Apache <https://httpd.apache.org>`__, MySQL (`MariaDB <https://mariadb.org>`__ will be installed) and `PHP <https://www.php.net>`__, a complete production suite can be provisioned. Popular tools like Wordpress or frameworks like CakePHP or Laravel run on LAMP installations. 
 
 If you want to be able to scale your LAMP installation beyond a single server, using this service to setup a load balanced system will be a very good way to go about it. The following will be setup for you: 
 
-- A :doc:`load balancer </networking/load-balancing/index>`
+- A :doc:`/networking/load-balancer/index`
 - A database server instance running MariaDB.
 - A NFS service instance for file storage that will be mounted on the web servers. 
 - Webservers (how many you can choose) that will sit behind the load balancer and accept the web requests, running Apache and PHP.

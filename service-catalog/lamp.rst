@@ -1,6 +1,7 @@
 ===================================
 Linux Apache MySQL PHP stack (LAMP)
 ===================================
+
 Using the popular and powerful open source tools `Linux <https://www.linux.org>`__, `Apache <https://httpd.apache.org>`__, MySQL (`MariaDB <https://mariadb.org>`__ will be installed) and `PHP <https://www.php.net>`__, a complete production suite can be provisioned. Popular tools like Wordpress or frameworks like CakePHP or Laravel run on LAMP installations. 
 
 To setup the service, first follow the general instructions on our :doc:`index` page. Then follow these instructions: 

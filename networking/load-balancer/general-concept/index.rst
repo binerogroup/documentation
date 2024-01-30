@@ -1,11 +1,12 @@
-======================================
-Load balancing concept in Binero.cloud
-======================================
+==============================
+Load balancing in Binero cloud
+==============================
+
 Load balancers consists of the following "parts":
 
-- The **listener** is the load balanced service as its presented to users. It listens for connections on a port, for instance port 80/tcp (additional listeners can be added to a load balancer after creation and thus allow for more than a single port). The listener gets its own ip on a private subnet onto which is normally attached a :doc:`floating IP <../../floating-ips>` so as to enable it to be reached from the internet. 
-- The **pool** is the active collection of member instances. It also sets the *common configuration* for the pool members that are included in the pool 
-- The **pool members** are also called "real servers". These are compute instances that run a particular service (for instance https to serve a web application) to which the load balancer redirects its requests. Members are defined statically in the load balancer but it will then add and remove them based on their current status.
+- The **Listener** is the load balanced service as its presented to users. It listens for connections on a port, for instance port 80/tcp (additional listeners can be added to a load balancer after creation and thus allow for more than a single port). The listener gets its own ip on a private subnet onto which is normally attached a :doc:`floating IP <../../floating-ips>` so as to enable it to be reached from the internet. 
+- The **Pool** is the active collection of member instances. It also sets the *common configuration* for the pool members that are included in the pool 
+- The **Pool members** are also called "real servers". These are compute instances that run a particular service (for instance https to serve a web application) to which the load balancer redirects its requests. Members are defined statically in the load balancer but it will then add and remove them based on their current status.
 - **Health monitors** decide dynamically if a member should be included in the pool or not by continuously assessing their functionality and removing or adding them automatically based on the result.
 
 The various parts are discussed in detail in their own sections. Load balancers are highly available. This means that they are made up from two individually running processes which work in parallel, one active and one passive. Mostly this is important during maintenance but it could also help with issues where one load balancer for one reason or another, goes offline. 
@@ -23,5 +24,3 @@ You are only able to setup configuration for one protocol (meaning service type 
 
 ..  seealso::
     - :doc:`../recommendations`
-
-

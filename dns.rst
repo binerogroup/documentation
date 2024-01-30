@@ -4,6 +4,7 @@ DNS
 
 General concept
 ---------------
+
 Using our DNS feature, you can use the platform to control your DNS (domain) zones. In order to start using the feature, first add one or more zones, add the pointers (A, MX, etc) and finally re-point the NS pointers to our DNS servers which are: 
 
 - ns.binero.eu.
@@ -12,15 +13,16 @@ Using our DNS feature, you can use the platform to control your DNS (domain) zon
 
 This final step is done using your registrars system. Your registrar is the company you pay to register and renew your domain-name. Binero does not offer this service. 
 
-.. Note::
-	Bineros nameservers (that is, the servers that answer the DNS queries) are not hosted with Binero but with Netnod (https://www.netnod.se/dns/dns-anycast). By default, the DNS service does not provide anycasting capabilities but if you need that, please contact our support and we can help enable it.
+.. note:: Bineros nameservers (that is, the servers that answer the DNS queries) are not hosted with Binero but with Netnod (https://www.netnod.se/dns/dns-anycast). By default, the DNS service does not provide anycasting capabilities but if you need that, please contact our support and we can help enable it.
 
 Create a zone
 -------------
+
 To create a zone, please follow the guide below to the system you want to use: 
 
 Cloud management portal
 ^^^^^^^^^^^^^^^^^^^^^^^
+
 To setup an DNS zone using the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`, follow these steps: 
 
 - Press "DNS" and then "DNS zones" in the sidebar menu.
@@ -38,11 +40,11 @@ To edit a DNS zone using the :doc:`cloud management portal </getting-started/man
 - To edit a pointer, press the pointer name. 
 - When done, press "save all changes".
 
-.. Note::
-	To edit pointers for the domains origin (for instance an MX record), use the domain itself followed by a "." (dot) as subdomain.
+.. note:: To edit pointers for the domains origin (for instance an MX record), use the domain itself followed by a "." (dot) as subdomain.
 
 OpenStack Horizon
 ^^^^^^^^^^^^^^^^^
+
 To setup an DNS zone using :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
 - Under "project", click "DNS" and then "zones" in the sidebar menu.
@@ -62,19 +64,13 @@ To edit a DNS zone using the :doc:`/getting-started/managing-your-cloud/openstac
 
 OpenStack Terminal Client
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To setup an DNS zone using :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
 
-- Run this command: ``$ openstack zone create --email [EMAIL_ADDRESS] example.com.``, replacing the e-mail address with your e-mail and "example.com." with your domain. Note the dot (".") at the end of the domain name. 
+- Run this command: ``openstack zone create --email [EMAIL_ADDRESS] example.com.``, replacing the e-mail address with your e-mail and "example.com." with your domain. Note the dot (".") at the end of the domain name. 
 
 To add a DNS zone record using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
 
-- Run this command: ``$ openstack zone list``, save the UUID from the zone that you want to add/list records on. 
-- Run this command: ``$ openstack recordset list [ID]``, replacing the ID with the ID from previous step.
-- Run this command: ``$ openstack recordset create --record [TARGET IP] --type [POINTER TYPE] [DOMAIN ID] [SUBDOMAIN]``, replacing the items in angle brackets with correct values. Pointer Type is for instance "A" or "MX", target IP might be a CNAME (if relevant). 
-
-
-
-
-
-
-
+- Run this command: ``openstack zone list``, save the UUID from the zone that you want to add/list records on. 
+- Run this command: ``openstack recordset list [ID]``, replacing the ID with the ID from previous step.
+- Run this command: ``openstack recordset create --record [TARGET IP] --type [POINTER TYPE] [DOMAIN ID] [SUBDOMAIN]``, replacing the items in angle brackets with correct values. Pointer Type is for instance "A" or "MX", target IP might be a CNAME (if relevant). 

@@ -4,6 +4,7 @@ Layer7 Policies
 
 General concept
 ---------------
+
 When using either HTTP or HTTPS as :doc:`listener protocol <../general-concept/listeners>`, you can use various features of the HTTP protocol directly in the load balancer. This is enabled via  Layer 7 Policies. A policy can execute some (basic) functionality:
 
 - Reject, will result in HTTP/1.1 403 Forbidden reply.
@@ -29,12 +30,12 @@ Finally, a value is specified, for instance when comparing hostname, "domain.com
 
 If the Layer7 rule is met, the Layer7 policy will trigger.
 
-.. Tip::
-	The official OpenStack support pages have some good examples of Layer 7 policies being used. The `CLI documentation <https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy>`__ is somewhat comprehensive, for some use cases see the `layer 7 cookbook <https://docs.openstack.org/octavia/queens/user/guides/l7-cookbook.html>`__.
+.. tip:: The official OpenStack support pages have some good examples of Layer 7 policies being used. The `CLI documentation <https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy>`__ is somewhat comprehensive, for some use cases see the `layer 7 cookbook <https://docs.openstack.org/octavia/queens/user/guides/l7-cookbook.html>`__.
 
 Creating policies
 -----------------
-To create a Layer 7 policy in Binero.cloud, you have three main options as outlined in the links below. Each option have its pros and cons:
+
+To create a Layer 7 policy in Binero cloud, you have three main options as outlined in the links below. Each option have its pros and cons:
 
 - :doc:`The cloud management portal <cloud-management-portal>` is very easy to use and will get a user with limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always available.
 - :doc:`OpenStack Horizon <openstack-horizon>` is the web interface included in OpenStack. Some advanced features might only have a GUI implementation here.

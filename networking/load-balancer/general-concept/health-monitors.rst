@@ -1,6 +1,7 @@
 ===============
 Health monitors
 ===============
+
 Health monitors are configured to check if a service on a member works as intended. As such, they can be configured to be protocol aware (for instance by checking a website using the "http" protocol). Monitors can be configured in various ways: 
 
 - Protocol type (cannot be changed after deployment).
@@ -11,5 +12,3 @@ A monitor is defined per listener. We recommend ensuring that the monitor is as 
 
 ..  seealso::
     - :doc:`../recommendations`
-
-

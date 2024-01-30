@@ -1,7 +1,8 @@
 ==========
 Networking
 ==========
-Networking is a core function in the In Binero.cloud platform. It features a complete suite of virtualised networking functions ranging from routing, firewalling and high speed internet access to VPNs (Virtual Private Networks) and load balancers.
+
+Networking is a core function in the In Binero cloud platform. It features a complete suite of virtualised networking functions ranging from routing, firewalling and high speed internet access to VPNs (Virtual Private Networks) and load balancers.
 
 The two main methods to connect to the internet is to either assign a :doc:`directly attached IP <directly-attached-ips>` to your instance or setup a :doc:`router <router/index>` and connect a :doc:`private subnet <router/private-subnet/index>` to the router and your instance, then use a :doc:`floating ip <floating-ips>` to your instance (which is the recommended approach).
 
@@ -18,7 +19,7 @@ Please see the various subsections to this article in order to get a good unders
   directly-attached-ips
   ports
   mtu
-  load-balancing/index
+  load-balancer/index
   reaching-your-instances
   client-vpn/index
   site-to-site-vpn/index

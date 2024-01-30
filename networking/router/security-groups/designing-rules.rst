@@ -4,7 +4,8 @@ Designing security group rules
 
 Recommendations
 ---------------
-Below are some key points to take into consideration when designing security group rules (firewall rules) in Binero.cloud that will lead to a more secure platform.
+
+Below are some key points to take into consideration when designing security group rules (firewall rules) in Binero cloud that will lead to a more secure platform.
 
 - Its recommended to make the rule as specific (granular) as possible. If you (for instance) want to give access to a web-server, then just add a rule for http (tcp/80) and https (tcp/443). Dont also allow access to udp and / or any other ports.
 - Lock down the source IP when the rule is for management (so if it exposes services that are not needed to be exposed to provide your service) . Only leave rules that give access to (internet facing) services with the "any" source.
@@ -17,11 +18,11 @@ Below are some key points to take into consideration when designing security gro
 - "0.0.0.0/0" means "all of the internet" when using it as a destination. We only recommend using this to provide access to a service that should indeed be globally reachable.
 - Rules are by default stateful. This means that if a request is sent and accepted, the *return traffic* (that is: the traffic that the answering service sends as a reply to the request) is also allowed, irrespectively of wether that traffic flow is explicitly defined. This is a standard behaviour in a firewall. If you want to create a non stateful (stateless) rule, you can create the group using the :doc:`terminal client <openstack-terminal-client>` and the flag ``--stateless``. A stateless rule would only work in a single direction (egress or ingress). We generally recommend stateful rules but for some use-cases (for instance asymmetrical routing where you would not send the return traffic the same path), stateless rules might be required.
 
-.. Tip::
-	The best way to ensure that you have correctly applied your rules is by testing. This is ideally done using the linux program "nmap" that can do a port-scan. For instance ``$ nnmap -T4 1.2.3.4`` would scan the server with IP 1.2.3.4 (the -T4 flag limits the timeout per port to 10 ms which speeds up the otherwise slow process). The output will be a list of open ports. Keep in mind to scan both from the inside (using your various internal instances against their internal IPs) as well as using for instance your workstation (against the floating IPs that expose your services) to get the "internet perspective". We recommend doing scans after setting up or changing your security groups to make sure the actual result was what was expected. 
+.. tip:: The best way to ensure that you have correctly applied your rules is by testing. This is ideally done using the linux program "nmap" that can do a port-scan. For instance ``nmap -T4 1.2.3.4`` would scan the server with IP 1.2.3.4 (the -T4 flag limits the timeout per port to 10 ms which speeds up the otherwise slow process). The output will be a list of open ports. Keep in mind to scan both from the inside (using your various internal instances against their internal IPs) as well as using for instance your workstation (against the floating IPs that expose your services) to get the "internet perspective". We recommend doing scans after setting up or changing your security groups to make sure the actual result was what was expected. 
 
 Available parameters
 --------------------
+
 The following section shows what parameters you can use to create security groups. Please note that not all parameters will be available from the GUI, some may require the :doc:`terminal client <openstack-terminal-client>` to use. The terminal option is added within parentheses.
 
 - Remote IP (--remote-ip) - Remote IP address or IP range (may use :doc:`CIDR notation <../private-subnet/subnet-format>`; default for IPv4 rule: 0.0.0.0/0, default for IPv6 rule: ::/0).
@@ -32,7 +33,6 @@ The following section shows what parameters you can use to create security group
 - ICMP code (--icmp-code) - ICMP code for ICMP IP protocols.
 - Direction (--ingress / --egress) - Rule applies to incoming or outgoing network traffic (incoming is default).
 - IP version (--ethertype) - whether to use IPv4 or IPv6; default is based on IP protocol.
-
 
 ..  seealso::
     - :doc:`../index`

@@ -1,6 +1,7 @@
 ============================
 Creating a persistent volume
 ============================
+
 If you just want a single disk attached to your instance, this will get created with the instance and does not need to be separately created. If you want multiple disk, then you need to create and attach the additional disks to the instance. 
 
 New volumes can either be empty or be based on:
@@ -11,11 +12,11 @@ New volumes can either be empty or be based on:
 
 If your intention was to create an instance from a previous volume, follow the steps in our guide :doc:`creating-an-instance-from-a-volume`.
 
-.. Note::
-	New volumes that are created and attached to an instance may not get deleted with the instance - existing volumes will be billed even though not used.
+.. note:: New volumes that are created and attached to an instance may not get deleted with the instance - existing volumes will be billed even though not used.
 
 Cloud management portal
 -----------------------
+
 To create a volume using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
 - Press "Storage" and then "Volumes" in the sidebar menu.
@@ -38,6 +39,7 @@ In order to attach your volume, follow these steps:
 
 OpenStack Horizon
 -----------------
+
 To create a volume using :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
 - Under "project", click "Volumes" and then "Volumes" in the sidebar menu.
@@ -58,16 +60,17 @@ In order to attach your volume, follow these steps:
 
 OpenStack Terminal Client
 -------------------------
+
 To create a volume using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
 
-- Run this command: ``$ openstack volume type list``. Save the name of the volume type you want to use. 
-- Run this command: ``$ openstack availability zone list --volume``. Save the name of the availability zone you want to use.
-- Run this command: ``$ openstack volume create --type [VOLUME_TYPE_NAME] --size [SIZE_IN_GB] --availability-zone [AVAILABILITY_ZONE] [VOLUME_NAME]``, replacing the values in angle brackets with values from previous steps and your selections.
+- Run this command: ``openstack volume type list``. Save the name of the volume type you want to use. 
+- Run this command: ``openstack availability zone list --volume``. Save the name of the availability zone you want to use.
+- Run this command: ``openstack volume create --type [VOLUME_TYPE_NAME] --size [SIZE_IN_GB] --availability-zone [AVAILABILITY_ZONE] [VOLUME_NAME]``, replacing the values in angle brackets with values from previous steps and your selections.
 
 In order to attach your volume, follow these steps:
 
-- Run this command: ``$ openstack volume list``, save the ID (not name) of the volume you want to attach. 
-- Run this command: ``$ openstack server list``, save the ID (not name) of the instance to which you want to attach the volume.
-- Run this command: ``$ openstack server add volume [INSTANCE_ID] [VOLUME_ID]``
+- Run this command: ``openstack volume list``, save the ID (not name) of the volume you want to attach. 
+- Run this command: ``openstack server list``, save the ID (not name) of the instance to which you want to attach the volume.
+- Run this command: ``openstack server add volume [INSTANCE_ID] [VOLUME_ID]``
 
 

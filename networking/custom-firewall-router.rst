@@ -1,10 +1,10 @@
 ======================
 Custom firewall/router
 ======================
-Sometimes its preferred to use a network stack that is familiar to an admin or that provides a function that is desired and not included in the :doc:`router <router/index>` stack. There are several open source (or proprietary) systems that can run as a router or firewall with very good performance and with rich feature-sets. These systems are normally installed as instances in a cloud and Binero.Cloud supports this approach.
 
-.. Tip::
-	We do not recommend mixing a custom router/firewall with :doc:`router <router/index>`. While its possible to do so, this will cause to make the network more difficult to understand. As such, rather give the instance running as a router a leg (a connection) to each of the private subnets that you want to reach and manage everything within the router.
+Sometimes its preferred to use a network stack that is familiar to an admin or that provides a function that is desired and not included in the :doc:`router <router/index>` stack. There are several open source (or proprietary) systems that can run as a router or firewall with very good performance and with rich feature-sets. These systems are normally installed as instances in a cloud and Binero cloud supports this approach.
+
+.. tip:: We do not recommend mixing a custom router/firewall with :doc:`router <router/index>`. While its possible to do so, this will cause to make the network more difficult to understand. As such, rather give the instance running as a router a leg (a connection) to each of the private subnets that you want to reach and manage everything within the router.
 
 Concepts
 --------
@@ -19,8 +19,7 @@ Setting up a custom router/firewall
 -----------------------------------
 Below is a guide on how to setup a router with a public (internet facing) outside network and a private subnet (which will work the same as with a router) for hosting instances on the inside of the router. 
 
-.. Note::
-	Since some features below are only available using :doc:`/getting-started/managing-your-cloud/openstack-horizon` (or :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`), we will use Horizon below.
+.. note:: Since some features below are only available using :doc:`/getting-started/managing-your-cloud/openstack-horizon` (or :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`), we will use Horizon below.
 
 - Create your :doc:`private networks <router/private-network/index>` and :doc:`private subnet <router/private-subnet/index>` for the internal network(s) unless you have already done so. 
 - Create a network :doc:`port <ports>` on the subnet. 
@@ -44,5 +43,4 @@ Your instances located behind this instance, and that use an IP on this instance
 - Verify that the router can reach the instances directly and vice versa. 
 - Verify the security groups on all instances. The firewall/router should have "all-open" on all ports and "default" (as well) on the internal ports). If the firewall does not have default, other instances will not accept traffic from it and if it does not have the all-open group, it will not access traffic from the other instances. 
 
-.. Note::
-	The platform uses a smaller MTU (1450) than is customary. There might be need to change this. 
+.. note:: The platform uses a smaller MTU (1450) than is customary. There might be need to change this. 

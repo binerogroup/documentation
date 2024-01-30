@@ -1,6 +1,7 @@
 ============
 Pool members
 ============
+
 A member is a compute instance that runs a service (for instance Apache). When load balancing, a member receives proxied requests from the listener through its membership in the pool. Members are health checked by the pool and included in it, if they are found to be working (and dynamically removed if not). This is an automated process, if a member should be detected to have failed for any reason (by its health checker) it will be disabled in the pool. Checking continues and as soon as the member is (again) working (as detected by health checking), it will be enabled back into the pool automatically. Members can have some configuration: 
 
 - Explicit monitoring IPs and/or ports if you want to do health checking on something other than the members own private IP.
@@ -11,5 +12,3 @@ All members should have an IP on a :doc:`private subnet <../../router/private-su
 
 ..  seealso::
     - :doc:`../recommendations`
-
-

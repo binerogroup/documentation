@@ -4,6 +4,7 @@ Managing networks using the cloud management portal
 
 Create a network
 ----------------
+
 To create a :doc:`network <index>` from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
 
 - Press "Networking" and then "Networks" in the sidebar menu.
@@ -15,8 +16,7 @@ To create a :doc:`network <index>` from the :doc:`/getting-started/managing-your
 - The "admin state up" should be selected. It controls whether the network can receive traffic (that is: that its provisioned in the platform and not just in the portal).
 - Press "create" in the lower right corner.
 
-.. Note::
-	In order to connect an instance or router to the network, you will also need to create a :doc:`subnet <../private-subnet/index>` which you can then attach to an interface on a router or an instance.
+.. note:: In order to connect an instance or router to the network, you will also need to create a :doc:`subnet <../private-subnet/index>` which you can then attach to an interface on a router or an instance.
 
 
 ..  seealso::

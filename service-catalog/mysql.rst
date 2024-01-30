@@ -1,9 +1,10 @@
 ===============
 MySQL / MariaDB
 ===============
+
 `MySQL <https://www.mysql.com>`__ is a very popular open source database. `MariaDB <https://mariadb.org>`__ is an alternate version of MySQL with some key differences (exactly what is outside the scope of this article but there is plentiful information available on this subject on the internet). Generally, the feature set is somewhat similar. 
 
-Binero.Cloud enables you to provision either MySQL or MariaDB (or both) as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server. 
+Binero cloud enables you to provision either MySQL or MariaDB (or both) as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server. 
 
 To setup the service, first follow the general instructions on our :doc:`index` page. Then follow these instructions: 
 

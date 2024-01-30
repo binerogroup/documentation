@@ -1,6 +1,7 @@
 ===================================================
 Launching routers using the Cloud management portal
 ===================================================
+
 To launch a :doc:`router <../index>` from the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`, follow these steps: 
 
 - Press "Networking" and then "Routers" in the sidebar menu.
@@ -12,8 +13,7 @@ To launch a :doc:`router <../index>` from the :doc:`cloud management portal </ge
 - The "admin state up" should be selected. It controls whether the router can receive traffic (that is: that its provisioned in the platform and not just in the portal).
 - Press "create" in the lower right corner.
 
-.. Note::
-	In order to connect instances to the router, it will also need a `network <../private-network/index>` and a `subnet <../private-subnet/index>` configured. 
+.. note:: In order to connect instances to the router, it will also need a `network <../private-network/index>` and a `subnet <../private-subnet/index>` configured. 
 
 ..  seealso::
     - :doc:`../../regions-and-availability-zones`

@@ -2,16 +2,17 @@
 Launching load balancer using OpenStack Horizon
 ===============================================
 
-Preparations
-------------
-Before launching your first load balancer, we strongly recommend reading our :doc:`concepts <../general-concept/index>` guide so as to gain a better understanding the various parts. We also recommend setting the correct :doc:`security groups <../../router/security-groups/index>` on the instances that should be members in the load balancing. Traffic from the load balancer will not come from the default group as the load balancer is not an instance - this means that explicit rules needs to be setup on the members.
+.. note:: Before launching your first load balancer, we strongly recommend reading our :doc:`concepts <../general-concept/index>` guide so as to gain a better understanding the various parts.
+
+We also recommend setting the correct :doc:`security groups <../../router/security-groups/index>` on the instances that should be members in the load balancing. Traffic from the load balancer
+will not come from the default group as the load balancer is not an instance - this means that explicit rules needs to be setup on the members.
 
 Configuration
 -------------
+
 To launch a :doc:`load balancer <../index>` from the :doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`, follow these steps: 
 
-.. Note::
-	If you want to create a load balancer that terminates SSL, you first need to :doc:`create the requisite certificate </secret-store/create-cert-for-loadbalancing>` in our secret store. We recommend reading our :doc:`../ssl-termination` guide before proceeding.
+.. note:: If you want to create a load balancer that terminates SSL, you first need to :doc:`create the requisite certificate </secret-store/create-cert-for-loadbalancing>` in our secret store. We recommend reading our :doc:`../ssl-termination` guide before proceeding.
 
 - Under "project", click "Network" and then "Load balancers" in the sidebar menu.
 - Click "Create load balancer" in the right upper corner.
@@ -19,8 +20,8 @@ To launch a :doc:`load balancer <../index>` from the :doc:`OpenStack Horizon por
 
   - Name your load balancer. We recommend calling it ``[NAME]_lb`` (replace the name with something thats relevant for you). Optionally provide a description. 
   - Leave the IP field empty as an IP will be allocated automatically.
-  - Leave the :doc:`availability zone </networking/regions-and-availability-zones>` empty as load balancers are only available in eu-se-1a.
-  - Leave the Flavor field empty as selecting a flavor is not supported (there is standardisation on what flavor is used).
+  - Select the :doc:`availability zone </networking/regions-and-availability-zones>` or leave empty to use the default europe-se-1a.
+  - Leave the Flavor field empty as selecting a flavor is not supported.
   - Select a :doc:`subnet </networking/router/private-subnet/index>` to use for hosting the load balancer. We recommend using the same as the subnet where you have your instances to load balancer but its not a must. 
   - Press "next".
 
@@ -55,8 +56,7 @@ To launch a :doc:`load balancer <../index>` from the :doc:`OpenStack Horizon por
 - The sixth step is only relevant when creating an SSL terminating load balancer. In this step, you would choose the certificate that the load balancer should use to terminate SSL connections. To do this, you first need to have a :doc:`certificate </secret-store/create-cert-for-loadbalancing>` added to the secret store.
 
 
-.. Note::
-	The load balancer will take some time to start as its a complex process to create it. 
+.. note:: The load balancer will take some time to start as its a complex process to create it. 
 
 Verification
 ------------
@@ -68,8 +68,7 @@ To verify that the health checking has added the members to the pool, follow thi
 - Press the "members" tab.
 - In the list, you should now see the member(s) you've added. The column "Operating status" should show you if they are online or not. 
 
-.. Tip::
-	If the members are not online, make sure you have the proper :doc:`../../router/security-groups/index` configured on the them. If you still cant get the members online, verify (by using for instance ``$ tcpdump`` or by reading access logs, that the traffic hits the member servers from the load balancers IP. 
+.. tip:: If the members are not online, make sure you have the proper :doc:`../../router/security-groups/index` configured on the them. If you still cant get the members online, verify (by using for instance ``tcpdump`` or by reading access logs, that the traffic hits the member servers from the load balancers IP. 
 
 
 ..  seealso::

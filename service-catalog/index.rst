@@ -33,7 +33,7 @@ Automated application installations are available to provide applications pre-in
 - :doc:`Gitlab <gitlab>` will install a gitlab repository with its dashboard.
 - :doc:`Fileshare <fileshare>` will install a Linux VM with both NFS and SMB support for use as a filestore backend in the platform.
 - :doc:`LAMP <lamp>` will install a Linux Apache MySQL PHP stack on a single instance. 
-- :doc:`Load balanced LAMP <lb-lamp>` will install a load balanced (using the Binero.Cloud load balancer) Linux Apache MySQL PHP stack using separate instances foreach function.
+- :doc:`Load balanced LAMP <lb-lamp>` will install a load balanced (using the Binero cloud load balancer service) Linux Apache MySQL PHP stack using separate instances foreach function.
 - :doc:`OpenVPN <openvpn>` sets up VPN, see :doc:`/networking/client-vpn/index`.
 - :doc:`Redis <redis>` will install a `Redis <https://redis.io>`__ in-memory datastore.
 - :doc:`Grafana <grafana>` will install a Grafana Dashboard.

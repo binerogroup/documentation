@@ -4,6 +4,7 @@ Managing security groups using using OpenStack Horizon
 
 Creating a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To create a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
 - Under "project", click "Network" and then "Security Groups" in the sidebar menu.
@@ -16,6 +17,7 @@ To create a :doc:`security group <index>` using the :doc:`/getting-started/manag
 
 Adding rules to a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To add rules to a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
 - Under "project", click "Network" and then "Security Groups" in the sidebar menu.
@@ -24,11 +26,12 @@ To add rules to a :doc:`security group <index>` using the :doc:`/getting-started
 - Define the rule. More info in our :doc:`designing-rules` article.
 - Press "Add".
 
-.. Note::
+.. note::
 	For ease of use, we recommend using the already defined rules. These are project specific so you can also tweak them as you see fit. 
 
 Adding a security group to an instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To add a :doc:`security group <index>` to an instance using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
 - Under "project", click "Compute" and then "Instances" in the sidebar menu.
@@ -36,11 +39,9 @@ To add a :doc:`security group <index>` to an instance using the :doc:`/getting-s
 - Press the "+" sign on each security group you want to add to the instance.
 - Press "Save". 
 
-.. Note::
-	If you instead choose to press "Edit Port Security Groups" (in step 2 above) you are able to set security groups on a per interface (port) basis instead. This might be useful if you have several networks connected to your instance (which we don't recommend) and want to have different settings on them. 
+.. note:: If you instead choose to press "Edit Port Security Groups" (in step 2 above) you are able to set security groups on a per interface (port) basis instead. This might be useful if you have several networks connected to your instance (which we don't recommend) and want to have different settings on them. 
 
-.. Note::
-	Remember: you need to add your groups to all instances, all rules are evaluated in a per instance fashion.
+.. note:: Remember: you need to add your groups to all instances, all rules are evaluated in a per instance fashion.
 
 ..  seealso::
     - :doc:`../index`
