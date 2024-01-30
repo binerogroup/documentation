@@ -23,7 +23,7 @@ There is a standard for discovering the smallest MTU on a link called `Path MTU 
 
 MTU in Binero.Cloud
 -------------------
-Since Binero.Cloud uses virtualised networking, the MTU size given when using :doc:`virtual-router/private-subnet/dhcp` on your :doc:`private subnet <virtual-router/private-subnet/index>` to assign addresses is 1450 bytes. This is because the VXLAN encapsulation needs 50 bytes of the frames available 1500 bytes. The underlying interface on the physical servers managing compute and networking in the platform uses the standard of 1500 bytes and so the instances need to have a smaller MTU set in order to also provide enough room for the host to encapsulate the frame before sending it onto the network.
+Since Binero.Cloud uses virtualised networking, the MTU size given when using :doc:`router/private-subnet/dhcp` on your :doc:`private subnet <router/private-subnet/index>` to assign addresses is 1450 bytes. This is because the VXLAN encapsulation needs 50 bytes of the frames available 1500 bytes. The underlying interface on the physical servers managing compute and networking in the platform uses the standard of 1500 bytes and so the instances need to have a smaller MTU set in order to also provide enough room for the host to encapsulate the frame before sending it onto the network.
 
 .. Note::
 	Its possible to set whichever MTU you'd like on your interface however using something larger than 1450 will cause issues of packages being dropped. See below.

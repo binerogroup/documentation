@@ -20,7 +20,7 @@ To create a snapshot using the :doc:`/getting-started/managing-your-cloud/cloud-
 - Select a :doc:`flavor </compute/flavors>` under the "configuration" field.
 - Choose and :doc:`availability zone </compute/regions-and-availability-zones>`.
 - If applicable choose an :doc:`ssh-key </compute/ssh-keys>`.
-- Choose a :doc:`private subnet </networking/virtual-router/private-subnet/index>`.
+- Choose a :doc:`private subnet </networking/router/private-subnet/index>`.
 - Press "create". 
 
 OpenStack Horizon

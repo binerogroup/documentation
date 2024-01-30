@@ -23,7 +23,7 @@ Static routing is the process of manually defining what private subnets (network
 
 Working with static routes
 --------------------------
-Below is shown how to add static routes to a :doc:`virtual router <index>` using the various tools. Since you route based on destination (but also need to account for return traffic, that is the traffic that a requests reply would generate), you would want to add the routes to both (or several) sides with the distinction that the networks defined on each router are the ones **not local** to that router. The routing entries are therefore *not the same* on any two (ore more) routers.
+Below is shown how to add static routes to a :doc:`router <index>` using the various tools. Since you route based on destination (but also need to account for return traffic, that is the traffic that a requests reply would generate), you would want to add the routes to both (or several) sides with the distinction that the networks defined on each router are the ones **not local** to that router. The routing entries are therefore *not the same* on any two (ore more) routers.
 
 .. Important::
 	If you (mistakenly) add a route to a router that is already local to it (that is connected to it by an interface), the affected subnet would stop working. Only add routing entries to *remote* networks. Local networks are already routed by being connected.

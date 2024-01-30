@@ -4,7 +4,7 @@ Launching load balancer using the OpenStack terminal client
 
 Preparations
 ------------
-Before launching your first load balancer, we strongly recommend reading our :doc:`concepts <../general-concept/index>` guide so as to gain a better understanding the various parts. We also recommend setting the correct :doc:`security groups <../../virtual-router/security-groups/index>` on the instances that should be members in the load balancing. Traffic from the load balancer will not come from the default group as the load balancer is not an instance - this means that explicit rules needs to be setup on the members.
+Before launching your first load balancer, we strongly recommend reading our :doc:`concepts <../general-concept/index>` guide so as to gain a better understanding the various parts. We also recommend setting the correct :doc:`security groups <../../router/security-groups/index>` on the instances that should be members in the load balancing. Traffic from the load balancer will not come from the default group as the load balancer is not an instance - this means that explicit rules needs to be setup on the members.
 
 Configuration
 -------------
@@ -44,7 +44,7 @@ To verify that the health checking has added the members to the pool, follow thi
 - Members should have "operating status" of "ONLINE" if they are accepted into the pool.
 
 .. Tip::
-	If the members are not online, make sure you have the proper :doc:`../../virtual-router/security-groups/index` configured on the them. If you still cant get the members online, verify (by using for instance ``$ tcpdump`` or by reading access logs, that the traffic hits the member servers from the load balancers IP. 
+	If the members are not online, make sure you have the proper :doc:`../../router/security-groups/index` configured on the them. If you still cant get the members online, verify (by using for instance ``$ tcpdump`` or by reading access logs, that the traffic hits the member servers from the load balancers IP. 
 
 ..  seealso::
     - :doc:`../general-concept/index`

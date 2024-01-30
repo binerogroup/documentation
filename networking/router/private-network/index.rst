@@ -4,7 +4,7 @@ Private networks
 
 General concept
 ---------------
-A private network in Binero.cloud is a virtual version of a cabled (or wireless) network in a classic datacenter. The network will connect to :doc:`virtual ports </networking/ports>` on routers or instances just as a physical server might connect to a port in a switch. Networks, therefore, are the carriers of network traffic in your infrastructure and would normally terminate in a virtual router (for routing to another network or the internet) or an :doc:`instance </compute/index>`. 
+A private network in Binero cloud is a software-defined virtualized network. The network will connect to :doc:`ports </networking/ports>` on routers or instances just as a physical server might connect to a port in a switch. Networks, therefore, are the carriers of network traffic in your infrastructure and would normally terminate in a router (for routing to another network or the internet) or an :doc:`instance </compute/index>`. 
 
 Networks are what connects the infrastructure together. Assuming you want to use only manual IP assignments on your infrastructure, creating networks and ports would be enough. The :doc:`private subnets <../private-subnet/index>` will however enable lost of automation and additional features in the platform and is the recommended approach for setting up IP configuration on networks. When referring to the standard OSI model for networking, a private network is equal to layer 2, a private subnet is (allowing for automatic configuration of) layer 3.
 

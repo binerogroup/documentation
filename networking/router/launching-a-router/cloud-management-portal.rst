@@ -1,7 +1,7 @@
-===========================================================
-Launching virtual routers using the Cloud management portal
-===========================================================
-To launch a :doc:`virtual-router <../index>` from the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`, follow these steps: 
+===================================================
+Launching routers using the Cloud management portal
+===================================================
+To launch a :doc:`router <../index>` from the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`, follow these steps: 
 
 - Press "Networking" and then "Routers" in the sidebar menu.
 - Press the "+" icon in the bottom right corner.

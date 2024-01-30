@@ -1,7 +1,7 @@
-=============================================================
-Launching virtual routers using the OpenStack terminal client
-=============================================================
-To launch a `virtual-router <../index>`_ from the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps: 
+=====================================================
+Launching routers using the OpenStack terminal client
+=====================================================
+To launch a `router <../index>`_ from the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps: 
 
 - Run ``$ openstack availability zone list --network --long``, this will give you the current availability zones for routers and networking, to create the router we will need to select an availability zone for it. Save the name of the availability zone (with zone resource "router") you want to use for following step. If you are unsure, always use "europe-se-1a".
 - Run ``$ openstack network list --external``, this will show the available external networks. Save this for next step.
@@ -12,5 +12,5 @@ To launch a `virtual-router <../index>`_ from the :doc:`/getting-started/managin
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`
 

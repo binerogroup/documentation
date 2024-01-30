@@ -21,5 +21,5 @@ To create a :doc:`network <index>` from :doc:`/getting-started/managing-your-clo
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`
 

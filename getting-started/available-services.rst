@@ -5,7 +5,7 @@ Binero.cloud is a full fledged infrastructure platform. Below are some of the ma
 
 Compute
 -------
-One of the three core services of the platform, compute are virtual instances of physical hardware, providing CPU and RAM via "flavors" (which can be described as "recepies" for a virtual server or instance). 
+One of the three core services of the platform, compute is instances (virtual machines) running on physical hardware, providing CPU and RAM via "flavors" (which defines amount of resources and what kind of resources a server or instance gets access to).
 
 Block storage
 -------------
@@ -13,7 +13,7 @@ Another core service, block storage is the persistant storage that is used to sa
 
 Networking
 ----------
-The last core service is networking. Binero.cloud supports virtual routers that enable routing between networks as well as firewalling. To routers (and instances) its possible to connect floating IPs which are public (available on the internet) IP-addresses that can have various functions.
+The last core service is networking. Binero.cloud supports routers that enable routing between networks as well as firewalling. To routers (and instances) its possible to connect floating IPs which are public (available on the internet) IP-addresses that can have various functions.
 
 Load balancing
 --------------

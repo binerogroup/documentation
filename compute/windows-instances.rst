@@ -25,7 +25,7 @@ To set the initial password through the :doc:`/getting-started/managing-your-clo
 - Press (using the cursor) the "sign in" button.
 - You will be prompted to select a password.
 
-You are now able to login using your new password via an RDP client using for instance a :doc:`floating IP </networking/floating-ips>`. Dont forget that you may need to add a :doc:`security group </networking/virtual-router/security-groups/index>` for RDP access.
+You are now able to login using your new password via an RDP client using for instance a :doc:`floating IP </networking/floating-ips>`. Dont forget that you may need to add a :doc:`security group </networking/router/security-groups/index>` for RDP access.
 
 OpenStack Horizon
 ^^^^^^^^^^^^^^^^^
@@ -38,7 +38,7 @@ To set the initial password through the :doc:`/getting-started/managing-your-clo
 - Press (using the cursor) the "sign in" button.
 - You will be prompted to select a password.
 
-You are now able to login using your new password via an RDP client using for instance a :doc:`floating IP </networking/floating-ips>`. Dont forget that you may need to add a :doc:`security group </networking/virtual-router/security-groups/index>` for RDP access.
+You are now able to login using your new password via an RDP client using for instance a :doc:`floating IP </networking/floating-ips>`. Dont forget that you may need to add a :doc:`security group </networking/router/security-groups/index>` for RDP access.
 
 .. Note::
 	If you cannot see the sign-in button for any reason, restart the server.

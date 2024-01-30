@@ -1,11 +1,11 @@
 ============
 Floating IPs
 ============
-There are two main ways to use public IP-space (globally accessible IP-space) in Binero.cloud, :doc:`directly attached IPs <directly-attached-ips>` and Floating-ips. Directly attached IPs are assigned directly on the :doc:`instances </compute/index>` network interface (port). This means that when you run for instance ``$ ip address show`` or ``$ ip config /all`` inside an instance operating system, you would (with a directly attached IP) see the public IP assigned on the interface. When using a floating IP, the result would instead be the ip from the :doc:`private subnet <virtual-router/private-subnet/index>` that you assigned to the instance. The floating IP is then redirected (by using DNAT or SNAT) to and from the instance using the virtual router.
+There are two main ways to use public IP-space (globally accessible IP-space) in Binero.cloud, :doc:`directly attached IPs <directly-attached-ips>` and Floating-ips. Directly attached IPs are assigned directly on the :doc:`instances </compute/index>` network interface (port). This means that when you run for instance ``$ ip address show`` or ``$ ip config /all`` inside an instance operating system, you would (with a directly attached IP) see the public IP assigned on the interface. When using a floating IP, the result would instead be the ip from the :doc:`private subnet <router/private-subnet/index>` that you assigned to the instance. The floating IP is then redirected (by using DNAT or SNAT) to and from the instance using the router.
 
-Floating IPs are, as the name implies, not tied to a single instance but mapped to another IP (usually an IP that comes from a :doc:`private subnet <virtual-router/private-subnet/index>`). They are "floating" in the sense that they are easily movable between instances as zero configuration is needed in the actual instance. A floating IP is local to a project and is owned by the project, even if its not actively used on an instance. This is because a public IP-address could have various dependencies (in firewalls, etc) on the internet and users normally want to keep their IPs. Using a floating IP makes the IP concept portable (within the platform). 
+Floating IPs are, as the name implies, not tied to a single instance but mapped to another IP (usually an IP that comes from a :doc:`private subnet <router/private-subnet/index>`). They are "floating" in the sense that they are easily movable between instances as zero configuration is needed in the actual instance. A floating IP is local to a project and is owned by the project, even if its not actively used on an instance. This is because a public IP-address could have various dependencies (in firewalls, etc) on the internet and users normally want to keep their IPs. Using a floating IP makes the IP concept portable (within the platform). 
 
-Floating IPs require a :doc:`virtual router <virtual-router/index>` as its the router that does the mapping. On a technical level, :doc:`virtual-router/nat` is used and its used in both directions:
+Floating IPs require a :doc:`router <router/index>` as its the router that does the mapping. On a technical level, :doc:`router/nat` is used and its used in both directions:
 
 - Incoming traffic from the internt would be destination NAT:ed (DNAT:ed) to the private subnet IP from the floating. 
 - Outgoing traffic to the internet would be source NAT:ed (SNAT:ed) to appear as if originating from the floating IP. 
@@ -17,7 +17,7 @@ Key differences to directly attached IPs
 ----------------------------------------
 
 - A floating IP is not visible (or indeed configured) on an instance. This means any application that is to use a floating IP, will have to work with NAT (which the vast amount of applications do).
-- Since a virtual router is used and translation to VXLAN happens earlier than in the case of directly attached IPs, a floating IP would have a small performance penalty. This is very insignificant. 
+- Since a router is used and translation to VXLAN happens earlier than in the case of directly attached IPs, a floating IP would have a small performance penalty. This is very insignificant. 
 - Some features in the platform require floating IPs and will not work with directly attached IPs.
 
 Setting up a floating IP
@@ -52,7 +52,7 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 - Select your new (or old, if you had one already) IP under "fixed IPs".
 - Under "available ports", select the internal IP to map the floating IP to. 
 - Press "associate IP".
-- Your IP should now be visible under the "Networking" tab. Remember that you might need to add :doc:`security groups <virtual-router/security-groups/index>` to the instance if you cannot reach it.
+- Your IP should now be visible under the "Networking" tab. Remember that you might need to add :doc:`security groups <router/security-groups/index>` to the instance if you cannot reach it.
 
 Adding floating IPs using OpenStack Horizon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,7 +72,7 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 - Select your new (or old, if you had one already) IP under "IP Address".
 - Under "Ports to be associated", select the internal IP to map the floating IP to. 
 - Press "Associate".
-- Your IP should now be visible under the "IP address" column. Remember that you might need to add :doc:`security groups <virtual-router/security-groups/index>` to the instance if you cannot reach it.
+- Your IP should now be visible under the "IP address" column. Remember that you might need to add :doc:`security groups <router/security-groups/index>` to the instance if you cannot reach it.
 
 Adding a floating IP using OpenStack terminal client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,12 +89,12 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 - Run this commadn: ``$ openstack server list``, note the name of the instance you want to assign the floating IP to. 
 - Run this command: ``$ openstack server show [NAME]``, replacing [NAME] with the name of the server from previous step. Note which address from the "addresses" field you want to connect the floating IP to. 
 - Run this command: ``$ openstack server add floating ip --fixed-ip-address [INTERNAL IP] [INSTANCE NAME] [FLOATING IP]``, replacing [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with whichever floating IP you added as per earlier step.
-- Your IP should now be visible under the "addresses" field when running the command ``$ openstack server show [NAME]``. Remember that you might need to add :doc:`security groups <virtual-router/security-groups/index>` to the instance if you cannot reach it.
+- Your IP should now be visible under the "addresses" field when running the command ``$ openstack server show [NAME]``. Remember that you might need to add :doc:`security groups <router/security-groups/index>` to the instance if you cannot reach it.
 
 ..  seealso::
     - :doc:`directly-attached-ips`
     - :doc:`regions-and-availability-zones`
-    - :doc:`virtual-router/index`
+    - :doc:`router/index`
 
 
 

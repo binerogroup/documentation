@@ -6,7 +6,7 @@ While the VPN service sets up a template configuration of a site-to-site VPN wit
 When provisioning the VPN, you will get output. The "mgmt_url" output will be the URL that you us for managing the VPN service. Enter it into a browser. 
 
 .. Note::
-	Keep in mind that only the IP (range) that you added in "Admin IP ranges" when setting up the VPN will be allowed to login. This is managed via a :doc:`security group </networking/virtual-router/security-groups/index>` which is called ``IPSec-<name>-<random string>_management``, if you've not retained the same IP, you may need to edit the security group.
+	Keep in mind that only the IP (range) that you added in "Admin IP ranges" when setting up the VPN will be allowed to login. This is managed via a :doc:`security group </networking/router/security-groups/index>` which is called ``IPSec-<name>-<random string>_management``, if you've not retained the same IP, you may need to edit the security group.
 
 You would also have gotten an "admin_password" output, which is a generated password for your instance. This, combined with the username "admin" will give you access to the portal.
 

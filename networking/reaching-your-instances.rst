@@ -12,7 +12,7 @@ The different methods are discussed below.
 
 Floating IP
 -----------
-A floating IP is a public, globally routed, IP address that maps 1:1 with an instance. It will use DNAT (destination NAT) in combination with :doc:`security groups <virtual-router/security-groups/index>` to allow traffic through the router from the internet. It is normally used for enabling services to be internet facing (reachable from the internet) but could just as well be used for managing instances (by simply enabling access to for instance SSH over the floating IP).
+A floating IP is a public, globally routed, IP address that maps 1:1 with an instance. It will use DNAT (destination NAT) in combination with :doc:`security groups <router/security-groups/index>` to allow traffic through the router from the internet. It is normally used for enabling services to be internet facing (reachable from the internet) but could just as well be used for managing instances (by simply enabling access to for instance SSH over the floating IP).
 
 The downside is that a floating IP will have to be assigned to all instances which will incur a monthly cost. Another downside is that while you are able to lock a floating IP down using security groups, if security groups are misconfigured, access might be granted to servers that would otherwise not need a floating IP (because they are not needed to expose their services to the internet). It will also require you to make sure your management traffic is encrypted (which for instance SSH is) as there is no tunneling.
 
@@ -41,7 +41,7 @@ The downside is that its cumbersome to for instance copy a file to the cloud ins
 	While it might sound appealing to mix-match the above alternatives, we strongly recommend implementing a single strategy for cloud access and instead making sure its locked down. With multiple ways to access your cloud infrastructure, the risk that security might be compromised increases drastically. A well rounded solution is the client VPN. This will provide a good tradeoff between security and usability for management of cloud infrastructure. 
 
 ..  seealso::
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`
     - :doc:`/networking/floating-ips`
     - :doc:`/networking/client-vpn/index`
     - :doc:`/networking/site-to-site-vpn/index`

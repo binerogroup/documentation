@@ -1,7 +1,7 @@
 ================
 Site-to-site VPN
 ================
-A site-to-site VPN is a tunnel that connects two (or more) sites. A site can, in turn, consist of several :doc:`subnets <../virtual-router/private-subnet/index>` that all route over the tunnel but the standard use case is a single subnet on each side that send its traffic to the other site through the tunnel whereby the traffic is encrypted so it cannot be read by someone in transit.
+A site-to-site VPN is a tunnel that connects two (or more) sites. A site can, in turn, consist of several :doc:`subnets <../router/private-subnet/index>` that all route over the tunnel but the standard use case is a single subnet on each side that send its traffic to the other site through the tunnel whereby the traffic is encrypted so it cannot be read by someone in transit.
 
 In Binero.Cloud you are able to provision site-to-site VPNs using the `IPSec protocol <https://en.wikipedia.org/wiki/IPsec>`__. In short, this protocol consists of two phases, the first negotiates encryption for itself (phase 1) and sets up a tunnel that can in turn be used for negotiating a a second phase (phase 2) for sending packets with an agreed upon encryption. Routing is inherent in IPSec as traffic flows between subnets. Because of this, tunnels (phase 2 flows) are always defined as a single source- and destination-network. These flows can however be multiplied if several networks need access to each other.
 

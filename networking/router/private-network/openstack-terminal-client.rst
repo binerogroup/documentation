@@ -15,4 +15,4 @@ To create a :doc:`network <index>` from the :doc:`/getting-started/managing-your
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`

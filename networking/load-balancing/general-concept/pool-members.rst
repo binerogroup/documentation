@@ -7,7 +7,7 @@ A member is a compute instance that runs a service (for instance Apache). When l
 - Backup flag - this means that the member is a fallback server if all the normal members are down. For instance when doing maintenance on an application you'd might like to show a notification that your site is down and will be back later. 
 - Weight can be set so that a member receives a disproportionate amount of request. A higher weight means more requests, the maximum number is 256. We recommend keeping all members identical and as such, this should rarely (if ever) be used.
 
-All members should have an IP on a :doc:`private subnet <../../virtual-router/private-subnet/index>`. While the private subnet does not have to be the same as the one the listener uses, its recommended for simplicity as well as performance. 
+All members should have an IP on a :doc:`private subnet <../../router/private-subnet/index>`. While the private subnet does not have to be the same as the one the listener uses, its recommended for simplicity as well as performance. 
 
 ..  seealso::
     - :doc:`../recommendations`

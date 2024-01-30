@@ -14,7 +14,7 @@ To create a :doc:`private subnet <index>` from the from the :doc:`/getting-start
 
 Assign subnet to router
 -----------------------
-To :doc:`connect to a virtual router <connect-subnet-to-router>`, follow these steps:
+To :doc:`connect to a router <connect-subnet-to-router>`, follow these steps:
 
 - Run: ``$ openstack router list`` to get the list of your available routers. Save the name of the router you want to connect the subnet to.
 - Run: ``$ openstack subnet list`` to get the list of your available subnets. Save the name of the subnet you want to connect to the router.
@@ -25,5 +25,5 @@ To :doc:`connect to a virtual router <connect-subnet-to-router>`, follow these s
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`
 

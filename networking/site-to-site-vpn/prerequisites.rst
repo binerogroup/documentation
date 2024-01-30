@@ -10,7 +10,7 @@ Checklist to get started
 ------------------------
 You will need the following information to get started:
 
-- An existing :doc:`private subnet <../virtual-router/private-subnet/index>` already setup in the platform which will be the local subnet (in :doc:`CIDR notation </networking/virtual-router/private-subnet/subnet-format>`) that is routed over IPSec to the remote subnet (which would be your office or secondary datacenter, for instance).
+- An existing :doc:`private subnet <../router/private-subnet/index>` already setup in the platform which will be the local subnet (in :doc:`CIDR notation </networking/router/private-subnet/subnet-format>`) that is routed over IPSec to the remote subnet (which would be your office or secondary datacenter, for instance).
 - The IP address of the remote gateway (your public IP that would normally be provided to you by your ISP) for the tunnel.
 - The remote subnet (in CIDR notation) that will be tunneled (meaning the network on which the computers or servers that should be able to connect to resources in the cloud using the tunnel, are situated on). 
 - A management IP which will be allowed access to managing the VPN over the internet. If you have another means of accessing the internal network (where the VPN server will be running), for instance our :doc:`client VPN </networking/client-vpn/index>`, this is not needed and once the tunnel is up, you can connect to its remote IP. Normally the management IP is the same as the local gateway. 

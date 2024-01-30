@@ -1,7 +1,7 @@
 ========================
 Connect subnet to router
 ========================
-For most situations, you would want to connect your subnet to your virtual router so that you can for instance reach the internet (or your other networks) through it. This means giving your virtual router an interface on the network on which the subnet is defined as well as an IP-address on the subnet, thereby enabling traffic to be routed to and from the subnet.
+For most situations, you would want to connect your subnet to your router so that you can for instance reach the internet (or your other networks) through it. This means giving your router an interface on the network on which the subnet is defined as well as an IP-address on the subnet, thereby enabling traffic to be routed to and from the subnet.
 
 For instructions on how to connect a subnet to a router, a step-by-step guide is available based on your choice of management platform:
 
@@ -14,4 +14,4 @@ For instructions on how to connect a subnet to a router, a step-by-step guide is
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`

@@ -22,7 +22,7 @@ To add a route using the :doc:`/getting-started/managing-your-cloud/cloud-manage
 - Press the network for which you want to add the route.
 - Press the edit icon (a small pencil) next to the subnet for which you want to add the route.
 - Press the "+" sign above "add host route".
-- Under "Destination CIDR", enter the destination network in :doc:`CIDR notation </networking/virtual-router/private-subnet/subnet-format>`.
+- Under "Destination CIDR", enter the destination network in :doc:`CIDR notation </networking/router/private-subnet/subnet-format>`.
 - Under "Nexthop (IP)" add the gateway address. This address needs to be in the subnet you are editing.
 - Press "Save subnet".
 
@@ -34,7 +34,7 @@ To add a route using the :doc:`/getting-started/managing-your-cloud/openstack-ho
 - Press the name of the network for which you want to add the route.
 - Press the "subnets" tab and then "edit subnet" button on the row of the subnet for which you want to add the route.
 - Press the "Subnet details" button.
-- Enter the route as ``destination subnet in `CIDR notation </networking/virtual-router/private-subnet/subnet-format>`,nexthop (gateway)``, for instance ``192.168.10.0/24,192.168.1.5``. A single route entry on a single row.
+- Enter the route as ``destination subnet in `CIDR notation </networking/router/private-subnet/subnet-format>`,nexthop (gateway)``, for instance ``192.168.10.0/24,192.168.1.5``. A single route entry on a single row.
 - Press "Save".
 
 Add a route using OpenStack terminal client

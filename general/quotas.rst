@@ -15,13 +15,13 @@ The default quotas, available out of the box, are as follows:
 - Volume size on disk: 2000 GB
 - :doc:`Backups </backup/index>`: 250
 - Backup size on disk: 20000 GB
-- :doc:`Networks </networking/virtual-router/private-network/index>`: 100
-- :doc:`Subnets </networking/virtual-router/private-subnet/index>`: 100
+- :doc:`Networks </networking/router/private-network/index>`: 100
+- :doc:`Subnets </networking/router/private-subnet/index>`: 100
 - :doc:`Ports </networking/ports>`: 500
-- :doc:`Routers </networking/virtual-router/index>`: 10
+- :doc:`Routers </networking/router/index>`: 10
 - :doc:`Floating ip </networking/floating-ips>`: 50
 - RBAC policys: 10
-- :doc:`Security groups </networking/virtual-router/security-groups/index>`: 15
+- :doc:`Security groups </networking/router/security-groups/index>`: 15
 - security rules: 249
 
 ..  seealso::

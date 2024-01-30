@@ -11,7 +11,7 @@ To setup the service, first follow the general instructions on our :doc:`index` 
 - Select disk-type. See the :doc:`/storage/storage-types` article for more information.
 - Select your instance :doc:`flavor </compute/flavors>`. We recommend sticking with the default.
 - Select your :doc:`SSH-key </compute/ssh-keys>`. 
-- Under "local network", select the :doc:`network </networking/virtual-router/private-subnet/index>` on which you want to run the service.
+- Under "local network", select the :doc:`network </networking/router/private-subnet/index>` on which you want to run the service.
 - Check "NFS" if you want to install support for NFS. 
 - Check "Windows Samba" if you want to install support for SMB/CIFS.
 - Select the storage volume size. This is the volume on which you will store your data. Its growable later on as per the :doc:`/storage/persistent-block-storage/extend-volume` article.

@@ -4,9 +4,9 @@ Launching instances using OpenStack terminal client
 To launch an :doc:`instance <../index>` from the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
 
 .. Note::
-	If you don't have a :doc:`network </networking/virtual-router/private-subnet/index>` or :doc:`../ssh-keys` available in some of the steppes below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>` first. An SSH-key setup using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` is not available in Horizon or the terminal client as they use `api users </getting-started/users.html#api-users>`__ to login and SSH-keys are account bound.
+	If you don't have a :doc:`network </networking/router/private-subnet/index>` or :doc:`../ssh-keys` available in some of the steppes below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>` first. An SSH-key setup using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` is not available in Horizon or the terminal client as they use `api users </getting-started/users.html#api-users>`__ to login and SSH-keys are account bound.
 
-- Identify which :doc:`network </networking/virtual-router/private-network/index>` you want to use by running ``$ openstack network list``, save the name.
+- Identify which :doc:`network </networking/router/private-network/index>` you want to use by running ``$ openstack network list``, save the name.
 - Identify which :doc:`SSH-key <../ssh-keys>` you want to use by running ``$ openstack key list``, save the name.
 - Identify which :doc:`flavor <../flavors>` you want to use by running ``$ openstack flavor list``, save the name.
 - Identify which :doc:`image </images/index>` you want to boot from by running ``$ openstack image list``, save the name.
@@ -36,7 +36,7 @@ Above method will create a disk with standard options. It will end up on our sta
 When running ``$ openstack server list`` you will notice that your newly created server is given an IP from the subnet you specified. You might need to add a floating IP to be able to connect. More information in our :doc:`/networking/reaching-your-instances` article. To assign it a floating IP via the OpenStack terminal client, please see :doc:`/networking/floating-ips`.
 
 .. Note::
-	The cloud management portal will not setup :doc:`security groups </networking/virtual-router/security-groups/index>` which will be needed to access the instance if you are using a floating IP.
+	The cloud management portal will not setup :doc:`security groups </networking/router/security-groups/index>` which will be needed to access the instance if you are using a floating IP.
 
 .. Tip:: 
 	The OpenStack terminal client will give you helpful feedback when ending a command with "-h". For instance ``$ openstack server create -h`` will show you how you can work with various options to create a server. 

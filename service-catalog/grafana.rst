@@ -11,7 +11,7 @@ To setup the service, first follow the general instructions on our :doc:`index` 
 - Select your instance :doc:`flavor </compute/flavors>`. We recommend sticking with the default.
 - If you want to also install an InfluxDB server, check the "InfluxDB" checkbox. If you don't, you can still use Grafana to visualise data from some already existent source. 
 - Select your :doc:`SSH-key </compute/ssh-keys>`. 
-- Under "local network", select the :doc:`network </networking/virtual-router/private-subnet/index>` on which you want to run the service.
+- Under "local network", select the :doc:`network </networking/router/private-subnet/index>` on which you want to run the service.
 - If you want your service publicly available on the internet, you can assign a floating IP (this can also be done later) by checking the "public access" checkbox. If you dont, you can only access it locally in your cloud account or over some kind of VPN.
 - Press "create". You will get further details on how to connect to the service. 
 

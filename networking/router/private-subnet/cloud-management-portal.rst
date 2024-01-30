@@ -9,7 +9,7 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 - Press "Networking" and then "Networks" in the sidebar menu.
 - On the network to which you want to add the subnet, press the "create subnet" icon (looking like multiple rows of text with a small "+" sign).
 - Name your subnet.
-- Under "network address" you need to input the address in CIDR notation (see the :doc:`/networking/virtual-router/private-subnet/subnet-format` article for more information). For example "192.168.0.0/24.
+- Under "network address" you need to input the address in CIDR notation (see the :doc:`/networking/router/private-subnet/subnet-format` article for more information). For example "192.168.0.0/24.
 - Under "Gateway-IP" you have the option to either :doc:`set an IP as gateway <connect-subnet-to-router>` or not. If you want a gateway, select "Use standard gateway-IP". If you don't, select "don't use a gateway". The last option "enter gateway manually" will enable you to choose a specific IP as your gateway. If you are unsure, we recommend "Use standard gateway".
 - IPv4 should be selected. 
 - If you want to use IPv4, we recommend using DHCP to assign addresses to hosts (as you wont have to login to a host via terminal to set them up). The checkbox should be checked. 
@@ -20,7 +20,7 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 
 Assign subnet to router
 -----------------------
-To :doc:`connect the subnet to a virtual router <connect-subnet-to-router>`, follow these steps:
+To :doc:`connect the subnet to a router <connect-subnet-to-router>`, follow these steps:
 
 - Press "Networking" and then "Networks" in the sidebar menu.
 - Press the network you want to connect to your router.
@@ -33,4 +33,4 @@ To :doc:`connect the subnet to a virtual router <connect-subnet-to-router>`, fol
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`

@@ -1,7 +1,7 @@
-=================================================
-Launching virtual routers using OpenStack Horizon
-=================================================
-To launch a :doc:`virtual-router <../index>` from the :doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`, follow these steps: 
+=========================================
+Launching routers using OpenStack Horizon
+=========================================
+To launch a :doc:`router <../index>` from the :doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`, follow these steps: 
 
 - Under "project", click "Network" and then "Routers" in the sidebar menu.
 - Click "Create Router" in the right upper corner.
@@ -17,6 +17,6 @@ To launch a :doc:`virtual-router <../index>` from the :doc:`OpenStack Horizon po
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`
 
 

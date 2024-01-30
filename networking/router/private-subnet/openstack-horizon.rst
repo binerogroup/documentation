@@ -35,6 +35,6 @@ To :doc:`connect-subnet-to-router`, follow these steps:
 
 ..  seealso::
     - :doc:`/networking/regions-and-availability-zones`
-    - :doc:`/networking/virtual-router/index`
+    - :doc:`/networking/router/index`
 
 

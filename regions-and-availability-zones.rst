@@ -1,7 +1,8 @@
 ==============================
 Regions and availability zones
 ==============================
-Binero.Cloud is conceptually designed and physically provisioned to provide segmentation into regions which in turn are split into availability zones. The main reason for wanting several physical locations is to build geo-redundant installations, meaning infrastructure that is able to withstand a disaster scenario. For instance a plane-crash into a datacenter is a common example of a situation that a properly designed geo-diverse installation should be able to handle without disruption. 
+
+Binero cloud is conceptually designed and physically provisioned to provide segmentation into regions which in turn are split into availability zones. The main reason for wanting several physical locations is to build geo-redundant installations, meaning infrastructure that is able to withstand a disaster scenario. For instance a plane-crash into a datacenter is a common example of a situation that a properly designed geo-diverse installation should be able to handle without disruption. 
 
 Regions
 -------
@@ -46,7 +47,7 @@ In Binero.cloud, the floating and directly attached IPs (the public IP-space tha
 
 The solution to this is to assign a floating IP in both zones (which should only be linked to resources that are located in the same zone) and have a DNS record that could be re-pointed or to use a global load balancer (see below) to send the request to a zone that is currently working.
 
-This would in turn require you to use more than a single internal subnet as your networking would otherwise send your traffic to the virtual router that has the default route setup (which would be located in one of the AZs). More on this in the `virtual router segment </networking/virtual-router/index>`_ in this documentation.
+This would in turn require you to use more than a single internal subnet as your networking would otherwise send your traffic to the router that has the default route setup (which would be located in one of the AZs). More on this in the `router segment </networking/router/index>`_ in this documentation.
 
 Availability zones and storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,5 +74,5 @@ Binero.Cloud does not currently provide a global load balancer service but using
 
 
 ..  seealso::
-  - :doc:`/networking/virtual-router/index`
+  - :doc:`/networking/router/index`
   - :doc:`/storage/index`

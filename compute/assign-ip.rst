@@ -4,7 +4,7 @@ Assigning IP to instance
 
 General concept
 ---------------
-An IP address is normally assigned the instance upon :doc:`creation <launching-an-instance/index>`. This is the recommended approach to assigning an IP address (and thus, access to a network) as it will run cloud-init and (provided you've assigned a :doc:`private subnet </networking/virtual-router/private-subnet/index>`) setup your ip-configuration for you. *This is only done on instance provisioning so any additional* :doc:`ports </networking/ports>` *you assign, will have to be manually configured in the OS*. 
+An IP address is normally assigned the instance upon :doc:`creation <launching-an-instance/index>`. This is the recommended approach to assigning an IP address (and thus, access to a network) as it will run cloud-init and (provided you've assigned a :doc:`private subnet </networking/router/private-subnet/index>`) setup your ip-configuration for you. *This is only done on instance provisioning so any additional* :doc:`ports </networking/ports>` *you assign, will have to be manually configured in the OS*. 
 
 Aside from the single IP that is normally setup during provisioning, two main use-cases for connecting additional IPs to an instance exists;
 

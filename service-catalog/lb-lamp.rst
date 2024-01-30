@@ -17,9 +17,9 @@ To setup the service, first follow the general instructions on our :doc:`index` 
 - Under "db_flavor", select your *database instances* :doc:`flavor </compute/flavors>`. We recommend sticking with the default.
 - Select disk-type for the *database instance*. See the :doc:`/storage/storage-types` article for more information. We recommend SSD.
 - Select your :doc:`SSH-key </compute/ssh-keys>`. 
-- Under "local network", select the :doc:`network </networking/virtual-router/private-network/index>` on which the private subnet (see below) that you want to use is located.
+- Under "local network", select the :doc:`network </networking/router/private-network/index>` on which the private subnet (see below) that you want to use is located.
 - Under "nfs_flavor", select your *NFS instances* :doc:`flavor </compute/flavors>`. We recommend sticking with the default.
-- Under "subnet", select the :doc:`network </networking/virtual-router/private-subnet/index>` on which you want to run the service.
+- Under "subnet", select the :doc:`network </networking/router/private-subnet/index>` on which you want to run the service.
 - Under "web count", select the amount of load balanced web servers (instances running apache) you want. 
 - Under "web_flavor", select your **web/apache instances** :doc:`flavor </compute/flavors>`. We recommend sticking with the default.
 - Press "create". You will get further details on how to connect to the service. 

@@ -4,11 +4,11 @@ Private subnets
 
 General concept
 ---------------
-A private subnet in Binero.cloud is an :doc:`IP-range <subnet-format>` that is local to your project on the platform and therefore not reachable from outside your virtual router (with :doc:`exception for routing between routers <../routing-between-networks>`). A private subnet should not be confused with a shared, :doc:`external subnet <../../floating-ips>` which is used by many customers for external access to the internet. When provisioning a new instance, it would typically bet connect to a private subnet (if using a :doc:`virtual router <../index>` networking model).
+A private subnet in Binero.cloud is an :doc:`IP-range <subnet-format>` that is local to your project on the platform and therefore not reachable from outside your router (with :doc:`exception for routing between routers <../routing-between-networks>`). A private subnet should not be confused with a shared, :doc:`external subnet <../../floating-ips>` which is used by many customers for external access to the internet. When provisioning a new instance, it would typically bet connect to a private subnet (if using a :doc:`router <../index>` networking model).
 
 When you create a private subnet, you assign it to a :doc:`network <../private-network/index>`. It will enable you to: 
   - Use addresses from the subnet when creating instances, either by using :doc:`dhcp` (which is recommended) or by manually assigning addresses from the subnet.
-  - Assign an individual IP-address as the :doc:`gateway IP-address <connect-subnet-to-router>` for the network, by assigning it to a virtual router.
+  - Assign an individual IP-address as the :doc:`gateway IP-address <connect-subnet-to-router>` for the network, by assigning it to a router.
 
 You are also able to :doc:`route between networks <../routing-between-networks>`. This is useful for creating security zones or for segmenting your infrastructure in multiple subnets (for instance when having a production and staging system).
 
