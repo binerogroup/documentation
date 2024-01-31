@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -537,8 +537,8 @@
   
   
     <li class="md-nav__item">
-      <a href="virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -612,8 +612,8 @@
   
   
     <li class="md-nav__item">
-      <a href="load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -726,10 +726,10 @@
       
         <li class="md-nav__item">
   <a href="#using-ptr-in-binero-cloud" class="md-nav__link">
-    <span class="md-ellipsis">Using PTR in Binero.<wbr>cloud</span>
+    <span class="md-ellipsis">Using PTR in Binero cloud</span>
   </a>
   
-    <nav class="md-nav" aria-label="Using PTR in Binero.cloud">
+    <nav class="md-nav" aria-label="Using PTR in Binero cloud">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1050,10 +1050,10 @@
       
         <li class="md-nav__item">
   <a href="#using-ptr-in-binero-cloud" class="md-nav__link">
-    <span class="md-ellipsis">Using PTR in Binero.<wbr>cloud</span>
+    <span class="md-ellipsis">Using PTR in Binero cloud</span>
   </a>
   
-    <nav class="md-nav" aria-label="Using PTR in Binero.cloud">
+    <nav class="md-nav" aria-label="Using PTR in Binero cloud">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1113,7 +1113,7 @@
 <p>A PTR (or “reverse DNS”) record is a DNS record that returns a name from a question containing an IP-address. DNS would normally do the opposite, that is return an IP-address from a domain name. Thus, when having the IP-address but not knowing the name, reverse DNS comes into play.</p>
 <p>The most common use-case for reverse DNS is when setting up an e-mail relay. This is because e-mail servers normally use their domain name when communicating with each other via the so called “HELO” (or “EHLO”) message. For anti spam purposes, its been common praxis on the internet to require that the HELO message (which might be for instance “smtp.binero.com”) comes from an IP-address that in turn has the same PTR record. By comparing HELO with the PTR and with a forward lookup (so basically asking what IP-address smpt.binero.com points to), its less likely that the e-mail is SPAM.</p>
 <p>Aside from this, when doing traceroutes (or other diagnostics involving IP-addresses and routing) its good practice to add PTRs so as to quickly be able to understand to which domain an IP-address belongs.</p>
-<h2 id="using-ptr-in-binero-cloud">Using PTR in Binero.cloud<a class="headerlink" href="#using-ptr-in-binero-cloud" title="Link to this heading">¶</a></h2>
+<h2 id="using-ptr-in-binero-cloud">Using PTR in Binero cloud<a class="headerlink" href="#using-ptr-in-binero-cloud" title="Link to this heading">¶</a></h2>
 <p>PTR is (via the platform) only available on <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IPs</span></a> (not on <a class="reference internal" href="directly-attached-ips.html"><span class="doc">Directly attached IPs</span></a>). While you would be able to setup a local DNS server on your project to service PTR records for your various internal IPs (as well as directly attached IPs), those would not be publicly available on the internet (since they are on private IP-space that many people use).</p>
 <h3 id="ttl">TTL<a class="headerlink" href="#ttl" title="Link to this heading">¶</a></h3>
 <p>When adding a PTR record, you will also need to select a TTL (short for “Time To Live”). This is a value that regulates how long a DNS record should be cached. What this means is that when a PTR record is looked up by a resolver (which is the server that the end-user would use to lookup DNS names), that resolver will cache the record for this period of time (in seconds). This has many advantages, load is distributed and concurrent DNS lookups of the same domain is done much faster improving the user experience. The downside is that when changing a DNS record, it will take this long before you can be sure that the change is visible worldwide. We recommend an hour (so 3600) as a well rounded TTL.</p>
@@ -1150,14 +1150,14 @@
 <h3 id="adding-ptr-records-using-openstack-terminal-client">Adding PTR records using OpenStack terminal client<a class="headerlink" href="#adding-ptr-records-using-openstack-terminal-client" title="Link to this heading">¶</a></h3>
 <p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">list</span></code>. Save the UUID (id column) of the IP you want to set PTR on.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">list</span></code>. Find the row that matches the UUID from previous command. Save the complete id from this command (could look something like this: europe-se-1:2e6a89c0-d8ae-471e-ae28-e858c63c4c6e).</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">set</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">--ttl</span> <span class="pre">3600</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span> <span class="pre">[PTR</span> <span class="pre">DOMAIN].</span></code>. Take care to end the PTR name (the domain), with a dot (“.”) and replace the values within angle brackets with their corresponding values. Description is optional.</p></li>
-<li><p>You are also able to unset (as in completely remove) the record using the following command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">unset</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span></code></p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">list</span></code>. Save the UUID (id column) of the IP you want to set PTR on.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">list</span></code>. Find the row that matches the UUID from previous command. Save the complete id from this command (could look something like this: europe-se-1:2e6a89c0-d8ae-471e-ae28-e858c63c4c6e).</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">set</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">--ttl</span> <span class="pre">3600</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span> <span class="pre">[PTR</span> <span class="pre">DOMAIN].</span></code>. Take care to end the PTR name (the domain), with a dot (“.”) and replace the values within angle brackets with their corresponding values. Description is optional.</p></li>
+<li><p>You are also able to unset (as in completely remove) the record using the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">unset</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span></code></p></li>
 </ul>
 <div class="important admonition">
 <p class="admonition-title">Important</p>
-<p>To be able to run above terminal client commands, you may need to add support for the designate API to the openstack terminal client. This could be done on many platforms by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-openstackclient</span> <span class="pre">python-designateclient</span></code></p>
+<p>To be able to run above terminal client commands, you may need to add support for the designate API to the openstack terminal client. This could be done on many platforms by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-openstackclient</span> <span class="pre">python-designateclient</span></code></p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

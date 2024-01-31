@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1029,7 +1029,7 @@
 <p>Shelving an instance is a way to leave an instance permanently shut down for a period of time, either because its temporarily not needed or because as part of an decommissioning process, its to be saved in an offline state for some time.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>In Binero.Cloud, instances that are not running are only billed at a 20% rate. This is due to the resource allocation that is still happening in the background. It makes no difference if an instance is shelved or just turned off from a billing perspective, however shelving an instance does make it clear that the instance is not just switched off in error as well as prevents it from being booted by accident.</p>
+<p>In Binero cloud, instances that are not running are only billed at a 20% rate. This is due to the resource allocation that is still happening in the background. It makes no difference if an instance is shelved or just turned off from a billing perspective, however shelving an instance does make it clear that the instance is not just switched off in error as well as prevents it from being booted by accident.</p>
 </div>
 <p>Currently, shelving is only possible via <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> or <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>.</p>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
@@ -1042,10 +1042,10 @@
 <h2 id="openstack-terminal-client">OpenStack terminal client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To shelve an <a class="reference external" href="index">instance</a> using the OpenStack terminal client, follow these steps:</p>
 <ul class="simple">
-<li><p>Identify the instance you want to shelve. This can be done by running the following command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>.</p></li>
-<li><p>To shelve the instance <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">shelve</span> <span class="pre">[NAME]</span></code>. Replace the values within brackets with the name of the instance from the previous step.</p></li>
+<li><p>Identify the instance you want to shelve. This can be done by running the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>.</p></li>
+<li><p>To shelve the instance <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">shelve</span> <span class="pre">[NAME]</span></code>. Replace the values within brackets with the name of the instance from the previous step.</p></li>
 </ul>
-<p>The instance will be shutdown (if its running) and the shelving process will run. To un-shelve repeat the process but instead run the following command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unshelve</span> <span class="pre">[NAME]</span></code>.</p>
+<p>The instance will be shutdown (if its running) and the shelving process will run. To un-shelve repeat the process but instead run the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unshelve</span> <span class="pre">[NAME]</span></code>.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

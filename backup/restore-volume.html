@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1016,9 +1016,9 @@
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To restore a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, note the size of the backup that you want to restore as well as the ID.</p></li>
-<li><p>Follow the steps in our <a class="reference internal" href="../storage/persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a> guide to create an empty volume of the same size as the backup. Note the ID it gets. Can also be gotten by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">restore</span> <span class="pre">--force</span> <span class="pre">[BACKUP_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, note the size of the backup that you want to restore as well as the ID.</p></li>
+<li><p>Follow the steps in our <a class="reference internal" href="../storage/persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a> guide to create an empty volume of the same size as the backup. Note the ID it gets. Can also be gotten by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">restore</span> <span class="pre">--force</span> <span class="pre">[BACKUP_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>

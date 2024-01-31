@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1070,10 +1070,10 @@
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To create a backup from a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>, save the ID of the snapshot you want to backup.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">show</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">-c</span> <span class="pre">volume_id</span></code>, replace the SNAPSHOT_ID with the id from previous command. Save the volume ID of the snapshot.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing the items in angle brackets with the values from previous two commands as well as a name for the backup-job.</p></li>
-<li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, the backup will have the “Status” change from “creating” to “available” when done.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>, save the ID of the snapshot you want to backup.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">show</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">-c</span> <span class="pre">volume_id</span></code>, replace the SNAPSHOT_ID with the id from previous command. Save the volume ID of the snapshot.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing the items in angle brackets with the values from previous two commands as well as a name for the backup-job.</p></li>
+<li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, the backup will have the “Status” change from “creating” to “available” when done.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

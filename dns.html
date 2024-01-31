@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -932,13 +932,13 @@
 <h3 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h3>
 <p>To setup an DNS zone using <a class="reference internal" href="getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">zone</span> <span class="pre">create</span> <span class="pre">--email</span> <span class="pre">[EMAIL_ADDRESS]</span> <span class="pre">example.com.</span></code>, replacing the e-mail address with your e-mail and “example.com.” with your domain. Note the dot (“.”) at the end of the domain name.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">zone</span> <span class="pre">create</span> <span class="pre">--email</span> <span class="pre">[EMAIL_ADDRESS]</span> <span class="pre">example.com.</span></code>, replacing the e-mail address with your e-mail and “example.com.” with your domain. Note the dot (“.”) at the end of the domain name.</p></li>
 </ul>
 <p>To add a DNS zone record using the <a class="reference internal" href="getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">zone</span> <span class="pre">list</span></code>, save the UUID from the zone that you want to add/list records on.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">recordset</span> <span class="pre">list</span> <span class="pre">[ID]</span></code>, replacing the ID with the ID from previous step.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">recordset</span> <span class="pre">create</span> <span class="pre">--record</span> <span class="pre">[TARGET</span> <span class="pre">IP]</span> <span class="pre">--type</span> <span class="pre">[POINTER</span> <span class="pre">TYPE]</span> <span class="pre">[DOMAIN</span> <span class="pre">ID]</span> <span class="pre">[SUBDOMAIN]</span></code>, replacing the items in angle brackets with correct values. Pointer Type is for instance “A” or “MX”, target IP might be a CNAME (if relevant).</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">zone</span> <span class="pre">list</span></code>, save the UUID from the zone that you want to add/list records on.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">recordset</span> <span class="pre">list</span> <span class="pre">[ID]</span></code>, replacing the ID with the ID from previous step.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">recordset</span> <span class="pre">create</span> <span class="pre">--record</span> <span class="pre">[TARGET</span> <span class="pre">IP]</span> <span class="pre">--type</span> <span class="pre">[POINTER</span> <span class="pre">TYPE]</span> <span class="pre">[DOMAIN</span> <span class="pre">ID]</span> <span class="pre">[SUBDOMAIN]</span></code>, replacing the items in angle brackets with correct values. Pointer Type is for instance “A” or “MX”, target IP might be a CNAME (if relevant).</p></li>
 </ul>
 
 

@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -532,8 +532,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="../router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -607,8 +607,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="../load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -1140,8 +1140,8 @@
   </a>
 
 <h1 id="site-to-site-vpn">Site-to-site VPN<a class="headerlink" href="#site-to-site-vpn" title="Link to this heading">¶</a></h1>
-<p>A site-to-site VPN is a tunnel that connects two (or more) sites. A site can, in turn, consist of several <a class="reference internal" href="../virtual-router/private-subnet/index.html"><span class="doc">subnets</span></a> that all route over the tunnel but the standard use case is a single subnet on each side that send its traffic to the other site through the tunnel whereby the traffic is encrypted so it cannot be read by someone in transit.</p>
-<p>In Binero.Cloud you are able to provision site-to-site VPNs using the <a class="reference external" href="https://en.wikipedia.org/wiki/IPsec">IPSec protocol</a>. In short, this protocol consists of two phases, the first negotiates encryption for itself (phase 1) and sets up a tunnel that can in turn be used for negotiating a a second phase (phase 2) for sending packets with an agreed upon encryption. Routing is inherent in IPSec as traffic flows between subnets. Because of this, tunnels (phase 2 flows) are always defined as a single source- and destination-network. These flows can however be multiplied if several networks need access to each other.</p>
+<p>A site-to-site VPN is a tunnel that connects two (or more) sites. A site can, in turn, consist of several <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">subnets</span></a> that all route over the tunnel but the standard use case is a single subnet on each side that send its traffic to the other site through the tunnel whereby the traffic is encrypted so it cannot be read by someone in transit.</p>
+<p>In Binero cloud you are able to provision site-to-site VPNs using the <a class="reference external" href="https://en.wikipedia.org/wiki/IPsec">IPSec protocol</a>. In short, this protocol consists of two phases, the first negotiates encryption for itself (phase 1) and sets up a tunnel that can in turn be used for negotiating a a second phase (phase 2) for sending packets with an agreed upon encryption. Routing is inherent in IPSec as traffic flows between subnets. Because of this, tunnels (phase 2 flows) are always defined as a single source- and destination-network. These flows can however be multiplied if several networks need access to each other.</p>
 <p>The VPN service will come with its own management interface (web based) that enables you to manage change security settings, add or remove flows, etc. Complete documentation of all the features our VPN solution provides is out of scope for our support pages but more information is available on <a class="reference external" href="https://www.pfsense.org/get-involved/">https://www.pfsense.org/get-involved/</a> as well as the web in general. Please see the subsections of this section for the most common information relating to the service. Our support staff can also help you out.</p>
 <p>To create a VPN-tunnel between sites, first read through our <a class="reference internal" href="prerequisites.html"><span class="doc">Prerequisites for site-2-site VPN</span></a> and then follow our <a class="reference internal" href="setting-up.html"><span class="doc">Setting up site-to-site VPN</span></a> guide. Once that is done, we provide general guidelines for <a class="reference internal" href="configure-remote.html"><span class="doc">setting up the remote end</span></a> of the tunnel.</p>
 <div class="seealso admonition">
@@ -1163,7 +1163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="configure-remote.html">Configuring the remote end</a></li>
 <li class="toctree-l1"><a class="reference internal" href="adding-routing-for-vpn.html">Adding routes for site-to-site VPN</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="adding-routing-for-vpn.html#routing-via-dhcp">Routing via DHCP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding-routing-for-vpn.html#routing-in-virtual-router">Routing in virtual router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adding-routing-for-vpn.html#routing-in-router">Routing in router</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced-configuration.html">Advanced configuration</a><ul>

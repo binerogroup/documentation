@@ -367,7 +367,7 @@
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -463,8 +463,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#load-balancing" class="md-nav__link">
-    <span class="md-ellipsis">Load balancing</span>
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">Load balancer</span>
   </a>
   
 </li>
@@ -872,8 +872,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#load-balancing" class="md-nav__link">
-    <span class="md-ellipsis">Load balancing</span>
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">Load balancer</span>
   </a>
   
 </li>
@@ -947,36 +947,47 @@
   </a>
 
 <h1 id="available-services">Available services<a class="headerlink" href="#available-services" title="Link to this heading">¶</a></h1>
-<p>Binero.cloud is a full fledged infrastructure platform. Below are some of the main services outlined.</p>
+<p>Binero cloud is a full fledged infrastructure platform. Below are some of the main services outlined.</p>
 <h2 id="compute">Compute<a class="headerlink" href="#compute" title="Link to this heading">¶</a></h2>
-<p>One of the three core services of the platform, compute are virtual instances of physical hardware, providing CPU and RAM via “flavors” (which can be described as “recepies” for a virtual server or instance).</p>
+<p>One of the three core services of the platform, compute is instances (virtual machines) running on physical hardware, providing
+CPU and RAM via “flavors” (which defines amount of resources and what kind of resources a server or instance gets access to).</p>
 <h2 id="block-storage">Block storage<a class="headerlink" href="#block-storage" title="Link to this heading">¶</a></h2>
-<p>Another core service, block storage is the persistant storage that is used to save files and data, i.e. the “harddrive” of the server. This is done via volumes that can be either SSD-based or HDD-based (depending on the use case). The volumes are attached to instances at creation but can be re-attached to a new instance or shelved.</p>
+<p>Another core service, block storage is the persistant storage that is used to save files and data, i.e. the “harddrive” of the server.</p>
+<p>This is done via volumes that can be either SSD-based or HDD-based (depending on the use case). The volumes are attached to instances at creation but can be re-attached to a new instance or shelved.</p>
 <h2 id="networking">Networking<a class="headerlink" href="#networking" title="Link to this heading">¶</a></h2>
-<p>The last core service is networking. Binero.cloud supports virtual routers that enable routing between networks as well as firewalling. To routers (and instances) its possible to connect floating IPs which are public (available on the internet) IP-addresses that can have various functions.</p>
-<h2 id="load-balancing">Load balancing<a class="headerlink" href="#load-balancing" title="Link to this heading">¶</a></h2>
-<p>To manage load distribution between servers (or to create highly available systems) a load balancer is provisioned. This is a system that takes a request and forwards it to one of several available servers in a pool. If one server is not working (or needs to be for instance rebooted), it will be removed from the pool. By using a load balancer, its easier to scale out a system.</p>
+<p>The last core service is networking. Binero cloud supports routers that enable routing between networks as well as firewalling.</p>
+<p>To routers (and instances) its possible to connect floating IPs which are public (available on the internet) IP-addresses that can have various functions.</p>
+<h2 id="load-balancer">Load balancer<a class="headerlink" href="#load-balancer" title="Link to this heading">¶</a></h2>
+<p>To manage load distribution between servers (or to create highly available systems) a load balancer is provisioned.</p>
+<p>This is a system that takes a request and forwards it to one of several available servers in a pool. If one server is not
+working (or needs to be for instance rebooted), it will be removed from the pool. By using a load balancer, its easier to scale out a system.</p>
 <h2 id="secret-store">Secret store<a class="headerlink" href="#secret-store" title="Link to this heading">¶</a></h2>
-<p>Using our secure secret store, you can store information securely that you want to use for the platform. For instance certificate keys for terminating SSL in the loadbalancer or for using with the S3 service.</p>
+<p>Using our secure secret store, you can store information securely that you want to use for the platform.</p>
+<p>For instance certificate keys for terminating SSL in the loadbalancer or for using with the S3 service.</p>
 <h2 id="client-vpn">Client VPN<a class="headerlink" href="#client-vpn" title="Link to this heading">¶</a></h2>
-<p>To reach your infrastructure securely, a VPN might be utilised. This would setup a secure tunnel, encrypting your traffic before sending it over the internet back and forth. Binero.cloud supports OpenVPN.</p>
+<p>To reach your infrastructure securely, a VPN might be utilised.</p>
+<p>This would setup a secure tunnel, encrypting your traffic before sending it over the internet back and forth. Binero cloud supports OpenVPN.</p>
 <h2 id="object-storage">Object storage<a class="headerlink" href="#object-storage" title="Link to this heading">¶</a></h2>
-<p>Object storage is a way to store objects (files of any kind) by id in the cloud using HTTPS. Binero.cloud supports both S3- and Swift-based object storage.</p>
+<p>Object storage is a way to store objects (files of any kind) by id in the cloud using HTTPS.</p>
+<p>Binero cloud supports both S3 and Swift APIs for our object storage service.</p>
 <h2 id="nvme-storage">NVMe storage<a class="headerlink" href="#nvme-storage" title="Link to this heading">¶</a></h2>
-<p>NVMe based storage is the most highly performing storage available with latency, throughput and I/O close to the speed of RAM. Binero.cloud supports NVMe volumes for applications that require the highest possible speed.</p>
+<p>NVMe based storage is the most highly performing storage available with latency, throughput and I/O close to the speed of RAM.</p>
+<p>Binero cloud supports NVMe volumes for applications that require the highest possible speed.</p>
 <h2 id="backup">Backup<a class="headerlink" href="#backup" title="Link to this heading">¶</a></h2>
-<p>Binero.cloud has a built in backup solution that you can enable for your volumes. Backup is always sent off site and stored in our S3 cloud.</p>
+<p>Binero cloud has a built in backup solution that you can enable for your volumes.</p>
+<p>Backup is always sent off site and stored in our S3 cloud.</p>
 <h2 id="gpu-based-compute">GPU based compute<a class="headerlink" href="#gpu-based-compute" title="Link to this heading">¶</a></h2>
-<p>For certain workloads, a CPU will not provide enough parallelism to provide an efficient workflow. GPUs are by design more limited in their use but extremely capable at doing the work they are designed for. Binero.cloud provides instances with GPU compute.</p>
+<p>For certain workloads, a CPU will not provide enough parallelism to provide an efficient workflow. GPUs are by design more limited in their use but extremely capable at doing the work they are designed for.</p>
+<p>Binero cloud provides instances with GPU compute.</p>
 <h2 id="multiple-availability-zones">Multiple availability zones<a class="headerlink" href="#multiple-availability-zones" title="Link to this heading">¶</a></h2>
-<p>Binero.cloud is available in two physical locations, availability zones, with about 10 km as the crow flies between the sites.</p>
+<p>Binero cloud is available in two physical locations, availability zones, with about 10 km as the crow flies between the sites.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../compute/index.html"><span class="doc">Compute</span></a></p></li>
 <li><p><a class="reference internal" href="../storage/index.html"><span class="doc">Storage</span></a></p></li>
 <li><p><a class="reference internal" href="../networking/index.html"><span class="doc">Networking</span></a></p></li>
-<li><p><a class="reference internal" href="../networking/load-balancing/index.html"><span class="doc">Load balancing</span></a></p></li>
+<li><p><a class="reference internal" href="../networking/load-balancer/index.html"><span class="doc">Load Balancer</span></a></p></li>
 <li><p><a class="reference internal" href="../secret-store/index.html"><span class="doc">Secret Store</span></a></p></li>
 <li><p><a class="reference internal" href="../networking/client-vpn/index.html"><span class="doc">Client VPN</span></a></p></li>
 <li><p><a class="reference internal" href="../storage/object-storage/index.html"><span class="doc">Object storage</span></a></p></li>

@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -537,8 +537,8 @@
   
   
     <li class="md-nav__item">
-      <a href="virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -643,7 +643,7 @@
       
         <li class="md-nav__item">
   <a href="#mtu-in-binero-cloud" class="md-nav__link">
-    <span class="md-ellipsis">MTU in Binero.<wbr>Cloud</span>
+    <span class="md-ellipsis">MTU in Binero cloud</span>
   </a>
   
 </li>
@@ -698,8 +698,8 @@
   
   
     <li class="md-nav__item">
-      <a href="load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -1064,7 +1064,7 @@
       
         <li class="md-nav__item">
   <a href="#mtu-in-binero-cloud" class="md-nav__link">
-    <span class="md-ellipsis">MTU in Binero.<wbr>Cloud</span>
+    <span class="md-ellipsis">MTU in Binero cloud</span>
   </a>
   
 </li>
@@ -1123,24 +1123,31 @@
   </a>
 
 <h1 id="mtu">MTU<a class="headerlink" href="#mtu" title="Link to this heading">¶</a></h1>
-<p>MTU or Maximum Transmission Unit, is a measure of how large individual packets (or frames) can be. The concept of “jumbo frames” essentially means supporting an MTU on an interface that is larger than 1500 bytes which is the normal standard size of a network interface if left unconfigured in most operating systems.</p>
+<p>MTU or Maximum Transmission Unit, is a measure of how large individual packets (or frames) can be. The concept of “jumbo frames” essentially means supporting an MTU on an interface
+that is larger than 1500 bytes which is the normal standard size of a network interface if left unconfigured in most operating systems.</p>
 <h2 id="fragmentation">Fragmentation<a class="headerlink" href="#fragmentation" title="Link to this heading">¶</a></h2>
-<p>Since the standard MTU size is 1500 bytes, using a larger MTU could have some impact for packages that have a destination that is outside the scope of the local network (where the MTU is possible to control). For these scenarios, <strong>fragmentation</strong> is the normal solution. Fragmentation means that an intermediate router might split a package into several packages, should it need to egress onto a network with a smaller MTU as next hop. The receiving server will later on have to reassemble the packet. This process happens in the background and is not something that needs to be actively managed by an administrator, however some applications does not work well with fragmentation so there is an option to disallow it by setting the “DF” bit on a frame.</p>
-<p>DF stands for Donot Fragment and essentially tells every router involved to avoid fragmentation. The alternative to fragmentation, when using a larger MTU than 1500, is that the package is dropped and an ICMP message with code “need to frag” is returned. Because of this, its important to understand the concept of MTU, especially when using an MTU different from 1500 bytes. Here is an example of an ICMP reply to a package that was to big, as captured using <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code>:</p>
+<p>Since the standard MTU size is 1500 bytes, using a larger MTU could have some impact for packages that have a destination that is outside the scope of the local
+network (where the MTU is possible to control). For these scenarios, <strong>fragmentation</strong> is the normal solution.</p>
+<p>Fragmentation means that an intermediate router might split a package into several packages, should it need to egress onto a network with a smaller MTU as next hop.</p>
+<p>The receiving server will later on have to reassemble the packet. This process happens in the background and is not something that needs to be actively managed by an administrator, however some
+applications does not work well with fragmentation so there is an option to disallow it by setting the “DF” bit on a frame.</p>
+<p>DF stands for Donot Fragment and essentially tells every router involved to avoid fragmentation. The alternative to fragmentation, when using a larger MTU than 1500, is that the package is
+dropped and an ICMP message with code “need to frag” is returned. Because of this, its important to understand the concept of MTU, especially when using an MTU different from 1500 bytes.</p>
+<p>Here is an example of an ICMP reply to a package that was to big, as captured using <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">17:54:49.979998</span> <span class="pre">IP</span> <span class="pre">1.2.3.4</span> <span class="pre">&gt;</span> <span class="pre">5.6.7.8:</span> <span class="pre">ICMP</span> <span class="pre">1.2.3.4</span> <span class="pre">unreachable</span> <span class="pre">-</span> <span class="pre">need</span> <span class="pre">to</span> <span class="pre">frag</span> <span class="pre">(mtu</span> <span class="pre">1450),</span> <span class="pre">length</span> <span class="pre">556</span></code>.</p>
 <p>Here is an example of of a package that has the DF bit set:</p>
 <p><code class="docutils literal notranslate"><span class="pre">6:30:17.621056</span> <span class="pre">IP</span> <span class="pre">(tos</span> <span class="pre">0x0,</span> <span class="pre">ttl</span> <span class="pre">61,</span> <span class="pre">id</span> <span class="pre">39062,</span> <span class="pre">offset</span> <span class="pre">0,</span> <span class="pre">flags</span> <span class="pre">[DF],</span> <span class="pre">proto</span> <span class="pre">TCP</span> <span class="pre">(6),</span> <span class="pre">length</span> <span class="pre">4148)</span> <span class="pre">4.5.6.7.443</span> <span class="pre">&gt;</span> <span class="pre">1.2.3.4.34862:</span> <span class="pre">Flags</span> <span class="pre">[P.],</span> <span class="pre">cksum</span> <span class="pre">0x0bdb</span> <span class="pre">(incorrect</span> <span class="pre">-&gt;</span> <span class="pre">0x3f5f),</span> <span class="pre">seq</span> <span class="pre">1:4097,</span> <span class="pre">ack</span> <span class="pre">321,</span> <span class="pre">win</span> <span class="pre">227,</span> <span class="pre">options</span> <span class="pre">[nop,nop,TS</span> <span class="pre">val</span> <span class="pre">955793242</span> <span class="pre">ecr</span> <span class="pre">3076045005],</span> <span class="pre">length</span> <span class="pre">4096</span></code>.</p>
 <p>Notice the “DF” flag - this indicates that the package should not be fragmented. Also notice the “length” indicating that the package is 4096 bits long and as such, will not pass a standard 1500 MTU interface (since it cannot be fragmented).</p>
 <h2 id="mtu-discovery">MTU discovery<a class="headerlink" href="#mtu-discovery" title="Link to this heading">¶</a></h2>
 <p>There is a standard for discovering the smallest MTU on a link called <a class="reference external" href="https://en.wikipedia.org/wiki/Path_MTU_Discovery">Path MTU Discovery</a> or PMTUD. This enables servers to discover the smallest MTU by setting the DF flag and sending packages until they are forwarded correctly. It relies on ICMP which not all service providers and network operators honour so its not 100% certain to always work.</p>
-<h2 id="mtu-in-binero-cloud">MTU in Binero.Cloud<a class="headerlink" href="#mtu-in-binero-cloud" title="Link to this heading">¶</a></h2>
-<p>Since Binero.Cloud uses virtualised networking, the MTU size given when using <a class="reference internal" href="virtual-router/private-subnet/dhcp.html"><span class="doc">DHCP</span></a> on your <a class="reference internal" href="virtual-router/private-subnet/index.html"><span class="doc">private subnet</span></a> to assign addresses is 1450 bytes. This is because the VXLAN encapsulation needs 50 bytes of the frames available 1500 bytes. The underlying interface on the physical servers managing compute and networking in the platform uses the standard of 1500 bytes and so the instances need to have a smaller MTU set in order to also provide enough room for the host to encapsulate the frame before sending it onto the network.</p>
+<h2 id="mtu-in-binero-cloud">MTU in Binero cloud<a class="headerlink" href="#mtu-in-binero-cloud" title="Link to this heading">¶</a></h2>
+<p>Since Binero cloud uses virtualized networking, the MTU size given when using <a class="reference internal" href="router/private-subnet/dhcp.html"><span class="doc">DHCP</span></a> on your <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> to assign addresses is 1450 bytes. This is because the VXLAN encapsulation needs 50 bytes of the frames available 1500 bytes. The underlying interface on the physical servers managing compute and networking in the platform uses the standard of 1500 bytes and so the instances need to have a smaller MTU set in order to also provide enough room for the host to encapsulate the frame before sending it onto the network.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Its possible to set whichever MTU you’d like on your interface however using something larger than 1450 will cause issues of packages being dropped. See below.</p>
 </div>
 <h2 id="mtu-caveats">MTU caveats<a class="headerlink" href="#mtu-caveats" title="Link to this heading">¶</a></h2>
-<p>When using a different than standard MTU (as is the case in Binero.cloud), it becomes important to understand the possible effects of that. As long as you only have your compute instances and they use 1450 MTU, generally everything will work well. If you for instance use <strong>bridge interfaces</strong> on your instances to connect to local containers (or some other use-case), which in turn use the default 1500 MTU then this might have adverse effects.</p>
+<p>When using a different than standard MTU (as is the case in Binero cloud), it becomes important to understand the possible effects of that. As long as you only have your compute instances and they use 1450 MTU, generally everything will work well. If you for instance use <strong>bridge interfaces</strong> on your instances to connect to local containers (or some other use-case), which in turn use the default 1500 MTU then this might have adverse effects.</p>
 <div class="important admonition">
 <p class="admonition-title">Important</p>
 <p>Use only 1450 MTU on all interfaces that are setup on your instances.</p>
@@ -1165,10 +1172,10 @@
 <p>Taking into account the overhead from the encapsulation, less space remains to send traffic and therefore the max size of the payload must be decreased to fit the extra header.</p>
 <h2 id="general-recommendations">General recommendations<a class="headerlink" href="#general-recommendations" title="Link to this heading">¶</a></h2>
 <p>There are mechanisms in TCP to overcome MTU differences as well as PMTUD (which cannot be trusted though). That said, generally you would want to ensure that you <strong>do not use more than 1450 MTU in total</strong> on the platform. If you need to use encapsulation, take this into account. A good way to test is using ping with the DF flag set and by manually specifying the size of the ping package. This is done as following in Linux:</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ping</span> <span class="pre">-M</span> <span class="pre">do</span> <span class="pre">1.2.3.4</span> <span class="pre">-s</span> <span class="pre">1500</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">-M</span> <span class="pre">do</span> <span class="pre">1.2.3.4</span> <span class="pre">-s</span> <span class="pre">1500</span></code></p>
 <p>And on Windows:</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ping</span> <span class="pre">1.2.3.4</span> <span class="pre">-l</span> <span class="pre">1500</span> <span class="pre">–f</span></code></p>
-<p>Above example would ping with 1500 bytes with DF set and would return a fail if that did not work. Keep in mind that ping uses both ICMP and IP which both add to the size of the packets (20 and 8 bytes respectively) so even sending 1450 bytes with DF set to an IP in Binero.Cloud will not work, however 1450 - 28 = 1422 bytes will.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">1.2.3.4</span> <span class="pre">-l</span> <span class="pre">1500</span> <span class="pre">–f</span></code></p>
+<p>Above example would ping with 1500 bytes with DF set and would return a fail if that did not work. Keep in mind that ping uses both ICMP and IP which both add to the size of the packets (20 and 8 bytes respectively) so even sending 1450 bytes with DF set to an IP in Binero cloud will not work, however 1450 - 28 = 1422 bytes will.</p>
 <p>In conclusion, keeping MTU consistent to 1450 across all interfaces will ensure functionality.</p>
 
 
@@ -1214,13 +1221,13 @@
       
       
         
-        <a href="load-balancing/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: Load balancing" rel="next">
+        <a href="load-balancer/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: Load Balancer" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Load balancing
+              Load Balancer
             </div>
           </div>
           <div class="md-footer__button md-icon">

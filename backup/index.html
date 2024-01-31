@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1045,7 +1045,7 @@
 <p>When backing up volumes from availability zone <em>europe-se-1b</em>, note that the backups currently will <em>also end up in the same availability zone</em> (and, in part, on the same storage). If you have data that is not also stored in zone europe-se-1a, we recommend using a different backup in order to secure your data for a potential storage outage in zone europe-se-1b.</p>
 </div>
 <h2 id="data-integrity">Data integrity<a class="headerlink" href="#data-integrity" title="Link to this heading">¶</a></h2>
-<p>The backup service in Binero.Cloud backs up <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volumes</span></a>. When backing up a volume, data will be copied bit-by-bit from the source to the destination over some time (it takes time to copy large amounts of data). If data is also being written to the source disk during copying, the data on the destination server may get corrupted. A way to work around this is to shut down the server but since this may not always be an option, taking some time to consider the potential impact of corrupted data might be advisable.</p>
+<p>The backup service in Binero cloud backs up <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volumes</span></a>. When backing up a volume, data will be copied bit-by-bit from the source to the destination over some time (it takes time to copy large amounts of data). If data is also being written to the source disk during copying, the data on the destination server may get corrupted. A way to work around this is to shut down the server but since this may not always be an option, taking some time to consider the potential impact of corrupted data might be advisable.</p>
 <p>For a fileserver, the risk of corrupted files should be minimal (and in the event a file is compromised, the damage is limited to that file). When backing up a database, however, the entire database might be reliant on a few files and should one of them be compromised, the database will not start again. In this scenario, the usual solution is to first run a dump of the database data onto a file on the filesystem. This file would then be safe (as its not written to after the dump) and in the event of a restore, the file could just be read back into the database.</p>
 <p>A way to work around this problem (in part) is to first <a class="reference internal" href="../storage/snapshots/index.html"><span class="doc">snapshot</span></a> your volume and then backup the snapshot. That way, new writes will be moved away from the snapshot (which is read-only) and data will be safer. Bare in mind that a snapshot could also cut writes in half so exporting databases is still advisable.</p>
 <p>Shutting of your instance will of course make the backup entirely safe from above issues.</p>
@@ -1054,7 +1054,7 @@
 <p>We strongly recommend doing a restore-test of your backups. Since <a class="reference internal" href="restore-volume.html"><span class="doc">restoring</span></a> to a new volume and creating a new instance that could run parallel to the real one is very easy, this is a good way to ensure data consistency in your backup.</p>
 </div>
 <h2 id="setting-up-backup">Setting up backup<a class="headerlink" href="#setting-up-backup" title="Link to this heading">¶</a></h2>
-<p>There are two main ways to backup data using Binero.Clouds backup feature:</p>
+<p>There are two main ways to backup data using Binero clouds backup feature:</p>
 <h3 id="manual-backup">Manual backup<a class="headerlink" href="#manual-backup" title="Link to this heading">¶</a></h3>
 <p>When doing a manual backup, your data would be pushed to the backup storage once upon request. This could be done for instance, before doing a migration or upgrade (although a snapshot might also be a good alternative for this) or if you want to have a copy of an installed server stored offline in the event of the real server for instance being deleted - and then backing up the data separately. More information in our <a class="reference internal" href="manual-backup.html"><span class="doc">Setting up manual backup</span></a> article.</p>
 <h3 id="automated-backup">Automated backup<a class="headerlink" href="#automated-backup" title="Link to this heading">¶</a></h3>

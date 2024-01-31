@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -537,8 +537,8 @@
   
   
     <li class="md-nav__item">
-      <a href="virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -612,8 +612,8 @@
   
   
     <li class="md-nav__item">
-      <a href="load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -740,8 +740,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#virtual-routers" class="md-nav__link">
-    <span class="md-ellipsis">Virtual routers</span>
+  <a href="#routers" class="md-nav__link">
+    <span class="md-ellipsis">Routers</span>
   </a>
   
 </li>
@@ -754,8 +754,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#load-balancing" class="md-nav__link">
-    <span class="md-ellipsis">Load balancing</span>
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">Load balancer</span>
   </a>
   
 </li>
@@ -1036,8 +1036,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#virtual-routers" class="md-nav__link">
-    <span class="md-ellipsis">Virtual routers</span>
+  <a href="#routers" class="md-nav__link">
+    <span class="md-ellipsis">Routers</span>
   </a>
   
 </li>
@@ -1050,8 +1050,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#load-balancing" class="md-nav__link">
-    <span class="md-ellipsis">Load balancing</span>
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">Load balancer</span>
   </a>
   
 </li>
@@ -1083,34 +1083,34 @@
   </a>
 
 <h1 id="networking-regions-and-availability-zones">Networking regions and availability zones<a class="headerlink" href="#networking-regions-and-availability-zones" title="Link to this heading">¶</a></h1>
-<p>Networking is a core service and is available in all Binero.Clouds regions and availability zones. Below we outline the region and availability zone concepts for networking. If you are looking to roll out a geo redundant network, understanding the base design principles will help you create a <em>very</em> resilient and highly available system with no dependencies between the availability zones. This is key to retaining connectivity (and overall system functionality) in the event of a hypothetical availability zone outage scenario.</p>
+<p>Networking is a core service and is available in all Binero clouds regions and availability zones. Below we outline the region and availability zone concepts for networking. If you are looking to roll out a geo redundant network, understanding the base design principles will help you create a <em>very</em> resilient and highly available system with no dependencies between the availability zones. This is key to retaining connectivity (and overall system functionality) in the event of a hypothetical availability zone outage scenario.</p>
 <h2 id="networks-and-subnets">Networks and subnets<a class="headerlink" href="#networks-and-subnets" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="virtual-router/private-network/index.html"><span class="doc">Private networks</span></a> (and therefore <a class="reference internal" href="virtual-router/private-subnet/index.html"><span class="doc">Private subnets</span></a>) stretch between availability zones (but not between regions). This enables you to connect instances in different availability zones directly to each other on the same private subnet (same layer 2 broadcast domain). We do however recommend the routed approach to inter availability zone communication (more information in section about virtual routers below).</p>
+<p><a class="reference internal" href="router/private-network/index.html"><span class="doc">Private networks</span></a> (and therefore <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">Private subnets</span></a>) stretch between availability zones (but not between regions). This enables you to connect instances in different availability zones directly to each other on the same private subnet (same layer 2 broadcast domain). We do however recommend the routed approach to inter availability zone communication (more information in section about routers below).</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>A valid use case for using the same subnet in more then one availability zone would be a non routed back network. This might be used for backups, database connections, access from bounce server, etc. So long as its only used for traffic within the platform and not for ingress/egress to or from the platform, it will not introduce dependencies on a specific zone. This is a simple solution but usually implies multi homing instances (adding more than one port/nic) which would negate the gain by having to maintain more firewall rules, separate IP-networks, etc. Our recommendation therefore, is to use routing to communicate between availability zones. More on this below.</p>
 </div>
-<h2 id="virtual-routers">Virtual routers<a class="headerlink" href="#virtual-routers" title="Link to this heading">¶</a></h2>
-<p>Virtual routers are always local to an availability zone even though its possible to provision multi-zone routers using the terminal or horizon. The reason for this is that Binero.cloud does not currently incorporate anycast public ip-space, see section on <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IPs</span></a> below for more information on this subject.</p>
+<h2 id="routers">Routers<a class="headerlink" href="#routers" title="Link to this heading">¶</a></h2>
+<p>Routers are always local to an availability zone even though its possible to provision multi-zone routers using the terminal or horizon. The reason for this is that Binero cloud does not currently incorporate anycast public ip-space, see section on <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IPs</span></a> below for more information on this subject.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Provisioning a router in multiple availability zones will, silently, still provision in just the first zone of the region.</p>
 </div>
-<p>Therefore when using multiple availability zones, take care to have at least one virtual router per zone and always connect your instances or services to the router that is local to them. While its possible to connect a port on an instance to a router in a different availability zone via a network (as outline above), the router is not provisioned with high availability between zones (meaning the router would go offline should the zone its placed in go offline). All traffic ingressing and egressing a router will flow through the same availability zone (regardless of where the instances behind the router are located).</p>
-<p>When setting up systems with geo-redundancy using more then one availability zone, its therefore recommended to setup a virtual router in each availability zone and <a class="reference internal" href="virtual-router/routing-between-networks.html"><span class="doc">route traffic between them</span></a> as this (in a scenario in which an availability zone would fail) would just bring down the one availability zone.</p>
+<p>Therefore when using multiple availability zones, take care to have at least one router per zone and always connect your instances or services to the router that is local to them. While its possible to connect a port on an instance to a router in a different availability zone via a network (as outline above), the router is not provisioned with high availability between zones (meaning the router would go offline should the zone its placed in go offline). All traffic ingressing and egressing a router will flow through the same availability zone (regardless of where the instances behind the router are located).</p>
+<p>When setting up systems with geo-redundancy using more then one availability zone, its therefore recommended to setup a router in each availability zone and <a class="reference internal" href="router/routing-between-networks.html"><span class="doc">route traffic between them</span></a> as this (in a scenario in which an availability zone would fail) would just bring down the one availability zone.</p>
 <h2 id="floating-ips">Floating IPs<a class="headerlink" href="#floating-ips" title="Link to this heading">¶</a></h2>
-<p>Because Binero.cloud is currently not using anycasted public IP-space, floating IPs are still local to a single availability zone. While its possible to connect a floating IP to an instance in another availability zone using a private network (that stretch across zones), should the availability zone that hosts the floating IP for some reason fail, the floating IP will fail with it also in the second availability zone.</p>
-<p>When working with public access, it is therefore recommended to connect floating IPs that are local to the instances or services they connect to, through a virtual router that is also hosted in the same availability zone. To send access to both (or several) sites, a <a class="reference external" href="/regions-and-availability-zones.html#global-load-balancing">global load balancer</a> would be used to route traffic to all floating IPs.</p>
-<h2 id="load-balancing">Load balancing<a class="headerlink" href="#load-balancing" title="Link to this heading">¶</a></h2>
-<p>The same way as with floating IPs and virtual routers, <a class="reference internal" href="load-balancing/index.html"><span class="doc">Load balancing</span></a> will be able reach instances in availability zones that is not local to the load balancer (because the private networks stretches across availability zones). The actual load balancers, however, is still only local to a single zone and will fail in the even the zone should fail. That would leave the load balancer unreachable and the service down.</p>
+<p>Because Binero cloud is currently not using anycasted public IP-space, floating IPs are still local to a single availability zone. While its possible to connect a floating IP to an instance in another availability zone using a private network (that stretch across zones), should the availability zone that hosts the floating IP for some reason fail, the floating IP will fail with it also in the second availability zone.</p>
+<p>When working with public access, it is therefore recommended to connect floating IPs that are local to the instances or services they connect to, through a router that is also hosted in the same availability zone. To send access to both (or several) sites, a <a class="reference external" href="/regions-and-availability-zones.html#global-load-balancing">global load balancer</a> would be used to route traffic to all floating IPs.</p>
+<h2 id="load-balancer">Load balancer<a class="headerlink" href="#load-balancer" title="Link to this heading">¶</a></h2>
+<p>The same way as with floating IPs and routers, <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> will be able reach instances in availability zones that is not local to the load balancer (because the private networks stretches across availability zones). The actual load balancers, however, is still only local to a single zone and will fail in the even the zone should fail. That would leave the load balancer unreachable and the service down.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
 <p>When working with networking in multiple availability zones, care must be taken to not introduce dependencies between the zones. A dependency would bring down networking across multiple zones should the wrong zone fail. This would negate your efforts to setup a geo-redundant network when they matter the most - at the time of an actual outage.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="virtual-router/index.html"><span class="doc">Virtual routers</span></a></p></li>
+<li><p><a class="reference internal" href="router/index.html"><span class="doc">Router</span></a></p></li>
 <li><p><a class="reference internal" href="floating-ips.html"><span class="doc">Floating IPs</span></a></p></li>
-<li><p><a class="reference internal" href="load-balancing/index.html"><span class="doc">Load balancing</span></a></p></li>
+<li><p><a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a></p></li>
 <li><p><a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Regions and availability zones</span></a></p></li>
 </ul>
 </div>

@@ -15,7 +15,7 @@
     
 
       
-        <title>Creating a certificate for terminating SSL in load balancer - Binero Documentation</title>
+        <title>Creating a certificate for SSL/TLS termination using Load Balancer - Binero Documentation</title>
       
     
 <link rel="canonical" href="https://docs.binero.com/secret-store/create-cert-for-loadbalancing.html" />
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#converting-to-pkcs12" class="md-skip">
+        <a href="#converting-to-pkcs-12" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating a certificate for terminating SSL in load balancer
+              Creating a certificate for SSL/TLS termination using Load Balancer
             
           </span>
         </div>
@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -686,12 +686,12 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          <span class="md-ellipsis">Creating a certificate for terminating SSL in load balancer</span>
+          <span class="md-ellipsis">Creating a certificate for SSL/TLS termination using Load Balancer</span>
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="#" class="md-nav__link md-nav__link--active">
-        <span class="md-ellipsis">Creating a certificate for terminating SSL in load balancer</span>
+        <span class="md-ellipsis">Creating a certificate for SSL/TLS termination using Load Balancer</span>
       </a>
       
         
@@ -709,8 +709,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#converting-to-pkcs12" class="md-nav__link">
-    <span class="md-ellipsis">Converting to pkcs12</span>
+  <a href="#converting-to-pkcs-12" class="md-nav__link">
+    <span class="md-ellipsis">Converting to PKCS#12</span>
   </a>
   
 </li>
@@ -898,8 +898,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#converting-to-pkcs12" class="md-nav__link">
-    <span class="md-ellipsis">Converting to pkcs12</span>
+  <a href="#converting-to-pkcs-12" class="md-nav__link">
+    <span class="md-ellipsis">Converting to PKCS#12</span>
   </a>
   
 </li>
@@ -930,22 +930,23 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
-<h1 id="creating-a-certificate-for-terminating-ssl-in-load-balancer">Creating a certificate for terminating SSL in load balancer<a class="headerlink" href="#creating-a-certificate-for-terminating-ssl-in-load-balancer" title="Link to this heading">¶</a></h1>
-<p>When using the Binero.Cloud platform load balancer to terminate SSL connections directly, you need to have a certificate saved in our <a class="reference internal" href="index.html"><span class="doc">secret store</span></a>. The certificate needs to be created in <em>pkcs12 format</em> to work with the load balancer.</p>
-<h2 id="converting-to-pkcs12">Converting to pkcs12<a class="headerlink" href="#converting-to-pkcs12" title="Link to this heading">¶</a></h2>
-<p>Follow the below steps to create a pkcs12 certificate to use with the load balancing service:</p>
+<h1 id="creating-a-certificate-for-ssl-tls-termination-using-load-balancer">Creating a certificate for SSL/TLS termination using Load Balancer<a class="headerlink" href="#creating-a-certificate-for-ssl-tls-termination-using-load-balancer" title="Link to this heading">¶</a></h1>
+<p>When using the <a class="reference internal" href="../networking/load-balancer/index.html"><span class="doc">Load Balancer</span></a> service in Binero cloud you can terminate SSL/TLS connections directly, you need to have a certificate saved in our <a class="reference internal" href="index.html"><span class="doc">secret store</span></a>.</p>
+<p>The certificate needs to be created in <em>PKCS#12 format</em> to work with the load balancer.</p>
+<h2 id="converting-to-pkcs-12">Converting to PKCS#12<a class="headerlink" href="#converting-to-pkcs-12" title="Link to this heading">¶</a></h2>
+<p>Follow the below steps to create a PKCS#12 certificate for use with the <a class="reference internal" href="../networking/load-balancer/index.html"><span class="doc">Load Balancer</span></a> service:</p>
 <ul class="simple">
-<li><p>Gather your certificate <em>and chain</em> in a single file. For a letsencrypt certificates there is the file <code class="docutils literal notranslate"><span class="pre">/etc/letsencrypt/live/yourdomain.com/fullchain.pem</span></code> that is already prepared for this. If you dont use letsencrypt then you need to make sure you have the full chain of your certificate available and copy it into the same file, for instance like this: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cat</span> <span class="pre">/etc/ssl/cert.crt</span> <span class="pre">/etc/ssl/chain.crt</span> <span class="pre">&gt;</span> <span class="pre">new_cert.crt</span></code>.</p></li>
+<li><p>Gather your certificate <em>and chain</em> in a single file. For a LetsEncrypt certificates there is the file <code class="docutils literal notranslate"><span class="pre">/etc/letsencrypt/live/yourdomain.com/fullchain.pem</span></code> that is already prepared for this. If you dont use letsencrypt then you need to make sure you have the full chain of your certificate available and copy it into the same file, for instance like this: <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/ssl/cert.crt</span> <span class="pre">/etc/ssl/chain.crt</span> <span class="pre">&gt;</span> <span class="pre">new_cert.crt</span></code>.</p></li>
 <li><p>Make sure you have your key available.</p></li>
-<li><p>Run the following command, replacing the items in angle brackets to the correct file names as per previous steps: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openssl</span> <span class="pre">pkcs12</span> <span class="pre">-export</span> <span class="pre">-in</span> <span class="pre">[CERT_FILE_NAME.PEM]</span> <span class="pre">-inkey</span> <span class="pre">[YOUR_KEY.KEY]</span> <span class="pre">-out</span> <span class="pre">lb-cert.p12</span> <span class="pre">-passout</span> <span class="pre">pass:</span></code></p></li>
-<li><p>The new cert (that also includes the key) is stored as “lb-cert.p12”.</p></li>
+<li><p>Run the following command, replacing the items in angle brackets to the correct file names as per previous steps: <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">pkcs12</span> <span class="pre">-export</span> <span class="pre">-in</span> <span class="pre">[CERT_FILE_NAME.PEM]</span> <span class="pre">-inkey</span> <span class="pre">[YOUR_KEY.KEY]</span> <span class="pre">-out</span> <span class="pre">lb-cert.p12</span> <span class="pre">-passout</span> <span class="pre">pass:</span></code></p></li>
+<li><p>The new cert (that also includes the key) is stored as <code class="docutils literal notranslate"><span class="pre">lb-cert.p12</span></code></p></li>
 </ul>
 <h2 id="uploading-the-certificate-to-the-secret-store">Uploading the certificate to the secret store<a class="headerlink" href="#uploading-the-certificate-to-the-secret-store" title="Link to this heading">¶</a></h2>
 <p>You are able to follow the <a class="reference internal" href="create-secret.html"><span class="doc">guides for uploading the certificate</span></a> to store the certificate, either using the cloud management portal or the terminal client.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../networking/load-balancing/index.html"><span class="doc">Load balancing</span></a></p></li>
+<li><p><a class="reference internal" href="../networking/load-balancer/index.html"><span class="doc">Load Balancer</span></a></p></li>
 </ul>
 </div>
 

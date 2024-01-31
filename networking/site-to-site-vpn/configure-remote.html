@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -532,8 +532,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="../router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -607,8 +607,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="../load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -1077,7 +1077,7 @@
   </a>
 
 <h1 id="configuring-the-remote-end">Configuring the remote end<a class="headerlink" href="#configuring-the-remote-end" title="Link to this heading">¶</a></h1>
-<p>Part of the tunnel runs on Binero.Cloud but the other part runs on the site that you want to connect to. It is difficult to write a comprehensive documentation on how to setup the remote part of the tunnel as the equipment used could vary but normally the options that need editing are the same. IPSec will only work with identical settings on both ends so take care to setup the remove end point with <strong>exactly</strong> the same settings (as outlined below).</p>
+<p>Part of the tunnel runs on Binero cloud but the other part runs on the site that you want to connect to. It is difficult to write a comprehensive documentation on how to setup the remote part of the tunnel as the equipment used could vary but normally the options that need editing are the same. IPSec will only work with identical settings on both ends so take care to setup the remove end point with <strong>exactly</strong> the same settings (as outlined below).</p>
 <p>Keep in mind that for your tunnel to be able to initiate from both ends, you will need to allow traffic from the remote endpoint to your firewall. Either open up from all traffic from the remote endpoint IP (and <em>protocols</em> as IPSEC uses more than a single protocol) or do a selective firewall opening for the following:</p>
 <ul class="simple">
 <li><p>Protocol ESP</p></li>
@@ -1095,7 +1095,7 @@
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SA</span> <span class="pre">lifetime</span></code>: 28800 seconds</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Dead</span> <span class="pre">peer</span> <span class="pre">detection</span> <span class="pre">(DPD)</span></code>: Enabled</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Algorithms</span></code>: Binero.Cloud supports (by default) two options for phase 1 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 1 configuration in the management interface. See <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Algorithms</span></code>: Binero cloud supports (by default) two options for phase 1 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 1 configuration in the management interface. See <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information.</p></li>
 <li><p>Alternative 1:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Cipher</span></code>: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)</p></li>
@@ -1119,7 +1119,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">network</span></code>: Your local private network</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Protocol</span></code>: ESP</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Lifetime</span></code>: 3600 seconds</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Algorithms</span></code>: Binero.Cloud supports (by default) two options for phase 2 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 2 configuration in the management interface. See <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Algorithms</span></code>: Binero cloud supports (by default) two options for phase 2 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 2 configuration in the management interface. See <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information.</p></li>
 <li><p>Alterative 1:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Cipher</span></code>: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)</p></li>

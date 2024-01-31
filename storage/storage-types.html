@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -965,10 +965,10 @@
   </a>
 
 <h1 id="storage-types">Storage types<a class="headerlink" href="#storage-types" title="Link to this heading">¶</a></h1>
-<p>By storage type, we refer to the media that is used to store data. There are 3 main storage types in Binero.Cloud, namely SSD, HDD and NVMe. You are able to <a class="reference internal" href="retype-a-volume.html"><span class="doc">retype</span></a> a volume later on if you are using either SSD or HDD (to the other type).</p>
+<p>By storage type, we refer to the media that is used to store data. There are 3 main storage types in Binero cloud, namely SSD, HDD and NVMe. You are able to <a class="reference internal" href="retype-a-volume.html"><span class="doc">retype</span></a> a volume later on if you are using either SSD or HDD (to the other type).</p>
 <h2 id="ssd">SSD<a class="headerlink" href="#ssd" title="Link to this heading">¶</a></h2>
 <p>SSD is the most versatile storage solution. It uses NAND cells to store data This technique vastly shortens “seek times” - a big issue with traditional drives because a mechanical read/write head needs to physically move into position before being able to read or write data. This means SSD media have very good random read/write performance with significantly lower latency than mechanical drives. The downside is cost - SSD storage is more expensive than mechanical (HDD) drives and so storing large amount of infrequently accessed data on SSD drives is not cost efficient.</p>
-<p>SSD backed storage are the default option, i.e. if you don’t select what media to use, you will end up on SSD media. All SSD storage in Binero.Cloud is three way replicated. That means that for 1GB data that you upload in the platform, 3GB of data is written to disk. The reason behind this is data integrity, we want to minimise the risk for data loss for our customers.</p>
+<p>SSD backed storage are the default option, i.e. if you don’t select what media to use, you will end up on SSD media. All SSD storage in Binero cloud is three way replicated. That means that for 1GB data that you upload in the platform, 3GB of data is written to disk. The reason behind this is data integrity, we want to minimise the risk for data loss for our customers.</p>
 <p>SSD is a good tradeoff between cost and performance for most use cases involving data that needs to be widely accessible.</p>
 <h2 id="hdd">HDD<a class="headerlink" href="#hdd" title="Link to this heading">¶</a></h2>
 <p>HDD is the most cost effective storage solution when only taking pure storage space into account. This storage tier consists of traditional mechanical spinning drives which use magnetism on a metallic surface to store data. HDD drives suffer from seek times, that is they have a read/write head that needs to be positioned correctly above the disk surface before data can be read or written. When data is read (or written) sequentially however (meaning when a large bit of data, for instance a backup image, is read one byte after the other from start to finish), HDD media still have very good performance, i.e “throughput” (but less so than SSD).</p>

@@ -367,7 +367,7 @@
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -486,8 +486,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-a-virtual-router" class="md-nav__link">
-    <span class="md-ellipsis">Create a virtual router</span>
+  <a href="#create-a-router" class="md-nav__link">
+    <span class="md-ellipsis">Create a router</span>
   </a>
   
 </li>
@@ -851,8 +851,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-a-virtual-router" class="md-nav__link">
-    <span class="md-ellipsis">Create a virtual router</span>
+  <a href="#create-a-router" class="md-nav__link">
+    <span class="md-ellipsis">Create a router</span>
   </a>
   
 </li>
@@ -889,7 +889,7 @@
   </a>
 
 <h1 id="launching-an-instance">Launching an instance<a class="headerlink" href="#launching-an-instance" title="Link to this heading">¶</a></h1>
-<p>This guide provides a step-by-step guide to easily launch your first instance on Binero.cloud. The available methods to launch an instance are:</p>
+<p>This guide provides a step-by-step guide to easily launch your first instance on Binero cloud. The available methods to launch an instance are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="/compute/launching-an-instance/cloud-management-portal">The cloud management portal</a></p></li>
 <li><p><a class="reference external" href="/compute/launching-an-instance/openstack-horizon">OpenStack Horizon</a></p></li>
@@ -905,20 +905,20 @@
 <p>When starting out in the platform there are some tasks that normally only need to be completed once. While there are multiple ways for you to accomplish these one time tasks, we will use the cloud management portal in the following examples.</p>
 <p>There are two main ways to connect your infrastructure (and in this case, your first instance) to the internet:</p>
 <ul class="simple">
-<li><p>Setup an instances to use a public IP directly (see <a class="reference external" href="/networking/directly-attached-ips">directly attached IPs</a>, which is not to be confused with floating ips.</p></li>
-<li><p>Setup a <strong>virtual router</strong> and use <a class="reference external" href="/networking/floating-ips">floating IPs</a>) through the router.</p></li>
+<li><p>Setup an instances to use a public IP directly (see <a class="reference external" href="/networking/directly-attached-ips">directly attached IPs</a>, which is not to be confused with floating IPs.</p></li>
+<li><p>Setup a <a class="reference internal" href="../networking/router/index.html"><span class="doc">Router</span></a> and use <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">Floating IPs</span></a> through the router.</p></li>
 </ul>
-<p>We will cover the second option (virtual router + floating ips) in this quick start guide as it will provide a more versatile option when growing your infrastructure as well as an additional layer of security.</p>
+<p>We will cover the second option (router + floating ips) in this quick start guide as it will provide a more versatile option when growing your infrastructure as well as an additional layer of security.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Some features of the platform, for instance load balancing, will <strong>require</strong> a virtual router. From a security perspective its also preferable to use floating IPs as your instances will be less exposed to the internet than with a directly attached IP. Finally, when using a virtual router with several instances, doing backend connections (for instance from a web server to a database) can (and should) be done on the private network setup rather than on the public IPs. For this reason, we recommend using a virtual router in all use cases except when using only a single server with a strong local firewall in place.</p>
+<p>Some features of the platform, for instance load balancing, will <strong>require</strong> a router. From a security perspective its also preferable to use floating IPs as your instances will be less exposed to the internet than with a directly attached IP. Finally, when using a router with several instances, doing backend connections (for instance from a web server to a database) can (and should) be done on the private network setup rather than on the public IPs. For this reason, we recommend using a router in all use cases except when using only a single server with a strong local firewall in place.</p>
 </div>
 <p>The following tasks are recommended to complete before launching your first instance:</p>
 <ul class="simple">
 <li><p>Add your SSH-key to the platform (if provisioning Linux-based instances).</p></li>
 <li><p>Create a network.</p></li>
 <li><p>Add a subnet to your network.</p></li>
-<li><p>Create a virtual router.</p></li>
+<li><p>Create a router.</p></li>
 <li><p>Connect the router to the subnet using an inteface.</p></li>
 </ul>
 <h3 id="add-an-ssh-key">Add an SSH-key<a class="headerlink" href="#add-an-ssh-key" title="Link to this heading">¶</a></h3>
@@ -950,9 +950,9 @@
 </ul>
 </dd>
 </dl>
-<h3 id="create-a-virtual-router">Create a virtual router<a class="headerlink" href="#create-a-virtual-router" title="Link to this heading">¶</a></h3>
+<h3 id="create-a-router">Create a router<a class="headerlink" href="#create-a-router" title="Link to this heading">¶</a></h3>
 <dl class="simple">
-<dt>To add a virtual router, follow these steps:</dt><dd><ul class="simple">
+<dt>To add a router, follow these steps:</dt><dd><ul class="simple">
 <li><p>Press “Networking” and then “Routers” in the sidebar menu.</p></li>
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
 <li><p>“europe-se-1” should be pre-selected as region.</p></li>
@@ -986,7 +986,7 @@
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p></li>
-<li><p><a class="reference internal" href="../networking/virtual-router/index.html"><span class="doc">Virtual routers</span></a></p></li>
+<li><p><a class="reference internal" href="../networking/router/index.html"><span class="doc">Router</span></a></p></li>
 </ul>
 </div>
 

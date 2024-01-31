@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1081,7 +1081,7 @@
 
 <h1 id="assigning-ip-to-instance">Assigning IP to instance<a class="headerlink" href="#assigning-ip-to-instance" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>An IP address is normally assigned the instance upon <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">creation</span></a>. This is the recommended approach to assigning an IP address (and thus, access to a network) as it will run cloud-init and (provided you’ve assigned a <a class="reference internal" href="../networking/virtual-router/private-subnet/index.html"><span class="doc">private subnet</span></a>) setup your ip-configuration for you. <em>This is only done on instance provisioning so any additional</em> <a class="reference internal" href="../networking/ports.html"><span class="doc">ports</span></a> <em>you assign, will have to be manually configured in the OS</em>.</p>
+<p>An IP address is normally assigned the instance upon <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">creation</span></a>. This is the recommended approach to assigning an IP address (and thus, access to a network) as it will run cloud-init and (provided you’ve assigned a <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">private subnet</span></a>) setup your ip-configuration for you. <em>This is only done on instance provisioning so any additional</em> <a class="reference internal" href="../networking/ports.html"><span class="doc">ports</span></a> <em>you assign, will have to be manually configured in the OS</em>.</p>
 <p>Aside from the single IP that is normally setup during provisioning, two main use-cases for connecting additional IPs to an instance exists;</p>
 <ul class="simple">
 <li><p>If your instances needs to be connected to several different networks, this is possible to do when provisioning a new instance as several networks can be chosen.</p></li>
@@ -1125,9 +1125,9 @@
 <h3 id="assigning-a-port-using-the-openstack-terminal-client">Assigning a port using the OpenStack terminal client<a class="headerlink" href="#assigning-a-port-using-the-openstack-terminal-client" title="Link to this heading">¶</a></h3>
 <p>To assign a port to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>. Save the name of the instance you want to assign the port to.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">£</span> <span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">list</span></code>. Save the name of the network you want to connect to the instance.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">fixed</span> <span class="pre">ip</span> <span class="pre">[SERVER</span> <span class="pre">NAME]</span> <span class="pre">[NETWORK</span> <span class="pre">NAME]</span></code>, replacing the values in angle brackets by the information from the previous steps.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>. Save the name of the instance you want to assign the port to.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">list</span></code>. Save the name of the network you want to connect to the instance.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">fixed</span> <span class="pre">ip</span> <span class="pre">[SERVER</span> <span class="pre">NAME]</span> <span class="pre">[NETWORK</span> <span class="pre">NAME]</span></code>, replacing the values in angle brackets by the information from the previous steps.</p></li>
 </ul>
 <p>The port will be added to the instance but may not be active as it may not have operating system configuration on it.</p>
 <div class="note admonition">

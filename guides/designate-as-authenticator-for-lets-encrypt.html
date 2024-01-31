@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -842,9 +842,9 @@
   </a>
 
 <h1 id="designate-as-authenticator-for-lets-encrypt">Designate as authenticator for Lets Encrypt<a class="headerlink" href="#designate-as-authenticator-for-lets-encrypt" title="Link to this heading">¶</a></h1>
-<p>This guide will help you configuring certbot to work with plugins for OpenStack DNS (Designate) to verify Lets Encrypt certificates using DNS for any domain that is running in the Binero.Cloud <a class="reference internal" href="../dns.html"><span class="doc">DNS</span></a>. The guide will assume you are using a recent version of Debian or Ubuntu but would likely be applicable for other Linux distributions.</p>
+<p>This guide will help you configuring certbot to work with plugins for OpenStack DNS (Designate) to verify Lets Encrypt certificates using DNS for any domain that is running in the Binero cloud <a class="reference internal" href="../dns.html"><span class="doc">DNS</span></a>. The guide will assume you are using a recent version of Debian or Ubuntu but would likely be applicable for other Linux distributions.</p>
 <ul class="simple">
-<li><p>Install certbot and python package manager pip by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">certbot</span> <span class="pre">python3-designateclient</span> <span class="pre">python3-pip</span></code>.</p></li>
+<li><p>Install certbot and python package manager pip by running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">certbot</span> <span class="pre">python3-designateclient</span> <span class="pre">python3-pip</span></code>.</p></li>
 <li><p>Using pip, install the dns-openstack authenticator-plugin by running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">certbot-dns-openstack</span></code>.</p></li>
 <li><p>Create an :doc:<code class="docutils literal notranslate"><span class="pre">application</span> <span class="pre">credential</span> <span class="pre">&lt;/getting-started/users&gt;</span></code> with the roles “reader” and “member”. Use the following in the access-rule field:</p></li>
 </ul>
@@ -873,8 +873,8 @@
 </div>
 <ul class="simple">
 <li><p>Download the application credential as YAML and save it on your server to the following path: <code class="docutils literal notranslate"><span class="pre">/etc/openstack/clouds.yaml</span></code></p></li>
-<li><p>Set the permission on the file by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">root:root</span> <span class="pre">/etc/openstack/clouds.yaml;</span> <span class="pre">chmod</span> <span class="pre">600</span> <span class="pre">/etc/openstack/clouds.yaml</span></code>.</p></li>
-<li><p>You are now able to issue certificates as you would normally do with the exception of adding <code class="docutils literal notranslate"><span class="pre">-a</span> <span class="pre">dns-openstack</span></code> to the command line, for instance as such: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">certbot</span> <span class="pre">-a</span> <span class="pre">dns-openstack</span> <span class="pre">certonly</span> <span class="pre">-d</span> <span class="pre">example.domain</span></code>.</p></li>
+<li><p>Set the permission on the file by running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">root:root</span> <span class="pre">/etc/openstack/clouds.yaml;</span> <span class="pre">chmod</span> <span class="pre">600</span> <span class="pre">/etc/openstack/clouds.yaml</span></code>.</p></li>
+<li><p>You are now able to issue certificates as you would normally do with the exception of adding <code class="docutils literal notranslate"><span class="pre">-a</span> <span class="pre">dns-openstack</span></code> to the command line, for instance as such: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">certbot</span> <span class="pre">-a</span> <span class="pre">dns-openstack</span> <span class="pre">certonly</span> <span class="pre">-d</span> <span class="pre">example.domain</span></code>.</p></li>
 <li><p>To change the authentication of any existing certificates you would edit <code class="docutils literal notranslate"><span class="pre">/etc/letsencrypt/renewal/example.domain.conf</span></code> and set the authentication option to <code class="docutils literal notranslate"><span class="pre">dns-openstack</span></code>.</p></li>
 </ul>
 

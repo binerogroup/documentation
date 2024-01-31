@@ -4,10 +4,11 @@ NVMe storage
 
 General concept
 ----------------
+
 NVMe based storage is the fastest available persistent storage in the platform. This is due to:
 
 - NVMe is based on flash (SSD) cells that are connected very close to the CPU of the computer (on the PCIx bus directly - similar, but not identical, to RAM). 
-- NVMe storage in Binero.Cloud is local to the hypervisor, meaning networking is not used to reach the storage. 
+- NVMe storage in Binero cloud is local to the hypervisor, meaning networking is not used to reach the storage. 
 - NVMe storage is **not** replicated, meaning there is no overhead in writing data several times and waiting for sync for each write.
 
 These attributes combine to dramatically lower the latency from request to response (for both reads and writes) to the storage layer. NVMe storage is actually measured in micro seconds as opposed to other storage that is generally measured in milliseconds. One microsecond is 1/1000 of a millisecond.
@@ -16,15 +17,16 @@ As latency is arguably the most important factor in storage performance, reducin
 
 How to use
 ----------
+
 When provisioning an :doc:`instance </compute/index>` that is including NVMe in its name (for more information, please see our list of :doc:`flavors </compute/flavors>`), the platform will schedule the instance onto hypervisors with local NVMe disks attached. 
 
 With NVMe, you are only able to select between 50GB or 250GB disk sizes, the reason for this is because NVMe disks by design are local and therefore does not scale as well as well as the SSD and HDD storage (which is delivered from a highly scalable storage platform). You are not able to grow a disk or :doc:`retype it <retype-a-volume>` either for the same reason. Because of this, we recommend choosing an NVMe disk that fits your need. 
 
-.. Note::
-	Should you need more NVMe storage than 250GB, please :doc:`contact us </general/getting-support>` and we can discuss the available options.
+.. note:: Should you need more NVMe storage than 250GB, please :doc:`contact us </general/getting-support>` and we can discuss the available options.
 
 Differences to standard storage
 -------------------------------
+
 Since NVMe-based storage is setup differently than our standard :doc:`SSD and HDD <storage-types>` storage types (which is a requirement to reach the performance level), there are some caveats that a consumer of NVMe storage should be aware of: 
 
 - NVMe storage is *not* redundantly setup. NVMe storage is delivered from the same hypervisor that runs the instance - in order to provide the performance that NVMe disks does, they are not RAIDed or replicated. That said, they are also very high grade disks. 
@@ -35,9 +37,4 @@ Since NVMe-based storage is setup differently than our standard :doc:`SSD and HD
 - NVMe based storage is currently only available in the *europe-se-1a* :doc:`availability zone <regions-and-availability-zones>`.
 - Because NVMe is generally used only when performance is very important, we only have our High Performance :doc:`/compute/flavors` available with NVMe.
 
-.. Important::
-	For above reasons, we strongly recommend you to regularly backup your data if you are using NVMe based storage.
-
-
-
-
+.. important:: For above reasons, we strongly recommend you to regularly backup your data if you are using NVMe based storage.

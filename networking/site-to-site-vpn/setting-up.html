@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -532,8 +532,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="../router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -607,8 +607,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="../load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -1085,7 +1085,7 @@
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: This is a friendly name that will be used to distinguish the resources created by this template.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">SSH</span> <span class="pre">key</span> <span class="pre">pair</span></code>: Your SSH key pair that can be used to access the pfSense instance by SSH.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">IP</span> <span class="pre">ranges</span></code>: IP ranges in <a class="reference internal" href="../virtual-router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a> that will be allowed to access the pfSense instances WebUI and SSH server through the virtual router. Usually this would be your offices (or like) public IP-address followed by “/32” (for instance 8.8.8.8/32) in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN server, you can enter <code class="docutils literal notranslate"><span class="pre">0.0.0.0/32</span></code> here (not recommended) or leave the standard “127.0.0.1/32” which will not allow access other than from inside the cloud (for instance via the client-vpn). This can also be changed later by editing the security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">IP</span> <span class="pre">ranges</span></code>: IP ranges in <a class="reference internal" href="../router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a> that will be allowed to access the pfSense instances WebUI and SSH server through the router. Usually this would be your offices (or like) public IP-address followed by “/32” (for instance 8.8.8.8/32) in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN server, you can enter <code class="docutils literal notranslate"><span class="pre">0.0.0.0/32</span></code> here (not recommended) or leave the standard “127.0.0.1/32” which will not allow access other than from inside the cloud (for instance via the client-vpn). This can also be changed later by editing the security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Availability</span> <span class="pre">zone</span></code>: This needs to be set to the same availability zone that was used for the private network that you intend to use.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pfSense</span> <span class="pre">instance</span> <span class="pre">flavor</span></code>: The instance flavor used for the pfSense instance. The default <code class="docutils literal notranslate"><span class="pre">gp.1x2</span></code> should be enough for most use cases.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">network</span></code>: The desired private network that will be exposed through IPSec.</p></li>

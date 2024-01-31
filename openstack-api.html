@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -835,18 +835,23 @@
   </a>
 
 <h1 id="openstack-api">OpenStack API<a class="headerlink" href="#openstack-api" title="Link to this heading">¶</a></h1>
-<p>The OpenStack API is available for managing your resources programatically. This is a very powerful feature for users the either want to create infrastructure as code projects or want to use third party platforms like <a class="reference external" href="https://www.terraform.io">Terraform</a> to manage their infrastructure.</p>
+<p>The OpenStack API is available for managing your resources programatically. This is a very powerful feature for users that either want to create infrastructure as code projects or want to use
+third-party platforms like <a class="reference external" href="https://www.terraform.io">Terraform</a> to manage their infrastructure.</p>
 <p>The OpenStack API is broken down into smaller parts based on what service is to be manipulated. They have in common that an <a class="reference internal" href="getting-started/users.html"><span class="doc">API user</span></a> is needed to access the API using any of the below endpoints.</p>
-<p>We keep an up-to-date information about the version of the platform along with links to correct APIs available on our <a class="reference internal" href="openstack.html"><span class="doc">OpenStack</span></a> part of this documentation.</p>
+<p>We keep updated information about the release of the platform along with links to correct APIs available in our <a class="reference internal" href="openstack.html"><span class="doc">OpenStack</span></a> documentation.</p>
 <ul class="simple">
 <li><p>Function - what services in the platform the API can manage with a link to its section in our documentation.</p></li>
 <li><p>Service name - the name of the OpenStack feature. With this you can easily find the relevant section in the official API docks.</p></li>
 <li><p>API endpoint - where to connect, in order to use the implementation for the eu-se-1 region.</p></li>
 </ul>
 <h2 id="version">Version<a class="headerlink" href="#version" title="Link to this heading">¶</a></h2>
-<p>Some of the OpenStack APIs will support multiple versions for backwards compability. Generally the recommended version is included in the URL (where applicable) below but in certain cases microversions might be required (for instance v2.1 vs v2.67 for nova compute) for some functionality.</p>
+<p>Some of the OpenStack APIs will support multiple versions for backwards compability. Generally the recommended version is included in the URL (where applicable) below but in certain cases microversions
+might be required (for instance v2.1 vs v2.67 for Nova) for some functionality.</p>
 <h2 id="keystone">Keystone<a class="headerlink" href="#keystone" title="Link to this heading">¶</a></h2>
-<p>This is the OpenStack authentication mechanism which will enable you to authenticate using an <a class="reference internal" href="getting-started/users.html"><span class="doc">API-user</span></a>. A good place to start is available in the official documentation <a class="reference external" href="https://docs.openstack.org/keystone/xena/api_curl_examples.html">here</a>. Authentication is needed for all API calls. When doing authentication, a catalog of end-points will be provided. For clarity, they current endpoints are also documented below.</p>
+<p>Keystone is the identity service in the OpenStack ecosystem that you use to authenticate using an <a class="reference internal" href="getting-started/users.html"><span class="doc">API user</span></a>.</p>
+<p>A good place to start is available in the official documentation <a class="reference external" href="https://docs.openstack.org/keystone/yoga/api_curl_examples.html">here</a>.</p>
+<p>Authentication is needed for all API calls, when authenticating for your token a catalog with endpoints is provided in the response, for
+verbosity it’s also included below.</p>
 <h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading">¶</a></h2>
 <table class="docutils data align-default">
 <colgroup>
@@ -861,59 +866,55 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="/compute">compute</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="/compute">Compute</a></p></td>
 <td><p>nova</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:8774/v2.1">https://api-eu-se-1.binero.cloud:8774/v2.1</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="/networking">networking</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="/networking">Networking</a></p></td>
 <td><p>neutron</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:9696">https://api-eu-se-1.binero.cloud:9696</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="/storage/persistent-block-storage">volumes / storage</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="/storage/persistent-block-storage">Block storage</a></p></td>
 <td><p>cinderv3</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:8776/v3/%(tenant_id)s">https://api-eu-se-1.binero.cloud:8776/v3/%(tenant_id)s</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="/getting-started/users">identity</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="/getting-started/users">Identity</a></p></td>
 <td><p>keystone</p></td>
 <td><p><a class="reference external" href="https://auth.binero.cloud:5000">https://auth.binero.cloud:5000</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="/dns">dns</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="/dns">DNS</a></p></td>
 <td><p>designate</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:9001">https://api-eu-se-1.binero.cloud:9001</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="/storage/swift-object-storage">object-storage</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="/storage/swift-object-storage">Object storage</a></p></td>
 <td><p>swift</p></td>
 <td><p><a class="reference external" href="https://object-eu-se-1a.binero.cloud/swift/v1/AUTH_%(tenant_id)s">https://object-eu-se-1a.binero.cloud/swift/v1/AUTH_%(tenant_id)s</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="/platform-automation">workflows</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="/platform-automation">Workflows</a></p></td>
 <td><p>mistral</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:8989/v2">https://api-eu-se-1.binero.cloud:8989/v2</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="/images">images</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="/images">Images</a></p></td>
 <td><p>glance</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:9292">https://api-eu-se-1.binero.cloud:9292</a></p></td>
 </tr>
-<tr class="row-even"><td><p>metric</p></td>
+<tr class="row-even"><td><p>Metric</p></td>
 <td><p>gnocchi</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:8041">https://api-eu-se-1.binero.cloud:8041</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>alarming</p></td>
+<tr class="row-odd"><td><p>Alarming</p></td>
 <td><p>aodh</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:8042">https://api-eu-se-1.binero.cloud:8042</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="/networking/load-balancers">load-balancing</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="/networking/load-balancer">Load Balancer</a></p></td>
 <td><p>octavia</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:9876">https://api-eu-se-1.binero.cloud:9876</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>placement</p></td>
-<td><p>placement</p></td>
-<td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:8778">https://api-eu-se-1.binero.cloud:8778</a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="/orchestration">orchestration</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="/orchestration">Orchestration</a></p></td>
 <td><p>heat</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:8004/v1/%(tenant_id)s">https://api-eu-se-1.binero.cloud:8004/v1/%(tenant_id)s</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="/secret-store">secret store / key manager</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="/secret-store">Secret store / Key manager</a></p></td>
 <td><p>barbican</p></td>
 <td><p><a class="reference external" href="https://api-eu-se-1.binero.cloud:9311">https://api-eu-se-1.binero.cloud:9311</a></p></td>
 </tr>

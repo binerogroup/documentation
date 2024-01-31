@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -906,10 +906,10 @@
   </a>
 
 <h1 id="manage-openstack-resources-using-terraform">Manage OpenStack resources using Terraform<a class="headerlink" href="#manage-openstack-resources-using-terraform" title="Link to this heading">¶</a></h1>
-<p>Terraform is a very popular tool that automates infrastructure in various platforms. It has an OpenStack module and as such is compatible with Binero.Cloud. In this guide, we will walk through some concepts that enable you to use it with the platform.</p>
+<p>Terraform is a very popular tool that automates infrastructure in various platforms. It has an OpenStack module and as such is compatible with Binero cloud. In this guide, we will walk through some concepts that enable you to use it with the platform.</p>
 <h2 id="prepare-terraform">Prepare Terraform<a class="headerlink" href="#prepare-terraform" title="Link to this heading">¶</a></h2>
 <p>The official installation guide is available here: <a class="reference external" href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">here</a>.</p>
-<p>To get Terraform speaking with Binero.Cloud, you will need to configure the OpenStack provider. <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">Here</a> is a good place to get information on how to do that.</p>
+<p>To get Terraform speaking with Binero cloud, you will need to configure the OpenStack provider. <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">Here</a> is a good place to get information on how to do that.</p>
 <p>Start by creating an <a class="reference internal" href="../getting-started/users.html"><span class="doc">API user</span></a> and download its OpenRC file (by pressing the small arrow next to it). The information in this file is needed to configure the Terraform provider. An example configuration file (called for instance “demo.tf”) could look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># Define required providers</span>
 <span class="n">terraform</span> <span class="p">{</span>
@@ -958,7 +958,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<p>Creating the above example in the same demo.tf file from before and running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">terraform</span> <span class="pre">apply</span></code> will create the instance.</p>
+<p>Creating the above example in the same demo.tf file from before and running <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">apply</span></code> will create the instance.</p>
 <p>More information on what the OpenStack provider can do is available <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">here</a>.</p>
 
 

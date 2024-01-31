@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1135,15 +1135,15 @@
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To create a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">type</span> <span class="pre">list</span></code>. Save the name of the volume type you want to use.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">availability</span> <span class="pre">zone</span> <span class="pre">list</span> <span class="pre">--volume</span></code>. Save the name of the availability zone you want to use.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">create</span> <span class="pre">--type</span> <span class="pre">[VOLUME_TYPE_NAME]</span> <span class="pre">--size</span> <span class="pre">[SIZE_IN_GB]</span> <span class="pre">--availability-zone</span> <span class="pre">[AVAILABILITY_ZONE]</span> <span class="pre">[VOLUME_NAME]</span></code>, replacing the values in angle brackets with values from previous steps and your selections.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">type</span> <span class="pre">list</span></code>. Save the name of the volume type you want to use.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">availability</span> <span class="pre">zone</span> <span class="pre">list</span> <span class="pre">--volume</span></code>. Save the name of the availability zone you want to use.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">create</span> <span class="pre">--type</span> <span class="pre">[VOLUME_TYPE_NAME]</span> <span class="pre">--size</span> <span class="pre">[SIZE_IN_GB]</span> <span class="pre">--availability-zone</span> <span class="pre">[AVAILABILITY_ZONE]</span> <span class="pre">[VOLUME_NAME]</span></code>, replacing the values in angle brackets with values from previous steps and your selections.</p></li>
 </ul>
 <p>In order to attach your volume, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, save the ID (not name) of the volume you want to attach.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the ID (not name) of the instance to which you want to attach the volume.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">volume</span> <span class="pre">[INSTANCE_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, save the ID (not name) of the volume you want to attach.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the ID (not name) of the instance to which you want to attach the volume.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">volume</span> <span class="pre">[INSTANCE_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
 </ul>
 
 

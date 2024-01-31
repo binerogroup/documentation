@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1006,12 +1006,12 @@
 <p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page. Then follow these instructions:</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
-<li><p>Under SSH Admin IP, add your public IP (this will allow your workstation through the firewall) in <a class="reference internal" href="../networking/virtual-router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>. If you need to change this later, this sets up a <a class="reference internal" href="../networking/virtual-router/security-groups/index.html"><span class="doc">security group</span></a> on the instance. The security group can be changed or updated as you see fit but if you want to login over the floating IP that will be setup, you will need to input your IP here.</p></li>
+<li><p>Under SSH Admin IP, add your public IP (this will allow your workstation through the firewall) in <a class="reference internal" href="../networking/router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>. If you need to change this later, this sets up a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a> on the instance. The security group can be changed or updated as you see fit but if you want to login over the floating IP that will be setup, you will need to input your IP here.</p></li>
 <li><p>Select which <a class="reference internal" href="../compute/regions-and-availability-zones.html"><span class="doc">availability zone</span></a> you want to provision in. We recommend <em>europe-se-1a</em> if you are unsure.</p></li>
 <li><p>If you want backup, check the “backup” checkbox and select an amount of days you would like your history stored.</p></li>
 <li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
-<li><p>Under “local_net”, select the <a class="reference internal" href="../networking/virtual-router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
+<li><p>Under “local_net”, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
 <li><p>If you want your service publicly available on the internet, you can assign a floating IP (this can also be done later) by checking the “public access” checkbox. If you dont, you can only access it locally in your cloud account or over some kind of VPN.</p></li>
 <li><p>Under volume size, select the size (in GB) of the volume of the server. Take into consideration that you will store files as well as a database on the server. We recommend at least 100GB.</p></li>
 <li><p>Press “create”. You will get further details on how to connect to the service.</p></li>

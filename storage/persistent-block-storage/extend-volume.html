@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1165,11 +1165,11 @@
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To extend a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the name with that from previous step.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which the volume you want to extend is connected.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the name with that from previous step.</p></li>
 <li><p>Notice the “Device” column that shows you what device is referenced. If the instance only has a single device then only one row is shown, however if the instance has several, the device name should correlate with the volume name in Linux (although “vda” might be “sda”), or the device order in Windows. Save the “Volume ID” of the volume you want to extend.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span> <span class="pre">volume</span> <span class="pre">set</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">--size</span> <span class="pre">[SIZE]</span></code>, replacing the values in angle brackets with the volume ID from the previous step and the size in GB. Note the <code class="docutils literal notranslate"><span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span></code> which is currently needed due to limitation in the standard API.</p></li>
-<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">size</span></code>, replacing value with the volume ID.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span> <span class="pre">volume</span> <span class="pre">set</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">--size</span> <span class="pre">[SIZE]</span></code>, replacing the values in angle brackets with the volume ID from the previous step and the size in GB. Note the <code class="docutils literal notranslate"><span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span></code> which is currently needed due to limitation in the standard API.</p></li>
+<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">size</span></code>, replacing value with the volume ID.</p></li>
 </ul>
 <h2 id="operation-inside-os">Operation inside OS<a class="headerlink" href="#operation-inside-os" title="Link to this heading">¶</a></h2>
 <p>Above we demonstrate the process for growing a volume in the platform but there is also a need to grow the disk logged into the instance. Depending on what operating system you are running and how your disks are laid out, this process will will vary and below are just suggestions that we have found to be useful. For a complete reference, please see your operating systems documentation.</p>
@@ -1179,10 +1179,10 @@
 </div>
 <h3 id="linux">Linux<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">lsblk</span></code>, verify that the new disk size is visible on the device. If its not, reboot your machine and try again.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">growpart</span> <span class="pre">-u</span> <span class="pre">auto</span> <span class="pre">/dev/sda</span> <span class="pre">1</span></code>, use the correct device (“/dev/sda” in the example) from previous commands output. This may not work on all images, if not then we recommend reading the documentation of the Linux release.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">resize2fs</span> <span class="pre">/dev/sda1</span></code>.</p></li>
-<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">df</span> <span class="pre">-h</span> <span class="pre">/dev/sda1</span></code>.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">lsblk</span></code>, verify that the new disk size is visible on the device. If its not, reboot your machine and try again.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">growpart</span> <span class="pre">-u</span> <span class="pre">auto</span> <span class="pre">/dev/sda</span> <span class="pre">1</span></code>, use the correct device (“/dev/sda” in the example) from previous commands output. This may not work on all images, if not then we recommend reading the documentation of the Linux release.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">resize2fs</span> <span class="pre">/dev/sda1</span></code>.</p></li>
+<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">-h</span> <span class="pre">/dev/sda1</span></code>.</p></li>
 </ul>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h3>
 <ul class="simple">

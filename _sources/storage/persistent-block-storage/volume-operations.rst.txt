@@ -1,6 +1,7 @@
 =================
 Volume operations
 =================
+
 On a volume, you can: 
 
 - :doc:`Extend the size <extend-volume>`
@@ -15,5 +16,4 @@ A volume can be saved irrespectively from the instance it was created with but t
 - Copy the volume to an image.
 - Snapshot the volume and create a new volume from the snapshot
 
-.. Important::
-	Standard behaviour is that a volume gets deleted with its instance. Don't delete an instance that you want to keep data from without performing one of the above actions first. 
+.. important:: Standard behaviour is that a volume gets deleted with its instance. Don't delete an instance that you want to keep data from without performing one of the above actions first. 

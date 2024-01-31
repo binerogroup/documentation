@@ -4,6 +4,7 @@ Secret Store
 
 General concept
 ---------------
+
 Using our secret store, you are able to give the platform access to secrets such as certificates and keys in a secure manner. We support various secret formats and also incorporate ACLs (Access Control Lists) so as to be able to give certain :doc:`API-user </getting-started/users>` access to secrets while withholding access to other users.
 
 Here are some examples of secrets that could be saved in our secret store:
@@ -21,6 +22,7 @@ Some of the services in the platform that consume secrets are:
 
 Secrets
 -------
+
 Secrets represent keys, credentials, and other sensitive data that is stored by the secret store service. Following are operations that can be performed on a secret:
 
 - :doc:`Creating secrets <create-secret>`.
@@ -29,8 +31,7 @@ Secrets represent keys, credentials, and other sensitive data that is stored by 
 - Deletion of secret.
 - Decryption of secrets.
 
-.. Note::
-	Secrets are only manageable via the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` and via :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`. There is no integration to OpenStack Horizon.
+.. note:: Secrets are only manageable via the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` and via :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`. There is no integration to OpenStack Horizon.
 
 .. toctree::
   :caption: Available services

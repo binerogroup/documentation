@@ -1,6 +1,7 @@
 ===========================
 Setting up site-to-site VPN
 ===========================
+
 We recommend that you first read through our :doc:`prerequisites` guide. Follow these steps to setup site-to-site VPN using the cloud management portal:
 
 - Press “VPN” and then “Ipsec” in the sidebar menu.
@@ -9,7 +10,7 @@ We recommend that you first read through our :doc:`prerequisites` guide. Follow 
 
   - ``Name``: This is a friendly name that will be used to distinguish the resources created by this template.
   - ``Admin SSH key pair``: Your SSH key pair that can be used to access the pfSense instance by SSH.
-  - ``Admin IP ranges``: IP ranges in :doc:`CIDR notation </networking/virtual-router/private-subnet/subnet-format>` that will be allowed to access the pfSense instances WebUI and SSH server through the virtual router. Usually this would be your offices (or like) public IP-address followed by "/32" (for instance 8.8.8.8/32) in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN server, you can enter ``0.0.0.0/32`` here (not recommended) or leave the standard "127.0.0.1/32" which will not allow access other than from inside the cloud (for instance via the client-vpn). This can also be changed later by editing the security group ``IPSec-<name>-<random string>_management``
+  - ``Admin IP ranges``: IP ranges in :doc:`CIDR notation </networking/router/private-subnet/subnet-format>` that will be allowed to access the pfSense instances WebUI and SSH server through the router. Usually this would be your offices (or like) public IP-address followed by "/32" (for instance 8.8.8.8/32) in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN server, you can enter ``0.0.0.0/32`` here (not recommended) or leave the standard "127.0.0.1/32" which will not allow access other than from inside the cloud (for instance via the client-vpn). This can also be changed later by editing the security group ``IPSec-<name>-<random string>_management``
   - ``Availability zone``: This needs to be set to the same availability zone that was used for the private network that you intend to use.
   - ``pfSense instance flavor``: The instance flavor used for the pfSense instance. The default ``gp.1x2`` should be enough for most use cases.
   - ``Private network``: The desired private network that will be exposed through IPSec.
@@ -25,8 +26,7 @@ We recommend that you first read through our :doc:`prerequisites` guide. Follow 
   - Add the newly created security group ``IPSec-<name>-<random string>_access`` to all instances that should be accessible from the remote end of the IPSec tunnel.
   - Once you are ready, proceed to configure :doc:`the remote end <configure-remote>` of the tunnel.
 
-.. Note::
-	There are some steps included in the setup that may hit a pre-defined quota (for instance if you cant create more security groups or floating ips), these can then be raised by the support team. If the installation fails, you are able to get the reason by clicking the service and checking error messages. 
+.. note:: There are some steps included in the setup that may hit a pre-defined quota (for instance if you cant create more security groups or floating ips), these can then be raised by the support team. If the installation fails, you are able to get the reason by clicking the service and checking error messages. 
 
 ..  seealso::
     - :doc:`index`

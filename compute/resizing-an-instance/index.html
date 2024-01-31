@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1244,27 +1244,44 @@
   </a>
 
 <h1 id="resizing-an-instance">Resizing an instance<a class="headerlink" href="#resizing-an-instance" title="Link to this heading">¶</a></h1>
-<p>If your instance is not sized correctly, wether it has to little resources or to much, you are able to resize it. The typical situation might be that your load has increased (maybe you have added customers to your service or maybe there is a temporary influx in visitors during for instance a campaign) to a point where your application is behaving sluggish (or not working at all).</p>
+<p>If your instance is not sized correctly, wether it has to little resources or to much, you are able to resize it.</p>
+<p>The typical situation might be that your load has increased (maybe you have added customers to your service or maybe there is a temporary influx
+in visitors during for instance a campaign) to a point where your application is behaving sluggish (or not working at all).</p>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
-<p>Resizing (which is the Binero.Cloud way to scale up) is done by switching <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> . You have four main options for how to resize an instance. Each option has its pros and cons:</p>
+<p>Resizing (which is the Binero cloud way to scale up) is done by switching <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> . You have four main options for how to resize an instance. Each option has its pros and cons:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is very easy to use and will get a user with limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always available.</p></li>
+<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is very easy to use and will get a user with limited prior knowledge from A to B quickly. The tradeoff
+is that advanced features are not always available.</p></li>
 <li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in OpenStack. Some advanced features might only have a GUI implementation here.</p></li>
-<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> is a command line implementation of OpenStack Horizon giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper than the GUI implementation but the workflow will be very efficient.</p></li>
-<li><p><a class="reference internal" href="../compute-api.html"><span class="doc">The API</span></a> is the full OpenStack REST API. Its intended for users that are either writing infrastructure as code or using a third party application (for instance Terraform) that needs to reach the cloud provisioning layer directly.</p></li>
+<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> is a command line implementation of OpenStack Horizon giving terminal oriented users a (very) quick way to access
+the cloud. The learning curve is steeper than the GUI implementation but the workflow will be very efficient.</p></li>
+<li><p><a class="reference internal" href="../compute-api.html"><span class="doc">The API</span></a> is the full OpenStack REST API. Its intended for users that are either writing infrastructure as code or using a third-party
+application (for instance Terraform) that needs to reach the cloud provisioning layer directly.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Storage performance is also important. If you’ve opted for our HDD based storage (which is very cost effective and a good choice for use cases that require lots of storage space that is infrequently accessed) and notice that your application is experiencing IO wait (which translates to load and slow performance), a <a class="reference internal" href="../../storage/retype-a-volume.html"><span class="doc">retype</span></a> might be the solution.</p>
 </div>
 <h2 id="scaling-methods">Scaling methods<a class="headerlink" href="#scaling-methods" title="Link to this heading">¶</a></h2>
-<p>There are several ways to scale your application. The two main ways are scaling by increasing performance by adding more CPU/RAM (which is done by resizing) or scaling by adding parallel performance (which is normally done by some sort of load-balancing).</p>
+<p>There are several ways to scale your application. The two main ways are scaling by increasing performance by adding more CPU/RAM (which is done by resizing)
+or scaling by adding parallel performance (which is normally done by some sort of load balancing).</p>
 <h3 id="scaling-up">Scaling up<a class="headerlink" href="#scaling-up" title="Link to this heading">¶</a></h3>
-<p>Scaling up (or “vertical scaling) is very easy to use as it just requires a resize of the instance and / or volumes, to instantly add more resources (with no need to change the installation). While being easy to implement (as its purely reliant on the infrastructure platform and not the application design), the downside is that there is an effective performance limit before diminishing returns on adding additional performance would kick in. What the limit is, depends on the use-case.</p>
+<p>Scaling up (or “vertical scaling) is very easy to use as it just requires a resize of the instance and / or volumes, to instantly add more
+resources (with no need to change the installation).</p>
+<p>While being easy to implement (as its purely reliant on the infrastructure platform and not the application design), the downside is that there
+is an effective performance limit before diminishing returns on adding additional performance would kick in. What the limit is, depends on the use-case.</p>
 <h3 id="scaling-out">Scaling out<a class="headerlink" href="#scaling-out" title="Link to this heading">¶</a></h3>
-<p>The opposite method is adding parallel resources (for instance additional instances) and using <a class="reference external" href="/networking/load-balancers">load balancing</a>) to distribute load between them, this is called “scaling out” or (“horizontal scaling”). For systems which are expected to need to scale to many times their initial size, this method is likely required. While there are normally bottlenecks in scale out systems as well, they are generally related to the amount of parts the system is broken up into. A single application (a monolith) may for instance still be able to scale well by using multiple load balanced web servers as frontends and multiple replicated database servers as backends. The web servers will scale pretty much indefinitely but the database would bottleneck at some point (depending on solution).</p>
-<p>The same system broken into micro services would scale by adding additional containers to the parts of the system that needed them. A single micro service would (likely) not hit a performance ceiling given the proper limitations in its scope. The performance of the application as a whole is made up of the performance of its micro services.</p>
-<p>While containerised micro services is the modern approach to application design (also providing additional management upsides), systems that are not expected to grow to users in the millions, might still work well with only load balancing or on a single server, that could be scaled up.</p>
+<p>The opposite method is adding parallel resources (for instance additional instances) and using <a class="reference external" href="/networking/load-balancers">load balancing</a>)
+to distribute load between them, this is called “scaling out” or (“horizontal scaling”).</p>
+<p>For systems which are expected to need to scale to many times their initial size, this method is likely required. While there are
+normally bottlenecks in scale out systems as well, they are generally related to the amount of parts the system is broken up into.</p>
+<p>A single application (a monolith) may for instance still be able to scale well by using multiple load balanced web servers as frontends and
+multiple replicated database servers as backends. The web servers will scale pretty much indefinitely but the database would bottleneck at
+some point (depending on solution).</p>
+<p>The same system broken into micro services would scale by adding additional containers to the parts of the system that needed them. A single micro service
+would (likely) not hit a performance ceiling given the proper limitations in its scope. The performance of the application as a whole is made up of the performance of its micro services.</p>
+<p>While containerized microservices is the modern approach to application design (also providing additional management upsides), systems that are not expected to grow to users in
+the millions, might still work well with only load balancing or on a single server, that could be scaled up.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>

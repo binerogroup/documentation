@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -734,7 +734,7 @@
       
         <li class="md-nav__item">
   <a href="#using-multi-attach-in-binero-cloud" class="md-nav__link">
-    <span class="md-ellipsis">Using multi attach in Binero.<wbr>Cloud</span>
+    <span class="md-ellipsis">Using multi attach in Binero cloud</span>
   </a>
   
 </li>
@@ -1083,7 +1083,7 @@
       
         <li class="md-nav__item">
   <a href="#using-multi-attach-in-binero-cloud" class="md-nav__link">
-    <span class="md-ellipsis">Using multi attach in Binero.<wbr>Cloud</span>
+    <span class="md-ellipsis">Using multi attach in Binero cloud</span>
   </a>
   
 </li>
@@ -1110,7 +1110,7 @@
 <h1 id="multi-attached-persistent-volumes">Multi-attached persistent volumes<a class="headerlink" href="#multi-attached-persistent-volumes" title="Link to this heading">¶</a></h1>
 <h2 id="standard-concept">Standard concept<a class="headerlink" href="#standard-concept" title="Link to this heading">¶</a></h2>
 <p>A volume normally has a 1:1 connection to an instance. This is akin to a physical hard drive which is cabled to (and normally mounted in) a computer/server. Since volumes in a cloud based system are logical constructs its technically possible to connect a <a class="reference internal" href="index.html"><span class="doc">volume</span></a> to multiple <a class="reference internal" href="../../compute/index.html"><span class="doc">instances</span></a>, however there are some caveats (see below) in doing so.</p>
-<p>In Binero.Cloud, the ability to connect a volume to more than a single instance is decided by its volume type. The default volume types available are:</p>
+<p>In Binero cloud, the ability to connect a volume to more than a single instance is decided by its volume type. The default volume types available are:</p>
 <ul class="simple">
 <li><p><cite>ssd</cite></p></li>
 <li><p><cite>hdd</cite></p></li>
@@ -1154,8 +1154,8 @@
 <p class="admonition-title">Note</p>
 <p>Its entirely possible to setup both multi attach and ISCSI with for example EXT4 and mount the device on several servers, it will mount just fine. The issues will come from writing the the same block, as well as for the file system to be aware that there has been writes. A read only mount on all but a single server will mitigate the risk of corruption but might still present old data on the servers that are mounted read only.</p>
 </div>
-<h2 id="using-multi-attach-in-binero-cloud">Using multi attach in Binero.Cloud<a class="headerlink" href="#using-multi-attach-in-binero-cloud" title="Link to this heading">¶</a></h2>
-<p>In Binero.Cloud, the two hidden volume types (see above) can be enabled globally for a customer by request to our support department. <strong>The reason for this is that we want to make sure our customers are aware of the risk for dataloss when using multi-attach improperly.</strong>.</p>
+<h2 id="using-multi-attach-in-binero-cloud">Using multi attach in Binero cloud<a class="headerlink" href="#using-multi-attach-in-binero-cloud" title="Link to this heading">¶</a></h2>
+<p>In Binero cloud, the two hidden volume types (see above) can be enabled globally for a customer by request to our support department. <strong>The reason for this is that we want to make sure our customers are aware of the risk for dataloss when using multi-attach improperly.</strong>.</p>
 <p>Once made available, they are usable as <em>volume type</em> when <a class="reference internal" href="index.html"><span class="doc">provisioning volumes</span></a>. If you want to change a current volume to be multi-attachable, this can be done by <a class="reference internal" href="../retype-a-volume.html"><span class="doc">retyping it</span></a>.</p>
 
 

@@ -1,9 +1,10 @@
-========================
-Create account & project
-========================
-Get your own **virtual datacenter** today on `binero.cloud <https://binero.com/public-cloud-platform/publikt-moln/>`_!
+==========================
+Create account and project
+==========================
 
-Start by `registering an account with us <https://portal.binero.com/cart.php?a=add&pid=1>`_. The account will include 1000 SEK to spend on services to get you started which is enough to test out the features in the plattform before you commit!
+Get your own **virtual datacenter** today by `registering an account <https://portal.binero.com/cart.php?a=add&pid=1>`_ and get 1000 SEK included to spend on services to get started.
+
+Continue with the `creating your first instance </getting-started/launching-an-instance>`_ to get started!
 
 .. meta::
     :description lang=en:

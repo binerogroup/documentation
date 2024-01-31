@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1003,16 +1003,16 @@
 
 <h1 id="postgres">Postgres<a class="headerlink" href="#postgres" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://www.postgresql.org">PostgreSQL</a> is a very popular OpenSource relational database.</p>
-<p>Binero.Cloud enables you to provision PostgreSQL as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server.</p>
+<p>Binero cloud enables you to provision PostgreSQL as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server.</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
 <li><p>Under “secondary node availability zone” dropdown, you are able to select which availability zone to place the slave node in (if you choose to replicate). You can choose to use the same zone as the master node or you can selet another zone if you want to build a geographically diverse application.</p></li>
-<li><p>Under “alternate network”, you select the <a class="reference internal" href="../networking/virtual-router/private-subnet/index.html"><span class="doc">network</span></a> that the slave server should connected to.</p></li>
+<li><p>Under “alternate network”, you select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> that the slave server should connected to.</p></li>
 <li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
 <li><p>Select the volume size for the instance. Its growable later on as per the <a class="reference internal" href="../storage/persistent-block-storage/extend-volume.html"><span class="doc">Extend a persistent volume</span></a> article.</p></li>
 <li><p>Under “primary node availability zone”, select the availability zone to run your primary (master) instance in.</p></li>
-<li><p>Under “primary network”, you select the <a class="reference internal" href="../networking/virtual-router/private-subnet/index.html"><span class="doc">network</span></a> that the master server should connected to.</p></li>
+<li><p>Under “primary network”, you select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> that the master server should connected to.</p></li>
 <li><p>Under “secondary nodes”, you select the amount of slave servers you want. If you select “0”, no replication will be done.</p></li>
 <li><p>Press “create”. You will get further details on how to connect to the service.</p></li>
 </ul>

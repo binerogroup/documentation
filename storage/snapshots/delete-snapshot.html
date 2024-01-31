@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1084,14 +1084,14 @@
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To delete a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--private</span></code>, save the ID of the image/snapshot that you want to delete.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">delete</span> <span class="pre">[ID_OF_IMAGE]</span></code>, specifying the ID of the image.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>, save the ID of the snapshot that you want to delete.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">delete</span> <span class="pre">[SNAPSHOT_ID]</span></code>, specifying the ID of the snapshot to delete.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--private</span></code>, save the ID of the image/snapshot that you want to delete.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">delete</span> <span class="pre">[ID_OF_IMAGE]</span></code>, specifying the ID of the image.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>, save the ID of the snapshot that you want to delete.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">delete</span> <span class="pre">[SNAPSHOT_ID]</span></code>, specifying the ID of the snapshot to delete.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you are unsure of which volume snapshot to delete, its possible to run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">show</span> <span class="pre">[SNAPSHOT_ID]</span></code> to get information on what volume it was created from. Based on the volume ID, you could then run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">attachements</span></code> to get information on the attachment’s of the volume (i.e. which instance its attached to). Finally, using the “server_id”, you can get the instance of the volume as such <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">[SERVER_ID]</span> <span class="pre">-c</span> <span class="pre">name</span></code>. The image is just meta-data and has no ties the the actual instance it was modeled from.</p>
+<p>If you are unsure of which volume snapshot to delete, its possible to run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">show</span> <span class="pre">[SNAPSHOT_ID]</span></code> to get information on what volume it was created from. Based on the volume ID, you could then run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">attachements</span></code> to get information on the attachment’s of the volume (i.e. which instance its attached to). Finally, using the “server_id”, you can get the instance of the volume as such <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">[SERVER_ID]</span> <span class="pre">-c</span> <span class="pre">name</span></code>. The image is just meta-data and has no ties the the actual instance it was modeled from.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

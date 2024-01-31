@@ -11,8 +11,7 @@ To setup the service, first follow the general instructions on our :doc:`index` 
 - In the "volume" field, select the volume that you want to backup.
 - Press "Launch" when done. 
 
-.. Note:: 
-	The cron format might be difficult to understand. When your backup is created, if you press it, you can find out the "cron pattern". There are several websites that can translate the cron pattern to a textual representation. Doing a web search for "cron pattern" might yield various options.
+.. note::  The cron format might be difficult to understand. When your backup is created, if you press it, you can find out the "cron pattern". There are several websites that can translate the cron pattern to a textual representation. Doing a web search for "cron pattern" might yield various options.
 
 ..  seealso::
   - :doc:`index`

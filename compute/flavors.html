@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1096,7 +1096,7 @@
   </a>
 
 <h1 id="flavors">Flavors<a class="headerlink" href="#flavors" title="Link to this heading">¶</a></h1>
-<p>Binero.Cloud provides various “flavors” of compute instances. A flavor is a pre-packaged combination of components providing certain performance and / or features. In the platform, we have flavors for the following use cases:</p>
+<p>Binero cloud provides various “flavors” of compute instances. A flavor is a pre-packaged combination of components providing certain performance and / or features. In the platform, we have flavors for the following use cases:</p>
 <ul class="simple">
 <li><p>General purpose</p></li>
 <li><p>High memory</p></li>
@@ -1106,7 +1106,7 @@
 <li><p>NVMe based storage</p></li>
 <li><p>GPU based compute with NVMe based storage</p></li>
 </ul>
-<p>Each flavor type has its intended audience. The flavors are presented below but you can also see them in the various portals as well as by running the following OpenStack command line: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span> <span class="pre">--sort-column</span> <span class="pre">Name</span></code></p>
+<p>Each flavor type has its intended audience. The flavors are presented below but you can also see them in the various portals as well as by running the following OpenStack command line: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span> <span class="pre">--sort-column</span> <span class="pre">Name</span></code></p>
 <p>Its easy to understand what each flavor includes based on its name. For example the flavor “hm.8x48” is a High memory flavor (hm) with 8 CPUs and 48 GB ram (8x48). Another example might be the “hp.12x64-gpu8-nvme50” flavor which is a high performance (hp) flavor with 12 cpus, 64GB ram (12x64), 8 GPU cores (gpu8) and 50 GB of NVMe storage (nvme50).</p>
 <h2 id="general-purpose">General purpose<a class="headerlink" href="#general-purpose" title="Link to this heading">¶</a></h2>
 <p>This flavor type type has a well rounded combination of amount of CPUs and the amount of RAM. The CPUs running this flavor type are Intel Xeon Gold 6138 running at 2GHz. For general usage with no need for a higher clock frequency, this flavor type provides very good value for money. A recommended use case for this flavor type might be a LAMP stack server or servers with low to medium overall load.</p>
@@ -1352,8 +1352,8 @@
 </table>
 <h2 id="pinned-cpu">Pinned CPU<a class="headerlink" href="#pinned-cpu" title="Link to this heading">¶</a></h2>
 <p>In certain use-cases, guaranteeing allotted CPU time is critical (for instance in real time communication where a brief lapse in CPU time would mean that a call might lag or hang). In a cloud environment, this can sometimes be difficult because access to physical CPUs from virtual instances is shared between the various occupants of the same hypervisor host.</p>
-<p>While Binero.Cloud generally provides very good access CPU-time (through very granular monitoring and recurring optimisation of the load on our hypervisors), for those cases where its essential to guarantee the lowest possible tail latency, the pinned instances are available. These instances provides exclusive access to a physical thread, meaning 100% of the threads capacity is reserved to the instance. This way, the user can be assured that “noisy neighbours” are completely eliminated as a problem and from a performance perspective, the experience is very much like running on a physical server.</p>
-<p>We also allot threads from the same physical core exclusively to the same instance (no sharing), meaning complete access to the performance of the core as well as zero risk for future so called Transient execution CPU vulnerabilities (aside from this flavor type, generally Binero.Cloud run on hypervisors with hyper-threading disabled for this reason). All thread allotments are further divided on both NUMA zones in the hypervisor, in order to give the same access to IO as well as to split the load on the physical processors evenly on the hypervisor, all to guarantee predictable performance.</p>
+<p>While Binero cloud generally provides very good access CPU-time (through very granular monitoring and recurring optimisation of the load on our hypervisors), for those cases where its essential to guarantee the lowest possible tail latency, the pinned instances are available. These instances provides exclusive access to a physical thread, meaning 100% of the threads capacity is reserved to the instance. This way, the user can be assured that “noisy neighbours” are completely eliminated as a problem and from a performance perspective, the experience is very much like running on a physical server.</p>
+<p>We also allot threads from the same physical core exclusively to the same instance (no sharing), meaning complete access to the performance of the core as well as zero risk for future so called Transient execution CPU vulnerabilities (aside from this flavor type, generally Binero cloud run on hypervisors with hyper-threading disabled for this reason). All thread allotments are further divided on both NUMA zones in the hypervisor, in order to give the same access to IO as well as to split the load on the physical processors evenly on the hypervisor, all to guarantee predictable performance.</p>
 <table class="docutils data align-default">
 <colgroup>
 <col style="width: 20.0%" />

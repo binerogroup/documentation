@@ -1,7 +1,8 @@
 =======
 Storage
 =======
-Storage is a core function in the In Binero.cloud platform. You are able to provision both :doc:`block <persistent-block-storage/index>` and :doc:`object <object-storage/index>` storage directly in the platform as well as :doc:`file </service-catalog/fileshare>` (using NFS) via our :doc:`../service-catalog/index`. 
+
+Storage is a core function in the Binero cloud platform. You are able to provision both :doc:`block <persistent-block-storage/index>` and :doc:`object <object-storage/index>` storage directly in the platform as well as :doc:`file </service-catalog/fileshare>` (using NFS) via our :doc:`../service-catalog/index`. 
 
 We provide three main :doc:`storage types <storage-types>`, each with its unique benefits; 
 

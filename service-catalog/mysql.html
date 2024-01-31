@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1003,7 +1003,7 @@
 
 <h1 id="mysql-mariadb">MySQL / MariaDB<a class="headerlink" href="#mysql-mariadb" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://www.mysql.com">MySQL</a> is a very popular open source database. <a class="reference external" href="https://mariadb.org">MariaDB</a> is an alternate version of MySQL with some key differences (exactly what is outside the scope of this article but there is plentiful information available on this subject on the internet). Generally, the feature set is somewhat similar.</p>
-<p>Binero.Cloud enables you to provision either MySQL or MariaDB (or both) as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server.</p>
+<p>Binero cloud enables you to provision either MySQL or MariaDB (or both) as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server.</p>
 <p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page. Then follow these instructions:</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
@@ -1013,7 +1013,7 @@
 <li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
 <li><p>Select disk-type. See the <a class="reference internal" href="../storage/storage-types.html"><span class="doc">Storage types</span></a> article for more information.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
-<li><p>Under “local network”, select the <a class="reference internal" href="../networking/virtual-router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
+<li><p>Under “local network”, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
 <li><p>Check the “replication” checkbox if you want to have a slave server setup (see above).</p></li>
 <li><p>Press “create”. You will get further details on how to connect to the service.</p></li>
 </ul>

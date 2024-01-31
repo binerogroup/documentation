@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1005,7 +1005,7 @@
 <p>Using the popular and powerful open source tools <a class="reference external" href="https://www.linux.org">Linux</a>, <a class="reference external" href="https://httpd.apache.org">Apache</a>, MySQL (<a class="reference external" href="https://mariadb.org">MariaDB</a> will be installed) and <a class="reference external" href="https://www.php.net">PHP</a>, a complete production suite can be provisioned. Popular tools like Wordpress or frameworks like CakePHP or Laravel run on LAMP installations.</p>
 <p>If you want to be able to scale your LAMP installation beyond a single server, using this service to setup a load balanced system will be a very good way to go about it. The following will be setup for you:</p>
 <ul class="simple">
-<li><p>A <a class="reference internal" href="../networking/load-balancing/index.html"><span class="doc">load balancer</span></a></p></li>
+<li><p>A <a class="reference internal" href="../networking/load-balancer/index.html"><span class="doc">Load Balancer</span></a></p></li>
 <li><p>A database server instance running MariaDB.</p></li>
 <li><p>A NFS service instance for file storage that will be mounted on the web servers.</p></li>
 <li><p>Webservers (how many you can choose) that will sit behind the load balancer and accept the web requests, running Apache and PHP.</p></li>
@@ -1017,9 +1017,9 @@
 <li><p>Under “db_flavor”, select your <em>database instances</em> <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
 <li><p>Select disk-type for the <em>database instance</em>. See the <a class="reference internal" href="../storage/storage-types.html"><span class="doc">Storage types</span></a> article for more information. We recommend SSD.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
-<li><p>Under “local network”, select the <a class="reference internal" href="../networking/virtual-router/private-network/index.html"><span class="doc">network</span></a> on which the private subnet (see below) that you want to use is located.</p></li>
+<li><p>Under “local network”, select the <a class="reference internal" href="../networking/router/private-network/index.html"><span class="doc">network</span></a> on which the private subnet (see below) that you want to use is located.</p></li>
 <li><p>Under “nfs_flavor”, select your <em>NFS instances</em> <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
-<li><p>Under “subnet”, select the <a class="reference internal" href="../networking/virtual-router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
+<li><p>Under “subnet”, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
 <li><p>Under “web count”, select the amount of load balanced web servers (instances running apache) you want.</p></li>
 <li><p>Under “web_flavor”, select your <strong>web/apache instances</strong> <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
 <li><p>Press “create”. You will get further details on how to connect to the service.</p></li>

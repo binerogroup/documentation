@@ -365,7 +365,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -537,8 +537,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="../router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -612,8 +612,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="../load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -1158,12 +1158,12 @@
 <p>Site-to-site VPN can only be provisioned from the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>. If you normally work via either OpenStack Horizon or the OpenStack API, its possible to execute a <a class="reference internal" href="../../orchestration/index.html"><span class="doc">HEAT template manually</span></a> but we recommend the cloud management portal. Keep in mind (if you don’t normally use it) that there may be discrepancies (for instance on SSH keys and logins) between it and the other management options. Please see <a class="reference internal" href="../../getting-started/managing-your-cloud/index.html"><span class="doc">Managing your cloud</span></a> for more information.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>For the purposes of this guide, the “local” location is the Binero.Cloud datacenter and the “remote” locations is the site to which you want to connect.</p>
+<p>For the purposes of this guide, the “local” location is the Binero cloud datacenter and the “remote” locations is the site to which you want to connect.</p>
 </div>
 <h2 id="checklist-to-get-started">Checklist to get started<a class="headerlink" href="#checklist-to-get-started" title="Link to this heading">¶</a></h2>
 <p>You will need the following information to get started:</p>
 <ul class="simple">
-<li><p>An existing <a class="reference internal" href="../virtual-router/private-subnet/index.html"><span class="doc">private subnet</span></a> already setup in the platform which will be the local subnet (in <a class="reference internal" href="../virtual-router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>) that is routed over IPSec to the remote subnet (which would be your office or secondary datacenter, for instance).</p></li>
+<li><p>An existing <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">private subnet</span></a> already setup in the platform which will be the local subnet (in <a class="reference internal" href="../router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>) that is routed over IPSec to the remote subnet (which would be your office or secondary datacenter, for instance).</p></li>
 <li><p>The IP address of the remote gateway (your public IP that would normally be provided to you by your ISP) for the tunnel.</p></li>
 <li><p>The remote subnet (in CIDR notation) that will be tunneled (meaning the network on which the computers or servers that should be able to connect to resources in the cloud using the tunnel, are situated on).</p></li>
 <li><p>A management IP which will be allowed access to managing the VPN over the internet. If you have another means of accessing the internal network (where the VPN server will be running), for instance our <a class="reference internal" href="../client-vpn/index.html"><span class="doc">client VPN</span></a>, this is not needed and once the tunnel is up, you can connect to its remote IP. Normally the management IP is the same as the local gateway.</p></li>
@@ -1177,8 +1177,8 @@
 <p>Performance is equally based on the other end of the tunnel as well as your remote bandwidth. Take care to measure the capacity of your bandwidth, for instance using speedtest.net or equal service. If you still dont get the throughput you expect, consult the manufacturer of your IPSec equipment to ascertain what its rated for.</p>
 </div>
 <h2 id="remote-equipment">Remote equipment<a class="headerlink" href="#remote-equipment" title="Link to this heading">¶</a></h2>
-<p>In order to run a site-2-site tunnel to Binero.Cloud, you will need a remote router/firewall that is capable of IPSec. This standard is very well supported in hardware (and software) from a wide variety of manufacturers.</p>
-<p>We recommend using the central firewall/router as remote endpoint as that will greatly simplify routing, however its possible to also forward the correct ports to a server (virtual or physical) on the inside of the firewall as Binero.Cloud support the <code class="docutils literal notranslate"><span class="pre">NAT-T</span></code> extension of the IPSec protocol. This will however make the routing more difficult as, depending on architecture, you may need to add routes to the various computers/servers directly.</p>
+<p>In order to run a site-2-site tunnel to Binero cloud, you will need a remote router/firewall that is capable of IPSec. This standard is very well supported in hardware (and software) from a wide variety of manufacturers.</p>
+<p>We recommend using the central firewall/router as remote endpoint as that will greatly simplify routing, however its possible to also forward the correct ports to a server (virtual or physical) on the inside of the firewall as Binero cloud support the <code class="docutils literal notranslate"><span class="pre">NAT-T</span></code> extension of the IPSec protocol. This will however make the routing more difficult as, depending on architecture, you may need to add routes to the various computers/servers directly.</p>
 <p>If investing in a new router, Binero has very good experience from the <a class="reference external" href="https://www.pfsense.org">PFSense solution</a> which is available in both hardware and software versions.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

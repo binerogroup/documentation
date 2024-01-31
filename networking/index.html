@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -533,8 +533,8 @@
   
   
     <li class="md-nav__item">
-      <a href="virtual-router/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Virtual routers</span>
+      <a href="router/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Router</span>
       </a>
     </li>
   
@@ -608,8 +608,8 @@
   
   
     <li class="md-nav__item">
-      <a href="load-balancing/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Load balancing</span>
+      <a href="load-balancer/index.html" class="md-nav__link">
+        <span class="md-ellipsis">Load Balancer</span>
       </a>
     </li>
   
@@ -756,8 +756,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="virtual-router/index.html" class="md-nav__link">
-    <span class="md-ellipsis">Virtual routers</span>
+  <a href="router/index.html" class="md-nav__link">
+    <span class="md-ellipsis">Router</span>
   </a>
   
 </li>
@@ -791,8 +791,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="load-balancing/index.html" class="md-nav__link">
-    <span class="md-ellipsis">Load balancing</span>
+  <a href="load-balancer/index.html" class="md-nav__link">
+    <span class="md-ellipsis">Load Balancer</span>
   </a>
   
 </li>
@@ -1096,21 +1096,21 @@
   </a>
 
 <h1 id="networking">Networking<a class="headerlink" href="#networking" title="Link to this heading">¶</a></h1>
-<p>Networking is a core function in the In Binero.cloud platform. It features a complete suite of virtualised networking functions ranging from routing, firewalling and high speed internet access to VPNs (Virtual Private Networks) and load balancers.</p>
-<p>The two main methods to connect to the internet is to either assign a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a> to your instance or setup a <a class="reference internal" href="virtual-router/index.html"><span class="doc">virtual router</span></a> and connect a <a class="reference internal" href="virtual-router/private-subnet/index.html"><span class="doc">private subnet</span></a> to the router and your instance, then use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating ip</span></a> to your instance (which is the recommended approach).</p>
-<p>The general design of networking in the platform is that <a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a> use <a class="reference internal" href="ports.html"><span class="doc">ports</span></a> to connect to <a class="reference internal" href="virtual-router/private-network/index.html"><span class="doc">networks</span></a>. Networks in turn, have <a class="reference internal" href="virtual-router/private-subnet/index.html"><span class="doc">private subnets</span></a> that assign IPs to instances. <a class="reference internal" href="floating-ips.html"><span class="doc">Floating ip</span></a> are publicly routed IPs that can be mapped (1:1) to a private IP to either publish services on the internet or provide servers with access to the internet.</p>
-<p>Please see the various subsections to this article in order to get a good understanding of the networking possibilities in the platform. If you are looking to <strong>get started</strong> with networking, we recommend our <a class="reference internal" href="../getting-started/launching-an-instance.html"><span class="doc">getting started guide</span></a> that will guide you through setting up a versatile solution using a single subnet behind a virtual router.</p>
+<p>Networking is a core function in the In Binero cloud platform. It features a complete suite of virtualised networking functions ranging from routing, firewalling and high speed internet access to VPNs (Virtual Private Networks) and load balancers.</p>
+<p>The two main methods to connect to the internet is to either assign a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a> to your instance or setup a <a class="reference internal" href="router/index.html"><span class="doc">router</span></a> and connect a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> to the router and your instance, then use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating ip</span></a> to your instance (which is the recommended approach).</p>
+<p>The general design of networking in the platform is that <a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a> use <a class="reference internal" href="ports.html"><span class="doc">ports</span></a> to connect to <a class="reference internal" href="router/private-network/index.html"><span class="doc">networks</span></a>. Networks in turn, have <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnets</span></a> that assign IPs to instances. <a class="reference internal" href="floating-ips.html"><span class="doc">Floating ip</span></a> are publicly routed IPs that can be mapped (1:1) to a private IP to either publish services on the internet or provide servers with access to the internet.</p>
+<p>Please see the various subsections to this article in order to get a good understanding of the networking possibilities in the platform. If you are looking to <strong>get started</strong> with networking, we recommend our <a class="reference internal" href="../getting-started/launching-an-instance.html"><span class="doc">getting started guide</span></a> that will guide you through setting up a versatile solution using a single subnet behind a router.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="virtual-router/index.html">Virtual routers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="virtual-router/launching-a-virtual-router/index.html">Launching a virtual router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtual-router/private-network/index.html">Private networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtual-router/private-subnet/index.html">Private subnets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtual-router/routing-between-networks.html">Routing between networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtual-router/security-groups/index.html">Security groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtual-router/nat.html">NAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtual-router/static-routing.html">Static routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router/index.html">Router</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="router/launching-a-router/index.html">Launching a router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router/private-network/index.html">Private networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router/private-subnet/index.html">Private subnets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router/routing-between-networks.html">Routing between networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router/security-groups/index.html">Security groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router/nat.html">NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router/static-routing.html">Static routing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="floating-ips.html">Floating IPs</a><ul>
@@ -1132,17 +1132,17 @@
 <li class="toctree-l1"><a class="reference internal" href="mtu.html">MTU</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mtu.html#fragmentation">Fragmentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mtu.html#mtu-discovery">MTU discovery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mtu.html#mtu-in-binero-cloud">MTU in Binero.Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mtu.html#mtu-in-binero-cloud">MTU in Binero cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mtu.html#mtu-caveats">MTU caveats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mtu.html#general-recommendations">General recommendations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="load-balancing/index.html">Load balancing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="load-balancing/general-concept/index.html">Load balancing concept in Binero.cloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="load-balancing/recommendations.html">Load balancing recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="load-balancing/launching-a-loadbalancer/index.html">Launching a load balancer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="load-balancing/ssl-termination.html">SSL termination in Load balancer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="load-balancing/layer7-policies/index.html">Layer7 Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load-balancer/index.html">Load Balancer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="load-balancer/general-concept/index.html">Load balancing in Binero cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load-balancer/recommendations.html">Load Balancer recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load-balancer/launching-a-loadbalancer/index.html">Launching a load balancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load-balancer/ssl-termination.html">SSL/TLS termination using Load Balancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load-balancer/layer7-policies/index.html">Layer7 Policies</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reaching-your-instances.html">Reaching your instances</a><ul>
@@ -1178,14 +1178,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reverse-dns-ptr.html">Reverse DNS (PTR)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reverse-dns-ptr.html#general-concept">General concept</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reverse-dns-ptr.html#using-ptr-in-binero-cloud">Using PTR in Binero.cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reverse-dns-ptr.html#using-ptr-in-binero-cloud">Using PTR in Binero cloud</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="regions-and-availability-zones.html">Networking regions and availability zones</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#networks-and-subnets">Networks and subnets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#virtual-routers">Virtual routers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#routers">Routers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#floating-ips">Floating IPs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#load-balancing">Load balancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#load-balancer">Load balancer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#summary">Summary</a></li>
 </ul>
 </li>
@@ -1236,13 +1236,13 @@
       
       
         
-        <a href="virtual-router/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: Virtual routers" rel="next">
+        <a href="router/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: Router" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Virtual routers
+              Router
             </div>
           </div>
           <div class="md-footer__button md-icon">

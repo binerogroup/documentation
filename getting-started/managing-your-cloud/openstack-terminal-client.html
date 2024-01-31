@@ -367,7 +367,7 @@
   
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -922,16 +922,16 @@
 <h1 id="openstack-terminal-client">OpenStack terminal client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h1>
 <p>For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper learning curve) to manage your cloud resources. The client is written in Python.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
-<p>how to install the client will vary based on OS. On Linux based systems as well as Mac OS, its possible to install via <code class="docutils literal notranslate"><span class="pre">pip</span></code> which is the packet installer for python. Installation of pip is documented <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">here</a> but is also possible via for instance <code class="docutils literal notranslate"><span class="pre">brew</span></code> on MacOS or the Linux package manager included in your distribution (for instance <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">pip</span></code> on Debian based distros).</p>
+<p>how to install the client will vary based on OS. On Linux based systems as well as Mac OS, its possible to install via <code class="docutils literal notranslate"><span class="pre">pip</span></code> which is the packet installer for python. Installation of pip is documented <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">here</a> but is also possible via for instance <code class="docutils literal notranslate"><span class="pre">brew</span></code> on MacOS or the Linux package manager included in your distribution (for instance <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">pip</span></code> on Debian based distros).</p>
 <p>Once <code class="docutils literal notranslate"><span class="pre">pip</span></code> is installed, you are able to install the terminal client as such:</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-openstackclient</span> <span class="pre">python-designateclient</span> <span class="pre">python-barbicanclient</span> <span class="pre">python-octaviaclient</span> <span class="pre">python-swiftclient</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-openstackclient</span> <span class="pre">python-designateclient</span> <span class="pre">python-barbicanclient</span> <span class="pre">python-octaviaclient</span> <span class="pre">python-swiftclient</span></code></p>
 <p>The above command will install the base client as well as the extensions needed to run all features of the platform.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <dl class="simple">
 <dt>To configure the client after installation, follow these steps:</dt><dd><ul class="simple">
 <li><p><a class="reference external" href="/getting-started/users.html#api-users">Create an API user</a> (if you dont already have one)</p></li>
 <li><p>On the API-user, press the small arrow icon, this will download an openrc file</p></li>
-<li><p>Source the file on your computer by running <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">source</span> <span class="pre">openrc</span></code>.</p></li>
+<li><p>Source the file on your computer by running <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">openrc</span></code>.</p></li>
 <li><p>Enter your password.</p></li>
 <li><p>You are now ready to use the client in the same terminal that you ran the source command in.</p></li>
 </ul>
@@ -947,15 +947,15 @@
 </div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
 <p>To for instance see the available images in the platform, you can run</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span></code></p>
 <p>The client will run either as a command with arguments or in interactive mode (at which point the arguments are the commands). A good way to find the right command is is to run:</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">help</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&lt;INPUT&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">help</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&lt;INPUT&gt;</span></code></p>
 <p>where &lt;INPUT&gt; is what you are looking for. For instance:</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">help</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">image</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">help</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">image</span></code></p>
 <p>would show you information on the image command used above.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The OpenStack terminal client uses the OpenStack API. If not specifying the API version to use, the client will default to the oldest. This might hinder you from accessing some features and in that case, a warning detailing this would be shown. You are then able to add an option to the API (normally shown in the warning), for instance <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">--os-compute-api-version</span> <span class="pre">2.67</span></code>, which will enable the feature.</p>
+<p>The OpenStack terminal client uses the OpenStack API. If not specifying the API version to use, the client will default to the oldest. This might hinder you from accessing some features and in that case, a warning detailing this would be shown. You are then able to add an option to the API (normally shown in the warning), for instance <code class="docutils literal notranslate"><span class="pre">--os-compute-api-version</span> <span class="pre">2.67</span></code>, which will enable the feature.</p>
 </div>
 <p>Generally speaking, there are the following methods in the terminal client:</p>
 <ul class="simple">

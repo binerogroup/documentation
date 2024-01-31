@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/index.html" class="md-nav__link">
-        <span class="md-ellipsis">Create account &amp; project</span>
+        <span class="md-ellipsis">Create account and project</span>
       </a>
     </li>
   
@@ -1035,7 +1035,7 @@
 <p>To launch an <a class="reference external" href="../index">instance</a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you don’t have a <a class="reference internal" href="../../networking/virtual-router/private-subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in some of the steppes below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.</p>
+<p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in some of the steppes below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.</p>
 </div>
 <ul class="simple">
 <li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
@@ -1047,13 +1047,13 @@
 <li><p>Under “availability zone”, select an availability zone. We recommend “europe-se-1a” if you are creating you first instance (or generally if you are not sure you need to be in 1b).</p></li>
 <li><p>Under “SSH-keys”, select your key.</p></li>
 <li><p>Under “Root password”, select a complicated password. Save it as it will not be saved in the platform after provisioning.</p></li>
-<li><p>Under “Network”, select the network you want to connect to. This could be either a <a class="reference internal" href="../../networking/virtual-router/private-subnet/index.html"><span class="doc">private subnet</span></a> (if you have one setup, if so the name is whatever you chose) or a <a class="reference internal" href="../../networking/directly-attached-ips.html"><span class="doc">directly attached IP</span></a> (the name would be based on the availability zone you previously chose). We recommend using a private subnet, for more information see our <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">Launching an instance</span></a> guide.</p></li>
+<li><p>Under “Network”, select the network you want to connect to. This could be either a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">private subnet</span></a> (if you have one setup, if so the name is whatever you chose) or a <a class="reference internal" href="../../networking/directly-attached-ips.html"><span class="doc">directly attached IP</span></a> (the name would be based on the availability zone you previously chose). We recommend using a private subnet, for more information see our <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">Launching an instance</span></a> guide.</p></li>
 <li><p>Press “create” when done.</p></li>
 </ul>
 <p>The instance will take some time to deploy. When done, it will display as “running” on the next page. When the instance is running, click it and review its IP-configuration under “networking details”. There you are able to see its IP-address (both IPv4 and IPv6). To connect use either SSH or RDP (depending on image). If you are using a private subnet (and not a directly attached IP, see above), you might need to add a floating IP to be able to connect. More information in our <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">Reaching your instances</span></a> article.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/virtual-router/security-groups/index.html"><span class="doc">security groups</span></a> which will be needed to access the instance if you are using a floating IP.</p>
+<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/router/security-groups/index.html"><span class="doc">security groups</span></a> which will be needed to access the instance if you are using a floating IP.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

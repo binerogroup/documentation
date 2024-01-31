@@ -1,10 +1,10 @@
 =======
 Console
 =======
+
 You are able to get the "monitor output" from your instances using the instance console in either the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>` or :doc:`OpenStack Horizon </getting-started/managing-your-cloud/openstack-horizon>`. This is useful if you need to debug a malfunctioning network or an otherwise un-reachable instance.
 
-.. Note::
-	Since you cannot use SSH-keys to login to a console but need to have a password, if you've not set a password (but trusted in the keys from provisioning), you will have to reset the root or administrator password. How to do this will vary by Operating System but for the majority of Linux  systems, booting into "single user mode" will enable a password-less login which can be used to reset the password for the root user.
+.. note:: Since you cannot use SSH-keys to login to a console but need to have a password, if you've not set a password (but trusted in the keys from provisioning), you will have to reset the root or administrator password. How to do this will vary by Operating System but for the majority of Linux  systems, booting into "single user mode" will enable a password-less login which can be used to reset the password for the root user.
 
 Cloud management portal console
 -------------------------------
