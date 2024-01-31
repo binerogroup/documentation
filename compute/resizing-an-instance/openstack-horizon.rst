@@ -1,10 +1,10 @@
 ============================================
 Resizing an instance using OpenStack Horizon
 ============================================
+
 To resize an :doc:`instance <../index>` using :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
 
-.. Important::
-	Resizing an instance will cause the instance to shut off during the process. We recommend doing a backup of your data before proceeding.
+.. important:: Resizing an instance will cause the instance to shut off during the process. We recommend doing a backup of your data before proceeding.
 
 - Under "project", click "compute" and then "instances" in the sidebar menu.
 - In the drop-down menu to the far right of the line corresponding to the instance you want to resize, press "resize instance".

@@ -1,7 +1,8 @@
 ==========================
 Configuring the remote end
 ==========================
-Part of the tunnel runs on Binero.Cloud but the other part runs on the site that you want to connect to. It is difficult to write a comprehensive documentation on how to setup the remote part of the tunnel as the equipment used could vary but normally the options that need editing are the same. IPSec will only work with identical settings on both ends so take care to setup the remove end point with **exactly** the same settings (as outlined below). 
+
+Part of the tunnel runs on Binero cloud but the other part runs on the site that you want to connect to. It is difficult to write a comprehensive documentation on how to setup the remote part of the tunnel as the equipment used could vary but normally the options that need editing are the same. IPSec will only work with identical settings on both ends so take care to setup the remove end point with **exactly** the same settings (as outlined below). 
 
 Keep in mind that for your tunnel to be able to initiate from both ends, you will need to allow traffic from the remote endpoint to your firewall. Either open up from all traffic from the remote endpoint IP (and *protocols* as IPSEC uses more than a single protocol) or do a selective firewall opening for the following:
 
@@ -20,7 +21,7 @@ The below steps should provide the information needed to get a tunnel up and run
 
   - ``SA lifetime``: 28800 seconds
   - ``Dead peer detection (DPD)``: Enabled
-  - ``Algorithms``: Binero.Cloud supports (by default) two options for phase 1 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 1 configuration in the management interface. See :doc:`advanced-configuration` for more information.
+  - ``Algorithms``: Binero cloud supports (by default) two options for phase 1 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 1 configuration in the management interface. See :doc:`advanced-configuration` for more information.
   - Alternative 1:
 
     - ``Cipher``: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)
@@ -40,7 +41,7 @@ The below steps should provide the information needed to get a tunnel up and run
   - ``Remote network``: Your local private network
   - ``Protocol``: ESP
   - ``Lifetime``: 3600 seconds
-  - ``Algorithms``: Binero.Cloud supports (by default) two options for phase 2 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 2 configuration in the management interface. See :doc:`advanced-configuration` for more information.
+  - ``Algorithms``: Binero cloud supports (by default) two options for phase 2 encryption. We recommend the first option as it is more secure but we provide support for a second option for compatibility with older hardware. If you need to change to an even more insecure cipher, please edit the phase 2 configuration in the management interface. See :doc:`advanced-configuration` for more information.
   - Alterative 1:
 
     - ``Cipher``: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)

@@ -58,5 +58,4 @@ To delete a bucket using the swift client, follow these steps:
 - Run this command: ``swift list``, save the name of the bucket you want to delete.
 - Run this command: ``swift delete [BUCKET_NAME]``, replace [BUCKET_NAME] with the name of the bucket. 
 
-.. Important:: 
-	You will not be asked to verify a deletion and everything in the bucket will get deleted.
+.. important:: You will not be asked to verify a deletion and everything in the bucket will get deleted.

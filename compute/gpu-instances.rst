@@ -29,9 +29,9 @@ The key differences between GPUs and CPUs are:
    * - Would always work for any given use case but may not provide good enough performance for some tasks. 
      - Would only be a valid choice for some use cases but would in those cases provide very good performance. 
 
-In summary, for applications such as machine learning (ML), artificial intelligence (AI) or image processing, a GPU would likely provide a 50x to 200x increase in performance over a typical CPU doing the same work. Using a GPU, however, requires and adaptation to the APIs available from the GPU manufacturer. Binero.Cloud provides GPUs from Nvidia, supporting among others OpenCL and CUDA. 
+In summary, for applications such as machine learning (ML), artificial intelligence (AI) or image processing, a GPU would likely provide a 50x to 200x increase in performance over a typical CPU doing the same work. Using a GPU, however, requires and adaptation to the APIs available from the GPU manufacturer. Binero cloud provides GPUs from Nvidia, supporting among others OpenCL and CUDA. 
 
-Binero.clouds compute instances are all running on our high performance instance types. While the GPU is generally an *accelerator* (that is, used to speed up certain general compute processes not specifically relating to graphics), its also possible to use it as a graphics processing unit in an instance for actually accelerating 3D or high resolution 2D. 
+Binero clouds compute instances are all running on our high performance instance types. While the GPU is generally an *accelerator* (that is, used to speed up certain general compute processes not specifically relating to graphics), its also possible to use it as a graphics processing unit in an instance for actually accelerating 3D or high resolution 2D. 
 
 Setting up a GPU instance
 -------------------------
@@ -50,8 +50,7 @@ In order to use the GPU functionality, a driver from nVidia needs to be installe
 
 The current version of the driver that we support is: **535.129.03**.
 
-.. Important: 
-	After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
+.. important: After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
 
 Linux
 ^^^^^

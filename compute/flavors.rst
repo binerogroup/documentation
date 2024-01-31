@@ -2,7 +2,7 @@
 Flavors
 =======
 
-Binero.Cloud provides various "flavors" of compute instances. A flavor is a pre-packaged combination of components providing certain performance and / or features. In the platform, we have flavors for the following use cases:
+Binero cloud provides various "flavors" of compute instances. A flavor is a pre-packaged combination of components providing certain performance and / or features. In the platform, we have flavors for the following use cases:
 
 - General purpose
 - High memory
@@ -12,13 +12,14 @@ Binero.Cloud provides various "flavors" of compute instances. A flavor is a pre-
 - NVMe based storage
 - GPU based compute with NVMe based storage
 
-Each flavor type has its intended audience. The flavors are presented below but you can also see them in the various portals as well as by running the following OpenStack command line: ``$ openstack flavor list --sort-column Name``
+Each flavor type has its intended audience. The flavors are presented below but you can also see them in the various portals as well as by running the following OpenStack command line: ``openstack flavor list --sort-column Name``
 
 Its easy to understand what each flavor includes based on its name. For example the flavor "hm.8x48" is a High memory flavor (hm) with 8 CPUs and 48 GB ram (8x48). Another example might be the "hp.12x64-gpu8-nvme50" flavor which is a high performance (hp) flavor with 12 cpus, 64GB ram (12x64), 8 GPU cores (gpu8) and 50 GB of NVMe storage (nvme50).
 
 
 General purpose
 ---------------
+
 This flavor type type has a well rounded combination of amount of CPUs and the amount of RAM. The CPUs running this flavor type are Intel Xeon Gold 6138 running at 2GHz. For general usage with no need for a higher clock frequency, this flavor type provides very good value for money. A recommended use case for this flavor type might be a LAMP stack server or servers with low to medium overall load. 
 
 .. list-table::
@@ -68,6 +69,7 @@ This flavor type type has a well rounded combination of amount of CPUs and the a
 
 High memory
 -----------
+
 This flavor type is optimised to provide the best value for applications needing a larger amount of RAM as compared to amount of CPU cores from the general purpose type. A typical example might be a database with heavy RAM caching. Like the general purpose flavor type, the CPUs in this flavor type are Intel Xeon Gold 6138 running at 2GHz.
 
 .. list-table::
@@ -138,6 +140,7 @@ This flavor type is optimised to provide the best value for applications needing
 
 High performance
 ----------------
+
 For heavily loaded applications or applications which are single threaded (and therefore serial by nature - therefore gaining only by a faster clock), the high performance flavor type provides a higher base clock frequency than the other flavor types. The CPUs in this type are Intel Xeon Gold 6154 running at 3GHz. At a 50% higher clock frequency, serial tasks will complete faster, storage and RAM access is faster with consistently lower latency and performance is more predictable. A typical use case might be caching servers, heavily utilised database servers or really anything with a need for very good performance. Like the general purpose type, this flavor has a well rounded relation between amount of CPU cores and RAM. 
 
 .. list-table::
@@ -208,11 +211,12 @@ For heavily loaded applications or applications which are single threaded (and t
 
 Pinned CPU
 ----------
+
 In certain use-cases, guaranteeing allotted CPU time is critical (for instance in real time communication where a brief lapse in CPU time would mean that a call might lag or hang). In a cloud environment, this can sometimes be difficult because access to physical CPUs from virtual instances is shared between the various occupants of the same hypervisor host. 
 
-While Binero.Cloud generally provides very good access CPU-time (through very granular monitoring and recurring optimisation of the load on our hypervisors), for those cases where its essential to guarantee the lowest possible tail latency, the pinned instances are available. These instances provides exclusive access to a physical thread, meaning 100% of the threads capacity is reserved to the instance. This way, the user can be assured that "noisy neighbours" are completely eliminated as a problem and from a performance perspective, the experience is very much like running on a physical server. 
+While Binero cloud generally provides very good access CPU-time (through very granular monitoring and recurring optimisation of the load on our hypervisors), for those cases where its essential to guarantee the lowest possible tail latency, the pinned instances are available. These instances provides exclusive access to a physical thread, meaning 100% of the threads capacity is reserved to the instance. This way, the user can be assured that "noisy neighbours" are completely eliminated as a problem and from a performance perspective, the experience is very much like running on a physical server. 
 
-We also allot threads from the same physical core exclusively to the same instance (no sharing), meaning complete access to the performance of the core as well as zero risk for future so called Transient execution CPU vulnerabilities (aside from this flavor type, generally Binero.Cloud run on hypervisors with hyper-threading disabled for this reason). All thread allotments are further divided on both NUMA zones in the hypervisor, in order to give the same access to IO as well as to split the load on the physical processors evenly on the hypervisor, all to guarantee predictable performance.
+We also allot threads from the same physical core exclusively to the same instance (no sharing), meaning complete access to the performance of the core as well as zero risk for future so called Transient execution CPU vulnerabilities (aside from this flavor type, generally Binero cloud run on hypervisors with hyper-threading disabled for this reason). All thread allotments are further divided on both NUMA zones in the hypervisor, in order to give the same access to IO as well as to split the load on the physical processors evenly on the hypervisor, all to guarantee predictable performance.
 
 .. list-table::
    :widths: 20 20 20 40
@@ -249,6 +253,7 @@ We also allot threads from the same physical core exclusively to the same instan
 
 High performance with NVMe
 --------------------------
+
 This flavor type is identical to the high performance type except for using :doc:`NVMe based storage </storage/nvme-storage>`. This storage has some limitations as far as redundancy goes however from a performance perspective its close to the speed of RAM. If you are looking for the best possible performance for doing scratch disk operations or if you are building an application with built-in redundancy (like a replicated database), and need the best storage performance, this flavor type will deliver it.
 
 .. list-table::
@@ -287,6 +292,7 @@ This flavor type is identical to the high performance type except for using :doc
 
 High performance with GPU
 -------------------------
+
 :doc:`GPU based compute <gpu-instances>` enables you to run tasks on a GPU (graphics processing unit). Aside from providing access to a GPU (with number of GB vMEM/RAM, as stated in the instance name), this instance is identical with the high performance flavor type. Recommended for doing various types of image processing or for AI / ML implementations that will typically run 50-200x faster on GPUs.
 
 .. list-table::
@@ -336,6 +342,7 @@ High performance with GPU
 
 High performance with GPU and NVMe
 ----------------------------------
+
 A flavor type which combines the high performance with GPU and NVMe based storage. For situations where you need GPU but also really fast storage to read and write to.
 
 .. list-table::

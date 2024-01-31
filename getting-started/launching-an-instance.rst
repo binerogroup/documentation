@@ -1,7 +1,8 @@
 =====================
 Launching an instance
 =====================
-This guide provides a step-by-step guide to easily launch your first instance on Binero.cloud. The available methods to launch an instance are:
+
+This guide provides a step-by-step guide to easily launch your first instance on Binero cloud. The available methods to launch an instance are:
 
 - `The cloud management portal </compute/launching-an-instance/cloud-management-portal>`_
 - `OpenStack Horizon </compute/launching-an-instance/openstack-horizon>`_
@@ -10,8 +11,7 @@ This guide provides a step-by-step guide to easily launch your first instance on
 
 For users starting out, we recommend using our cloud management portal as this provides an easy-to-use format that will take you from 0-100 in the shortest time possible with very little prior understanding of working with public clouds. More information on working using the other methods are available under the respective subsections for each service in this documentation.
 
-.. Note::
-	More information on how to access the various portals is available `here </getting-started/managing-your-cloud>`_
+.. note:: More information on how to access the various portals is available `here </getting-started/managing-your-cloud>`_
 
 General first steps
 -------------------
@@ -19,20 +19,19 @@ When starting out in the platform there are some tasks that normally only need t
 
 There are two main ways to connect your infrastructure (and in this case, your first instance) to the internet:
 
-- Setup an instances to use a public IP directly (see `directly attached IPs </networking/directly-attached-ips>`_, which is not to be confused with floating ips.
-- Setup a **virtual router** and use `floating IPs </networking/floating-ips>`_) through the router. 
+- Setup an instances to use a public IP directly (see `directly attached IPs </networking/directly-attached-ips>`_, which is not to be confused with floating IPs.
+- Setup a :doc:`/networking/router/index` and use :doc:`/networking/floating-ips` through the router. 
 
-We will cover the second option (virtual router + floating ips) in this quick start guide as it will provide a more versatile option when growing your infrastructure as well as an additional layer of security.
+We will cover the second option (router + floating ips) in this quick start guide as it will provide a more versatile option when growing your infrastructure as well as an additional layer of security.
 
-.. Note::
-	Some features of the platform, for instance load balancing, will **require** a virtual router. From a security perspective its also preferable to use floating IPs as your instances will be less exposed to the internet than with a directly attached IP. Finally, when using a virtual router with several instances, doing backend connections (for instance from a web server to a database) can (and should) be done on the private network setup rather than on the public IPs. For this reason, we recommend using a virtual router in all use cases except when using only a single server with a strong local firewall in place. 
+.. note:: Some features of the platform, for instance load balancing, will **require** a router. From a security perspective its also preferable to use floating IPs as your instances will be less exposed to the internet than with a directly attached IP. Finally, when using a router with several instances, doing backend connections (for instance from a web server to a database) can (and should) be done on the private network setup rather than on the public IPs. For this reason, we recommend using a router in all use cases except when using only a single server with a strong local firewall in place. 
 
 The following tasks are recommended to complete before launching your first instance:
 
 - Add your SSH-key to the platform (if provisioning Linux-based instances). 
 - Create a network.
 - Add a subnet to your network.
-- Create a virtual router.
+- Create a router.
 - Connect the router to the subnet using an inteface.
 
 Add an SSH-key
@@ -63,9 +62,9 @@ To add a subnet (an ip-range) to the network you created above, follow these ste
   - press "create subnet" 
 
 
-Create a virtual router
+Create a router
 ^^^^^^^^^^^^^^^^^^^^^^^
-To add a virtual router, follow these steps: 
+To add a router, follow these steps: 
   - Press "Networking" and then "Routers" in the sidebar menu. 
   - Press the "+" icon in the bottom right corner.
   - "europe-se-1" should be pre-selected as region. 
@@ -94,4 +93,4 @@ For users starting out in the platform and/or users that are not used to working
 
 ..  seealso::
   - :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
-  - :doc:`/networking/virtual-router/index`
+  - :doc:`/networking/router/index`

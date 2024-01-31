@@ -1,7 +1,8 @@
 =====
 Users
 =====
-There are four main user types in the Binero.cloud platform:
+
+There are four main user types in the Binero cloud platform:
 
 - Main user
 - Account management portal users (either the same as the main user or a newly create one)
@@ -15,6 +16,7 @@ For more details, see information on each section below.
 
 Account management portal
 -------------------------
+
 To create a user through the :doc:`/getting-started/managing-your-cloud/account-management-portal`, follow these steps:
 
 * From the home screen press "New contact" under the "Contacts" dialog to the right.
@@ -25,8 +27,7 @@ To create a user through the :doc:`/getting-started/managing-your-cloud/account-
 
 The user will receive and e-mail with instructions on how to enroll themselves. 
 
-.. note::
-	Users created in the account management portal are not synced to the cloud management portal, see below.
+.. note:: Users created in the account management portal are not synced to the cloud management portal, see below.
 
 To instead add a contact which is mainly usefull for sending out information from the platform (for instance invoices to the billing department) without allowing for logging in to the portal, follow these steps: 
 
@@ -38,13 +39,14 @@ To instead add a contact which is mainly usefull for sending out information fro
 
 Cloud management portal
 -----------------------
+
 The cloud management portal has only one user (as opposed to the account management portal) which is the main user. It can login with its credentials directly or use single sign on from the account management portal. If you setup multiple users in the account management portal, each user will use single sign on to the main user in the cloud management portal.
 
-.. Tip::
-	Because you may want to limit access to your infrastructure to the essential personell, a good first step is to setup additional users in the account management portal and reserve the main login for those that need access to the infrastructure in the cloud management portal.
+.. tip:: Because you may want to limit access to your infrastructure to the essential personell, a good first step is to setup additional users in the account management portal and reserve the main login for those that need access to the infrastructure in the cloud management portal.
 
 API users
 ---------
+
 In the cloud management portal, you are able to setup API users under "Access and Security" in the main menu. An API user is a native OpenStack Keystone user that has access to your project, you can use it in the OpenStack Horizon Dashboard or to connect to any of the OpenStack API endpoints. An API user, however, cannot login directly to the cloud management portal.
 
 To create an api user through the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps:
@@ -56,11 +58,11 @@ To create an api user through the :doc:`/getting-started/managing-your-cloud/clo
 
 The API user will be created with the username style "mainuser@domain.com_choosenusername" (that is, the username you chose when creating the user will only be part of the total username).
 
-.. Tip::
-	Provided you want to only use the Horizon interface or work via API, its possible to setup API users as personal users for the people managing the infrastructure. The main user should then be limited to the super admin which would use it, only to provision API users.
+.. tip:: Provided you want to only use the Horizon interface or work via API, its possible to setup API users as personal users for the people managing the infrastructure. The main user should then be limited to the super admin which would use it, only to provision API users.
 
 Application Credentials
 -----------------------
+
 By using application credentials, its possible to grant a subset of your API-users access to a certain application. The scope of an application credential, thus, is the same as an API user (see above) but with limited access. This is useful for when wanting to assign access to an application (as opposed to a human) to a certain part of the platform (or more correctly, to the API) while limiting for instance the ability to login to the portal. Application credentials can only be created using :doc:`OpenStack Horizon </getting-started/managing-your-cloud/openstack-horizon>` and they are always tied to the privileges of the user that created them.
 
 To create an application credential user through the :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps:
@@ -75,8 +77,7 @@ To create an application credential user through the :doc:`/getting-started/mana
 * The "unrestricted" box will enable creating additional users. This is **not** recommended.
 * Finally, press "create application credential".
 
-.. Important::
-	Once you create the credential, you will be given a one time opportunity to save the information by copy/paste or downloading in openrc or YAML format. Once you press close, the secret will only be available in the database encrypted and new credentials will have to be created if you forget them.
+.. important:: Once you create the credential, you will be given a one time opportunity to save the information by copy/paste or downloading in openrc or YAML format. Once you press close, the secret will only be available in the database encrypted and new credentials will have to be created if you forget them.
 
 ..  seealso::
   - :doc:`/getting-started/managing-your-cloud/cloud-management-portal`

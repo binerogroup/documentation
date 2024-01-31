@@ -1,13 +1,15 @@
 ==========================================
 Manage OpenStack resources using Terraform
 ==========================================
-Terraform is a very popular tool that automates infrastructure in various platforms. It has an OpenStack module and as such is compatible with Binero.Cloud. In this guide, we will walk through some concepts that enable you to use it with the platform. 
+
+Terraform is a very popular tool that automates infrastructure in various platforms. It has an OpenStack module and as such is compatible with Binero cloud. In this guide, we will walk through some concepts that enable you to use it with the platform. 
 
 Prepare Terraform
 -----------------
+
 The official installation guide is available here: `here <https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli>`__. 
 
-To get Terraform speaking with Binero.Cloud, you will need to configure the OpenStack provider. `Here <https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs>`__ is a good place to get information on how to do that. 
+To get Terraform speaking with Binero cloud, you will need to configure the OpenStack provider. `Here <https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs>`__ is a good place to get information on how to do that. 
 
 Start by creating an :doc:`API user </getting-started/users>` and download its OpenRC file (by pressing the small arrow next to it). The information in this file is needed to configure the Terraform provider. An example configuration file (called for instance "demo.tf") could look like this: 
 
@@ -37,6 +39,7 @@ Start by creating an :doc:`API user </getting-started/users>` and download its O
 
 Working with Binero.Cloud through Terraform
 -------------------------------------------
+
 Covering Terraform in depth is out-of-scope for this guide. Generally speaking, Terraform will support "datasources" (information about whats available in the cloud) and "resources" (objects managed in the cloud). Below is an example of an instance setup in the cloud: 
 
 ::
@@ -64,7 +67,6 @@ Covering Terraform in depth is out-of-scope for this guide. Generally speaking, 
 	}
 	
 
-Creating the above example in the same demo.tf file from before and running ``$ terraform apply`` will create the instance. 
+Creating the above example in the same demo.tf file from before and running ``terraform apply`` will create the instance. 
 
 More information on what the OpenStack provider can do is available `here <https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs>`__. 
-
