@@ -21,9 +21,11 @@ More information on the various ways to manage your cloud is available in the :d
   flavors
   launching-an-instance/index
   resizing-an-instance/index
+  re-create-instance-from-volume
   assign-ip
   console
   hard-reboot
+  server-groups
   shelving-an-instance
   windows-instances
   gpu-instances

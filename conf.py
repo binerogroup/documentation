@@ -123,7 +123,6 @@ html_theme_options = {
         "navigation.top",
         "search.share",
         "toc.follow",
-        "toc.sticky",
         "content.tabs.link",
         "announce.dismiss",
     ]

@@ -20,7 +20,7 @@ Anti affinity
 -------------
 While your instances are running in the cloud, they are being powered by hardware (so called "hypervisors"). Hardware can fail and if you have a redundant solution setup with failover between instances, it makes sense to guarantee that they are hosted on different hypervisors. Should a hypervisor crash, only one instance is affected and your application will continue to function. 
 
-..Note::
+.. Note::
 	Anti Affinity in and of itself does not provide high availability but makes aware of how your high availability is setup. You still need a highly available system with more than a single instance doing the same thing, to benefit from Anti Affinity.
 
 Creating a server group
