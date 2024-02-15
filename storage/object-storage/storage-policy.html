@@ -49,7 +49,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.0ab3a26fa3e745d23.min.css?v=640a1356" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.b60240675f636ac48.min.css?v=1be8f7f1" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1154,7 +1154,8 @@
   </a>
 
 <h1 id="storage-policy">Storage policy<a class="headerlink" href="#storage-policy" title="Link to this heading">¶</a></h1>
-<p>Binero cloud provides various storage policies for you to place your container/bucket on. A storage policy is using an underlying <a class="reference internal" href="../storage-types.html"><span class="doc">storage type</span></a> and additional features to accommodate different use-cases. The intent is to allow users to select on a more granual level on what they need for their use-case such as:</p>
+<p>Binero cloud provides various storage policies for you to place your container/bucket on. A storage policy is using an underlying <a class="reference internal" href="../storage-types.html"><span class="doc">storage type</span></a> and additional features to accommodate different use-cases.</p>
+<p>The intent is to allow users to select on a more granual level on what they need for their use-case such as:</p>
 <ul class="simple">
 <li><p>Size of the object(s)</p></li>
 <li><p>Risk of data loss</p></li>
@@ -1178,7 +1179,15 @@
 <li><p>gp.recurring</p></li>
 <li><p>hp.intensive</p></li>
 </ul>
-<p>The various storage policies have different intended use-cases as presented in detail below. Their respective price points are available <a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">here</a>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Plan the storage policy you use based on your use-case as this will have an impact on your performance as well as pricing and retrieval fees.</p>
+</div>
+<p>The various storage policies have different intended use-cases as presented in detail below. Their respective price points for usage and retrieval is available in our
+<a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">price list</a> where the pricing is different for each storage policy.</p>
+<p>The pricing for usage is based on the combined size in gigabytes (GB) of objects you store in all your buckets/containers.</p>
+<p>The pricing for retrieval per gigabyte (GB) is also applied on some storage policies, this is based on the bytes sent to you when for example downloading
+objects or listing objects in a bucket, this is to keep a very low price point for dataset that require massive amount of usage but very infrequent access.</p>
 <h2 id="gp-archive">gp.archive<a class="headerlink" href="#gp-archive" title="Link to this heading">¶</a></h2>
 <p>This storage policy is classified as general purpose (gp) and its intended use-case is archiving, that is a file-dump on which you can store data that is not intended to be read that much (or at all), for instance backup of files or instances (our <a class="reference internal" href="../../backup/index.html"><span class="doc">backup solution</span></a> use this plan).</p>
 <p>In order to keep the price down, this solution uses erasure coding which is a way to store data redundantly with minimum overhead. This method is somewhat less secure from a data integrity standpoint than replication (which all the other storage policies use) but can in turn be provided at a lower price point per GB. The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
