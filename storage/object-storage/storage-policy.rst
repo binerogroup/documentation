@@ -2,7 +2,9 @@
 Storage policy
 ==============
 
-Binero cloud provides various storage policies for you to place your container/bucket on. A storage policy is using an underlying :doc:`storage type <../storage-types>` and additional features to accommodate different use-cases. The intent is to allow users to select on a more granual level on what they need for their use-case such as:
+Binero cloud provides various storage policies for you to place your container/bucket on. A storage policy is using an underlying :doc:`storage type <../storage-types>` and additional features to accommodate different use-cases.
+
+The intent is to allow users to select on a more granual level on what they need for their use-case such as:
 
 - Size of the object(s)
 - Risk of data loss
@@ -22,7 +24,15 @@ The storage policies available are:
 - gp.recurring
 - hp.intensive
 
-The various storage policies have different intended use-cases as presented in detail below. Their respective price points are available `here <https://binero.com/public-cloud-platform/publikt-moln/pris/>`__.
+.. tip:: Plan the storage policy you use based on your use-case as this will have an impact on your performance as well as pricing and retrieval fees.
+
+The various storage policies have different intended use-cases as presented in detail below. Their respective price points for usage and retrieval is available in our
+`price list <https://binero.com/public-cloud-platform/publikt-moln/pris/>`__ where the pricing is different for each storage policy.
+
+The pricing for usage is based on the combined size in gigabytes (GB) of objects you store in all your buckets/containers.
+
+The pricing for retrieval per gigabyte (GB) is also applied on some storage policies, this is based on the bytes sent to you when for example downloading
+objects or listing objects in a bucket, this is to keep a very low price point for dataset that require massive amount of usage but very infrequent access.
 
 gp.archive
 ----------
