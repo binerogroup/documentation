@@ -9,7 +9,7 @@
 }
 
 .md-nav--primary .md-nav__title {
-    background: #e8eef9 !important; 
+    background: none !important;
     box-shadow: none !important;
     position: absolute !important;
 }
