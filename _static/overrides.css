@@ -11,6 +11,7 @@
 .md-nav--primary .md-nav__title {
     background: none !important; 
     box-shadow: none !important; 
+    position: absolute !important;
 }
 
 .md-nav__link.md-nav__sticky {
