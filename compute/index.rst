@@ -21,6 +21,7 @@ More information on the various ways to manage your cloud is available in the :d
   flavors
   launching-an-instance/index
   resizing-an-instance/index
+  recreating-an-instance-from-volume
   assign-ip
   console
   hard-reboot
