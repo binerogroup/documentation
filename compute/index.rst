@@ -24,6 +24,7 @@ More information on the various ways to manage your cloud is available in the :d
   recreating-an-instance-from-volume
   assign-ip
   console
+  server-groups
   hard-reboot
   shelving-an-instance
   windows-instances
