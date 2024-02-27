@@ -7,6 +7,8 @@ Get your own **virtual datacenter** today on `Binero cloud <https://binero.com/p
 Start by `registering an account with us <https://portal.binero.com/cart.php?a=add&pid=1>`__, the account will include 1000 SEK to
 spend on services to get you started which is enough to run a small instance for about half a year.
 
+.. youtube:: wfsCY6GCQ9I
+
 You can then manage your account using the :doc:`/getting-started/managing-your-cloud/account-management-portal` and control your
 cloud infrastructure using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` or using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 dashboard logging in with an API user created from the cloud portal.
