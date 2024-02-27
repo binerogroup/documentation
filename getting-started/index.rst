@@ -6,6 +6,8 @@ Get your own **virtual datacenter** today by `registering an account <https://po
 
 Continue with the `creating your first instance </getting-started/launching-an-instance>`_ to get started!
 
+.. youtube:: wfsCY6GCQ9I
+
 .. meta::
     :description lang=en:
         How to get started with cloud at Binero. Swedish Openstack services compliant with GDPR
