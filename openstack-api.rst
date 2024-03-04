@@ -24,7 +24,7 @@ Keystone
 
 Keystone is the identity service in the OpenStack ecosystem that you use to authenticate using an :doc:`API user </getting-started/users>`.
 
-A good place to start is available in the official documentation `here <https://docs.openstack.org/keystone/yoga/api_curl_examples.html>`_.
+A good place to start is available in the official documentation `here <https://docs.openstack.org/keystone/latest/api_curl_examples.html>`_.
 
 Authentication is needed for all API calls, when authenticating for your token a catalog with endpoints is provided in the response, for
 verbosity it's also included below.
