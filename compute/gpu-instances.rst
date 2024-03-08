@@ -45,10 +45,11 @@ A GPU instance :doc:`is launched <launching-an-instance/index>` the same way as 
 
 Installing the driver
 ---------------------
+In order to use the GPU functionality, a driver from NVIDIA needs to be installed on the instance that has access to the virtual GPU. Please follow below instructions to install the driver.
 
-In order to use the GPU functionality, a driver from nVidia needs to be installed on the instance that has access to the virtual GPU. Please follow below instructions to install the driver.
-
-The current version of the driver that we support is: **535.129.03**.
+The current NVIDIA vGPU Software Version that we are running is: **16.4**
+The current latest driver we support is **Linux:535.161.07 Windows:538.33** 
+For full list of supported versions click `here <https://docs.nvidia.com/grid/16.0/grid-vgpu-release-notes-red-hat-el-kvm/index.html>`__.
 
 .. important: After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
 
@@ -61,10 +62,10 @@ Follow the below steps to install the Linux driver in your instance.
 
 - Verify that the instance is able to see the graphics adapter. This can be done by running ``lspci | grep -i nvidia`` which would return something like ``00:05.0 VGA compatible controller: NVIDIA Corporation Device 2236 (rev a1)``.
 - Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): ``sudo apt update; sudo apt -y install build-essential dkms unzip``
-- Fetch the driver by running: ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
-- Unzip the driver by running: ``unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``.
-- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``.
-- Install the driver by running ``./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
+- Fetch the driver by running: ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.161.07-grid.zip``.
+- Unzip the driver by running: ``unzip NVIDIA-Linux-x86_64-535.161.07-grid.zip``.
+- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.161.07-grid.run``.
+- Install the driver by running ``./NVIDIA-Linux-x86_64-535.161.07-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
 - Verify a successful installation by reading ``/var/log/nvidia-installer.log``. The command ``nvidia-smi`` would give you more useful output.
 - At this point, you need a valid license which `our support </general/getting-support>`_ can provide. Its included in the instance monthly cost but not assigned until requested.
 - The license should be pasted into ``/etc/nvidia/ClientConfigToken/client_configuration_token.tok``.
@@ -74,11 +75,11 @@ Follow the below steps to install the Linux driver in your instance.
 
 ::
 
-    $ wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
-    $ chmod +x cuda_12.2.0_535.54.03_linux.run
-    $ sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
-    $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
-    $ dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
+    wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
+    chmod +x cuda_12.2.0_535.54.03_linux.run
+    sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
+    dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
 
 
 - Install tensor flow (this is optional):
@@ -92,7 +93,7 @@ You are now able to run GPU based computations on your instance!
 
 Windows
 ^^^^^^^
-- Download the driver `here <https://binero.com/downloads/537.70_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/538.33_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges and click through the installation.
 - When the installation finishes, reboot the instance. 
 - Open the device manager by running ``devmgmt.msc``.
@@ -107,7 +108,7 @@ Upgrading the driver
 --------------------
 From time to time, nVidia will release (and Binero will provide) and upgraded version of the GPU driver. This is in order to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, it will be required to maintain a working system) that the driver be updated on the instances running it. Please follow below instructions to upgrade the driver.
 
-The current version of the driver that we support is: Windows: **537.70** Linux **535.129.03**.
+The latest version of the driver that we support is ** Linux: 535.161.07 Windows: 538.33.**
 
 .. important: After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
 
@@ -116,29 +117,29 @@ Linux
 
 Follow below steps to upgrade the Nvidia+cuda driver on a Linux based plattform:
 
-- ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.129.03-grid.zip``
+- ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.161.07-grid.zip``
 - Install (if needed) unzip, for instance by running ``apt-get -y install unzip``
-- Unzip the driver, for instance by running ``unzip NVIDIA-Linux-x86_64-535.129.03-grid.zip``
-- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.129.03-grid.run``
-- Install the driver by running ``./NVIDIA-Linux-x86_64-535.129.03-grid.run --dkms --no-cc-version-check --ui=none --no-questions``
+- Unzip the driver, for instance by running ``unzip NVIDIA-Linux-x86_64-535.161.07-grid.zip``
+- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.161.07-grid.run``
+- Install the driver by running ``./NVIDIA-Linux-x86_64-535.161.07-grid.run --dkms --no-cc-version-check --ui=none --no-questions``
 - Reboot the system.
 - Verify version by running ``nvidia-smi``.
 - To upgrade cuda, first uninstall it by running ``sudo /usr/local/cuda/bin/cuda-uninstaller`` and checking all options.
 
 ::
 
-    $ wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
-    $ chmod +x cuda_12.2.0_535.54.03_linux.run
-    $ sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
-    $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
-    $ dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
+    wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
+    chmod +x cuda_12.2.0_535.54.03_linux.run
+    sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
+    dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
 
 Windows
 ^^^^^^^
 
 Follow below steps to upgrade the nVidia driver on a Windows based platform:
 
-- Download the driver `here <https://binero.com/downloads/537.70_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/538.33_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges.
 - Follow the installation instructions. 
 - Reboot the system.
