@@ -27,6 +27,7 @@ More information on the various ways to manage your cloud is available in the :d
   server-groups
   hard-reboot
   shelving-an-instance
+  boot-from-rescue
   windows-instances
   gpu-instances
   regions-and-availability-zones
