@@ -41,4 +41,5 @@ To create a new compute instance from an image, see our :doc:`launch-instance-fr
   :maxdepth: 1
 
   launch-instance-from-image
+  create-rescue-image
   cloud-init-data

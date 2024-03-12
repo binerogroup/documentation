@@ -15,10 +15,10 @@
     
 
       
-        <title>Windows instances - Binero Documentation</title>
+        <title>Boot from rescue image - Binero Documentation</title>
       
     
-<link rel="canonical" href="https://docs.binero.com/compute/windows-instances.html" />
+<link rel="canonical" href="https://docs.binero.com/compute/boot-from-rescue.html" />
 <link rel="stylesheet" href="../_static/overrides.css"/>
 <link rel="stylesheet" href="../_static/color.css"/>
 <link rel="stylesheet" href="../_static/color_dark.css"/>
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#provisioning" class="md-skip">
+        <a href="#openstack-terminal-client" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows instances
+              Boot from rescue image
             
           </span>
         </div>
@@ -669,21 +669,6 @@
               
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="boot-from-rescue.html" class="md-nav__link">
-        <span class="md-ellipsis">Boot from rescue image</span>
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
     
@@ -695,12 +680,12 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          <span class="md-ellipsis">Windows instances</span>
+          <span class="md-ellipsis">Boot from rescue image</span>
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="#" class="md-nav__link md-nav__link--active">
-        <span class="md-ellipsis">Windows instances</span>
+        <span class="md-ellipsis">Boot from rescue image</span>
       </a>
       
         
@@ -718,35 +703,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#provisioning" class="md-nav__link">
-    <span class="md-ellipsis">Provisioning</span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Provisioning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cloud-management-portal" class="md-nav__link">
-    <span class="md-ellipsis">Cloud management portal</span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#openstack-horizon" class="md-nav__link">
-    <span class="md-ellipsis">Open<wbr>Stack Horizon</span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading-windows-virtio-driver" class="md-nav__link">
-    <span class="md-ellipsis">Upgrading Windows virtio driver</span>
+  <a href="#openstack-terminal-client" class="md-nav__link">
+    <span class="md-ellipsis">Open<wbr>Stack Terminal Client</span>
   </a>
   
 </li>
@@ -755,6 +713,21 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="windows-instances.html" class="md-nav__link">
+        <span class="md-ellipsis">Windows instances</span>
+      </a>
     </li>
   
 
@@ -1058,35 +1031,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#provisioning" class="md-nav__link">
-    <span class="md-ellipsis">Provisioning</span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Provisioning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cloud-management-portal" class="md-nav__link">
-    <span class="md-ellipsis">Cloud management portal</span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#openstack-horizon" class="md-nav__link">
-    <span class="md-ellipsis">Open<wbr>Stack Horizon</span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading-windows-virtio-driver" class="md-nav__link">
-    <span class="md-ellipsis">Upgrading Windows virtio driver</span>
+  <a href="#openstack-terminal-client" class="md-nav__link">
+    <span class="md-ellipsis">Open<wbr>Stack Terminal Client</span>
   </a>
   
 </li>
@@ -1105,72 +1051,31 @@
                   
 
 
-  <a href="https://github.com/binerogroup/documentation/blob/main/compute/windows-instances.rst" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/binerogroup/documentation/blob/main/compute/boot-from-rescue.rst" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
-<h1 id="windows-instances">Windows instances<a class="headerlink" href="#windows-instances" title="Link to this heading">¶</a></h1>
-<p>Windows runs great on Binero cloud! There are some considerations when using a Windows based <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> on the platform. We outline them below.</p>
+<h1 id="boot-from-rescue-image">Boot from rescue image<a class="headerlink" href="#boot-from-rescue-image" title="Link to this heading">¶</a></h1>
+<p>Sometimes you need to boot your instance from a ISO image to fix things that are not possible to fix when the filesystem on the boot <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volume</span></a> volume is mounted. A rescue image can be used in these scenarios to boot an alternate operating system which can in turn fix the problem(s) with the volume.</p>
+<p>While there is a function in the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, it only supports mounting a rescue image on instances that are not booting from a volume (which will be the most common scenario). We will therefore focus on using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> below.</p>
+<h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
+<p>To boot your instance from a rescue image using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>As Windows generally is quite RAM-hungry, we recommend using a <a class="reference internal" href="flavors.html"><span class="doc">high memory flavor</span></a> to run your windows instance on.</p></li>
-<li><p>While Microsoft says Windows server will run on the smallest instance, for a good user experience we recommend a minimum of 3 cores and 8 GB of RAM.</p></li>
-<li><p>A resonable performance could be expected at 4 cores and 12-16GBs of RAM.</p></li>
-<li><p>As Windows Server is not OpenSource, there is a license cost associated with provisioning Windows Server. Please see our <a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">pricelist</a> for more information.</p></li>
-<li><p>While Microsoft says 32GB is the minimum disk-space to run Windows Server, we recommend a disk-space of at least 64GB. This does not include your actual use-case, but for the OS itself.</p></li>
+<li><p>If you don’t have a rescue image in your image repository, first you will need to create one, please follow our guide to create one <a class="reference internal" href="../images/create-rescue-image.html"><span class="doc">here</span></a>.</p></li>
+<li><p>If you do have an image available, by running this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--private</span></code>, you can read and note the name of it for next step.</p></li>
+<li><p>To connect the image to the instance, run this command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">--os-compute-api-version</span> <span class="pre">2.87</span> <span class="pre">server</span> <span class="pre">rescue</span> <span class="pre">--image</span> <span class="pre">&lt;ISO_NAME&gt;</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>, replacing the &lt;ISO_NAME&gt; with the name from previous step and the &lt;INSTANCE_NAME&gt; with the name of the instance that should mount the image.</p></li>
+<li><p>When done, un-mount the image by running this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unrescue</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>.</p></li>
 </ul>
-<h2 id="provisioning">Provisioning<a class="headerlink" href="#provisioning" title="Link to this heading">¶</a></h2>
-<p>Provisioning a Windows Server based instance works mostly the same as is described in our <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">launching an instance</span></a> documentation with the exception that Windows Server does not support SSH-keys for login. Because of this, when you’ve provisioned your instance (and its reported as ACTIVE - that is it has started), you need to set the password using the console. Follow these steps:</p>
-<h3 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h3>
-<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
-<ul class="simple">
-<li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
-<li><p>Press the instance that you recently provisioned.</p></li>
-<li><p>In the top right corner, press “Console” (its the two angle brackets “&lt; &gt;”).</p></li>
-<li><p>You will now get the visual screen output of the server. The image might be blank because the server puts it in power save mode when not used. Moving the cursor or pressing for instance “ctrl” will bring it back.</p></li>
-<li><p>Press “ctrl” + “alt” + “delete”.</p></li>
-<li><p>Press (using the cursor) the “sign in” button.</p></li>
-<li><p>You will be prompted to select a password.</p></li>
-</ul>
-<p>You are now able to login using your new password via an RDP client using for instance a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>. Dont forget that you may need to add a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a> for RDP access.</p>
-<h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
-<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
-<ul class="simple">
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
-<li><p>In the drop-down menu to the far right of the line corresponding to the instance you want to resize, press “console”.</p></li>
-<li><p>You will now get the visual screen output of the server. The image might be blank because the server puts it in power save mode when not used. Moving the cursor or pressing for instance “ctrl” will bring it back.</p></li>
-<li><p>Press “ctrl” + “alt” + “delete”.</p></li>
-<li><p>Press (using the cursor) the “sign in” button.</p></li>
-<li><p>You will be prompted to select a password.</p></li>
-</ul>
-<p>You are now able to login using your new password via an RDP client using for instance a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>. Dont forget that you may need to add a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a> for RDP access.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you cannot see the sign-in button for any reason, restart the server.</p>
+<p>The image can be deleted or remain on your account for future use once you have unmounted it from your instance. If you opt to save the image, please note that it will consume disk-space and therefore have an hourly cost as per our price list.</p>
 </div>
-<h2 id="upgrading-windows-virtio-driver">Upgrading Windows virtio driver<a class="headerlink" href="#upgrading-windows-virtio-driver" title="Link to this heading">¶</a></h2>
-<p>Frome time to time, the underlying infrastructure behaviour will change. This could result in bad IO-performance and even IO-stalls on windows instances with old versions of virtio drivers installed. Upgrading the virtio driver from time to time is therefore advisable. To do so, follow this below process.</p>
-<div class="important admonition">
-<p class="admonition-title">Important</p>
-<p>Its advisable to backup (or at the very least, <a class="reference internal" href="../storage/snapshots/create-snapshot.html"><span class="doc">snapshot</span></a>) your volume before upgrading the IO-driver.</p>
-</div>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>The process involves a reboot so proceeding during a downtime window for mission critical instances is recommended.</p>
-</div>
-<ul class="simple">
-<li><p>Stop any application write IO towards the local disc. This means for instance shutting down a database service. You do not need to quiesce all IO towards the disk.</p></li>
-<li><p>Download the most recent virtio ISO driver from <a class="reference external" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">here</a>.</p></li>
-<li><p>Mount the ISO in windows.</p></li>
-<li><p>Run the <code class="docutils literal notranslate"><span class="pre">virtio-win-gt-x64.msi</span></code> installer with administrative privileges.</p></li>
-<li><p>Click through it.</p></li>
-<li><p>When installer completes successfully, reboot your server.</p></li>
-</ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p></li>
-<li><p><a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a></p></li>
+<li><p><a class="reference internal" href="../images/create-rescue-image.html"><span class="doc">Create rescue image</span></a></p></li>
+<li><p><a class="reference internal" href="index.html"><span class="doc">Compute</span></a></p></li>
 </ul>
 </div>
 
@@ -1201,7 +1106,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="boot-from-rescue.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Boot from rescue image" rel="prev">
+        <a href="shelving-an-instance.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Shelving an instance" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1210,20 +1115,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Boot from rescue image
+              Shelving an instance
             </div>
           </div>
         </a>
       
       
         
-        <a href="gpu-instances.html" class="md-footer__link md-footer__link--next" aria-label="Next: GPU instances" rel="next">
+        <a href="windows-instances.html" class="md-footer__link md-footer__link--next" aria-label="Next: Windows instances" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              GPU instances
+              Windows instances
             </div>
           </div>
           <div class="md-footer__button md-icon">
