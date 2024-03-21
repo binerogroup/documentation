@@ -55,3 +55,4 @@ Automated application installations are available to provide applications pre-in
   redis
   schedule-backup
   schedule-snapshot
+  ELK
