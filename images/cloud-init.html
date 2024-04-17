@@ -15,10 +15,10 @@
     
 
       
-        <title>Cloud init data - Binero Documentation</title>
+        <title>Cloud-init - Binero Documentation</title>
       
     
-<link rel="canonical" href="https://docs.binero.com/images/cloud-init-data.html" />
+<link rel="canonical" href="https://docs.binero.com/images/cloud-init.html" />
 <link rel="stylesheet" href="../_static/overrides.css"/>
 <link rel="stylesheet" href="../_static/color.css"/>
 <link rel="stylesheet" href="../_static/color_dark.css"/>
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cloud init data
+              Cloud-init
             
           </span>
         </div>
@@ -726,7 +726,7 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       <a href="#" class="md-nav__link md-nav__link--active">
-        <span class="md-ellipsis">Cloud init data</span>
+        <span class="md-ellipsis">Cloud-<wbr>init</span>
       </a>
       
     </li>
@@ -861,14 +861,19 @@
                   
 
 
-  <a href="https://github.com/binerogroup/documentation/blob/main/images/cloud-init-data.rst" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/binerogroup/documentation/blob/main/images/cloud-init.rst" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
-<h1 id="cloud-init-data">Cloud init data<a class="headerlink" href="#cloud-init-data" title="Link to this heading">¶</a></h1>
-<p>Cloud-init is an industry standard method for doing initial configuration of compute instances across plattforms. During first boot of a cloud-init configured compute instance, cloud-init will automatically provision the instance with networking, storage, SSH keys, packages and various other system aspects already configured in the cloud infrastructure. Cloud-init is therefore a bridge between the platform and the OS-installation running on the cloud, enabling zero configuration on the guest instances.</p>
-<p>User have the option to inject their own commands via cloud-user data. This is accomplished by adding YAML data in the “cloud init user data” fields associated with provisioning a new instance. More information on whats available to configure via cloud-user data is available <a class="reference external" href="https://cloudinit.readthedocs.io/en/latest/reference/examples.html">here</a>.</p>
+<h1 id="cloud-init">Cloud-init<a class="headerlink" href="#cloud-init" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://cloudinit.readthedocs.io/en/latest/">Cloud-init</a> is the industry standard multi-distribution method for cross-platform
+cloud instance initialization. It is supported across all major public cloud providers, provisioning systems for private cloud
+infrastructure, and bare-metal installations.</p>
+<p>During boot, cloud-init identifies the cloud it is running on and initialises the system accordingly. Cloud instances will automatically
+be provisioned during first boot with networking, storage, SSH keys, packages and various other system aspects already configured.</p>
+<p>Cloud-init is very powerful and users can send their own cloud-user data to cloud-init to accomplish customized configuration. See the
+<a class="reference external" href="https://cloudinit.readthedocs.io/en/latest/reference/examples.html">examples here</a>.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
