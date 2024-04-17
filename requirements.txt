@@ -1,4 +1,6 @@
-sphinx # BSD
+# TODO(tobias.urdin): Unpin sphinx when sphinx-immaterial works
+# with newer versions https://github.com/jbms/sphinx-immaterial/issues/345
+sphinx<7.3.0 # BSD
 sphinx-immaterial # MIT
 sphinx-sitemap # MIT
 sphinxcontrib-youtube # BSD
