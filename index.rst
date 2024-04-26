@@ -4,8 +4,8 @@ Welcome to Binero cloud!
 
 Get your own **virtual datacenter** today on `Binero cloud <https://binero.com/public-cloud-platform/public-cloud/>`_!
 
-Start by `registering an account with us <https://portal.binero.com/cart.php?a=add&pid=1>`__, the account will include 1000 SEK to
-spend on services to get you started which is enough to run a small instance for about half a year.
+Start by `registering an account with us <https://portal.binero.com/cart.php?a=add&pid=1>`__ and verify your email address
+and your account will include 1000 SEK to spend on services to get you started which is enough to run a small instance for about half a year.
 
 .. youtube:: wfsCY6GCQ9I
 
