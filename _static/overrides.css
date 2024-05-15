@@ -1,5 +1,4 @@
 .mjjd-container {
-  /* background-image: url('bgred.png') !important; */
   background-attachment: fixed;
   background-size: cover;
 }
@@ -33,7 +32,7 @@
 }
 
 .md-typeset :is(.admonition,details):is(.important) {
-    border-color: #ff0028 !important;
+    border-color: #f7b05b !important;
 }
 
 .md-header__topic:first-child {
