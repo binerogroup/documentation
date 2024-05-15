@@ -15,8 +15,8 @@ button[data-md-color-primary] {
 
 [data-md-color-primary=binero] .md-container {
   background: linear-gradient(58deg, rgba(255,255,255,1) 62%, rgba(247,176,91,1) 85%) !important;
-  background-attachment: fixed;
-  background-size: cover;
+  background-attachment: fixed !important;
+  background-size: cover !important;
 }
 
 button[data-md-color-accent]:hover,
