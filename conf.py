@@ -78,6 +78,7 @@ sitemap_url_scheme = "{link}"
 #
 html_theme = 'sphinx_immaterial'
 html_logo = '_static/logo.png'
+html_favicon = '_static/binero.ico'
 html_title = 'Binero Documentation'
 
 html_show_copyright = False

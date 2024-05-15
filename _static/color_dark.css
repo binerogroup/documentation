@@ -12,7 +12,6 @@ button[data-md-color-primary] {
 }
 
 [data-md-color-primary=binero-dark] .md-container {
-  /* background-image: url('bgred.png') !important; */
   background-attachment: fixed;
   background-size: cover;
 }
@@ -23,11 +22,11 @@ button[data-md-color-primary]:hover {
 }
 
 button[data-md-color-primary=binero-dark] {
-    background-color: #ff0028
+    background-color: #f7b05b
 }
 
 [data-md-color-primary=binero-dark] .md-typeset a {
-    color: #ff0028
+    color: #f7b05b
 }
 
 [data-md-color-primary=binero-dark] .md-header,
@@ -37,7 +36,7 @@ button[data-md-color-primary=binero-dark] {
 
 [data-md-color-primary=binero-dark] .md-nav__link--active,
 [data-md-color-primary=binero-dark] .md-nav__link:active {
-    color: #ff0028
+    color: #f7b05b
 }
 
 [data-md-color-primary=binero-dark] .md-nav__item--nested>.md-nav__link {
@@ -95,12 +94,12 @@ button[data-md-color-accent=binero-dark] {
 
 @media only screen and (max-width:76.1875em) {
     html [data-md-color-primary=binero-dark] .md-nav--primary .md-nav__title--site {
-        background-color: #ff0028
+        background-color: #f7b05b
     }
 }
 
 @media only screen and (min-width:76.25em) {
     [data-md-color-primary=binero-dark] .md-tabs {
-        background-color: #ff0028
+        background-color: #f7b05b
     }
 }
