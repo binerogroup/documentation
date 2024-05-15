@@ -14,7 +14,7 @@ button[data-md-color-primary] {
 }
 
 [data-md-color-primary=binero] .md-container {
-  background-image: url('bgredcloud.png') !important;
+  background: linear-gradient(58deg, rgba(255,255,255,1) 62%, rgba(247,176,91,1) 85%) !important;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -25,11 +25,11 @@ button[data-md-color-primary]:hover {
 }
 
 button[data-md-color-primary=binero] {
-    background-color: #ff0028
+    background-color: #f7b05b
 }
 
 [data-md-color-primary=binero] .md-typeset a {
-    color: #ff0028
+    color: #f7b05b
 }
 
 [data-md-color-primary=binero] .md-header,
@@ -39,7 +39,7 @@ button[data-md-color-primary=binero] {
 
 [data-md-color-primary=binero] .md-nav__link--active,
 [data-md-color-primary=binero] .md-nav__link:active {
-    color: #ff0028
+    color: #f7b05b
 }
 
 [data-md-color-primary=binero] .md-nav__item--nested>.md-nav__link {
@@ -97,37 +97,37 @@ button[data-md-color-accent=binero] {
 
 @media only screen and (max-width:76.1875em) {
     html [data-md-color-primary=binero] .md-nav--primary .md-nav__title--site {
-        background-color: #ff0028
+        background-color: #f7b05b
     }
 }
 
 @media only screen and (min-width:76.25em) {
     [data-md-color-primary=binero] .md-tabs {
-        background-color: #ff0028
+        background-color: #f7b05b
     }
 }
 :root, [data-md-color-scheme=default] {
-    --md-typeset-a-color: #ff0028;
+    --md-typeset-a-color: #f7b05b;
 }
 
 .md-nav__link:is(:focus,:hover) {
-    color: #ff0028;
+    color: #f7b05b;
 }
 
 .md-nav__item .md-nav__link--active {
-    color: #ff0028 !important;
+    color: #f7b05b !important;
 }
 
 .md-nav__link:-webkit-any(:focus,:hover) {
-    color: #ff0028 !important;
+    color: #f7b05b !important;
 }
 
 .md-nav__link:-moz-any(:focus,:hover) {
-    color: #ff0028 !important;
+    color: #f7b05b !important;
 }
 
 .md-nav__link:is(:focus,:hover) {
-    color: #ff0028 !important;
+    color: #f7b05b !important;
 }
 
 .md-nav__sticky {
