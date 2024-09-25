@@ -48,7 +48,7 @@ Installing the driver
 In order to use the GPU functionality, a driver from NVIDIA needs to be installed on the instance that has access to the virtual GPU. Please follow below instructions to install the driver.
 
 The current NVIDIA vGPU Software Version that we are running is: **16.4**
-The current latest driver we support is **Linux:535.161.07 Windows:538.33** 
+The current latest driver we support is **Linux:535.161.07 Windows:538.78** 
 For full list of supported versions click `here <https://docs.nvidia.com/grid/16.0/grid-vgpu-release-notes-red-hat-el-kvm/index.html>`__.
 
 .. important: After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
@@ -93,7 +93,7 @@ You are now able to run GPU based computations on your instance!
 
 Windows
 ^^^^^^^
-- Download the driver `here <https://binero.com/downloads/538.33_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/538.78_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges and click through the installation.
 - When the installation finishes, reboot the instance. 
 - Open the device manager by running ``devmgmt.msc``.
@@ -139,7 +139,7 @@ Windows
 
 Follow below steps to upgrade the nVidia driver on a Windows based platform:
 
-- Download the driver `here <https://binero.com/downloads/538.33_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/538.78_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges.
 - Follow the installation instructions. 
 - Reboot the system.
