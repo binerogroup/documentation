@@ -49,7 +49,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.e1df8bfc655416bb9.min.css?v=563fe63e" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.56b649b1ea89b6732.min.css?v=8e993667" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1062,14 +1062,14 @@
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To boot your instance from a rescue image using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>If you don’t have a rescue image in your image repository, first you will need to create one, please follow our guide to create one <a class="reference internal" href="../images/create-rescue-image.html"><span class="doc">here</span></a>.</p></li>
-<li><p>If you do have an image available, by running this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--private</span></code>, you can read and note the name of it for next step.</p></li>
-<li><p>To connect the image to the instance, run this command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">--os-compute-api-version</span> <span class="pre">2.87</span> <span class="pre">server</span> <span class="pre">rescue</span> <span class="pre">--image</span> <span class="pre">&lt;ISO_NAME&gt;</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>, replacing the &lt;ISO_NAME&gt; with the name from previous step and the &lt;INSTANCE_NAME&gt; with the name of the instance that should mount the image.</p></li>
+<li><p>We provide a public <a class="reference external" href="https://www.system-rescue.org">SystemRescue</a> image that can be used.</p></li>
+<li><p>You can use a custom rescue image or use our guide <a class="reference internal" href="../images/create-rescue-image.html"><span class="doc">here</span></a> to create one.</p></li>
+<li><p>To connect the image to the instance, run this command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">--os-compute-api-version</span> <span class="pre">2.87</span> <span class="pre">server</span> <span class="pre">rescue</span> <span class="pre">--image</span> <span class="pre">&lt;ISO_NAME&gt;</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>, replacing the &lt;ISO_NAME&gt; with the name from previous step and the &lt;INSTANCE_NAME&gt; with the name of the instance that should mount the image. It takes a few minutes for server to go through a series of states and finally start. Manage server via console.</p></li>
 <li><p>When done, un-mount the image by running this command: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unrescue</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The image can be deleted or remain on your account for future use once you have unmounted it from your instance. If you opt to save the image, please note that it will consume disk-space and therefore have an hourly cost as per our price list.</p>
+<p>If you created a custom image and have run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unrescue</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>. please remove image or it will consume disk-space and therefore have an hourly cost as per our price list.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
