@@ -156,15 +156,18 @@ the user ID, you can find your user ID by issuing a token ``openstack token issu
       interface: public
       identity_api_version: 3
 
+.. note::
+
+   The below workflow of using a token with the OpenStack Terminal Client does not
+   work when using an Application Credential with MFA enabled and you must authenticate
+   every request instead.
+
 You can now run the following command to issue a new token, you will be prompted for a TOTP
 passcode.
 
 ::
 
-    # Using password and passcode
     export OS_TOKEN=$(openstack --os-cloud binero-cloud-mfa token issue -c id -f value)
-    # or, using a application credential and passcode
-    export OS_TOKEN=$(openstack --os-cloud binero-cloud-mfa-appcred token issue -c id -f value)
 
 This token is valid for one hour. You can now use it when running commands like below.
 
