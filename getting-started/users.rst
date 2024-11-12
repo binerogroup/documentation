@@ -104,11 +104,14 @@ you chose when creating the user will only be part of the total username).
 Application Credentials
 -----------------------
 
-Using an `Application Credentials <https://docs.openstack.org/keystone/latest/user/application_credentials.html>`_
-makes it possible to grant specific access to your application(s) as a user without sharing the credentials for that user.
+Using an Application Credentials makes it possible to grant specific access to your application(s) as a user without
+sharing the credentials for that user.
 
 The scope of an Application Credential is the same as the user that created it but can be limited by selecting
 specific roles or access rules, the resource is owned by the user when created as is tied to it's lifetime.
+
+You can read more about Application Credentials in the official OpenStack documentation
+`here <https://docs.openstack.org/keystone/latest/user/application_credentials.html>`_.
 
 Application Credentials can be created using :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 or :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
