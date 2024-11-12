@@ -115,7 +115,7 @@ Application Credentials
 
 .. warning::
 
-   If you enable :ref:`mfa-users-label` all Application Credentials for your API user will **STOP** working.
+   If you enable :ref:`mfa-users-label` all Application Credentials for your API user will be enforced to use MFA.
 
 Using an Application Credentials makes it possible to grant specific access to your application(s) as a user without
 sharing the credentials for that user.
@@ -238,7 +238,8 @@ Application Credentials and EC2 credentials that you've created.
 - If you lose access to your TOTP application or device you will lose access to your API user, we
   recommend that you keep a backup of your TOTP secret.
 
-- :ref:`application-credentials-label` for this user will **STOP** working.
+- All :ref:`application-credentials-label` for this user will be enforced
+  to use MFA.
 
 - :ref:`EC2 credentials <ec2-credential-label>` for this user will continue to work
   and MFA will **NOT** be enforced, make sure to audit your EC2 credentials.

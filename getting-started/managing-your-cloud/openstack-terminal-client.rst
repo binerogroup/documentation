@@ -99,7 +99,9 @@ Multifactor authentication (MFA)
 --------------------------------
 
 If you have enabled :ref:`mfa-users-label` you need to use the ``v3multifactor`` auth type and configure
-the auth methods to be ``v3password`` and ``v3totp``.
+the auth methods to be ``v3password`` and ``v3totp`` or if you are using an
+:ref:`Application Credential <application-credentials-label>` you must use `v3applicationcredential``
+and ``v3totp`` as auth methods.
 
 When MFA is enabled you need to enter a TOTP passcode every time to authenticate to get a token so
 instead of authenticating every request we save the token and use that for subsequent commands.
@@ -109,6 +111,9 @@ TOTP and another one that only uses a token.
 
 Use below as an template and replace with correct information. The project name is your customer
 number.
+
+When using an :ref:`Application Credential <application-credentials-label>` with MFA you must give
+the user ID, you can find your user ID by issuing a token ``openstack token issue -f value -c user_id``
 
 ::
 
@@ -128,6 +133,19 @@ number.
       region: europe-se-1
       interface: public
       identity_api_version: 3
+    binero-cloud-mfa-appcred:
+      auth_type: v3multifactor
+      auth_methods:
+        - v3applicationcredential
+        - v3totp
+      auth:
+        auth_url: https://auth.binero.cloud:5000
+        user_id: USER_ID_HERE
+        application_credential_id: APP_CRED_ID_HERE
+        application_credential_secret: APP_CRED_SECRET_HERE
+      region: europe-se-1
+      interface: public
+      identity_api_version: 3
     binero-cloud-token:
       auth_type: v3token
       auth:
@@ -143,7 +161,10 @@ passcode.
 
 ::
 
+    # Using password and passcode
     export OS_TOKEN=$(openstack --os-cloud binero-cloud-mfa token issue -c id -f value)
+    # or, using a application credential and passcode
+    export OS_TOKEN=$(openstack --os-cloud binero-cloud-mfa-appcred token issue -c id -f value)
 
 This token is valid for one hour. You can now use it when running commands like below.
 
