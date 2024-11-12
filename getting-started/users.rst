@@ -154,10 +154,23 @@ To create an Application Credential through the :doc:`/getting-started/managing-
    copying it or downloading it in openrc or YAML format. Once you've pressed close, you will not be able to retrieve
    the secret again.
 
-.. _ec2-credentials-label:
+Credentials
+-----------
 
-EC2 Credentials
----------------
+.. _ec2-credential-label:
+
+EC2 Credential
+~~~~~~~~~~~~~~~
+
+TODO
+
+TOTP Credential
+~~~~~~~~~~~~~~~
+
+TODO
+
+Multifactor authentication (MFA) for API user
+---------------------------------------------
 
 TODO
 

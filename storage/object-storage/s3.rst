@@ -32,7 +32,7 @@ user using the credential.
    Sharing the EC2 credential will allow that entity to impersonate your :ref:`API user <api-users-label>`
    and gives access to all of the cloud platform and not only the S3 service.
 
-You can only create an :ref:`EC2 credential <ec2-credentials-label>` using the
+You can only create an :ref:`EC2 credential <ec2-credential-label>` using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` by running the
 ``openstack ec2 credentials create`` command which creates a new EC2 credential for your API user.
 
@@ -40,7 +40,7 @@ You can list existing EC2 credentials for your API user using ``openstack creden
 
 When you create a new EC2 credential save the access and secret key that is the credential itself.
 
-You can read more about :ref:`ec2-credentials-label` in our :doc:`/getting-started/users` documentation.
+You can read more about :ref:`ec2-credential-label` in our :doc:`/getting-started/users` documentation.
 
 S3 client
 ---------
