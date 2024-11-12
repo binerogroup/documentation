@@ -994,7 +994,7 @@ would use it, only to provision API users.</p>
 <h2 id="application-credentials"><span id="application-credentials-label"></span>Application Credentials<a class="headerlink" href="#application-credentials" title="Link to this heading">¶</a></h2>
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
-<p>If you enable <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> all Application Credentials for your API user will <strong>STOP</strong> working.</p>
+<p>If you enable <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> all Application Credentials for your API user will be enforced to use MFA.</p>
 </div>
 <p>Using an Application Credentials makes it possible to grant specific access to your application(s) as a user without
 sharing the credentials for that user.</p>
@@ -1082,7 +1082,8 @@ Application Credentials and EC2 credentials that you’ve created.</p>
 use the API, terminal client or remove MFA without entering a TOTP passcode.</p></li>
 <li><p>If you lose access to your TOTP application or device you will lose access to your API user, we
 recommend that you keep a backup of your TOTP secret.</p></li>
-<li><p><a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> for this user will <strong>STOP</strong> working.</p></li>
+<li><p>All <a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> for this user will be enforced
+to use MFA.</p></li>
 <li><p><a class="reference internal" href="#ec2-credential-label"><span class="std std-ref">EC2 credentials</span></a> for this user will continue to work
 and MFA will <strong>NOT</strong> be enforced, make sure to audit your EC2 credentials.</p></li>
 <li><p>Enabling MFA on your API user will invalidate all existing tokens that has not
