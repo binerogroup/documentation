@@ -1,61 +1,155 @@
 =========================
-OpenStack terminal client
+OpenStack Terminal Client
 =========================
 
-For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper learning curve) to manage your cloud resources. The client is written in Python. 
+For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper
+learning curve) to manage your cloud resources. The client is written in Python.
 
 Installation
 ------------
 
-how to install the client will vary based on OS. On Linux based systems as well as Mac OS, its possible to install via ``pip`` which is the packet installer for python. Installation of pip is documented `here <https://pip.pypa.io/en/stable/installation/>`__ but is also possible via for instance ``brew`` on MacOS or the Linux package manager included in your distribution (for instance ``apt install pip`` on Debian based distros). 
+How to install the client will vary based on your operating system. On Linux based systems and Mac OS,
+its possible to install via ``pip`` which is the packet installer for python.
+
+Installation of pip is documented `here <https://pip.pypa.io/en/stable/installation/>`_ but is also
+possible using ``brew`` on Mac OS or the Linux package manager included in your distribution
+(for instance ``apt install pip`` on Debian based distros).
 
 Once ``pip`` is installed, you are able to install the terminal client as such: 
 
-``pip install python-openstackclient python-designateclient python-barbicanclient python-octaviaclient python-swiftclient``
+::
 
-The above command will install the base client as well as the extensions needed to run all features of the platform.
+    pip install python-openstackclient python-designateclient python-barbicanclient python-octaviaclient python-swiftclient``
+
+The above command will install the base client as well as the extensions needed to run all features
+of the platform.
 
 Configuration
 -------------
 
 To configure the client after installation, follow these steps:
-  - `Create an API user </getting-started/users.html#api-users>`_ (if you dont already have one)
-  - On the API-user, press the small arrow icon, this will download an openrc file
-  - Source the file on your computer by running ``source openrc``. 
-  - Enter your password. 
-  - You are now ready to use the client in the same terminal that you ran the source command in.
 
-.. note:: When running the ``source`` command, you will get a token on your client which is valid for some time but refreshed upon usage. If you have not used the client you may need to run the command again.
+- `Create an API user </getting-started/users.html#api-users>`_ (if you dont already have one)
 
-.. note:: The terminal client will use your API-user. This is not the same as the main user that you would have used to create your API user (the same one that can login to the cloud management portal). This in turn means that the OpenStack terminal client will show you the same information that you would see when login into Horizon, and not the cloud management portal (as it uses the main user - which is not an API user).
+- On the API user, press the small arrow icon, this will download an openrc file
+
+- Source the file in your terminal by running ``source openrc``
+
+- Enter your password
+
+- You are now ready to use the client in the same terminal that you ran the source command in
+
+.. note::
+
+   When running the ``source`` command, you will get a token on your client which is valid for some time
+   but refreshed upon usage. If you have not used the client you may need to run the command again.
+
+The terminal client will use your API user. This is not the same as the main user that you would have
+used to create your API user (the same one that can login to the cloud management portal).
+
+This in turn means that the OpenStack terminal client will show you the same information that you would
+see when login into Horizon, and not the cloud management portal (as it uses the main user,
+which is not an API user).
 
 Usage
 -----
 
 To for instance see the available images in the platform, you can run
 
-``openstack image list``
+::
 
-The client will run either as a command with arguments or in interactive mode (at which point the arguments are the commands). A good way to find the right command is is to run:
+    openstack image list
 
-``openstack help | grep <INPUT>``
+The client will run either as a command with arguments or in interactive mode (at which point the
+arguments are the commands). A good way to find the right command is is to run:
 
-where <INPUT> is what you are looking for. For instance: 
+::
 
-``openstack help | grep image``
+    openstack help | grep <INPUT>
+
+where ``<INPUT>`` is what you are looking for. For instance: 
+
+::
+
+    openstack help | grep image
 
 would show you information on the image command used above.
 
-.. note:: The OpenStack terminal client uses the OpenStack API. If not specifying the API version to use, the client will default to the oldest. This might hinder you from accessing some features and in that case, a warning detailing this would be shown. You are then able to add an option to the API (normally shown in the warning), for instance ``--os-compute-api-version 2.67``, which will enable the feature.
+.. note::
+
+   The OpenStack terminal client uses the OpenStack API. If not specifying the API version to use, the
+   client will default to the oldest. This might hinder you from accessing some features and in that
+   case, a warning detailing this would be shown. You are then able to add an option to the
+   API (normally shown in the warning), for instance ``--os-compute-api-version 2.67``, which will
+   enable the feature.
 
 Generally speaking, there are the following methods in the terminal client:
 
-- **list** - this lists information about objects that are currently in the cloud.
-- **show** - this show information about a single object that is currently in the cloud.
-- **create** - this creates a new object in the cloud. 
-- **set** - this edits a current object in the cloud.
+- **list** - this lists information about resources that are currently in the cloud.
+- **show** - this show information about a single resource that is currently in the cloud.
+- **create** - this creates a new resource in the cloud.
+- **set** - this edits a current resource in the cloud.
 
-Several examples using "list" is available above and using "-h" would provide a good tutorial on how to use each method.
+Several examples using ``list`` is available above and using ``-h`` would provide a good tutorial on
+how to use each method.
+
+.. _mfa-terminal-label:
+
+Multifactor authentication (MFA)
+--------------------------------
+
+If you have enabled :ref:`mfa-users-label` you need to use the ``v3multifactor`` auth type and configure
+the auth methods to be ``v3password`` and ``v3totp``.
+
+When MFA is enabled you need to enter a TOTP passcode every time to authenticate to get a token so
+instead of authenticating every request we save the token and use that for subsequent commands.
+
+Configure two clouds in the ``~/.config/openstack/clouds.yaml`` file, one that uses your password and
+TOTP and another one that only uses a token.
+
+Use below as an template and replace with correct information. The project name is your customer
+number.
+
+::
+
+  clouds:
+    binero-cloud-mfa:
+      auth_type: v3multifactor
+      auth_methods:
+        - v3password
+        - v3totp
+      auth:
+        auth_url: https://auth.binero.cloud:5000
+        username: USERNAME_HERE
+        password: PASSWORD_HERE
+        project_name: PROJECT_NAME_HERE
+        user_domain_name: default
+        project_domain_name: default
+      region: europe-se-1
+      interface: public
+      identity_api_version: 3
+    binero-cloud-token:
+      auth_type: v3token
+      auth:
+        auth_url: https://auth.binero.cloud:5000
+        project_name: PROJECT_NAME_HERE
+        project_domain_name: default
+      region: europe-se-1
+      interface: public
+      identity_api_version: 3
+
+You can now run the following command to issue a new token, you will be prompted for a TOTP
+passcode.
+
+::
+
+    export OS_TOKEN=$(openstack --os-cloud binero-cloud-mfa token issue -c id -f value)
+
+This token is valid for one hour. You can now use it when running commands like below.
+
+::
+
+    openstack --os-cloud binero-cloud-token project list
 
 ..  seealso::
   - :doc:`/getting-started/users`
