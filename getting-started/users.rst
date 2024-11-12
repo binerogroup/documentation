@@ -44,9 +44,10 @@ The user will receive and e-mail with instructions on how to enroll themselves.
 
 .. note::
 
-   Users created in the account management portal are not synced to the cloud management portal, see below.
+   Users created in the :doc:`/getting-started/managing-your-cloud/account-management-portal` not synced to the
+   :doc:`/getting-started/managing-your-cloud/cloud-management-portal`.
 
-To instead add a contact which is mainly usefull for sending out information from the platform (for instance invoices to the
+To instead add a contact which is mainly useful for sending out information from the platform (for instance invoices to the
 billing department) without allowing for logging in to the portal, follow these steps: 
 
 * From the home screen click **New contact** under the **Contacts** dialog to the right.
@@ -60,17 +61,17 @@ billing department) without allowing for logging in to the portal, follow these 
 Cloud management portal
 -----------------------
 
-The cloud management portal has only one user (as opposed to the account management portal) which is the
-main user. It can login with its credentials directly or use single sign on from the account management portal.
+The :doc:`/getting-started/managing-your-cloud/cloud-management-portal` has only one user (as opposed to the
+:doc:`/getting-started/managing-your-cloud/account-management-portal`) which is the main user.
 
-If you setup multiple users in the account management portal, each user will use single sign on to the main
-user in the cloud management portal.
+Users in the :doc:`/getting-started/managing-your-cloud/account-management-portal` can single sign-on directly
+to the cloud management portal from the account management portal.
 
 .. tip::
 
-   Because you may want to limit access to your infrastructure to the essential personell, a good first step is
-   to setup additional users in the account management portal and reserve the main login for those that need
-   access to the infrastructure in the cloud management portal.
+   Because you may want to limit access to your infrastructure, a good first step is to setup additional users in
+   the account management portal and reserve the main login for those that need access to the infrastructure in
+   the cloud management portal.
 
 API users
 ---------
