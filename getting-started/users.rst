@@ -78,12 +78,17 @@ to the cloud management portal from the account management portal.
 API users
 ---------
 
-In the cloud management portal, you are able to setup API users under **Access and Security** in the main menu.
+In the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, you are able to setup API users
+under **Access and Security** in the main menu.
 
-An API user is a native OpenStack Keystone user that has access to your project, you can use it in the OpenStack Horizon Dashboard
-or to connect to any of the OpenStack API endpoints. An API user, however, cannot login directly to the cloud management portal.
+An API user is a native OpenStack Keystone user that has access to your project, you can use it in the
+:doc:`/getting-started/managing-your-cloud/openstack-horizon` or to connect to any of the :ref:`OpenStack API
+endpoints <openstack-api-endpoints>`.
 
-To create an API user through the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps:
+An API user cannot login directly to the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`.
+
+To create an API user through the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow
+these steps:
 
 * Under **Access and security** in the main menu, click **API users**
 
