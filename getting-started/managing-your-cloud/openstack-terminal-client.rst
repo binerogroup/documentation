@@ -98,7 +98,58 @@ how to use each method.
 Multifactor authentication (MFA)
 --------------------------------
 
-TODO
+If you have enabled :ref:`mfa-users-label` you need to use the ``v3multifactor`` auth type and configure
+the auth methods to be ``v3password`` and ``v3totp``.
+
+When MFA is enabled you need to enter a TOTP passcode every time to authenticate to get a token so
+instead of authenticating every request we save the token and use that for subsequent commands.
+
+Configure two clouds in the ``~/.config/openstack/clouds.yaml`` file, one that uses your password and
+TOTP and another one that only uses a token.
+
+Use below as an template and replace with correct information. The project name is your customer
+number.
+
+::
+
+  clouds:
+    binero-cloud-mfa:
+      auth_type: v3multifactor
+      auth_methods:
+        - v3password
+        - v3totp
+      auth:
+        auth_url: https://auth.binero.cloud:5000
+        username: USERNAME_HERE
+        password: PASSWORD_HERE
+        project_name: PROJECT_NAME_HERE
+        user_domain_name: default
+        project_domain_name: default
+      region: europe-se-1
+      interface: public
+      identity_api_version: 3
+    binero-cloud-token:
+      auth_type: v3token
+      auth:
+        auth_url: https://auth.binero.cloud:5000
+        project_name: PROJECT_NAME_HERE
+        project_domain_name: default
+      region: europe-se-1
+      interface: public
+      identity_api_version: 3
+
+You can now run the following command to issue a new token, you will be prompted for a TOTP
+passcode.
+
+::
+
+    export OS_TOKEN=$(openstack --os-cloud binero-cloud-mfa token issue -c id -f value)
+
+This token is valid for one hour. You can now use it when running commands like below.
+
+::
+
+    openstack --os-cloud binero-cloud-token project list
 
 ..  seealso::
   - :doc:`/getting-started/users`
