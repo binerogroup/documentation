@@ -5,16 +5,22 @@ Users
 There are four main user types in the Binero cloud platform:
 
 - Main user
-- Account management portal users (either the same as the main user or a newly create one)
-- Cloud management portal user (the same as the main user)
-- API users (setup from the cloud management portal)
-- Application Credentials (setup from OpenStack Horizon using an API user)
+
+- :doc:`/getting-started/managing-your-cloud/account-management-portal` users (same as the main user or a newly create one)
+
+- :doc:`/getting-started/managing-your-cloud/cloud-management-portal` user (the same as the main user)
+
+- API users (created from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`)
+
+- :ref:`application-credentials-label` (created from :doc:`/getting-started/managing-your-cloud/openstack-horizon` or
+  the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` with an API user)
 
 The main user is the user you registered when signing up for the service. It will be an e-mail address, probably of
 the person that setup the account.
 
-The main user can be used to login to both the account management portal and the cloud management portal but cannot
-be used for either Horizon, the OpenStack terminal client or the API which all require an API user. 
+The main user can be used to login to both the :doc:`/getting-started/managing-your-cloud/account-management-portal` and the
+:doc:`/getting-started/managing-your-cloud/cloud-management-portal` but cannot be used for either :doc:`/getting-started/managing-your-cloud/openstack-horizon`,
+the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` or the API which all require an API user. 
 
 For more details, see information on each section below.
 
@@ -93,6 +99,8 @@ you chose when creating the user will only be part of the total username).
    users for the people managing the infrastructure. The main user should then be limited to the super admin which
    would use it, only to provision API users.
 
+.. _application-credentials-label:
+
 Application Credentials
 -----------------------
 
@@ -102,8 +110,8 @@ makes it possible to grant specific access to your application(s) as a user with
 The scope of an Application Credential is the same as the user that created it but can be limited by selecting
 specific roles or access rules, the resource is owned by the user when created as is tied to it's lifetime.
 
-Application Credentials can be created using :doc:`OpenStack Terminal CLI </getting-started/managing-your-cloud/openstack-terminal>`
-or :doc:`OpenStack Horizon </getting-started/managing-your-cloud/openstack-horizon>`.
+Application Credentials can be created using :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+or :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 
 To create an Application Credential through the :doc:`/getting-started/managing-your-cloud/openstack-horizon`, see steps below:
 

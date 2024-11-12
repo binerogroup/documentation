@@ -1,5 +1,5 @@
 =========================
-OpenStack terminal client
+OpenStack Terminal Client
 =========================
 
 For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper learning curve) to manage your cloud resources. The client is written in Python. 
