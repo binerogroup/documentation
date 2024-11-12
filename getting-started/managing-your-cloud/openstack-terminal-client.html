@@ -15,7 +15,7 @@
     
 
       
-        <title>OpenStack terminal client - Binero Documentation</title>
+        <title>OpenStack Terminal Client - Binero Documentation</title>
       
     
 <link rel="canonical" href="https://docs.binero.com/getting-started/managing-your-cloud/openstack-terminal-client.html" />
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OpenStack terminal client
+              OpenStack Terminal Client
             
           </span>
         </div>
@@ -466,12 +466,12 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          <span class="md-ellipsis">Open<wbr>Stack terminal client</span>
+          <span class="md-ellipsis">Open<wbr>Stack Terminal Client</span>
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="#" class="md-nav__link md-nav__link--active">
-        <span class="md-ellipsis">Open<wbr>Stack terminal client</span>
+        <span class="md-ellipsis">Open<wbr>Stack Terminal Client</span>
       </a>
       
         
@@ -505,6 +505,13 @@
         <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">Usage</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multifactor-authentication-mfa" class="md-nav__link">
+    <span class="md-ellipsis">Multifactor authentication <wbr>(MFA)</span>
   </a>
   
 </li>
@@ -900,6 +907,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#multifactor-authentication-mfa" class="md-nav__link">
+    <span class="md-ellipsis">Multifactor authentication <wbr>(MFA)</span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -919,52 +933,117 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
   </a>
 
-<h1 id="openstack-terminal-client">OpenStack terminal client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h1>
-<p>For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper learning curve) to manage your cloud resources. The client is written in Python.</p>
+<h1 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h1>
+<p>For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper
+learning curve) to manage your cloud resources. The client is written in Python.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
-<p>how to install the client will vary based on OS. On Linux based systems as well as Mac OS, its possible to install via <code class="docutils literal notranslate"><span class="pre">pip</span></code> which is the packet installer for python. Installation of pip is documented <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">here</a> but is also possible via for instance <code class="docutils literal notranslate"><span class="pre">brew</span></code> on MacOS or the Linux package manager included in your distribution (for instance <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">pip</span></code> on Debian based distros).</p>
+<p>How to install the client will vary based on your operating system. On Linux based systems and Mac OS,
+its possible to install via <code class="docutils literal notranslate"><span class="pre">pip</span></code> which is the packet installer for python.</p>
+<p>Installation of pip is documented <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">here</a> but is also
+possible using <code class="docutils literal notranslate"><span class="pre">brew</span></code> on Mac OS or the Linux package manager included in your distribution
+(for instance <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">pip</span></code> on Debian based distros).</p>
 <p>Once <code class="docutils literal notranslate"><span class="pre">pip</span></code> is installed, you are able to install the terminal client as such:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-openstackclient</span> <span class="pre">python-designateclient</span> <span class="pre">python-barbicanclient</span> <span class="pre">python-octaviaclient</span> <span class="pre">python-swiftclient</span></code></p>
-<p>The above command will install the base client as well as the extensions needed to run all features of the platform.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>pip install python-openstackclient python-designateclient python-barbicanclient python-octaviaclient python-swiftclient``
+</code></pre></div>
+</div>
+<p>The above command will install the base client as well as the extensions needed to run all features
+of the platform.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<dl class="simple">
-<dt>To configure the client after installation, follow these steps:</dt><dd><ul class="simple">
+<p>To configure the client after installation, follow these steps:</p>
+<ul class="simple">
 <li><p><a class="reference external" href="/getting-started/users.html#api-users">Create an API user</a> (if you dont already have one)</p></li>
-<li><p>On the API-user, press the small arrow icon, this will download an openrc file</p></li>
-<li><p>Source the file on your computer by running <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">openrc</span></code>.</p></li>
-<li><p>Enter your password.</p></li>
-<li><p>You are now ready to use the client in the same terminal that you ran the source command in.</p></li>
+<li><p>On the API user, press the small arrow icon, this will download an openrc file</p></li>
+<li><p>Source the file in your terminal by running <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">openrc</span></code></p></li>
+<li><p>Enter your password</p></li>
+<li><p>You are now ready to use the client in the same terminal that you ran the source command in</p></li>
 </ul>
-</dd>
-</dl>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>When running the <code class="docutils literal notranslate"><span class="pre">source</span></code> command, you will get a token on your client which is valid for some time but refreshed upon usage. If you have not used the client you may need to run the command again.</p>
+<p>When running the <code class="docutils literal notranslate"><span class="pre">source</span></code> command, you will get a token on your client which is valid for some time
+but refreshed upon usage. If you have not used the client you may need to run the command again.</p>
 </div>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>The terminal client will use your API-user. This is not the same as the main user that you would have used to create your API user (the same one that can login to the cloud management portal). This in turn means that the OpenStack terminal client will show you the same information that you would see when login into Horizon, and not the cloud management portal (as it uses the main user - which is not an API user).</p>
-</div>
+<p>The terminal client will use your API user. This is not the same as the main user that you would have
+used to create your API user (the same one that can login to the cloud management portal).</p>
+<p>This in turn means that the OpenStack terminal client will show you the same information that you would
+see when login into Horizon, and not the cloud management portal (as it uses the main user,
+which is not an API user).</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
 <p>To for instance see the available images in the platform, you can run</p>
-<p><code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span></code></p>
-<p>The client will run either as a command with arguments or in interactive mode (at which point the arguments are the commands). A good way to find the right command is is to run:</p>
-<p><code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">help</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&lt;INPUT&gt;</span></code></p>
-<p>where &lt;INPUT&gt; is what you are looking for. For instance:</p>
-<p><code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">help</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">image</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">openstack</span> <span class="n">image</span> <span class="nb">list</span>
+</code></pre></div>
+</div>
+<p>The client will run either as a command with arguments or in interactive mode (at which point the
+arguments are the commands). A good way to find the right command is is to run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">openstack</span> <span class="n">help</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">&lt;</span><span class="n">INPUT</span><span class="o">&gt;</span>
+</code></pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;INPUT&gt;</span></code> is what you are looking for. For instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">openstack</span> <span class="n">help</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">image</span>
+</code></pre></div>
+</div>
 <p>would show you information on the image command used above.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The OpenStack terminal client uses the OpenStack API. If not specifying the API version to use, the client will default to the oldest. This might hinder you from accessing some features and in that case, a warning detailing this would be shown. You are then able to add an option to the API (normally shown in the warning), for instance <code class="docutils literal notranslate"><span class="pre">--os-compute-api-version</span> <span class="pre">2.67</span></code>, which will enable the feature.</p>
+<p>The OpenStack terminal client uses the OpenStack API. If not specifying the API version to use, the
+client will default to the oldest. This might hinder you from accessing some features and in that
+case, a warning detailing this would be shown. You are then able to add an option to the
+API (normally shown in the warning), for instance <code class="docutils literal notranslate"><span class="pre">--os-compute-api-version</span> <span class="pre">2.67</span></code>, which will
+enable the feature.</p>
 </div>
 <p>Generally speaking, there are the following methods in the terminal client:</p>
 <ul class="simple">
-<li><p><strong>list</strong> - this lists information about objects that are currently in the cloud.</p></li>
-<li><p><strong>show</strong> - this show information about a single object that is currently in the cloud.</p></li>
-<li><p><strong>create</strong> - this creates a new object in the cloud.</p></li>
-<li><p><strong>set</strong> - this edits a current object in the cloud.</p></li>
+<li><p><strong>list</strong> - this lists information about resources that are currently in the cloud.</p></li>
+<li><p><strong>show</strong> - this show information about a single resource that is currently in the cloud.</p></li>
+<li><p><strong>create</strong> - this creates a new resource in the cloud.</p></li>
+<li><p><strong>set</strong> - this edits a current resource in the cloud.</p></li>
 </ul>
-<p>Several examples using “list” is available above and using “-h” would provide a good tutorial on how to use each method.</p>
+<p>Several examples using <code class="docutils literal notranslate"><span class="pre">list</span></code> is available above and using <code class="docutils literal notranslate"><span class="pre">-h</span></code> would provide a good tutorial on
+how to use each method.</p>
+<h2 id="multifactor-authentication-mfa"><span id="mfa-terminal-label"></span>Multifactor authentication (MFA)<a class="headerlink" href="#multifactor-authentication-mfa" title="Link to this heading">¶</a></h2>
+<p>If you have enabled <a class="reference internal" href="../users.html#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> you need to use the <code class="docutils literal notranslate"><span class="pre">v3multifactor</span></code> auth type and configure
+the auth methods to be <code class="docutils literal notranslate"><span class="pre">v3password</span></code> and <code class="docutils literal notranslate"><span class="pre">v3totp</span></code>.</p>
+<p>When MFA is enabled you need to enter a TOTP passcode every time to authenticate to get a token so
+instead of authenticating every request we save the token and use that for subsequent commands.</p>
+<p>Configure two clouds in the <code class="docutils literal notranslate"><span class="pre">~/.config/openstack/clouds.yaml</span></code> file, one that uses your password and
+TOTP and another one that only uses a token.</p>
+<p>Use below as an template and replace with correct information. The project name is your customer
+number.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">clouds</span><span class="p">:</span>
+  <span class="n">binero</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">mfa</span><span class="p">:</span>
+    <span class="n">auth_type</span><span class="p">:</span> <span class="n">v3multifactor</span>
+    <span class="n">auth_methods</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">v3password</span>
+      <span class="o">-</span> <span class="n">v3totp</span>
+    <span class="n">auth</span><span class="p">:</span>
+      <span class="n">auth_url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">auth</span><span class="o">.</span><span class="n">binero</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span><span class="mi">5000</span>
+      <span class="n">username</span><span class="p">:</span> <span class="n">USERNAME_HERE</span>
+      <span class="n">password</span><span class="p">:</span> <span class="n">PASSWORD_HERE</span>
+      <span class="n">project_name</span><span class="p">:</span> <span class="n">PROJECT_NAME_HERE</span>
+      <span class="n">user_domain_name</span><span class="p">:</span> <span class="n">default</span>
+      <span class="n">project_domain_name</span><span class="p">:</span> <span class="n">default</span>
+    <span class="n">region</span><span class="p">:</span> <span class="n">europe</span><span class="o">-</span><span class="n">se</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">interface</span><span class="p">:</span> <span class="n">public</span>
+    <span class="n">identity_api_version</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="n">binero</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">token</span><span class="p">:</span>
+    <span class="n">auth_type</span><span class="p">:</span> <span class="n">v3token</span>
+    <span class="n">auth</span><span class="p">:</span>
+      <span class="n">auth_url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">auth</span><span class="o">.</span><span class="n">binero</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span><span class="mi">5000</span>
+      <span class="n">project_name</span><span class="p">:</span> <span class="n">PROJECT_NAME_HERE</span>
+      <span class="n">project_domain_name</span><span class="p">:</span> <span class="n">default</span>
+    <span class="n">region</span><span class="p">:</span> <span class="n">europe</span><span class="o">-</span><span class="n">se</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">interface</span><span class="p">:</span> <span class="n">public</span>
+    <span class="n">identity_api_version</span><span class="p">:</span> <span class="mi">3</span>
+</code></pre></div>
+</div>
+<p>You can now run the following command to issue a new token, you will be prompted for a TOTP
+passcode.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>export OS_TOKEN=$(openstack --os-cloud binero-cloud-mfa token issue -c id -f value)
+</code></pre></div>
+</div>
+<p>This token is valid for one hour. You can now use it when running commands like below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">openstack</span> <span class="o">--</span><span class="n">os</span><span class="o">-</span><span class="n">cloud</span> <span class="n">binero</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">token</span> <span class="n">project</span> <span class="nb">list</span>
+</code></pre></div>
+</div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

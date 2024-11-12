@@ -1022,7 +1022,7 @@
 <li><p>Press the “Create volume backup” button.</p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To create a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
+<p>To create a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, save the ID of the volume you want to backup. Its visible which instance the volumes are attached to in the “Attached to” column.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--force</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing with the name of the backup and the ID from the previous step.</p></li>

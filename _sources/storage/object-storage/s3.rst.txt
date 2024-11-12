@@ -2,33 +2,56 @@
 S3 object storage
 =================
 
-Amazon Simple Storage Services (S3) is an object storage service that exposes a HTTP based API known as the S3 API. Binero cloud provides it's own object storage service that supports this HTTP based S3 API.
+Amazon Simple Storage Services (S3) is an object storage service that exposes a HTTP based API known as the
+S3 API. Binero cloud provides it's own object storage service that supports this HTTP based S3 API.
 
-You are able to consume our object storage using the S3 API from any of our :doc:`../regions-and-availability-zones`, either from one availability zone at a time or both using :doc:`replication <replication>`.
+You are able to consume our object storage using the S3 API from any of our
+:doc:`../regions-and-availability-zones`, either from one availability zone
+at a time or both using :doc:`replication <replication>`.
 
 A container holding objects is called a bucket in S3 terminology.
 
-.. note:: The complete list of S3 features is available `here <https://docs.ceph.com/en/latest/radosgw/s3/>`__
+.. note::
 
-.. note:: See :doc:`known limitations <known-limitations>` for more information on compatibility and interoperability between the :doc:`S3 <s3>` and :doc:`Swift <swift>` APIs.
+   The complete list of S3 features is available `here <https://docs.ceph.com/en/latest/radosgw/s3/>`_
+
+.. note::
+
+   See :doc:`known limitations <known-limitations>` for more information on compatibility and
+   interoperability between the :doc:`S3 <s3>` and :doc:`Swift <swift>` APIs.
 
 Setting up credentials
 ----------------------
 
-Creating S3 credentials (which is not the same as any other credentials in the platform) can only be done using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
+To access the S3 service you need to create a EC2 credential, this credential consists of an access
+key and a secret key that is owned by your :ref:`API user <api-users-label>` and can impersonate that
+user using the credential.
 
-- Run this command: ``openstack ec2 credentials create``
+.. important::
 
-In the response, you will get various information out of which the values from the fields **access** and **secret** should be saved (they are the credentials). 
+   Sharing the EC2 credential will allow that entity to impersonate your :ref:`API user <api-users-label>`
+   and gives access to all of the cloud platform and not only the S3 service.
 
-.. important:: The keys generated are not protected by access control within your project. This means that if you provide access to for instance developers to the project, they can read the keys.
+You can only create an :ref:`EC2 credential <ec2-credential-label>` using the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client` by running the
+``openstack ec2 credentials create`` command which creates a new EC2 credential for your API user.
+
+You can list existing EC2 credentials for your API user using ``openstack credential list --type ec2``.
+
+When you create a new EC2 credential save the access and secret key that is the credential itself.
+
+You can read more about :ref:`ec2-credential-label` in our :doc:`/getting-started/users` documentation.
 
 S3 client
 ---------
 
-S3 is an API based protocol, meaning to administrate it you would use API requests. In order to simplify the management of S3 in the cloud, we recommend installing the official client from AWS, its available `here <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`__. Once its installed, you should be able to run ``aws --version`` and get an output. 
+S3 is an API based protocol, meaning to administrate it you would use API requests. In order to simplify the
+management of S3 in the cloud, we recommend installing the official client from AWS, its available
+`here <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`__. Once its installed, you should be
+able to run ``aws --version`` and get an output.
 
-Configure your client with your credentials (from the "setting up credentials" step above) by creating the file (on a Linux or MacOS based computer) ``~/.aws/credentials`` as such: 
+Configure your client with your credentials (from the "setting up credentials" step above) by creating the file
+(on a Linux or MacOS based computer) ``~/.aws/credentials`` as such:
 
 :: 
 
@@ -36,19 +59,40 @@ Configure your client with your credentials (from the "setting up credentials" s
 	aws_access_key_id=[ACCESS_KEY]
 	aws_secret_access_key=[SECRET_KEY]
 
-When the configuration file is completed, you are now able to test reaching the cloud by for instance running this command: ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-buckets`` which will list the buckets in the account from the non replicated endpoint of availability zone europe-se-1a. If you have no buckets setup, it will return an emtpy "Buckets" array.
+When the configuration file is completed, you are now able to test reaching the cloud by for instance running
+this command: ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-buckets`` which will list the
+buckets in the account from the non replicated endpoint of availability zone europe-se-1a.
+
+If you have no buckets setup, it will return an emtpy "Buckets" array.
 
 Creating a bucket
 -----------------
 
-To create a bucket via S3, you would either use the API (not covered in this documentation) or the S3 client. To use the latter to create a bucket, follow these steps:
+To create a bucket via S3, you would either use the API (not covered in this documentation) or the S3
+client. To use the latter to create a bucket, follow these steps:
 
 - Decide which :doc:`storage policy <storage-policy>` you want to use. Save the name.
+
 - Decide whether or not to use :doc:`replication <replication>`.
-- Decide in what :doc:`availability zone <../regions-and-availability-zones>` to store your data, save the name.
-- Based on replication (or not) as well as availability zone, choose the right :doc:`endpoint <endpoints>`. Save the endpoint URL.
-- Based on replication (or not) the ``LocationConstraint`` will be either ``europe-se-1`` or ``europe-se-1-rep``, save the one that is right for your use-case.
-- Run this command: ``aws --endpoint=[ENDPOINT_URL] s3api create-bucket --bucket [BUCKET_NAME] --create-bucket-configuration LocationConstraint=[LOCAL_CONSTRAINT]:[STORAGE_POLICY_NAME]``, replacing the items in angle brackets with the proper data from previous steps. The storage policy is optional and will use the default if not specified.
+
+- Decide in what :doc:`availability zone <../regions-and-availability-zones>` to store
+  your data, save the name.
+
+- Based on replication (or not) as well as availability zone, choose the right
+  :doc:`endpoint <endpoints>`. Save the endpoint URL.
+
+- Based on replication (or not) the ``LocationConstraint`` will be either ``europe-se-1`` or
+  ``europe-se-1-rep``, save the one that is right for your use-case.
+
+- Run this command:
+
+  ::
+
+    aws --endpoint=[ENDPOINT_URL] s3api create-bucket --bucket [BUCKET_NAME] --create-bucket-configuration LocationConstraint=[LOCAL_CONSTRAINT]:[STORAGE_POLICY_NAME]``
+
+Replacing the items in angle brackets with the proper data from previous steps. The storage policy is optional
+and will use the default if not specified.
+
 - Verify by running this command: ``aws --endpoint=[ENDPOINT_URL] s3api list-buckets``
 
 You are now able to use your bucket to save data in using your credentials from your application.
@@ -58,7 +102,12 @@ Deleting a bucket
 
 To delete a bucket using the aws client, follow these steps:
 
-- Run this command: ``aws --endpoint=[ENDPOINT_URL] s3api list-buckets``, save the name of the bucket you want to delete.
-- Run this command: ``aws --endpoint=[ENDPOINT_URL] s3api delete-bucket --bucket [BUCKET_NAME]``, replace [BUCKET_NAME] with the name of the bucket. 
+- Run this command: ``aws --endpoint=[ENDPOINT_URL] s3api list-buckets``, save the name of the bucket
+  you want to delete.
 
-.. note:: The delete will fail unless the bucket is empty.
+- Run this command: ``aws --endpoint=[ENDPOINT_URL] s3api delete-bucket --bucket [BUCKET_NAME]``, replace
+  [BUCKET_NAME] with the name of the bucket.
+
+.. note::
+
+   The delete will fail unless the bucket is empty.

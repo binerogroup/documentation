@@ -1077,7 +1077,7 @@
 </ul>
 <p>Your snapshot is available in the “Images” menu (under main menu “Compute”) as well as if you press “Volumes” and then “Snapshots” in the main menu. In the latter case, there will be one snapshot per volume of the instance you created the snapshots from (only one if the instance only had a single volume).</p>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To create a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
+<p>To create a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, note the name of the instance you want to snapshot.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">image</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">[SNAPSHOT_NAME]</span> <span class="pre">[INSTANCE_NAME]</span></code>, replacing the items in angle brackets with a descriptive name (this is optional, if omitted the instance name will be used) and and the name of the instance you want to snapshot.</p></li>

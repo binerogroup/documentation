@@ -29,6 +29,8 @@ A good place to start is available in the official documentation `here <https://
 Authentication is needed for all API calls, when authenticating for your token a catalog with endpoints is provided in the response, for
 verbosity it's also included below.
 
+.. _openstack-api-endpoints:
+
 Endpoints
 ---------
 

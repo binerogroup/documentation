@@ -1148,7 +1148,7 @@
 <li><p>You are also able to unset (as in completely remove) the record using the small arrow next to the “Set” button as per above.</p></li>
 </ul>
 <h3 id="adding-ptr-records-using-openstack-terminal-client">Adding PTR records using OpenStack terminal client<a class="headerlink" href="#adding-ptr-records-using-openstack-terminal-client" title="Link to this heading">¶</a></h3>
-<p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
+<p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">list</span></code>. Save the UUID (id column) of the IP you want to set PTR on.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">list</span></code>. Find the row that matches the UUID from previous command. Save the complete id from this command (could look something like this: europe-se-1:2e6a89c0-d8ae-471e-ae28-e858c63c4c6e).</p></li>

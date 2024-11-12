@@ -1325,7 +1325,7 @@
 
 <h1 id="managing-security-groups-using-using-the-openstack-terminal-client">Managing security groups using using the OpenStack terminal client<a class="headerlink" href="#managing-security-groups-using-using-the-openstack-terminal-client" title="Link to this heading">¶</a></h1>
 <h2 id="creating-a-security-group">Creating a security group<a class="headerlink" href="#creating-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
+<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">create</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">[NAME]</span></code></p></li>
 </ul>
@@ -1334,7 +1334,7 @@
 <p>The new security group will not have any rules so wont actually do anything. To add rules, follow next step.</p>
 </div>
 <h2 id="adding-rules-to-a-security-group">Adding rules to a security group<a class="headerlink" href="#adding-rules-to-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
+<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Running the following command will give you a detailed overview of what options are available for creating a rule: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">rule</span> <span class="pre">create</span> <span class="pre">-h</span></code></p></li>
 <li><p>Define the rule. More info in our <a class="reference internal" href="designing-rules.html"><span class="doc">Designing security group rules</span></a> article. By using the help output from above, you are able to match your rule to the needed parameters.</p></li>
@@ -1354,7 +1354,7 @@
 <p>For ease of use, we recommend using the already defined rules. These are project specific so you can also tweak them as you see fit.</p>
 </div>
 <h2 id="adding-a-security-group-to-an-instance">Adding a security group to an instance<a class="headerlink" href="#adding-a-security-group-to-an-instance" title="Link to this heading">¶</a></h2>
-<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
+<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span> <span class="pre">[GROUP</span> <span class="pre">NAME]</span></code>, replace the items within angle brackets with corresponding data.</p></li>
 <li><p>To show what security groups are currently attached to an instance, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">--column</span> <span class="pre">security_groups</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code>, replace the items within angle brackets with corresponding data.</p></li>

@@ -1385,7 +1385,7 @@
 <li><p>Press “Save”.</p></li>
 </ul>
 <h2 id="add-a-route-using-openstack-terminal-client">Add a route using OpenStack terminal client<a class="headerlink" href="#add-a-route-using-openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To add a route using the using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>, follow these steps:</p>
+<p>To add a route using the using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">subnet</span> <span class="pre">list</span></code>. Save the name of the subnet you want to add the route to.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">subnet</span> <span class="pre">set</span> <span class="pre">--host-route</span> <span class="pre">destination=[DESTINATION_SUBNET],gateway=[GATEWAY]</span> <span class="pre">[NAME_OF_SUBNET]</span></code>, replacing the items in angle brackets with the information from the previous steps and the destination network and gateway/nexthop. If you want to know more options, use “-h” at the end of the command.</p></li>
