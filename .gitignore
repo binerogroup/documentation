@@ -20,3 +20,8 @@ build/
 .*.swo
 .bak
 /.project
+
+# Virtual envs
+env/
+venv/
+.venv/
