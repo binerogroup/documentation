@@ -73,6 +73,8 @@ to the cloud management portal from the account management portal.
    the account management portal and reserve the main login for those that need access to the infrastructure in
    the cloud management portal.
 
+.. _api-users-label:
+
 API users
 ---------
 
@@ -145,6 +147,13 @@ To create an Application Credential through the :doc:`/getting-started/managing-
    Once you've created the Application Credential, you will be given a one-time opportunity to save the credential by
    copying it or downloading it in openrc or YAML format. Once you've pressed close, you will not be able to retrieve
    the secret again.
+
+.. _ec2-credentials-label:
+
+EC2 Credentials
+---------------
+
+TODO
 
 ..  seealso::
   - :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
