@@ -82,8 +82,9 @@ In the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, you 
 under **Access and Security** in the main menu.
 
 An API user is a native OpenStack Keystone user that has access to your project, you can use it in the
-:doc:`/getting-started/managing-your-cloud/openstack-horizon` or to connect to any of the :ref:`OpenStack API
-endpoints <openstack-api-endpoints>`.
+:doc:`/getting-started/managing-your-cloud/openstack-horizon`, with
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client` or to connect to any of the
+:ref:`OpenStack API endpoints <openstack-api-endpoints>`.
 
 An API user cannot login directly to the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`.
 
