@@ -113,6 +113,10 @@ you chose when creating the user will only be part of the total username).
 Application Credentials
 -----------------------
 
+.. warning::
+
+   If you enable :ref:`mfa-users-label` all Application Credentials for your API user will **STOP** working.
+
 Using an Application Credentials makes it possible to grant specific access to your application(s) as a user without
 sharing the credentials for that user.
 
@@ -157,22 +161,118 @@ To create an Application Credential through the :doc:`/getting-started/managing-
 Credentials
 -----------
 
+.. important::
+
+   The credentials feature is not a secret store and is only used for credentials used for authentication
+   tied to a user, see the :doc:`/secret-store/index` service for storing secrets or sensitive information.
+
+Using an credential makes it possible to store and exchange credentials in return for a token or access to
+a service that has it's own authentication.
+
+For example the :doc:`/storage/object-storage/s3` implementation for the :doc:`/storage/object-storage/index`
+service or storing user related credentials such as a TOTP secret for :ref:`MFA <mfa-users-label>`.
+
+Credentials can only be managed using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`.
+
+.. warning:: When listing credentials they are shown in cleartext and contains sensitive information.
+
+You can list all the credentials stored for your API user with ``openstack credential list``.
+
 .. _ec2-credential-label:
 
 EC2 Credential
 ~~~~~~~~~~~~~~~
 
-TODO
+.. warning::
+
+   A EC2 credential will continue to work even if :ref:`mfa-users-label` is enabled on the API user. This
+   can be used to bypass MFA, make sure that you audit or remove all EC2 credentials if you don't need them
+   and have MFA enabled.
+
+A EC2 credential is a credential with type set to ``ec2`` and contains a blob of JSON data with an access
+and secret key.
+
+This access and secret key can then be used to obtain a token scoped to the user that created the EC2
+credentials or be used to authenticate against the :doc:`/storage/object-storage/s3` service.
+
+You can list existing EC2 credentials using ``openstack credential list --type ec2``. If you want to create
+a new EC2 credential you can use ``openstack ec2 credentials create``.
 
 TOTP Credential
 ~~~~~~~~~~~~~~~
 
-TODO
+A TOTP credential is a credential with type set to ``totp`` that Keystone will use when you
+give it a passcode with the ``totp`` auth method when authenticating with your API user.
+
+We **do not recommend** that you manage or touch anything related to TOTP credentials and instead
+rely on the flow as described in the :ref:`mfa-users-label` section.
+
+.. warning::
+
+   If you list TOTP credentials it will show your TOTP secret in cleartext, this secret
+   key is used to generate valid TOTP passcodes for your API user when doing MFA and must
+   be kept safe.
+
+.. _mfa-users-label:
 
 Multifactor authentication (MFA) for API user
 ---------------------------------------------
 
-TODO
+.. note::
+
+   Looking for how to use the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+   with MFA enabled on your API user? :ref:`Click here to read more <mfa-terminal-label>`.
+
+We support Multifactor authentication (MFA) on API users and allow you to self-service
+enable it on your API user through :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
+
+Enabling MFA authentication protects your API user by requiring you to present two factors, your
+password and a TOTP passcode, for successful authentication.
+
+Before enabling MFA it's important to understand the impact on your API user and any
+Application Credentials and EC2 credentials that you've created.
+
+- You will not be able to login to :doc:`/getting-started/managing-your-cloud/openstack-horizon`,
+  use the API, terminal client or remove MFA without entering a TOTP passcode.
+
+- If you lose access to your TOTP application or device you will lose access to your API user, we
+  recommend that you keep a backup of your TOTP secret.
+
+- :ref:`application-credentials-label` for this user will **STOP** working.
+
+- :ref:`EC2 credentials <ec2-credential-label>` for this user will continue to work
+  and MFA will **NOT** be enforced, make sure to audit your EC2 credentials.
+
+- Enabling MFA on your API user will invalidate all existing tokens that has not
+  been issued with MFA enabled.
+
+Please make sure to read through the bullet points above carefully and consider the impact
+on your cloud account in the platform before continuing.
+
+- Login to :doc:`/getting-started/managing-your-cloud/openstack-horizon` in the top right click on
+  your username and in the dropdown go to **Settings**.
+
+- In the menu to the left you will now see a Settings with **User Settings** selected,
+  click on **MFA Settings**
+
+- Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
+  **View All Details** to show the TOTP secret in cleartext.
+
+- Enter a valid passcode and click **Submit**
+
+  - If you enter an invalid passcode the page will be refreshed and you will get a new TOTP
+    secret and need to go through the same procedure again.
+
+  - If you enter a valid passcode, you will be logged out and MFA is now enabled.
+
+If you ever want to remove MFA on your API user you can simply go back to the **MFA Settings**
+page, enter a valid passcode, click **Submit** and MFA will be removed from your API user.
+
+You can read more :ref:`here <mfa-terminal-label>` if you want to use MFA with the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`.
+
+When using :doc:`/getting-started/managing-your-cloud/openstack-horizon` you will get prompted
+for a TOTP passcode when you login.
 
 ..  seealso::
   - :doc:`/getting-started/managing-your-cloud/cloud-management-portal`

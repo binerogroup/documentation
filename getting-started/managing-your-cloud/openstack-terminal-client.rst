@@ -93,6 +93,8 @@ Generally speaking, there are the following methods in the terminal client:
 Several examples using ``list`` is available above and using ``-h`` would provide a good tutorial on
 how to use each method.
 
+.. _mfa-terminal-label:
+
 Multifactor authentication (MFA)
 --------------------------------
 
