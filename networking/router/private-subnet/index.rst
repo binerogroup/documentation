@@ -20,7 +20,7 @@ You are able to manage private subnets using either of the below tools.
 
 - :doc:`The cloud management portal <cloud-management-portal>` is very easy to use and will get a user with limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always available.
 - :doc:`OpenStack Horizon <openstack-horizon>` is the web interface included in OpenStack. Some advanced features might only have a GUI implementation here.
-- :doc:`OpenStack terminal client <openstack-terminal-client>` is a command line implementation of OpenStack Horizon giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper than the GUI implementation but the workflow will be very efficient.
+- :doc:`OpenStack terminal client <openstack-terminal-client>` is a command line implementation giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper than the GUI implementation but the workflow will be very efficient.
 
 Choosing an IP-range
 --------------------
