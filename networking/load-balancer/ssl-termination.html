@@ -1224,58 +1224,122 @@
 
 <h1 id="ssl-tls-termination-using-load-balancer">SSL/TLS termination using Load Balancer<a class="headerlink" href="#ssl-tls-termination-using-load-balancer" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>When using SSL (which is more or less standard today) to provide encryption for visitors to a web application, managing the SSL certificates on several web servers might be cumbersome. When using a load balancer, an alternative is to publish the certificates on the load balancer instead, as a single point of ingress into the system. The proxied traffic (that is, the request the load balancer sends to a server) can safely be un-encrypted as it never leaves the platforms internal network. Encryption is then managed on the load balancer through the platform and all instances managing the backend traffic can just run HTTP on port 80.</p>
+<p>When using SSL (which is more or less standard today) to provide encryption for
+visitors to a web application, managing the SSL certificates on several web servers
+might be cumbersome.</p>
+<p>When using a load balancer, an alternative is to publish the certificates on the load
+balancer instead, as a single point of ingress into the system. The proxied traffic
+(that is, the request the load balancer sends to a server) can safely be un-encrypted
+as it never leaves the platforms internal network. Encryption is then managed on the
+load balancer through the platform and all instances managing the backend traffic can
+just run HTTP on port 80.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<p>To setup HTTPS in the load balancer, you first need to have a certificate stored in our security storage. More information is available in our <a class="reference internal" href="../../secret-store/create-cert-for-loadbalancing.html"><span class="doc">Creating a certificate for SSL/TLS termination using Load Balancer</span></a> article.</p>
-<p>Once you have the certificate stored, you are able to follow either <a class="reference internal" href="launching-a-loadbalancer/openstack-horizon.html"><span class="doc">Launching load balancer using OpenStack Horizon</span></a> or <a class="reference internal" href="launching-a-loadbalancer/openstack-terminal-client.html"><span class="doc">Launching load balancer using the OpenStack terminal client</span></a> to install the load balancer. Keep in mind to select <em>“TERMINATED_HTTPS”</em> as protocol of the <a class="reference internal" href="general-concept/listeners.html"><span class="doc">listener</span></a>. Doing so will (in OpenStack Horizon) enable the “SSL Certificates” tab to appear at the end, under which you are able to select the certificate you’ve added.</p>
+<p>To setup HTTPS in the load balancer, you first need to have a certificate stored in our
+security storage. More information is available in our
+<a class="reference internal" href="../../secret-store/create-cert-for-loadbalancing.html"><span class="doc">Creating a certificate for SSL/TLS termination using Load Balancer</span></a> article.</p>
+<p>Once you have the certificate stored, you are able to follow either
+<a class="reference internal" href="launching-a-loadbalancer/openstack-horizon.html"><span class="doc">Launching load balancer using OpenStack Horizon</span></a> or
+<a class="reference internal" href="launching-a-loadbalancer/openstack-terminal-client.html"><span class="doc">Launching load balancer using the OpenStack terminal client</span></a> to install
+the load balancer.</p>
+<p>Keep in mind to select <strong>TERMINATED_HTTPS</strong> as protocol of the
+<a class="reference internal" href="general-concept/listeners.html"><span class="doc">listener</span></a> as doing so will (in OpenStack Horizon)
+enable the <strong>SSL Certificates</strong> tab to appear at the end, under which you are able
+to select the certificate you’ve added.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>This feature is only available in <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>
+or <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
+</div>
 <h2 id="headers">Headers<a class="headerlink" href="#headers" title="Link to this heading">¶</a></h2>
-<p>When you do termination of SSL in the load balancer, its important to keep in mind that the web application that receives the request will consider it to be un-encrypted. It will also consider that the request is made out to whatever IP that the instance that receives the request (from the load balancer) is listening on since the request is <em>proxied</em> (as opposed to <em>routed</em>). To give your web application more information, there are a few headers that can be inserted by the load balancer:</p>
+<p>When you do termination of SSL in the load balancer, its important to keep in mind that
+the web application that receives the request will consider it to be un-encrypted.</p>
+<p>It will also consider that the request is made out to whatever IP that the instance that
+receives the request (from the load balancer) is listening on since the request is <em>proxied</em>
+(as opposed to <em>routed</em>).</p>
+<p>To give your web application more information, there are a few headers that can be inserted
+by the load balancer:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-port</span></code> will be “443” and can be used to check that the traffic is indeed arriving on the encrypted port (if you also allow pure http traffic to the same instances).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-port</span></code> will be “443” and can be used to check that the traffic is indeed
+arriving on the encrypted port (if you also allow pure http traffic to the same instances).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-proto</span></code> works the same was as above but will give the protocol.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for</span></code> will tell you to what IP, the visitor made the request. If you have several load balancers fronting the same instances, this will let you know through which load balancer the request was made.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for</span></code> will tell you to what IP, the visitor made the request. If you have
+several load balancers fronting the same instances, this will let you know through which
+load balancer the request was made.</p></li>
 </ul>
-<p>The headers are available from the “listener details” tab when setting up the load balancer (or by editing the listener). We recommend adding the headers when setting up a load balancer as it implies very little overhead to do so and the information is useful.</p>
+<p>The headers are available from the “listener details” tab when setting up the load balancer
+(or by editing the listener).</p>
+<p>We recommend adding the headers when setting up a load balancer as it implies very little
+overhead to do so and the information is useful.</p>
 <h2 id="requiring-https">Requiring HTTPS<a class="headerlink" href="#requiring-https" title="Link to this heading">¶</a></h2>
-<p>Web applications that have HTTPS should make sure that the user is indeed using the protocol. If a user is not required to use HTTPS, its possible that they inadvertently send their credentials over the (unencrypted) HTTP protocol. Today most browsers will warn but this will be a bad user experience (as the warning will not mean much to most users - and even if it does, suggest that security of the site is lacking). To solve the problem you could add a second listener that listens to port 80/tcp (HTTP). On the listener, its then possible to create <a class="reference internal" href="layer7-policies/index.html"><span class="doc">Layer7 Policies</span></a> that could (among other things) redirect.</p>
-<p>There are two main ways to add the redirection to HTTPS. The first method would add a new prefix to a path and would thus take paths into consideration. This is the recommended approach as it would always send the visitor to the correct page (provided the path exists). The downside is, its only configurable using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
-<p>The second method would simply ensure that all requests made via HTTP would be redirected to your home page. If your web application is using HTTPS for linking, the user would afterwards remain in the HTTPS realm.</p>
+<p>Web applications that have HTTPS should make sure that the user is indeed using the protocol.</p>
+<p>If a user is not required to use HTTPS, its possible that they inadvertently send their
+credentials over the (unencrypted) HTTP protocol.</p>
+<p>Today most browsers will warn but this will be a bad user experience (as the warning will not
+mean much to most users - and even if it does, suggest that security of the site is lacking).</p>
+<p>To solve the problem you could add a second listener that listens to port 80/tcp (HTTP). On the
+listener, its then possible to create <a class="reference internal" href="layer7-policies/index.html"><span class="doc">Layer7 Policies</span></a> that could (among other
+things) redirect.</p>
+<p>There are two main ways to add the redirection to HTTPS. The first method would add a new prefix
+to a path and would thus take paths into consideration.</p>
+<p>This is the recommended approach as it would always send the visitor to the correct page (provided
+the path exists). The downside is, its only configurable using the
+<a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
+<p>The second method would simply ensure that all requests made via HTTP would be redirected to your
+home page. If your web application is using HTTPS for linking, the user would afterwards remain in
+the HTTPS realm.</p>
 <h3 id="create-a-listener">Create a listener<a class="headerlink" href="#create-a-listener" title="Link to this heading">¶</a></h3>
 <p>The first step is to setup a new listener.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The cloud management portal cannot create just a listener but will create an entire pool as well. We do not recommend using it for this task but if you want to use it, simply navigate to your load balancer in the menu, click on the “listeners” tab and then press the “+” sign, after which you should be able to follow our <a class="reference internal" href="launching-a-loadbalancer/cloud-management-portal.html"><span class="doc">guide</span></a>.</p>
+<p>The cloud management portal cannot create just a listener but will create an entire pool as
+well. We do not recommend using it for this task but if you want to use it, simply navigate
+to your load balancer in the menu, click on the “listeners” tab and then press the “+”
+sign, after which you should be able to follow our <a class="reference internal" href="launching-a-loadbalancer/cloud-management-portal.html"><span class="doc">guide</span></a>.</p>
 </div>
-<p>Documentation for creating a listener using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> is available <a class="reference internal" href="launching-a-loadbalancer/openstack-terminal-client.html"><span class="doc">here</span></a>.</p>
-<p>To add just a HTTP listener (as opposed to an entire load balancer with pools and health checking) using OpenStack Horizon, follow these steps:</p>
+<p>Documentation for creating a listener using the
+<a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> is available
+<a class="reference internal" href="launching-a-loadbalancer/openstack-terminal-client.html"><span class="doc">here</span></a>.</p>
+<p>To add just a HTTP listener (as opposed to an entire load balancer with pools and health
+checking) using OpenStack Horizon, follow these steps:</p>
 <ul class="simple">
 <li><p>Under “project”, click “Network” and then “Load balancers” in the sidebar menu.</p></li>
 <li><p>Press the name of the load balancer to which you want to add the rule.</p></li>
 <li><p>Press the listener tab.</p></li>
 <li><p>Press “+ create listener”.</p></li>
-<li><p>Name your listener. We recommend calling it “NAME_listener_http” to differentiate it from other listeners. Optionally provide a description.</p></li>
+<li><p>Name your listener. We recommend calling it “NAME_listener_http” to differentiate it
+from other listeners. Optionally provide a description.</p></li>
 <li><p>Select “HTTP” as the load balancer protocol.</p></li>
-<li><p>Ensure that the port is set to 80 (if its automatically set to 81, you already have a listener that listens on port 80 and should instead use that one).</p></li>
+<li><p>Ensure that the port is set to 80 (if its automatically set to 81, you already have
+a listener that listens on port 80 and should instead use that one).</p></li>
 <li><p>Under the “pool details” tab, select “no” under “create pool” section.</p></li>
 <li><p>Press “create listener”.</p></li>
 </ul>
 <div class="important admonition">
 <p class="admonition-title">Important</p>
-<p>When setting up the policy in the next step, keep in mind that you would need a policy for both www.domain.com and domain.com (assuming you use both).</p>
+<p>When setting up the policy in the next step, keep in mind that you would need a policy
+for both www.example.com and example.com (assuming you use both).</p>
 </div>
 <h3 id="create-a-path-aware-redirect-policy">Create a path aware redirect policy<a class="headerlink" href="#create-a-path-aware-redirect-policy" title="Link to this heading">¶</a></h3>
-<p>The recommended way to require HTTPS is to use a “redirect prefix”. To setup this, use the OpenStack Terminal Client as per below. If you would rather use OpenStack Horizon or the cloud management portal, see below for a less accurate way to redirect.</p>
+<p>The recommended way to require HTTPS is to use a “redirect prefix”. To setup this, use
+the OpenStack Terminal Client as per below. If you would rather use OpenStack Horizon or
+the cloud management portal, see below for a less accurate way to redirect.</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">listener</span> <span class="pre">list</span></code>. Save the name of the listener.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7policy</span> <span class="pre">create</span> <span class="pre">--action</span> <span class="pre">REDIRECT_PREFIX</span> <span class="pre">--redirect-prefix</span> <span class="pre">https://[YOUR_DOMAIN]</span> <span class="pre">--name</span> <span class="pre">redirect_to_https</span> <span class="pre">[LISTENER</span> <span class="pre">NAME]</span></code> replacing the domain and the listener name from the previous step.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7policy</span> <span class="pre">create</span> <span class="pre">--action</span> <span class="pre">REDIRECT_PREFIX</span> <span class="pre">--redirect-prefix</span> <span class="pre">https://[YOUR_DOMAIN]</span> <span class="pre">--name</span> <span class="pre">redirect_to_https</span> <span class="pre">[LISTENER</span> <span class="pre">NAME]</span></code> replacing
+the domain and the listener name from the previous step.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7rule</span> <span class="pre">create</span> <span class="pre">--compare-type</span> <span class="pre">STARTS_WITH</span> <span class="pre">--type</span> <span class="pre">PATH</span> <span class="pre">--value</span> <span class="pre">/</span> <span class="pre">redirect_to_https</span></code></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Dont add a trailing slash on your domain as that will add an additional slash in the path.</p>
+<p>Dont add a trailing slash on your domain as that will add an additional slash
+in the path.</p>
 </div>
 <h3 id="create-a-redirect-to-the-first-page">Create a redirect to the first page<a class="headerlink" href="#create-a-redirect-to-the-first-page" title="Link to this heading">¶</a></h3>
-<p>If you prefer to stay in the GUI, the following method will allow you to setup similar functionality using OpenStack Horizon, however using this method, for instance <a class="reference external" href="http://www.domain.com/subfolder/index.html">http://www.domain.com/subfolder/index.html</a> would redirect to <a class="reference external" href="https://domain.com">https://domain.com</a>. The impact of this is not a lot assuming all your links use https but non the less, we recommend the above approach that takes paths into consideration.</p>
+<p>If you prefer to stay in the GUI, the following method will allow you to setup similar functionality
+using OpenStack Horizon, however using this method, for instance <a class="reference external" href="http://www.example.com/subfolder/index.html">http://www.example.com/subfolder/index.html</a>
+would redirect to <a class="reference external" href="https://example.com">https://example.com</a>.</p>
+<p>The impact of this is not a lot assuming all your links use https but non the less, we recommend
+the above approach that takes paths into consideration.</p>
 <ul class="simple">
 <li><p>Under “project”, click “Network” and then “Load balancers” in the sidebar menu.</p></li>
 <li><p>Press the name of the load balancer to which you want to add the rule.</p></li>

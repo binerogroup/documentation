@@ -1,28 +1,48 @@
 ================================================
 Creating a Layer7 policy using OpenStack Horizon
 ================================================
-We recommend first reading our :doc:`guide <index>` on layer 7 policies to get a better understanding of how they work. To create a layer 7 policy using the :doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`, follow these steps: 
+
+We recommend first reading our :doc:`guide <index>` on layer 7 policies to get a
+better understanding of how they work.
+
+To create a layer 7 policy using the :doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`, follow these steps:
 
 - Under "project", click "Network" and then "Load balancers" in the sidebar menu.
+
 - Press the name of the load balancer on which you want to add the rule.
-- Press the "listeners" tab and then the name of the listener to which you want to add the policy.
+
+- Press the "listeners" tab and then the name of the listener to which you want
+  to add the policy.
+
 - Press the "L7 policys" tab.
+
 - Press the "Create L7 Policy" button in the top right. 
+
 - Name your policy and optionally provide a description.
-- Select your action and if applicable, provide a value (e.g. what domain to redirect to). 
+
+- Select your action and if applicable, provide a value (e.g. what domain to redirect to).
+
 - Select a position (1 is the lowest).
+
 - Press "Create L7 Policy".
 
-Once you've created a policy, you will also want to create a rule which triggers it. To do this, follow these steps:
+Once you've created a policy, you will also want to create a rule which triggers
+it. To do this, follow these steps:
 
 - Press the newly created policys name. 
+
 - Press the "L7 Rules" tab.
+
 - Press the "+ Create L7 Rule" button.
+
 - Choose the type and if applicable, also input the key value. 
+
 - Choose compare type and input value for comparison.
+
 - Press "create L7 rule". 
 
-After some time to provision (when the "Operating Status" says "Online"), the rule is live.
+After some time to provision (when the "Operating Status" says
+"Online"), the rule is live.
 
 ..  seealso::
     - :doc:`../index`

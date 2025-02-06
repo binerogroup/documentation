@@ -1162,29 +1162,49 @@
   </a>
 
 <h1 id="listeners">Listeners<a class="headerlink" href="#listeners" title="Link to this heading">¶</a></h1>
-<p>A load balancer can have several listeners, a common setup would be to listen on both port 80/tcp and port 443/tcp when load balancing connections to a web application that runs on both http and https protocols. Each listener will forward requests to a pool, the members of the pool can be the same but they are defined on each pool as they might use different health checkers. The main option for the listener is what protocol to use. There are 5 protocols available:</p>
+<p>A load balancer can have several listeners, a common setup would be to listen
+on both port 80/tcp and port 443/tcp when load balancing connections to a web
+application that runs on both http and https protocols.</p>
+<p>Each listener will forward requests to a pool, the members of the pool can be
+the same but they are defined on each pool as they might use different health
+checkers.</p>
+<p>The main option for the listener is what protocol to use. There are 5 protocols
+available:</p>
 <ul class="simple">
-<li><p>TCP, this is a standard TCP connection (basically a port proxy). Its not application aware but will rather just forward traffic.</p></li>
+<li><p>TCP, this is a standard TCP connection (basically a port proxy). Its not
+application aware but will rather just forward traffic.</p></li>
 <li><p>UDP, same as above but for UDP.</p></li>
-<li><p>HTTP, these are protocol aware and will be able to provide som layer 7 features relating to the http protocol.</p></li>
+<li><p>HTTP, these are protocol aware and will be able to provide som layer 7 features
+relating to the http protocol.</p></li>
 <li><p>HTTPS, same as HTTP but encrypted.</p></li>
-<li><p>Terminate HTTPS, same as HTTPS but will take a HTTPS request and forward it to members as HTTP (unencrypted), thus terminating the SSL connection and negating the need to manage certificates on the members servers. In order to do this, the platform will need access to an SSL certificate via out <a class="reference internal" href="../../../secret-store/index.html"><span class="doc">secret store</span></a>.</p></li>
+<li><p>Terminate HTTPS, same as HTTPS but will take a HTTPS request and forward it to
+members as HTTP (unencrypted), thus terminating the SSL connection and negating
+the need to manage certificates on the members servers. In order to do this, the
+platform will need access to an SSL certificate via out <a class="reference internal" href="../../../secret-store/index.html"><span class="doc">secret store</span></a>.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>HTTP and HTTPS are so called Layer7 aware. This means they will also take the HTTP protocol into consideration and not just listen on the assigned port. While load balancing using protocol “TCP” and port 80 could work the same way as load balancing using protocol “HTTP”, the difference is that when using HTTP, the load balancer are able to use <a class="reference internal" href="../layer7-policies/index.html"><span class="doc">Layer7 Policies</span></a> as well as insert headers, features that work on the application layer and not just layer 3 (the ip-protocol layer).</p>
+<p>HTTP and HTTPS are so called Layer7 aware. This means they will also take the HTTP protocol
+into consideration and not just listen on the assigned port. While load balancing using protocol
+TCP and port 80 could work the same way as load balancing using protocol HTTP, the difference is
+that when using HTTP, the load balancer are able to use <a class="reference internal" href="../layer7-policies/index.html"><span class="doc">Layer7 Policies</span></a> as well as
+insert headers, features that work on the application layer and not just layer 3 (the ip-protocol layer).</p>
 </div>
 <p>On the listener, you are able to configure various settings:</p>
 <ul class="simple">
 <li><p>Timeouts for the connection to the listener, we do however recommend to leave the default values for this.</p></li>
-<li><p>Layer 7 (mainly HTTP) policies enabling for instance redirects or rejections directly on the listener, negating the need to send requests to members.</p></li>
+<li><p>Layer 7 (mainly HTTP) policies enabling for instance redirects or rejections directly on the
+listener, negating the need to send requests to members.</p></li>
 <li><p>Allowed CIDR prefixes, meaning who can connect. 0.0.0.0/0 is the default and means “all networks”.</p></li>
 <li><p>HTTP headers, for instance <code class="docutils literal notranslate"><span class="pre">x-forwarded-for</span></code>.</p></li>
 </ul>
-<p>To the listener, you would normally (unless the service is internal) connect a floating IP for accessing the service from the internet. The listener then becomes the service endpoint for your application from the users perspective.</p>
+<p>To the listener, you would normally (unless the service is internal) connect a
+floating IP for accessing the service from the internet. The listener then becomes
+the service endpoint for your application from the users perspective.</p>
 <div class="important admonition">
 <p class="admonition-title">Important</p>
-<p>In some circumstances, the listener can be disabled. Verify its status, if you dont have connectivity and enable it again by editing it.</p>
+<p>In some circumstances, the listener can be disabled. Verify its status, if you dont have
+connectivity and enable it again by editing it.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

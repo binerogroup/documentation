@@ -1140,27 +1140,38 @@
   </a>
 
 <h1 id="load-balancer">Load Balancer<a class="headerlink" href="#load-balancer" title="Link to this heading">¶</a></h1>
-<p>Binero cloud provides a managed load balancer service that you can use when <a class="reference external" href="/compute/resizing-an-instance/index.html#scaling-methods">scaling</a> and making
-your application more resilient and highly available with little effort for you.</p>
-<p>The service handles the ingress traffic and requests to your application with support for healthchecks. See the <a class="reference internal" href="general-concept/index.html"><span class="doc">Load balancing in Binero cloud</span></a> for more
+<p>Binero cloud provides a managed load balancer service that you can
+use when <a class="reference external" href="/compute/resizing-an-instance/index.html#scaling-methods">scaling</a>
+and making your application more resilient and highly available with
+little effort for you.</p>
+<p>The service handles the ingress traffic and requests to your application
+with support for healthchecks. See the <a class="reference internal" href="general-concept/index.html"><span class="doc">Load balancing in Binero cloud</span></a> for more
 details on how the service works.</p>
-<p>The load balancer service is based upon well-established open source projects <a class="reference external" href="https://www.haproxy.org">HAProxy</a> and <a class="reference external" href="https://www.keepalived.org">Keepalived</a> and
-all load balancers created is highly available and redundant. Binero handles security and patching of your load balancer infrastructure at no extra cost.</p>
-<p>You can manage your load balancers using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>,
+<p>The load balancer service is based upon well-established open source projects
+<a class="reference external" href="https://www.haproxy.org">HAProxy</a> and <a class="reference external" href="https://www.keepalived.org">Keepalived</a> and
+all load balancers created is highly available and redundant.</p>
+<p>Binero handles security and patching of your load balancer infrastructure at
+no additional cost as it’s included in the normal price.</p>
+<p>You can manage your load balancers using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>,
+<a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>,
 <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> or the API.</p>
-<p>The load balancer service is available in all our <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zones</span></a>.</p>
+<p>The load balancer service is available in all our
+<a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zones</span></a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If availability zone is selected it will always default to the <strong>europe-se-1a</strong> availability zone.</p>
+<p>If availability zone is not selected it will always default to the
+<strong>europe-se-1a</strong> availability zone.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The load balancer service requires a <a class="reference internal" href="../router/index.html"><span class="doc">router</span></a> and members on a <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">private subnet</span></a> to use.</p>
+<p>The load balancer service requires a <a class="reference internal" href="../router/index.html"><span class="doc">router</span></a>
+and members on a <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">private subnet</span></a> to use.</p>
 </div>
 <div class="caution admonition">
 <p class="admonition-title">Caution</p>
-<p>Please note that availability zone on a <a class="reference internal" href="#"><span class="doc">Load Balancer</span></a> only selects where the load balancer is located and the incoming traffic
-from the internet will still go through the availability zone that the <a class="reference internal" href="../router/index.html"><span class="doc">Router</span></a> is in.</p>
+<p>Please note that availability zone on a <a class="reference internal" href="#"><span class="doc">Load Balancer</span></a> only selects where the load
+balancer is located and the incoming traffic from the internet will still go through
+the availability zone that the <a class="reference internal" href="../router/index.html"><span class="doc">Router</span></a> is in.</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>

@@ -1228,57 +1228,90 @@
 <h2 id="preparations">Preparations<a class="headerlink" href="#preparations" title="Link to this heading">¶</a></h2>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Before launching your first load balancer, we strongly recommend reading our <a class="reference internal" href="../general-concept/index.html"><span class="doc">concepts</span></a> guide so as to gain a better understanding the various parts.</p>
+<p>Before launching your first load balancer, we strongly recommend
+reading our <a class="reference internal" href="../general-concept/index.html"><span class="doc">concepts</span></a> guide so
+as to gain a better understanding the various parts.</p>
 </div>
-<p>We also recommend setting the correct <a class="reference internal" href="../../router/security-groups/index.html"><span class="doc">security groups</span></a> on the instances that should be members in the load balancer pool. Traffic from the load balancer
-will not come from the default group as the load balancer is not an instance - this means that explicit rules needs to be setup on the members.</p>
+<p>We also recommend setting the correct <a class="reference internal" href="../../router/security-groups/index.html"><span class="doc">security groups</span></a>
+on the instances that should be members in the load balancer pool.</p>
+<p>Traffic from the load balancer will not come from the default group
+as the load balancer is not an instance - this means that explicit
+rules needs to be setup on the members.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">load balancer</span></a> from the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a>, follow these steps:</p>
+<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">load balancer</span></a> from the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a>, follow
+these steps:</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you want to create a load balancer that terminates SSL/TLS, you need to use <a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> or <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>. We also recommend reading our <a class="reference internal" href="../ssl-termination.html"><span class="doc">SSL/TLS termination using Load Balancer</span></a> guide first.</p>
+<p>If you want to create a load balancer that terminates SSL/TLS, you need
+to use <a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> or
+<a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>. We also
+recommend reading our <a class="reference internal" href="../ssl-termination.html"><span class="doc">SSL/TLS termination using Load Balancer</span></a> guide first.</p>
 </div>
 <ul class="simple">
 <li><p>Press “Networking” and then “Load balancers” in the sidebar menu.</p></li>
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
 <li><p>The first step is to configure the general options for the load balancer.</p>
 <ul>
-<li><p>Name your load balancer. We recommend calling it “[NAME]_lb” (replace the name with something thats relevant for you). Optionally provide a description.</p></li>
+<li><p>Name your load balancer. We recommend calling it “[NAME]_lb” (replace
+the name with something thats relevant for you). Optionally provide a
+description.</p></li>
 <li><p>Leave the IP field empty as an IP will be allocated automatically.</p></li>
-<li><p>Select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> or leave empty to use the default europe-se-1a.</p></li>
-<li><p>Select a <a class="reference internal" href="../../router/private-subnet/index.html"><span class="doc">private subnet</span></a> to use for hosting the load balancer. We recommend using the same as the subnet where you have your instances to load balancer but its not a must.</p></li>
+<li><p>Select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
+or leave empty to use the default europe-se-1a.</p></li>
+<li><p>Select a <a class="reference internal" href="../../router/private-subnet/index.html"><span class="doc">private subnet</span></a> to use
+for hosting the load balancer. We recommend using the same as the subnet where
+you have your instances to load balancer but its not a must.</p></li>
 <li><p>Press “next”.</p></li>
 </ul>
 </li>
-<li><p>The second step sets up the <em>listener</em>. More information <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">here</span></a>.</p>
+<li><p>The second step sets up the <em>Listener</em>. More information <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">here</span></a>.</p>
 <ul>
-<li><p>Name your listener. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_listener_[PORTNUMBER]</span></code> to differentiate it from the other parts. Replace the name with the name you chose for your load balancer and the port to that of the service you want to load balance. Optionally provide a description.</p></li>
-<li><p>Select the load balancer protocol. Note that HTTPS with SSL/TLS termination is not able to be provisioned from the cloud management portal, but will require OpenStack Horizon (even though its available in the menu).</p></li>
-<li><p><em>Verify the port number</em> (it may set automatically but depending on protocol you may need to set it manually). Without it, creation will fail.</p></li>
+<li><p>Name your listener. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_listener_[PORTNUMBER]</span></code> to
+differentiate it from the other parts. Replace the name with the name you chose
+for your load balancer and the port to that of the service you want to load
+balance. Optionally provide a description.</p></li>
+<li><p>Select the load balancer protocol. Note that HTTPS with SSL/TLS termination is
+not able to be provisioned from the cloud management portal, but will require
+OpenStack Horizon (even though its available in the menu).</p></li>
+<li><p><em>Verify the port number</em> (it may set automatically but depending on protocol
+you may need to set it manually). Without it, creation will fail.</p></li>
 <li><p>Press “next”.</p></li>
 </ul>
 </li>
-<li><p>The third step is to create the <em>pool</em>. More information <a class="reference internal" href="../general-concept/pools.html"><span class="doc">here</span></a>.</p>
+<li><p>The third step is to create the <em>Pool</em>. More information <a class="reference internal" href="../general-concept/pools.html"><span class="doc">here</span></a>.</p>
 <ul>
-<li><p>Name your pool. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_pool_[PORTNUMBER]</span></code> to differentiate it from the other parts. Replace the name with the name you chose for your load balancer and the port to that of the service you want to load balance. Optionally provide a description.</p></li>
+<li><p>Name your pool. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_pool_[PORTNUMBER]</span></code> to differentiate
+it from the other parts. Replace the name with the name you chose for your load
+balancer and the port to that of the service you want to load balance. Optionally
+provide a description.</p></li>
 <li><p>Select your preferred load balancing algorithm.</p></li>
 <li><p>If you want session persistence, select what type (and if applicable, enter a session name).</p></li>
 <li><p>Press “next”.</p></li>
 </ul>
 </li>
-<li><p>The fourth step assigns <em>members</em> (instances) to the pool. More information <a class="reference internal" href="../general-concept/pool-members.html"><span class="doc">here</span></a>.</p>
+<li><p>The fourth step assigns <em>members</em> (instances) to the pool. More
+information <a class="reference internal" href="../general-concept/pool-members.html"><span class="doc">here</span></a>.</p>
 <ul>
 <li><p>Either press “add external node” and then input the data manually or</p></li>
-<li><p>press the small down-arrow next to “expand to see instances” and then press the small “+” sign next to the instances you want to add.</p></li>
-<li><p>Select what (IP) port on each instance the service listens on. For instance for a web-service, this would be either 80 or 443.</p></li>
+<li><p>Press the small down-arrow next to “expand to see instances” and then press the
+small “+” sign next to the instances you want to add.</p></li>
+<li><p>Select what (IP) port on each instance the service listens on. For instance for
+a web-service, this would be either 80 or 443.</p></li>
 <li><p>When all instances that should be part of the pool are added, press “next”.</p></li>
 </ul>
 </li>
-<li><p>In the fifth and final step, <em>health monitoring</em> will be setup. More information <a class="reference internal" href="../general-concept/health-monitors.html"><span class="doc">here</span></a>.</p>
+<li><p>In the fifth and final step, <em>health monitoring</em> will be setup. More
+information <a class="reference internal" href="../general-concept/health-monitors.html"><span class="doc">here</span></a>.</p>
 <ul>
-<li><p>Name your health monitor. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_monitor_[PORTNUMBER]</span></code> to differentiate it from other the parts. Replace the name with the name you chose for your load balancer and the port to that of the service you want to load balance. Optionally provide a description.</p></li>
-<li><p>Select the type. This value would depend mostly on what kind of listener you created (which protocol). We recommend choosing a type that is as granular (i.e. rather go with “http” than “tcp port 80” if you want to check a webserver) as possible.</p></li>
-<li><p>Choose the various options relating to your monitor, the defaults will likely suffice but this is very much dependant on the application.</p></li>
+<li><p>Name your health monitor. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_monitor_[PORTNUMBER]</span></code> to
+differentiate it from other the parts. Replace the name with the name you chose for
+your load balancer and the port to that of the service you want to load
+balance. Optionally provide a description.</p></li>
+<li><p>Select the type. This value would depend mostly on what kind of listener you created
+(which protocol). We recommend choosing a type that is as granular (i.e. rather go
+with “http” than “tcp port 80” if you want to check a webserver) as possible.</p></li>
+<li><p>Choose the various options relating to your monitor, the defaults will likely suffice
+but this is very much dependant on the application.</p></li>
 <li><p>Press “create load balancer”.</p></li>
 </ul>
 </li>
@@ -1291,14 +1324,20 @@ will not come from the default group as the load balancer is not an instance - t
 <p>To verify that the health checking has added the members to the pool, follow this procedure:</p>
 <ul class="simple">
 <li><p>Press “Networking” and then “Load balancers” in the sidebar menu.</p></li>
-<li><p>Verify that the “provisioning status” says “Active” as well as “Online” under its name and then press it.</p></li>
+<li><p>Verify that the “provisioning status” says “Active” as well as “Online” under its name
+and then press it.</p></li>
 <li><p>Press the “pools” tab and then press the name of your pool.</p></li>
 <li><p>Press the “nodes” tab.</p></li>
-<li><p>In the list, you should now see the member(s) you’ve added. The column “Operational status” should show you if they are online or not.</p></li>
+<li><p>In the list, you should now see the member(s) you’ve added. The column “Operational status”
+should show you if they are online or not.</p></li>
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>If the members are not online, make sure you have the proper <a class="reference internal" href="../../router/security-groups/index.html"><span class="doc">Security groups</span></a> configured on the them. Traffic from the load balancer will not come from the default group as the load balancer is not part of your instances - this means that explicit rules needs to be setup on the members. If you still cant get the members online, verify (by using for instance <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> or by reading access logs, that the traffic hits the member servers from the load balancers IP.</p>
+<p>If the members are not online, make sure you have the proper <a class="reference internal" href="../../router/security-groups/index.html"><span class="doc">Security groups</span></a>
+configured on the them. Traffic from the load balancer will not come from the default group as the load
+balancer is not part of your instances - this means that explicit rules needs to be setup on the
+members. If you still cant get the members online, verify (by using for instance <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> or by
+reading access logs, that the traffic hits the member servers from the load balancers IP.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

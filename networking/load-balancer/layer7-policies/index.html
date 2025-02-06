@@ -1282,39 +1282,61 @@
 
 <h1 id="layer7-policies">Layer7 Policies<a class="headerlink" href="#layer7-policies" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>When using either HTTP or HTTPS as <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">listener protocol</span></a>, you can use various features of the HTTP protocol directly in the load balancer. This is enabled via  Layer 7 Policies. A policy can execute some (basic) functionality:</p>
+<p>When using either HTTP or HTTPS as <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">listener protocol</span></a>, you
+can use various features of the HTTP protocol directly in the load balancer.</p>
+<p>This is enabled via Layer 7 Policies. A policy can execute some (basic) functionality:</p>
 <ul class="simple">
 <li><p>Reject, will result in HTTP/1.1 403 Forbidden reply.</p></li>
-<li><p>Redirect to pool, will send traffic to another listeners pool. This is a good thing if you already have a pool setup (from another listener) of the same servers and just want to add another listener (for instance when adding HTTP protocol to an already configured HTTPS listener). Another really useful use case could be if you want to run a separate pool for your static content. You can then opt to send for instance traffic to “www.domain.com/js” or “/images” to separate backends that are optimised (maybe via caching) for static content.</p></li>
-<li><p>Redirect to URL, this will simply redirect (using a header: location) the request to another URL. Usefull when for instance requiring HTTPS.</p></li>
+<li><p>Redirect to pool, will send traffic to another listeners pool. This is a good thing if you
+already have a pool setup (from another listener) of the same servers and just want to add
+another listener (for instance when adding HTTP protocol to an already configured HTTPS
+listener). Another really useful use case could be if you want to run a separate pool for
+your static content. You can then opt to send for instance traffic to “www.example.com/js” or
+“/images” to separate backends that are optimised (maybe via caching) for static content.</p></li>
+<li><p>Redirect to URL, this will simply redirect (using a header: location) the request to another
+URL. Usefull when for instance requiring HTTPS.</p></li>
 </ul>
-<p>The policies will only trigged once you setup a corresponding Layer 7 Rule on them. The rule decides when the policy should trigger. Various <em>types</em> of triggers are available:</p>
+<p>The policies will only trigged once you setup a corresponding Layer 7 Rule on them. The rule
+decides when the policy should trigger. Various <em>types</em> of triggers are available:</p>
 <ul class="simple">
-<li><p>Hostname (for instance domain.com)</p></li>
+<li><p>Hostname (for instance example.com)</p></li>
 <li><p>Patch (for instance /images)</p></li>
 <li><p>File type (for instance .jpeg)</p></li>
 <li><p>Header (for instance x-forwarded-for)</p></li>
 <li><p>Cookie (for instance phpsessid)</p></li>
 </ul>
-<p>The types take keys when relevant (when specifying for instance cookie, you could specify the cookie “auth_token”). The type can be compared by certain methods:</p>
+<p>The types take keys when relevant (when specifying for instance cookie, you could specify the
+cookie “auth_token”). The type can be compared by certain methods:</p>
 <ul class="simple">
 <li><p>REGEX (regular expressions)</p></li>
 <li><p>EQUALS_TO (value is exactly compared)</p></li>
 <li><p>STARTS_WITH or ENDS_WITH</p></li>
 <li><p>CONTAINS (value contains)</p></li>
 </ul>
-<p>Finally, a value is specified, for instance when comparing hostname, “domain.com” could be specified. The entire evaluation can also be negated, for instance when looking for a non logged in user, you might redirect to login when <strong>not</strong> finding a cookie.</p>
+<p>Finally, a value is specified, for instance when comparing hostname, “example.com” could be
+specified.</p>
+<p>The entire evaluation can also be negated, for instance when looking for a non logged in
+user, you might redirect to login when <strong>not</strong> finding a cookie.</p>
 <p>If the Layer7 rule is met, the Layer7 policy will trigger.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>The official OpenStack support pages have some good examples of Layer 7 policies being used. The <a class="reference external" href="https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy">CLI documentation</a> is somewhat comprehensive, for some use cases see the <a class="reference external" href="https://docs.openstack.org/octavia/queens/user/guides/l7-cookbook.html">layer 7 cookbook</a>.</p>
+<p>The official OpenStack support pages have some good examples of Layer 7 policies being
+used. The <a class="reference external" href="https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy">CLI documentation</a> is
+somewhat comprehensive, for some use cases see the
+<a class="reference external" href="https://docs.openstack.org/octavia/queens/user/guides/l7-cookbook.html">layer 7 cookbook</a>.</p>
 </div>
 <h2 id="creating-policies">Creating policies<a class="headerlink" href="#creating-policies" title="Link to this heading">¶</a></h2>
-<p>To create a Layer 7 policy in Binero cloud, you have three main options as outlined in the links below. Each option have its pros and cons:</p>
+<p>To create a Layer 7 policy in Binero cloud, you have three main options as outlined in the links
+below. Each option have its pros and cons:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is very easy to use and will get a user with limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always available.</p></li>
-<li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in OpenStack. Some advanced features might only have a GUI implementation here.</p></li>
-<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">The OpenStack terminal client</span></a> is a command line implementation of OpenStack Horizon giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper than the GUI implementation but the workflow will be very efficient.</p></li>
+<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is very easy to use and will get
+a user with limited prior knowledge from A to B quickly. The trade-off is that advanced
+features are not always available.</p></li>
+<li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in OpenStack. Some
+advanced features might only have a GUI implementation here.</p></li>
+<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">The OpenStack terminal client</span></a> is a command line implementation
+giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper
+than the GUI implementation but the workflow will be very efficient.</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>

@@ -1187,11 +1187,14 @@
   </a>
 
 <h1 id="creating-a-layer7-policy-using-openstack-horizon">Creating a Layer7 policy using OpenStack Horizon<a class="headerlink" href="#creating-a-layer7-policy-using-openstack-horizon" title="Link to this heading">¶</a></h1>
-<p>We recommend first reading our <a class="reference internal" href="index.html"><span class="doc">guide</span></a> on layer 7 policies to get a better understanding of how they work. To create a layer 7 policy using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon portal</span></a>, follow these steps:</p>
+<p>We recommend first reading our <a class="reference internal" href="index.html"><span class="doc">guide</span></a> on layer 7 policies to get a
+better understanding of how they work.</p>
+<p>To create a layer 7 policy using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon portal</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Under “project”, click “Network” and then “Load balancers” in the sidebar menu.</p></li>
 <li><p>Press the name of the load balancer on which you want to add the rule.</p></li>
-<li><p>Press the “listeners” tab and then the name of the listener to which you want to add the policy.</p></li>
+<li><p>Press the “listeners” tab and then the name of the listener to which you want
+to add the policy.</p></li>
 <li><p>Press the “L7 policys” tab.</p></li>
 <li><p>Press the “Create L7 Policy” button in the top right.</p></li>
 <li><p>Name your policy and optionally provide a description.</p></li>
@@ -1199,7 +1202,8 @@
 <li><p>Select a position (1 is the lowest).</p></li>
 <li><p>Press “Create L7 Policy”.</p></li>
 </ul>
-<p>Once you’ve created a policy, you will also want to create a rule which triggers it. To do this, follow these steps:</p>
+<p>Once you’ve created a policy, you will also want to create a rule which triggers
+it. To do this, follow these steps:</p>
 <ul class="simple">
 <li><p>Press the newly created policys name.</p></li>
 <li><p>Press the “L7 Rules” tab.</p></li>
@@ -1208,7 +1212,8 @@
 <li><p>Choose compare type and input value for comparison.</p></li>
 <li><p>Press “create L7 rule”.</p></li>
 </ul>
-<p>After some time to provision (when the “Operating Status” says “Online”), the rule is live.</p>
+<p>After some time to provision (when the “Operating Status” says
+“Online”), the rule is live.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

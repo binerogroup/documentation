@@ -1162,13 +1162,22 @@
   </a>
 
 <h1 id="health-monitors">Health monitors<a class="headerlink" href="#health-monitors" title="Link to this heading">¶</a></h1>
-<p>Health monitors are configured to check if a service on a member works as intended. As such, they can be configured to be protocol aware (for instance by checking a website using the “http” protocol). Monitors can be configured in various ways:</p>
+<p>Health monitors are configured to check if a service on a member works
+as intended.</p>
+<p>As such, they can be configured to be protocol aware (for instance by
+checking a website using the “http” protocol).</p>
+<p>Monitors can be configured in various ways:</p>
 <ul class="simple">
 <li><p>Protocol type (cannot be changed after deployment).</p></li>
 <li><p>Various maximums and limits before the service is considered down and removed from the pool.</p></li>
 <li><p>Protocol aware settings like URLs, paths and codes.</p></li>
 </ul>
-<p>A monitor is defined per listener. We recommend ensuring that the monitor is as closely matched to the listener type as possible. If you are for instance using load balancing for an http based service, don’t do health checking by pinging the members. This will have almost no bearing on whether the individual members are working or not and will probably cause faulty members to remain in production.</p>
+<p>A monitor is defined per listener. We recommend ensuring that the monitor is
+as closely matched to the listener type as possible.</p>
+<p>If you are for instance using load balancing for an http based service, don’t
+do health checking by pinging the members as this will have almost no bearing on
+whether the individual members are working or not and will probably cause faulty
+members to remain in the pool.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

@@ -1187,16 +1187,24 @@
   </a>
 
 <h1 id="creating-a-layer7-policy-using-openstack-terminal-client">Creating a Layer7 policy using OpenStack Terminal Client<a class="headerlink" href="#creating-a-layer7-policy-using-openstack-terminal-client" title="Link to this heading">¶</a></h1>
-<p>We recommend first reading our <a class="reference internal" href="index.html"><span class="doc">guide</span></a> on layer 7 policies to get a better understanding of how they work. To create a layer 7 policy using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow the below steps.</p>
+<p>We recommend first reading our <a class="reference internal" href="index.html"><span class="doc">guide</span></a> on layer 7 policies
+to get a better understanding of how they work.</p>
+<p>To create a layer 7 policy using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow the below steps.</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">listener</span> <span class="pre">list</span></code>. Save the name of the listener to which you want to add the rule.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7policy</span> <span class="pre">create</span> <span class="pre">--action</span> <span class="pre">REDIRECT_TO_URL</span> <span class="pre">--redirect-url</span> <span class="pre">[http(s)://DOMAIN]</span> <span class="pre">--name</span> <span class="pre">[POLICY_NAME]</span> <span class="pre">[LISTENER_NAME]</span></code>, replacing the values in angle brackets. This sets up the policy.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7rule</span> <span class="pre">create</span> <span class="pre">--compare-type</span> <span class="pre">STARTS_WITH</span> <span class="pre">--type</span> <span class="pre">PATH</span> <span class="pre">--value</span> <span class="pre">/</span> <span class="pre">[POLICY_NAME]</span></code>. This sets up the rule.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7rule</span> <span class="pre">show</span> <span class="pre">[POLICY_NAME]</span> <span class="pre">[RULE_ID]</span></code>. Replace the items in angle brackets (the RULE_ID is from the previous commands output). Once the “operating_status” says “ONLINE”, the rule should be live.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">listener</span> <span class="pre">list</span></code>. Save the name of
+the listener to which you want to add the rule.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7policy</span> <span class="pre">create</span> <span class="pre">--action</span> <span class="pre">REDIRECT_TO_URL</span> <span class="pre">--redirect-url</span> <span class="pre">[http(s)://DOMAIN]</span> <span class="pre">--name</span> <span class="pre">[POLICY_NAME]</span> <span class="pre">[LISTENER_NAME]</span></code>, replacing
+the values in angle brackets. This sets up the policy.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7rule</span> <span class="pre">create</span> <span class="pre">--compare-type</span> <span class="pre">STARTS_WITH</span> <span class="pre">--type</span> <span class="pre">PATH</span> <span class="pre">--value</span> <span class="pre">/</span> <span class="pre">[POLICY_NAME]</span></code>. This
+sets up the rule.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7rule</span> <span class="pre">show</span> <span class="pre">[POLICY_NAME]</span> <span class="pre">[RULE_ID]</span></code>. Replace the items in
+angle brackets (the RULE_ID is from the previous commands output). Once the “operating_status” says
+“ONLINE”, the rule should be live.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Above is an example of a rule which would perform a redirect. More information on the available rules can be read in detail <a class="reference external" href="https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy">here</a>.</p>
+<p>Above is an example of a rule which would perform a redirect. More information on the available rules
+can be read in detail <a class="reference external" href="https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy">here</a>.</p>
 </div>
 
 
