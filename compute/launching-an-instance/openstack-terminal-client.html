@@ -1,6 +1,7 @@
 
 
 
+
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -58,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.8969142f1c837bbc6.min.css?v=91a4f1a0" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1098,6 +1099,30 @@
   
   
     <li class="md-nav__item">
+      <a href="../boot-instances-using-uefi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Boot instances using UEFI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../regions-and-availability-zones.html" class="md-nav__link">
         
   
@@ -1515,25 +1540,35 @@
           
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset" role="main">
+                
+                
                   
-
 
 
   
   
 
 <h1 id="launching-instances-using-openstack-terminal-client">Launching instances using OpenStack terminal client<a class="headerlink" href="#launching-instances-using-openstack-terminal-client" title="Link to this heading">¶</a></h1>
-<p>To launch an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To launch an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in some of the steppes below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first. An SSH-key setup using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> is not available in Horizon or the terminal client as they use <a class="reference external" href="/getting-started/users.html#api-users">api users</a> to login and SSH-keys are account bound.</p>
+<p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in
+some of the steps below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.
+An SSH-key setup using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> is not available in Horizon or
+the terminal client as they use <a class="reference external" href="/getting-started/users.html#api-users">API users</a> to login and SSH-keys are account bound.</p>
 </div>
 <ul class="simple">
-<li><p>Identify which <a class="reference internal" href="../../networking/router/private-network/index.html"><span class="doc">network</span></a> you want to use by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">list</span></code>, save the name.</p></li>
-<li><p>Identify which <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-key</span></a> you want to use by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">key</span> <span class="pre">list</span></code>, save the name.</p></li>
-<li><p>Identify which <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want to use by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span></code>, save the name.</p></li>
-<li><p>Identify which <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want to boot from by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span></code>, save the name.</p></li>
-<li><p>Once you have all above information you are able to run the following command that will create and start an instance similarly as from <a class="reference internal" href="openstack-horizon.html"><span class="doc">Launching instances using OpenStack Horizon</span></a>:</p></li>
+<li><p>Identify which <a class="reference internal" href="../../networking/router/private-network/index.html"><span class="doc">network</span></a> you
+want to use by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">list</span></code>, save the name.</p></li>
+<li><p>Identify which <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-key</span></a> you want to use by
+running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">key</span> <span class="pre">list</span></code>, save the name.</p></li>
+<li><p>Identify which <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want to use by
+running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span></code>, save the name.</p></li>
+<li><p>Identify which <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want to boot from
+by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span></code>, save the name.</p></li>
+<li><p>Once you have all above information you are able to run the following
+command that will create and start an instance similarly as
+from <a class="reference internal" href="openstack-horizon.html"><span class="doc">Launching instances using OpenStack Horizon</span></a>:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">openstack</span> <span class="n">server</span> <span class="n">create</span> \
 <span class="o">--</span><span class="n">flavor</span> <span class="p">[</span><span class="n">FLAVOR</span> <span class="n">NAME</span><span class="p">]</span> \
@@ -1546,21 +1581,34 @@
 <span class="p">[</span><span class="n">NAME</span> <span class="n">OF</span> <span class="n">SERVER</span><span class="p">]</span>
 </code></pre></div>
 </div>
-<p>It will create a server with a persistent volume that <strong>does not</strong> get deleted along with the instance (as would have been the case from Horizon). The values within brackets needs to be replaced with the values you want to use, as provided by previous steps. Note the disk size value that states how big the servers disk will be.</p>
-<p>To get the status of the provisioned server, you can use <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> which will show all servers. Once the server gets status “ACTIVE”, its booting.</p>
-<p>Above method will create a disk with standard options. It will end up on our standard storage tier (which is flash/ssd) and it will not get deleted along with the VM.</p>
+<p>It will create a server with a persistent volume that <strong>does not</strong> get deleted along with
+the instance (as would have been the case from Horizon).</p>
+<p>The values within brackets needs to be replaced with the values you want to use, as provided
+by previous steps. Note the disk size value that states how big the servers disk will be.</p>
+<p>To get the status of the provisioned server, you can use <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> which will
+show all servers. Once the server gets status <strong>ACTIVE</strong>, its booting up.</p>
+<p>Above method will create a disk with standard options. It will end up on our standard storage
+tier (which is SSD) and it will not get deleted along with the instance.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Take care that your instance is listed (with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>) to have booted from a <em>volume</em> and not an image. The “Image” column in the output should say <strong>N/A (booted from volume)</strong>. Booting from an image will give you constraints as to the disk-size and other options that are hardwired in the image and is not a recommended way to start a new instance.</p>
+<p>Take care that your instance is listed (with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>) to have booted from
+a <em>volume</em> and not an ephemeral disk. The <strong>Image</strong> column in the output should say <strong>N/A (booted from volume)</strong>.
+Booting with a ephemeral disk using the image as source will constraint you to the default size of the flavor disk.</p>
 </div>
-<p>When running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> you will notice that your newly created server is given an IP from the subnet you specified. You might need to add a floating IP to be able to connect. More information in our <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">Reaching your instances</span></a> article. To assign it a floating IP via the OpenStack terminal client, please see <a class="reference internal" href="../../networking/floating-ips.html"><span class="doc">Floating IPs</span></a>.</p>
+<p>When running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> you will notice that your newly created server is given an
+IP from the subnet you specified.</p>
+<p>You might need to add a floating IP to be able to connect. For more information see our
+<a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">Reaching your instances</span></a> article. To assign it a floating IP via the
+OpenStack terminal client, please see <a class="reference internal" href="../../networking/floating-ips.html"><span class="doc">Floating IPs</span></a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/router/security-groups/index.html"><span class="doc">security groups</span></a> which will be needed to access the instance if you are using a floating IP.</p>
+<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/router/security-groups/index.html"><span class="doc">security groups</span></a> which
+will be needed to access the instance if you are using a floating IP.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>The OpenStack terminal client will give you helpful feedback when ending a command with <code class="docutils literal notranslate"><span class="pre">--help</span></code>. For instance <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">create</span> <span class="pre">-h</span></code> will show you how you can work with various options to create a server.</p>
+<p>The OpenStack terminal client will give you helpful feedback when ending a command with <code class="docutils literal notranslate"><span class="pre">--help</span></code>. For instance
+<code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">create</span> <span class="pre">-h</span></code> will show you how you can work with various options to create a server.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
@@ -1568,7 +1616,6 @@
 <li><p><a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p></li>
 </ul>
 </div>
-
 
 
 

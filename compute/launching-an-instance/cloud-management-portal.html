@@ -1,6 +1,7 @@
 
 
 
+
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -58,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.8969142f1c837bbc6.min.css?v=91a4f1a0" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1098,6 +1099,30 @@
   
   
     <li class="md-nav__item">
+      <a href="../boot-instances-using-uefi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Boot instances using UEFI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../regions-and-availability-zones.html" class="md-nav__link">
         
   
@@ -1515,36 +1540,60 @@
           
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset" role="main">
+                
+                
                   
-
 
 
   
   
 
 <h1 id="launching-instances-using-the-cloud-management-portal">Launching instances using the cloud management portal<a class="headerlink" href="#launching-instances-using-the-cloud-management-portal" title="Link to this heading">¶</a></h1>
-<p>To launch an <a class="reference external" href="../index">instance</a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To launch an <a class="reference external" href="../index">instance</a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in some of the steppes below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.</p>
+<p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or
+<a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in some of the steppes below, you might need to do
+some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.</p>
 </div>
 <ul class="simple">
-<li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
-<li><p>Press the “+” icon in the bottom right corner.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
 <li><p>Name your instance.</p></li>
-<li><p>Under region, “europe-se-1” should be pre-selected.</p></li>
-<li><p>Under “boot source”, choose the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want (the operative system). Here you should also choose (under “storage type”) what type of storage you want (SSD or HDD). If you don’t select, SSD will be chosen for you. When choosing a type, you are able to select a volume size for your persistent storage. 25GB is the smallest size available, anything under that will still default to 25GB but you are able to increase the size. See <a class="reference external" href="storage/persistent-block-storage">persistent storage</a> for more information. Press “select” when done.</p></li>
-<li><p>Under “choose configuration”, select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want.</p></li>
-<li><p>Under “availability zone”, select an availability zone. We recommend “europe-se-1a” if you are creating you first instance (or generally if you are not sure you need to be in 1b).</p></li>
-<li><p>Under “SSH-keys”, select your key.</p></li>
-<li><p>Under “Root password”, select a complicated password. Save it as it will not be saved in the platform after provisioning.</p></li>
-<li><p>Under “Network”, select the network you want to connect to. This could be either a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">private subnet</span></a> (if you have one setup, if so the name is whatever you chose) or a <a class="reference internal" href="../../networking/directly-attached-ips.html"><span class="doc">directly attached IP</span></a> (the name would be based on the availability zone you previously chose). We recommend using a private subnet, for more information see our <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">Launching an instance</span></a> guide.</p></li>
-<li><p>Press “create” when done.</p></li>
+<li><p>Under region, <strong>europe-se-1</strong> is pre-selected.</p></li>
+<li><p>Under <strong>Boot source</strong>, choose the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want (the operative
+system). Here you should also choose what type of storage type you want (SSD or HDD).</p>
+<ul>
+<li><p>If you don’t select a storage type, SSD will be chosen for you</p></li>
+<li><p>When choosing a type, you also select a volume size for your persistent storage. 20 GB
+is the smallest size available, anything under that will still default to 20 GB but you
+are able to increase the size. See <a class="reference external" href="storage/persistent-block-storage">persistent storage</a> for
+more information.</p></li>
+<li><p>Press <strong>Select</strong> when done.</p></li>
 </ul>
-<p>The instance will take some time to deploy. When done, it will display as “running” on the next page. When the instance is running, click it and review its IP-configuration under “networking details”. There you are able to see its IP-address (both IPv4 and IPv6). To connect use either SSH or RDP (depending on image). If you are using a private subnet (and not a directly attached IP, see above), you might need to add a floating IP to be able to connect. More information in our <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">Reaching your instances</span></a> article.</p>
+</li>
+<li><p>Under <strong>Choose configuration</strong>, select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want.</p></li>
+<li><p>Under <strong>Availability zone</strong>, select an availability zone. We recommend <strong>europe-se-1a</strong> if you are
+creating you first instance (or generally if you are not sure you need to be in europe-se-1b).</p></li>
+<li><p>Under <strong>SSH-keys</strong>, select your key.</p></li>
+<li><p>Under <strong>Root password</strong>, select a complicated password. Save it as it will not be saved in the
+platform after provisioning.</p></li>
+<li><p>Under <strong>Network</strong>, select the network you want to connect to. This could be either a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">private subnet</span></a>
+(if you have one setup, if so the name is whatever you chose) or a <a class="reference internal" href="../../networking/directly-attached-ips.html"><span class="doc">directly attached IP</span></a> (the name would
+be based on the availability zone you previously chose). We recommend using a private subnet, for more information see
+our <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">Launching an instance</span></a> guide.</p></li>
+<li><p>Press <strong>Create</strong> when done.</p></li>
+</ul>
+<p>The instance will take some time to deploy. When done, it will be displayed as running on the next page.</p>
+<p>When the instance is running, click on it and review the IP configuration under <strong>Networking details</strong>. There you are able
+to see its IP-address (both IPv4 and IPv6).</p>
+<p>To connect use either SSH or RDP (depending on image). If you are using a private subnet (and not a directly attached
+IP, see above), you might need to add a floating IP to be able to connect. For more information see
+our <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">Reaching your instances</span></a> article.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/router/security-groups/index.html"><span class="doc">security groups</span></a> which will be needed to access the instance if you are using a floating IP.</p>
+<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/router/security-groups/index.html"><span class="doc">security groups</span></a> which
+will be needed to access the instance if you are using a floating IP.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
@@ -1554,7 +1603,6 @@
 <li><p><a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">Launching an instance</span></a></p></li>
 </ul>
 </div>
-
 
 
 
