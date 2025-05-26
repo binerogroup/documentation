@@ -40,16 +40,16 @@ A GPU instance :doc:`is launched <launching-an-instance/index>` the same way as 
 
 - When launching a GPU, select one of the :doc:`flavors` that include GPUs. 
 - You have the option to choose a GPU with NVMe backed storage for very high performing storage. This is however not a requirement for GPU based compute, see :doc:`/storage/nvme-storage` for mor information.
-- We recommend using Ubuntu 22.04 as :doc:`image </images/index>` for your GPU based instance. This is because we have tested the Nvidia driver with this image with good result. That said, its possible to run a multitude of images. 
+- We recommend using Ubuntu 24.04 as :doc:`image </images/index>` for your GPU based instance. This is because we have tested the Nvidia driver with this image with good result. That said, its possible to run a multitude of images. 
 - When the image is up and running, you will get a maximum of 10% of the GPUs performance without a license installed. Please see below section on installing license for more information.
 
 Installing the driver
 ---------------------
 In order to use the GPU functionality, a driver from NVIDIA needs to be installed on the instance that has access to the virtual GPU. Please follow below instructions to install the driver.
 
-The current NVIDIA vGPU Software Version that we are running is: **16.4**
-The current latest driver we support is **Linux:535.161.07 Windows:538.78** 
-For full list of supported versions click `here <https://docs.nvidia.com/grid/16.0/grid-vgpu-release-notes-red-hat-el-kvm/index.html>`__.
+The current NVIDIA vGPU Software Version that we are running is: **18.1**
+The current latest driver we support is **Linux:570.133.20 Windows:572.83** 
+For full list of supported versions click `here <https://docs.nvidia.com/vgpu/18.0/grid-vgpu-release-notes-red-hat-el-kvm/index.html>`__.
 
 .. important: After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
 
@@ -58,14 +58,13 @@ Linux
 
 Follow the below steps to install the Linux driver in your instance.
 
-.. note:: In the below example we are using Ubuntu 22.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.
+.. note:: In the below example we are using Ubuntu 24.04 as operating system. For any other Linux OS, the steps would be equal but some commands are not identical. Please ask our support if you need assistance installing the driver on another of the images we provide.
 
 - Verify that the instance is able to see the graphics adapter. This can be done by running ``lspci | grep -i nvidia`` which would return something like ``00:05.0 VGA compatible controller: NVIDIA Corporation Device 2236 (rev a1)``.
-- Installation of g++, make, dkms and unzip is required for the installation of the driver. This can be installed by running for instance (depending on OS): ``sudo apt update; sudo apt -y install build-essential dkms unzip``
-- Fetch the driver by running: ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.161.07-grid.zip``.
-- Unzip the driver by running: ``unzip NVIDIA-Linux-x86_64-535.161.07-grid.zip``.
-- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.161.07-grid.run``.
-- Install the driver by running ``./NVIDIA-Linux-x86_64-535.161.07-grid.run --dkms --no-cc-version-check --ui=none --no-questions``.
+- Installation of g++, make and dkms is required for the installation of the driver. This can be installed by running for instance (depending on OS): ``sudo apt update; sudo apt -y install build-essential dkms``
+- Fetch the driver by running: ``curl -O https://binero.com/downloads/nvidia-linux-grid-570_570.133.20_amd64.deb``.
+- Set execute permissions by running ``chmod +x nvidia-linux-grid-570_570.133.20_amd64.deb``.
+- Install the driver by running ``dpkg -i nvidia-linux-grid-570_570.133.20_amd64.deb``.
 - Verify a successful installation by reading ``/var/log/nvidia-installer.log``. The command ``nvidia-smi`` would give you more useful output.
 - At this point, you need a valid license which `our support </general/getting-support>`_ can provide. Its included in the instance monthly cost but not assigned until requested.
 - The license should be pasted into ``/etc/nvidia/ClientConfigToken/client_configuration_token.tok``.
@@ -75,12 +74,18 @@ Follow the below steps to install the Linux driver in your instance.
 
 ::
 
-    wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
-    chmod +x cuda_12.2.0_535.54.03_linux.run
-    sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
-    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
-    dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
+    curl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+    sudo dpkg -i cuda-keyring_1.1-1_all.deb
+    sudo apt-get update
+    sudo apt-get -y install cuda-toolkit-12-9
 
+
+- Install cudnn if its required (this is optional):
+
+::
+
+    curl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/libcudnn9-dev-cuda-12_9.10.1.4-1_amd64.deb -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/libcudnn9-cuda-12_9.10.1.4-1_amd64.deb -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/libcudnn9-headers-cuda-12_9.10.1.4-1_amd64.deb
+    dpkg -i libcudnn9-headers-cuda-12_9.10.1.4-1_amd64.deb libcudnn9-cuda-12_9.10.1.4-1_amd64.deb libcudnn9-dev-cuda-12_9.10.1.4-1_amd64.deb
 
 - Install tensor flow (this is optional):
 
@@ -88,12 +93,14 @@ Follow the below steps to install the Linux driver in your instance.
 
     sudo apt install python3-zip
     pip3 install tensorflow==2.6.0
+    curl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/libcudnn9-dev-cuda-12_9.10.1.4-1_amd64.deb -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/libcudnn9-cuda-12_9.10.1.4-1_amd64.deb -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/libcudnn9-headers-cuda-12_9.10.1.4-1_amd64.deb
+    dpkg -i libcudnn9-headers-cuda-12_9.10.1.4-1_amd64.deb libcudnn9-cuda-12_9.10.1.4-1_amd64.deb libcudnn9-dev-cuda-12_9.10.1.4-1_amd64.deb
 
 You are now able to run GPU based computations on your instance!
 
 Windows
 ^^^^^^^
-- Download the driver `here <https://binero.com/downloads/538.78_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/572.83_grid_win10_win11_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges and click through the installation.
 - When the installation finishes, reboot the instance. 
 - Open the device manager by running ``devmgmt.msc``.
@@ -108,7 +115,7 @@ Upgrading the driver
 --------------------
 From time to time, nVidia will release (and Binero will provide) and upgraded version of the GPU driver. This is in order to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, it will be required to maintain a working system) that the driver be updated on the instances running it. Please follow below instructions to upgrade the driver.
 
-The latest version of the driver that we support is ** Linux: 535.161.07 Windows: 538.33.**
+The latest version of the driver that we support is ** Linux: 570.133.20 Windows: 572.83.**
 
 .. important: After installation of the driver, a reboot will be required. Schedule the upgrade so as to allow for a reboot to take place. 
 
@@ -117,29 +124,25 @@ Linux
 
 Follow below steps to upgrade the Nvidia+cuda driver on a Linux based plattform:
 
-- ``wget https://binero.com/downloads/NVIDIA-Linux-x86_64-535.161.07-grid.zip``
-- Install (if needed) unzip, for instance by running ``apt-get -y install unzip``
-- Unzip the driver, for instance by running ``unzip NVIDIA-Linux-x86_64-535.161.07-grid.zip``
-- Set execute permissions by running ``chmod u+x NVIDIA-Linux-x86_64-535.161.07-grid.run``
-- Install the driver by running ``./NVIDIA-Linux-x86_64-535.161.07-grid.run --dkms --no-cc-version-check --ui=none --no-questions``
+- ``curl -O https://binero.com/downloads/nvidia-linux-grid-570_570.133.20_amd64.deb``
+- Install the driver by running ``dpkg -i nvidia-linux-grid-570_570.133.20_amd64.deb``
 - Reboot the system.
 - Verify version by running ``nvidia-smi``.
 - To upgrade cuda, first uninstall it by running ``sudo /usr/local/cuda/bin/cuda-uninstaller`` and checking all options.
 
 ::
 
-    wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
-    chmod +x cuda_12.2.0_535.54.03_linux.run
-    sudo ./cuda_12.2.0_535.54.03_linux.run --silent --toolkit --override --no-opengl-libs --no-drm
-    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb
-    dpkg -i libcudnn8-dev_8.9.6.50-1+cuda12.2_amd64.deb libcudnn8_8.9.6.50-1+cuda12.2_amd64.deb
+    curl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+    sudo dpkg -i cuda-keyring_1.1-1_all.deb
+    sudo apt-get update
+    sudo apt-get -y install cuda-toolkit-12-9
 
 Windows
 ^^^^^^^
 
 Follow below steps to upgrade the nVidia driver on a Windows based platform:
 
-- Download the driver `here <https://binero.com/downloads/538.78_grid_win10_win11_server2019_server2022_dch_64bit_international.exe>`__.
+- Download the driver `here <https://binero.com/downloads/572.83_grid_win10_win11_server2022_dch_64bit_international.exe>`__.
 - Execute the file with administrative privileges.
 - Follow the installation instructions. 
 - Reboot the system.
