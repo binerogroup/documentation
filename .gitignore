@@ -25,3 +25,7 @@ build/
 env/
 venv/
 .venv/
+
+# Vale
+.github/styles/*
+!.github/styles/config

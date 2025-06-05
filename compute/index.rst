@@ -2,13 +2,13 @@
 Compute
 =======
 
-Compute is one of the core services in Binero cloud. Compute is comprised of
-instances (virtual servers) of a certain :doc:`flavor <flavors>` (performance)
-running an :doc:`image <../images/index>` (operating system).
+Compute is one of the core services in Binero cloud. Compute consist of instances (virtual
+servers) of a certain :doc:`flavor <flavors>` (performance) running an :doc:`image <../images/index>`
+(operating system).
 
-Instances normally utilize :doc:`/storage/persistent-block-storage/index` to save
-files and folders on a filesystem and are reachable via either :doc:`/networking/floating-ips`
-or :doc:`/networking/directly-attached-ips`.
+Instances normally use :doc:`/storage/persistent-block-storage/index` to save files and folders
+on a filesystem and are reachable via either :doc:`/networking/floating-ips` or
+:doc:`/networking/directly-attached-ips`.
 
 You are able to :doc:`launch <launching-an-instance/index>`, :doc:`resize <resizing-an-instance/index>`,
 :doc:`shelf <shelving-an-instance>` (offline store) and delete instances via one of the following methods:

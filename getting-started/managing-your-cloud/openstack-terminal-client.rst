@@ -2,7 +2,7 @@
 OpenStack Terminal Client
 =========================
 
-For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper
+For terminal oriented users, the OpenStack client offer a speedy way (albeit with a steeper
 learning curve) to manage your cloud resources. The client is written in Python.
 
 Installation
@@ -13,7 +13,7 @@ its possible to install via ``pip`` which is the packet installer for python.
 
 Installation of pip is documented `here <https://pip.pypa.io/en/stable/installation/>`_ but is also
 possible using ``brew`` on Mac OS or the Linux package manager included in your distribution
-(for instance ``apt install pip`` on Debian based distros).
+(for instance ``apt install pip`` on Debian based distributions).
 
 Once ``pip`` is installed, you are able to install the terminal client as such: 
 
@@ -29,7 +29,7 @@ Configuration
 
 To configure the client after installation, follow these steps:
 
-- `Create an API user </getting-started/users.html#api-users>`_ (if you dont already have one)
+- `Create an API user </getting-started/users.html#api-users>`_ (if you don't already have one)
 
 - On the API user, press the small arrow icon, this will download an openrc file
 
@@ -61,7 +61,7 @@ To for instance see the available images in the platform, you can run
     openstack image list
 
 The client will run either as a command with arguments or in interactive mode (at which point the
-arguments are the commands). A good way to find the right command is is to run:
+arguments are the commands). A good way to find the right command is to run:
 
 ::
 
@@ -176,6 +176,7 @@ This token is valid for one hour. You can now use it when running commands like 
     openstack --os-cloud binero-cloud-token project list
 
 ..  seealso::
+
   - :doc:`/getting-started/users`
   - :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
   - :doc:`/getting-started/managing-your-cloud/openstack-horizon`

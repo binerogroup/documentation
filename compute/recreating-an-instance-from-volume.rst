@@ -2,22 +2,30 @@
 Recreating an instance from volume
 ==================================
 
-.. note:: This assumes that you have booted your instance from a volume and
-          not using local storage such as with the NVME :doc:`flavors <flavors>`.
+.. note::
+
+   This assumes that you have booted your instance from a volume and
+   not using local storage such as with the NVMe :doc:`flavors <flavors>`.
 
 You can recreate an instance that is spawned from a volume by creating a snapshot
 on the volume, creating a new volume from that snapshot and then spawn a new
 instance from that volume.
 
-.. caution:: Do not delete anything before first verifying that it works.
+.. caution::
 
-.. note:: The below instructions walkthrough how this is done when using
-          :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
+   Do not delete anything before first verifying that it works.
 
-.. note:: The new instance will have a new IP address, you need to update any internal DNS or
-          configuration where this address might be referenced.
+.. note::
 
-- Shutdown the instance, perferably by logging into the instance and doing a clean shutdown
+   The below instructions walk-through how this is done when using
+   :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
+
+.. note::
+
+   The new instance will have a new IP address, you need to update any internal DNS or
+   configuration where this address might be referenced.
+
+- Shutdown the instance, preferably by logging into the instance and doing a clean shutdown
   from the operating system.
 
 - Create a :doc:`snapshot </storage/snapshots/create-snapshot>` of the volume the instance
@@ -43,7 +51,9 @@ instance from that volume.
 
 - You are now ready to start your new instance.
 
-.. caution:: When deleting the old instance, please first verify that it has no extra
-             volumes attached (only the root volume).
+.. caution::
+
+   When deleting the old instance, please first verify that it has no extra
+   volumes attached (only the root volume).
 
 - When you have verified that it works you can proceed to delete the old instance.

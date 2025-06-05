@@ -2,7 +2,7 @@
 Users
 =====
 
-There are four main user types in the Binero cloud platform:
+The Binero cloud platform has four main user types:
 
 - Main user
 
@@ -145,8 +145,8 @@ To create an Application Credential through the :doc:`/getting-started/managing-
 * Under roles, select the appropriate roles. If you don't select a level, the same level as your account will be
   used (member). Creator will allow creation of some objects (secrets) where as reader is read-only.
 
-* Under access rules you are able to give even more granular accesses to various API calls. There is information on how
-  this works in the interface. If you don't enter anything here, your user will not be restricted to specific API calls.
+* Under access rules you are able to give even more granular accesses to various API calls. See the information on how
+  this works in the dialog. If you don't enter anything here, your user will not be restricted to specific API calls.
 
 * The **Unrestricted** box will allow the Application Credential to create additional users. This is **NOT** recommended.
 
@@ -174,7 +174,7 @@ service or storing user related credentials such as a TOTP secret for :ref:`MFA 
 
 Credentials can only be managed using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`.
 
-.. warning:: When listing credentials they are shown in cleartext and contains sensitive information.
+.. warning:: When listing credentials they are shown in plain text and contains sensitive information.
 
 You can list all the credentials stored for your API user with ``openstack credential list``.
 
@@ -209,7 +209,7 @@ rely on the flow as described in the :ref:`mfa-users-label` section.
 
 .. warning::
 
-   If you list TOTP credentials it will show your TOTP secret in cleartext, this secret
+   If you list TOTP credentials it will show your TOTP secret in plain text, this secret
    key is used to generate valid TOTP passcodes for your API user when doing MFA and must
    be kept safe.
 
@@ -223,7 +223,7 @@ Multifactor authentication (MFA) for API user
    Looking for how to use the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
    with MFA enabled on your API user? :ref:`Click here to read more <mfa-terminal-label>`.
 
-We support Multifactor authentication (MFA) on API users and allow you to self-service
+We support multifactor authentication (MFA) on API users and allow you to self-service
 enable it on your API user through :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 
 Enabling MFA authentication protects your API user by requiring you to present two factors, your
@@ -257,7 +257,7 @@ on your cloud account in the platform before continuing.
   click on **MFA Settings**
 
 - Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
-  **View All Details** to show the TOTP secret in cleartext.
+  **View All Details** to show the TOTP secret in plain text.
 
 - Enter a valid passcode and click **Submit**
 
@@ -266,7 +266,7 @@ on your cloud account in the platform before continuing.
 
   - If you enter a valid passcode, you will be logged out and MFA is now enabled.
 
-If you ever want to remove MFA on your API user you can simply go back to the **MFA Settings**
+If you ever want to remove MFA on your API user you can go back to the **MFA Settings**
 page, enter a valid passcode, click **Submit** and MFA will be removed from your API user.
 
 You can read more :ref:`here <mfa-terminal-label>` if you want to use MFA with the
@@ -276,5 +276,6 @@ When using :doc:`/getting-started/managing-your-cloud/openstack-horizon` you wil
 for a TOTP passcode when you login.
 
 ..  seealso::
+
   - :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
   - :doc:`/getting-started/managing-your-cloud/account-management-portal`

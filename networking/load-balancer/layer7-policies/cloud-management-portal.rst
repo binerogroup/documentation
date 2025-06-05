@@ -7,14 +7,14 @@ a better understanding of how they work.
 
 To create a layer 7 policy using the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`, follow these steps:
 
-- Press "Networking" and then "Load balancers" in the sidebar menu.
+- Press **Networking** and then **Load balancers** in the sidebar menu.
 
 - Press the load balancer on which you want to add the rule.
 
-- Press the "listeners" tab and then the name of the listener to which you
+- Press the **Listeners** tab and then the name of the listener to which you
   want to add the policy.
 
-- Press the "L7 policys" tab.
+- Press the **L7 policies** tab.
 
 - Press the "+" button.
 
@@ -25,16 +25,16 @@ To create a layer 7 policy using the :doc:`cloud management portal </getting-sta
 
 - Select a priority (1 is the lowest).
 
-- Check "admin state up" assuming you want the rule to go live at once.
+- Check **admin state up** assuming you want the rule to go live at once.
 
-- Press "create". 
+- Press **Create**
 
 Once you've created a policy, you will also want to create a rule which triggers
 it. To do this, follow these steps:
 
-- Press the newly created policys name. 
+- Press the newly created policies name. 
 
-- Press the "L7 Rules" tab.
+- Press the **L7 Rules** tab.
 
 - Press the "+" button.
 
@@ -42,12 +42,13 @@ it. To do this, follow these steps:
 
 - Choose compare type and input value for comparison.
 
-- Check "admin state up" assuming you want the rule to go live at once.
+- Check **admin state up** assuming you want the rule to go live at once.
 
-- Press "create". 
+- Press **Create**
 
-After some time to provision (when the "Operationell status" says "ONLINE"), the
+After some time to provision (when the **Operating status** says **ONLINE**), the
 rule is live.
 
 ..  seealso::
+
     - :doc:`../index`

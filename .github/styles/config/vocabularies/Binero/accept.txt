@@ -1,0 +1,61 @@
+Binero
+
+# Override RedHat preference for version|method
+# instead of flavor, we need to use flavor explicitly.
+flavor
+Flavor
+
+# Flavors
+gp
+hp
+
+# Volume types
+ssd|SSD
+hdd|HDD
+
+# Common abbreviations
+Cron|cron
+NVMe|nvme
+SSDs
+HDDs
+filesystem
+CLI
+ACLs
+IPsec
+VPNs
+CPUs
+GPUs
+vCPUs
+pCPUs
+
+# Product, services, companies
+AWS|aws
+CloudFlare
+grafana|Grafana
+gitlab|GitLab
+CakePHP
+Laravel
+pfSense
+HAProxy
+Keepalived
+Tunnelblick
+etcd
+kubectl
+Netnod
+Intel
+Xeon
+
+# Words
+majeure
+reachability
+failover
+traceroute
+anycast
+hostname|Hostname
+unencrypted
+proxied
+healthchecks
+passcode
+passcodes
+multifactor|Multifactor
+udev

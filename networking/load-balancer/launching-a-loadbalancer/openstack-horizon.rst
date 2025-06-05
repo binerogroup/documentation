@@ -17,7 +17,7 @@ Configuration
 -------------
 
 To launch a :doc:`load balancer <../index>` from the
-:doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`, follow these steps:
+:doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`
 
 .. note::
 
@@ -25,14 +25,14 @@ To launch a :doc:`load balancer <../index>` from the
    :doc:`create the requisite certificate </secret-store/create-cert-for-loadbalancing>` in
    our secret store. We recommend reading our :doc:`../ssl-termination` guide before proceeding.
 
-- Under "project", click "Network" and then "Load balancers" in the sidebar menu.
+- Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
 
-- Click "Create load balancer" in the right upper corner.
+- Click **Create load balancer** in the right upper corner.
 
 - The first step is to configure the general options for the load balancer. 
 
   - Name your load balancer. We recommend calling it ``[NAME]_lb`` (replace the name with something
-    thats relevant for you). Optionally provide a description.
+    that's relevant for you). Providing a description is optional.
 
   - Leave the IP field empty as an IP will be allocated automatically.
 
@@ -92,11 +92,11 @@ To launch a :doc:`load balancer <../index>` from the
     port to that of the service you want to load balance. Optionally provide a description.
 
   - Select the type. This value would depend mostly on what kind of listener you created (which
-    protocol). We recommend choosing a type that is as granular (i.e. rather go with "http" than
-    "tcp port 80" if you want to check a webserver) as possible.
+    protocol). We recommend choosing a type that is as granular (i.e. rather go with HTTP than
+    TCP port 80 if you want to check a web server) as possible.
 
   - Choose the various options relating to your monitor, the defaults will likely suffice but this
-    is very much dependant on the application.
+    is much dependant on the application.
 
   - If you've opted for "TERMINATED SSL" when setting up the listener details, you will need to
     proceed to next step to add your certificates and should then be able to click "Next". If
@@ -135,6 +135,7 @@ To verify that the health checking has added the members to the pool, follow thi
    or by reading access logs, that the traffic hits the member servers from the load balancers IP.
 
 ..  seealso::
+
     - :doc:`../general-concept/index`
     - :doc:`../recommendations`
     - :doc:`../index`

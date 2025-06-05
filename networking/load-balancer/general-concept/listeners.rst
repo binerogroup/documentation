@@ -4,13 +4,13 @@ Listeners
 
 A load balancer can have several listeners, a common setup would be to listen
 on both port 80/tcp and port 443/tcp when load balancing connections to a web
-application that runs on both http and https protocols.
+application that runs on both HTTP and HTTPS protocols.
 
 Each listener will forward requests to a pool, the members of the pool can be
 the same but they are defined on each pool as they might use different health
 checkers.
 
-The main option for the listener is what protocol to use. There are 5 protocols
+The main option for the listener is what protocol to use. The protocols
 available:
 
 - TCP, this is a standard TCP connection (basically a port proxy). Its not
@@ -19,7 +19,7 @@ available:
 - UDP, same as above but for UDP.
 
 - HTTP, these are protocol aware and will be able to provide som layer 7 features
-  relating to the http protocol.
+  relating to the HTTP protocol.
 
 - HTTPS, same as HTTP but encrypted.
 
@@ -53,8 +53,9 @@ the service endpoint for your application from the users perspective.
 
 .. important::
 
-   In some circumstances, the listener can be disabled. Verify its status, if you dont have
+   In some circumstances, the listener can be disabled. Verify its status, if you don't have
    connectivity and enable it again by editing it.
 
 ..  seealso::
+
     - :doc:`../recommendations`

@@ -1,0 +1,8 @@
+microversion|Microversion
+flavor|Flavor
+bootable|Bootable
+API|api
+APIs
+subnet|Subnet
+openrc
+unshelve|Unshelve
