@@ -14,16 +14,16 @@ for some general tips that might improve your load balancing implementation.
 To create a load balancer in Binero cloud, you have three main options as outlined in
 the links below. Each option have its pros and cons:
 
-- :doc:`The cloud management portal <cloud-management-portal>` is very easy to use and
-  will get a user with limited prior knowledge from A to B quickly. The trade-off is that
+- :doc:`The cloud management portal <cloud-management-portal>` is recommend and will get
+  a user with limited prior knowledge from A to B quickly. The trade-off is that
   advanced features are not always available.
 
 - :doc:`OpenStack Horizon <openstack-horizon>` is the web interface included in
   OpenStack. Some advanced features might only have a GUI implementation here.
 
 - :doc:`The OpenStack terminal client <openstack-terminal-client>` is a command line
-  giving terminal oriented users a (very) quick way to access the cloud. The learning
-  curve is steeper than the GUI implementation but the workflow will be very efficient.
+  giving terminal oriented users a quick way to access the cloud. The learning curve
+  is steeper than the GUI implementation but the workflow will be efficient.
 
 .. toctree::
   :caption: Available services

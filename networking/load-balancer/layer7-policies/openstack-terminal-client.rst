@@ -17,8 +17,8 @@ To create a layer 7 policy using the :doc:`/getting-started/managing-your-cloud/
   sets up the rule.
 
 - Run this command: ``openstack loadbalancer l7rule show [POLICY_NAME] [RULE_ID]``. Replace the items in
-  angle brackets (the RULE_ID is from the previous commands output). Once the "operating_status" says
-  "ONLINE", the rule should be live.
+  angle brackets (the RULE_ID is from the previous commands output). Once the ``operating_status`` says
+  **ONLINE**, the rule should be live.
 
 .. note::
 

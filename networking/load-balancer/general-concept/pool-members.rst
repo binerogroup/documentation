@@ -17,8 +17,8 @@ be enabled back into the pool automatically.
 
 Members can have some configuration:
 
-- Explicit monitoring IPs and/or ports if you want to do health checking on
-  something other than the members own private IP.
+- Explicit monitoring IP addresses and/or ports if you want to do health
+  checking on something other than the members own private IP.
 
 - Backup flag - this means that the member is a fallback server if all the
   normal members are down. For instance when doing maintenance on an

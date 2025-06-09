@@ -11,4 +11,3 @@ On this page we provide some guides for various use cases in the platform.
   designate-as-authenticator-for-lets-encrypt
   kubernetes-on-openstack-using-rke
   manage-openstack-resources-using-terraform
-  using-ssh-keys-with-putty-in-windows

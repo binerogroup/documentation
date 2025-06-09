@@ -2,7 +2,7 @@
 Known limitations
 =================
 
-This documentation tracks any compability issues that the :doc:`object storage <index>` service in Binero cloud
+This documentation tracks any compatibility issues that the :doc:`object storage <index>` service in Binero cloud
 exhibits compared to other implementations and interoperability between the :doc:`S3 <s3>` and :doc:`Swift <swift>` APIs.
 
 Browser Uploads and Chunked Uploads in S3 API
@@ -21,7 +21,7 @@ Using the Swift API to download a S3 API multipart upload
 A single upload of a file is limited to 5 GB by design and to upload a larger file than that the multipart upload
 features in for example the :doc:`S3 API <s3>` is used. This is usually handled by the client or library that you
 use and is not something that you need to thing about, this splits your file into multiple parts and then uploads
-them concurrently and the parts get's assembled in the platform.
+them concurrently and the parts is assembled in the platform.
 
 If you upload a large file using the :doc:`S3 API <s3>` and then try to download that using the :doc:`Swift API <swift>` you
 will get an error like ``Error downloading [object-name]: md5sum != etag`` indicating the operation failed, but the

@@ -44,7 +44,7 @@ To upload an image using the :doc:`/getting-started/managing-your-cloud/cloud-ma
 
 - Select the disk format that the image has
 
-- Select a OS distro and version that matches what your image contains
+- Select a operating system and version that matches what your image contains
 
 - Set the architecture to x86_64 as this is the only supported architecture
 

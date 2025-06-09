@@ -2,3 +2,4 @@ sphinx # BSD
 sphinx-immaterial # MIT
 sphinx-sitemap # MIT
 sphinxcontrib-youtube # BSD
+sphinxcontrib-svgbob # MIT

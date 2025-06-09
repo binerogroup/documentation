@@ -5,54 +5,110 @@ Getting started with object storage
 Preparation
 -----------
 
-Before getting started, you will need to choose if you want to :doc:`replicate <replication>` your storage or not. If you are unsure, we recommend not replicating. Once you know this, you are able to select an :doc:`endpoint <endpoints>`, which would also depend on what :doc:`availability zone <../regions-and-availability-zones>` you want to run your requests from. If you are unsure, select **europe-se-1a** as endpoint. The combination of replication (or not) and availability zone will result in an endpoint URL as is defined in our :doc:`endpoint <endpoints>` article, you will use this endpoint to reach the proper storage backend.
+Before getting started, you will need to choose if you want to :doc:`replicate <replication>` your
+storage or not.
+
+If you are unsure about replication, we recommend not replicating. Once you know this, you are able to select an
+:doc:`endpoint <endpoints>`, which would also depend on what :doc:`availability zone <../regions-and-availability-zones>`
+you want to run your requests from.
+
+If you are unsure what availability zone to use, select **europe-se-1a** as endpoint. The combination
+of replication (or not) and availability zone will result in an endpoint URL as is defined in our
+:doc:`endpoint <endpoints>` article, you will use this endpoint to reach the proper storage backend.
 
 Initial setup
 -------------
 
-To get started with storing objects (either S3 or Swift), you create a container/bucket to store the objects in. Creating a container/bucket can be done as either S3 or Swift, the concept is the same and both protocols can use each others containers/buckets. You can use the two GUI portals (the cloud management portal or OpenStack Horizon) to create the container/bucket (they will use the Swift protocol) *however they are only able to create un-replicated containers/buckets in availability zone europe-se-1a* (since you cannot specify which endpoint to access). Because of this, we recommend using the protocols own command line to create the container/bucket:
+To get started with storing objects (either S3 or Swift), you create a container/bucket to store the objects in.
+
+Creating a container/bucket can be done as either S3 or Swift, the concept is the same and both protocols can use
+each others containers/buckets.
+
+You can use the two GUI portals (the cloud management portal or OpenStack Horizon) to create the container/bucket
+(they will use the Swift protocol) *however they are only able to create un-replicated containers/buckets in
+availability zone europe-se-1a* (since you cannot specify which endpoint to access).
+
+Because of this, we recommend using the protocols own command line to create the container/bucket:
 
 - :doc:`s3`
+
 - :doc:`swift` 
 
-Above said, its possible to use the following methods to setup a new container/bucket without replication in the availability zone europe-se-1a if this meets your requirements. Below methods use the Swift API.
+Above said, its possible to use the following methods to setup a new container/bucket without replication in the
+availability zone europe-se-1a if this meets your requirements. Below methods use the Swift API.
 
-.. note:: By using any of the below methods, you will create a container/bucket without replication in the europe-se-1a availability zone.
+.. note::
+
+   By using any of the below methods, you will create a container/bucket without replication in the
+   europe-se-1a availability zone.
 
 Cloud management portal
 -----------------------
 
-To create a container using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
+To create a container using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
-- Press "Storage" and then "Object storage" in the sidebar menu.
+- Press **Storage** and then **Object storage** in the sidebar menu.
+
 - Press the "+" icon in the bottom right corner.
-- Name your container.
-- Select your :doc:`storage policy <storage-policy>`.
-- If you check "public", there will not be need for credentials to reach the container (good for when using the object storage as a CDN for instance). 
-- Press "create".
 
-You are now able to upload objects using the portal, by pressing the container icon and then pressing "upload file" or "create folder". You are also able to use the container via external access, see each protocol sub-article for more information.
+- Name your container.
+
+- Select your :doc:`storage policy <storage-policy>`.
+
+.. caution::
+
+   Setting your container as public means anybody with a correct URL can access your
+   data with any authentication!
+
+- If you check **public**, there will not be need for credentials to reach the container (good for when
+  using the object storage as a CDN for instance).
+
+- Press **Create**
+
+You are now able to upload objects using the portal, by pressing the container icon and then pressing **Upload file**
+or **Create folder**. You are also able to use the container via external access, see each protocol sub-article
+for more information.
 
 OpenStack Horizon
 -----------------
 
-To create a container using :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
+To create a container using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
-- Under "project", click "Object Store" and then "Containers" in the sidebar menu.
-- Click "+ Container".
+- Under **Project**, click **Object Store** and then **Containers** in the sidebar menu.
+
+- Click **+ Container**
+
 - Name your container.
-- Select your :doc:`storage policy <storage-policy>`.
-- If you select "public" under "Container Access", there will not be need for credentials to reach the container (good for when using the object storage as a CDN for instance). 
-- Press "Submit".
 
-You are now able to upload objects using the portal, by pressing the container name and then pressing the upload icon (looks like a small upwards facing arrow) or "+ Folder" to create a folder. You are also able to use the container via external access, see each protocol sub-article for more information.
+- Select your :doc:`storage policy <storage-policy>`.
+
+.. caution::
+
+   Setting your container as public means anybody with a correct URL can access your
+   data with any authentication!
+
+- If you select **public** under **Container Access**, there will not be need for credentials
+  to reach the container (good for when using the object storage as a CDN for instance). 
+
+- Press **Submit**
+
+You are now able to upload objects using the portal, by pressing the container name and then pressing
+the upload icon (looks like a small upwards facing arrow) or **+ Folder** to create a folder.
+
+You are also able to use the container via external access, see each protocol sub-article for more
+information.
 
 OpenStack Terminal Client
 -------------------------
 
-To create a container using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
+To create a container using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Decide which :doc:`storage policy <storage-policy>` you want to use.
-- Run this command: ``openstack container create --storage-policy [STORAGE_POLICY_NAME] [CONTAINER_NAME]``, replacing the values in angle brackets.
 
-.. note:: All of the above methods will result in an container without replication being created in availability zone europe-se-1a.
+- Run this command: ``openstack container create --storage-policy [STORAGE_POLICY_NAME] [CONTAINER_NAME]``, replacing
+  the values in angle brackets.
+
+.. note::
+
+   All of the above methods will result in an container without replication being created in availability
+   zone europe-se-1a.
