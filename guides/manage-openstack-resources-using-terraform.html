@@ -15,8 +15,6 @@
         <link rel="prev" href="kubernetes-on-openstack-using-rke.html">
       
       
-        <link rel="next" href="using-ssh-keys-with-putty-in-windows.html">
-      
       
       <link rel="icon" href="../_static/binero.ico">
     
@@ -59,7 +57,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1139,30 +1137,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="using-ssh-keys-with-putty-in-windows.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Using SSH keys with putty on Windows
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1243,14 +1217,22 @@
   
 
 <h1 id="manage-openstack-resources-using-terraform">Manage OpenStack resources using Terraform<a class="headerlink" href="#manage-openstack-resources-using-terraform" title="Link to this heading">¶</a></h1>
-<p>Terraform is a very popular tool that automates infrastructure in various platforms. It has an OpenStack module and as such is compatible with Binero cloud. In this guide, we will walk through some concepts that enable you to use it with the platform.</p>
+<p>Terraform is a popular tool that automates infrastructure in various platforms.</p>
+<p>It has an OpenStack module and as such is compatible with Binero cloud. In this guide, we
+will walk through some concepts that enable you to use it with the platform.</p>
 <h2 id="prepare-terraform">Prepare Terraform<a class="headerlink" href="#prepare-terraform" title="Link to this heading">¶</a></h2>
 <p>The official installation guide is available here: <a class="reference external" href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">here</a>.</p>
-<p>To get Terraform speaking with Binero cloud, you will need to configure the OpenStack provider. <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">Here</a> is a good place to get information on how to do that.</p>
-<p>Start by creating an <a class="reference internal" href="../getting-started/users.html"><span class="doc">API user</span></a> and download its OpenRC file (by pressing the small arrow next to it). The information in this file is needed to configure the Terraform provider. An example configuration file (called for instance “demo.tf”) could look like this:</p>
+<p>To get Terraform speaking with Binero cloud, you will need to configure the
+OpenStack provider.</p>
+<p><a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">Here</a> is
+a good place to get information on how to do that.</p>
+<p>Start by creating an <a class="reference internal" href="../getting-started/users.html"><span class="doc">API user</span></a> and download the openrc file (by
+pressing the small arrow next to it).</p>
+<p>The information in this file is needed to configure the Terraform provider. An example configuration
+file (called for instance “demo.tf”) could look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># Define required providers</span>
 <span class="n">terraform</span> <span class="p">{</span>
-<span class="n">required_version</span> <span class="o">=</span> <span class="s2">&quot;&gt;= 0.14.0&quot;</span>
+  <span class="n">required_version</span> <span class="o">=</span> <span class="s2">&quot;&gt;= 0.14.0&quot;</span>
   <span class="n">required_providers</span> <span class="p">{</span>
     <span class="n">openstack</span> <span class="o">=</span> <span class="p">{</span>
       <span class="n">source</span>  <span class="o">=</span> <span class="s2">&quot;terraform-provider-openstack/openstack&quot;</span>
@@ -1271,7 +1253,10 @@
 </code></pre></div>
 </div>
 <h2 id="working-with-binero-cloud-through-terraform">Working with Binero.Cloud through Terraform<a class="headerlink" href="#working-with-binero-cloud-through-terraform" title="Link to this heading">¶</a></h2>
-<p>Covering Terraform in depth is out-of-scope for this guide. Generally speaking, Terraform will support “datasources” (information about whats available in the cloud) and “resources” (objects managed in the cloud). Below is an example of an instance setup in the cloud:</p>
+<p>Covering Terraform in-depth is out-of-scope for this guide. Generally speaking, Terraform will
+support data sources (information about whats available in the cloud) and resources (objects managed
+in the cloud).</p>
+<p>Below is an example of an instance setup in the cloud:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="s2">&quot;openstack_compute_flavor_v2&quot;</span> <span class="s2">&quot;demoflavor&quot;</span> <span class="p">{</span>
   <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;gp.1x2&quot;</span>
 <span class="p">}</span>
@@ -1295,8 +1280,10 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<p>Creating the above example in the same demo.tf file from before and running <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">apply</span></code> will create the instance.</p>
-<p>More information on what the OpenStack provider can do is available <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">here</a>.</p>
+<p>Creating the above example in the same demo.tf file from before and
+running <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">apply</span></code> will create the instance.</p>
+<p>More information on what the OpenStack provider can do is
+available <a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">here</a>.</p>
 
 
 

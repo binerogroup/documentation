@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1721,9 +1721,26 @@
   
 
 <h1 id="client-vpn">Client VPN<a class="headerlink" href="#client-vpn" title="Link to this heading">¶</a></h1>
-<p>A client VPN is a VPN that connects individual computers to a VPN server and then routes some (or all) network traffic through a tunnel between the computer and the VPN server. The traffic is encrypted so it cannot be read by someone in transit. Generally speaking, a client VPN serves a single client (an end-user) but could be configured to work as a <a class="reference internal" href="../site-to-site-vpn/index.html"><span class="doc">Site-to-site VPN</span></a> as well or instead, depending on how the client in the other end of the tunnel is setup (the server would work the same way).</p>
-<p>In Binero cloud, you are able to provision a client VPN server to which you could then connect and as such, reach the inside of your network through a tunnel. The service is based on OpenVPN technology, which is an open source based VPN suite that runs on an instance on your cloud. There is no additional cost, other than the actual instance hourly cost, to setup a VPN service in our cloud.</p>
-<p>The VPN service will come with its own management interface (web based) that enables you to manage users, change security settings, add 2fa authentication, etc. Complete documentation of all the features our VPN solution provides is out of scope for our support pages but more information is available on <a class="reference external" href="https://www.pfsense.org/get-involved/">https://www.pfsense.org/get-involved/</a> as well as the web in general. Please see the subsections of this section for the most common information relating to the service. Our <a class="reference internal" href="../../general/getting-support.html"><span class="doc">support staff</span></a> can also help you out.</p>
+<p>A client VPN is a VPN that connects individual computers to a VPN server and then
+routes some (or all) network traffic through a tunnel between the computer and the
+VPN server.</p>
+<p>The traffic is encrypted so it cannot be read by someone in transit.</p>
+<p>Generally speaking, a client VPN serves a single client (an end-user) but could be
+configured to work as a <a class="reference internal" href="../site-to-site-vpn/index.html"><span class="doc">Site-to-site VPN</span></a> as well or instead, depending
+on how the client in the other end of the tunnel is setup (the server would work
+the same way).</p>
+<p>In Binero cloud, you are able to provision a client VPN server to which you could then
+connect and as such, reach the inside of your network through a tunnel.</p>
+<p>The service is based on OpenVPN technology, which is an open source based VPN suite
+that runs on an instance on your cloud. At no additional cost, other than the actual
+instance hourly cost, to setup a VPN service in our cloud.</p>
+<p>The VPN service will come with its own management interface (web based) that enables you
+to manage users, change security settings, add 2FA authentication, etc.</p>
+<p>Complete documentation of all the features our VPN solution provides is out of scope for
+our support pages but more information is available
+<a class="reference external" href="https://www.pfsense.org/get-involved/">here</a> as well as the web in general.</p>
+<p>Please see the subsections of this section for the most common information relating to the
+service. Our <a class="reference internal" href="../../general/getting-support.html"><span class="doc">support staff</span></a> can also help you out.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>
@@ -1742,7 +1759,7 @@
 <li class="toctree-l1"><a class="reference internal" href="logging-in.html">Logging in to client VPN</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="logging-in.html#downloading-configuration">Downloading configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging-in.html#windows-based-clients">Windows based clients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logging-in.html#mac-osx-clients">Mac OSX clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging-in.html#mac-os-clients">Mac OS clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging-in.html#other-clients">Other clients</a></li>
 </ul>
 </li>

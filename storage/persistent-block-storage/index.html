@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1509,8 +1509,14 @@
   
 
 <h1 id="persistent-storage-block">Persistent storage (block)<a class="headerlink" href="#persistent-storage-block" title="Link to this heading">¶</a></h1>
-<p>Persistent storage is the “harddisk” of a <a class="reference internal" href="../../compute/index.html"><span class="doc">compute instance</span></a>. This comes in the form of <strong>volumes</strong>, which can use either of our <a class="reference internal" href="../storage-types.html"><span class="doc">Storage types</span></a> as backing media to save data permanently.</p>
-<p>Binero cloud will not provision an instance without a volume attached and the smallest volume allowed will be the size of the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> that you want to provision your instance using. The image is the operating system that is pre-installed onto a volume, however since Binero cloud is using shared images (“base images”), users will get their own volumes that will save the <em>delta</em> (that is the changes) from the image as well as their files and data. This speeds up provisioning of the instances dramatically and is totally transparent from the users perspective.</p>
+<p>Persistent block storage provides a block based storage media to a <a class="reference internal" href="../../compute/index.html"><span class="doc">compute instance</span></a>.</p>
+<p>This comes in the form of <strong>Volumes</strong>, which can use either of our <a class="reference internal" href="../storage-types.html"><span class="doc">Storage types</span></a> as
+backing media to save data permanently.</p>
+<p>Binero cloud will not provision an instance without a volume attached (unless using NVMe) and the smallest
+volume allowed will be the size of the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> or <a class="reference internal" href="../../compute/flavors.html"><span class="doc">flavor</span></a> that
+you want to provision your instance using.</p>
+<p>The image is the operating system image that is copied onto a volume, you can also create a raw volume
+and add a filesystem on the volume and attach it to an instance for other use-cases.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>

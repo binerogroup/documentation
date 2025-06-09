@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -888,12 +888,12 @@
   
   
     <li class="md-nav__item">
-      <a href="fileshare.html" class="md-nav__link">
+      <a href="file-share.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Fileshare
+    File share
     
   </span>
   
@@ -917,7 +917,7 @@
   
   
   <span class="md-ellipsis">
-    Gitlab
+    Git<wbr>Lab
     
   </span>
   
@@ -1064,12 +1064,12 @@
   
   
     <li class="md-nav__item">
-      <a href="postgres.html" class="md-nav__link">
+      <a href="postgresql.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Postgres
+    Postgre<wbr>SQL
     
   </span>
   
@@ -1405,19 +1405,45 @@
   
 
 <h1 id="linux-apache-mysql-php-stack-lamp">Linux Apache MySQL PHP stack (LAMP)<a class="headerlink" href="#linux-apache-mysql-php-stack-lamp" title="Link to this heading">¶</a></h1>
-<p>Using the popular and powerful open source tools <a class="reference external" href="https://www.linux.org">Linux</a>, <a class="reference external" href="https://httpd.apache.org">Apache</a>, MySQL (<a class="reference external" href="https://mariadb.org">MariaDB</a> will be installed) and <a class="reference external" href="https://www.php.net">PHP</a>, a complete production suite can be provisioned. Popular tools like Wordpress or frameworks like CakePHP or Laravel run on LAMP installations.</p>
-<p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page. Then follow these instructions:</p>
+<p>Using the popular and powerful open source tools <a class="reference external" href="https://www.linux.org">Linux</a>,
+<a class="reference external" href="https://httpd.apache.org">Apache</a>, MySQL (<a class="reference external" href="https://mariadb.org">MariaDB</a> will
+be installed) and <a class="reference external" href="https://www.php.net">PHP</a>, a complete production suite can be
+provisioned.</p>
+<p>Popular tools like WordPress or frameworks like CakePHP and Laravel run on
+LAMP installations.</p>
+<p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a>
+page.</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
-<li><p>Under SSH Admin IP, add your public IP (this will allow your workstation through the firewall) in <a class="reference internal" href="../networking/router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>. If you need to change this later, this sets up a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a> on the instance. The security group can be changed or updated as you see fit but if you want to login over the floating IP that will be setup, you will need to input your IP here.</p></li>
-<li><p>Select which <a class="reference internal" href="../compute/regions-and-availability-zones.html"><span class="doc">availability zone</span></a> you want to provision in. We recommend <em>europe-se-1a</em> if you are unsure.</p></li>
-<li><p>If you want backup, check the “backup” checkbox and select an amount of days you would like your history stored.</p></li>
-<li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
+<li><p>Under SSH Admin IP, add your public IP (this will allow your workstation through the
+firewall) in <a class="reference internal" href="../networking/router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>.</p>
+<ul>
+<li><p>If you need to change this later, this sets up a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a>
+on the instance.</p></li>
+<li><p>The security group can be changed or updated as you see fit but if you want to login
+over the floating IP that will be setup, you will need to input your IP here.</p></li>
+</ul>
+</li>
+<li><p>Select which <a class="reference internal" href="../compute/regions-and-availability-zones.html"><span class="doc">availability zone</span></a> you
+want to provision in. We recommend the <em>europe-se-1a</em> availability zone.</p></li>
+<li><p>If you want backup, check the <strong>Backup</strong> checkbox and select an amount of days you
+want your history stored.</p></li>
+<li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with
+the default.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
-<li><p>Under “local_net”, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
-<li><p>If you want your service publicly available on the internet, you can assign a floating IP (this can also be done later) by checking the “public access” checkbox. If you dont, you can only access it locally in your cloud account or over some kind of VPN.</p></li>
-<li><p>Under volume size, select the size (in GB) of the volume of the server. Take into consideration that you will store files as well as a database on the server. We recommend at least 100GB.</p></li>
-<li><p>Press “create”. You will get further details on how to connect to the service.</p></li>
+<li><p>Under <code class="docutils literal notranslate"><span class="pre">local_net</span></code> select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a>
+on which you want to run the service.</p></li>
+<li><p>If you want your service publicly available on the internet, you can assign a floating
+IP (this can also be done later) by checking the <strong>Public access</strong> checkbox.</p>
+<ul>
+<li><p>If you don’t use a floating IP, you can only access it locally on your network or
+over some kind of ingress solution like a VPN.</p></li>
+</ul>
+</li>
+<li><p>Under <strong>Volume size</strong>, select the size (in GB) of the volume of the server. Take into
+consideration that you will store files as well as a database on the server. We recommend
+at least 100 GB.</p></li>
+<li><p>Press <strong>Create</strong>. You will get further details on how to connect to the service.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

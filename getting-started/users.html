@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1249,7 +1249,7 @@
   
 
 <h1 id="users">Users<a class="headerlink" href="#users" title="Link to this heading">¶</a></h1>
-<p>There are four main user types in the Binero cloud platform:</p>
+<p>The Binero cloud platform has four main user types:</p>
 <ul class="simple">
 <li><p>Main user</p></li>
 <li><p><a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a> users (same as the main user or a newly create one)</p></li>
@@ -1346,8 +1346,8 @@ for you (which is recommended)</p></li>
 <li><p>Optionally provide an expiration date and time for when to (automatically) deactivate the account</p></li>
 <li><p>Under roles, select the appropriate roles. If you don’t select a level, the same level as your account will be
 used (member). Creator will allow creation of some objects (secrets) where as reader is read-only.</p></li>
-<li><p>Under access rules you are able to give even more granular accesses to various API calls. There is information on how
-this works in the interface. If you don’t enter anything here, your user will not be restricted to specific API calls.</p></li>
+<li><p>Under access rules you are able to give even more granular accesses to various API calls. See the information on how
+this works in the dialog. If you don’t enter anything here, your user will not be restricted to specific API calls.</p></li>
 <li><p>The <strong>Unrestricted</strong> box will allow the Application Credential to create additional users. This is <strong>NOT</strong> recommended.</p></li>
 <li><p>Finally, click <strong>Create Application Credential</strong></p></li>
 </ul>
@@ -1370,7 +1370,7 @@ service or storing user related credentials such as a TOTP secret for <a class="
 <p>Credentials can only be managed using the <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
-<p>When listing credentials they are shown in cleartext and contains sensitive information.</p>
+<p>When listing credentials they are shown in plain text and contains sensitive information.</p>
 </div>
 <p>You can list all the credentials stored for your API user with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">credential</span> <span class="pre">list</span></code>.</p>
 <h3 id="ec2-credential"><span id="ec2-credential-label"></span>EC2 Credential<a class="headerlink" href="#ec2-credential" title="Link to this heading">¶</a></h3>
@@ -1393,7 +1393,7 @@ give it a passcode with the <code class="docutils literal notranslate"><span cla
 rely on the flow as described in the <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> section.</p>
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
-<p>If you list TOTP credentials it will show your TOTP secret in cleartext, this secret
+<p>If you list TOTP credentials it will show your TOTP secret in plain text, this secret
 key is used to generate valid TOTP passcodes for your API user when doing MFA and must
 be kept safe.</p>
 </div>
@@ -1403,7 +1403,7 @@ be kept safe.</p>
 <p>Looking for how to use the <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>
 with MFA enabled on your API user? <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html#mfa-terminal-label"><span class="std std-ref">Click here to read more</span></a>.</p>
 </div>
-<p>We support Multifactor authentication (MFA) on API users and allow you to self-service
+<p>We support multifactor authentication (MFA) on API users and allow you to self-service
 enable it on your API user through <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>.</p>
 <p>Enabling MFA authentication protects your API user by requiring you to present two factors, your
 password and a TOTP passcode, for successful authentication.</p>
@@ -1429,7 +1429,7 @@ your username and in the dropdown go to <strong>Settings</strong>.</p></li>
 <li><p>In the menu to the left you will now see a Settings with <strong>User Settings</strong> selected,
 click on <strong>MFA Settings</strong></p></li>
 <li><p>Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
-<strong>View All Details</strong> to show the TOTP secret in cleartext.</p></li>
+<strong>View All Details</strong> to show the TOTP secret in plain text.</p></li>
 <li><p>Enter a valid passcode and click <strong>Submit</strong></p>
 <ul>
 <li><p>If you enter an invalid passcode the page will be refreshed and you will get a new TOTP
@@ -1438,7 +1438,7 @@ secret and need to go through the same procedure again.</p></li>
 </ul>
 </li>
 </ul>
-<p>If you ever want to remove MFA on your API user you can simply go back to the <strong>MFA Settings</strong>
+<p>If you ever want to remove MFA on your API user you can go back to the <strong>MFA Settings</strong>
 page, enter a valid passcode, click <strong>Submit</strong> and MFA will be removed from your API user.</p>
 <p>You can read more <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html#mfa-terminal-label"><span class="std std-ref">here</span></a> if you want to use MFA with the
 <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>

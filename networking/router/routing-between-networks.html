@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1022,7 +1022,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1046,7 +1046,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1718,68 +1718,92 @@
 
 <h1 id="routing-between-networks">Routing between networks<a class="headerlink" href="#routing-between-networks" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>Routing in Binero cloud is managed using a <a class="reference internal" href="index.html"><span class="doc">router</span></a>. The router will connect to different <a class="reference internal" href="private-subnet/index.html"><span class="doc">subnets</span></a> using an interfaces that connects to a <a class="reference internal" href="private-network/index.html"><span class="doc">network</span></a>. A standard router typically routes automatically between all its connected subnets (that is, subnets on which the router has an IP-address). A router in Binero cloud works the same way, traffic received by a router destined to a connected network on that router will be forwarded through the router. If the destination network is unknown to the router, it will use its <em>default route</em> (which is usually facing the internet).</p>
+<p>Routing in Binero cloud is managed using a <a class="reference internal" href="index.html"><span class="doc">router</span></a>.</p>
+<p>The router will connect to different <a class="reference internal" href="private-subnet/index.html"><span class="doc">subnets</span></a> using an interfaces
+that connects to a <a class="reference internal" href="private-network/index.html"><span class="doc">network</span></a>.</p>
+<p>A standard router typically routes automatically between all its connected subnets (that is,
+subnets on which the router has an IP-address).</p>
+<p>A router in Binero cloud works the same way, traffic received by a router destined to a connected
+network on that router will be forwarded through the router.</p>
+<p>If the destination network is unknown to the router, it will use its <em>default route</em> (which is
+usually facing the internet).</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you for some reason want to use an instance as a router (perhaps you prefer some software based routing suite) instead of a router, this is a viable use case. Just create an instance with the correct interfaces setup on the various subnets. We recommend using a router as some features in the platform depends on having one setup.</p>
+<p>If you for some reason want to use an instance as a router (perhaps you prefer some software based
+routing suite) instead of a router, this is a viable use case.</p>
+<p>Just create an instance with the correct interfaces setup on the various subnets. We recommend using
+a router as some features in the platform depends on having one setup.</p>
 </div>
 <h2 id="instance-configuration">Instance configuration<a class="headerlink" href="#instance-configuration" title="Link to this heading">¶</a></h2>
-<p>A compute instance will also use routing to decide on what interface to egress traffic. It will do this based on destination and its routing table. Three main scenarios exist:</p>
+<p>A compute instance will also use routing to decide on what interface to egress traffic. It will do this
+based on destination and its routing table.</p>
+<p>Three main scenarios exist:</p>
 <ul class="simple">
-<li><p>Traffic destined for networks on which the instance itself has an IP-address (locally connected networks) will take precedence and the instance will instead use ARP to lookup the MAC address of the receiving instance and send traffic directly to it.</p></li>
-<li><p>Traffic that is destined to a subnet that is in the instances routing table will be sent to the next hop (or gateway) of that subnet as stated in the routing table. The next hop would typically be a router.</p></li>
-<li><p>Finally, traffic that is destined to somewhere that is completely unknown to the instance (not in its routing table). This traffic is (provided one is setup) sent to the instances default route (the route that should be used when no more specific route exists). When creating a subnet in Binero cloud, a default gateway is usually define for that subnet. The IP that is the default gateway is usually connected to a router.</p></li>
+<li><p>Traffic destined for networks on which the instance itself has an IP-address (locally connected networks)
+will take precedence and the instance will instead use ARP to lookup the MAC address of the receiving instance
+and send traffic directly to it.</p></li>
+<li><p>Traffic that is destined to a subnet that is in the instances routing table will be sent to the next hop
+(or gateway) of that subnet as stated in the routing table. The next hop would typically be a router.</p></li>
+<li><p>Finally, traffic that is destined to somewhere that is completely unknown to the instance (not in its routing table).</p>
+<ul>
+<li><p>This traffic is (provided one is setup) sent to the instances default route (the route that should be used when no
+more specific route exists). When creating a subnet in Binero cloud, a default gateway is usually define for that
+subnet. The IP that is the default gateway is usually connected to a router.</p></li>
+</ul>
+</li>
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>While its possible to connect an instance to multiple routers, this will require you to maintain static routes on the instances themselves (as per the middle option above). This can be done via DHCP but is still cumbersome and will add complexity in maintaining the firewall when traffic ingress and egress through multiple interfaces. An easier approach is to use just a single interface facing a single router which becomes responsible for handling the upstream routing. In this scenario, only the first and third examples as per above is used.</p>
+<p>While its possible to connect an instance to multiple routers, this will require you to maintain static routes on the
+instances themselves (according to the middle option above).</p>
+<p>This can be done via DHCP but is still cumbersome and will add complexity in maintaining the firewall when traffic ingress
+and egress through multiple interfaces.</p>
+<p>An easier approach is to use just a single interface facing a single router which becomes responsible for handling the upstream
+routing. In this scenario, only the first and third examples according to above is used.</p>
 </div>
 <h2 id="single-router">Single router<a class="headerlink" href="#single-router" title="Link to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>┌─────────────────────────────────────┐
-│               Router1               │
-└─────────────────────────────────────┘
-     ▲             ▲             ▲
-     │             │             │
-     │             │             │
-┌────┴────┐   ┌────┴────┐   ┌────┴────┐
-│ Subnet1 │   │ Subnet2 │   │ Subnet3 │
-└─────────┘   └─────────┘   └─────────┘
-</code></pre></div>
-</div>
-<p>The easiest routing setup (which is the one we recommend, if not using more then one <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>) is using a single router with as many subnets connected as is needed. Reasons for wanting to route between multiple subnets might be:</p>
+<img alt="┌─────────────────────────────────────┐ │               Router1               │ └─────────────────────────────────────┘      ▲             ▲             ▲      │             │             │      │             │             │ ┌────┴────┐   ┌────┴────┐   ┌────┴────┐ │ Subnet1 │   │ Subnet2 │   │ Subnet3 │ └─────────┘   └─────────┘   └─────────┘" class="svgbob" src="../../_images/svgbob-1fdf24f9d8cdac2293fad26399fef3c8318e97d5.svg" />
+<p>The easiest routing setup (which is the one we recommend, if not using more then one
+<a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>) is using a single router
+with as many subnets connected as is needed.</p>
+<p>Reasons for wanting to route between multiple subnets might be:</p>
 <ul class="simple">
-<li><p>Wanting to have different security zones where you force traffic through the router (that also does firewalling).</p></li>
-<li><p>Wanting to split different sub-projects (or end users) in their own networks.</p></li>
+<li><p>Wanting to have different security zones where you force traffic through the
+router.</p></li>
+<li><p>Wanting to split different applications or users in their own networks.</p></li>
 <li><p>Wanting to keep a staging system and production system separated.</p></li>
-<li><p>Etc.</p></li>
 </ul>
-<p>If you use a single router, make sure its the default route for your VMs (see <a class="reference internal" href="private-subnet/index.html"><span class="doc">Private subnets</span></a>), routing between the networks would then work out of the box. The typical caveat (if traffic is not flowing as expected) would be <a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups</span></a> that (if not setup properly) blocks traffic.</p>
+<p>If you use a single router, make sure its the default route for your instances (see <a class="reference internal" href="private-subnet/index.html"><span class="doc">Private subnets</span></a>),
+routing between the networks would then work out of the box.</p>
+<p>The typical caveat (if traffic is not flowing as expected) would be <a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups</span></a> that (if
+not setup properly) blocks traffic.</p>
 <h2 id="multiple-routers">Multiple routers<a class="headerlink" href="#multiple-routers" title="Link to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>                                           link
-┌─────────────────────────────────────┐   network   ┌─────────────────────────────────────┐
-│               Router1               │◄───────────►│               Router2               │
-└─────────────────────────────────────┘             └─────────────────────────────────────┘
-     ▲             ▲             ▲                       ▲             ▲             ▲
-     │             │             │                       │             │             │
-     │             │             │                       │             │             │
-┌────┴────┐   ┌────┴────┐   ┌────┴────┐             ┌────┴────┐   ┌────┴────┐   ┌────┴────┐
-│ Subnet1 │   │ Subnet2 │   │ Subnet3 │             │ Subnet4 │   │ Subnet5 │   │ Subnet6 │
-└─────────┘   └─────────┘   └─────────┘             └─────────┘   └─────────┘   └─────────┘
-</code></pre></div>
-</div>
-<p>The typical use case for having multiple routers is to run a multi availability zone setup for geo redundancy (but there may be other use cases). If you are considering implementing multiple availability zones, we strongly recommend you to read our article “<a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Networking regions and availability zones</span></a>” which explains the concepts before proceeding.</p>
-<p>When routing between routers, its recommended to first setup the individual routers so that they work as intended on their own (potentially in several availability zones) before proceeding to route between them.</p>
-<p>When setting up routing between routers, a so called <em>link network</em> will be used. This is a standard private subnet that will not connect to instances, just the various routers in the setup. We recommend <a class="reference internal" href="private-subnet/index.html"><span class="doc">choosing an IP-range</span></a> for this subnet that is easy to differentiate from your production subnets.</p>
+<img alt="                                           link ┌─────────────────────────────────────┐   network │               Router1               │◄─────┐ └─────────────────────────────────────┘      │      ▲             ▲             ▲           │      │             │             │           │      │             │             │           │ ┌────┴────┐   ┌────┴────┐   ┌────┴────┐      │ │ Subnet1 │   │ Subnet2 │   │ Subnet3 │      │ └─────────┘   └─────────┘   └─────────┘      │                                              │                                              │ ┌─────────────────────────────────────┐      │ │               Router2               │◄─────┘ └─────────────────────────────────────┘      ▲             ▲             ▲      │             │             │      │             │             │ ┌────┴────┐   ┌────┴────┐   ┌────┴────┐ │ Subnet4 │   │ Subnet5 │   │ Subnet6 │ └─────────┘   └─────────┘   └─────────┘" class="svgbob" src="../../_images/svgbob-d2cece7459893742f93b9bdfbe7598010d2c16bb.svg" />
+<p>The typical use case for having multiple routers is to run a multi availability zone setup for geographical
+redundancy (but there may be other use cases).</p>
+<p>If you are considering implementing multiple availability zones, we strongly recommend you to read our
+<a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Networking regions and availability zones</span></a> documentation which explains the concepts before proceeding.</p>
+<p>When routing between routers, its recommended to first setup the individual routers so that they work as
+intended on their own (potentially in several availability zones) before proceeding to route between them.</p>
+<p>When setting up routing between routers, a so called <em>link network</em> will be used. This is a standard private
+subnet that will not connect to instances, just the various routers in the setup.</p>
+<p>We recommend <a class="reference internal" href="private-subnet/index.html"><span class="doc">choosing an IP range</span></a> for this subnet that can be differentiated
+from your production subnets.</p>
 <p>Follow the below steps to setup routing between two (individually functioning) routers:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="private-network/index.html"><span class="doc">Create a new private network</span></a> (with a corresponding private subnet) to use as link network.</p></li>
+<li><p><a class="reference internal" href="private-network/index.html"><span class="doc">Create a new private network</span></a> (with a corresponding private subnet) to use as
+link network.</p></li>
 <li><p><a class="reference internal" href="private-subnet/connect-subnet-to-router.html"><span class="doc">Connect the new link-network to the routers</span></a>.</p></li>
-<li><p><a class="reference internal" href="static-routing.html"><span class="doc">Setup static routing</span></a> for your destination networks to use the new link-network. This should be done on all routers.</p></li>
-<li><p>Depending on your settings, change or add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the router interfaces to allow traffic.</p></li>
+<li><p><a class="reference internal" href="static-routing.html"><span class="doc">Setup static routing</span></a> for your destination networks to use the new link-network. This
+should be done on all routers.</p></li>
+<li><p>Depending on your settings, change or add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the router interfaces
+to allow traffic.</p></li>
 </ul>
-<p>Once the above steps are taken, you will be able to forward traffic between routers from all instances behind the routers.</p>
+<p>Once the above steps are taken, you will be able to forward traffic between routers from all instances behind
+the routers.</p>
 <h2 id="dynamic-routing">Dynamic routing<a class="headerlink" href="#dynamic-routing" title="Link to this heading">¶</a></h2>
-<p>For wanting to use a dynamic routing protocol (most commonly BGP), you would need to use instances as routers. Binero cloud only supports static routing in the routers.</p>
+<p>For wanting to use a dynamic routing protocol (most commonly BGP), you would need to use instances as routers.</p>
+<p>Binero cloud only supports static routing in the routers.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

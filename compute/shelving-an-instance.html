@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1560,7 +1560,7 @@ saved and any compute allocations is released.</p>
 <p>You can at any time unshelve the instance and start it again.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Shelving also works for our GPU and NVME based flavors.</p>
+<p>Shelving also works for our GPU and NVMe based flavors.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1577,10 +1577,12 @@ and volumes.</p>
 <h2 id="shelve-an-instance-using-openstack-horizon">Shelve an instance using OpenStack Horizon<a class="headerlink" href="#shelve-an-instance-using-openstack-horizon" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Click <strong>Project</strong> -&gt; <strong>Compute</strong> -&gt; <strong>Instances</strong> in the sidebar menu.</p></li>
-<li><p>In the dropdown menu to the right for hte instance, click <strong>Shelve instance</strong>.</p></li>
+<li><p>In the dropdown menu to the right for the instance, click <strong>Shelve instance</strong>.</p></li>
 </ul>
-<p>The instance will be powered off (if its in a running state) and then the shelving process will start. To unshelve the instance
-repeat the same process but click <strong>Unshelve instance</strong> in the dropdown menu.</p>
+<p>The instance will be powered off (if its in a running state) and then the shelving process
+will start.</p>
+<p>To unshelve the instance repeat the same process but click <strong>Unshelve instance</strong> in the
+dropdown menu.</p>
 <h2 id="shelve-an-instance-using-openstack-terminal-client">Shelve an instance using OpenStack Terminal client<a class="headerlink" href="#shelve-an-instance-using-openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To shelve an <a class="reference external" href="index">instance</a> using the OpenStack terminal client.</p>
 <ul class="simple">
@@ -1588,8 +1590,8 @@ repeat the same process but click <strong>Unshelve instance</strong> in the drop
 <li><p>To shelve the instance run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">shelve</span> <span class="pre">[NAME]</span></code>. Replace the values within brackets with the name of the
 instance from the previous step.</p></li>
 </ul>
-<p>The instance will be powered off (if its in a running state) and then the shelving process will start. To unshelve the instance
-repeat the same process but instead run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unshelve</span> <span class="pre">[NAME]</span></code></p>
+<p>The instance will be powered off (if its in a running state) and then the shelving process will start.</p>
+<p>To unshelve the instance repeat the same process but instead run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unshelve</span> <span class="pre">[NAME]</span></code></p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

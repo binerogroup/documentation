@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1826,10 +1826,10 @@
 <p>Binero cloud provides various flavors of compute instances. A flavor defines the compute, memory,
 storage capacity for some flavors (see NVMe flavors below) and other hardware configuration that
 allows you to customize for performance or features needed by your application.</p>
-<p>There are different groups of flavors and each group has different performance characteristics
+<p>We provide different groups of flavors and each group has different performance characteristics
 and is optimized for different use-cases.</p>
 <p>Each group of flavors has a version number meaning the higher version number the newer the
-hardware giving a performance advatange on previous versions, for flavors without an explicit
+hardware giving a performance advantage on previous versions, for flavors without an explicit
 version number in the name is implied to be version 1.</p>
 <p>A flavor can have specific features such as NVMe storage, GPU, Pinned CPU. A CPU vendor identifier is
 added as a suffix to the flavor name, the CPU vendor identifiers is listed below.</p>
@@ -1872,9 +1872,8 @@ added as a suffix to the flavor name, the CPU vendor identifiers is listed below
 </ul>
 </li>
 </ul>
-<p>The names are designed to be easy to understand with a clear structure, for example the
-flavor <code class="docutils literal notranslate"><span class="pre">hm.8x48</span></code> is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs and 48
-GB memory.</p>
+<p>The names are designed to be clear and well structured, for example the flavor <code class="docutils literal notranslate"><span class="pre">hm.8x48</span></code> is
+a High memory (hm) version 1 using Intel CPUs with 8 vCPUs and 48 GB memory.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">hp.12x64-gpu8-nvme50</span></code> flavor is High performance (hp) version 1 with 12 vCPUs,
 64 GB memory, 8 GB GPU vRAM and 50 GB of local NVMe storage.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">gp-v2a.8x16</span></code> flavor is Generala purpose (gp) version 2 with 8 vCPUs and 16 GB
@@ -1891,11 +1890,11 @@ functionality provided by processors.</p>
 <h2 id="general-purpose">General purpose<a class="headerlink" href="#general-purpose" title="Link to this heading">¶</a></h2>
 <p>This general purpose flavor group has a well rounded combination of CPU and memory and is suitable
 for most general application use-cases that does not have heavy or intensive CPU requirements.</p>
-<p>This flavor group provides a very good cost for performance and is recommended for use-cases
+<p>This flavor group provides a good cost for performance and is recommended for use-cases
 with low to medium usage requirements.</p>
 <h3 id="version-1-with-intel-cpu">Version 1 with Intel CPU<a class="headerlink" href="#version-1-with-intel-cpu" title="Link to this heading">¶</a></h3>
 <p>The version number 1 (implied in the flavor names) is using Intel as CPU vendor
-with Intel Xeon Gold 6138 2.0 GHz prcessors from the Intel Xeon Scalable Processors
+with Intel Xeon Gold 6138 2.0 GHz processors from the Intel Xeon Scalable Processors
 product family.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
@@ -1994,7 +1993,7 @@ dedicated CPU core (pCPU) giving you exclusive access to the computation time on
 critical for time sensitive applications that would normally suffer when scheduling of CPU
 time to shared CPU cores takes more time than the requirement causing the application to
 experience lag or higher tail latencies due to for example noisy neighbours.</p>
-<p>We also guarantee that the allocated CPU core thread sibblings is allocated so that you’re
+<p>We also guarantee that the allocated CPU core thread siblings is allocated so that you’re
 never exposed to any transient execution CPU vulnerabilities.</p>
 <p>We allocate pinned CPUs across all NUMA nodes to optimize CPU usage but due to memory being
 local to a NUMA node we recommend ultra sensitive workloads to not run its workload on
@@ -2016,7 +2015,7 @@ a higher memory to CPU ratio.</p>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>PCPUs</p></th>
+<th class="head"><p>pCPUs</p></th>
 <th class="head"><p>Memory (MB)</p></th>
 <th class="head"><p>Flavor group</p></th>
 <th class="head"><p>Version</p></th>
@@ -2147,10 +2146,10 @@ than version 1 depending on your use-case.</p>
 <p>This high memory flavor group is optimized to provide the best value for applications that
 needs a larger amount of memory compared to more CPU cores that is provided by general purpose.</p>
 <p>The flavor group can be used for more memory heavy use-cases such as a database application with
-heavy caching of the dataset in memory that doesn’t have a intensive requirement on CPU computation.</p>
+heavy caching of the data set in memory that doesn’t have a intensive requirement on CPU computation.</p>
 <h3 id="version-1-with-intel">Version 1 with Intel<a class="headerlink" href="#version-1-with-intel" title="Link to this heading">¶</a></h3>
 <p>The version number 1 (implied in the flavor names) is using Intel as CPU vendor
-with Intel Xeon Gold 6138 2.0 GHz prcessors from the Intel Xeon Scalable Processors
+with Intel Xeon Gold 6138 2.0 GHz processors from the Intel Xeon Scalable Processors
 product family.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
@@ -2278,7 +2277,7 @@ use-case.</p>
 </tbody>
 </table>
 <h4 id="id1">Pinned CPU<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
-<p>See the pinned CPU section in General purpose version 1 for a detailed explaination
+<p>See the pinned CPU section in General purpose version 1 for a detailed explanation
 of these flavors. These are the same but with a higher memory to CPU ratio.</p>
 <table class="docutils data align-default">
 <colgroup>
@@ -2291,7 +2290,7 @@ of these flavors. These are the same but with a higher memory to CPU ratio.</p>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>PCPUs</p></th>
+<th class="head"><p>pCPUs</p></th>
 <th class="head"><p>Memory (MB)</p></th>
 <th class="head"><p>Flavor group</p></th>
 <th class="head"><p>Version</p></th>
@@ -2457,12 +2456,12 @@ and lower latency.</p>
 <p>The flavor sizes is more rounded to being equal in CPU and memory.</p>
 <h3 id="id3">Version 1 with Intel<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>The version number 1 (implied in the flavor names) is using Intel as CPU vendor
-with Intel Xeon Gold 6154 3.0 GHz prcessors from the Intel Xeon Scalable Processors
+with Intel Xeon Gold 6154 3.0 GHz processors from the Intel Xeon Scalable Processors
 product family.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>The High performance version 1 has a 50% higher base clock frequency than version 1
-of General purpose and High memory flavor groups and can significally improve your
+of General purpose and High memory flavor groups and can significantly improve your
 performance for CPU heavy or latency sensitive workloads.</p>
 </div>
 <table class="docutils data align-default">
@@ -2586,18 +2585,18 @@ performance for CPU heavy or latency sensitive workloads.</p>
 </table>
 <h4 id="nvme-storage">NVMe storage<a class="headerlink" href="#nvme-storage" title="Link to this heading">¶</a></h4>
 <p>These flavors provides local ephemeral <a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe based storage</span></a> with
-very high performance and low-latency access times, with the limitation of being local there
+high performance and low-latency access times, with the limitation of being local there
 is no data redundancy.</p>
 <div class="caution warning admonition">
 <p class="admonition-title">Caution</p>
 <p>The NVMe based storage is local to the hypervisor that is running your
 instance and is backed by a single physical disk, though NVMe based
 enterprise solid state drives has an extremely good lifetime expectancy it’s
-very important that you consider this fact and <strong>backup your data</strong> regularly.</p>
+important that you consider this fact and <strong>backup your data</strong> regularly.</p>
 </div>
 <p>This flavor provides the best possible storage performance for IO intensive workloads
 that needs to write to disk and is great for ephemeral storage or as disk if you
-have an application with data replication or redundancy already builtin.</p>
+have an application with data replication or redundancy already built-in.</p>
 <table class="docutils data align-default">
 <colgroup>
 <col style="width: 13.5%" />
@@ -2673,7 +2672,7 @@ have an application with data replication or redundancy already builtin.</p>
 <p>These flavors provides <a class="reference internal" href="gpu-instances.html"><span class="doc">GPU based compute</span></a> and allows gives you a
 GPU allocated to your instance with the specified vRAM/vMEM memory.</p>
 <p>This gives you access to a NVIDIA A10 GPU that you can use for rendering, image
-processing, AI, ML and inferrence workloads that can run 50-200x faster on a GPU
+processing, AI, ML and inference workloads that can run 50-200x faster on a GPU
 than a CPU.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>

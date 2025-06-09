@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -888,12 +888,12 @@
   
   
     <li class="md-nav__item">
-      <a href="fileshare.html" class="md-nav__link">
+      <a href="file-share.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Fileshare
+    File share
     
   </span>
   
@@ -917,7 +917,7 @@
   
   
   <span class="md-ellipsis">
-    Gitlab
+    Git<wbr>Lab
     
   </span>
   
@@ -1064,12 +1064,12 @@
   
   
     <li class="md-nav__item">
-      <a href="postgres.html" class="md-nav__link">
+      <a href="postgresql.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Postgres
+    Postgre<wbr>SQL
     
   </span>
   
@@ -1405,18 +1405,38 @@
   
 
 <h1 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Link to this heading">¶</a></h1>
-<p><a class="reference external" href="https://grafana.com">Grafana</a> is an observability platform that enables visualising and graphing various source data in a very powerful and easy manner. You also have the option to install a local (to the instance) <a class="reference external" href="https://www.influxdata.com">InfluxDB time series database</a> to use as source for your Grafana instance.</p>
-<p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page. Then follow these instructions:</p>
+<p><a class="reference external" href="https://grafana.com">Grafana</a> is an observability platform that enables
+visualising and graphing various source data in a powerful way.</p>
+<p>You also have the option to install a local (to the instance)
+<a class="reference external" href="https://www.influxdata.com">InfluxDB time series database</a> to
+use as source for your Grafana instance.</p>
+<p>To setup the service, first follow the general instructions on our
+<a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page.</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
-<li><p>Select which <a class="reference internal" href="../compute/regions-and-availability-zones.html"><span class="doc">availability zone</span></a> you want to provision in. We recommend <em>europe-se-1a</em> if you are unsure.</p></li>
-<li><p>If you want backup, check the “backup” checkbox and select an amount of days you would like your history stored.</p></li>
-<li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
-<li><p>If you want to also install an InfluxDB server, check the “InfluxDB” checkbox. If you don’t, you can still use Grafana to visualise data from some already existent source.</p></li>
+<li><p>Select which <a class="reference internal" href="../compute/regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
+you want to provision in. We recommend the <em>europe-se-1a</em> availability zone.</p></li>
+<li><p>If you want backup, check the <strong>Backup</strong> checkbox and select an amount of days
+you want your history stored.</p></li>
+<li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking
+with the default.</p></li>
+<li><p>If you want to also install an InfluxDB server, check the <strong>InfluxDB</strong> checkbox.</p>
+<ul>
+<li><p>If you don’t, you can still use Grafana to visualise data from some already
+existent data source.</p></li>
+</ul>
+</li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
-<li><p>Under “local network”, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
-<li><p>If you want your service publicly available on the internet, you can assign a floating IP (this can also be done later) by checking the “public access” checkbox. If you dont, you can only access it locally in your cloud account or over some kind of VPN.</p></li>
-<li><p>Press “create”. You will get further details on how to connect to the service.</p></li>
+<li><p>Under <strong>Local network</strong>, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a>
+on which you want to run the service.</p></li>
+<li><p>If you want your service publicly available on the internet, you can assign a floating
+IP (this can also be done later) by checking the <strong>Public access</strong> checkbox.</p>
+<ul>
+<li><p>If you don’t use a floating IP , you can only access it locally in your network or
+by using some kind of ingress solutions such as a VPN.</p></li>
+</ul>
+</li>
+<li><p>Press <strong>Create</strong>. You will get further details on how to connect to the service.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

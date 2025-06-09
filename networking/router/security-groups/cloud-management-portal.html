@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1035,7 +1035,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using Open<wbr>Stack Horizon
+    Managing security groups using Open<wbr>Stack Horizon
     
   </span>
   
@@ -1059,7 +1059,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using the Open<wbr>Stack terminal client
+    Managing security groups using the Open<wbr>Stack terminal client
     
   </span>
   
@@ -1182,7 +1182,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1206,7 +1206,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1858,43 +1858,47 @@
 
 <h1 id="managing-security-groups-using-the-cloud-management-portal">Managing security groups using the Cloud management portal<a class="headerlink" href="#managing-security-groups-using-the-cloud-management-portal" title="Link to this heading">¶</a></h1>
 <h2 id="creating-a-security-group">Creating a security group<a class="headerlink" href="#creating-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Networking” and then “Security groups” in the sidebar menu.</p></li>
+<li><p>Press <strong>Networking</strong> and then <strong>Security groups</strong> in the sidebar menu.</p></li>
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
-<li><p>Under region, “europe-se-1” should be pre-selected.</p></li>
+<li><p>Under region, <em>europe-se-1</em> should be pre-selected.</p></li>
 <li><p>Name your security group and optionally provide a description.</p></li>
-<li><p>Press “create”.</p></li>
+<li><p>Press <strong>Create</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The new security group will not have any rules so wont actually do anything. To add rules, follow next step.</p>
+<p>The new security group will not have any rules so wont actually do anything. To
+add rules, follow next step.</p>
 </div>
 <h2 id="adding-rules-to-a-security-group">Adding rules to a security group<a class="headerlink" href="#adding-rules-to-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Networking” and then “Security groups” in the sidebar menu.</p></li>
-<li><p>On the security group you want to add a rule to, press the small “create rule” icon (looks like several rows of text with a small “+” sign).</p></li>
+<li><p>Press <strong>Networking</strong> and then <strong>Security groups</strong> in the sidebar menu.</p></li>
+<li><p>On the security group you want to add a rule to, press the small “create rule” icon (looks
+like several rows of text with a small “+” sign).</p></li>
 <li><p>Define the rule. More info in our <a class="reference internal" href="designing-rules.html"><span class="doc">Designing security group rules</span></a> article.</p></li>
-<li><p>Press “create rule”.</p></li>
+<li><p>Press <strong>Create rule</strong>.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>For ease of use, we recommend using the already defined rules. These are project specific so you can also tweak them as you see fit.</p>
+<p>For ease of use, we recommend using the already defined rules. These are project specific
+so you can also tweak them as you see fit.</p>
 </div>
 <h2 id="adding-a-security-group-to-an-instance">Adding a security group to an instance<a class="headerlink" href="#adding-a-security-group-to-an-instance" title="Link to this heading">¶</a></h2>
-<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance that you want to add the security group to.</p></li>
 <li><p>In the top tab (under the instance name), security groups menu is available when scrolling to the right. Press it.</p></li>
-<li><p>Press “Allocate”.</p></li>
+<li><p>Press <strong>Allocate</strong></p></li>
 <li><p>Select the group you want to add.</p></li>
-<li><p>Press “connect group”.</p></li>
+<li><p>Press <strong>Connect group</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Remember: you need to add your groups to all instances, all rules are evaluated in a per instance fashion.</p>
+<p>Remember: you need to add your groups to all instances, all rules are evaluated in a
+per instance fashion.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

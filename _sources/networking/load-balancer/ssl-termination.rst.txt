@@ -10,11 +10,16 @@ visitors to a web application, managing the SSL certificates on several web serv
 might be cumbersome.
 
 When using a load balancer, an alternative is to publish the certificates on the load
-balancer instead, as a single point of ingress into the system. The proxied traffic
-(that is, the request the load balancer sends to a server) can safely be un-encrypted
-as it never leaves the platforms internal network. Encryption is then managed on the
-load balancer through the platform and all instances managing the backend traffic can
-just run HTTP on port 80.
+balancer instead, as a single point of ingress into the system. The traffic, that is
+the request the load balancer sends to a server, can be unencrypted as it never leaves
+the platforms internal network. Encryption is then managed on the load balancer through
+the platform and all instances managing the backend traffic can just run HTTP on port 80.
+
+.. note::
+
+   It's recommended to always encrypt your network traffic even if it's internal to
+   your application, but to get you started using unencrypted traffic can help you
+   get started faster.
 
 Configuration
 -------------
@@ -28,7 +33,7 @@ Once you have the certificate stored, you are able to follow either
 :doc:`launching-a-loadbalancer/openstack-terminal-client` to install
 the load balancer.
 
-Keep in mind to select **TERMINATED_HTTPS** as protocol of the
+Remember to select **TERMINATED_HTTPS** as protocol of the
 :doc:`listener <general-concept/listeners>` as doing so will (in OpenStack Horizon)
 enable the **SSL Certificates** tab to appear at the end, under which you are able
 to select the certificate you've added.
@@ -41,7 +46,7 @@ to select the certificate you've added.
 Headers
 -------
 
-When you do termination of SSL in the load balancer, its important to keep in mind that
+When you do termination of SSL in the load balancer, its important to remember that
 the web application that receives the request will consider it to be un-encrypted.
 
 It will also consider that the request is made out to whatever IP that the instance that
@@ -63,8 +68,8 @@ by the load balancer:
 The headers are available from the "listener details" tab when setting up the load balancer
 (or by editing the listener).
 
-We recommend adding the headers when setting up a load balancer as it implies very little
-overhead to do so and the information is useful.
+We recommend adding the headers when setting up a load balancer as it implies little overhead
+to do so and the information is useful.
 
 Requiring HTTPS
 ---------------
@@ -81,15 +86,15 @@ To solve the problem you could add a second listener that listens to port 80/tcp
 listener, its then possible to create :doc:`layer7-policies/index` that could (among other
 things) redirect.
 
-There are two main ways to add the redirection to HTTPS. The first method would add a new prefix
-to a path and would thus take paths into consideration.
+Two main ways to add the redirection to HTTPS. The first method would add a new prefix to a
+path and would thus take paths into consideration.
 
 This is the recommended approach as it would always send the visitor to the correct page (provided
 the path exists). The downside is, its only configurable using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`.
 
-The second method would simply ensure that all requests made via HTTP would be redirected to your
-home page. If your web application is using HTTPS for linking, the user would afterwards remain in
+The second method would ensure that all requests made via HTTP would be redirected to your home
+page. If your web application is using HTTPS for linking, the user would afterwards remain in
 the HTTPS realm.
 
 Create a listener
@@ -100,9 +105,11 @@ The first step is to setup a new listener.
 .. note::
 
    The cloud management portal cannot create just a listener but will create an entire pool as
-   well. We do not recommend using it for this task but if you want to use it, simply navigate
-   to your load balancer in the menu, click on the "listeners" tab and then press the "+"
-   sign, after which you should be able to follow our :doc:`guide <launching-a-loadbalancer/cloud-management-portal>`.
+   well.
+
+   We do not recommend using it for this task but if you want to use it, navigate to your load
+   balancer in the menu, click on the "listeners" tab and then press the "+" sign, after which
+   you should be able to follow our :doc:`guide <launching-a-loadbalancer/cloud-management-portal>`.
 
 Documentation for creating a listener using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` is available
@@ -119,7 +126,7 @@ checking) using OpenStack Horizon, follow these steps:
 
 - Press "+ create listener".
 
-- Name your listener. We recommend calling it "NAME_listener_http" to differentiate it
+- Name your listener. We recommend calling it ``NAME_listener_http`` to differentiate it
   from other listeners. Optionally provide a description.
 
 - Select "HTTP" as the load balancer protocol.
@@ -133,14 +140,14 @@ checking) using OpenStack Horizon, follow these steps:
 
 .. important::
 
-   When setting up the policy in the next step, keep in mind that you would need a policy
+   When setting up the policy in the next step, remember that you would need a policy
    for both www.example.com and example.com (assuming you use both).
 
 Create a path aware redirect policy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The recommended way to require HTTPS is to use a "redirect prefix". To setup this, use
-the OpenStack Terminal Client as per below. If you would rather use OpenStack Horizon or
+the OpenStack Terminal Client according to below. If you would rather use OpenStack Horizon or
 the cloud management portal, see below for a less accurate way to redirect.
 
 - Run this command: ``openstack loadbalancer listener list``. Save the name of the listener.
@@ -152,7 +159,7 @@ the cloud management portal, see below for a less accurate way to redirect.
 
 .. note::
 
-   Dont add a trailing slash on your domain as that will add an additional slash
+   Don't add a trailing slash on your domain as that will add an additional slash
    in the path.
 
 Create a redirect to the first page
@@ -162,10 +169,7 @@ If you prefer to stay in the GUI, the following method will allow you to setup s
 using OpenStack Horizon, however using this method, for instance http://www.example.com/subfolder/index.html
 would redirect to https://example.com.
 
-The impact of this is not a lot assuming all your links use https but non the less, we recommend
-the above approach that takes paths into consideration.
-
-- Under "project", click "Network" and then "Load balancers" in the sidebar menu.
+- Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
 
 - Press the name of the load balancer to which you want to add the rule.
 
@@ -173,9 +177,9 @@ the above approach that takes paths into consideration.
 
 - Press the name of your HTTP listener.
 
-- Press "L7 Policies" tab and then "+ create L7 policy".
+- Press **L7 Policies** tab and then **+ Create L7 policy**
 
-- Name your policy to for instance "redirect_https" and optionally give it a description.
+- Name your policy to for instance ``redirect_https`` and optionally give it a description.
 
 - Under "action" select "REDIRECT_TO_URL".
 
@@ -191,7 +195,8 @@ the above approach that takes paths into consideration.
 
 - Enter your domain (same as the one you want to do redirects for) in the "value" field.
 
-- Press "Create L7 Rule".
+- Press **Create L7 Rule**
 
 ..  seealso::
+
     - :doc:`general-concept/index`

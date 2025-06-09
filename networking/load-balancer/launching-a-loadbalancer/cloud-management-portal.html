@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1744,8 +1744,8 @@ on the instances that should be members in the load balancer pool.</p>
 as the load balancer is not an instance - this means that explicit
 rules needs to be setup on the members.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">load balancer</span></a> from the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a>, follow
-these steps:</p>
+<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">load balancer</span></a> from the
+<a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a></p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>If you want to create a load balancer that terminates SSL/TLS, you need
@@ -1758,8 +1758,8 @@ recommend reading our <a class="reference internal" href="../ssl-termination.htm
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
 <li><p>The first step is to configure the general options for the load balancer.</p>
 <ul>
-<li><p>Name your load balancer. We recommend calling it “[NAME]_lb” (replace
-the name with something thats relevant for you). Optionally provide a
+<li><p>Name your load balancer. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_lb</span></code> (replace
+the name with something that’s relevant for you). Optionally provide a
 description.</p></li>
 <li><p>Leave the IP field empty as an IP will be allocated automatically.</p></li>
 <li><p>Select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
@@ -1815,9 +1815,9 @@ your load balancer and the port to that of the service you want to load
 balance. Optionally provide a description.</p></li>
 <li><p>Select the type. This value would depend mostly on what kind of listener you created
 (which protocol). We recommend choosing a type that is as granular (i.e. rather go
-with “http” than “tcp port 80” if you want to check a webserver) as possible.</p></li>
+with HTTP than TCP port 80 if you want to check a web server) as possible.</p></li>
 <li><p>Choose the various options relating to your monitor, the defaults will likely suffice
-but this is very much dependant on the application.</p></li>
+but this is much dependant on the application.</p></li>
 <li><p>Press “create load balancer”.</p></li>
 </ul>
 </li>

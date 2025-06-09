@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1038,7 +1038,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1062,7 +1062,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1675,19 +1675,29 @@
   
 
 <h1 id="launching-routers-using-openstack-horizon">Launching routers using OpenStack Horizon<a class="headerlink" href="#launching-routers-using-openstack-horizon" title="Link to this heading">¶</a></h1>
-<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">router</span></a> from the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon portal</span></a>, follow these steps:</p>
+<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">router</span></a> from the
+<a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon portal</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “Network” and then “Routers” in the sidebar menu.</p></li>
-<li><p>Click “Create Router” in the right upper corner.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Routers</strong> in the sidebar menu.</p></li>
+<li><p>Click <strong>Create Router</strong> in the right upper corner.</p></li>
 <li><p>Name your router.</p></li>
-<li><p>The “enable admin state” should be selected. It controls whether the router can receive traffic (that is: that its provisioned in the platform and not just in the portal).</p></li>
-<li><p>Under “External Network”, select the network that corresponds to the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> to place the router in. If you are unsure, select “europe-se-1-1a-net[N]” here (where N is one of the available network numbers).</p></li>
-<li><p>Under “availability zone (hints)”, choose the zone that corresponds to the network you selected in previous step.</p></li>
-<li><p>Press “Create Router”.</p></li>
+<li><p>Check the <strong>Enable admin state</strong> box.</p></li>
+<li><p>Under <strong>External Network</strong>, select the network that corresponds to the
+<a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> that
+you placed the router in.</p>
+<ul>
+<li><p>If you are unsure, select <strong>europe-se-1-1a-net[N]</strong> here, where N is one of
+the available network numbers.</p></li>
+</ul>
+</li>
+<li><p>Under <strong>Availability zone (hints)</strong>, choose the availability zone that corresponds
+to the network you selected in previous step.</p></li>
+<li><p>Press <strong>Create Router</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>In order to connect instances to the router, it will also need a <a class="reference internal" href="../private-network/index.html"><span class="doc">network</span></a> and a <a class="reference internal" href="../private-subnet/index.html"><span class="doc">subnet</span></a> configured.</p>
+<p>In order to connect instances to the router, it will also need a <a class="reference internal" href="../private-network/index.html"><span class="doc">network</span></a>
+and a <a class="reference internal" href="../private-subnet/index.html"><span class="doc">subnet</span></a> configured.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

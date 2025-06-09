@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1585,7 +1585,7 @@
   
 
 <h1 id="known-limitations">Known limitations<a class="headerlink" href="#known-limitations" title="Link to this heading">¶</a></h1>
-<p>This documentation tracks any compability issues that the <a class="reference internal" href="index.html"><span class="doc">object storage</span></a> service in Binero cloud
+<p>This documentation tracks any compatibility issues that the <a class="reference internal" href="index.html"><span class="doc">object storage</span></a> service in Binero cloud
 exhibits compared to other implementations and interoperability between the <a class="reference internal" href="s3.html"><span class="doc">S3</span></a> and <a class="reference internal" href="swift.html"><span class="doc">Swift</span></a> APIs.</p>
 <h2 id="browser-uploads-and-chunked-uploads-in-s3-api">Browser Uploads and Chunked Uploads in S3 API<a class="headerlink" href="#browser-uploads-and-chunked-uploads-in-s3-api" title="Link to this heading">¶</a></h2>
 <p>The authentication backend used for Binero cloud does not implement all required details from the AWSv4 specification and
@@ -1597,7 +1597,7 @@ be set to false.</p>
 <p>A single upload of a file is limited to 5 GB by design and to upload a larger file than that the multipart upload
 features in for example the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> is used. This is usually handled by the client or library that you
 use and is not something that you need to thing about, this splits your file into multiple parts and then uploads
-them concurrently and the parts get’s assembled in the platform.</p>
+them concurrently and the parts is assembled in the platform.</p>
 <p>If you upload a large file using the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and then try to download that using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> you
 will get an error like <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">downloading</span> <span class="pre">[object-name]:</span> <span class="pre">md5sum</span> <span class="pre">!=</span> <span class="pre">etag</span></code> indicating the operation failed, but the
 object is successfully downloaded. We recommend that you select one API to use for your application and not combining

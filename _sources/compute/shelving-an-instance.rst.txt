@@ -12,11 +12,15 @@ saved and any compute allocations is released.
 
 You can at any time unshelve the instance and start it again.
 
-.. tip:: Shelving also works for our GPU and NVME based flavors.
+.. tip::
 
-.. note:: Shelved instances reduces your cost for allocated resources for the
-          instance but you still pay for the used storage, such as root disk
-          and volumes.
+   Shelving also works for our GPU and NVMe based flavors.
+
+.. note::
+
+   Shelved instances reduces your cost for allocated resources for the
+   instance but you still pay for the used storage, such as root disk
+   and volumes.
 
 Shelve an instance using Cloud portal
 -------------------------------------
@@ -32,10 +36,13 @@ Shelve an instance using OpenStack Horizon
 
 - Click **Project** -> **Compute** -> **Instances** in the sidebar menu.
 
-- In the dropdown menu to the right for hte instance, click **Shelve instance**.
+- In the dropdown menu to the right for the instance, click **Shelve instance**.
 
-The instance will be powered off (if its in a running state) and then the shelving process will start. To unshelve the instance
-repeat the same process but click **Unshelve instance** in the dropdown menu.
+The instance will be powered off (if its in a running state) and then the shelving process
+will start.
+
+To unshelve the instance repeat the same process but click **Unshelve instance** in the
+dropdown menu.
 
 Shelve an instance using OpenStack Terminal client
 --------------------------------------------------
@@ -47,8 +54,9 @@ To shelve an `instance <index>`_ using the OpenStack terminal client.
 - To shelve the instance run ``openstack server shelve [NAME]``. Replace the values within brackets with the name of the
   instance from the previous step.
 
-The instance will be powered off (if its in a running state) and then the shelving process will start. To unshelve the instance
-repeat the same process but instead run ``openstack server unshelve [NAME]``
+The instance will be powered off (if its in a running state) and then the shelving process will start.
+
+To unshelve the instance repeat the same process but instead run ``openstack server unshelve [NAME]``
 
 .. seealso::
 

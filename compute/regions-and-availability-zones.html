@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1447,13 +1447,19 @@
   
 
 <h1 id="compute-regions-and-availability-zones">Compute regions and availability zones<a class="headerlink" href="#compute-regions-and-availability-zones" title="Link to this heading">¶</a></h1>
-<p>Compute is a core service and is available in all Binero clouds regions and availability zones.</p>
-<p>A compute instance is local to a single availability zone with no way to replicate between zones. Its however possible to move or copy an instance to another zone by
-first creating and <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> and then provisioning a new instance in the new zone based on that image.</p>
+<p>Compute is a core service and is available in all Binero clouds
+regions and availability zones.</p>
+<p>A compute instance is local to a single availability zone with no
+way to replicate between zones.</p>
+<p>Its however possible to move or copy an instance to another zone by
+first creating and <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> and then provisioning
+a new instance in the new zone based on that image.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>While its possible to use stretched networking and run images in several availability zones, keep in mind that your networking isn’t reliant on a floating IP
-that is local to a single zone. More information in the <a class="reference internal" href="../networking/regions-and-availability-zones.html"><span class="doc">Networking regions and availability zones</span></a> article.</p>
+<p>While its possible to use stretched networking and run images in several
+availability zones, make sure that your networking isn’t reliant on a
+floating IP that is local to a single zone.</p>
+<p>See the <a class="reference internal" href="../networking/regions-and-availability-zones.html"><span class="doc">Networking regions and availability zones</span></a> documentation.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

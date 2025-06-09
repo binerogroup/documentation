@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1164,7 +1164,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1188,7 +1188,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1801,8 +1801,13 @@
   
 
 <h1 id="connect-subnet-to-router">Connect subnet to router<a class="headerlink" href="#connect-subnet-to-router" title="Link to this heading">¶</a></h1>
-<p>For most situations, you would want to connect your subnet to your router so that you can for instance reach the internet (or your other networks) through it. This means giving your router an interface on the network on which the subnet is defined as well as an IP-address on the subnet, thereby enabling traffic to be routed to and from the subnet.</p>
-<p>For instructions on how to connect a subnet to a router, a step-by-step guide is available based on your choice of management platform:</p>
+<p>For most situations, you would want to connect your subnet to your router so that you can
+for instance reach the internet (or your other networks) through it.</p>
+<p>This means giving your router an interface on the network on which the subnet is defined
+as well as an IP-address on the subnet, thereby enabling traffic to be routed to and from
+the subnet.</p>
+<p>For instructions on how to connect a subnet to a router, a step-by-step guide is available
+based on your choice of management platform:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">Managing subnets in the cloud management portal</span></a></p></li>
 <li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">Managing subnets using OpenStack Horizon</span></a></p></li>
@@ -1810,7 +1815,17 @@
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>If the communication on the subnet is only local to the hosts that connect to it (and does not need to be routed, that is reach other networks), there is no need (and indeed its not advised) to connect the subnet to a router. An example use-case where this might be true is a back-net on which for instance database connections or backups run. We generally recommend keeping it simple and not multi-homing (that is: connecting an instance to more then a single subnet). A network is easier to maintain if its obvious which route it takes. The reason for multi-homing is historically related to either capacity (which is normally not an issue in a public cloud) or security (which might actually be worsened by badly maintained firewall rules).</p>
+<p>If the communication on the subnet is only local to the hosts that connect to it (and does
+not need to be routed, that is reach other networks), there is no need (and indeed its not
+advised) to connect the subnet to a router.</p>
+<p>An example use-case where this might be true is a back-net on which for instance database
+connections or backups run.</p>
+<p>We generally recommend keeping it your setup clean and consistent and not use multi-homing,
+i.e connecting an instance to more than one subnet as troubleshooting your network will
+become much more pleasant.</p>
+<p>The reason for multi-homing is historically related to either capacity (which is normally not
+an issue in a public cloud) or security (which might actually be worsened by badly maintained
+firewall rules).</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

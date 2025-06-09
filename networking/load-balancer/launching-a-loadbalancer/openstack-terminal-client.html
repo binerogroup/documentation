@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1726,7 +1726,7 @@ is not an instance - this means that explicit rules needs to be setup on the mem
 the below steps.</p>
 <p>We recommend checking OpenStack Horizon for what additional options are available or using
 the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option of the terminal client for more information.</p>
-<p>Lots of more information is also available <a class="reference external" href="https://docs.openstack.org/octavia/latest/user/guides/basic-cookbook.html">here</a>.</p>
+<p>More information is also available <a class="reference external" href="https://docs.openstack.org/octavia/latest/user/guides/basic-cookbook.html">here</a>.</p>
 <p>This documentation aims to show how to get going, not display exhaustive information on each available
 option. The example below will load balance HTTP (protocol aware) and thus port 80, this can be adapted.</p>
 <div class="note admonition">
@@ -1747,11 +1747,11 @@ suggest using the same subnet for the load balancer but if you would rather use 
 members in several), then also save the other subnet names.</p></li>
 <li><p>Run this command to create the load balancer: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">[NAME_lb]</span> <span class="pre">--vip-subnet-id</span> <span class="pre">[SUBNET_NAME]</span></code> replacing
 the subnet name with that from previous step, use <code class="docutils literal notranslate"><span class="pre">--availability-zone</span></code> to select a available, if not given europe-se-1a will be used by default.</p></li>
-<li><p>Run this command until it says that the operating_status is “ONLINE”: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">show</span> <span class="pre">[NAME_OF_LB]</span></code></p></li>
+<li><p>Run this command until it says that the <code class="docutils literal notranslate"><span class="pre">operating_status</span></code> is <code class="docutils literal notranslate"><span class="pre">ONLINE</span></code>: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">show</span> <span class="pre">[NAME_OF_LB]</span></code></p></li>
 <li><p>Run this command to setup the <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">listener</span></a>: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">listener</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">[NAME_listener_80]</span> <span class="pre">--protocol</span> <span class="pre">HTTP</span> <span class="pre">--protocol-port</span> <span class="pre">80</span> <span class="pre">[NAME_lb]</span></code>.</p></li>
 <li><p>Run this command to setup the <a class="reference internal" href="../general-concept/pools.html"><span class="doc">pool</span></a>: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">pool</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">[NAME_pool_80]</span> <span class="pre">--lb-algorithm</span> <span class="pre">ROUND_ROBIN</span> <span class="pre">--listener</span> <span class="pre">[NAME_listener_80]</span> <span class="pre">--protocol</span> <span class="pre">HTTP</span></code>.</p></li>
 <li><p>Run this command to setup health checkers: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">healthmonitor</span> <span class="pre">create</span> <span class="pre">--delay</span> <span class="pre">5</span> <span class="pre">--max-retries</span> <span class="pre">4</span> <span class="pre">--timeout</span> <span class="pre">10</span> <span class="pre">--type</span> <span class="pre">HTTP</span> <span class="pre">--url-path</span> <span class="pre">/</span> <span class="pre">[NAME_pool_80]</span></code>.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the IPs of the members you want to add.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the IP addresses of the members you want to add.</p></li>
 <li><p>Repeat this command to add the members: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">member</span> <span class="pre">create</span> <span class="pre">--subnet-id</span> <span class="pre">[SUBNET_NAME]</span> <span class="pre">--address</span> <span class="pre">[IP_OF_MEMBER]</span> <span class="pre">--protocol-port</span> <span class="pre">80</span> <span class="pre">[NAME_pool_80]</span></code></p></li>
 </ul>
 <div class="note admonition">
@@ -1764,10 +1764,10 @@ following these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">list</span></code>, save the name of the load balancer you want to verify.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">show</span> <span class="pre">[NAME]</span></code>. Replace [NAME] with the name from previous step. Save
-the value of the “vip_port_id” of the load balancer.</p></li>
+the value of the <code class="docutils literal notranslate"><span class="pre">vip_port_id</span></code> of the load balancer.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">list</span></code>, save an un-assigned floating IP.</p></li>
-<li><p>If you don’t have an un-assigned floating IP, follow the steps in the <a class="reference internal" href="../../floating-ips.html"><span class="doc">floating IPs</span></a> article
-to assign one to the project.</p></li>
+<li><p>If you don’t have an unassigned floating IP, follow the steps in the <a class="reference internal" href="../../floating-ips.html"><span class="doc">floating IP addresses</span></a>
+article to assign one to the project.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">set</span> <span class="pre">--port</span> <span class="pre">[VIP_PORT_ID]</span> <span class="pre">[FLOATING_IP]</span></code>, replace the items in angle
 brackets with data from previous steps.</p></li>
 </ul>

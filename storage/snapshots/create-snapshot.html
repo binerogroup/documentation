@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1461,37 +1461,71 @@
   
 
 <h1 id="create-snapshot">Create snapshot<a class="headerlink" href="#create-snapshot" title="Link to this heading">¶</a></h1>
-<p>Snapshots are pretty much instantly created. Its possible to take snapshots of single volumes, this is done via the “volume” menus. We will here focus on snapshotting the entire instance, which will snapshot all volumes that are assigned to the instance as well as save the instances meta data in an image. This enables you to start a brand new instance that is identical to the current one, as well as manipulate the disks individual snapshots.</p>
+<p>A snapshot is a point-in-time snapshot of the state of an instance or
+a volume.</p>
+<p>You can create a snapshot of a single volume or create a snapshot of an
+instance, when creating a snapshot of an instance a snapshot is created
+for each attached volume to the instance. Metadata about the instance is
+saved as an image.</p>
+<p>This part will focus on creating a snapshot of an instance. This will
+allow you to create a new, mostly, identical instance from the snapshot.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Creating a new instance from the image created from a snapshot will
+reuse some parameters from the original instance but not for example
+instance ports (and thus not any IP addressing).</p>
+</div>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>For data integrity reasons, we recommend shutting of an instance before snapshotting its volumes. Incomplete writes might otherwise impact data-integrity (of the snapshot, not the volume). It is however possible to snapshot instances that are running.</p>
+<p>For data integrity reasons, we recommend shutting of the instance before taking
+a snapshot.</p>
+<p>Incomplete writes might otherwise impact data integrity and in result in a
+inconsistent snapshot where your data is broken resulting in at worst data loss.</p>
 </div>
-<p>We recommend only having snapshots for limited periods of time. The more writes that are added to a snapshot, the longer it will take to consolidate when deleting. Because of this, snapshots should be regularly <a class="reference internal" href="delete-snapshot.html"><span class="doc">deleted</span></a>.</p>
+<p>We recommend only having snapshots for limited periods of time. The more writes
+that are added to a snapshot, the longer it will take to consolidate when deleting,
+we recommend that you regularly <a class="reference internal" href="delete-snapshot.html"><span class="doc">delete snapshots</span></a>.</p>
+<div class="caution warning admonition">
+<p class="admonition-title">Caution</p>
+<p>Snapshots is <strong>NOT</strong> backups and are does not provide any more data safety or
+guarantee than the underlying storage used for the volume does.</p>
+</div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To create a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To create a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance that you want to resize.</p></li>
-<li><p>Press the “Snapshots” tab.</p></li>
-<li><p>Press “Create snapshot” button.</p></li>
+<li><p>Press the <strong>Snapshots</strong> tab.</p></li>
+<li><p>Press <strong>Create snapshot</strong> button.</p></li>
 <li><p>Name your snapshot.</p></li>
-<li><p>Press “Create”.</p></li>
+<li><p>Press <strong>Create</strong></p></li>
 </ul>
-<p>Your snapshot is available in the “Snapshot” tab of the instance as well as if you press “Storage” and then “Snapshots” in the main menu. In the latter case, there will be one snapshot per volume of the instance you created the snapshots from (only one if the instance only had a single volume).</p>
+<p>Your snapshot is available in the <strong>Snapshot</strong> tab of the instance as well as if you
+press <strong>Storage</strong> and then <strong>Snapshots</strong> in the main menu. In the latter case, there
+will be one snapshot per volume of the instance you created the snapshots from (only
+one if the instance only had a single volume).</p>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To create a snapshot using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To create a snapshot using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
-<li><p>In the drop-down menu to the far right of the line corresponding to the instance you want to snapshot, press “create snapshot (which is either the default option if the instance is running, of in the drop-down if its not)”.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
+<li><p>In the drop-down menu to the far right of the line corresponding to the instance you
+want to snapshot, press “create snapshot (which is either the default option if the
+instance is running, of in the drop-down if its not)”.</p></li>
 <li><p>Name your snapshot.</p></li>
-<li><p>Press “Create Snapshot”.</p></li>
+<li><p>Press <strong>Create Snapshot</strong></p></li>
 </ul>
-<p>Your snapshot is available in the “Images” menu (under main menu “Compute”) as well as if you press “Volumes” and then “Snapshots” in the main menu. In the latter case, there will be one snapshot per volume of the instance you created the snapshots from (only one if the instance only had a single volume).</p>
+<p>Your snapshot is available in the <strong>Images</strong> menu (under main menu <strong>Compute</strong>) as well
+as if you press <strong>Volumes</strong> and then <strong>Snapshots</strong> in the main menu. In the latter case,
+there will be one snapshot per volume of the instance you created the snapshots from (only
+one if the instance only had a single volume).</p>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To create a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To create a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, note the name of the instance you want to snapshot.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">image</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">[SNAPSHOT_NAME]</span> <span class="pre">[INSTANCE_NAME]</span></code>, replacing the items in angle brackets with a descriptive name (this is optional, if omitted the instance name will be used) and and the name of the instance you want to snapshot.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, note the name of the instance you want to
+snapshot.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">image</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">[SNAPSHOT_NAME]</span> <span class="pre">[INSTANCE_NAME]</span></code>, replacing
+the items in angle brackets with a descriptive name (this is optional, if omitted the instance name
+will be used) and and the name of the instance you want to snapshot.</p></li>
 <li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--private</span></code></p></li>
 </ul>
 <div class="seealso admonition">

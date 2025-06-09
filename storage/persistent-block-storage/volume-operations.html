@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1409,10 +1409,14 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="extend-volume.html"><span class="doc">Extend the size</span></a></p></li>
 <li><p><a class="reference internal" href="../snapshots/index.html"><span class="doc">Create and work with snapshots</span></a></p></li>
-<li><p><a class="reference internal" href="../retype-a-volume.html"><span class="doc">Change the type (for ssd and hdd volumes)</span></a></p></li>
+<li><p><a class="reference internal" href="../retype-a-volume.html"><span class="doc">Change the type (for SSD and HDD volumes)</span></a></p></li>
 </ul>
-<p>You are also able to <a class="reference internal" href="../../backup/index.html"><span class="doc">backup</span></a> your volumes as well as re-use them as <a class="reference internal" href="../../images/index.html"><span class="doc">images</span></a>.</p>
-<p>A volume can be saved irrespectively from the instance it was created with but the standard behaviour is to delete a volume when the instance is deleted. There are som ways to get around this:</p>
+<p>You are also able to <a class="reference internal" href="../../backup/index.html"><span class="doc">backup</span></a> your volumes as well as re-use
+them as <a class="reference internal" href="../../images/index.html"><span class="doc">images</span></a>.</p>
+<p>A volume can be saved irrespectively from the instance it was created with but the
+standard behaviour is to delete a volume when the instance is deleted.</p>
+<p>If you want to keep a volume you can always perform any of the
+below actions to save or clone a volume.</p>
 <ul class="simple">
 <li><p>Backup the volume.</p></li>
 <li><p>Copy the volume to an image.</p></li>
@@ -1420,7 +1424,8 @@
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Standard behaviour is that a volume gets deleted with its instance. Don’t delete an instance that you want to keep data from without performing one of the above actions first.</p>
+<p>Standard behaviour is that a volume gets deleted with its instance. Don’t delete an instance
+that you want to keep data from without performing one of the above actions first.</p>
 </div>
 
 

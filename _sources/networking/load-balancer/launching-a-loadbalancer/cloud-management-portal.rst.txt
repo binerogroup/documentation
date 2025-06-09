@@ -21,8 +21,8 @@ rules needs to be setup on the members.
 Configuration
 -------------
 
-To launch a :doc:`load balancer <../index>` from the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`, follow
-these steps:
+To launch a :doc:`load balancer <../index>` from the
+:doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`
 
 .. note::
 
@@ -37,8 +37,8 @@ these steps:
 
 - The first step is to configure the general options for the load balancer. 
 
-  - Name your load balancer. We recommend calling it "[NAME]_lb" (replace
-    the name with something thats relevant for you). Optionally provide a
+  - Name your load balancer. We recommend calling it ``[NAME]_lb`` (replace
+    the name with something that's relevant for you). Optionally provide a
     description.
 
   - Leave the IP field empty as an IP will be allocated automatically.
@@ -104,10 +104,10 @@ these steps:
 
   - Select the type. This value would depend mostly on what kind of listener you created
     (which protocol). We recommend choosing a type that is as granular (i.e. rather go
-    with "http" than "tcp port 80" if you want to check a webserver) as possible.
+    with HTTP than TCP port 80 if you want to check a web server) as possible.
 
   - Choose the various options relating to your monitor, the defaults will likely suffice
-    but this is very much dependant on the application.
+    but this is much dependant on the application.
 
   - Press "create load balancer". 
 

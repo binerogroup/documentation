@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1509,69 +1509,83 @@
   
 
 <h1 id="creating-a-persistent-volume">Creating a persistent volume<a class="headerlink" href="#creating-a-persistent-volume" title="Link to this heading">¶</a></h1>
-<p>If you just want a single disk attached to your instance, this will get created with the instance and does not need to be separately created. If you want multiple disk, then you need to create and attach the additional disks to the instance.</p>
+<p>If you just want a single disk attached to your instance, this will get created with the instance
+and does not need to be separately created. If you want multiple disk, then you need to create and
+attach the additional disks to the instance.</p>
 <p>New volumes can either be empty or be based on:</p>
 <ul class="simple">
 <li><p>A previous <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a>, public or private.</p></li>
 <li><p>A current volume (only in the cloud management portal).</p></li>
-<li><p><a class="reference internal" href="../snapshots/create-volume-from-snapshot.html"><span class="doc">A snapshot</span></a> (only in OpenStack Horizon or via OpenStack terminal client).</p></li>
+<li><p><a class="reference internal" href="../snapshots/create-volume-from-snapshot.html"><span class="doc">A snapshot</span></a> (only in OpenStack Horizon or via
+OpenStack terminal client).</p></li>
 </ul>
-<p>If your intention was to create an instance from a previous volume, follow the steps in our guide <a class="reference internal" href="creating-an-instance-from-a-volume.html"><span class="doc">Creating an instance from an existing volume</span></a>.</p>
+<p>If your intention was to create an instance from a previous volume, follow the steps in our
+guide <a class="reference internal" href="creating-an-instance-from-a-volume.html"><span class="doc">Creating an instance from an existing volume</span></a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>New volumes that are created and attached to an instance may not get deleted with the instance - existing volumes will be billed even though not used.</p>
+<p>New volumes that are created and attached to an instance may not get deleted with the
+instance - existing volumes will be billed even though not used.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To create a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To create a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Storage” and then “Volumes” in the sidebar menu.</p></li>
+<li><p>Press <strong>Storage</strong> and then <strong>Volumes</strong> in the sidebar menu.</p></li>
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
-<li><p>Region should be “europe-se-1”.</p></li>
-<li><p><a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> should be the same as the one your instance is running in. Choosing default means “europe-se-1a”.</p></li>
+<li><p>Region should be <em>europe-se-1</em>.</p></li>
+<li><p><a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> should be the same as the one your
+instance is running in. Choosing default means <em>europe-se-1a</em>.</p></li>
 <li><p>Name your volume and optionally give it a description.</p></li>
 <li><p>Choose what to use as base for your volume (see above).</p></li>
 <li><p>Choose the size of the volume in GB.</p></li>
 <li><p>Choose which <a class="reference internal" href="../storage-types.html"><span class="doc">volume type</span></a> you want for your volume.</p></li>
-<li><p>Press “create”.</p></li>
+<li><p>Press <strong>Create</strong></p></li>
 </ul>
 <p>In order to attach your volume, follow these steps:</p>
 <ul class="simple">
-<li><p>Press “Compute” and then “instances”.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>Instances</strong></p></li>
 <li><p>Press the instance you want to connect the volume to.</p></li>
-<li><p>Press the “Volumes” tab. It might require scrolling the tabs to the right.</p></li>
-<li><p>Press “Connect volume”.</p></li>
-<li><p>Select your volume in the list and press “Attach”.</p></li>
+<li><p>Press the <strong>Volumes</strong> tab. It might require scrolling the tabs to the right.</p></li>
+<li><p>Press <strong>Connect volume</strong></p></li>
+<li><p>Select your volume in the list and press <strong>Attach</strong></p></li>
 </ul>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To create a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To create a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “Volumes” and then “Volumes” in the sidebar menu.</p></li>
-<li><p>Click “+Create volume” in the right upper corner.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Volumes</strong> and then <strong>Volumes</strong> in the sidebar menu.</p></li>
+<li><p>Click <strong>+ Create volume</strong> in the right upper corner.</p></li>
 <li><p>Name your volume and optionally give it a description.</p></li>
 <li><p>Choose what to use as source for your volume (see above).</p></li>
 <li><p>Choose which <a class="reference internal" href="../storage-types.html"><span class="doc">volume type</span></a> you want for your volume.</p></li>
 <li><p>Choose the size of the volume in GB.</p></li>
-<li><p>Choose <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>, it should be the same as the one the instance you want to connect the volume to is running in. Choosing default means “europe-se-1a”.</p></li>
-<li><p>Press “Create volume”.</p></li>
+<li><p>Choose <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>, it should be the same
+as the one the instance you want to connect the volume to is running in. Choosing default
+means <em>europe-se-1a</em>.</p></li>
+<li><p>Press <strong>Create volume</strong></p></li>
 </ul>
 <p>In order to attach your volume, follow these steps:</p>
 <ul class="simple">
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Click the name of the instance to which you want to attach the volume.</p></li>
-<li><p>Press the small dropdown to the far right on the row of the instance you want to add the volume to and choose “Attach volume”.</p></li>
-<li><p>Select the volume you created and press “Attach volume”.</p></li>
+<li><p>Press the small dropdown to the far right on the row of the instance you want to add the
+volume to and choose <strong>Attach volume</strong></p></li>
+<li><p>Select the volume you created and press <strong>Attach volume</strong></p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To create a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To create a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">type</span> <span class="pre">list</span></code>. Save the name of the volume type you want to use.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">availability</span> <span class="pre">zone</span> <span class="pre">list</span> <span class="pre">--volume</span></code>. Save the name of the availability zone you want to use.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">create</span> <span class="pre">--type</span> <span class="pre">[VOLUME_TYPE_NAME]</span> <span class="pre">--size</span> <span class="pre">[SIZE_IN_GB]</span> <span class="pre">--availability-zone</span> <span class="pre">[AVAILABILITY_ZONE]</span> <span class="pre">[VOLUME_NAME]</span></code>, replacing the values in angle brackets with values from previous steps and your selections.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">type</span> <span class="pre">list</span></code>. Save the name of the volume type you
+want to use.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">availability</span> <span class="pre">zone</span> <span class="pre">list</span> <span class="pre">--volume</span></code>. Save the name of the
+availability zone you want to use.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">create</span> <span class="pre">--type</span> <span class="pre">[VOLUME_TYPE_NAME]</span> <span class="pre">--size</span> <span class="pre">[SIZE_IN_GB]</span> <span class="pre">--availability-zone</span> <span class="pre">[AVAILABILITY_ZONE]</span> <span class="pre">[VOLUME_NAME]</span></code>, replacing
+the values in angle brackets with values from previous steps and your selections.</p></li>
 </ul>
 <p>In order to attach your volume, follow these steps:</p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, save the ID (not name) of the volume you want to attach.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the ID (not name) of the instance to which you want to attach the volume.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, save the ID (not name) of the volume you
+want to attach.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the ID (not name) of the instance to
+which you want to attach the volume.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">volume</span> <span class="pre">[INSTANCE_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
 </ul>
 

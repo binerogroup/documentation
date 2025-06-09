@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1551,53 +1551,91 @@
   
 
 <h1 id="ssh-keys">SSH-keys<a class="headerlink" href="#ssh-keys" title="Link to this heading">¶</a></h1>
-<p>Using an SSH-key is generally considered more secure than using passwords. While you can use passwords in the platform, the initial login of a newly created Linux instance will require an SSH-key. If you already have an SSH-key that you use, upload the <strong>public</strong> part to the platform (see below). How to use SSH-keys on your particular client operative system are out of scope for this guide but there is information readily available on the internet on this topic.</p>
+<p>Using an SSH-key is generally considered more secure than using passwords.</p>
+<p>While you can use passwords in the platform, the initial login of a newly created
+Linux instance will require an SSH-key.</p>
+<p>If you already have an SSH-key that you use, upload the <strong>public</strong> part to the
+platform (see below).</p>
+<p>How to use SSH-keys on your particular client operative system are out of scope
+for this documentation but there is information readily available on the internet
+on this topic.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>When using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> you will invariably use the <a class="reference internal" href="../getting-started/users.html"><span class="doc">main user</span></a>. SSH-keys created in this portal will therefore not work in the other management tools which use API (OpenStack) users. Therefore keep in mind that if you create a key using the cloud management portal, you will also need to create a key using either Horizon, The OpenStack terminal client or using the API if you want to use either of these in the future.</p>
+<p>When using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>
+you will invariably use the <a class="reference internal" href="../getting-started/users.html"><span class="doc">main user</span></a>.</p>
+<p>SSH-keys created in this portal will therefore not work in the other management tools
+which use API (OpenStack) users.</p>
+<p>Therefore remember that if you create a key using the cloud management portal, you will
+also need to create a key using either Horizon, The OpenStack terminal client or using
+the API if you want to use either of these in the future.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>If you don’t have a key, you will be able to generate a new one using one of the below methods. We do however recommend using <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> to generate the key on your computer. This is because you are then able to choose one of the modern keying methods instead of RSA which the various platform options will provide. A good command to generate a key in Linux and Linux like systems running Open SSH using the modern ed25519 algorithm (which may not be supported on all systems yet - but is very safe and preferable to RSA) is <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">ed25519</span> <span class="pre">-f</span> <span class="pre">~/id_ed25519</span></code>, this will output the key in your home folder with filename “id_ed25519” and public key in same folder with filename “id_ed25519.pub”. You will be asked to provide a password for the key which we recommend.</p>
+<p>If you don’t have a key, you will be able to generate a new one using one of the below
+methods.</p>
+<p>We do however recommend using <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> to generate the key on your computer. This
+is because you are then able to choose one of the modern keying methods instead of RSA
+which the various platform options will provide.</p>
+<p>A good command to generate a key in Linux and Linux like systems running Open SSH using
+the modern ed25519 algorithm (which may not be supported on all systems yet - but is safe
+and preferable to RSA) is <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">ed25519</span> <span class="pre">-f</span> <span class="pre">~/id_ed25519</span></code>, this will output
+the key in your home folder with filename “id_ed25519” and public key in same folder with
+filename “id_ed25519.pub”. You will be asked to provide a password for the key which we
+recommend.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>If you already have a key but with no password we strongly recommend adding a password to it, this can be done (in Linux and Linux like systems running Open SSH) by the following command <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-p</span> <span class="pre">-f</span> <span class="pre">&lt;your</span> <span class="pre">keyfile&gt;</span></code>. Adding a password will secure the key in the event you for instance loose your laptop or otherwise compromise the key. Also keep in mind, the private part of the key is as sensitive as a clear text password without the passphrase (and depending on your passphrase strength, potentially also with it) and should be stored with this in mind.</p>
+<p>If you already have a key but with no password we strongly recommend adding a password to
+it, this can be done (in Linux and Linux like systems running Open SSH) by the following
+command <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-p</span> <span class="pre">-f</span> <span class="pre">&lt;your</span> <span class="pre">keyfile&gt;</span></code>.</p>
+<p>Adding a password will secure the key in case you for instance loose your laptop or
+otherwise compromise the key. Remember that the private part of the key is as sensitive as
+a plain text password without the passphrase (and depending on your passphrase strength,
+potentially also with it) and should be stored with this in mind.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To create an SSH-key through the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To create an SSH-key through the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Compute” and then “SSH-keys” in the side menu.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>SSH-keys</strong> in the side menu.</p></li>
 <li><p>Press the “+” sign in lower right corner.</p></li>
 <li><p>Choose a name.</p></li>
 <li><p>Copy/paste your key into the “key contents” field.</p></li>
 </ul>
 <p>If you don’t have a key you can instead choose to generate a new one:</p>
 <ul class="simple">
-<li><p>Press “generate new key”.</p></li>
-<li><p>Copy the <strong>private</strong> part of the new key to a file on your workstation as this will <strong>not</strong> be saved in the platform (and should be kept secret). We recommend setting a password on the key as per above tips.</p></li>
+<li><p>Press <strong>Generate new key</strong></p></li>
+<li><p>Copy the <strong>private</strong> part of the new key to a file on your workstation as this will <strong>not</strong> be
+saved in the platform (and should be kept secret). We recommend setting a password on the key
+according to the above tips.</p></li>
 </ul>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
 <p>To create an SSH-key through <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Under “project”, click “compute” and then “key pairs” in the sidebar menu.</p></li>
-<li><p>Press “import public key” in the top right corner.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Key pairs</strong> in the sidebar menu.</p></li>
+<li><p>Press <strong>Import public key</strong> in the top right corner.</p></li>
 <li><p>Choose a name.</p></li>
-<li><p>Choose “SSH-key” under “key type”.</p></li>
+<li><p>Choose <strong>SSH-key</strong> under <strong>Key type</strong></p></li>
 <li><p>Paste your <strong>public key</strong> in the “public key” form (or choose the file from the “load public key from file”.</p></li>
-<li><p>Press “import public key”</p></li>
+<li><p>Press <strong>Import public key</strong></p></li>
 </ul>
-<p>If you don’t have a key you can instead choose to generate a new one:
-- Under “project”, click “compute” and then “key pairs” in the sidebar menu.
-- Press “create key pair” in the top right corner.
-- Choose a name.
-- Press “create key pair”</p>
-<p>Your new <strong>private key</strong> will be downloaded in .pem format and the public key is stored in the platform. We recommend setting a password on the key as per above tips.</p>
+<p>If you don’t have a key you can instead choose to generate a new one:</p>
+<ul class="simple">
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Key pairs</strong> in the sidebar menu.</p></li>
+<li><p>Press <strong>Create key pair</strong> in the top right corner.</p></li>
+<li><p>Choose a name.</p></li>
+<li><p>Press <strong>Create key pair</strong></p></li>
+</ul>
+<p>Your new <strong>private key</strong> will be downloaded in .pem format and the public key is stored in the
+platform. We recommend setting a password on the key according to above tips.</p>
 <h2 id="openstack-terminal-client">OpenStack terminal client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>You can create a key using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> by running the following command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">key</span> <span class="pre">create</span> <span class="pre">[NAME]</span></code>. It will output your keys <strong>private part</strong> which should be saved to your computer, the public part is stored in the platform. We recommend setting a password on the key as per above tips.</p>
+<p>You can create a key using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> by
+running the following command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">key</span> <span class="pre">create</span> <span class="pre">[NAME]</span></code>.</p>
+<p>It will output your keys <strong>private part</strong> which should be saved to your computer, the public part is stored
+in the platform. We recommend setting a password on the key according to above tips.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you have issues with an SSH-key not provisioning correctly on your new instance, check your various IP-configurations. You can see in the instances (full) log what keys it has installed  via cloud-init.</p>
+<p>If you have issues with an SSH-key not provisioning correctly on your new instance, check your various
+IP configurations. You can see in the instances (full) log what keys it has installed via cloud-init.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

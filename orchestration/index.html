@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1033,9 +1033,20 @@
   
 
 <h1 id="orchestration">Orchestration<a class="headerlink" href="#orchestration" title="Link to this heading">¶</a></h1>
-<p>Binero.Cloud fully supports orchestration via <a class="reference external" href="https://wiki.openstack.org/wiki/Heat">Heat-templates</a>. By using Heat, you can provision resources from most parts of the platform via YAML based templates. Aside from producing a tested and speedy roll out with a very predictable result, automating in this manner gives you the ability to easily setup identical platforms, either to scale out or to move between providers that support the same technology.</p>
-<p>Using Heat, you leverage the “Infrastructure as Code” concept in which you can check in and version manage the recipe for your system and manage changes to it programatically. While a comprehensive documentation of Heat is outside the scope of this article, please see <a class="reference external" href="https://docs.openstack.org/heat/latest/">official documentation</a> for more information on Heat (from the official documentation).</p>
-<p>Binero provides access to a GIT repository with Heat templates that are known to work with minimal effort on our cloud (as well as likely on other clouds running OpenStack with Heat). Please see <a class="reference external" href="https://github.com/binerogroup/heat-templates">https://github.com/binerogroup/heat-templates</a> for inspiration on how to work with Heat!</p>
+<p>Binero cloud fully supports orchestration using Heat, by using Heat, you can provision resources
+from most parts of the platform via YAML based templates.</p>
+<p>Aside from producing a tested and speedy roll out with a predictable result, automating in this
+manner gives you the ability to setup identical platforms, either to scale out or to move between
+providers that support the same technology.</p>
+<p>Using Heat, you leverage the Infrastructure as Code concept in which you can check in and version
+manage the templates for your system and manage changes by updating the template of a stack.</p>
+<p>While a comprehensive documentation of Heat is outside the scope of this article, please
+see <a class="reference external" href="https://docs.openstack.org/heat/latest/">official documentation</a> for more information
+on Heat (from the official documentation).</p>
+<p>Binero provides access to a git repository with Heat templates that are known to work with minimal
+effort on our cloud (as well as likely on other clouds running OpenStack with Heat).</p>
+<p>Please see <a class="reference external" href="https://github.com/binerogroup/heat-templates">our templates on GitHub</a> for inspiration
+on how to work with Heat!</p>
 <div class="toctree-wrapper compound">
 </div>
 

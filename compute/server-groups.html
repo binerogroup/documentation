@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1593,13 +1593,13 @@ hardware (affinity) or different hardware (anti-affinity).</p>
 <ul>
 <li><p>Restricts instances belonging to the server group to the same host, affinity can
 minimize network latency since instances will be on the same hardware but will decrease
-your fault-tolerance in the event of hardware failure.</p></li>
+your fault-tolerance in case of hardware failure.</p></li>
 </ul>
 </li>
 <li><p><strong>anti-affinity</strong></p>
 <ul>
 <li><p>Restricts instances belonging to the server group to separate hosts, anti-affinity can
-improve your load distribution and fault-tolerance in the event of hardware failure.</p></li>
+improve your load distribution and fault-tolerance in case of hardware failure.</p></li>
 </ul>
 </li>
 <li><p><strong>soft-affinity</strong></p>
@@ -1617,15 +1617,15 @@ hardware will use as many as possible.</p></li>
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>We <strong>strongly</strong> recommend using <strong>soft-affinity</strong> or <strong>soft-anti-affinity</strong>, this
-is because we do regular maintenance in our platform and when using the hard policies
-your instance can be powered off if the requirement cannot be met during schedulation.</p>
+<p>We <strong>strongly</strong> recommend using <strong>soft-affinity</strong> or <strong>soft-anti-affinity</strong>, this is because
+we do regular maintenance in our platform and when using the hard policies your instance can
+be powered off if the requirement cannot be met during scheduling.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The anti-affinity policies in themselves does not provide high availability but make the
-platform aware on how you want your instance to be placed during schedulation, your application
-need to handle high availability by using multiple instances.</p>
+<p>The anti-affinity policies in themselves does not provide high availability but make the platform
+aware on how you want your instance to be placed during scheduling, your application need to handle
+high availability by using multiple instances.</p>
 </div>
 <h2 id="creating-a-server-group">Creating a server group<a class="headerlink" href="#creating-a-server-group" title="Link to this heading">¶</a></h2>
 <p>Server groups can only be create using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> or

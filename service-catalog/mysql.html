@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -888,12 +888,12 @@
   
   
     <li class="md-nav__item">
-      <a href="fileshare.html" class="md-nav__link">
+      <a href="file-share.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Fileshare
+    File share
     
   </span>
   
@@ -917,7 +917,7 @@
   
   
   <span class="md-ellipsis">
-    Gitlab
+    Git<wbr>Lab
     
   </span>
   
@@ -1064,12 +1064,12 @@
   
   
     <li class="md-nav__item">
-      <a href="postgres.html" class="md-nav__link">
+      <a href="postgresql.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Postgres
+    Postgre<wbr>SQL
     
   </span>
   
@@ -1405,20 +1405,35 @@
   
 
 <h1 id="mysql-mariadb">MySQL / MariaDB<a class="headerlink" href="#mysql-mariadb" title="Link to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.mysql.com">MySQL</a> is a very popular open source database. <a class="reference external" href="https://mariadb.org">MariaDB</a> is an alternate version of MySQL with some key differences (exactly what is outside the scope of this article but there is plentiful information available on this subject on the internet). Generally, the feature set is somewhat similar.</p>
-<p>Binero cloud enables you to provision either MySQL or MariaDB (or both) as a standalone installation or with replication. If you select with replication, a slave instance will be setup that will copy all writes. This server can be used for database reads (to alleviate load on the master server) and in the event of a failure of the master server, can be used as a new master server.</p>
-<p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page. Then follow these instructions:</p>
+<p><a class="reference external" href="https://www.mysql.com">MySQL</a> is a popular open-source relational
+database. <a class="reference external" href="https://mariadb.org">MariaDB</a> is an alternative database
+that was forked from MySQL that is mostly similar but has diverged a
+bit through the years.</p>
+<p>Binero cloud enables you to provision either MySQL or MariaDB (or both)
+as a standalone installation or with replication.</p>
+<p>If you select with replication, an auxiliary instance will be setup that
+will copy all writes. This server can be used for database reads to reduce
+the load on the primary instance and in case of a failure of the primary
+server, can be used as a new primary server.</p>
+<p>To setup the service, first follow the general instructions on our
+<a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page.</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
-<li><p>Select which <a class="reference internal" href="../compute/regions-and-availability-zones.html"><span class="doc">availability zone</span></a> you want to provision in. We recommend <em>europe-se-1a</em> if you are unsure.</p></li>
-<li><p>If you want backup, check the “backup” checkbox and select an amount of days you would like your history stored.</p></li>
-<li><p>Check “database dump” checkbox if you wan periodic dumping of data to the filesystem of the instance. This is good in conjunction with backup as it will guarantee the database integrity in the event of a need to restore. We recommend this.</p></li>
+<li><p>Select which <a class="reference internal" href="../compute/regions-and-availability-zones.html"><span class="doc">availability zone</span></a> you
+want to provision in. We recommend the <em>europe-se-1a</em> availability zone.</p></li>
+<li><p>If you want backup, check the <strong>Backup</strong> checkbox and select an amount of days you
+want your history stored.</p></li>
+<li><p>Check <strong>Database dump</strong> checkbox if you wan periodic dumping of data to the filesystem
+of the instance. This is good in conjunction with backup as it will guarantee the database
+integrity in case of a need to restore. This is recommended.</p></li>
 <li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
 <li><p>Select disk-type. See the <a class="reference internal" href="../storage/storage-types.html"><span class="doc">Storage types</span></a> article for more information.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
-<li><p>Under “local network”, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a> on which you want to run the service.</p></li>
-<li><p>Check the “replication” checkbox if you want to have a slave server setup (see above).</p></li>
-<li><p>Press “create”. You will get further details on how to connect to the service.</p></li>
+<li><p>Under <strong>Local network</strong>, select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a>
+on which you want to run the service.</p></li>
+<li><p>Check the <strong>Replication</strong> checkbox if you want to have a auxiliary instance
+setup (see above).</p></li>
+<li><p>Press <strong>Create</strong>. You will get further details on how to connect to the service.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

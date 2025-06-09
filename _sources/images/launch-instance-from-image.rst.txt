@@ -49,7 +49,7 @@ To create a snapshot using :doc:`/getting-started/managing-your-cloud/openstack-
 
 - Press **Launch** to the right on the row of the image
 
-- Follow the the instructions in our :doc:`/compute/launching-an-instance/openstack-horizon` guide
+- Follow the instructions in our :doc:`/compute/launching-an-instance/openstack-horizon` guide
 
 OpenStack Terminal Client
 -------------------------

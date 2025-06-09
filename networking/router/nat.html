@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -992,7 +992,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1016,7 +1016,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1658,21 +1658,46 @@
 
 <h1 id="nat">NAT<a class="headerlink" href="#nat" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>NAT (Network Address Translation) is used to provide instances with internet access when located behind a <a class="reference internal" href="index.html"><span class="doc">router</span></a>. By default, a router will have a source NAT setup when launching it. This means that the router will be assigned a <a class="reference internal" href="../floating-ips.html"><span class="doc">floating ip</span></a> on its external interface and when instances on the internal network wants to access the internet, the router will change the source IP of the request to its own floating IP.</p>
-<p>The reason for this is that <a class="reference internal" href="private-subnet/index.html"><span class="doc">private subnets</span></a> are normally assigned from the pool of IPs that are reserved for internal usage (as per RFC1918). These IPs are not globally routed on the internet, the reasoning behind this is to avoid IP collisions.</p>
-<p>The router is able to mask requests as coming from itself and by doing so, all instances are able to share the routers single public IP. Incoming requests to an instance can’t use the routers IP address but rather a <a class="reference internal" href="../floating-ips.html"><span class="doc">floating IP</span></a>. If an instance has a floating IP configured, it will instead use its floating IP as source address when connecting to the internet. This works the same way but instead of sending inbound and outbound requests from different IPs, the floating IP takes precedence.</p>
+<p>NAT (Network Address Translation) is used to provide instances with internet access
+when located behind a <a class="reference internal" href="index.html"><span class="doc">router</span></a>.</p>
+<p>By default, a router will have a source NAT setup when launching it. This means that
+the router will be assigned a <a class="reference internal" href="../floating-ips.html"><span class="doc">floating IP</span></a> on its external
+interface and when instances on the internal network wants to access the internet, the
+router will change the source IP of the request to its own floating IP.</p>
+<p>The reason for this is that <a class="reference internal" href="private-subnet/index.html"><span class="doc">private subnets</span></a>
+are normally assigned from the pool of IP addresses that are reserved for internal
+usage, according to IETF RFC1918.</p>
+<p>The router is able to mask requests as coming from itself and by doing so, all instances are
+able to share the routers single public IP.</p>
+<p>Incoming requests to an instance can’t use the routers IP address but rather a
+<a class="reference internal" href="../floating-ips.html"><span class="doc">floating IP</span></a>.</p>
+<p>If an instance has a floating IP configured, it will instead use its floating IP as source
+address when connecting to the internet.</p>
+<p>This works the same way but instead of sending inbound and outbound requests from different
+IP addresses, the floating IP takes precedence.</p>
 <h2 id="verify-nat-address-of-router">Verify NAT address of router<a class="headerlink" href="#verify-nat-address-of-router" title="Link to this heading">¶</a></h2>
-<p>Below are some ways to verify which IP address your router will use for outbound internet connections (SNAT):</p>
+<p>Below are some ways to verify which IP address your router will use for outbound internet
+connections (SNAT):</p>
 <ul class="simple">
-<li><p>In the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, press “Network” and then “Routers”. Press the router you want to verify. under “External network” you will see the outbound SNAT ips.</p></li>
-<li><p>In <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> portal under “project”, press “Network” and then “Routers”. Press the router you want to verify. under “External gateway” you will see “External fixed IPs”. These are the outbound SNAT IPs.</p></li>
-<li><p>Using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">list</span></code> to get a list of your routers, followed by <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">show</span> <span class="pre">[ROUTER</span> <span class="pre">NAME]</span> <span class="pre">-c</span> <span class="pre">external_gateway_info</span> <span class="pre">-f</span> <span class="pre">yaml</span></code> which will give you a yaml formatted list of the outbound SNAT IPs.</p></li>
+<li><p>In the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, press <strong>Network</strong> and
+then <strong>Routers</strong>. Press the router you want to verify. under <strong>External network</strong> you will see the
+outbound SNAT IP.</p></li>
+<li><p>In <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> portal under <strong>Project</strong>, press
+<strong>Network</strong> and then <strong>Routers</strong>. Press the router you want to verify. under <strong>External gateway</strong> you
+will see <code class="docutils literal notranslate"><span class="pre">External</span> <span class="pre">fixed</span> <span class="pre">IPs</span></code>. These are the outbound SNAT IP.</p></li>
+<li><p>Using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, run this
+command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">list</span></code> to get a list of your routers</p>
+<ul>
+<li><p>Followed by <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">show</span> <span class="pre">[ROUTER</span> <span class="pre">NAME]</span> <span class="pre">-c</span> <span class="pre">external_gateway_info</span> <span class="pre">-f</span> <span class="pre">yaml</span></code> which
+will give you a yaml formatted list of the outbound SNAT IP.</p></li>
+</ul>
+</li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="index.html"><span class="doc">Router</span></a></p></li>
-<li><p><a class="reference internal" href="../floating-ips.html"><span class="doc">Floating IPs</span></a></p></li>
+<li><p><a class="reference internal" href="../floating-ips.html"><span class="doc">Floating IP addresses</span></a></p></li>
 </ul>
 </div>
 

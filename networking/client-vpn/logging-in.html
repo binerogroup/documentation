@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1082,10 +1082,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mac-osx-clients" class="md-nav__link">
+  <a href="#mac-os-clients" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Mac OSX clients
+      Mac OS clients
     </span>
   </a>
   
@@ -1682,10 +1682,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mac-osx-clients" class="md-nav__link">
+  <a href="#mac-os-clients" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Mac OSX clients
+      Mac OS clients
     </span>
   </a>
   
@@ -1721,29 +1721,56 @@
   
 
 <h1 id="logging-in-to-client-vpn">Logging in to client VPN<a class="headerlink" href="#logging-in-to-client-vpn" title="Link to this heading">¶</a></h1>
-<p>To utilize your client VPN you will need a client software running on your computer. Which software will vary based on what operating system your computer is running as well as your preferences. Below we will demonstrate ways to get up and running but the general idea is to import a client configuration file that the VPN server provides into the client program. The client configuration will contain the necessary keys, certificates and settings to be able to authenticate and start the tunnel</p>
+<p>To use your client VPN you will need a client software running on your computer.</p>
+<p>Which software will vary based on what operating system your computer is running as
+well as your preferences.</p>
+<p>Below we will demonstrate ways to get up and running but the general idea is to import
+a client configuration file that the VPN server provides into the client program.</p>
+<p>The client configuration will contain the necessary keys, certificates and settings to
+be able to authenticate and start the tunnel</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>The client configuration export file contains secret information that could be used by an attacker to gain access to your VPN. It is to be treated as a password. We recommend not e-mailing the configuration to end users but rather put it onto a flash drive and handing it over or using a secure file transfer service to distribute it.</p>
+<p>The client configuration export file contains secret information that could be used
+by an attacker to gain access to your VPN.</p>
+<p>It is to be treated as a password. We recommend not emailing the configuration to
+users but rather put it onto a flash drive and handing it over or using a secure file
+transfer service to distribute it.</p>
 </div>
 <h2 id="downloading-configuration">Downloading configuration<a class="headerlink" href="#downloading-configuration" title="Link to this heading">¶</a></h2>
-<p>To download configurations from the VPN server, follow these steps:</p>
+<p>To download configurations from the VPN server.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the WebUI of the client VPN. If you dont already have a VPN account that works, this will have to be done from the IP address that was used for the initial configuration. See <a class="reference internal" href="setting-up.html"><span class="doc">Setting up client VPN</span></a> for more information.</p></li>
+<li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the WebUI of the client VPN. If you don’t already
+have a VPN account that works, this will have to be done from the IP address that was
+used for the initial configuration. See <a class="reference internal" href="setting-up.html"><span class="doc">Setting up client VPN</span></a> for more information.</p></li>
 <li><p>Press “VPN” and then “OpenVPN” in the main menu.</p></li>
 <li><p>Press the “Client Export” tab.</p></li>
 <li><p>Scroll down to “OpenVPN clients”.</p></li>
-<li><p>Download the appropriate client or config (see below). If you run the VPN with user based authentication, download the config for the proper user - they will contain different keys and certificates. You are able to use the search feature directly above to search for a specific user.</p></li>
+<li><p>Download the appropriate client or configuration (see below). If you run the VPN with user
+based authentication, download the configuration for the proper user - they will contain
+different keys and certificates. You are able to use the search feature directly above to
+search for a specific user.</p></li>
 </ul>
-<p>Once you have a client configuration setup, you should be able to login to your VPN and <a class="reference internal" href="networks.html"><span class="doc">reach your cloud network</span></a> directly from your client computer.</p>
+<p>Once you have a client configuration setup, you should be able to login to your VPN and
+<a class="reference internal" href="networks.html"><span class="doc">reach your cloud network</span></a> directly from your client computer.</p>
 <h2 id="windows-based-clients">Windows based clients<a class="headerlink" href="#windows-based-clients" title="Link to this heading">¶</a></h2>
-<p>The VPN server will provide a pre-configured installer for Windows computers. This installer will install a client software with an already included configuration setup which makes it very easy for an end-user to get a VPN connection up and running. To download this configuration, follow the instructions above and select the appropriate (most likely 64 bit) version under “Current Windows Installer” section.</p>
-<p>Assuming you already have a OpenVPN client installed and prefer to use that software, instead download the configuration named “Most clients” under “Inline configurations” section. This can then be imported into the client software by (usually) double clicking the file or right clicking it and selecting “import”. If neither of those works, please see relevant documentation on your specific client for how to import configurations into the client.</p>
-<h2 id="mac-osx-clients">Mac OSX clients<a class="headerlink" href="#mac-osx-clients" title="Link to this heading">¶</a></h2>
-<p>We recommend the client <a class="reference external" href="https://www.sparklabs.com/viscosity/">Viscosity</a> which is a full featured OpenVPN client software at an affordable price. This client also has its own specific configuration bundle available from the server, making it very easy to configure. To download this bundle, follow above steps and press “Viscosity bundle” under section “Viscosity (Mac OS X and Windows)”. Once you have the bundle, double clicking it will import it into Viscosity after which you can connect to the VPN.</p>
-<p>There are numerous other clients available for Mac OSX that should work well with the “most clients” config download. One client that is known to work is <a class="reference external" href="https://tunnelblick.net">Tunnelblick</a>, this is free to use and generally works well.</p>
+<p>The VPN server will provide a pre-configured installer for Windows computers.</p>
+<p>This installer will install a client software with an already included configuration setup
+which makes it more pleasant for a user to get the VPN connection up and running.</p>
+<p>To download this configuration, follow the instructions above and select the appropriate
+(most likely 64 bit) version under “Current Windows Installer” section.</p>
+<p>Assuming you already have a OpenVPN client installed and prefer to use that software, instead
+download the configuration named “Most clients” under “Inline configurations” section.</p>
+<p>This can then be imported into the client software by (usually) double clicking the file or
+right clicking it and selecting “import”.</p>
+<p>If neither of those works, please see relevant documentation on your specific client for how
+to import configurations into the client.</p>
+<h2 id="mac-os-clients">Mac OS clients<a class="headerlink" href="#mac-os-clients" title="Link to this heading">¶</a></h2>
+<p>Clients available for Mac OS that should work well, one client is <a class="reference external" href="https://openvpn.net/client/">OpenVPN Connect</a>
+and another client that is known to work is <a class="reference external" href="https://tunnelblick.net">Tunnelblick</a>.</p>
 <h2 id="other-clients">Other clients<a class="headerlink" href="#other-clients" title="Link to this heading">¶</a></h2>
-<p>Generally, the “most clients” config will work on most clients. To download it, follow the instructions under the “Downloading configuration” and select it, after which you should be able to import it by following the documentation from your software provider.</p>
+<p>Generally, the most clients configuration will work on most clients. To download it, follow the
+instructions under the “Downloading configuration” and select it, after which you should
+be able to import it by following the documentation from your software provider.</p>
 
 
 

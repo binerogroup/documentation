@@ -5,25 +5,33 @@ Creating secrets
 Creating a secret in the cloud management portal
 ------------------------------------------------
 
-To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
+To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
-- Press "Secret management" and then "Secrets" in the sidebar menu.
+- Press **Secret management** and then **Secrets** in the sidebar menu.
+
 - Press the "+" icon in the bottom right corner.
-- Select a user from the dropdown and enter the password for that user along with other details. Credentials of the User are required so that would make him the owner of the secret. 
-- Enter a descriptive name of the secret.
-- Select what kind of paylod (file or text) and input it. The Payload Data field stores the secret data which will be encrypted and stored. 
-- Press "create". The secret is now stored.
 
-Creating a secret using the openstack terminal client
+- Select a user from the dropdown and enter the password for that user along with other details. Credentials of
+  the User are required so that would make him the owner of the secret. 
+
+- Enter a descriptive name of the secret.
+
+- Select what kind of payload (file or text) and input it. The Payload Data field stores the secret data which
+  will be encrypted and stored. 
+
+- Press **Create**. The secret is now stored.
+
+Creating a secret using the OpenStack terminal client
 -----------------------------------------------------
 
-This shows you how to create a secret :doc:`secret <../index>` using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, see below for examples.
+This shows you how to create a secret :doc:`secret <../index>` using the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 Uploading a certificate
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This is an example of how to upload a certificate in binary format that can be used for TLS when using
-our loadbalancer service.
+our load balancer service.
 
 ::
 

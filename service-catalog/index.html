@@ -15,7 +15,7 @@
         <link rel="prev" href="../secret-store/create-cert-for-loadbalancing.html">
       
       
-        <link rel="next" href="fileshare.html">
+        <link rel="next" href="file-share.html">
       
       
       <link rel="icon" href="../_static/binero.ico">
@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -894,12 +894,12 @@
   
   
     <li class="md-nav__item">
-      <a href="fileshare.html" class="md-nav__link">
+      <a href="file-share.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Fileshare
+    File share
     
   </span>
   
@@ -923,7 +923,7 @@
   
   
   <span class="md-ellipsis">
-    Gitlab
+    Git<wbr>Lab
     
   </span>
   
@@ -1062,12 +1062,12 @@
   
   
     <li class="md-nav__item">
-      <a href="postgres.html" class="md-nav__link">
+      <a href="postgresql.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Postgres
+    Postgre<wbr>SQL
     
   </span>
   
@@ -1266,10 +1266,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="fileshare.html" class="md-nav__link">
+  <a href="file-share.html" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Fileshare
+      File share
     </span>
   </a>
   
@@ -1279,7 +1279,7 @@
   <a href="gitlab.html" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Gitlab
+      Git<wbr>Lab
     </span>
   </a>
   
@@ -1336,10 +1336,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="postgres.html" class="md-nav__link">
+  <a href="postgresql.html" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Postgres
+      Postgre<wbr>SQL
     </span>
   </a>
   
@@ -1648,49 +1648,68 @@
   
 
 <h1 id="service-catalog">Service catalog<a class="headerlink" href="#service-catalog" title="Link to this heading">¶</a></h1>
-<p>The service catalog is a repository of installable open source software as well as convenience functions for automating more complex tasks in the platform. Its only available in the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>.</p>
-<p>The service catalog is available from the main menu under “Service Catalog” and then either “services” (which will show you your provisioned services and allow you to add new) or “service templates” (which will show you available services).</p>
+<p>The service catalog is a repository of installable open source software as well as convenience
+functions for automating more complex tasks in the platform.</p>
+<p>Its only available in the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>.</p>
+<p>The service catalog is available in the cloud management portal from the main menu under
+<strong>Service Catalog</strong> and then either <strong>Services</strong> which will show you your provisioned services
+and allow you to add new or <strong>Service templates</strong> which will show you available services.</p>
 <h2 id="create-service">Create service<a class="headerlink" href="#create-service" title="Link to this heading">¶</a></h2>
-<p>To provision a new service using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To provision a new service using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Service Catalog” and then “Services” in the sidebar menu.</p></li>
+<li><p>Press <strong>Service Catalog</strong> and then <strong>Services</strong> in the sidebar menu.</p></li>
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
 <li><p>Select a service in the drop down.</p></li>
-<li><p>Press “next”.</p></li>
-<li><p>For detailed information on each service, please see its article on this documentation platform.</p></li>
+<li><p>Press <strong>Next</strong></p></li>
+<li><p>For detailed information on each service, please see the articles for each service
+in the documentation.</p></li>
 </ul>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
-<p>Automated features simplify creating complex setups in the platform by using the service catalog to automate them. The services will be setup the same way as if they where manually setup but the process is faster and requires less knowledge. The following services ara available:</p>
+<p>Automated features simplify creating complex setups in the platform by using the service catalog to
+automate them.</p>
+<p>The services will be setup the same way as if they where manually setup but the process is faster
+and requires less knowledge. The following services is available:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="private-network.html"><span class="doc">Private network</span></a> will create a router and a private network setup behind it.</p></li>
-<li><p><a class="reference internal" href="schedule-snapshot.html"><span class="doc">Schedule snapshot</span></a> will schedule taking a snapshot from a particular instance.</p></li>
-<li><p><a class="reference internal" href="schedule-backup.html"><span class="doc">Schedule backup</span></a> will schedule taking a backup from a particular instance.</p></li>
+<li><p><a class="reference internal" href="private-network.html"><span class="doc">Private network</span></a> will create a router and a private network setup
+behind it.</p></li>
+<li><p><a class="reference internal" href="schedule-snapshot.html"><span class="doc">Schedule snapshot</span></a> will schedule taking a snapshot from a
+particular instance.</p></li>
+<li><p><a class="reference internal" href="schedule-backup.html"><span class="doc">Schedule backup</span></a> will schedule taking a backup from a particular
+instance.</p></li>
 </ul>
 <h2 id="applications">Applications<a class="headerlink" href="#applications" title="Link to this heading">¶</a></h2>
-<p>Automated application installations are available to provide applications pre-installed on an instance. Aside from having the software installed, the software will also (when applicable) be configured for you with sane defaults. The following applications are available:</p>
+<p>Automated application installations are available to provide applications pre-installed on
+an instance.</p>
+<p>Aside from having the software installed, the software will also, when applicable, be configured
+for you with sane defaults. The following applications is available:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="postgres.html"><span class="doc">Postgre SQL</span></a> will install a Postgres instance with the option of adding replication.</p></li>
-<li><p><a class="reference internal" href="mysql.html"><span class="doc">MySQL or MariaDB</span></a> will install a MySQL (or MariaDB) instance with the option of adding replication.</p></li>
+<li><p><a class="reference internal" href="postgresql.html"><span class="doc">PostgreSQL</span></a> will install a PostgreSQL instance with the option of
+adding replication.</p></li>
+<li><p><a class="reference internal" href="mysql.html"><span class="doc">MySQL or MariaDB</span></a> will install a MySQL or MariaDB instance with the option
+of using replication.</p></li>
 <li><p><a class="reference internal" href="grafana.html"><span class="doc">Grafana</span></a> will install a Grafana Dashboard.</p></li>
-<li><p><a class="reference internal" href="gitlab.html"><span class="doc">Gitlab</span></a> will install a gitlab repository with its dashboard.</p></li>
-<li><p><a class="reference internal" href="fileshare.html"><span class="doc">Fileshare</span></a> will install a Linux VM with both NFS and SMB support for use as a filestore backend in the platform.</p></li>
+<li><p><a class="reference internal" href="gitlab.html"><span class="doc">GitLab</span></a> will install a GitLab repository with its dashboard.</p></li>
+<li><p><a class="reference internal" href="file-share.html"><span class="doc">File share</span></a> will install a Linux VM with both NFS and SMB support for use
+as a file store backend in the platform.</p></li>
 <li><p><a class="reference internal" href="lamp.html"><span class="doc">LAMP</span></a> will install a Linux Apache MySQL PHP stack on a single instance.</p></li>
-<li><p><a class="reference internal" href="lb-lamp.html"><span class="doc">Load balanced LAMP</span></a> will install a load balanced (using the Binero cloud load balancer service) Linux Apache MySQL PHP stack using separate instances foreach function.</p></li>
+<li><p><a class="reference internal" href="lb-lamp.html"><span class="doc">Load balanced LAMP</span></a> will install a load balanced, using the Binero cloud load balancer service,
+Linux Apache MySQL PHP stack using separate instances for each component.</p></li>
 <li><p><a class="reference internal" href="openvpn.html"><span class="doc">OpenVPN</span></a> sets up VPN, see <a class="reference internal" href="../networking/client-vpn/index.html"><span class="doc">Client VPN</span></a>.</p></li>
-<li><p><a class="reference internal" href="redis.html"><span class="doc">Redis</span></a> will install a <a class="reference external" href="https://redis.io">Redis</a> in-memory datastore.</p></li>
+<li><p><a class="reference internal" href="redis.html"><span class="doc">Redis</span></a> will install a <a class="reference external" href="https://redis.io">Redis</a> in-memory data
+structure store.</p></li>
 <li><p><a class="reference internal" href="grafana.html"><span class="doc">Grafana</span></a> will install a Grafana Dashboard.</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="fileshare.html">Fileshare</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gitlab.html">Gitlab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-share.html">File share</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gitlab.html">GitLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grafana.html">Grafana</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lamp.html">Linux Apache MySQL PHP stack (LAMP)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lb-lamp.html">Load Balanced Linux Apache MySQL PHP (LAMP)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL / MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openvpn.html">OpenVPN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgres.html">Postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="private-network.html">Private Network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule-backup.html">Schedule Backup</a></li>

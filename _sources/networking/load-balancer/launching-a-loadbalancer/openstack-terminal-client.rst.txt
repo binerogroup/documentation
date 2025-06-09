@@ -23,7 +23,7 @@ the below steps.
 We recommend checking OpenStack Horizon for what additional options are available or using
 the ``-h`` option of the terminal client for more information.
 
-Lots of more information is also available `here <https://docs.openstack.org/octavia/latest/user/guides/basic-cookbook.html>`__.
+More information is also available `here <https://docs.openstack.org/octavia/latest/user/guides/basic-cookbook.html>`__.
 
 This documentation aims to show how to get going, not display exhaustive information on each available
 option. The example below will load balance HTTP (protocol aware) and thus port 80, this can be adapted.
@@ -48,7 +48,7 @@ the load balancer. That said, each command will reference an earlier names chose
 - Run this command to create the load balancer: ``openstack loadbalancer create --name [NAME_lb] --vip-subnet-id [SUBNET_NAME]`` replacing
   the subnet name with that from previous step, use ``--availability-zone`` to select a available, if not given europe-se-1a will be used by default.
 
-- Run this command until it says that the operating_status is "ONLINE": ``openstack loadbalancer show [NAME_OF_LB]``
+- Run this command until it says that the ``operating_status`` is ``ONLINE``: ``openstack loadbalancer show [NAME_OF_LB]``
 
 - Run this command to setup the :doc:`listener <../general-concept/listeners>`: ``openstack loadbalancer listener create --name [NAME_listener_80] --protocol HTTP --protocol-port 80 [NAME_lb]``.
 
@@ -56,7 +56,7 @@ the load balancer. That said, each command will reference an earlier names chose
 
 - Run this command to setup health checkers: ``openstack loadbalancer healthmonitor create --delay 5 --max-retries 4 --timeout 10 --type HTTP --url-path / [NAME_pool_80]``.
 
-- Run this command: ``openstack server list``, save the IPs of the members you want to add.
+- Run this command: ``openstack server list``, save the IP addresses of the members you want to add.
 
 - Repeat this command to add the members: ``openstack loadbalancer member create --subnet-id [SUBNET_NAME] --address [IP_OF_MEMBER] --protocol-port 80 [NAME_pool_80]``
 
@@ -71,12 +71,12 @@ following these steps:
 - Run this command: ``openstack loadbalancer list``, save the name of the load balancer you want to verify.
 
 - Run this command: ``openstack loadbalancer show [NAME]``. Replace [NAME] with the name from previous step. Save
-  the value of the "vip_port_id" of the load balancer.
+  the value of the ``vip_port_id`` of the load balancer.
 
 - Run this command: ``openstack floating ip list``, save an un-assigned floating IP.
 
-- If you don't have an un-assigned floating IP, follow the steps in the :doc:`floating IPs <../../floating-ips>` article
-  to assign one to the project.
+- If you don't have an unassigned floating IP, follow the steps in the :doc:`floating IP addresses <../../floating-ips>`
+  article to assign one to the project.
 
 - Run this command: ``openstack floating ip set --port [VIP_PORT_ID] [FLOATING_IP]``, replace the items in angle
   brackets with data from previous steps.
@@ -101,6 +101,7 @@ To verify that the health checking has added the members to the pool, follow thi
    logs, that the traffic hits the member servers from the load balancers IP.
 
 ..  seealso::
+
     - :doc:`../general-concept/index`
     - :doc:`../recommendations`
     - :doc:`../index`

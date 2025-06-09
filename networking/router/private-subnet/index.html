@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1309,7 +1309,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1333,7 +1333,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1985,32 +1985,61 @@
 
 <h1 id="private-subnets">Private subnets<a class="headerlink" href="#private-subnets" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>A private subnet in Binero cloud is an <a class="reference internal" href="subnet-format.html"><span class="doc">IP-range</span></a> that is local to your project on the platform and therefore not reachable from outside your router (with <a class="reference internal" href="../routing-between-networks.html"><span class="doc">exception for routing between routers</span></a>). A private subnet should not be confused with a shared, <a class="reference internal" href="../../floating-ips.html"><span class="doc">external subnet</span></a> which is used by many customers for external access to the internet. When provisioning a new instance, it would typically bet connect to a private subnet (if using a <a class="reference internal" href="../index.html"><span class="doc">router</span></a> networking model).</p>
-<dl class="simple">
-<dt>When you create a private subnet, you assign it to a <a class="reference internal" href="../private-network/index.html"><span class="doc">network</span></a>. It will enable you to:</dt><dd><ul class="simple">
-<li><p>Use addresses from the subnet when creating instances, either by using <a class="reference internal" href="dhcp.html"><span class="doc">DHCP</span></a> (which is recommended) or by manually assigning addresses from the subnet.</p></li>
-<li><p>Assign an individual IP-address as the <a class="reference internal" href="connect-subnet-to-router.html"><span class="doc">gateway IP-address</span></a> for the network, by assigning it to a router.</p></li>
+<p>A private subnet in Binero cloud is an <a class="reference internal" href="subnet-format.html"><span class="doc">IP-range</span></a> that is local to
+your project on the platform and therefore not reachable from outside your router
+(with <a class="reference internal" href="../routing-between-networks.html"><span class="doc">exception for routing between routers</span></a>).</p>
+<p>A private subnet should not be confused with a shared, <a class="reference internal" href="../../floating-ips.html"><span class="doc">external subnet</span></a>
+which is used by many customers for external access to the internet.</p>
+<p>When provisioning a new instance, it would typically bet connect to a private subnet
+(if using a <a class="reference internal" href="../index.html"><span class="doc">router</span></a> networking model).</p>
+<p>When you create a private subnet, you assign it to a <a class="reference internal" href="../private-network/index.html"><span class="doc">network</span></a>.</p>
+<p>It will enable you to:</p>
+<ul class="simple">
+<li><p>Use addresses from the subnet when creating instances, either by using <a class="reference internal" href="dhcp.html"><span class="doc">DHCP</span></a>
+(which is recommended) or by manually assigning addresses from the subnet.</p></li>
+<li><p>Assign an individual IP-address as the <a class="reference internal" href="connect-subnet-to-router.html"><span class="doc">gateway IP-address</span></a>
+for the network, by assigning it to a router.</p></li>
 </ul>
-</dd>
-</dl>
-<p>You are also able to <a class="reference internal" href="../routing-between-networks.html"><span class="doc">route between networks</span></a>. This is useful for creating security zones or for segmenting your infrastructure in multiple subnets (for instance when having a production and staging system).</p>
+<p>You are also able to <a class="reference internal" href="../routing-between-networks.html"><span class="doc">route between networks</span></a>. This is useful
+for creating security zones or for segmenting your infrastructure in multiple subnets (for instance
+when having a production and staging system).</p>
 <h2 id="managing-private-subnets">Managing private subnets<a class="headerlink" href="#managing-private-subnets" title="Link to this heading">¶</a></h2>
 <p>You are able to manage private subnets using either of the below tools.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is very easy to use and will get a user with limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always available.</p></li>
-<li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in OpenStack. Some advanced features might only have a GUI implementation here.</p></li>
-<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> is a command line implementation giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper than the GUI implementation but the workflow will be very efficient.</p></li>
+<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is recommended will get a user with
+limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always
+available.</p></li>
+<li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in OpenStack. Some
+advanced features might only have a GUI implementation here.</p></li>
+<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> is a command line implementation
+giving terminal oriented users a quick way to access the cloud. The learning curve is steeper
+than the GUI implementation but the workflow will be efficient.</p></li>
 </ul>
 <h2 id="choosing-an-ip-range">Choosing an IP-range<a class="headerlink" href="#choosing-an-ip-range" title="Link to this heading">¶</a></h2>
-<p>When ip-addressing your network you would typically choose some IP-range that is reserved for internal use (presumably something from the <a class="reference external" href="https://en.wikipedia.org/wiki/Private_network">RFC1918 range</a>). In Binero cloud you are able to select whichever range you prefer for your networking but we recommend sticking to the ranges that are intended for internal use (as per above link) as you may otherwise experience issues with your connectivity. More information on defining an IP-range for use in the cloud in the <a class="reference internal" href="subnet-format.html"><span class="doc">Subnet Format</span></a> article.</p>
+<p>When IP addressing your network you would typically choose some IP-range that is reserved for internal use
+(presumably something from the <a class="reference external" href="https://en.wikipedia.org/wiki/Private_network">RFC1918 range</a>).</p>
+<p>In Binero cloud you are able to select whichever range you prefer for your networking but we recommend
+sticking to the ranges that are intended for internal use (according to above link) as you may otherwise
+experience issues with your connectivity.</p>
+<p>More information on defining an IP range for use in the cloud in the <a class="reference internal" href="subnet-format.html"><span class="doc">Subnet Format</span></a> article.</p>
 <p>In the subsections to this article we show some ways to work with subnets using the various portals.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>When selecting what IP-range to use, keep in mind that you might want (at some point) to connect your infrastructure to some other network by using a site-to-site tunnel. We recommend, therefore, to choose a range that is less likely to be overlapping other subnets. The best way to do this, in our opinion, is to use a range from somewhere in the middle of 172.16.0.0/12 (for instance 172.29.45.0/24).</p>
+<p>When selecting what IP-range to use, remember that you might want (at some point) to connect your
+infrastructure to some other network by using a site-to-site tunnel.</p>
+<p>We recommend, therefore, to choose a range that is less likely to be overlapping other subnets.</p>
+<p>The best way to do this, in our opinion, is to use a range from somewhere in the middle of
+172.16.0.0/12 (for example 172.29.45.0/24).</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Take care to choose a subnet size (or mask) that has enough IP-space for your need. We recommend envisioning the largest amount of IPs you think you’ll ever need and then at least doubling the amount of addresses. If you, for instance, think you might have 20 servers then a single /24 (C-class) network with 255 addresses might be enough. If you think you might need to have 100 servers at some point (keeping in mind some servers will have multiple addresses) then maybe aim for a subnet with a /23 mas that would give you 510 usable addresses.</p>
+<p>Take care to choose a subnet size (or mask) that has enough IP-space for your need.</p>
+<p>We recommend envisioning the largest amount of IP addresses you think you’ll ever need and then
+at least doubling the amount of addresses.</p>
+<p>If you, for example, think you might have 20 servers then a single /24 (C-class) network with 255 addresses
+might be enough.</p>
+<p>If you think you might need to have 100 servers at some point (keeping in mind some servers will have
+multiple addresses) then maybe aim for a subnet with a /23 mas that would give you 510 usable addresses.</p>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
@@ -2031,8 +2060,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="subnet-format.html">Subnet Format</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="subnet-format.html#simple-explanation">Simple explanation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="subnet-format.html#complicated-explanation">Complicated explanation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subnet-format.html#explanation">Explanation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subnet-format.html#advanced-explanation">Advanced explanation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="connect-subnet-to-router.html">Connect subnet to router</a></li>

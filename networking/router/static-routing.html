@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1018,7 +1018,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1042,7 +1042,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1710,43 +1710,76 @@
 
 <h1 id="static-routing">Static routing<a class="headerlink" href="#static-routing" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>Routing is the process of “giving directions” to IP-packages. Routing is (normally, exclusively in the context of Binero clouds implementation) done based on destination. There are who key parameters:</p>
+<p>Routing is (normally, exclusively in the context of Binero clouds implementation) done based
+on destination.</p>
+<p>The two key parameters when talking about routing is:</p>
 <ul class="simple">
 <li><p>The destination IP</p></li>
-<li><p>The gateway IP for the next hop</p></li>
+<li><p>The gateway IP used as the next hop</p></li>
 </ul>
-<p>When routing packages, a router will consult a “routing table” that will have various network ranges available, each matched to a “next hop” (or gateway) which is the next path the package should take in order to reach its destination. When routing, an IP-package destination IP will be identified as belonging to a network in the routing table and the router will forward the package to the next-hop (or gateway) of that network.</p>
-<p>Should the router be directly connected to the network in question (local to the network), it will instead use Address Resolution Protocol (ARP) to map the destination IP to a hardware (MAC) address and forward the package to its final destination.</p>
-<p>Static routing is the process of manually defining what private subnets (network ranges) there are and behind what routers they are connected so that the routers are able to forward the packages. It is only needed if there is <em>more then a single router in the network</em> (as a single router would be expected to be connected to all networks directly and then would manage all the routing based on that). If a routing entry is missing and the routers are not able to match a destination ip to a network in their tables, one of two things will happen:</p>
+<p>When routing packets, a router will consult a routing table that will have various network ranges
+available, each matched to a next hop (or gateway) which is the next device the packet should be
+sent to in order to reach its destination.</p>
+<p>When routing, an IP packets destination IP will be identified as belonging to a network in the routing
+table and the router will forward the packet to the next-hop (or gateway) of that network.</p>
+<p>Should the router be directly connected to the network in question (local to the network), it will
+instead use Address Resolution Protocol (ARP) to map the destination IP to a hardware (MAC) address
+and forward the packet to its final destination.</p>
+<p>Static routing is the process of manually defining what private subnets (network ranges) there are and
+behind what routers they are connected so that the routers are able to forward the packets.</p>
+<p>It is only needed if there is <em>more then a single router in the network</em> (as a single router would be
+expected to be connected to all networks directly and then would manage all the routing based on that).</p>
+<p>If a routing entry is missing and the routers are not able to match a destination IP to a network in
+their tables, one of two things will happen:</p>
 <ul class="simple">
-<li><p>The routers will use their <strong>default route</strong> (if present). This would normally point upstream to the internet so effectively the package would get lost in an upstream router that does not route private networks and would drop the package.</p></li>
-<li><p>If there is no default route, the package would get “black holed” (that is, dropped).</p></li>
+<li><p>The routers will use their <strong>default route</strong> (if present). This would normally point upstream to the
+internet so effectively the packet would get lost in an upstream router that does not route private
+networks and would drop the packet.</p></li>
+<li><p>If there is no default route, the packet would get dropped.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The next-hop of a routing entry will need to be reachable <em>and on a common network</em> (that is a network to which both the sending and receiving router are connected). Routing cannot rely on routing to reach a gateway, all gateways need to be directly accessible. A link-network is commonly use for this (but any subnet will suffice so long as the routers are both connected to it), see our <a class="reference internal" href="routing-between-networks.html"><span class="doc">Routing between networks</span></a> for more information.</p>
+<p>The next-hop of a routing entry will need to be reachable <em>and on a common network</em> (that is a network
+to which both the sending and receiving router are connected).</p>
+<p>Routing cannot rely on routing to reach a gateway, all gateways need to be directly accessible. A link-network
+is commonly use for this (but any subnet will suffice when the routers are both connected to it), see
+our <a class="reference internal" href="routing-between-networks.html"><span class="doc">Routing between networks</span></a> for more information.</p>
 </div>
 <h2 id="working-with-static-routes">Working with static routes<a class="headerlink" href="#working-with-static-routes" title="Link to this heading">¶</a></h2>
-<p>Below is shown how to add static routes to a <a class="reference internal" href="index.html"><span class="doc">router</span></a> using the various tools. Since you route based on destination (but also need to account for return traffic, that is the traffic that a requests reply would generate), you would want to add the routes to both (or several) sides with the distinction that the networks defined on each router are the ones <strong>not local</strong> to that router. The routing entries are therefore <em>not the same</em> on any two (ore more) routers.</p>
+<p>Below is shown how to add static routes to a <a class="reference internal" href="index.html"><span class="doc">router</span></a> using the various tools.</p>
+<p>Since you route based on destination (but also need to account for return traffic, that is the traffic that
+a requests reply would generate), you would want to add the routes to both (or several) sides with the distinction
+that the networks defined on each router are the ones <strong>not local</strong> to that router.</p>
+<p>The routing entries are therefore <em>not the same</em> on any two (ore more) routers.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>If you (mistakenly) add a route to a router that is already local to it (that is connected to it by an interface), the affected subnet would stop working. Only add routing entries to <em>remote</em> networks. Local networks are already routed by being connected.</p>
+<p>If you (mistakenly) add a route to a router that is already local to it (that is connected to it by an interface), the
+affected subnet would stop working. Only add routing entries to <em>remote</em> networks. Local networks are already routed
+by being directly connected.</p>
 </div>
-<p>Static routing is currently only supported using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> or the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>.</p>
+<p>Static routing is currently only supported using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>
+or the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>.</p>
 <h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Under “project”, click “Network” and then “Routers” in the sidebar menu.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Routers</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the router you want to connect the subnet to.</p></li>
-<li><p>Press the “Static Routes” tab on the top.</p></li>
-<li><p>Press “Add static route”.</p></li>
-<li><p>In the “Destination CIDR” field, type the <em>destination ip range</em> (that is, the network behind the neighbour router that you want to reach) in <a class="reference internal" href="private-subnet/subnet-format.html"><span class="doc">CIDR format</span></a>.</p></li>
-<li><p>In the “Next Hop” field, type the gateway address, that is the address that the neighbour router has on the network which it shares with the router you are adding the static route to - and to where you want to forward traffic.</p></li>
+<li><p>Press the <strong>Static Routes</strong> tab on the top.</p></li>
+<li><p>Press <strong>Add static route</strong></p></li>
+<li><p>In the <strong>Destination CIDR</strong> field, type the <em>destination IP range</em> (that is, the network behind the neighbour router that you
+want to reach) in <a class="reference internal" href="private-subnet/subnet-format.html"><span class="doc">CIDR format</span></a>.</p></li>
+<li><p>In the <strong>Next Hop</strong> field, type the gateway address, that is the address that the neighbour router has on the network which
+it shares with the router you are adding the static route to - and to where you want to forward traffic.</p></li>
 <li><p>Press “Submit”.</p></li>
 </ul>
 <h3 id="openstack-terminal-client">OpenStack terminal client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Run: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">list</span></code> to get the list of your available routers. Save the name of the router you want to connect the subnet to.</p></li>
-<li><p>Run: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">add</span> <span class="pre">route</span> <span class="pre">--route</span> <span class="pre">destination=[DESTINATION_RANGE],gateway=[GATEWAY</span> <span class="pre">IP]</span> <span class="pre">[ROUTER</span> <span class="pre">NAME]</span></code>, replacing the items in brackets to <em>destination ip range</em> (the network behind the neighbour router that you want to reach) in <a class="reference internal" href="private-subnet/subnet-format.html"><span class="doc">CIDR format</span></a>, the gateway address (the address that the neighbour router has on the network which it shares with the router you are adding the static route to - and to where you want to forward traffic) and the router name (from previous step).</p></li>
+<li><p>Run: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">list</span></code> to get the list of your available routers. Save the name of the router you want to
+connect the subnet to.</p></li>
+<li><p>Run: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">add</span> <span class="pre">route</span> <span class="pre">--route</span> <span class="pre">destination=[DESTINATION_RANGE],gateway=[GATEWAY</span> <span class="pre">IP]</span> <span class="pre">[ROUTER</span> <span class="pre">NAME]</span></code>, replacing
+the items in brackets to <em>destination IP range</em> (the network behind the neighbour router that you want to reach)
+in <a class="reference internal" href="private-subnet/subnet-format.html"><span class="doc">CIDR format</span></a>, the gateway address (the address that the neighbour router has on
+the network which it shares with the router you are adding the static route to - and to where you want to forward traffic)
+and the router name (from previous step).</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1032,7 +1032,7 @@
   <a href="#upgrading-windows-virtio-driver" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Upgrading Windows virtio driver
+      Upgrading Windows Virt<wbr>IO driver
     </span>
   </a>
   
@@ -1557,7 +1557,7 @@
   <a href="#upgrading-windows-virtio-driver" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Upgrading Windows virtio driver
+      Upgrading Windows Virt<wbr>IO driver
     </span>
   </a>
   
@@ -1583,57 +1583,87 @@
   
 
 <h1 id="windows-instances">Windows instances<a class="headerlink" href="#windows-instances" title="Link to this heading">¶</a></h1>
-<p>Windows runs great on Binero cloud! There are some considerations when using a Windows based <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> on the platform. We outline them below.</p>
+<p>Windows runs great on Binero cloud! Some considerations when using a Windows
+based <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> on the platform. We outline them below.</p>
 <ul class="simple">
-<li><p>As Windows generally is quite RAM-hungry, we recommend using a <a class="reference internal" href="flavors.html"><span class="doc">high memory flavor</span></a> to run your windows instance on.</p></li>
-<li><p>While Microsoft says Windows server will run on the smallest instance, for a good user experience we recommend a minimum of 3 cores and 8 GB of RAM.</p></li>
-<li><p>A resonable performance could be expected at 4 cores and 12-16GBs of RAM.</p></li>
-<li><p>As Windows Server is not OpenSource, there is a license cost associated with provisioning Windows Server. Please see our <a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">pricelist</a> for more information.</p></li>
-<li><p>While Microsoft says 32GB is the minimum disk-space to run Windows Server, we recommend a disk-space of at least 64GB. This does not include your actual use-case, but for the OS itself.</p></li>
+<li><p>As Windows generally is quite RAM-hungry, we recommend using a
+<a class="reference internal" href="flavors.html"><span class="doc">high memory flavor</span></a> to run your windows instance on.</p></li>
+<li><p>While Microsoft says Windows server will run on the smallest instance, for a
+good user experience we recommend a minimum of 3 cores and 8 GB of RAM.</p></li>
+<li><p>A reasonable performance could be expected at 4 cores and 12-16GBs of RAM.</p></li>
+<li><p>As Windows Server is not OpenSource, there is a license cost associated with
+provisioning Windows Server. Please see our <a class="reference external" href="https://binero.com/en/it-services/cloud-services/public-cloud/price/">price list</a>
+for more information.</p></li>
+<li><p>While Microsoft says 32GB is the minimum disk-space to run Windows Server, we
+recommend a disk-space of at least 64GB. This does not include your actual
+use-case, but for the operating system itself.</p></li>
 </ul>
 <h2 id="provisioning">Provisioning<a class="headerlink" href="#provisioning" title="Link to this heading">¶</a></h2>
-<p>Provisioning a Windows Server based instance works mostly the same as is described in our <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">launching an instance</span></a> documentation with the exception that Windows Server does not support SSH-keys for login. Because of this, when you’ve provisioned your instance (and its reported as ACTIVE - that is it has started), you need to set the password using the console. Follow these steps:</p>
+<p>Provisioning a Windows Server based instance works mostly the same as is described in
+our <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">launching an instance</span></a> documentation with the
+exception that Windows Server does not support SSH-keys for login.</p>
+<p>Because of this, when you’ve provisioned your instance (and its reported as ACTIVE - that
+is it has started), you need to set the password using the console. Follow these steps:</p>
 <h3 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h3>
-<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance that you recently provisioned.</p></li>
 <li><p>In the top right corner, press “Console” (its the two angle brackets “&lt; &gt;”).</p></li>
-<li><p>You will now get the visual screen output of the server. The image might be blank because the server puts it in power save mode when not used. Moving the cursor or pressing for instance “ctrl” will bring it back.</p></li>
-<li><p>Press “ctrl” + “alt” + “delete”.</p></li>
-<li><p>Press (using the cursor) the “sign in” button.</p></li>
+<li><p>You will now get the visual screen output of the server. The image might be blank because
+the server puts it in power save mode when not used. Moving the cursor or pressing the
+screen to wake it up.</p></li>
+<li><p>Press CTRL + ALT + DELETE</p></li>
+<li><p>Press (using the cursor) the <strong>Sign in</strong> button.</p></li>
 <li><p>You will be prompted to select a password.</p></li>
 </ul>
-<p>You are now able to login using your new password via an RDP client using for instance a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>. Dont forget that you may need to add a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a> for RDP access.</p>
+<p>You are now able to login using your new password via an RDP client using for instance
+a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>.</p>
+<p>Don’t forget that you may need to add a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a>
+for RDP access.</p>
 <h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
-<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
-<li><p>In the drop-down menu to the far right of the line corresponding to the instance you want to resize, press “console”.</p></li>
-<li><p>You will now get the visual screen output of the server. The image might be blank because the server puts it in power save mode when not used. Moving the cursor or pressing for instance “ctrl” will bring it back.</p></li>
-<li><p>Press “ctrl” + “alt” + “delete”.</p></li>
-<li><p>Press (using the cursor) the “sign in” button.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
+<li><p>In the drop-down menu to the far right of the line corresponding to the instance
+you want to resize, press <strong>Console</strong></p></li>
+<li><p>You will now get the visual screen output of the server. The image might be blank
+because the server puts it in power save mode when not used. Moving the cursor or
+clicking on the screen will wake it up.</p></li>
+<li><p>Press CTRL + ALT + DELETE</p></li>
+<li><p>Press (using the cursor) the <strong>Sign in</strong> button.</p></li>
 <li><p>You will be prompted to select a password.</p></li>
 </ul>
-<p>You are now able to login using your new password via an RDP client using for instance a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>. Dont forget that you may need to add a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a> for RDP access.</p>
+<p>You are now able to login using your new password via an RDP client using for instance
+a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>.</p>
+<p>Don’t forget that you may need to add a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a>
+for RDP access.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>If you cannot see the sign-in button for any reason, restart the server.</p>
 </div>
-<h2 id="upgrading-windows-virtio-driver">Upgrading Windows virtio driver<a class="headerlink" href="#upgrading-windows-virtio-driver" title="Link to this heading">¶</a></h2>
-<p>Frome time to time, the underlying infrastructure behaviour will change. This could result in bad IO-performance and even IO-stalls on windows instances with old versions of virtio drivers installed. Upgrading the virtio driver from time to time is therefore advisable. To do so, follow this below process.</p>
+<h2 id="upgrading-windows-virtio-driver">Upgrading Windows VirtIO driver<a class="headerlink" href="#upgrading-windows-virtio-driver" title="Link to this heading">¶</a></h2>
+<p>From time to time, the underlying infrastructure behaviour will change.</p>
+<p>This could result in bad IO-performance and even IO-stalls on windows instances with
+old versions of VirtIO drivers installed. Upgrading the VirtIO driver from time to
+time is therefore advisable.</p>
+<p>To perform the upgrade, follow this below process.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Its advisable to backup (or at the very least, <a class="reference internal" href="../storage/snapshots/create-snapshot.html"><span class="doc">snapshot</span></a>) your volume before upgrading the IO-driver.</p>
+<p>Its advisable to backup (or at the least, <a class="reference internal" href="../storage/snapshots/create-snapshot.html"><span class="doc">snapshot</span></a>)
+your volume before upgrading the IO-driver.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The process involves a reboot so proceeding during a downtime window for mission critical instances is recommended.</p>
+<p>The process involves a reboot so proceeding during a downtime window for mission critical
+instances is recommended.</p>
 </div>
 <ul class="simple">
-<li><p>Stop any application write IO towards the local disc. This means for instance shutting down a database service. You do not need to quiesce all IO towards the disk.</p></li>
-<li><p>Download the most recent virtio ISO driver from <a class="reference external" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">here</a>.</p></li>
-<li><p>Mount the ISO in windows.</p></li>
+<li><p>Stop any application write IO towards the local disc. This means for instance shutting down
+a database service. You do not need to quiesce all IO towards the disk.</p></li>
+<li><p>Download the most recent VirtIO ISO driver
+from <a class="reference external" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/">here</a>.</p></li>
+<li><p>Mount the ISO in Windows.</p></li>
 <li><p>Run the <code class="docutils literal notranslate"><span class="pre">virtio-win-gt-x64.msi</span></code> installer with administrative privileges.</p></li>
 <li><p>Click through it.</p></li>
 <li><p>When installer completes successfully, reboot your server.</p></li>

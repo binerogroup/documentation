@@ -17,7 +17,7 @@ If you delete a object instead of permanently delete the object a DeleteMarker i
 instead of overwriting it a new version of the object is uploaded and the original is preserved as a version.
 
 If you list the objects in a bucket it can still says the bucket is empty even though there are objects still stored in the
-bucket since there might be older versionsing of a object that is not displayed due to DeleteMarkers.
+bucket since there might be older versioning of a object that is not displayed due to DeleteMarkers.
 
 A bucket cannot be permanently deleted until all objects is deleted, with versioning that means deleting all object versions.
 

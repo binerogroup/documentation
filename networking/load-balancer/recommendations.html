@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1556,9 +1556,9 @@ sessions. This ensures you wont disrupt your users during situations where it wo
 be impossible to honour persistence (for instance during maintenance).</p></li>
 <li><p>From a performance perspective, assuming you don’t use local caching on the members,
 using the round robin algorithm and not using persistence will likely be the best option.</p></li>
-<li><p>If you use some kind of caching locally on the member, using persistence or source_ip
-as algorithm would on the other hand be preferable as you would then hit a warm cache
-on the same member on each request.</p></li>
+<li><p>If you use some kind of caching locally on the member, using persistence or <code class="docutils literal notranslate"><span class="pre">source_ip</span></code>
+as algorithm would be preferable as you would then hit a warm cache on the same member
+on each request.</p></li>
 </ul>
 </li>
 <li><p>Pool-members</p>
@@ -1566,11 +1566,10 @@ on the same member on each request.</p></li>
 <li><p>Setup identical members. From a performance perspective but also ensure that the members
 run identical software (versions, etc). Automation is a good way to achieve this.</p></li>
 <li><p>If the members are not identical, you may end up in situations where issues are present
-one one member which may be difficult to diagnose as only a subset of the requests may
-end up on that member.</p></li>
-<li><p>Its generally better to use many less powerful members than fewer with very high
-performance. Finding the sweet spot will of course depend on your exact use case,
-however two points are usually true:</p>
+one member which may be difficult to diagnose as only a subset of the requests may end up
+on that member.</p></li>
+<li><p>Its generally better to use many less powerful members than fewer with high performance. Finding
+the sweet spot will depend on your exact use case, however two points are usually true:</p>
 <ul>
 <li><p>If one out of two really powerful members are removed, 50% of the capacity of the pool
 is lost. This might overwhelm the remaining server causing a complete outage. If one
@@ -1597,14 +1596,14 @@ outage (planned or otherwise).</p></li>
 <li><p>Health checking</p>
 <ul>
 <li><p>Ensure that your monitor(s) are as closely setup (protocol wise) to the listener type as
-possible. If you are for instance using load balancing for an http based service, don’t
+possible. If you are for instance using load balancing for an HTTP based service, don’t
 do health checking by pinging the members. Its not uncommon for a server that is
 malfunctioning to still reply to ping (or even still listen on a particular port).</p></li>
 <li><p>Never use ping based health checking. The bare minimum should be a TCP check on the
-service port (which is in itself not as useful as a layer 7 aware check like an http
+service port (which is in itself not as useful as a layer 7 aware check like an HTTP
 status code).</p></li>
-<li><p>Don’t use separate health checking (as in separate ports or IPs). Listening to the same
-application as is being load balanced is preferable.</p></li>
+<li><p>Don’t use separate health checking (as in separate ports or IP addresses ). Listening to
+the same application as is being load balanced is preferable.</p></li>
 <li><p>Its possible to create scripts that take many underlying considerations into account and
 having the load balancer test these scripts. This might give even better insight into
 the application.</p></li>

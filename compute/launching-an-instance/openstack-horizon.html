@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1549,24 +1549,28 @@
   
 
 <h1 id="launching-instances-using-openstack-horizon">Launching instances using OpenStack Horizon<a class="headerlink" href="#launching-instances-using-openstack-horizon" title="Link to this heading">¶</a></h1>
-<p>This will walk you through launching an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> from <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>.</p>
+<p>This will walk you through launching an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a>
+from <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in
-some of the steps below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.
-An SSH-key created or added in the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> is not available in Horizon as
-they use <a class="reference external" href="/getting-started/users.html#api-users">API users</a> and SSH-keys are owned by the user account and not the project.</p>
+some of the steps below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a>
+first.</p>
+<p>An SSH-key created or added in the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> is not available
+in Horizon as they use <a class="reference external" href="/getting-started/users.html#api-users">API users</a> and SSH-keys are owned by the user account
+and not the project.</p>
 </div>
 <ul class="simple">
-<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the left-hand side menu.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the left side menu.</p></li>
 <li><p>Click the <strong>Launch an instance</strong> button in the upper right corner.</p></li>
 </ul>
 <div class="caution warning admonition">
 <p class="admonition-title">Caution</p>
 <p>If you want to create an instance in the <code class="docutils literal notranslate"><span class="pre">europe-se-1b</span></code> availability zone (any availability zone that is not the default
 <code class="docutils literal notranslate"><span class="pre">europe-se-1a</span></code>) youneed to <a class="reference internal" href="../../storage/persistent-block-storage/create-volume.html"><span class="doc">create the volume</span></a> in that availability
-zone beforehand and in the <strong>Sources</strong> step select <strong>Boot Source</strong> as <strong>Volume</strong>. This is because we do not support attaching volumes
-across availability zones and the instance and volume must be in the same availability zone.</p>
+zone beforehand and in the <strong>Sources</strong> step select <strong>Boot Source</strong> as <strong>Volume</strong>.</p>
+<p>This is because we do not support attaching volumes across availability zones and the instance and volume must be in the
+same availability zone.</p>
 </div>
 <ul class="simple">
 <li><p>Under the <strong>Details</strong> tab in the dialog.</p>
@@ -1587,12 +1591,12 @@ if you are not sure that you need to use a secondary availability zone.</p></li>
 use an NVMe-based flavor.</p></li>
 <li><p>Select <strong>No</strong> for <strong>Delete Volume on Instance Delete</strong>. If you want the system to implicitly delete the volume together with
 the instance, select <strong>Yes</strong>.</p></li>
-<li><p>Select the <a class="reference internal" href="../../images/index.html"><span class="doc">Image</span></a> you want to boot your instance from by pressin the arrow on the right-hand side.</p></li>
+<li><p>Select the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want to boot your instance from by pressing the arrow on the right side.</p></li>
 </ul>
 </li>
 <li><p>Under the <strong>Flavour</strong> tab in the dialog.</p>
 <ul>
-<li><p>Select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want the instance to have by pressing the arrow on the right-hand side.</p></li>
+<li><p>Select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want the instance to have by pressing the arrow on the right side.</p></li>
 </ul>
 </li>
 <li><p>Under the <strong>Networks</strong> tab in the dialog.</p>
@@ -1605,7 +1609,7 @@ We recommend using a private subnet, for more information see our <a class="refe
 </li>
 <li><p>Under the <strong>Key Pair</strong> tab in the dialog.</p>
 <ul>
-<li><p>Select the SSH key you want added to the instance by pressing the arrow on the right-hand side. This is optional and mostly
+<li><p>Select the SSH key you want added to the instance by pressing the arrow on the right side. This is optional and mostly
 relevant for images and operating systems containing a SSH server.</p></li>
 </ul>
 </li>

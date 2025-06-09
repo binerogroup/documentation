@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1509,42 +1509,56 @@
   
 
 <h1 id="detach-a-volume">Detach a volume<a class="headerlink" href="#detach-a-volume" title="Link to this heading">¶</a></h1>
-<p>If you want to save a volume (when deleting the instance) for later or just remove it from an instance, you must first detach it. This means “un-hook it” from the instance so that its no longer usable. A boot disk (that is, the disk that stores the instances operating system) <em>cannot be detached</em>. If you want to save such a volume, the workflow would be:</p>
+<p>If you want to save a volume (when deleting the instance) for later or just remove it
+from an instance, you must first detach it.</p>
+<p>A volume used as boot disk (that is, the disk that stores the instances operating system)
+<em>cannot be detached</em>. If you want to save such a volume, the workflow would be:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../snapshots/index.html"><span class="doc">Snapshot</span></a> the volume.</p></li>
 <li><p><a class="reference internal" href="../snapshots/create-volume-from-snapshot.html"><span class="doc">Create a new volume from the snapshot</span></a>.</p></li>
-<li><p>(optionally) Delete the original instance with its volume.</p></li>
+<li><p>(optional) Delete the original instance with its volume.</p></li>
 </ul>
-<p>Because of this, volumes that are non-detachable (for being boot drives) will not give that option in the cloud management portal - and will produce an error when trying to detach in OpenStack Horizon or via the OpenStack terminal client.</p>
+<p>Because of this, volumes that are non-detachable (for being boot drives) will not give that
+option in the cloud management portal - and will produce an error when trying to detach in
+OpenStack Horizon or via the OpenStack terminal client.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>While its possible, we don’t recommend detaching a volume on a running VM as it could impact the data integrity if its not properly unmounted.</p>
+<p>While its possible, we don’t recommend detaching a volume on a running instance as it could
+impact the data integrity if its not properly unmounted in the operating system.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To detach a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To detach a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance that you want to resize.</p></li>
-<li><p>Press the “Volumes” tab.</p></li>
-<li><p>Press the small chain-link icon with a line over to the right next to the volume you want to remove. If there isn’t such an icon, then the volume cannot be removed.</p></li>
+<li><p>Press the <strong>Volumes</strong> tab.</p></li>
+<li><p>Press the small chain-link icon with a line over to the right next to the volume you want
+to remove. If there isn’t such an icon, then the volume cannot be removed.</p></li>
 </ul>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To detach a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To detach a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the instance from which you want to remove a volume.</p></li>
-<li><p>At the bottom, under the “volumes attached” section, press the volume you want to detach.</p></li>
-<li><p>At the top right, press the dropdown and select “Manage Attachments”.</p></li>
-<li><p>Press “Detach volume” on the row of the instance.</p></li>
-<li><p>If you get an error, most likely the volume is a boot volume and cannot be detached (see above).</p></li>
+<li><p>At the bottom, under the <strong>Volumes attached</strong> section, press the volume you want
+to detach.</p></li>
+<li><p>At the top right, press the dropdown and select <strong>Manage Attachments</strong></p></li>
+<li><p>Press <strong>Detach volume</strong> on the row of the instance.</p></li>
+<li><p>If you get an error, most likely the volume is a boot volume and cannot be
+detached (see above).</p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To detach a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To detach a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the name with that from previous step.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">remove</span> <span class="pre">volume</span> <span class="pre">[INSTANCE_ID]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing the items in angle brackets with the “Server ID” and “Volume ID” from the output of the previous command.</p></li>
-<li><p>If you get an error, most likely the volume is a boot volume and cannot be detached (see above).</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which
+the volume you want to extend is connected.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the
+name with that from previous step.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">remove</span> <span class="pre">volume</span> <span class="pre">[INSTANCE_ID]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing
+the items in angle brackets with the “Server ID” and “Volume ID” from the output of the
+previous command.</p></li>
+<li><p>If you get an error, most likely the volume is a boot volume and cannot be
+detached (see above).</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

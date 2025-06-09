@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1625,7 +1625,7 @@
   
 
 <h1 id="s3-object-storage">S3 object storage<a class="headerlink" href="#s3-object-storage" title="Link to this heading">¶</a></h1>
-<p>Amazon Simple Storage Services (S3) is an object storage service that exposes a HTTP based API known as the
+<p>AWS S3 is an object storage service provided by Amazon that exposes a HTTP based API known as the
 S3 API. Binero cloud provides it’s own object storage service that supports this HTTP based S3 API.</p>
 <p>You are able to consume our object storage using the S3 API from any of our
 <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Storage regions and availability zones</span></a>, either from one availability zone
@@ -1656,10 +1656,10 @@ and gives access to all of the cloud platform and not only the S3 service.</p>
 <p>When you create a new EC2 credential save the access and secret key that is the credential itself.</p>
 <p>You can read more about <a class="reference internal" href="../../getting-started/users.html#ec2-credential-label"><span class="std std-ref">EC2 Credential</span></a> in our <a class="reference internal" href="../../getting-started/users.html"><span class="doc">Users</span></a> documentation.</p>
 <h2 id="s3-client">S3 client<a class="headerlink" href="#s3-client" title="Link to this heading">¶</a></h2>
-<p>S3 is an API based protocol, meaning to administrate it you would use API requests. In order to simplify the
-management of S3 in the cloud, we recommend installing the official client from AWS, its available
-<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">here</a>. Once its installed, you should be
-able to run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--version</span></code> and get an output.</p>
+<p>S3 is an HTTP based API protocol, meaning to administer it you would use HTTP API requests. In order to
+simplify the management of S3 in the cloud, we recommend installing the official client from AWS, its
+available <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">here</a>.</p>
+<p>Once its installed, you should be able to run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--version</span></code> and get an output.</p>
 <p>Configure your client with your credentials (from the “setting up credentials” step above) by creating the file
 (on a Linux or MacOS based computer) <code class="docutils literal notranslate"><span class="pre">~/.aws/credentials</span></code> as such:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">default</span><span class="p">]</span>
@@ -1670,7 +1670,7 @@ able to run <code class="docutils literal notranslate"><span class="pre">aws</sp
 <p>When the configuration file is completed, you are now able to test reaching the cloud by for instance running
 this command: <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">list-buckets</span></code> which will list the
 buckets in the account from the non replicated endpoint of availability zone europe-se-1a.</p>
-<p>If you have no buckets setup, it will return an emtpy “Buckets” array.</p>
+<p>If you have no buckets setup, it will return an empty <code class="docutils literal notranslate"><span class="pre">Buckets</span></code> array.</p>
 <h2 id="creating-a-bucket">Creating a bucket<a class="headerlink" href="#creating-a-bucket" title="Link to this heading">¶</a></h2>
 <p>To create a bucket via S3, you would either use the API (not covered in this documentation) or the S3
 client. To use the latter to create a bucket, follow these steps:</p>

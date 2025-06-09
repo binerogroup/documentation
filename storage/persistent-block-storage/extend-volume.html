@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -900,14 +900,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#operation-inside-os" class="md-nav__link">
+  <a href="#operation-inside-operating-system" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Operation inside OS
+      Operation inside operating system
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Operation inside OS">
+    <nav class="md-nav" aria-label="Operation inside operating system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1526,14 +1526,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#operation-inside-os" class="md-nav__link">
+  <a href="#operation-inside-operating-system" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Operation inside OS
+      Operation inside operating system
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Operation inside OS">
+    <nav class="md-nav" aria-label="Operation inside operating system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1581,59 +1581,82 @@
   
 
 <h1 id="extend-a-persistent-volume">Extend a persistent volume<a class="headerlink" href="#extend-a-persistent-volume" title="Link to this heading">¶</a></h1>
-<p>You are able to extend volumes to create more space available on your compute instances. This is good because you do not have to pay for space that you are not sure if you are going to need or not, from when setting up the instance and can start small.</p>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>While its easy to extent the volume, you cannot revert and extension because a volume cannot be shrunk (the platform cannot guarantee the space it removes is not in use on the volume - as well as the filesystem would break). Therefore, take care to only extend volumes that you will not want to shrink again. Setting up a new, smaller volume and moving the data is a possible workaround for this.</p>
+<p>You are able to extend volumes to create more space available on your compute instances.</p>
+<p>This is good because you do not have to pay for space that you are not sure if you are
+going to need or not, from when setting up the instance and can start small.</p>
+<div class="caution warning admonition">
+<p class="admonition-title">Caution</p>
+<p>While you can extent a volume, you cannot revert an extension because a volume cannot
+be shrunk. If you need a smaller volume, create a new volume and migrate the data.</p>
 </div>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Manipulating the partition table of disks is always a dangerous process. We <strong>strongly</strong> recommend first <a class="reference internal" href="../../backup/index.html"><span class="doc">backing up</span></a> your instances disks before proceeding.</p>
+<p>Manipulating the partition table of disks is always a dangerous process. We <strong>strongly</strong>
+recommend first <a class="reference internal" href="../../backup/index.html"><span class="doc">backing up</span></a> your instances disks before proceeding.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To extend a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To extend a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Compute” and then “instances”.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>instances</strong>.</p></li>
 <li><p>Press the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Press the “Volumes” tab. It might require scrolling the tabs to the right.</p></li>
+<li><p>Press the <strong>Volumes</strong> tab. It might require scrolling the tabs to the right.</p></li>
 <li><p>Press the name of the volume that you want to extend.</p></li>
 <li><p>Press the “Extend volume” button (to the top right, looks like a dotted square).</p></li>
 <li><p>Enter the new size in GB and press “Extend”.</p></li>
 </ul>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To extend a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To extend a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, press “Compute” and then “Instances” in the sidebar menu.</p></li>
+<li><p>Under <strong>Project</strong>, press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Press the name of the volume under the “Volumes Attached” section.</p></li>
-<li><p>Press the drop down next to “edit volume” on the top right and select “Extend volume”.</p></li>
-<li><p>Enter the new size in GB and press “Extend Volume”.</p></li>
+<li><p>Press the name of the volume under the <strong>Volumes Attached</strong> section.</p></li>
+<li><p>Press the drop down next to “edit volume” on the top right and select <strong>Extend volume</strong></p></li>
+<li><p>Enter the new size in GB and press <strong>Extend Volume</strong></p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To extend a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To extend a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which the volume you want to extend is connected.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the name with that from previous step.</p></li>
-<li><p>Notice the “Device” column that shows you what device is referenced. If the instance only has a single device then only one row is shown, however if the instance has several, the device name should correlate with the volume name in Linux (although “vda” might be “sda”), or the device order in Windows. Save the “Volume ID” of the volume you want to extend.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span> <span class="pre">volume</span> <span class="pre">set</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">--size</span> <span class="pre">[SIZE]</span></code>, replacing the values in angle brackets with the volume ID from the previous step and the size in GB. Note the <code class="docutils literal notranslate"><span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span></code> which is currently needed due to limitation in the standard API.</p></li>
-<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">size</span></code>, replacing value with the volume ID.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which the
+volume you want to extend is connected.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the name
+with that from previous step.</p></li>
+<li><p>Find the volume you want to extend and copy the volume ID.</p></li>
 </ul>
-<h2 id="operation-inside-os">Operation inside OS<a class="headerlink" href="#operation-inside-os" title="Link to this heading">¶</a></h2>
-<p>Above we demonstrate the process for growing a volume in the platform but there is also a need to grow the disk logged into the instance. Depending on what operating system you are running and how your disks are laid out, this process will will vary and below are just suggestions that we have found to be useful. For a complete reference, please see your operating systems documentation.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>The 3.42 microversion or newer needs to be used for the Cinder API as that introduced
+support for extending an in-use volume.</p>
+</div>
+<ul class="simple">
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">--os-volume-api-version</span> <span class="pre">3.42</span> <span class="pre">volume</span> <span class="pre">set</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">--size</span> <span class="pre">[SIZE]</span></code>, replacing
+the values in angle brackets with the volume ID from the previous step and the size in GB.</p></li>
+<li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">size</span></code>, replacing value
+with the volume ID.</p></li>
+</ul>
+<h2 id="operation-inside-operating-system">Operation inside operating system<a class="headerlink" href="#operation-inside-operating-system" title="Link to this heading">¶</a></h2>
+<p>Above we demonstrate the process for growing a volume in the platform but there is also a need to grow
+the disk logged into the instance. Depending on what operating system you are running and how your disks
+are laid out, this process will vary and below are just suggestions that we have found to be useful.</p>
+<p>For a complete reference, please see your operating systems documentation.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Manipulating the partition table of disks is always a dangerous process. We <strong>strongly</strong> recommend first <a class="reference internal" href="../../backup/index.html"><span class="doc">backing up</span></a> your instances disks before proceeding.</p>
+<p>Manipulating the partition table of disks is always a dangerous process. We <strong>strongly</strong> recommend
+first <a class="reference internal" href="../../backup/index.html"><span class="doc">backing up</span></a> your instances disks before proceeding.</p>
 </div>
 <h3 id="linux">Linux<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">lsblk</span></code>, verify that the new disk size is visible on the device. If its not, reboot your machine and try again.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">growpart</span> <span class="pre">-u</span> <span class="pre">auto</span> <span class="pre">/dev/sda</span> <span class="pre">1</span></code>, use the correct device (“/dev/sda” in the example) from previous commands output. This may not work on all images, if not then we recommend reading the documentation of the Linux release.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">lsblk</span></code>, verify that the new disk size is visible on the device. If its not, reboot
+your machine and try again.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">growpart</span> <span class="pre">-u</span> <span class="pre">auto</span> <span class="pre">/dev/sda</span> <span class="pre">1</span></code>, use the correct device (“/dev/sda” in the example) from
+previous commands output. This may not work on all images, if not then we recommend reading the documentation
+of your Linux distribution.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">resize2fs</span> <span class="pre">/dev/sda1</span></code>.</p></li>
 <li><p>To verify, run this command: <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">-h</span> <span class="pre">/dev/sda1</span></code>.</p></li>
 </ul>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Type Computer Management in the search box on the taskbar, select and hold (or right-click) Computer Management, and then select Run as administrator &gt; Yes. After Computer Management opens, go to Storage &gt; Disk Management.</p></li>
+<li><p>Type Computer Management in the search box on the taskbar, select and hold (or right-click) Computer Management, and
+then select Run as administrator &gt; Yes. After Computer Management opens, go to Storage &gt; Disk Management.</p></li>
 <li><p>Select and hold (or right-click) the volume that you want to extend, and then select Extend Volume.</p></li>
 </ul>
 <div class="seealso admonition">

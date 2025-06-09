@@ -37,9 +37,9 @@ load balancing setup in the platform (as well as in general).
   - From a performance perspective, assuming you don't use local caching on the members,
     using the round robin algorithm and not using persistence will likely be the best option.
 
-  - If you use some kind of caching locally on the member, using persistence or source_ip
-    as algorithm would on the other hand be preferable as you would then hit a warm cache
-    on the same member on each request.
+  - If you use some kind of caching locally on the member, using persistence or ``source_ip``
+    as algorithm would be preferable as you would then hit a warm cache on the same member
+    on each request.
 
 - Pool-members
 
@@ -47,12 +47,11 @@ load balancing setup in the platform (as well as in general).
     run identical software (versions, etc). Automation is a good way to achieve this.
 
   - If the members are not identical, you may end up in situations where issues are present
-    one one member which may be difficult to diagnose as only a subset of the requests may
-    end up on that member.
+    one member which may be difficult to diagnose as only a subset of the requests may end up
+    on that member.
 
-  - Its generally better to use many less powerful members than fewer with very high
-    performance. Finding the sweet spot will of course depend on your exact use case,
-    however two points are usually true:
+  - Its generally better to use many less powerful members than fewer with high performance. Finding
+    the sweet spot will depend on your exact use case, however two points are usually true:
 
     - If one out of two really powerful members are removed, 50% of the capacity of the pool
       is lost. This might overwhelm the remaining server causing a complete outage. If one
@@ -80,16 +79,16 @@ load balancing setup in the platform (as well as in general).
 - Health checking
 
   - Ensure that your monitor(s) are as closely setup (protocol wise) to the listener type as
-    possible. If you are for instance using load balancing for an http based service, don't
+    possible. If you are for instance using load balancing for an HTTP based service, don't
     do health checking by pinging the members. Its not uncommon for a server that is
     malfunctioning to still reply to ping (or even still listen on a particular port).
 
   - Never use ping based health checking. The bare minimum should be a TCP check on the
-    service port (which is in itself not as useful as a layer 7 aware check like an http
+    service port (which is in itself not as useful as a layer 7 aware check like an HTTP 
     status code).
 
-  - Don't use separate health checking (as in separate ports or IPs). Listening to the same
-    application as is being load balanced is preferable.
+  - Don't use separate health checking (as in separate ports or IP addresses ). Listening to
+    the same application as is being load balanced is preferable.
 
   - Its possible to create scripts that take many underlying considerations into account and
     having the load balancer test these scripts. This might give even better insight into
@@ -101,4 +100,5 @@ load balancing setup in the platform (as well as in general).
    if availability and end-user experience is important to you.
 
 ..  seealso::
+
     - :doc:`general-concept/index`

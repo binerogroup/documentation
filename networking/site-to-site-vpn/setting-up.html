@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1525,37 +1525,63 @@
   
 
 <h1 id="setting-up-site-to-site-vpn">Setting up site-to-site VPN<a class="headerlink" href="#setting-up-site-to-site-vpn" title="Link to this heading">¶</a></h1>
-<p>We recommend that you first read through our <a class="reference internal" href="prerequisites.html"><span class="doc">Prerequisites for site-2-site VPN</span></a> guide. Follow these steps to setup site-to-site VPN using the cloud management portal:</p>
+<p>We recommend that you first read through our <a class="reference internal" href="prerequisites.html"><span class="doc">Prerequisites for site-2-site VPN</span></a> guide. Follow
+these steps to setup site-to-site VPN using the cloud management portal:</p>
 <ul class="simple">
-<li><p>Press “VPN” and then “Ipsec” in the sidebar menu.</p></li>
-<li><p>Click the “+” symbol in the lower right corner.</p></li>
-<li><p>Fill in the required information:</p>
+<li><p>Press <strong>VPN</strong> and then <strong>IPsec</strong> in the sidebar menu.</p></li>
+<li><p>Click the <strong>+ (plus)</strong> symbol in the lower right corner.</p></li>
+<li><p>Enter the required information:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: This is a friendly name that will be used to distinguish the resources created by this template.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">SSH</span> <span class="pre">key</span> <span class="pre">pair</span></code>: Your SSH key pair that can be used to access the pfSense instance by SSH.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">IP</span> <span class="pre">ranges</span></code>: IP ranges in <a class="reference internal" href="../router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a> that will be allowed to access the pfSense instances WebUI and SSH server through the router. Usually this would be your offices (or like) public IP-address followed by “/32” (for instance 8.8.8.8/32) in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN server, you can enter <code class="docutils literal notranslate"><span class="pre">0.0.0.0/32</span></code> here (not recommended) or leave the standard “127.0.0.1/32” which will not allow access other than from inside the cloud (for instance via the client-vpn). This can also be changed later by editing the security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Availability</span> <span class="pre">zone</span></code>: This needs to be set to the same availability zone that was used for the private network that you intend to use.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pfSense</span> <span class="pre">instance</span> <span class="pre">flavor</span></code>: The instance flavor used for the pfSense instance. The default <code class="docutils literal notranslate"><span class="pre">gp.1x2</span></code> should be enough for most use cases.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">network</span></code>: The desired private network that will be exposed through IPSec.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">pre-shared</span> <span class="pre">key</span></code>: If you want to use a specific pre-shared key you may enter that here. If left at default, a random key will be generated for you.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">peer</span> <span class="pre">IP</span></code>: This should contain the public gateway address for the remote IPSec endpoint. It should not be a DNS name but an IP-address.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">remote</span> <span class="pre">network</span></code>: This should contain the network address (in CIDR notation) for the tunneled remote network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: This is a friendly name that will be used to distinguish the resources
+created by this template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">SSH</span> <span class="pre">key</span> <span class="pre">pair</span></code>: Your SSH key pair that can be used to access the pfSense
+instance by SSH.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">IP</span> <span class="pre">ranges</span></code>: IP ranges in <a class="reference internal" href="../router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>
+that will be allowed to access the pfSense instances WebUI and SSH server through the router.</p>
+<ul>
+<li><p>Usually this would be your offices (or like) public IP-address followed by “/32” (for example 8.8.8.8/32)
+in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN
+server, you can enter <code class="docutils literal notranslate"><span class="pre">0.0.0.0/32</span></code> here (not recommended) or leave the standard “127.0.0.1/32” which will
+not allow access other than from inside the cloud (for instance via the client-vpn). This can also be changed
+later by editing the security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code></p></li>
 </ul>
 </li>
-<li><p>Press “Create”. VPN creation takes considerably longer than setting up a standard instance. This is due to the (comparably) long first time bootstrap of the VPN instance when generating ciphers, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Availability</span> <span class="pre">zone</span></code>: This needs to be set to the same availability zone that was used for the
+private network that you intend to use.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pfSense</span> <span class="pre">instance</span> <span class="pre">flavor</span></code>: The instance flavor used for the pfSense instance. The default
+<code class="docutils literal notranslate"><span class="pre">gp.1x2</span></code> should be enough for most use cases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">network</span></code>: The desired private network that will be exposed through IPsec.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">pre-shared</span> <span class="pre">key</span></code>: If you want to use a specific pre-shared key you may enter that
+here. If left at default, a random key will be generated for you.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">peer</span> <span class="pre">IP</span></code>: This should contain the public gateway address for the remote IPsec
+endpoint. It should not be a DNS name but an IP-address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">remote</span> <span class="pre">network</span></code>: This should contain the network address (in CIDR notation) for
+the tunneled remote network.</p></li>
+</ul>
+</li>
+<li><p>Press <strong>Create</strong>. VPN creation takes considerably longer than setting up a standard
+instance. This is due to the (comparably) long first time bootstrap of the VPN instance
+when generating ciphers, etc.</p></li>
 <li><p>Post installation tasks:</p>
 <ul>
-<li><p>In the output of the stack, a “mgmt_url” parameter is shown. Save this, along with the “admin password” (the username is always “admin”). These are for doing additional configuration.</p></li>
-<li><p>We recommend logging into the above URL and changing the password and pre-shared key, please see <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information on this.</p></li>
-<li><p>After the service creation is complete you will need to <a class="reference internal" href="adding-routing-for-vpn.html"><span class="doc">add routes to the remote subnets</span></a> to get traffic flowing over VPN.</p></li>
-<li><p>Add the newly created security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_access</span></code> to all instances that should be accessible from the remote end of the IPSec tunnel.</p></li>
+<li><p>In the output of the stack, a <code class="docutils literal notranslate"><span class="pre">mgmt_url</span></code> parameter is shown. Save this, along with the
+“admin password” (the username is always “admin”). These are for doing additional configuration.</p></li>
+<li><p>We recommend logging into the above URL and changing the password and pre-shared key, please
+see <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information on this.</p></li>
+<li><p>After the service creation is complete you will need to <a class="reference internal" href="adding-routing-for-vpn.html"><span class="doc">add routes to the remote subnets</span></a>
+to get traffic flowing over VPN.</p></li>
+<li><p>Add the newly created security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_access</span></code> to all instances
+that should be accessible from the remote end of the IPSec tunnel.</p></li>
 <li><p>Once you are ready, proceed to configure <a class="reference internal" href="configure-remote.html"><span class="doc">the remote end</span></a> of the tunnel.</p></li>
 </ul>
 </li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>There are some steps included in the setup that may hit a pre-defined quota (for instance if you cant create more security groups or floating ips), these can then be raised by the support team. If the installation fails, you are able to get the reason by clicking the service and checking error messages.</p>
+<p>Some steps included in the setup that may cause you to hit a predefined quota (for example if you
+cant create more security groups or floating IP addresses), these can then be raised by the support
+team.</p>
+<p>If the installation fails, you are able to get the reason by clicking the service and checking error messages.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

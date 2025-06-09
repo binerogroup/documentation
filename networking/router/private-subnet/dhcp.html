@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1240,7 +1240,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1264,7 +1264,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1925,41 +1925,62 @@
   
 
 <h1 id="dhcp">DHCP<a class="headerlink" href="#dhcp" title="Link to this heading">¶</a></h1>
-<p>For assigning addresses to instances, Binero cloud uses the DHCP protocol. While its possible to do static IPs in the plattform, we highly recommend using it because it greatly simplifies adding new instances (they will become available with zero configuration needed). Instance IP-allocations are saved so there is no risk that an instance (as is the case traditionally with DHCP - which was typically used for client computers) would suddenly get another IP-address.</p>
-<p>A DHCP scope (or pool) is part of a network range that is reserved for the DHCP server do deliver to its clients. The scope is setup on a <a class="reference internal" href="index.html"><span class="doc">private subnet</span></a> when creating it, instructions are provided under each management tool.</p>
-<p>DHCP, other than assigning addresses, also assigns the correct <a class="reference internal" href="../../mtu.html"><span class="doc">MTU</span></a> to instances. This is very important for networking functionality in general so if opting to not use DHCP, we recommend reading the MTU article carefully to understand the MTU concept.</p>
+<p>For assigning addresses to instances, Binero cloud uses the DHCP protocol. While its possible to do
+static IP addresses in the platform, we highly recommend using it because it greatly simplifies adding
+new instances (they will become available with zero configuration needed).</p>
+<p>Instance IP allocations are saved so there is no risk that an instance (as is the case traditionally with
+DHCP - which was typically used for client computers) would suddenly get another IP address.</p>
+<p>A DHCP scope (or pool) is part of a network range that is reserved for the DHCP server do deliver to its
+clients. The scope is setup on a <a class="reference internal" href="index.html"><span class="doc">private subnet</span></a> when creating it, instructions are provided
+under each management tool.</p>
+<p>DHCP, other than assigning addresses, also assigns the correct <a class="reference internal" href="../../mtu.html"><span class="doc">MTU</span></a> to instances. This is
+important for networking functionality in general so if opting to not use DHCP, we recommend reading the
+MTU article carefully to understand the MTU concept.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>When assigning a DHCP scope (or pool), leave some room for potential statically assigned addresses as well as the gateway address. A typical recommendation would be to reserve the first 10-20 addresses in a subnet, depending on the subnet size. The remaining addresses would ideally go into the pool.</p>
+<p>When assigning a DHCP scope (or pool), leave some room for potential statically assigned addresses as well as
+the gateway address.</p>
+<p>A typical recommendation would be to reserve the first 10-20 addresses in a subnet, depending on the subnet
+size. The remaining addresses would ideally go into the pool.</p>
 </div>
 <h2 id="routing-via-dhcp">Routing via DHCP<a class="headerlink" href="#routing-via-dhcp" title="Link to this heading">¶</a></h2>
-<p>Since DHCP provisions IP-configuration to instances, if there is a need to add :doc:static routes &lt;../static-routing&gt;` to instances (so called “Host routes”) for whatever reason, DHCP is a good way to accomplish this as any routes that are added to the DHCP subnet will get pushed to all instances on that subnet (existing as well as any new ones added). DHCP will only add routes on instances, which is only usable to route to other instances on the same subnet. To route to a destination outside the same subnet, the default route is normally used but a good use case for routing via DHCP is when a VPN is setup on the same subnet that does not do <a class="reference internal" href="../nat.html"><span class="doc">NAT</span></a>. See below for how to add routing to a DHCP pool.</p>
+<p>Since DHCP provisions IP-configuration to instances, if there is a need to add :doc:static routes &lt;../static-routing&gt;` to
+instances (so called “Host routes”) for whatever reason, DHCP is a good way to accomplish this as any routes that are added
+to the DHCP subnet will get pushed to all instances on that subnet (existing as well as any new ones added).</p>
+<p>DHCP will only add routes on instances, which is only usable to route to other instances on the same subnet. To route to a
+destination outside the same subnet, the default route is normally used but a good use case for routing via DHCP is when a
+VPN is setup on the same subnet that does not do <a class="reference internal" href="../nat.html"><span class="doc">NAT</span></a>. See below for how to add routing to a DHCP pool.</p>
 <h2 id="add-a-route-using-the-cloud-management-portal">Add a route using the cloud management portal<a class="headerlink" href="#add-a-route-using-the-cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To add a route using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, follow these steps:</p>
+<p>To add a route using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Networking” and then “Networks” in the sidebar menu.</p></li>
+<li><p>Press <strong>Networking</strong> and then <strong>Networks</strong> in the sidebar menu.</p></li>
 <li><p>Press the network for which you want to add the route.</p></li>
 <li><p>Press the edit icon (a small pencil) next to the subnet for which you want to add the route.</p></li>
 <li><p>Press the “+” sign above “add host route”.</p></li>
-<li><p>Under “Destination CIDR”, enter the destination network in <a class="reference internal" href="subnet-format.html"><span class="doc">CIDR notation</span></a>.</p></li>
-<li><p>Under “Nexthop (IP)” add the gateway address. This address needs to be in the subnet you are editing.</p></li>
-<li><p>Press “Save subnet”.</p></li>
+<li><p>Under <strong>Destination CIDR</strong>, enter the destination network in
+<a class="reference internal" href="subnet-format.html"><span class="doc">CIDR notation</span></a>.</p></li>
+<li><p>Under <code class="docutils literal notranslate"><span class="pre">Nexthop</span> <span class="pre">(IP)</span></code> add the gateway address. This address needs to be in the subnet you are editing.</p></li>
+<li><p>Press <strong>Save subnet</strong>.</p></li>
 </ul>
 <h2 id="add-a-route-using-openstack-horizon">Add a route using OpenStack Horizon<a class="headerlink" href="#add-a-route-using-openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To add a route using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To add a route using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “Network” and then “Networks” in the sidebar menu.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Networks</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the network for which you want to add the route.</p></li>
-<li><p>Press the “subnets” tab and then “edit subnet” button on the row of the subnet for which you want to add the route.</p></li>
-<li><p>Press the “Subnet details” button.</p></li>
-<li><p>Enter the route as <code class="docutils literal notranslate"><span class="pre">destination</span> <span class="pre">subnet</span> <span class="pre">in</span> <span class="pre">`CIDR</span> <span class="pre">notation</span> <span class="pre">&lt;/networking/router/private-subnet/subnet-format&gt;`,nexthop</span> <span class="pre">(gateway)</span></code>, for instance <code class="docutils literal notranslate"><span class="pre">192.168.10.0/24,192.168.1.5</span></code>. A single route entry on a single row.</p></li>
-<li><p>Press “Save”.</p></li>
+<li><p>Press the <strong>Subnets</strong> tab and then <strong>Edit subnet</strong> button on the row of the subnet for which you
+want to add the route.</p></li>
+<li><p>Press the <strong>Subnet details</strong> button.</p></li>
+<li><p>Enter the route as <code class="docutils literal notranslate"><span class="pre">destination</span> <span class="pre">subnet</span> <span class="pre">in</span> <span class="pre">`CIDR</span> <span class="pre">notation</span> <span class="pre">&lt;/networking/router/private-subnet/subnet-format&gt;`,nexthop</span> <span class="pre">(gateway)</span></code>,
+for example <code class="docutils literal notranslate"><span class="pre">192.168.10.0/24,192.168.1.5</span></code>. A single route entry on a single row.</p></li>
+<li><p>Press <strong>Save</strong></p></li>
 </ul>
 <h2 id="add-a-route-using-openstack-terminal-client">Add a route using OpenStack terminal client<a class="headerlink" href="#add-a-route-using-openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To add a route using the using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To add a route using the using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">subnet</span> <span class="pre">list</span></code>. Save the name of the subnet you want to add the route to.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">subnet</span> <span class="pre">set</span> <span class="pre">--host-route</span> <span class="pre">destination=[DESTINATION_SUBNET],gateway=[GATEWAY]</span> <span class="pre">[NAME_OF_SUBNET]</span></code>, replacing the items in angle brackets with the information from the previous steps and the destination network and gateway/nexthop. If you want to know more options, use “-h” at the end of the command.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">subnet</span> <span class="pre">set</span> <span class="pre">--host-route</span> <span class="pre">destination=[DESTINATION_SUBNET],gateway=[GATEWAY]</span> <span class="pre">[NAME_OF_SUBNET]</span></code>, replacing
+the items in angle brackets with the information from the previous steps and the destination network and gateway/nexthop. If you want
+to know more options, use <code class="docutils literal notranslate"><span class="pre">-h</span></code> at the end of the command.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1459,47 +1459,90 @@
   
 
 <h1 id="custom-firewall-router">Custom firewall/router<a class="headerlink" href="#custom-firewall-router" title="Link to this heading">¶</a></h1>
-<p>Sometimes its preferred to use a network stack that is familiar to an admin or that provides a function that is desired and not included in the <a class="reference internal" href="router/index.html"><span class="doc">router</span></a> stack. There are several open source (or proprietary) systems that can run as a router or firewall with very good performance and with rich feature-sets. These systems are normally installed as instances in a cloud and Binero cloud supports this approach.</p>
+<p>Sometimes its preferred to use a network stack that is familiar to an admin or that provides
+a function that is desired and not included in the <a class="reference internal" href="router/index.html"><span class="doc">router</span></a> stack.</p>
+<p>Several open source (or proprietary) systems that can run as a router or firewall with good
+performance and with rich feature-sets. These systems are normally installed as instances in
+a cloud and Binero cloud supports this approach.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>We do not recommend mixing a custom router/firewall with <a class="reference internal" href="router/index.html"><span class="doc">router</span></a>. While its possible to do so, this will cause to make the network more difficult to understand. As such, rather give the instance running as a router a leg (a connection) to each of the private subnets that you want to reach and manage everything within the router.</p>
+<p>We do not recommend mixing a custom router/firewall with <a class="reference internal" href="router/index.html"><span class="doc">router</span></a>. While
+its possible to do so, this will cause to make the network more difficult to understand.</p>
+<p>As such, rather give the instance running as a router a leg (a connection) to each of the
+private subnets that you want to reach and manage everything within the router.</p>
 </div>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Link to this heading">¶</a></h2>
-<p>When working with a custom router, the main difference from the platform perspective is the <a class="reference internal" href="ports.html"><span class="doc">port</span></a> configuration, particularly the port security setting. Since the platform is (normally) aware of what IPs are existing behind each port, it filters traffic based on what it knows. This enables it to protect from various spoofing attempts and its also a prerequisite for using <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a>.</p>
-<p>When using a custom firewall/router, the port security feature does not work as destination traffic is no longer meant for the instance (a router receives traffic and forwards it - the destination is usually something other than the router).</p>
-<p>Aside from the above its important to note that the usual manner of IP-assignments on the platform is <a class="reference internal" href="router/private-subnet/dhcp.html"><span class="doc">DHCP</span></a> which is included on a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>. It might be tempting to run a DHCP server on the custom routing solution instead or to simply disregard it and use manual networking. While this works, this will remove cloud-init support, resulting in instances no longer being correctly provisioned.</p>
+<p>When working with a custom router, the main difference from the platform perspective is the
+<a class="reference internal" href="ports.html"><span class="doc">port</span></a> configuration, particularly the port security setting.</p>
+<p>Since the platform is (normally) aware of what IP addresses are existing behind each port, it
+filters traffic based on what it knows.</p>
+<p>This enables it to protect from various spoofing attempts and its also a prerequisite for
+using <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a>.</p>
+<p>When using a custom firewall/router, the port security feature does not work as destination
+traffic is no longer meant for the instance (a router receives traffic and forwards it - the
+destination is usually something other than the router).</p>
+<p>Aside from the above its important to note that the usual manner of IP-assignments on the
+platform is <a class="reference internal" href="router/private-subnet/dhcp.html"><span class="doc">DHCP</span></a> which is included on a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>.</p>
+<p>It might be tempting to run a DHCP server on the custom routing solution instead of using
+manual networking. While this works, this will remove cloud-init support, resulting in
+instances no longer being correctly provisioned.</p>
 <h2 id="setting-up-a-custom-router-firewall">Setting up a custom router/firewall<a class="headerlink" href="#setting-up-a-custom-router-firewall" title="Link to this heading">¶</a></h2>
-<p>Below is a guide on how to setup a router with a public (internet facing) outside network and a private subnet (which will work the same as with a router) for hosting instances on the inside of the router.</p>
+<p>Below is a guide on how to setup a router with a public (internet facing) outside network and a
+private subnet (which will work the same as with a router) for hosting instances on the inside
+of the router.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Since some features below are only available using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> (or <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>), we will use Horizon below.</p>
+<p>Since some features below are only available using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>
+(or <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>), we will use Horizon below.</p>
 </div>
 <ul class="simple">
-<li><p>Create your <a class="reference internal" href="router/private-network/index.html"><span class="doc">private networks</span></a> and <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> for the internal network(s) unless you have already done so.</p></li>
-<li><p>Create a network <a class="reference internal" href="ports.html"><span class="doc">port</span></a> on the subnet.
-- Select fixed IP and add input the same ip as you selected as default route on the private subnet in the previous step.
-- Under <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a>, add the “all-open” group (as the traffic will not be destined to the instance because of routing). Any firewalling to the router/firewall-instance will have to be setup on the instance.
-- Edit the new port and select the “Allowed address pairs” tab
-- Add “0.0.0.0/0” under the “IP Address or CIDR” field.</p></li>
-<li><p>Launch the instance using an image or install it via console.
-- Add a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a> as the outside network.
-- Connect to the port(s). Do not connect to the inside subnet, just the port(s) that you already created.
-- Select the “all-open” security group unless you want to filter traffic to the router in the platform (its recommended to use this feature in the router/firewall as that will simplify working with it.</p></li>
+<li><p>Create your <a class="reference internal" href="router/private-network/index.html"><span class="doc">private networks</span></a> and <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>
+for the internal network(s) unless you have already done so.</p></li>
+<li><p>Create a network <a class="reference internal" href="ports.html"><span class="doc">port</span></a> on the subnet.</p>
+<ul>
+<li><p>Select fixed IP and add input the same IP as you selected as default route on the private
+subnet in the previous step.</p></li>
+<li><p>Under <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a>, add the “all-open” group (as the
+traffic will not be destined to the instance because of routing). A firewall to the
+router/firewall-instance will have to be setup on the instance itself.</p></li>
+<li><p>Edit the new port and select the “Allowed address pairs” tab</p></li>
+<li><p>Add “0.0.0.0/0” under the “IP Address or CIDR” field.</p></li>
+</ul>
+</li>
+<li><p>Launch the instance using an image or install it via console.</p>
+<ul>
+<li><p>Add a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a> as the outside network.</p></li>
+<li><p>Connect to the port(s). Do not connect to the inside subnet, just the port(s) that
+you already created.</p></li>
+<li><p>Select the “all-open” security group unless you want to filter traffic to the router in
+the platform (its recommended to use this feature in the router/firewall as that will
+simplify working with it.</p></li>
+</ul>
+</li>
 </ul>
 <p>When the instance is launched, follow these steps:</p>
 <ul class="simple">
 <li><p>The outside (external) interface should use DHCP and get a statically directly assigned IP-address.</p></li>
-<li><p>The internal interface could use either a static address (use the same as is assigned on the port(s)) or a DHCP provided adress, we recommend using a static address here.</p></li>
-<li><p>Setup SNAT (see <a class="reference internal" href="router/nat.html"><span class="doc">NAT</span></a> for more info) on the instance. This is done in different manners depending on distribution and is out of scope for this article.</p></li>
+<li><p>The internal interface could use either a static address (use the same as is assigned on the port(s))
+or a DHCP provided address, we recommend using a static address here.</p></li>
+<li><p>Setup SNAT (see <a class="reference internal" href="router/nat.html"><span class="doc">NAT</span></a> for more info) on the instance. This is done in different manners
+depending on distribution and is out of scope for this article.</p></li>
 </ul>
-<p>Your instances located behind this instance, and that use an IP on this instance as default route, should now be able to access the internet through it and you should be able to redirect (DNAT) traffic into the instances. If its not working, the following are some tips to check connectivity:</p>
+<p>Your instances located behind this instance, and that use an IP on this instance as default route, should
+now be able to access the internet through it and you should be able to redirect (DNAT) traffic into the
+instances.</p>
+<p>If its not working, the following are some tips to check connectivity:</p>
 <ul class="simple">
 <li><p>Verify that the router can reach the instances directly and vice versa.</p></li>
-<li><p>Verify the security groups on all instances. The firewall/router should have “all-open” on all ports and “default” (as well) on the internal ports). If the firewall does not have default, other instances will not accept traffic from it and if it does not have the all-open group, it will not access traffic from the other instances.</p></li>
+<li><p>Verify the security groups on all instances. The firewall/router should have “all-open” on all ports
+and “default” (as well) on the internal ports). If the firewall does not have default, other instances
+will not accept traffic from it and if it does not have the all-open group, it will not access traffic
+from the other instances.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The platform uses a smaller MTU (1450) than is customary. There might be need to change this.</p>
+<p>The platform uses a smaller MTU (1450) than is standard. There might be need to change this, see
+the <a class="reference internal" href="mtu.html"><span class="doc">MTU</span></a> documentation.</p>
 </div>
 
 

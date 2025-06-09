@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1597,18 +1597,38 @@
   
 
 <h1 id="initial-configuration-of-client-vpn">Initial configuration of client VPN<a class="headerlink" href="#initial-configuration-of-client-vpn" title="Link to this heading">¶</a></h1>
-<p>After the service stack has been created (and the stack status says: <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">COMPLETE</span></code>), open its info view by clicking the service card or list entry. Here you will be presented with a URL to the VPN WebUI. Copy the value from the <code class="docutils literal notranslate"><span class="pre">mgmt_url</span></code> output and open the URL in your browser. As the WebUI uses a self-signed certificate by default, your browser will display a warning before opening the site. Default username/password for the WebUI is <code class="docutils literal notranslate"><span class="pre">admin</span></code>/<code class="docutils literal notranslate"><span class="pre">pfsense</span></code>.</p>
+<p>After the service stack has been created (and the stack status says: <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">COMPLETE</span></code>), open
+its info view by clicking the service card or list entry.</p>
+<p>Here you will be presented with a URL to the VPN WebUI. Copy the value from the <code class="docutils literal notranslate"><span class="pre">mgmt_url</span></code> output
+and open the URL in your browser.</p>
+<p>As the WebUI uses a self-signed certificate by default, your browser will display a warning before
+opening the site. Default username/password for the WebUI is <code class="docutils literal notranslate"><span class="pre">admin</span></code>/<code class="docutils literal notranslate"><span class="pre">pfsense</span></code>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The WebUI can only be accessed from the IP-address or network that was assigned in the “admin IP-ranges” during the <a class="reference internal" href="setting-up.html"><span class="doc">setup of the VPN</span></a>. If you cannot reach the WebUI, its likely that you are connecting from another IP than the one you choose during setup. Proceed to edit the <a class="reference internal" href="../router/security-groups/index.html"><span class="doc">security group</span></a> on the VPN <a class="reference internal" href="../../compute/index.html"><span class="doc">instance</span></a> so that it includes your current source IP (or <em>temporarily</em> remove the security group, making sure to re-add it once initial configuration is done and you’ve downloaded the client config).</p>
+<p>The WebUI can only be accessed from the IP-address or network that was assigned in the “admin IP ranges”
+during the <a class="reference internal" href="setting-up.html"><span class="doc">setup of the VPN</span></a>.</p>
+<p>If you cannot reach the WebUI, its likely that you are connecting from another IP than the one you choose
+during setup. Proceed to edit the <a class="reference internal" href="../router/security-groups/index.html"><span class="doc">security group</span></a> on the VPN
+<a class="reference internal" href="../../compute/index.html"><span class="doc">instance</span></a> so that it includes your current source IP (or <em>temporarily</em> remove the
+security group, making sure to re-add it once initial configuration is done and you’ve downloaded the
+client configuration).</p>
 </div>
-<p>Once logged in, read and accept pfsense EULA. After this, your first task should be to change the admin accounts password. There should be a warning on the top of the screen with a link to change the password. If not, its available under the menu “system” -&gt; “user manager”, press the small pen icon next to the admin user.</p>
+<p>Once logged in, read and accept pfSense EULA. After this, your first task should be to change the admin
+accounts password.</p>
+<p>There should be a warning on the top of the screen with a link to change the password. If not, its available
+under the menu <strong>System</strong> then <strong>User manager</strong>, press the small pen icon next to the admin user.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Not changing the default user password is a <strong>major</strong> security risk as this login combination is widely known as default credentials.</p>
+<p>Not changing the default user password is a <strong>major</strong> security risk as this login combination is widely
+known as default credentials.</p>
 </div>
-<p>Your next task is to choose a user mode. The default mode (which will work out of the box) is using a certificate and TLS key to secure traffic with no user authentication. An alternative mode (also available) will allow for individual users to authenticate. We strongly recommend reading the <a class="reference internal" href="user-modes.html"><span class="doc">User modes</span></a> article before proceeding as changing the mode down the line will require new client configs to be distributed to the end users.</p>
-<p>If you want to continue with the default user mode and login to your new VPN please see the <a class="reference internal" href="logging-in.html"><span class="doc">Logging in to client VPN</span></a> article.</p>
+<p>Your next task is to choose a user mode. The default mode (which will work out of the box) is using a certificate
+and TLS key to secure traffic with no user authentication.</p>
+<p>An alternative mode (also available) will allow for individual users to authenticate. We strongly recommend reading
+the <a class="reference internal" href="user-modes.html"><span class="doc">User modes</span></a> article before proceeding as changing the mode down the line will require new client configurations
+to be distributed to the end users.</p>
+<p>If you want to continue with the default user mode and login to your new VPN please see the <a class="reference internal" href="logging-in.html"><span class="doc">Logging in to client VPN</span></a>
+article.</p>
 
 
 

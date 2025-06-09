@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1656,8 +1656,8 @@ actual service that is being load balanced. Each listener will normally
 forward traffic to a member of the pool.</p>
 <p>The pool will provide a common configuration for the members:</p>
 <ul class="simple">
-<li><p>Load balancing algoritm which decides how to distribute the requests
-between the members. There are three algorithms to choose between:</p>
+<li><p>Load balancing algorithms which decides how to distribute the requests
+between the members. Three algorithms to choose between:</p>
 <ul>
 <li><p>Least connections, traffic will end up on the pool members that
 currently has the least connections.</p></li>
@@ -1673,18 +1673,17 @@ source will end up on the same member instance. Depending on what
 listener protocol you will want to use, there are three variants
 of session persistence:</p>
 <ul>
-<li><p>Source IP, this simply uses the source IP of the request, much like
-the source IP algorithm. Since a source IP is (very commonly) shared
-among several (in some cases thousand) users, this is a very crude
-way to do persistence.</p></li>
+<li><p>Source IP, this uses the source IP of the request, much like
+the source IP algorithm. Since a source IP is shared among several
+users, this is a crude way to do persistence.</p></li>
 <li><p>HTTP cookie, the load balancer will create a standard HTTP cookie on
 the client computer and use that information to send the user to the
 same member. It does not take the applications session management
 into consideration.</p></li>
 <li><p>Application cookie, this will use your applications (for instance PHP)
 session management. You would reference to the cookie name, for instance
-“PHPSESSIONID”, “ASP.NET_SessionId” or “JSESSIONID”. This is the most
-exact way to do persistence.</p></li>
+<code class="docutils literal notranslate"><span class="pre">PHPSESSIONID</span></code>, <code class="docutils literal notranslate"><span class="pre">ASP.NET_SessionId</span></code> or <code class="docutils literal notranslate"><span class="pre">JSESSIONID</span></code>. This is the
+most exact way to do persistence.</p></li>
 </ul>
 </li>
 </ul>

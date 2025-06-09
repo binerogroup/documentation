@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1197,7 +1197,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1221,7 +1221,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1863,18 +1863,40 @@
 
 <h1 id="private-networks">Private networks<a class="headerlink" href="#private-networks" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>A private network in Binero cloud is a software-defined virtualized network. The network will connect to <a class="reference internal" href="../../ports.html"><span class="doc">ports</span></a> on routers or instances just as a physical server might connect to a port in a switch. Networks, therefore, are the carriers of network traffic in your infrastructure and would normally terminate in a router (for routing to another network or the internet) or an <a class="reference internal" href="../../../compute/index.html"><span class="doc">instance</span></a>.</p>
-<p>Networks are what connects the infrastructure together. Assuming you want to use only manual IP assignments on your infrastructure, creating networks and ports would be enough. The <a class="reference internal" href="../private-subnet/index.html"><span class="doc">private subnets</span></a> will however enable lost of automation and additional features in the platform and is the recommended approach for setting up IP configuration on networks. When referring to the standard OSI model for networking, a private network is equal to layer 2, a private subnet is (allowing for automatic configuration of) layer 3.</p>
+<p>A private network in Binero cloud is a software-defined virtual network.</p>
+<p>The network will connect to <a class="reference internal" href="../../ports.html"><span class="doc">ports</span></a> on routers or
+instances just as a physical server might connect to a port in a switch.</p>
+<p>Networks, therefore, are the carriers of network traffic in your infrastructure
+and would normally terminate in a router (for routing to another network or the
+internet) or an <a class="reference internal" href="../../../compute/index.html"><span class="doc">instance</span></a>.</p>
+<p>Networks are what connects the infrastructure together. Assuming you want to use
+only manual IP assignments on your infrastructure, creating networks and ports would
+be enough.</p>
+<p>The <a class="reference internal" href="../private-subnet/index.html"><span class="doc">private subnets</span></a> will however enable lost of
+automation and additional features in the platform and is the recommended approach
+for setting up IP configuration on networks.</p>
+<p>When referring to the standard OSI model for networking, a private network is equal
+to layer 2, a private subnet is (allowing for automatic configuration of) layer 3.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>While a network would be enough (provided you would want to manage your IP layer manually, its recommended to use the OpenStack approach to networking which is to use private networks that in turn have private subnets configured on them as it greatly improves the user experience and some services in the platform will rely on doing so.</p>
+<p>While a network would be enough (provided you would want to manage your IP layer
+manually, its recommended to use the OpenStack approach to networking which is
+to use private networks that in turn have private subnets configured on them as
+it greatly improves the user experience and some services in the platform will
+rely on doing so.</p>
 </div>
 <h2 id="managing-private-networks">Managing private networks<a class="headerlink" href="#managing-private-networks" title="Link to this heading">¶</a></h2>
 <p>You are able to manage private networks using either of the below tools.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is very easy to use and will get a user with limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always available.</p></li>
-<li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in OpenStack. Some advanced features might only have a GUI implementation here.</p></li>
-<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> is a command line implementation giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper than the GUI implementation but the workflow will be very efficient.</p></li>
+<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is recommended and will
+get a user with limited prior knowledge from A to B quickly. The tradeoff is that
+advanced features are not always available.</p></li>
+<li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in
+OpenStack. Some advanced features might only have a GUI implementation here.</p></li>
+<li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> is a command line
+implementation giving terminal oriented users a quick way to access the cloud. The
+learning curve is steeper than the GUI implementation but the workflow will be
+efficient.</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>

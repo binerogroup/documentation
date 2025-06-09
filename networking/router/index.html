@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1050,7 +1050,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1074,7 +1074,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1687,12 +1687,16 @@
   
 
 <h1 id="router">Router<a class="headerlink" href="#router" title="Link to this heading">¶</a></h1>
-<p>A router is the recommended approach for setting up networking in Binero cloud. The opposite of a router are <a class="reference external" href="/networking/directly-attached-ips">directly connected internet access</a>. To a router you connect <a class="reference external" href="/networking/router/private-network/index">private networks</a> on which you define <a class="reference external" href="/networking/router/private-subnet/index">private subnets</a> that your instances connect to. Using a router enables (among other things):</p>
+<p>A router is the recommended approach for setting up networking in Binero cloud. The opposite of a
+router are <a class="reference external" href="/networking/directly-attached-ips">directly connected internet access</a>.</p>
+<p>To a router you connect <a class="reference external" href="/networking/router/private-network/index">private networks</a> on which
+you define <a class="reference external" href="/networking/router/private-subnet/index">private subnets</a> that your instances connect
+to. Using a router enables (among other things):</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="private-subnet/index.html"><span class="doc">Private subnets</span></a></p></li>
 <li><p><a class="reference internal" href="routing-between-networks.html"><span class="doc">Routing between networks</span></a></p></li>
-<li><p><a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups (firewalling)</span></a></p></li>
-<li><p><a class="reference internal" href="../floating-ips.html"><span class="doc">Floating IPs</span></a></p></li>
+<li><p><a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups (firewall)</span></a></p></li>
+<li><p><a class="reference internal" href="../floating-ips.html"><span class="doc">Floating IP addresses</span></a></p></li>
 <li><p><a class="reference internal" href="../load-balancer/index.html"><span class="doc">Load Balancer</span></a></p></li>
 </ul>
 <p>The typical workflow for starting out in the platform would be to do the following tasks:</p>
@@ -1701,10 +1705,12 @@
 <li><p><a class="reference internal" href="private-network/index.html"><span class="doc">Create a network</span></a></p></li>
 <li><p><a class="reference internal" href="private-subnet/index.html"><span class="doc">Create a subnet and attach it to the router</span></a></p></li>
 </ul>
-<p>After completing these steps (a guide is available <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">here</span></a>), you would have a versatile networking setup that will enable you to scale out your infrastructure.</p>
+<p>After completing these steps (a guide is available <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">here</span></a>), you
+would have a versatile networking setup that will enable you to scale out your infrastructure.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>We recommend reading through the <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone concepts for networking</span></a> before creating your first router.</p>
+<p>We recommend reading through the <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone concepts for networking</span></a>
+before creating your first router.</p>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
@@ -1754,8 +1760,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="private-subnet/subnet-format.html">Subnet Format</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="private-subnet/subnet-format.html#simple-explanation">Simple explanation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="private-subnet/subnet-format.html#complicated-explanation">Complicated explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="private-subnet/subnet-format.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="private-subnet/subnet-format.html#advanced-explanation">Advanced explanation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="private-subnet/connect-subnet-to-router.html">Connect subnet to router</a></li>
@@ -1791,13 +1797,13 @@
 <li class="toctree-l4"><a class="reference internal" href="security-groups/cloud-management-portal.html#adding-a-security-group-to-an-instance">Adding a security group to an instance</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="security-groups/openstack-horizon.html">Managing security groups using using OpenStack Horizon</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security-groups/openstack-horizon.html">Managing security groups using OpenStack Horizon</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="security-groups/openstack-horizon.html#creating-a-security-group">Creating a security group</a></li>
 <li class="toctree-l4"><a class="reference internal" href="security-groups/openstack-horizon.html#adding-rules-to-a-security-group">Adding rules to a security group</a></li>
 <li class="toctree-l4"><a class="reference internal" href="security-groups/openstack-horizon.html#adding-a-security-group-to-an-instance">Adding a security group to an instance</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="security-groups/openstack-terminal-client.html">Managing security groups using using the OpenStack terminal client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security-groups/openstack-terminal-client.html">Managing security groups using the OpenStack terminal client</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="security-groups/openstack-terminal-client.html#creating-a-security-group">Creating a security group</a></li>
 <li class="toctree-l4"><a class="reference internal" href="security-groups/openstack-terminal-client.html#adding-rules-to-a-security-group">Adding rules to a security group</a></li>
 <li class="toctree-l4"><a class="reference internal" href="security-groups/openstack-terminal-client.html#adding-a-security-group-to-an-instance">Adding a security group to an instance</a></li>

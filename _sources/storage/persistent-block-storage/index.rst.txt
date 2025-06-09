@@ -2,9 +2,17 @@
 Persistent storage (block)
 ==========================
 
-Persistent storage is the "harddisk" of a :doc:`compute instance </compute/index>`. This comes in the form of **volumes**, which can use either of our :doc:`../storage-types` as backing media to save data permanently. 
+Persistent block storage provides a block based storage media to a :doc:`compute instance </compute/index>`.
 
-Binero cloud will not provision an instance without a volume attached and the smallest volume allowed will be the size of the :doc:`image </images/index>` that you want to provision your instance using. The image is the operating system that is pre-installed onto a volume, however since Binero cloud is using shared images ("base images"), users will get their own volumes that will save the *delta* (that is the changes) from the image as well as their files and data. This speeds up provisioning of the instances dramatically and is totally transparent from the users perspective.
+This comes in the form of **Volumes**, which can use either of our :doc:`../storage-types` as
+backing media to save data permanently. 
+
+Binero cloud will not provision an instance without a volume attached (unless using NVMe) and the smallest
+volume allowed will be the size of the :doc:`image </images/index>` or :doc:`flavor </compute/flavors>` that
+you want to provision your instance using.
+
+The image is the operating system image that is copied onto a volume, you can also create a raw volume
+and add a filesystem on the volume and attach it to an instance for other use-cases.
 
 .. toctree::
   :caption: Available services

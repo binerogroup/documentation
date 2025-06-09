@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1335,19 +1335,55 @@
   
 
 <h1 id="storage-types">Storage types<a class="headerlink" href="#storage-types" title="Link to this heading">¶</a></h1>
-<p>By storage type, we refer to the media that is used to store data. There are 3 main storage types in Binero cloud, namely SSD, HDD and NVMe. You are able to <a class="reference internal" href="retype-a-volume.html"><span class="doc">retype</span></a> a volume later on if you are using either SSD or HDD (to the other type).</p>
+<p>By storage type, we refer to the media that is used to store data. Binero cloud has three main
+storage types, namely SSD, HDD and NVMe.</p>
+<p>You are able to <a class="reference internal" href="retype-a-volume.html"><span class="doc">retype</span></a> a volume later on if you are using either SSD or
+HDD (to the other type).</p>
 <h2 id="ssd">SSD<a class="headerlink" href="#ssd" title="Link to this heading">¶</a></h2>
-<p>SSD is the most versatile storage solution. It uses NAND cells to store data This technique vastly shortens “seek times” - a big issue with traditional drives because a mechanical read/write head needs to physically move into position before being able to read or write data. This means SSD media have very good random read/write performance with significantly lower latency than mechanical drives. The downside is cost - SSD storage is more expensive than mechanical (HDD) drives and so storing large amount of infrequently accessed data on SSD drives is not cost efficient.</p>
-<p>SSD backed storage are the default option, i.e. if you don’t select what media to use, you will end up on SSD media. All SSD storage in Binero cloud is three way replicated. That means that for 1GB data that you upload in the platform, 3GB of data is written to disk. The reason behind this is data integrity, we want to minimise the risk for data loss for our customers.</p>
-<p>SSD is a good tradeoff between cost and performance for most use cases involving data that needs to be widely accessible.</p>
+<p>SSD is the most versatile storage solution. It uses NAND cells to store data This technique vastly
+shortens “seek times” - a big issue with traditional drives because a mechanical read/write head needs
+to physically move into position before being able to read or write data.</p>
+<p>This means SSD media have great random read/write performance with significantly lower latency than
+mechanical drives.</p>
+<p>The downside is cost - SSD storage is more expensive than mechanical (HDD) drives and so storing large
+amount of infrequently accessed data on SSD drives is not cost efficient.</p>
+<p>SSD backed storage are the default option, i.e. if you don’t select what media to use, you will
+end up on SSD media.</p>
+<p>All SSD storage in Binero cloud is three way replicated. That means that for 1GB data that you upload in
+the platform, 3GB of data is written to disk. The reason behind this is data integrity, we want to minimise
+the risk for data loss for our customers.</p>
+<p>SSD is a good tradeoff between cost and performance for most use cases involving data that needs to
+be widely accessible.</p>
 <h2 id="hdd">HDD<a class="headerlink" href="#hdd" title="Link to this heading">¶</a></h2>
-<p>HDD is the most cost effective storage solution when only taking pure storage space into account. This storage tier consists of traditional mechanical spinning drives which use magnetism on a metallic surface to store data. HDD drives suffer from seek times, that is they have a read/write head that needs to be positioned correctly above the disk surface before data can be read or written. When data is read (or written) sequentially however (meaning when a large bit of data, for instance a backup image, is read one byte after the other from start to finish), HDD media still have very good performance, i.e “throughput” (but less so than SSD).</p>
-<p>HDD backed storage can be used by specifically selecting it when creating an <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a> or by choosing the proper Storage policy when provisioning an S3 bucket. When using HDD storage for instances, storage is (like SSD) three way replicated. When using HDD for <a class="reference internal" href="object-storage/index.html"><span class="doc">object storage</span></a> its also three way replicated, except for the storage policy <em>gp.archive</em> (which uses erasure coding).</p>
-<p>HDD, then, is a very good option when wanting to store large amounts of data, preferably infrequently used (like a fileserver or archive solution).</p>
+<p>HDD is the most cost effective storage solution when only taking pure storage space into account.</p>
+<p>This storage tier consists of traditional mechanical spinning drives which use magnetism on a metallic
+surface to store data.</p>
+<p>HDD drives suffer from seek times, that is they have a read/write head that needs to be positioned correctly
+above the disk surface before data can be read or written.</p>
+<p>When data is read (or written) sequentially however (meaning when a large bit of data, for instance a backup
+image, is read one byte after the other from start to finish), HDD media still have good performance, i.e
+throughput but less so than SSD.</p>
+<p>HDD backed storage can be used by specifically selecting it when creating an <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a>
+or by choosing the proper Storage policy when provisioning an S3 bucket.</p>
+<p>When using HDD storage for instances, storage is (like SSD) three way replicated. When using HDD
+for <a class="reference internal" href="object-storage/index.html"><span class="doc">object storage</span></a> its also three way replicated, except for the storage
+policy <em>gp.archive*</em> (which uses erasure coding).</p>
+<p>HDD, then, is a good option when wanting to store large amounts of data, preferably infrequently
+used (like a file server or archive solution).</p>
 <h2 id="nvme">NVMe<a class="headerlink" href="#nvme" title="Link to this heading">¶</a></h2>
-<p>NVMe is the fastest, highest performing storage in the platform. Like SSD, its also based on nand-flash cells (but very high end). The difference is the access stack. NVMe disks are connected directly on the PCI bus of the hypervisors. That means that the path from CPU to storage is similar to that of RAM with very minimal overhead. This lowers the <em>latency</em> (that is, the time from CPU requesting data until its delivered from storage) of the solution to well below 1 ms (its normally measured in micro seconds, or uS, other solutions are measured in milli seconds, or mS).</p>
-<p>Faster access to storage is particularly important when reading (or writing) random data. The downside is that NVMe storage, since its physically located in a hypervisor node, is not redundantly setup. NVMe based storage is therefore only available in the instance flavors that use it and will have some downsides because of it. More information in our <a class="reference internal" href="nvme-storage.html"><span class="doc">NVMe storage</span></a> article.</p>
-<p>NVMe is a strong option for situations where <strong>very</strong> fast access to disk is needed, beyond what SSDs deliver.</p>
+<p>NVMe is the fastest, highest performing storage in the platform. Like SSD, its also based on enterprise
+grade NAND-flash cells.</p>
+<p>The difference is the access stack, NVMe disks are connected directly on the PCI bus of the hypervisors.</p>
+<p>That means that the path from CPU to storage is similar to that of RAM with minimal overhead. This lowers
+the <em>latency</em> (that is, the time from CPU requesting data until its delivered from storage) of the
+solution to well below 1 ms (its normally measured in microseconds, other solutions are measured in
+milliseconds).</p>
+<p>Faster access to storage is particularly important when reading (or writing) random data. The downside is
+that NVMe storage, since its physically located in a hypervisor node, is not redundantly setup.</p>
+<p>NVMe based storage is therefore only available in the instance flavors that use it and will have some
+downsides because of it. More information in our <a class="reference internal" href="nvme-storage.html"><span class="doc">NVMe storage</span></a> article.</p>
+<p>NVMe is a strong option for situations where extremely fast access to disk is needed, beyond what
+SSDs deliver.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

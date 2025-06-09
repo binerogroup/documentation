@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1585,11 +1585,16 @@
   
 
 <h1 id="object-storage-endpoints">Object storage endpoints<a class="headerlink" href="#object-storage-endpoints" title="Link to this heading">¶</a></h1>
-<p>When using the object storage service in Binero cloud you connect to a HTTP based API endpoint using any of the available APIs (S3 or Swift API). This is how you interact with the object storage service by sending
-HTTP API requests to for example get an object or put an object into the object storage.</p>
-<p>There are four different HTTP based endpoints per <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>, two per API (<a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>), one is standalone (without replication) and one is with replication, using replication
-will cause your bucket to be replicated between the availability zones in the same region.</p>
-<p>If you want to use <a class="reference internal" href="replication.html"><span class="doc">replication</span></a>, you would use the replicated endpoints. If you just want to store objects in one availability zone or are unsure on what to choose, you would use the standalone endpoints.</p>
+<p>When using the object storage service in Binero cloud you connect to a HTTP based API endpoint using
+any of the available APIs (S3 or Swift API).</p>
+<p>This is how you interact with the object storage service by sending HTTP API requests to for example
+get an object or put an object into the object storage.</p>
+<p>The object storage is provided over four different HTTP based endpoints per <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>,
+two per API (<a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>), one is standalone (without replication)
+and one is with replication, using replication will cause your bucket to be replicated between the availability
+zones in the same region.</p>
+<p>If you want to use <a class="reference internal" href="replication.html"><span class="doc">replication</span></a>, you would use the replicated endpoints. If you just want
+to store objects in one availability zone or are unsure on what to choose, you would use the standalone endpoints.</p>
 <h2 id="europe-se-1a">europe-se-1a<a class="headerlink" href="#europe-se-1a" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>S3 standalone: <code class="docutils literal notranslate"><span class="pre">https://object-eu-se-1a.binero.cloud</span></code></p></li>

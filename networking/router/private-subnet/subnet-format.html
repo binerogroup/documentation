@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#simple-explanation" class="md-skip">
+        <a href="#explanation" class="md-skip">
           Skip to content
         </a>
       
@@ -1008,20 +1008,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#simple-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Simple explanation
+      Explanation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#complicated-explanation" class="md-nav__link">
+  <a href="#advanced-explanation" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Complicated explanation
+      Advanced explanation
     </span>
   </a>
   
@@ -1220,7 +1220,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1244,7 +1244,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1846,20 +1846,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#simple-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Simple explanation
+      Explanation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#complicated-explanation" class="md-nav__link">
+  <a href="#advanced-explanation" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Complicated explanation
+      Advanced explanation
     </span>
   </a>
   
@@ -1885,35 +1885,81 @@
   
 
 <h1 id="subnet-format">Subnet Format<a class="headerlink" href="#subnet-format" title="Link to this heading">¶</a></h1>
-<p>A subnet is generally formatted in what is called <a class="reference external" href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>. A CIDR notation might for instance look like this:</p>
-<p><strong>192.168.0.0/24</strong></p>
-<p>This is a way to describe both the network ip-number (which is the part before the “/” symbol) and the subnet size (which is the part after the “/” symbol). The network chosen in the above example would mean that the amount of IP-addresses available are between 192.168.0.1 and 192.168.0.255 (.0 and .256 are typically reserved for network and broadcast functions).</p>
+<p>A subnet is generally formatted in what is called <a class="reference external" href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>.</p>
+<p>A CIDR notation might for instance look like this: <strong>192.168.0.0/24</strong></p>
+<p>This is a way to describe both the network ip-number (which is the part before the <code class="docutils literal notranslate"><span class="pre">/</span></code> symbol) and the subnet size (which is
+the part after the <code class="docutils literal notranslate"><span class="pre">/</span></code> symbol).</p>
+<p>The network chosen in the above example would mean that the amount of IP-addresses available are between 192.168.0.1 and
+192.168.0.255 (the first and last host address are typically reserved for network and broadcast).</p>
 <p>Below we outline how to select your subnet.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>If the below is something you do not want to understand but just want to know what subnet to choose, we recommend using /24 as mask size. Your first subnet then, might be for instance 172.29.45.0/24, your next might be 172.29.46.0/24, and so on).</p>
+<p>If the below is something you do not want to understand but just want to know what subnet to choose, we recommend
+using /24 as mask size.</p>
+<p>Your first subnet then, might be for instance 172.29.45.0/24, your next might be 172.29.46.0/24, and so on).</p>
 </div>
-<h2 id="simple-explanation">Simple explanation<a class="headerlink" href="#simple-explanation" title="Link to this heading">¶</a></h2>
-<p>After the “/” sign, the numeric value is called “the mask”. You could select anything between (realistically - or at least you would be expected to already understand subnet math if you wanted anything larger or smaller) 18 to 27 as value for the mask. If you chose 18 (so 192.168.0.0/18, as per above example), you will get 16382 IP-addresses in the subnet. If you select 27 (so 192.168.0.0/27, as per above example), you would get 30 addresses. This is because when the mask is incremented by one, the network size is halved (which is why when we get to 27, counting down from 18, we only have 30 addresses left to use from the original 16382 at /18 - bearing in mind some addresses are reserved).</p>
-<p>A very standard size is /24, this mask size yields 255 usable IPs and would give the subnet mask setting (in the OS, this is really the same as the prefix length, or mask, but in another format) “255.255.255.0”. In Binero cloud, the platform will calculate the subnet mask for you (and it would normally be assigned using <a class="reference internal" href="dhcp.html"><span class="doc">DHCP</span></a>, so there is no need to understand what subnet mask a certain CIDR prefix will have. You just need to choose one that yields the right amount of usable IPs to suit your use-case.</p>
+<h2 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Link to this heading">¶</a></h2>
+<p>After the <code class="docutils literal notranslate"><span class="pre">/</span></code> sign, the numeric value is called subnet mask.</p>
+<p>You could select anything between (realistically - or at least you would be expected to already understand subnet math if you
+wanted anything larger or smaller) 18 to 27 as value for the mask.</p>
+<p>If you chose 18 (so 192.168.0.0/18, according to above example), you will get 16382 IP addresses in the subnet. If you select 27
+(so 192.168.0.0/27, according to above example), you would get 30 addresses.</p>
+<p>This is because when the mask is incremented by one, the network size is halved (which is why when we get to 27, counting down
+from 18, we only have 30 addresses left to use from the original 16382 at /18 - bearing in mind some addresses are reserved).</p>
+<p>A standard size is /24, this mask size yields 255 usable IP addresses and would give the subnet mask setting (in the OS, this
+is really the same as the prefix length, or mask, but in another format) “255.255.255.0”.</p>
+<p>In Binero cloud, the platform will calculate the subnet mask for you (and it would normally be assigned using <a class="reference internal" href="dhcp.html"><span class="doc">DHCP</span></a>, so there
+is no need to understand what subnet mask a certain CIDR prefix will have.</p>
+<p>You just need to choose one that yields the right amount of usable IP addresses to suit your use-case.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>When selecting the size, don’t choose something that you might outgrow. Its a complicated task to re-number a network. Choose a subnet that will be large enough (and our recommendation is, double it, just to be sure).</p>
+<p>When selecting the size, don’t choose something that you might outgrow. Its a complicated task to re-number a network. Choose a subnet
+that will be large enough (and our recommendation is, double it, just to be sure).</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>If you are still unsure after reading above, go with “/24” as the mask.</p>
+<p>If you are still unsure after reading above, go with /24 as the subnet.</p>
 </div>
-<h2 id="complicated-explanation">Complicated explanation<a class="headerlink" href="#complicated-explanation" title="Link to this heading">¶</a></h2>
-<p>Early IP-address allocations were given to providers in on of 3 address classes; A, B and C. An A-class network (equal to a CIDR notation of /8) has 16.777.214 usable addresses. A B-class network has 65534 usable addresses. A C-class network has 255 usable addresses. This meant that addresses where most often not optimally assigned. An organisation that needed to have for instance 75.000 IPs would instead get 16777214 (as a B-class network would have been to small). An organisation that needed 300 IPs would instead get 65534. This was not considered an issue in the early days as the total IPv4 pool of 4,294,967,296 addresses seemed very large at the time.</p>
-<p>When the internet grew, it was realised that the total pool would get depleted fast if nothing was done. To solve this, Classless Inter Domain Routing or <a class="reference external" href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> was introduced, enabling the use of a subnet <em>mask</em> that would make it possible to decide the size of a given network more granularly than in 3 stages. The subnet mask showed how many addresses were available in the subnet based on a number that stated how big a part of the <strong>IP-address</strong> was the network portion vs how big a part was the host portion.</p>
-<p>An IPv4 address is a 32 bit number divided into 4 octets to make it easier to read. In the example <strong>192.168.0.0/24</strong>, the <em>mask</em> (“/24” in this case) states that the 24 first bits (which is 192.168.0) is the network address. This address is just used for describing the network and cannot be changed when addressing hosts in the network. This is easy to understand because 32 / 4 = 8, so 8 bits per octet, 24 bits then making the first 3 octets the network address (so 192.168.0 being the first 3 octets). The remaining (up to 32) bits are the hosts addresses so for instance in the example 192.168.0.5, the last octet (which is 5) is assignable to a host.</p>
-<p>When configuring an IP-address in an operating system, some systems will want the IP-address in CIDR notation (so 192.168.0.5/24 for instance), some want the subnet mask specified separately, so 192.168.0.5 AND 255.255.255.0. The function is the same, the subnet mask is just another way to tell that the first 24 bits (as shown by the fact that 255 is the max size, so all 1s when writing in binary, of an 8 bit number is 255) are the network address and the last 8 bits are the host address (the mask then is not the IP-address, it just describes <em>what part</em> of the ip-address is the network and what part is meant for hosts.</p>
-<p>The previous network sizes (A, B and C) corresponds to /8, /16 and /24 which are the even octets that are very easy to calculate. When wanting to use some size in between, it becomes more complicated. In an example, for instance, where one might want to have 3578 IPs, consulting a CIDR chart or using ipcalc software (which are the two “easy” ways to know the size of each network if not having them memorised) would show that the closest network size that has more addresses then 3578 would be a /20 network that has 4094 addresses. The principle is the same, the CIDR notation becomes 192.168.0.0/20 instead. The subnet mask would be 255.255.240.0 (because only the first 20 bits are the network address, some additional bits are available for hosts).</p>
-<p>In conclusion, if you have more advanced requirements with regards to wanting to use a specific subnet or needing a specific subnet size, Binero cloud will be able to cater to your need.</p>
+<h2 id="advanced-explanation">Advanced explanation<a class="headerlink" href="#advanced-explanation" title="Link to this heading">¶</a></h2>
+<p>Early IP-address allocations were given to providers in on of 3 address classes; A, B and C. An A-class
+network (equal to a CIDR notation of /8) has 16.777.214 usable addresses.</p>
+<p>A B-class network has 65534 usable addresses. A C-class network has 255 usable addresses. This meant that
+addresses where most often not optimally assigned.</p>
+<p>An organisation that needed to have for instance 75.000 IP addresses  would instead get 16777214 (as a B-class network
+would have been to small).</p>
+<p>An organisation that needed 300 IP addresses would instead get 65534. This was not considered an issue in the early
+days as the total IPv4 pool of 4,294,967,296 addresses seemed large at the time.</p>
+<p>When the internet grew, it was realised that the total pool would get depleted fast if nothing was done.</p>
+<p>To solve this, Classless Inter Domain Routing or <a class="reference external" href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a>
+was introduced, enabling the use of a subnet <em>mask</em> that would make it possible to decide the size of a given network
+more granularly than in 3 stages.</p>
+<p>The subnet mask showed how many addresses were available in the subnet based on a number that stated how big a
+part of the <strong>IP address</strong> was the network portion vs how big a part was the host portion.</p>
+<p>An IPv4 address is a 32 bit number divided into 4 octets to make it easier to read. In the example <strong>192.168.0.0/24</strong>,
+the <em>mask</em> (“/24” in this case) states that the 24 first bits (which is 192.168.0) is the network address.</p>
+<p>This address is just used for describing the network and cannot be changed when addressing hosts in the network. This
+can be explained as 32 / 4 = 8, so 8 bits per octet, 24 bits then making the first 3 octets the network address (so
+192.168.0 being the first 3 octets).</p>
+<p>The remaining (up to 32) bits are the hosts addresses so for instance in the example 192.168.0.5, the last octet
+(which is 5) is assignable to a host.</p>
+<p>When configuring an IP-address in an operating system, some systems will want the IP-address in CIDR notation
+(so 192.168.0.5/24 for instance), some want the subnet mask specified separately, so 192.168.0.5 AND 255.255.255.0.</p>
+<p>The function is the same, the subnet mask is just another way to tell that the first 24 bits (as shown by the fact
+that 255 is the max size, so all 1s when writing in binary, of an 8 bit number is 255) are the network address and
+the last 8 bits are the host address (the mask then is not the IP-address, it just describes <em>what part</em> of the IP
+address is the network and what part is meant for hosts.</p>
+<p>The previous network sizes (A, B and C) corresponds to /8, /16 and /24 in CIDR notation that uses even octets, if we
+want to use an smaller subnet it’s a bit more complicated.</p>
+<p>For example, where one might want to have 3578 IP addresses , consulting a CIDR chart or using <code class="docutils literal notranslate"><span class="pre">ipcalc</span></code> software would
+show that the closest network size that has more addresses then 3578 would be a /20 network that has 4094 addresses.</p>
+<p>The principle is the same, the CIDR notation becomes 192.168.0.0/20 instead. The subnet mask would be 255.255.240.0
+(because only the first 20 bits are the network address, some additional bits are available for hosts).</p>
+<p>In conclusion, if you have more advanced requirements with regards to wanting to use a specific subnet or needing a
+specific subnet size, Binero cloud will be able to cater to your need.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Included in most standard linux distributions as well as installable via brew on OSX (and available in multiple online versions, just google “ipcalc”) is the terminal based software “ipcalc”. This makes it very easy to calculate subnets as is visible in the below example. You will get starting host, ending host, amount of addresses, subnet mask and more in the output.</p>
+<p>Included in most Linux distributions is the terminal based software <code class="docutils literal notranslate"><span class="pre">ipcalc</span></code>. This will help you calculate subnets
+as is visible in the below example.</p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>$ ipcalc 192.168.0.0/20
 Address:   192.168.0.0          11000000.10101000.0000 0000.00000000

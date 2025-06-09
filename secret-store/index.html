@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1323,11 +1323,19 @@
 
 <h1 id="secret-store">Secret Store<a class="headerlink" href="#secret-store" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>Using our secret store, you are able to give the platform access to secrets such as certificates and keys in a secure manner. We support various secret formats and also incorporate ACLs (Access Control Lists) so as to be able to give certain <a class="reference internal" href="../getting-started/users.html"><span class="doc">API-user</span></a> access to secrets while withholding access to other users.</p>
+<p>Using our secret store, you are able to give the platform access to secrets such as certificates
+and keys in a secure manner.</p>
+<p>We support various secret formats and also incorporate ACLs (Access Control Lists) so as to be able
+to give certain <a class="reference internal" href="../getting-started/users.html"><span class="doc">API-user</span></a> access to secrets while withholding access
+to other users.</p>
 <p>Here are some examples of secrets that could be saved in our secret store:</p>
 <ul class="simple">
-<li><p>Symmetric Keys - Used to perform reversible encryption of data at rest, typically using the AES algorithm set. This type of key is required to enable features like encrypted Swift containers and Cinder volumes, encrypted Cloud Backups, etc.</p></li>
-<li><p>Asymmetric Keys - Asymmetric key pairs (sometimes referred to as public / private keys) are used in many scenarios where communication between untrusted parties is desired. The most common case is with SSL/TLS certificates.</p></li>
+<li><p>Symmetric Keys - Used to perform reversible encryption of data at rest, typically using the AES
+algorithm set. This type of key is required to enable features like encrypted Swift containers
+and Cinder volumes, encrypted Cloud Backups, etc.</p></li>
+<li><p>Asymmetric Keys - Asymmetric key pairs (sometimes referred to as public / private keys) are used
+in many scenarios where secure communication between parties is desired. The most common case is
+with SSL/TLS certificates.</p></li>
 <li><p>Raw Secrets - Barbican stores secrets as a base64 encoded block of data (encrypted, naturally).</p></li>
 </ul>
 <p>Some of the services in the platform that consume secrets are:</p>
@@ -1338,17 +1346,20 @@
 <li><p>Compute - To use encrypt volumes and snapshots to create instances.</p></li>
 </ul>
 <h2 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Link to this heading">¶</a></h2>
-<p>Secrets represent keys, credentials, and other sensitive data that is stored by the secret store service. Following are operations that can be performed on a secret:</p>
+<p>Secrets represent keys, credentials, and other sensitive data that is stored by the secret
+store service. Following are operations that can be performed on a secret:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="create-secret.html"><span class="doc">Creating secrets</span></a>.</p></li>
 <li><p>Listing secrets.</p></li>
-<li><p>Controlling access to secrets by setting upp <a class="reference internal" href="acl.html"><span class="doc">ACLs (Access Control List)</span></a>.</p></li>
+<li><p>Controlling access to secrets by setting up <a class="reference internal" href="acl.html"><span class="doc">ACLs (Access Control Lists)</span></a>.</p></li>
 <li><p>Deletion of secret.</p></li>
 <li><p>Decryption of secrets.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Secrets are only manageable via the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> and via <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>. There is no integration to OpenStack Horizon.</p>
+<p>Secrets are only manageable via the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> and
+via <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>. No integration in OpenStack
+Horizon is currently available.</p>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>

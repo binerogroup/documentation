@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1038,7 +1038,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1062,7 +1062,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1675,20 +1675,24 @@
   
 
 <h1 id="launching-routers-using-the-cloud-management-portal">Launching routers using the Cloud management portal<a class="headerlink" href="#launching-routers-using-the-cloud-management-portal" title="Link to this heading">¶</a></h1>
-<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">router</span></a> from the <a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a>, follow these steps:</p>
+<p>To launch a <a class="reference internal" href="../index.html"><span class="doc">router</span></a> from the
+<a class="reference internal" href="../../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a></p>
 <ul class="simple">
-<li><p>Press “Networking” and then “Routers” in the sidebar menu.</p></li>
+<li><p>Press <strong>Networking</strong> and then <strong>Routers</strong> in the sidebar menu.</p></li>
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
-<li><p>Under region, “europe-se-1” should be pre-selected.</p></li>
+<li><p>Under region, <em>europe-se-1</em> should be pre-selected.</p></li>
 <li><p>Name your router and optionally provide a description.</p></li>
-<li><p>Under “availability zone (hints)”, select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> to place the router in. If you are unsure, select “europe-se-1a” here.</p></li>
-<li><p>Under “select external network”, choose the network that corresponds to the availability zone you selected.</p></li>
-<li><p>The “admin state up” should be selected. It controls whether the router can receive traffic (that is: that its provisioned in the platform and not just in the portal).</p></li>
-<li><p>Press “create” in the lower right corner.</p></li>
+<li><p>Under <strong>Availability zone (hints)</strong>, select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
+to place the router in. If you are unsure, select <em>europe-se-1a</em> here.</p></li>
+<li><p>Under <strong>Select external network</strong>, choose the network that corresponds to the availability zone
+you selected.</p></li>
+<li><p>Set <strong>Admin state</strong> to up.</p></li>
+<li><p>Press <strong>Create</strong> in the lower right corner.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>In order to connect instances to the router, it will also need a <cite>network &lt;../private-network/index&gt;</cite> and a <cite>subnet &lt;../private-subnet/index&gt;</cite> configured.</p>
+<p>In order to connect instances to the router, it will also need a <a class="reference internal" href="../private-network/index.html"><span class="doc">network</span></a>
+and a <a class="reference internal" href="../private-subnet/index.html"><span class="doc">subnet</span></a> configured.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

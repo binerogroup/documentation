@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1645,16 +1645,29 @@
   
 
 <h1 id="object-storage">Object storage<a class="headerlink" href="#object-storage" title="Link to this heading">¶</a></h1>
-<p>Object storage is a very good way to store unstructured data. Unlike a filesystem (where you would have a structured tree of files and folder) or block storage (where you would use a filesystem that kept track of stored blocks), object storage simply stores arbitrary objects.</p>
-<p>Each object would typically contain the data that is stored, a varying amount of metadata (that is, information about the stored object) as well as a globally (for the platform) unique ID that reference the object.</p>
-<p>Object storage is optimised for storing data that needs to be written once and then read (and re-read). While there is support for committing changes to objects, this is generally avoided. As such, object storage is often used for storing and serving static data, for instance images, PDFs or movies. The <a class="reference internal" href="../../backup/index.html"><span class="doc">backup service</span></a> in Binero cloud uses our object storage to save the backup data.</p>
-<p>In Binero cloud you are able to consume the object storage service using both the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>. Both are served from the same underlying storage platform and can reach the same data but use different API formats.</p>
+<p>Object storage is a good way to store unstructured data. Unlike a filesystem (where you would have a structured
+tree of files and folder) or block storage (where you would use a filesystem that kept track of stored blocks),
+object storage stores arbitrary objects.</p>
+<p>Each object would typically contain the data that is stored, a varying amount of metadata (that is, information
+about the stored object) as well as a globally (for the platform) unique ID that reference the object.</p>
+<p>Object storage is optimized for storing data that needs to be written once and then read (and re-read).</p>
+<p>While there is support for committing changes to objects, this is generally avoided. As such, object storage is
+often used for storing and serving static data, for example images, documents or backups.</p>
+<p>The <a class="reference internal" href="../../backup/index.html"><span class="doc">backup service</span></a> in Binero cloud uses our object storage to save the backup data.</p>
+<p>In Binero cloud you are able to consume the object storage service using both the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and the
+<a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>. Both are served from the same underlying storage platform and can reach the same data
+but use different APIs.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>In the documentation we can refer to either a container or bucket both being the same thing, a container holding objects, where bucket is S3 terminology and container is Swift terminology.</p>
+<p>In the documentation we can refer to either a container or bucket both being the same thing, a container holding
+objects, where bucket is S3 terminology and container is Swift terminology.</p>
 </div>
-<p>You have the ability to chose from several <a class="reference internal" href="storage-policy.html"><span class="doc">storage policies</span></a> of object storage to setup a storage solution that delivers at the lowest possible cost per GB while still meeting your requirements. We also enable <a class="reference internal" href="replication.html"><span class="doc">replication</span></a> if you want to have your data available in multiple datacenters, for instance as part of a multi datacenter high availability solution.</p>
-<p>We recommend reading through our <a class="reference internal" href="getting-started.html"><span class="doc">Getting started with object storage</span></a> guide if you are not previously used to working with object storage in an OpenStack based platform.</p>
+<p>You have the ability to chose from several <a class="reference internal" href="storage-policy.html"><span class="doc">storage policies</span></a> of object storage to setup a
+storage solution that delivers at the lowest possible cost per GB while still meeting your requirements.</p>
+<p>We also enable <a class="reference internal" href="replication.html"><span class="doc">replication</span></a> if you want to have your data available in multiple data centers,
+for example as part of a multi data center high availability solution.</p>
+<p>We recommend reading through our <a class="reference internal" href="getting-started.html"><span class="doc">Getting started with object storage</span></a> guide if you are not previously used to working with object
+storage in an OpenStack based platform.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>

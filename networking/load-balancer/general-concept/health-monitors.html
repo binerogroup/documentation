@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1654,7 +1654,7 @@
 <p>Health monitors are configured to check if a service on a member works
 as intended.</p>
 <p>As such, they can be configured to be protocol aware (for instance by
-checking a website using the “http” protocol).</p>
+checking a website using the HTTP protocol).</p>
 <p>Monitors can be configured in various ways:</p>
 <ul class="simple">
 <li><p>Protocol type (cannot be changed after deployment).</p></li>
@@ -1663,7 +1663,7 @@ checking a website using the “http” protocol).</p>
 </ul>
 <p>A monitor is defined per listener. We recommend ensuring that the monitor is
 as closely matched to the listener type as possible.</p>
-<p>If you are for instance using load balancing for an http based service, don’t
+<p>If you are for instance using load balancing for an HTTP based service, don’t
 do health checking by pinging the members as this will have almost no bearing on
 whether the individual members are working or not and will probably cause faulty
 members to remain in the pool.</p>

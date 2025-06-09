@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1619,10 +1619,29 @@
   
 
 <h1 id="site-to-site-vpn">Site-to-site VPN<a class="headerlink" href="#site-to-site-vpn" title="Link to this heading">¶</a></h1>
-<p>A site-to-site VPN is a tunnel that connects two (or more) sites. A site can, in turn, consist of several <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">subnets</span></a> that all route over the tunnel but the standard use case is a single subnet on each side that send its traffic to the other site through the tunnel whereby the traffic is encrypted so it cannot be read by someone in transit.</p>
-<p>In Binero cloud you are able to provision site-to-site VPNs using the <a class="reference external" href="https://en.wikipedia.org/wiki/IPsec">IPSec protocol</a>. In short, this protocol consists of two phases, the first negotiates encryption for itself (phase 1) and sets up a tunnel that can in turn be used for negotiating a a second phase (phase 2) for sending packets with an agreed upon encryption. Routing is inherent in IPSec as traffic flows between subnets. Because of this, tunnels (phase 2 flows) are always defined as a single source- and destination-network. These flows can however be multiplied if several networks need access to each other.</p>
-<p>The VPN service will come with its own management interface (web based) that enables you to manage change security settings, add or remove flows, etc. Complete documentation of all the features our VPN solution provides is out of scope for our support pages but more information is available on <a class="reference external" href="https://www.pfsense.org/get-involved/">https://www.pfsense.org/get-involved/</a> as well as the web in general. Please see the subsections of this section for the most common information relating to the service. Our support staff can also help you out.</p>
-<p>To create a VPN-tunnel between sites, first read through our <a class="reference internal" href="prerequisites.html"><span class="doc">Prerequisites for site-2-site VPN</span></a> and then follow our <a class="reference internal" href="setting-up.html"><span class="doc">Setting up site-to-site VPN</span></a> guide. Once that is done, we provide general guidelines for <a class="reference internal" href="configure-remote.html"><span class="doc">setting up the remote end</span></a> of the tunnel.</p>
+<p>A site-to-site VPN is a tunnel that connects two (or more) sites.</p>
+<p>A site can, in turn, consist of several <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">subnets</span></a> that
+all route over the tunnel but the standard use case is a single subnet on each side that send
+its traffic to the other site through the tunnel whereby the traffic is encrypted so it cannot
+be read by someone in transit.</p>
+<p>In Binero cloud you are able to provision site-to-site VPNs using the
+<a class="reference external" href="https://en.wikipedia.org/wiki/IPsec">IPsec protocol</a>.</p>
+<p>In short, this protocol consists of two phases, the first negotiates encryption for itself (phase 1)
+and sets up a tunnel that can in turn be used for negotiating a second phase (phase 2) for sending
+packets with an agreed upon encryption.</p>
+<p>Routing is inherent in IPsec as traffic flows between subnets. Because of this, tunnels (phase 2 flows)
+are always defined as a single source- and destination-network. These flows can however be multiplied if
+several networks need access to each other.</p>
+<p>The VPN service will come with its own management interface (web based) that enables you to manage change
+security settings, add or remove flows, etc.</p>
+<p>Complete documentation of all the features our VPN solution provides is out of scope for our support pages
+but more information is available on <a class="reference external" href="https://www.pfsense.org/get-involved/">https://www.pfsense.org/get-involved/</a> as well as the web in general.</p>
+<p>Please see the subsections of this section for the most common information relating to the service. Our support
+staff can also help you out.</p>
+<p>To create a VPN-tunnel between sites, first read through our <a class="reference internal" href="prerequisites.html"><span class="doc">Prerequisites for site-2-site VPN</span></a> and then follow our <a class="reference internal" href="setting-up.html"><span class="doc">Setting up site-to-site VPN</span></a>
+guide.</p>
+<p>Once that is done, we provide general guidelines for <a class="reference internal" href="configure-remote.html"><span class="doc">setting up the remote end</span></a> of the
+tunnel.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
@@ -1647,7 +1666,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced-configuration.html">Advanced configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="advanced-configuration.html#security-recommendations">Security recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-configuration.html#changing-ipsec-configuration">Changing IPSec configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-configuration.html#changing-ipsec-configuration">Changing IPsec configuration</a></li>
 </ul>
 </li>
 </ul>

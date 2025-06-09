@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1531,23 +1531,36 @@
   
 
 <h1 id="console">Console<a class="headerlink" href="#console" title="Link to this heading">¶</a></h1>
-<p>You are able to get the “monitor output” from your instances using the instance console in either the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a> or <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>. This is useful if you need to debug a malfunctioning network or an otherwise un-reachable instance.</p>
+<p>You are able to open the console of your instances using the instance console in
+either the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a>
+or <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>.</p>
+<p>This is useful if you need to debug or troubleshoot your instance if it is unreachable.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Since you cannot use SSH-keys to login to a console but need to have a password, if you’ve not set a password (but trusted in the keys from provisioning), you will have to reset the root or administrator password. How to do this will vary by Operating System but for the majority of Linux  systems, booting into “single user mode” will enable a password-less login which can be used to reset the password for the root user.</p>
+<p>Since you cannot use SSH-keys to login to a console but need to have a password, if you
+have not set a password (but trusted in the keys from provisioning), you will have to reset
+the root or administrator password.</p>
+<p>How to do this will vary by operating system but for the majority of Linux distributions, booting
+into “single user mode” will enable a password-less login which can be used to reset the password
+for the root user.</p>
 </div>
 <h2 id="cloud-management-portal-console">Cloud management portal console<a class="headerlink" href="#cloud-management-portal-console" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Press “Compute” and then “Instances” in the sidebar menu.</p></li>
+<li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance you want to view console output for.</p></li>
 <li><p>Press the console icon (looks like “&lt; &gt;”) in the top right.</p></li>
-<li><p>A new window will appear showing the console output. If the image is blank, this might be because the screen is in “power save” mode (OS setting). Press the mouse cursor on the output and press for instance “ctrl” (or some other button that would not inadvertently do something).</p></li>
+<li><p>A new window will appear showing the console. If the image is blank, this might be because the screen
+is in “power save” mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
+up.</p></li>
 </ul>
 <h2 id="openstack-horizon-console">OpenStack Horizon console<a class="headerlink" href="#openstack-horizon-console" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
-<li><p>In the drop-down menu to the far right of the line corresponding to the instance you want to view console for, press “Console”.</p></li>
-<li><p>A new window will appear showing the console output. If the image is blank, this might be because the screen is in “power save” mode (OS setting). Press the mouse cursor on the output and press for instance “ctrl” (or some other button that would not inadvertently do something).</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
+<li><p>In the dropdown menu to the far right of the line corresponding to the instance you want
+to view console for, press <strong>Console</strong>.</p></li>
+<li><p>A new window will appear showing the console. If the image is blank, this might be because the screen
+is in “power save” mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
+up.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

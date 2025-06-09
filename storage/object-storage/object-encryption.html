@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1608,27 +1608,31 @@
 <h2 id="object-encryption-concept">Object encryption concept<a class="headerlink" href="#object-encryption-concept" title="Link to this heading">¶</a></h2>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Object encryption is a <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> feature and will not work the same when using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>.</p>
+<p>Object encryption is a <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> feature and will not work the same when using
+the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you retrieve the object using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> the data will still be encrypted as the
-decryption is only when using the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
+<p>If you retrieve the object using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> the data will still be encrypted
+as the decryption is only when using the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>When using any of our controlpanels to work with the object storage it is using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> and
-will thus not decrypt the object upon retrieval.</p>
+<p>When using any of our portals to work with the object storage it is using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>
+and will thus not decrypt the object upon retrieval.</p>
 </div>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Do not combine replication with object encryption as this could result in dataloss when updating objects from both ends.</p>
+<p>Do not combine replication with object encryption as this could result in data loss when updating
+objects from both ends.</p>
 </div>
-<p>The object storage service in Binero cloud supports encryption your data at rest (on disk) using different methods. When objects are retrieved or written to they
-are transparently decrypted by the platform. The objects are secured in-transit by using HTTPS with TLS to transport the requests.</p>
+<p>The object storage service in Binero cloud supports encryption your data at rest (on disk) using different
+methods. When objects are retrieved or written to they are transparently decrypted by the platform.</p>
+<p>The objects are secured in-transit by using HTTPS with TLS to transport the requests.</p>
 <p>The examples in below methods uses the <code class="docutils literal notranslate"><span class="pre">aws</span></code> CLI, to get started see our <a class="reference internal" href="s3.html"><span class="doc">S3 documentation</span></a>.</p>
 <h2 id="using-server-side-encryption-with-sse-c">Using server-side encryption with SSE-C<a class="headerlink" href="#using-server-side-encryption-with-sse-c" title="Link to this heading">¶</a></h2>
-<p>The object storage service in Binero cloud supports the customer-provided keys (SSE-C) specification in the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
+<p>The object storage service in Binero cloud supports the customer-provided keys (SSE-C) specification
+in the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
 <p>When using this method you are responsible for sending an encryption key for the object in each API requests to
 retrieve or write to it. This needs to be an encryption key that works with AES-256 that is used.</p>
 <p>The data is stored at rest (on disk) with your encryption key and the encryption key is not saved by Binero. This way you don’t
@@ -1643,7 +1647,8 @@ have to handle the encryption or decryption of objects and only manage the encry
 <h2 id="using-server-side-encryption-with-sse-kms">Using server-side encryption with SSE-KMS<a class="headerlink" href="#using-server-side-encryption-with-sse-kms" title="Link to this heading">¶</a></h2>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>If the secret in the <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a> service is deleted, there is no way to recover the encrypted objects. Make sure to backup the secret and the data.</p>
+<p>If the secret in the <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a> service is deleted, there is no way to recover
+the encrypted objects. Make sure to backup the secret and the data.</p>
 </div>
 <p>The object storage service in Binero cloud also supports the SSE-KMS specification in the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
 <p>When using this method you create an encryption key and store it in our <a class="reference internal" href="../../secret-store/index.html"><span class="doc">secret store</span></a> service and send the secret ID
@@ -1652,8 +1657,8 @@ with each API request. This needs to be an encryption key that works with AES-25
 <p>To get started with using SSE-KMS, see below:</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">SECRET_HREF</span></code> mentioned below is for example <code class="docutils literal notranslate"><span class="pre">https://api-eu-se-1.binero.cloud:9311/v1/secrets/ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> but for your secret and in that
-case <code class="docutils literal notranslate"><span class="pre">SECRET_HREF_ID</span></code> is the UUID <code class="docutils literal notranslate"><span class="pre">ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> from that URL</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SECRET_HREF</span></code> mentioned below is for example <code class="docutils literal notranslate"><span class="pre">https://api-eu-se-1.binero.cloud:9311/v1/secrets/ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> but
+for your secret and in that case <code class="docutils literal notranslate"><span class="pre">SECRET_HREF_ID</span></code> is the UUID <code class="docutils literal notranslate"><span class="pre">ea7454d8-d0af-4008-bba4-71245b942bb7</span></code> from that URL</p>
 </div>
 <ul class="simple">
 <li><p>Create a bucket to test with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">s3</span> <span class="pre">mb</span> <span class="pre">s3://demo</span></code></p></li>

@@ -23,7 +23,7 @@
     
 
       
-        <title>Managing security groups using using OpenStack Horizon - Binero Documentation</title>
+        <title>Managing security groups using OpenStack Horizon - Binero Documentation</title>
       
     
 <link rel="canonical" href="https://docs.binero.com/networking/router/security-groups/openstack-horizon.html" />
@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Managing security groups using using OpenStack Horizon
+              Managing security groups using OpenStack Horizon
             
           </span>
         </div>
@@ -973,7 +973,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using Open<wbr>Stack Horizon
+    Managing security groups using Open<wbr>Stack Horizon
     
   </span>
   
@@ -986,7 +986,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using Open<wbr>Stack Horizon
+    Managing security groups using Open<wbr>Stack Horizon
     
   </span>
   
@@ -1059,7 +1059,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using the Open<wbr>Stack terminal client
+    Managing security groups using the Open<wbr>Stack terminal client
     
   </span>
   
@@ -1182,7 +1182,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1206,7 +1206,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1856,47 +1856,54 @@
   
   
 
-<h1 id="managing-security-groups-using-using-openstack-horizon">Managing security groups using using OpenStack Horizon<a class="headerlink" href="#managing-security-groups-using-using-openstack-horizon" title="Link to this heading">¶</a></h1>
+<h1 id="managing-security-groups-using-openstack-horizon">Managing security groups using OpenStack Horizon<a class="headerlink" href="#managing-security-groups-using-openstack-horizon" title="Link to this heading">¶</a></h1>
 <h2 id="creating-a-security-group">Creating a security group<a class="headerlink" href="#creating-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “Network” and then “Security Groups” in the sidebar menu.</p></li>
-<li><p>Click “Create Security Group” in the right upper corner.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Security Groups</strong> in the sidebar menu.</p></li>
+<li><p>Click <strong>Create Security Group</strong> in the right upper corner.</p></li>
 <li><p>Name your security group and optionally provide a description.</p></li>
-<li><p>Press “Create Security Group”.</p></li>
+<li><p>Press <strong>Create Security Group</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The new security group will not have any rules so wont actually do anything. To add rules, follow next step.</p>
+<p>The new security group will not have any rules so wont actually do anything. To add
+rules, follow next step.</p>
 </div>
 <h2 id="adding-rules-to-a-security-group">Adding rules to a security group<a class="headerlink" href="#adding-rules-to-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “Network” and then “Security Groups” in the sidebar menu.</p></li>
-<li><p>On the line of the security group you want to add a rule to, press “Manage rules”.</p></li>
-<li><p>Press “+ Add rule” in the top right corner.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Security Groups</strong> in the sidebar menu.</p></li>
+<li><p>On the line of the security group you want to add a rule to, press <strong>Manage rules</strong></p></li>
+<li><p>Press <strong>+ Add rule</strong> in the top right corner.</p></li>
 <li><p>Define the rule. More info in our <a class="reference internal" href="designing-rules.html"><span class="doc">Designing security group rules</span></a> article.</p></li>
-<li><p>Press “Add”.</p></li>
+<li><p>Press <strong>Add</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>For ease of use, we recommend using the already defined rules. These are project specific so you can also tweak them as you see fit.</p>
+<p>For ease of use, we recommend using the already defined rules. These are project specific
+so you can also tweak them as you see fit.</p>
 </div>
 <h2 id="adding-a-security-group-to-an-instance">Adding a security group to an instance<a class="headerlink" href="#adding-a-security-group-to-an-instance" title="Link to this heading">¶</a></h2>
-<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “Compute” and then “Instances” in the sidebar menu.</p></li>
-<li><p>On the line of the instance you want to add a security group to, press the small arrow and select “Edit Security Groups”.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
+<li><p>On the line of the instance you want to add a security group to, press the small arrow
+and select <strong>Edit Security Groups</strong></p></li>
 <li><p>Press the “+” sign on each security group you want to add to the instance.</p></li>
-<li><p>Press “Save”.</p></li>
+<li><p>Press <strong>Save</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you instead choose to press “Edit Port Security Groups” (in step 2 above) you are able to set security groups on a per interface (port) basis instead. This might be useful if you have several networks connected to your instance (which we don’t recommend) and want to have different settings on them.</p>
+<p>If you instead choose to press “Edit Port Security Groups” (in step 2 above) you are able to set
+security groups on a per interface (port) basis instead.</p>
+<p>This might be useful if you have several networks connected to your instance (which we don’t
+recommend) and want to have different settings on them.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Remember: you need to add your groups to all instances, all rules are evaluated in a per instance fashion.</p>
+<p>Remember: you need to add your groups to all instances, all rules are evaluated in a per
+instance fashion.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

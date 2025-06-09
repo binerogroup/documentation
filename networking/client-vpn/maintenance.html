@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1681,10 +1681,18 @@
   
 
 <h1 id="vpn-server-maintenance">VPN server maintenance<a class="headerlink" href="#vpn-server-maintenance" title="Link to this heading">¶</a></h1>
-<p>In order to remain a secure solution as well as to keep working as intended, we recommend maintaining the VPN server from time to time. Below we show some important tasks and how to manage them.</p>
+<p>In order to remain a secure solution as well as to keep working as
+intended, we recommend maintaining the VPN server from time to time.</p>
+<p>Below we show some important tasks and how to manage them.</p>
 <h2 id="updating-the-vpn-server">Updating the VPN server<a class="headerlink" href="#updating-the-vpn-server" title="Link to this heading">¶</a></h2>
-<p>The VPN server software is based on <a class="reference external" href="https://www.pfsense.org">PfSense</a> which in turn is running on FreeBSD operating system. PfSense will provide updates that will include security fixes and additional functionality. We strongly recommend updating the VPN server once new releases are available to keep it secure over time. If your installation is left un-updated your risk falling to far behind to be able to update and be vulnerable to security exploits.</p>
-<p>To update the VPN server using the VPN WebGUI, follow these steps:</p>
+<p>The VPN server software is based on <a class="reference external" href="https://www.pfsense.org">pfSense</a> which
+in turn is running on FreeBSD operating system.</p>
+<p>pfSense will provide updates that will include security fixes and additional functionality.</p>
+<p>We strongly recommend updating the VPN server once new releases are available to keep it
+secure over time.</p>
+<p>If your installation is left un-updated your risk falling to far behind to be able
+to update and be vulnerable to security exploits.</p>
+<p>To update the VPN server using the VPN WebGUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
 <li><p>Press “System” and then “Update” in the main menu.</p></li>
@@ -1694,27 +1702,36 @@
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The server will reboot after the update. Its advisable to first <a class="reference internal" href="../../storage/snapshots/index.html"><span class="doc">snapshot</span></a> the server in the event the update should fail or something should not work afterwards.</p>
+<p>The server will reboot after the update. Its advisable to first <a class="reference internal" href="../../storage/snapshots/index.html"><span class="doc">snapshot</span></a> the
+server in case the update should fail or something should not work afterwards.</p>
 </div>
 <h2 id="re-issue-certificates">Re-issue certificates<a class="headerlink" href="#re-issue-certificates" title="Link to this heading">¶</a></h2>
-<p>The VPN server will be created with newly issued certificates but because some clients does not allow certificates which are valid for longer than a year, these certificates will need to be re-issued on a yearly basis.</p>
-<p>To re-issue certificates using the VPN WebGUI, follow these steps:</p>
+<p>The VPN server will be created with newly issued certificates but because some clients does not
+allow certificates which are valid for longer than a year, these certificates will need to be
+reissued on a yearly basis.</p>
+<p>To re-issue certificates using the VPN WebGUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
 <li><p>Press “System” and then “Cert. manager” in the main menu.</p></li>
 <li><p>Press the “Certificates” tab under the main heading (the default menu is the CA menu - do <em>not</em> re-issue the CA).</p></li>
-<li><p>By default there are 3 certificates installed on the system; “OpenVPN Server”, “OpenVPN User”, “webConfigurator default”. Aside from this, if you’ve added users these will also be in the list. The first two certificates will need to be re-issued.</p></li>
+<li><p>By default there are 3 certificates installed on the system; “OpenVPN Server”, “OpenVPN User”,
+<code class="docutils literal notranslate"><span class="pre">webConfigurator</span> <span class="pre">default</span></code>. Aside from this, if you’ve added users these will also be in the list. The
+first two certificates will need to be reissued.</p></li>
 <li><p>Press the small “round arrow” (re-issue / renew) to the right of each (one at the time) of the OpenVPN server and OpenVPN User.</p></li>
 <li><p>Press the “Renew/Reissue” button.</p></li>
 <li><p>Note that the “valid until” date is renewed.</p></li>
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>The “OpenVPN User” certificate is used when using the <a class="reference internal" href="user-modes.html"><span class="doc">default mode</span></a> user setup. When renewing this certificate, new <a class="reference internal" href="logging-in.html"><span class="doc">client configurations</span></a> will need to be setup in the VPN users client softwares. The “OpenVPN Server” certificate will not require new client configs but renewing it will <strong>restart the service</strong> which will disconnect active clients.</p>
+<p>The “OpenVPN User” certificate is used when using the <a class="reference internal" href="user-modes.html"><span class="doc">default mode</span></a> user setup. When renewing
+this certificate, new <a class="reference internal" href="logging-in.html"><span class="doc">client configurations</span></a> will need to be setup in the VPN users client software.</p>
+<p>The “OpenVPN Server” certificate will not require new client configurations but renewing it will <strong>restart the service</strong>
+which will disconnect active clients.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>User certificates will have a 10 year life-span. In the event they expire, they will also need to be renewed. This will also require new VPN config for the users who use their certificates.</p>
+<p>User certificates will have a 10 year life-span. In case they expire, they will also need to be renewed. This will also
+require new VPN configuration for the users who use their certificates.</p>
 </div>
 
 

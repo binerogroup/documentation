@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1283,14 +1283,14 @@
   
 
 <h1 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h1>
-<p>For terminal oriented users, the OpenStack client offer a very speedy way (albeit with a steeper
+<p>For terminal oriented users, the OpenStack client offer a speedy way (albeit with a steeper
 learning curve) to manage your cloud resources. The client is written in Python.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
 <p>How to install the client will vary based on your operating system. On Linux based systems and Mac OS,
 its possible to install via <code class="docutils literal notranslate"><span class="pre">pip</span></code> which is the packet installer for python.</p>
 <p>Installation of pip is documented <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">here</a> but is also
 possible using <code class="docutils literal notranslate"><span class="pre">brew</span></code> on Mac OS or the Linux package manager included in your distribution
-(for instance <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">pip</span></code> on Debian based distros).</p>
+(for instance <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">pip</span></code> on Debian based distributions).</p>
 <p>Once <code class="docutils literal notranslate"><span class="pre">pip</span></code> is installed, you are able to install the terminal client as such:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>pip install python-openstackclient python-designateclient python-barbicanclient python-octaviaclient python-swiftclient``
 </code></pre></div>
@@ -1300,7 +1300,7 @@ of the platform.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <p>To configure the client after installation, follow these steps:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="/getting-started/users.html#api-users">Create an API user</a> (if you dont already have one)</p></li>
+<li><p><a class="reference external" href="/getting-started/users.html#api-users">Create an API user</a> (if you don’t already have one)</p></li>
 <li><p>On the API user, press the small arrow icon, this will download an openrc file</p></li>
 <li><p>Source the file in your terminal by running <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">openrc</span></code></p></li>
 <li><p>Enter your password</p></li>
@@ -1322,7 +1322,7 @@ which is not an API user).</p>
 </code></pre></div>
 </div>
 <p>The client will run either as a command with arguments or in interactive mode (at which point the
-arguments are the commands). A good way to find the right command is is to run:</p>
+arguments are the commands). A good way to find the right command is to run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">openstack</span> <span class="n">help</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">&lt;</span><span class="n">INPUT</span><span class="o">&gt;</span>
 </code></pre></div>
 </div>

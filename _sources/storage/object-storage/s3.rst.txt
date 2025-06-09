@@ -2,7 +2,7 @@
 S3 object storage
 =================
 
-Amazon Simple Storage Services (S3) is an object storage service that exposes a HTTP based API known as the
+AWS S3 is an object storage service provided by Amazon that exposes a HTTP based API known as the
 S3 API. Binero cloud provides it's own object storage service that supports this HTTP based S3 API.
 
 You are able to consume our object storage using the S3 API from any of our
@@ -45,10 +45,11 @@ You can read more about :ref:`ec2-credential-label` in our :doc:`/getting-starte
 S3 client
 ---------
 
-S3 is an API based protocol, meaning to administrate it you would use API requests. In order to simplify the
-management of S3 in the cloud, we recommend installing the official client from AWS, its available
-`here <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`__. Once its installed, you should be
-able to run ``aws --version`` and get an output.
+S3 is an HTTP based API protocol, meaning to administer it you would use HTTP API requests. In order to
+simplify the management of S3 in the cloud, we recommend installing the official client from AWS, its
+available `here <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`__.
+
+Once its installed, you should be able to run ``aws --version`` and get an output.
 
 Configure your client with your credentials (from the "setting up credentials" step above) by creating the file
 (on a Linux or MacOS based computer) ``~/.aws/credentials`` as such:
@@ -63,7 +64,7 @@ When the configuration file is completed, you are now able to test reaching the 
 this command: ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-buckets`` which will list the
 buckets in the account from the non replicated endpoint of availability zone europe-se-1a.
 
-If you have no buckets setup, it will return an emtpy "Buckets" array.
+If you have no buckets setup, it will return an empty ``Buckets`` array.
 
 Creating a bucket
 -----------------

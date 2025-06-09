@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -731,7 +731,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -755,7 +755,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1071,7 +1071,7 @@
   <a href="floating-ips.html" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Floating IPs
+      Floating IP addresses
     </span>
   </a>
   
@@ -1081,7 +1081,7 @@
   <a href="directly-attached-ips.html" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Directly attached IPs
+      Directly attached IP addresses
     </span>
   </a>
   
@@ -1549,10 +1549,23 @@
   
 
 <h1 id="networking">Networking<a class="headerlink" href="#networking" title="Link to this heading">¶</a></h1>
-<p>Networking is a core function in the In Binero cloud platform. It features a complete suite of virtualised networking functions ranging from routing, firewalling and high speed internet access to VPNs (Virtual Private Networks) and load balancers.</p>
-<p>The two main methods to connect to the internet is to either assign a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a> to your instance or setup a <a class="reference internal" href="router/index.html"><span class="doc">router</span></a> and connect a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> to the router and your instance, then use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating ip</span></a> to your instance (which is the recommended approach).</p>
-<p>The general design of networking in the platform is that <a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a> use <a class="reference internal" href="ports.html"><span class="doc">ports</span></a> to connect to <a class="reference internal" href="router/private-network/index.html"><span class="doc">networks</span></a>. Networks in turn, have <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnets</span></a> that assign IPs to instances. <a class="reference internal" href="floating-ips.html"><span class="doc">Floating ip</span></a> are publicly routed IPs that can be mapped (1:1) to a private IP to either publish services on the internet or provide servers with access to the internet.</p>
-<p>Please see the various subsections to this article in order to get a good understanding of the networking possibilities in the platform. If you are looking to <strong>get started</strong> with networking, we recommend our <a class="reference internal" href="../getting-started/launching-an-instance.html"><span class="doc">getting started guide</span></a> that will guide you through setting up a versatile solution using a single subnet behind a router.</p>
+<p>Networking is a core function in the In Binero cloud platform. It features a complete suite of virtual
+networking functions ranging from routing, security groups (firewall) and high speed internet access to
+VPNs (Virtual Private Networks) and load balancers.</p>
+<p>The two main methods to connect to the internet is to either assign a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a>
+to your instance or setup a <a class="reference internal" href="router/index.html"><span class="doc">router</span></a> and connect a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>
+to the router and your instance, then use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating IP</span></a> to your instance (which is
+the recommended approach).</p>
+<p>The general design of networking in the platform is that <a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a> use <a class="reference internal" href="ports.html"><span class="doc">ports</span></a> to
+connect to <a class="reference internal" href="router/private-network/index.html"><span class="doc">networks</span></a>.</p>
+<p>Networks in turn, have <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnets</span></a> that assign IP addresses to ports
+used by instances.</p>
+<p><a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a> are publicly routed IP addresses that can be mapped (1:1) to a port to either
+publish services on the internet or provide servers with access to the internet.</p>
+<p>Please see the various subsections to this article in order to get a good understanding of the networking possibilities
+in the platform.</p>
+<p>If you are looking to <strong>get started</strong> with networking, we recommend our <a class="reference internal" href="../getting-started/launching-an-instance.html"><span class="doc">getting started guide</span></a>
+that will guide you through setting up a versatile solution using a single subnet behind a router.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>
@@ -1566,13 +1579,13 @@
 <li class="toctree-l2"><a class="reference internal" href="router/static-routing.html">Static routing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="floating-ips.html">Floating IPs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="floating-ips.html#key-differences-to-directly-attached-ips">Key differences to directly attached IPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating-ips.html">Floating IP addresses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="floating-ips.html#key-differences-to-directly-attached-ip-addresses">Key differences to directly attached IP addresses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="floating-ips.html#setting-up-a-floating-ip">Setting up a floating IP</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="directly-attached-ips.html">Directly attached IPs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="directly-attached-ips.html#key-differences-to-floating-ips">Key differences to floating IPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directly-attached-ips.html">Directly attached IP addresses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directly-attached-ips.html#key-differences-to-floating-ip-addresses">Key differences to floating IP addresses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="directly-attached-ips.html#setting-up-a-directly-attached-ip">Setting up a directly attached IP</a></li>
 </ul>
 </li>
@@ -1637,7 +1650,7 @@
 <li class="toctree-l1"><a class="reference internal" href="regions-and-availability-zones.html">Networking regions and availability zones</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#networks-and-subnets">Networks and subnets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#routers">Routers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#floating-ips">Floating IPs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#floating-ip-addresses">Floating IP addresses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#load-balancer">Load balancer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions-and-availability-zones.html#summary">Summary</a></li>
 </ul>

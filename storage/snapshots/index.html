@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1441,14 +1441,31 @@
   
 
 <h1 id="snapshots">Snapshots<a class="headerlink" href="#snapshots" title="Link to this heading">¶</a></h1>
-<p>A snapshot is a point-in-time freeze of a filesystem on a volume. This is managed by re-routing changes (writes) to another disk, leaving the snapshot un-affected. Snapshots are pretty much instant since they dont move any data but rather moves the location for future data. A revert to a previous snapshot is equally quick since again, no data needs to be moved, read just need to happen from another place.</p>
-<p>Snapshots are hierarchal in the sense that each snapshot will reference the previous snapshots. While its possible to remove a snapshot in the middle, this will mean a commit of its data into a previous snapshot. When removing a snapshot (which is different from reverting <em>to</em> a snapshot), data is consolidated into the main disk again.</p>
-<p>The most common scenario for using a snapshot is for testin out something in a production system. For instance doing a dist-upgrade of Linux, completely changing out all packages in the OS and testing out the result - would be much safer with a snapshot. If it does not work, just revert.</p>
+<p>A snapshot is a point-in-time snapshot of a filesystem on a volume.</p>
+<p>Snapshots are pretty much instant because they don’t move any data but
+only creates a checkpoint from where it tracks changes. A revert to a
+snapshot is also fast as no data needs to be moved.</p>
+<p>Snapshots are hierarchal in the sense that each snapshot will reference the
+previous snapshots.</p>
+<p>The most common use-case for a snapshot is for testing out something in a
+production system. For example upgrades or other invasive actions if something
+goes wrong the snapshot can be used to revert.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>We recommend that you are conservative in the usage of snapshots and
+instead implement best practices to test your changes before going
+any invasive actions.</p>
+</div>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>A snapshot is <strong>NOT</strong> a <a class="reference internal" href="../../backup/index.html"><span class="doc">backup</span></a>. While it might seem like a good approach to just take recurring snapshots, so that its possible to revert to an older stage, no data is moved so in the event of an issue with the underlying platform, all snapshots would be lost.</p>
+<p>A snapshot is <strong>NOT</strong> a <a class="reference internal" href="../../backup/index.html"><span class="doc">backup</span></a>. While it might seem like
+a good approach to just take recurring snapshots, so that its possible to revert
+to an older stage, no data is moved so in case of an issue with the underlying
+platform, all snapshots would be lost.</p>
 </div>
-<p>If you want to access the data of a snapshot, the recommended approach is to <a class="reference internal" href="create-volume-from-snapshot.html"><span class="doc">Create a volume from a snapshot</span></a> and attach it to an instance (or base a new instance of the volume).</p>
+<p>If you want to access the data of a snapshot, the recommended approach is to
+<a class="reference internal" href="create-volume-from-snapshot.html"><span class="doc">Create a volume from a snapshot</span></a> and attach it to an instance (or base a new
+instance of the volume).</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>

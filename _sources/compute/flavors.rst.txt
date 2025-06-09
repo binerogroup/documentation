@@ -6,11 +6,11 @@ Binero cloud provides various flavors of compute instances. A flavor defines the
 storage capacity for some flavors (see NVMe flavors below) and other hardware configuration that
 allows you to customize for performance or features needed by your application.
 
-There are different groups of flavors and each group has different performance characteristics
+We provide different groups of flavors and each group has different performance characteristics
 and is optimized for different use-cases.
 
 Each group of flavors has a version number meaning the higher version number the newer the
-hardware giving a performance advatange on previous versions, for flavors without an explicit
+hardware giving a performance advantage on previous versions, for flavors without an explicit
 version number in the name is implied to be version 1.
 
 A flavor can have specific features such as NVMe storage, GPU, Pinned CPU. A CPU vendor identifier is
@@ -50,9 +50,8 @@ An overview of the flavor groups and their types looks like below.
 
     - GPU and NVMe, example ``hp.12x64-gpu8-nvme250``
 
-The names are designed to be easy to understand with a clear structure, for example the
-flavor ``hm.8x48`` is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs and 48
-GB memory.
+The names are designed to be clear and well structured, for example the flavor ``hm.8x48`` is
+a High memory (hm) version 1 using Intel CPUs with 8 vCPUs and 48 GB memory.
 
 The ``hp.12x64-gpu8-nvme50`` flavor is High performance (hp) version 1 with 12 vCPUs,
 64 GB memory, 8 GB GPU vRAM and 50 GB of local NVMe storage.
@@ -76,14 +75,14 @@ General purpose
 This general purpose flavor group has a well rounded combination of CPU and memory and is suitable
 for most general application use-cases that does not have heavy or intensive CPU requirements.
 
-This flavor group provides a very good cost for performance and is recommended for use-cases
+This flavor group provides a good cost for performance and is recommended for use-cases
 with low to medium usage requirements.
 
 Version 1 with Intel CPU
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The version number 1 (implied in the flavor names) is using Intel as CPU vendor
-with Intel Xeon Gold 6138 2.0 GHz prcessors from the Intel Xeon Scalable Processors
+with Intel Xeon Gold 6138 2.0 GHz processors from the Intel Xeon Scalable Processors
 product family.
 
 .. tip::
@@ -102,54 +101,63 @@ product family.
      - Flavor group
      - Version
      - CPU vendor
+
    * - gp.1x2
      - 1
      - 2048
      - General purpose
      - Version 1
      - Intel
+
    * - gp.2x4
      - 2
      - 4096
      - General purpose
      - Version 1
      - Intel
+
    * - gp.3x6
      - 3
      - 6144
      - General purpose
      - Version 1
      - Intel
+
    * - gp.4x8
      - 4
      - 8192
      - General purpose
      - Version 1
      - Intel
+
    * - gp.6x12
      - 6
      - 12288
      - General purpose
      - Version 1
      - Intel
+
    * - gp.8x16
      - 8
      - 16384
      - General purpose
      - Version 1
      - Intel
+
    * - gp.12x24
      - 12
      - 24576
      - General purpose
      - Version 1
      - Intel
+
    * - gp.16x32
      - 16
      - 32768
      - General purpose
      - Version 1
      - Intel
+
    * - gp.24x48
      - 24
      - 49152
@@ -168,7 +176,7 @@ critical for time sensitive applications that would normally suffer when schedul
 time to shared CPU cores takes more time than the requirement causing the application to
 experience lag or higher tail latencies due to for example noisy neighbours.
 
-We also guarantee that the allocated CPU core thread sibblings is allocated so that you're
+We also guarantee that the allocated CPU core thread siblings is allocated so that you're
 never exposed to any transient execution CPU vulnerabilities.
 
 We allocate pinned CPUs across all NUMA nodes to optimize CPU usage but due to memory being
@@ -186,23 +194,26 @@ NUMA nodes to read memory.
    :header-rows: 1
 
    * - Name
-     - PCPUs
+     - pCPUs
      - Memory (MB)
      - Flavor group
      - Version
      - CPU vendor
+
    * - gp.4x8-pinned
      - 8192
      - 4
      - General purpose with pinned CPU
      - Version 1
      - Intel
+
    * - gp.8x16-pinned
      - 16384
      - 8
      - General purpose with pinned CPU
      - Version 1
      - Intel
+
    * - gp.16x32-pinned
      - 32768
      - 16
@@ -229,60 +240,70 @@ than version 1 depending on your use-case.
      - Flavor group
      - Version
      - CPU vendor
+
    * - gp-v2a.2x4
      - 2
      - 4096
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.4x8
      - 4
      - 8196
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.6x12
      - 6
      - 12288
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.8x16
      - 8
      - 16384
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.12x24
      - 12
      - 24576
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.16x32
      - 16
      - 32768
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.24x48
      - 24
      - 49152
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.48x96
      - 48
      - 98304
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.64x128
      - 64
      - 131072
      - General purpose
      - Version 2
      - AMD
+
    * - gp-v2a.96x192
      - 96
      - 196608
@@ -297,13 +318,13 @@ This high memory flavor group is optimized to provide the best value for applica
 needs a larger amount of memory compared to more CPU cores that is provided by general purpose.
 
 The flavor group can be used for more memory heavy use-cases such as a database application with
-heavy caching of the dataset in memory that doesn't have a intensive requirement on CPU computation.
+heavy caching of the data set in memory that doesn't have a intensive requirement on CPU computation.
 
 Version 1 with Intel
 ~~~~~~~~~~~~~~~~~~~~
 
 The version number 1 (implied in the flavor names) is using Intel as CPU vendor
-with Intel Xeon Gold 6138 2.0 GHz prcessors from the Intel Xeon Scalable Processors
+with Intel Xeon Gold 6138 2.0 GHz processors from the Intel Xeon Scalable Processors
 product family.
 
 .. tip::
@@ -322,84 +343,98 @@ product family.
      - Flavor group
      - Version
      - CPU vendor
+
    * - hm.1x4
      - 1
      - 4096
      - High memory
      - Version 1
      - Intel
+
    * - hm.2x8
      - 2
      - 8192
      - High memory
      - Version 1
      - Intel
+
    * - hm.3x12
      - 3
      - 12288
      - High memory
      - Version 1
      - Intel
+
    * - hm.4x16
      - 4
      - 16384
      - High memory
      - Version 1
      - Intel
+
    * - hm.6x24
      - 6
      - 24576
      - High memory
      - Version 1
      - Intel
+
    * - hm.6x32
      - 6
      - 32768
      - High memory
      - Version 1
      - Intel
+
    * - hm.8x48
      - 8
      - 49152
      - High memory
      - Version 1
      - Intel
+
    * - hm.8x96
      - 8
      - 98304
      - High memory
      - Version 1
      - Intel
+
    * - hm.12x64
      - 12
      - 65536
      - High memory
      - Version 1
      - Intel
+
    * - hm.12x128
      - 12
      - 131072
      - High memory
      - Version 1
      - Intel
+
    * - hm.16x64
      - 16
      - 65536
      - High memory
      - Version 1
      - Intel
+
    * - hm.16x128
      - 16
      - 131072
      - High memory
      - Version 1
      - Intel
+
    * - hm.24x64
      - 24
      - 65536
      - High memory
      - Version 1
      - Intel
+
    * - hm.24x128
      - 24
      - 131072
@@ -410,7 +445,7 @@ product family.
 Pinned CPU
 ^^^^^^^^^^
 
-See the pinned CPU section in General purpose version 1 for a detailed explaination
+See the pinned CPU section in General purpose version 1 for a detailed explanation
 of these flavors. These are the same but with a higher memory to CPU ratio.
 
 .. list-table::
@@ -418,23 +453,26 @@ of these flavors. These are the same but with a higher memory to CPU ratio.
    :header-rows: 1
 
    * - Name
-     - PCPUs
+     - pCPUs
      - Memory (MB)
      - Flavor group
      - Version
      - CPU vendor
+
    * - hm.4x16-pinned
      - 16384
      - 4
      - High memory with pinned CPU
      - Version 1
      - Intel
+
    * - hm.8x32-pinned
      - 32768
      - 8
      - High memory with pinned CPU
      - Version 1
      - Intel
+
    * - hm.16x64-pinned
      - 65536
      - 16
@@ -462,84 +500,98 @@ than version 1 depending on your use-case.
      - Flavor group
      - Version
      - CPU vendor
+
    * - hm-v2a.2x8
      - 2
      - 2048
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.4x16
      - 4
      - 4096
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.6x24
      - 6
      - 6144
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.8x32
      - 8
      - 32768
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.8x192
      - 8
      - 196608
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.12x64
      - 12
      - 65536
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.16x96
      - 16
      - 98304
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.16x256
      - 16
      - 262144
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.18x128
      - 18
      - 131072
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.20x192
      - 20
      - 196608
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.22x256
      - 22
      - 262144
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.24x384
      - 24
      - 393216
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.32x512
      - 32
      - 524288
      - High memory
      - Version 2
      - AMD
+
    * - hm-v2a.64x768
      - 64
      - 786432
@@ -565,13 +617,13 @@ Version 1 with Intel
 ~~~~~~~~~~~~~~~~~~~~
 
 The version number 1 (implied in the flavor names) is using Intel as CPU vendor
-with Intel Xeon Gold 6154 3.0 GHz prcessors from the Intel Xeon Scalable Processors
+with Intel Xeon Gold 6154 3.0 GHz processors from the Intel Xeon Scalable Processors
 product family.
 
 .. tip::
 
    The High performance version 1 has a 50% higher base clock frequency than version 1
-   of General purpose and High memory flavor groups and can significally improve your
+   of General purpose and High memory flavor groups and can significantly improve your
    performance for CPU heavy or latency sensitive workloads.
 
 .. list-table::
@@ -584,84 +636,98 @@ product family.
      - Flavor group
      - Version
      - CPU vendor
+
    * - hp.2x4
      - 4096
      - 2
      - High performance
      - Version 1
      - Intel
+
    * - hp.2x6
      - 6144
      - 2
      - High performance
      - Version 1
      - Intel
+
    * - hp.2x8
      - 8192
      - 2
      - High performance
      - Version 1
      - Intel
+
    * - hp.4x6
      - 6144
      - 4
      - High performance
      - Version 1
      - Intel
+
    * - hp.4x8
      - 8192
      - 4
      - High performance
      - Version 1
      - Intel
+
    * - hp.4x16
      - 16384
      - 4
      - High performance
      - Version 1
      - Intel
+
    * - hp.6x12
      - 12288
      - 6
      - High performance
      - Version 1
      - Intel
+
    * - hp.8x24
      - 24576
      - 8
      - High performance
      - Version 1
      - Intel
+
    * - hp.8x32
      - 32768
      - 8
      - High performance
      - Version 1
      - Intel
+
    * - hp.8x64
      - 65536
      - 8
      - High performance
      - Version 1
      - Intel
+
    * - hp.8x128
      - 131072
      - 8
      - High performance
      - Version 1
      - Intel
+
    * - hp.12x32
      - 32768
      - 12
      - High performance
      - Version 1
      - Intel
+
    * - hp.12x64
      - 65536
      - 12
      - High performance
      - Version 1
      - Intel
+
    * - hp.12x128
      - 131072
      - 12
@@ -673,7 +739,7 @@ NVMe storage
 ^^^^^^^^^^^^
 
 These flavors provides local ephemeral :doc:`NVMe based storage </storage/nvme-storage>` with
-very high performance and low-latency access times, with the limitation of being local there
+high performance and low-latency access times, with the limitation of being local there
 is no data redundancy.
 
 .. caution::
@@ -681,11 +747,11 @@ is no data redundancy.
    The NVMe based storage is local to the hypervisor that is running your
    instance and is backed by a single physical disk, though NVMe based
    enterprise solid state drives has an extremely good lifetime expectancy it's
-   very important that you consider this fact and **backup your data** regularly.
+   important that you consider this fact and **backup your data** regularly.
 
 This flavor provides the best possible storage performance for IO intensive workloads
 that needs to write to disk and is great for ephemeral storage or as disk if you
-have an application with data replication or redundancy already builtin.
+have an application with data replication or redundancy already built-in.
 
 .. list-table::
    :widths: 25 20 20 20 40 40 20
@@ -698,6 +764,7 @@ have an application with data replication or redundancy already builtin.
      - Flavor group
      - Version
      - CPU vendor
+
    * - hp.4x8-nvme50
      - 4
      - 8192
@@ -705,6 +772,7 @@ have an application with data replication or redundancy already builtin.
      - High performance with NVMe
      - Version 1
      - Intel
+
    * - hp.4x8-nvme250
      - 8192
      - 4
@@ -712,6 +780,7 @@ have an application with data replication or redundancy already builtin.
      - High performance with NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-nvme50
      - 8
      - 24576
@@ -719,6 +788,7 @@ have an application with data replication or redundancy already builtin.
      - High performance with NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-nvme250
      - 8
      - 24576
@@ -726,6 +796,7 @@ have an application with data replication or redundancy already builtin.
      - High performance with NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-nvme50
      - 12
      - 65536
@@ -733,6 +804,7 @@ have an application with data replication or redundancy already builtin.
      - High performance with NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-nvme250
      - 12
      - 65536
@@ -748,7 +820,7 @@ These flavors provides :doc:`GPU based compute <gpu-instances>` and allows gives
 GPU allocated to your instance with the specified vRAM/vMEM memory.
 
 This gives you access to a NVIDIA A10 GPU that you can use for rendering, image
-processing, AI, ML and inferrence workloads that can run 50-200x faster on a GPU
+processing, AI, ML and inference workloads that can run 50-200x faster on a GPU
 than a CPU.
 
 .. tip::
@@ -767,6 +839,7 @@ than a CPU.
      - Flavor group
      - Version
      - CPU vendor
+
    * - hp.4x8-gpu4
      - 4
      - 8192
@@ -774,6 +847,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.4x8-gpu8
      - 4
      - 8192
@@ -781,6 +855,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.4x8-gpu24
      - 4
      - 8192
@@ -788,6 +863,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.8x24-gpu4
      - 8
      - 24576
@@ -795,6 +871,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.8x24-gpu8
      - 8
      - 24576
@@ -802,6 +879,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.8x24-gpu24
      - 8
      - 24576
@@ -809,6 +887,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.12x64-gpu4
      - 12
      - 65536
@@ -816,6 +895,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.12x64-gpu8
      - 12
      - 65536
@@ -823,6 +903,7 @@ than a CPU.
      - High performance with GPU
      - Version 1
      - Intel
+
    * - hp.12x64-gpu24
      - 12
      - 65536
@@ -849,6 +930,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - Flavor group
      - Version
      - CPU vendor
+
    * - hp.4x8-gpu4-nvme50
      - 4
      - 8192
@@ -857,6 +939,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.4x8-gpu4-nvme250
      - 4
      - 8192
@@ -865,6 +948,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.4x8-gpu8-nvme250
      - 4
      - 8192
@@ -873,6 +957,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.4x8-gpu8-nvme50
      - 4
      - 8192
@@ -881,6 +966,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.4x8-gpu24-nvme50
      - 4
      - 8192
@@ -889,6 +975,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.4x8-gpu24-nvme250
      - 4
      - 8192
@@ -897,6 +984,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-gpu4-nvme50
      - 8
      - 24576
@@ -905,6 +993,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-gpu4-nvme250
      - 8
      - 24576
@@ -913,6 +1002,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-gpu8-nvme50
      - 8
      - 24576
@@ -921,6 +1011,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-gpu8-nvme250
      - 8
      - 24576
@@ -929,6 +1020,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-gpu24-nvme50
      - 8
      - 24576
@@ -937,6 +1029,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.8x24-gpu24-nvme250
      - 8
      - 24576
@@ -945,6 +1038,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-gpu4-nvme50
      - 12
      - 65536
@@ -953,6 +1047,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-gpu4-nvme250
      - 12
      - 65536
@@ -961,6 +1056,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-gpu8-nvme50
      - 12
      - 65536
@@ -969,6 +1065,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-gpu8-nvme250
      - 12
      - 65536
@@ -977,6 +1074,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-gpu24-nvme50
      - 12
      - 65536
@@ -985,6 +1083,7 @@ to read or write fast to local NVMe storage for your GPU workload.
      - High performance with GPU and NVMe
      - Version 1
      - Intel
+
    * - hp.12x64-gpu24-nvme250
      - 12
      - 65536
@@ -995,5 +1094,6 @@ to read or write fast to local NVMe storage for your GPU workload.
      - Intel
 
 ..  seealso::
+
     - :doc:`/compute/gpu-instances`
     - :doc:`/storage/nvme-storage`

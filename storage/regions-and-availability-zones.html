@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1375,23 +1375,43 @@
   
 
 <h1 id="storage-regions-and-availability-zones">Storage regions and availability zones<a class="headerlink" href="#storage-regions-and-availability-zones" title="Link to this heading">¶</a></h1>
-<p>Storage is a core service and is available in all Binero clouds regions and availability zones. Below we outline the region and availability zone concepts for storage. If you are looking to roll out a geo redundant platform, understanding the base design principles will help you create a very resilient and highly available system as well as securing your data in the event of a hypothetical availability zone outage scenario.</p>
+<p>Storage is a core service and is available in all Binero clouds regions and availability
+zones.</p>
+<p>Below we outline the region and availability zone concepts for storage.</p>
+<p>If you are looking to roll out a geographically redundant platform, understanding the base
+design principles will help you create a resilient and highly available system as well as
+securing your data in case of a hypothetical availability zone outage scenario.</p>
 <h2 id="volumes">Volumes<a class="headerlink" href="#volumes" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="persistent-block-storage/index.html"><span class="doc">Volumes</span></a> are local to an availability zone. Binero cloud does <em>not</em> stretch our storage platform(s) but use individual storage in each ends. This is to guarantee that the storage is not impacted in several zones at once in the event of some incident with the storage platform.</p>
-<p>Binero cloud currently does not allow for replication of block storage between zones, this is mainly because using cluster file systems that take replication of block storage into account is usually less resilient than using a replication method connected to the application that stores data (for instance clustering of MySQL) - as well as more complex and with more dependencies.</p>
-<p>When wanting to keep a fileshare up to date in more than a single availability zone, there are several techniques that will keep a filesystem synchronised, for instance DRBD or Rsyncd that can run above the platform layer. We would generally recommend using <a class="reference internal" href="object-storage/index.html"><span class="doc">object storage</span></a> for these scenarios, if possible though.</p>
+<p><a class="reference internal" href="persistent-block-storage/index.html"><span class="doc">Volumes</span></a> are local to an availability zone. Binero cloud
+does <em>not</em> stretch our storage platform(s) but use individual storage in each availability zone.</p>
+<p>This is to guarantee that the storage is not impacted in several zones at once in case of some
+incident with the storage platform.</p>
+<p>Binero cloud currently does not allow for replication of block storage between zones. We recommend
+that you implement replication of your data on the application layer or by using our <a class="reference internal" href="object-storage/index.html"><span class="doc">object storage</span></a>
+service.</p>
 <h2 id="moving-a-volume-between-availability-zones">Moving a volume between availability zones<a class="headerlink" href="#moving-a-volume-between-availability-zones" title="Link to this heading">¶</a></h2>
-<p>For security reasons, there is no network connectivity between the storage platforms of our availability zones. Because of this, there are two main options to move volumes:</p>
+<p>For security reasons, there is no network connectivity between the storage platforms of our
+availability zones. Because of this, there are two main options to move volumes:</p>
 <ul class="simple">
 <li><p>Create a <a class="reference internal" href="../backup/index.html"><span class="doc">backup</span></a> and restore in the different zone.</p></li>
 <li><p>Create an <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> from a volume and setup an instance in a different zone based on the image.</p></li>
 </ul>
 <h2 id="object-storage">Object storage<a class="headerlink" href="#object-storage" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="object-storage/index.html"><span class="doc">Object storage</span></a> is available in all our availability zones. Replication is available using a separate <a class="reference internal" href="object-storage/endpoints.html"><span class="doc">endpoint</span></a> that will replicate between europe-se-1a and europe-se-1b. When using replicated object storage, there are no special considerations (with regards to the actual replication) for the user as the platform manages the entire replication. The user should however take care to connect to the endpoint that is local to the application (or to europe-se-1a when connecting from the outside).</p>
+<p><a class="reference internal" href="object-storage/index.html"><span class="doc">Object storage</span></a> is available in all our availability zones.</p>
+<p>Replication is available using a separate <a class="reference internal" href="object-storage/endpoints.html"><span class="doc">endpoint</span></a> that will replicate between
+our europe-se-1a and europe-se-1b availability zones.</p>
+<p>When using replicated object storage, there are no special considerations (with regards to the actual replication)
+for the user as the platform manages the entire replication.</p>
+<p>The user should however take care to connect to the endpoint that is local to the application (or to europe-se-1a
+when connecting from the outside).</p>
 <h2 id="nvme-storage">NVMe storage<a class="headerlink" href="#nvme-storage" title="Link to this heading">¶</a></h2>
 <p>NVMe storage is not replicated and is currently only available in the europe-se-1a availability zone.</p>
 <h2 id="snapshots">Snapshots<a class="headerlink" href="#snapshots" title="Link to this heading">¶</a></h2>
-<p>All snapshots are local to the volume that the snapshot depends on. This means that snapshots are store in the availability zone where the volume they belong to are stored. When creating a volume from a snapshot, it will be save in the same availability zone as the snapshot. While you are able to provision an instance from a snapshot in a different availability zone, this provision task will fail.</p>
+<p>All snapshots are local to the volume that the snapshot depends on. This means that snapshots are store in the
+availability zone where the volume they belong to are stored.</p>
+<p>When creating a volume from a snapshot, it will be save in the same availability zone as the snapshot.</p>
+<p>While you are able to provision an instance from a snapshot in a different availability zone, this provision
+task will fail.</p>
 
 
 

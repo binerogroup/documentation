@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1461,30 +1461,42 @@
   
 
 <h1 id="create-backup-from-snapshot">Create backup from snapshot<a class="headerlink" href="#create-backup-from-snapshot" title="Link to this heading">¶</a></h1>
-<p>A snapshot is a good base for creating a backup as its guaranteed to be static data. That is, once the snapshot has been completed (which is a fast procedure), no more writes will occur to the data in the snapshot. This means that assuming the snapshot was taken in a manner guaranteeing data integrity (for instance when the instance was switched off - or when writes where quiesced), the backup will (even though it takes much longer due to copying data to secondary storage) also guarantee data integrity. More information on backups (which we recommend you to read) is available in our <a class="reference internal" href="../../backup/index.html"><span class="doc">Backup</span></a> article.</p>
+<p>A snapshot is a good base for creating a backup as its guaranteed to be
+static data. That is, once the snapshot has been completed (which is a
+fast procedure), no more writes will occur to the data in the snapshot.</p>
+<p>This means that assuming the snapshot was taken in a manner guaranteeing
+data integrity (for instance when the instance was switched off - or when
+writes where quiesced), the backup will (even though it takes much longer
+due to copying data to the auxiliary storage) also guarantee data integrity.</p>
+<p>More information on backups (which we recommend you to read) is available in
+our <a class="reference internal" href="../../backup/index.html"><span class="doc">Backup</span></a> article.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Backups are just for volumes. You are not able to backup an image. The image, however, is just meta-data about how your instance was configured and is easily replaced by just mimicking the same settings when <a class="reference internal" href="../persistent-block-storage/creating-an-instance-from-a-volume.html"><span class="doc">creating an instance from a volume</span></a>.</p>
+<p>Backups are just for volumes. You are not able to backup an image.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>Its not possible to create a backup from a snapshot manually using the cloud management portal.</p>
+<p>Its not possible to create a backup from a snapshot manually using the cloud
+management portal.</p>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
 <p>To create a backup from a snapshot using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
 <ul class="simple">
-<li><p>Under “project”, click “Volumes” and then “Snapshots” in the sidebar menu.</p></li>
-<li><p>Locate the snapshot in the list and press “Create backup” from its drop down menu to the right.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Volumes</strong> and then <strong>Snapshots</strong> in the sidebar menu.</p></li>
+<li><p>Locate the snapshot in the list and click <strong>Create backup</strong> from its drop down menu to the right.</p></li>
 <li><p>Input a name for your backup and an optional description.</p></li>
 <li><p>Leave the container field empty.</p></li>
 <li><p>The snapshot you chose should be pre-selected, if not select it.</p></li>
-<li><p>Press “Create Volume Backup”.</p></li>
+<li><p>Click <strong>Create Volume Backup</strong></p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To create a backup from a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>, save the ID of the snapshot you want to backup.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">show</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">-c</span> <span class="pre">volume_id</span></code>, replace the SNAPSHOT_ID with the id from previous command. Save the volume ID of the snapshot.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing the items in angle brackets with the values from previous two commands as well as a name for the backup-job.</p></li>
-<li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, the backup will have the “Status” change from “creating” to “available” when done.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">show</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">-c</span> <span class="pre">volume_id</span></code>, replace the SNAPSHOT_ID
+with the id from previous command. Save the volume ID of the snapshot.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing
+the items in angle brackets with the values from previous two commands as well as a name for the backup-job.</p></li>
+<li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, the status field on the backup will
+change from creating to available when done.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

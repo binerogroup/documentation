@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,7 +730,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -754,7 +754,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1735,15 +1735,31 @@
   
 
 <h1 id="load-balancing-in-binero-cloud">Load balancing in Binero cloud<a class="headerlink" href="#load-balancing-in-binero-cloud" title="Link to this heading">¶</a></h1>
-<p>Load balancers consists of the following “parts”:</p>
+<p>Load balancers consists of the following constructs:</p>
 <ul class="simple">
-<li><p>The <strong>Listener</strong> is the load balanced service as its presented to users. It listens for connections on a port, for instance port 80/tcp (additional listeners can be added to a load balancer after creation and thus allow for more than a single port). The listener gets its own ip on a private subnet onto which is normally attached a <a class="reference internal" href="../../floating-ips.html"><span class="doc">floating IP</span></a> so as to enable it to be reached from the internet.</p></li>
-<li><p>The <strong>Pool</strong> is the active collection of member instances. It also sets the <em>common configuration</em> for the pool members that are included in the pool</p></li>
-<li><p>The <strong>Pool members</strong> are also called “real servers”. These are compute instances that run a particular service (for instance https to serve a web application) to which the load balancer redirects its requests. Members are defined statically in the load balancer but it will then add and remove them based on their current status.</p></li>
-<li><p><strong>Health monitors</strong> decide dynamically if a member should be included in the pool or not by continuously assessing their functionality and removing or adding them automatically based on the result.</p></li>
+<li><p>The <strong>Listener</strong> is the load balanced service as its presented to users. It listens
+for connections on a port, for instance port 80/tcp (additional listeners can be added
+to a load balancer after creation and thus allow for more than a single port). The listener
+gets its own IP on a private subnet onto which is normally attached a <a class="reference internal" href="../../floating-ips.html"><span class="doc">floating IP</span></a>
+so as to enable it to be reached from the internet.</p></li>
+<li><p>The <strong>Pool</strong> is the active collection of member instances. It also sets the <em>common configuration</em>
+for the pool members that are included in the pool.</p></li>
+<li><p>The <strong>Pool members</strong> are also called “real servers”. These are compute instances that run a particular
+service (for example HTTPS to serve a web application) to which the load balancer redirects
+its requests. Members are defined statically in the load balancer but it will then add and remove them
+based on their current status.</p></li>
+<li><p><strong>Health monitors</strong> decide dynamically if a member should be included in the pool or not by continuously
+assessing their functionality and removing or adding them automatically based on the result.</p></li>
 </ul>
-<p>The various parts are discussed in detail in their own sections. Load balancers are highly available. This means that they are made up from two individually running processes which work in parallel, one active and one passive. Mostly this is important during maintenance but it could also help with issues where one load balancer for one reason or another, goes offline.</p>
-<p>You are only able to setup configuration for one protocol (meaning service type or TCP/UDP-port) at a time. So if you for instance want both HTTP and HTTPS setup, you would start with one (probably HTTPS, maybe using our <a class="reference internal" href="../ssl-termination.html"><span class="doc">SSL/TLS termination using Load Balancer</span></a> guide) and then setup the other (probably HTTP with HTTPS redirection) as a <em>separate listener</em> with (if applicable) a separate pool (that could very well distribute load to the same pool members). That is, a load balancer will support multiple protocols but they are configured one at a time.</p>
+<p>The various constructs are discussed in detail in their own sections.</p>
+<p>Load balancers are highly available, this means that they are made up from two individually running processes
+which work in parallel, one active and one passive. Mostly this is important during maintenance but it could
+also help with issues where one load balancer for one reason or another, goes offline.</p>
+<p>You are only able to setup configuration for one protocol (meaning service type or TCP/UDP-port) at a time, so if
+you for instance want both HTTP and HTTPS setup, you would start with one (probably HTTPS, maybe using our
+<a class="reference internal" href="../ssl-termination.html"><span class="doc">SSL/TLS termination using Load Balancer</span></a> guide) and then setup the other (probably HTTP with HTTPS redirection) as a <em>separate listener</em>
+with (if applicable) a separate pool (that could well distribute load to the same pool members), a load balancer will
+support multiple protocols but they are configured one at a time.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>

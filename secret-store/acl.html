@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1189,21 +1189,34 @@
   
 
 <h1 id="acls-on-secrets">ACLs on secrets<a class="headerlink" href="#acls-on-secrets" title="Link to this heading">¶</a></h1>
-<p>Access Control List (ACL) feature in the secret store provides user level access control for secrets and containers. By default the secret store provides access to its resources (secrets, containers) on a per project level and authorisation is granted based on the roles a user has in that project. ACL Contains three main information which helps in deciding the the level of access which different users have on the secret:</p>
+<p>Access Control List (ACL) feature in the secret store provides user level access control for
+secrets and containers.</p>
+<p>By default the secret store provides access to its resources (secrets, containers) on a per
+project level and authorisation is granted based on the roles a user has in that project.</p>
+<p>ACL Contains three main information which helps in deciding the level of access which different
+users have on the secret:</p>
 <ul class="simple">
-<li><p>Project Access Flag - By default, this is set to True. If changed to False, it makes the secret as Private and only the Owner and Users added would be able to perform operations such as Decryption, Deletion.</p></li>
-<li><p>Users - This include the user IDs of the users who have access to Decryption of a secret in case of a secret marked as ‘Private’ i.e. Project Access set to False.</p></li>
-<li><p>Operation Type: This denotes the read/write operation applicable on a secret. Currently, Barbican only supports the read operation.</p></li>
+<li><p>Project Access Flag - By default, this is set to True. If changed to False, it makes the secret as
+Private and only the Owner and Users added would be able to perform operations such as Decryption, Deletion.</p></li>
+<li><p>Users - This include the user IDs of the users who have access to Decryption of a secret in case of
+a secret marked as ‘Private’ i.e. Project Access set to False.</p></li>
+<li><p>Operation Type: This denotes the read/write operation applicable on a secret. Currently, Barbican
+only supports the read operation.</p></li>
 </ul>
 <p>Following are the operations associated with ACL on a Secret:</p>
 <ul class="simple">
-<li><p>Get ACL: This helps in retrieving the ACL settings on a secret. It contains information regarding Project Access Flag, Users Array, Operation Type, ACL Set Date and update date.</p></li>
-<li><p>Set ACL: This is used to control the ACL settings on a secret. The user can add other users who will have decrypt and delete access for private secret, user can make the secret as public or private using the project access checkbox, specify the Operation Type (currently only read is supported by Barbican).</p></li>
-<li><p>Reset ACL: This is used to reset the ACL Settings to default i.e. Mark the secret as Public and accessible for decryption and deletion to every user in the project.</p></li>
+<li><p>Get ACL: This helps in retrieving the ACL settings on a secret. It contains information regarding Project
+Access Flag, Users Array, Operation Type, ACL Set Date and update date.</p></li>
+<li><p>Set ACL: This is used to control the ACL settings on a secret. The user can add other users who will have
+decrypt and delete access for private secret, user can make the secret as public or private using the project
+access checkbox, specify the Operation Type (currently only read is supported by Barbican).</p></li>
+<li><p>Reset ACL: This is used to reset the ACL Settings to default i.e. Mark the secret as Public and accessible
+for decryption and deletion to every user in the project.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The ACL Operation on a secret can be peformed by any user from the project, irrespective of whether the secret is public or private.</p>
+<p>The ACL Operation on a secret can be performed by any user from the project, irrespective of whether the
+secret is public or private.</p>
 </div>
 
 

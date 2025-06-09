@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1826,35 +1826,35 @@ another listener (for instance when adding HTTP protocol to an already configure
 listener). Another really useful use case could be if you want to run a separate pool for
 your static content. You can then opt to send for instance traffic to “www.example.com/js” or
 “/images” to separate backends that are optimised (maybe via caching) for static content.</p></li>
-<li><p>Redirect to URL, this will simply redirect (using a header: location) the request to another
-URL. Usefull when for instance requiring HTTPS.</p></li>
+<li><p>Redirect to URL, this will redirect (using a header: location) the request to another
+URL. Useful when for instance requiring HTTPS.</p></li>
 </ul>
-<p>The policies will only trigged once you setup a corresponding Layer 7 Rule on them. The rule
+<p>The policies will only triggered once you setup a corresponding Layer 7 Rule on them. The rule
 decides when the policy should trigger. Various <em>types</em> of triggers are available:</p>
 <ul class="simple">
-<li><p>Hostname (for instance example.com)</p></li>
-<li><p>Patch (for instance /images)</p></li>
-<li><p>File type (for instance .jpeg)</p></li>
-<li><p>Header (for instance x-forwarded-for)</p></li>
-<li><p>Cookie (for instance phpsessid)</p></li>
+<li><p>Hostname (for example <code class="docutils literal notranslate"><span class="pre">example.com</span></code>)</p></li>
+<li><p>Patch (for example <code class="docutils literal notranslate"><span class="pre">/images</span></code>)</p></li>
+<li><p>File type (for example <code class="docutils literal notranslate"><span class="pre">.jpeg</span></code>)</p></li>
+<li><p>Header (for example <code class="docutils literal notranslate"><span class="pre">x-forwarded-for</span></code>)</p></li>
+<li><p>Cookie (for example <code class="docutils literal notranslate"><span class="pre">phpsessid</span></code>)</p></li>
 </ul>
 <p>The types take keys when relevant (when specifying for instance cookie, you could specify the
-cookie “auth_token”). The type can be compared by certain methods:</p>
+cookie <code class="docutils literal notranslate"><span class="pre">auth_token</span></code>). The type can be compared by certain methods:</p>
 <ul class="simple">
-<li><p>REGEX (regular expressions)</p></li>
-<li><p>EQUALS_TO (value is exactly compared)</p></li>
-<li><p>STARTS_WITH or ENDS_WITH</p></li>
-<li><p>CONTAINS (value contains)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REGEX</span></code> (regular expressions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EQUALS_TO</span></code> (value is exactly compared)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STARTS_WITH</span></code> or <code class="docutils literal notranslate"><span class="pre">ENDS_WITH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTAINS</span></code> (value contains)</p></li>
 </ul>
-<p>Finally, a value is specified, for instance when comparing hostname, “example.com” could be
+<p>Finally, a value is specified, for example when comparing hostname, <code class="docutils literal notranslate"><span class="pre">example.com</span></code> could be
 specified.</p>
 <p>The entire evaluation can also be negated, for instance when looking for a non logged in
 user, you might redirect to login when <strong>not</strong> finding a cookie.</p>
 <p>If the Layer7 rule is met, the Layer7 policy will trigger.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>The official OpenStack support pages have some good examples of Layer 7 policies being
-used. The <a class="reference external" href="https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy">CLI documentation</a> is
+<p>The official OpenStack support pages have some good examples of Layer 7 policies being used.</p>
+<p>The <a class="reference external" href="https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy">CLI documentation</a> is
 somewhat comprehensive, for some use cases see the
 <a class="reference external" href="https://docs.openstack.org/octavia/queens/user/guides/l7-cookbook.html">layer 7 cookbook</a>.</p>
 </div>
@@ -1862,14 +1862,14 @@ somewhat comprehensive, for some use cases see the
 <p>To create a Layer 7 policy in Binero cloud, you have three main options as outlined in the links
 below. Each option have its pros and cons:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is very easy to use and will get
+<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is recommended and will get
 a user with limited prior knowledge from A to B quickly. The trade-off is that advanced
 features are not always available.</p></li>
 <li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in OpenStack. Some
 advanced features might only have a GUI implementation here.</p></li>
 <li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">The OpenStack terminal client</span></a> is a command line implementation
-giving terminal oriented users a (very) quick way to access the cloud. The learning curve is steeper
-than the GUI implementation but the workflow will be very efficient.</p></li>
+giving terminal oriented users a quick way to access the cloud. The learning curve is steeper than
+the GUI implementation but the workflow will be efficient.</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>

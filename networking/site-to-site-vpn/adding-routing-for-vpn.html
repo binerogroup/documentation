@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1609,8 +1609,18 @@
   
 
 <h1 id="adding-routes-for-site-to-site-vpn">Adding routes for site-to-site VPN<a class="headerlink" href="#adding-routes-for-site-to-site-vpn" title="Link to this heading">¶</a></h1>
-<p>Because the remote subnet(s) is unknown to the instances in the cloud, any traffic originating from the cloud that should traverse the tunnel needs help finding its way to the instance running the tunnel. It will, in turn, know about the remote subnet because this is part of the IPSec protocol (to inject routes into the routing table for remove networks when the tunnel is started).</p>
-<p>There are two main ways to accomplish this routing, which to use depends on whether you have several <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">private subnets</span></a> in your platform or not. The instances that are on the same private subnet as the instance running the VPN would need routes in their own table (which is done via DHCP, see below). The instances that are on a different network would use their default route to reach the router and it would then, in turn, need a route to the instance to know where to send the traffic. To summarise:</p>
+<p>Because the remote subnet(s) is unknown to the instances in the cloud, any traffic originating
+from the cloud that should traverse the tunnel needs help finding its way to the instance running
+the tunnel.</p>
+<p>It will, in turn, know about the remote subnet because this is part of the IPsec protocol (to
+inject routes into the routing table for remove networks when the tunnel is started).</p>
+<p>The two main ways to accomplish this routing, which to use depends on whether you have
+several <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">private subnets</span></a> in your platform or not.</p>
+<p>The instances that are on the same private subnet as the instance running the VPN would need routes
+in their own table (which is done via DHCP, see below).</p>
+<p>The instances that are on a different network would use their default route to reach the router and
+it would then, in turn, need a route to the instance to know where to send the traffic.</p>
+<p>To summarize:</p>
 <ul class="simple">
 <li><p>If you only have a single private subnet, you just need to add routes via DHCP.</p></li>
 <li><p>If you have multiple subnets, you need to add routes via both DHCP and to the router.</p></li>
@@ -1618,15 +1628,21 @@
 <p>Both actions are detailed below.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Both actions will require a gateway, that is the IP-address to send traffic to (also known as “next hop”). This is the local address of the instance running the VPN. Its visible in the GUI for the instance as well as in the output of the creation, named <code class="docutils literal notranslate"><span class="pre">local_gw_ip</span></code>. You will need this ip-address below.</p>
+<p>Both actions will require a gateway, that is the IP address to send traffic to (also known as next hop).</p>
+<p>This is the local address of the instance running the VPN. Its visible in the GUI for the instance as
+well as in the output of the creation, named <code class="docutils literal notranslate"><span class="pre">local_gw_ip</span></code>. You will need this IP address below.</p>
 </div>
 <h2 id="routing-via-dhcp">Routing via DHCP<a class="headerlink" href="#routing-via-dhcp" title="Link to this heading">¶</a></h2>
 <p>Please see our section about DHCP settings, which is available <a class="reference internal" href="../router/private-subnet/dhcp.html"><span class="doc">here</span></a>.</p>
 <h2 id="routing-in-router">Routing in router<a class="headerlink" href="#routing-in-router" title="Link to this heading">¶</a></h2>
-<p>Please see our section on static routing available <a class="reference internal" href="../router/static-routing.html"><span class="doc">here</span></a>. The “Destination CIDR” field is in this case the remote subnet (the network on the other side of the tunnel). “Next Hop” is aforementioned gateway, the local IP of the instance running the VPN (or <code class="docutils literal notranslate"><span class="pre">local_gw_ip</span></code> in the output of creation).</p>
+<p>Please see our section on static routing available <a class="reference internal" href="../router/static-routing.html"><span class="doc">here</span></a>. The “Destination CIDR” field
+is in this case the remote subnet (the network on the other side of the tunnel). “Next Hop” is aforementioned gateway,
+the local IP of the instance running the VPN (or <code class="docutils literal notranslate"><span class="pre">local_gw_ip</span></code> in the output of creation).</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>There is a third option, in cases where only a few instances should have access and that is managing the routing manually on the instances using whichever method is available from your operating system. We don’t recommend this approach as it does not provide a clear benefit and makes it more difficult to maintain.</p>
+<p>A third option, in cases where only a few instances should have access and that is managing the routing
+manually on the instances using whichever method is available from your operating system.</p>
+<p>We don’t recommend this approach as it does not provide a clear benefit and makes it more difficult to maintain.</p>
 </div>
 
 

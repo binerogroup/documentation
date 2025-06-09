@@ -23,7 +23,7 @@
     
 
       
-        <title>Managing security groups using using the OpenStack terminal client - Binero Documentation</title>
+        <title>Managing security groups using the OpenStack terminal client - Binero Documentation</title>
       
     
 <link rel="canonical" href="https://docs.binero.com/networking/router/security-groups/openstack-terminal-client.html" />
@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Managing security groups using using the OpenStack terminal client
+              Managing security groups using the OpenStack terminal client
             
           </span>
         </div>
@@ -966,7 +966,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using Open<wbr>Stack Horizon
+    Managing security groups using Open<wbr>Stack Horizon
     
   </span>
   
@@ -997,7 +997,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using the Open<wbr>Stack terminal client
+    Managing security groups using the Open<wbr>Stack terminal client
     
   </span>
   
@@ -1010,7 +1010,7 @@
   
   
   <span class="md-ellipsis">
-    Managing security groups using using the Open<wbr>Stack terminal client
+    Managing security groups using the Open<wbr>Stack terminal client
     
   </span>
   
@@ -1192,7 +1192,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -1216,7 +1216,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1876,56 +1876,76 @@
   
   
 
-<h1 id="managing-security-groups-using-using-the-openstack-terminal-client">Managing security groups using using the OpenStack terminal client<a class="headerlink" href="#managing-security-groups-using-using-the-openstack-terminal-client" title="Link to this heading">¶</a></h1>
+<h1 id="managing-security-groups-using-the-openstack-terminal-client">Managing security groups using the OpenStack terminal client<a class="headerlink" href="#managing-security-groups-using-the-openstack-terminal-client" title="Link to this heading">¶</a></h1>
 <h2 id="creating-a-security-group">Creating a security group<a class="headerlink" href="#creating-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the
+<a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">create</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">[NAME]</span></code></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The new security group will not have any rules so wont actually do anything. To add rules, follow next step.</p>
+<p>The new security group will not have any rules so wont actually do anything. To add
+rules, follow next step.</p>
 </div>
 <h2 id="adding-rules-to-a-security-group">Adding rules to a security group<a class="headerlink" href="#adding-rules-to-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the
+<a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Running the following command will give you a detailed overview of what options are available for creating a rule: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">rule</span> <span class="pre">create</span> <span class="pre">-h</span></code></p></li>
-<li><p>Define the rule. More info in our <a class="reference internal" href="designing-rules.html"><span class="doc">Designing security group rules</span></a> article. By using the help output from above, you are able to match your rule to the needed parameters.</p></li>
-<li><p>An example command to create a security rule that allows SSH using the terminal. Replace the items in angle brackets with corresponding data.</p></li>
+<li><p>Running the following command will give you a detailed overview of what options are
+available for creating a rule: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">rule</span> <span class="pre">create</span> <span class="pre">-h</span></code></p></li>
+<li><p>Define the rule. More info in our <a class="reference internal" href="designing-rules.html"><span class="doc">Designing security group rules</span></a> article. By using the help output
+from above, you are able to match your rule to the needed parameters.</p></li>
+<li><p>An example command to create a security rule that allows SSH using the terminal. Replace the
+items in angle brackets with corresponding data.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">openstack</span> <span class="n">security</span> <span class="n">group</span> <span class="n">rule</span> <span class="n">create</span> \
- <span class="o">--</span><span class="n">protocol</span> <span class="n">tcp</span> \
- <span class="o">--</span><span class="n">dst</span><span class="o">-</span><span class="n">port</span> <span class="mi">22</span> \
- <span class="o">--</span><span class="n">ingress</span> \
- <span class="o">--</span><span class="n">remote</span><span class="o">-</span><span class="n">ip</span> <span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">X</span><span class="o">/</span><span class="n">Y</span><span class="p">]</span> \
- <span class="o">--</span><span class="n">description</span> <span class="p">[</span><span class="n">DESCRIPTION</span><span class="p">]</span> \
- <span class="p">[</span><span class="n">NAME</span><span class="p">]</span>
+  <span class="o">--</span><span class="n">protocol</span> <span class="n">tcp</span> \
+  <span class="o">--</span><span class="n">dst</span><span class="o">-</span><span class="n">port</span> <span class="mi">22</span> \
+  <span class="o">--</span><span class="n">ingress</span> \
+  <span class="o">--</span><span class="n">remote</span><span class="o">-</span><span class="n">ip</span> <span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">X</span><span class="o">/</span><span class="n">Y</span><span class="p">]</span> \
+  <span class="o">--</span><span class="n">description</span> <span class="p">[</span><span class="n">DESCRIPTION</span><span class="p">]</span> \
+  <span class="p">[</span><span class="n">NAME</span><span class="p">]</span>
 </code></pre></div>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>For ease of use, we recommend using the already defined rules. These are project specific so you can also tweak them as you see fit.</p>
+<p>For ease of use, we recommend using the already defined rules. These are project specific so
+you can also tweak them as you see fit.</p>
 </div>
 <h2 id="adding-a-security-group-to-an-instance">Adding a security group to an instance<a class="headerlink" href="#adding-a-security-group-to-an-instance" title="Link to this heading">¶</a></h2>
-<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the
+<a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span> <span class="pre">[GROUP</span> <span class="pre">NAME]</span></code>, replace the items within angle brackets with corresponding data.</p></li>
-<li><p>To show what security groups are currently attached to an instance, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">--column</span> <span class="pre">security_groups</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code>, replace the items within angle brackets with corresponding data.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span> <span class="pre">[GROUP</span> <span class="pre">NAME]</span></code>, replace
+the items within angle brackets with corresponding data.</p></li>
+<li><p>To show what security groups are currently attached to an instance, run this
+command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">--column</span> <span class="pre">security_groups</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code>, replace
+the items within angle brackets with corresponding data.</p></li>
 </ul>
 <h2 id="address-groups">Address groups<a class="headerlink" href="#address-groups" title="Link to this heading">¶</a></h2>
-<p>There is a feature to setup address groups in OpenStack. Address groups enable you to setup a collection of IPs and IP-ranges that you can then use to apply to your groups. The benefit of this, is that you could re-use them in many rules and would not have to maintain several lists of (the same) addresses. Address groups are only available via the terminal client, below is how to work with them:</p>
+<p>Address groups enable you to setup a collection of IP addresses and IP ranges that you can then use
+to apply to your groups.</p>
+<p>The benefit of this, is that you could re-use them in many rules and would not have to maintain several
+lists of (the same) addresses. Address groups are only available via the terminal client, below is how
+to work with them:</p>
 <ul class="simple">
 <li><p>To create a group, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">address</span> <span class="pre">group</span> <span class="pre">create</span> <span class="pre">[NAME]</span></code></p></li>
-<li><p>To add addresses to the group, run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">address</span> <span class="pre">group</span> <span class="pre">set</span> <span class="pre">--address</span> <span class="pre">[x.x.x.x/y]</span> <span class="pre">[NAME]</span></code>. Address could be both a range or a single address.</p></li>
+<li><p>To add addresses to the group, run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">address</span> <span class="pre">group</span> <span class="pre">set</span> <span class="pre">--address</span> <span class="pre">[x.x.x.x/y]</span> <span class="pre">[NAME]</span></code>. Address
+could be both a range or a single address.</p></li>
 <li><p>To use the address group in a rule, use the <code class="docutils literal notranslate"><span class="pre">--remote-address-group</span> <span class="pre">[NAME]</span></code> option.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you instead choose to press “Edit Port Security Groups” (in step 2 above) you are able to set security groups on a per interface (port) basis instead. This might be useful if you have several networks connected to your instance (which we don’t recommend) and want to have different settings on them.</p>
+<p>If you instead choose to press “Edit Port Security Groups” (in step 2 above) you are able to set security
+groups on a per interface (port) basis instead.</p>
+<p>This might be useful if you have several networks connected to your instance (which we don’t recommend)
+and want to have different settings on them.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Remember: you need to add your groups to all instances, all rules are evaluated in a per instance fashion.</p>
+<p>Remember that you need to add your groups to all instances, all rules are evaluated in a
+per instance fashion.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

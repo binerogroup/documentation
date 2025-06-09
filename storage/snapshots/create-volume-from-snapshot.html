@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1461,29 +1461,46 @@
   
 
 <h1 id="create-a-volume-from-a-snapshot">Create a volume from a snapshot<a class="headerlink" href="#create-a-volume-from-a-snapshot" title="Link to this heading">¶</a></h1>
-<p>If you want to access the data of a snapshot (without provisioning a entirely new identical instance <a class="reference internal" href="../../images/launch-instance-from-image.html"><span class="doc">from an image</span></a>), you would first need to create a new volume based on the data in the snapshot (the actual snapshot cannot be manipulated as there are dependencies to it within the volume that houses it).</p>
-<p>When doing this, the new volume will be separate from the original volume and will forthwith provide its data in its own right. The version of the data would be from the time of when the snapshot was taken. The new volume could be attached (see subsection of our guide <a class="reference internal" href="../persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a> for more info on attaching a volume) to any instance or used as base to create an entirely new instance (if it was a boot volume).</p>
+<p>If you want to access the data of a snapshot (without provisioning a entirely new
+identical instance <a class="reference internal" href="../../images/launch-instance-from-image.html"><span class="doc">from an image</span></a>), you
+would first need to create a new volume based on the data in the snapshot (the actual
+snapshot cannot be manipulated as there are dependencies to it within the volume that
+houses it).</p>
+<p>When doing this, the new volume will be separate from the original volume and will
+forthwith provide its data in its own right.</p>
+<p>The version of the data would be from the time of when the snapshot was taken.</p>
+<p>The new volume could be attached (see subsection of our guide <a class="reference internal" href="../persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a>
+for more info on attaching a volume) to any instance or used as base to create an entirely
+new instance (if it was a boot volume).</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If your intent is to create a new instance based on a volume, using OpenStack Horizon there is an option in the dropdown on the row of each snapshot to use it as base for a new instance, this would be the easiest and fastest approach.</p>
+<p>If your intent is to create a new instance based on a volume, using OpenStack Horizon there is
+an option in the dropdown on the row of each snapshot to use it as base for a new instance, this
+would be the easiest and fastest approach.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>The cloud management portal cannot create a volume based on a snapshot but can create it based on a current volume. See <a class="reference internal" href="../persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a> for more information.</p>
+<p>The cloud management portal cannot create a volume based on a snapshot but can create it
+based on a current volume. See <a class="reference internal" href="../persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a> for more
+information.</p>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To create a volume from a snapshot using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To create a volume from a snapshot using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
-<li><p>Under “project”, click “Volumes” and then “Snapshots” in the sidebar menu.</p></li>
-<li><p>In the drop-down menu to the far right of the line corresponding to the snapshot you want to use as base, press “create volume (which is either the default option or in the drop-down list)”.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Volumes</strong> and then <strong>Snapshots</strong> in the sidebar menu.</p></li>
+<li><p>In the dropdown menu to the far right of the line corresponding to the snapshot you want to
+use as base, press <strong>Create volume</strong> (which is either the default option or in the dropdown list).</p></li>
 <li><p>Name your new volume and optionally give it a description.</p></li>
-<li><p>If you want to increase the size, enter the new size in the “Size” field.</p></li>
-<li><p>Press “Create volume”.</p></li>
+<li><p>If you want to increase the size, enter the new size in the <strong>Size</strong> field.</p></li>
+<li><p>Press <strong>Create volume</strong></p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To create a volume from a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To create a volume from a snapshot using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>, save the ID of the snapshot you want to backup.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">create</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">[VOLUME_NAME]</span></code>, replacing the items in angle brackets with the ID from previous step and a descriptive name for the new volume.</p></li>
-<li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, the new volume will have a “Status” of “available” when done.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>, save the ID of the snapshot you want
+to backup.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">create</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">[VOLUME_NAME]</span></code>, replacing
+the items in angle brackets with the ID from previous step and a descriptive name for the new volume.</p></li>
+<li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, the new volume will have a <strong>Status</strong> of
+<strong>available</strong> when done.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

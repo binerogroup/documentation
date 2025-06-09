@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1657,20 +1657,28 @@
   
 
 <h1 id="resizing-an-instance-using-openstack-horizon">Resizing an instance using OpenStack Horizon<a class="headerlink" href="#resizing-an-instance-using-openstack-horizon" title="Link to this heading">¶</a></h1>
-<p>To resize an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To resize an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Resizing an instance will cause the instance to shut off during the process. We recommend doing a backup of your data before proceeding.</p>
+<p>Resizing an instance will cause the instance to shut off during the
+process. We recommend doing a backup of your data before proceeding.</p>
 </div>
 <ul class="simple">
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
-<li><p>In the drop-down menu to the far right of the line corresponding to the instance you want to resize, press “resize instance”.</p></li>
-<li><p>Under “new flavor”, select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want.</p></li>
-<li><p>Press “resize” button.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
+<li><p>In the drop-down menu to the far right of the line corresponding to the instance
+you want to resize, press <strong>Resize instance</strong>.</p></li>
+<li><p>Under <strong>New flavor</strong>, select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want.</p></li>
+<li><p>Press <strong>Resize</strong> button.</p></li>
 <li><p>You will see the status of the resize in the following page.</p></li>
-<li><p>When it says “Confirm or Revert Resize/Migrate”, login to the instance and verify that it worked as intended (meaning the instance is working as before but with the new flavor).</p></li>
-<li><p>If you are happy with the result, press “Confirm Resize/Rigrate” in drop-down to the far right (it should be pre-selected). This will finalise the process and make it permanent.</p></li>
-<li><p>If you are unhappy (for some reason the process failed), you are able to instead press “Revert resize/Migrate” (available in the drop-down). This will revert the process.</p></li>
+<li><p>When it says “Confirm or Revert Resize/Migrate”, login to the instance and verify
+that it worked as intended (meaning the instance is working as before but with the
+new flavor).</p></li>
+<li><p>If you are happy with the result, press “Confirm Resize/Rigrate” in drop-down to the
+far right (it should be pre-selected). This will finalize the process and make it
+permanent.</p></li>
+<li><p>If you are unhappy (for some reason the process failed), you are able to instead
+press “Revert resize/Migrate” (available in the drop-down). This will revert the
+process.</p></li>
 </ul>
 <p>The process is now complete.</p>
 <div class="seealso admonition">

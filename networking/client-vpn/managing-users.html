@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.3ae789d8c4c3deb4b.min.css?v=011a6054" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.5e4114825bcd3ccd7.min.css?v=cc5f9a7b" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -735,7 +735,7 @@
   
   
   <span class="md-ellipsis">
-    Floating IPs
+    Floating IP addresses
     
   </span>
   
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Directly attached IPs
+    Directly attached IP addresses
     
   </span>
   
@@ -1681,9 +1681,12 @@
   
 
 <h1 id="managing-users-of-client-vpn">Managing users of client VPN<a class="headerlink" href="#managing-users-of-client-vpn" title="Link to this heading">¶</a></h1>
-<p>You are able to use various authentication mechanisms with the client VPN service. It supports both LDAP and Radius (which in turn will support lots of other mechanisms as well as 2FA, etc). The scope of this support article will however only include local users.</p>
+<p>You are able to use various authentication mechanisms with the client VPN service.</p>
+<p>It supports both LDAP and Radius (which in turn will support many other mechanisms
+as well as 2FA, etc). The scope of this support article will however only include
+local users.</p>
 <h2 id="add-a-user">Add a user<a class="headerlink" href="#add-a-user" title="Link to this heading">¶</a></h2>
-<p>To add a user, using the VPN WebGUI, follow these steps:</p>
+<p>To add a user, using the VPN WebGUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
 <li><p>Press “System” and then “User manager” in the main menu.</p></li>
@@ -1696,16 +1699,18 @@
 <li><p>Press “save”.</p></li>
 </ul>
 <h2 id="remove-a-user">Remove a user<a class="headerlink" href="#remove-a-user" title="Link to this heading">¶</a></h2>
-<p>To remove a user, using the VPN WebGUI, follow these steps:</p>
+<p>To remove a user, using the VPN WebGUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
 <li><p>Press “System” and then “User manager” in the main menu.</p></li>
-<li><p>Mark the checkbox infront of the user you want to remove.</p></li>
+<li><p>Mark the checkbox in front of the user you want to remove.</p></li>
 <li><p>Press “Delete” button on the bottom.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>A deleted user will not immediately be de-authenticated from the VPN. If that is needed for any reason, do so by pressing “Status” and then “OpenVPN” in the main menu, and then pressing the small red X next to the user.</p>
+<p>A deleted user will not immediately be disconnected from the VPN. If that is needed for
+any reason, do so by pressing “Status” and then “OpenVPN” in the main menu, and then
+pressing the small red X next to the user.</p>
 </div>
 
 
