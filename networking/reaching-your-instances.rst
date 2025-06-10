@@ -19,8 +19,7 @@ Floating IP
 
 A floating IP is a public, globally routed, IP address that maps 1:1 with an instance.
 
-It will use DNAT (destination NAT) in combination with :doc:`security groups <router/security-groups/index>`
-to allow traffic through the router from the internet.
+It will use DNAT (destination NAT) to allow traffic through the router from the internet.
 
 It is normally used for enabling services to be internet facing (reachable from the internet)
 but could just as well be used for managing instances (by enabling access to for example SSH
@@ -80,10 +79,10 @@ Bounce server
 -------------
 
 The concept of a bounce server is that you create an instance with a floating IP to which you have your users
-connect using for instance SSH (or RDP if running Windows).
+connect using for example SSH (or RDP if running Windows).
 
 This way, only the bounce server needs a floating IP. Once the users are connected to the server (preferably
-securely, for instance using SSH keys and with their own account that has not got SUDO permissions), they are
+securely, for example using SSH keys and with their own account that has not got elevated permissions), they are
 then able to connect down stream to other instances from the bounce server as the bounce server is also connected
 to the internal network(s) and is able to reach them when originating traffic from itself (there is no routing happening,
 users would work "locally" from the bounce server).

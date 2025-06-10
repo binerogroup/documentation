@@ -18,7 +18,7 @@ To create a :doc:`network <index>` using the :doc:`/getting-started/managing-you
 .. note::
 
    In order to connect an instance or router to the network, you will also need to create
-   a :doc:`subnet <../private-subnet/index>` which you can then attach to an interface on
+   a :doc:`subnet </networking/subnet/index>` which you can then attach to an interface on
    a router or an instance.
 
 ..  seealso::

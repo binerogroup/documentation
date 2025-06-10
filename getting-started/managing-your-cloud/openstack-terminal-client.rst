@@ -13,7 +13,7 @@ its possible to install via ``pip`` which is the packet installer for python.
 
 Installation of pip is documented `here <https://pip.pypa.io/en/stable/installation/>`_ but is also
 possible using ``brew`` on Mac OS or the Linux package manager included in your distribution
-(for instance ``apt install pip`` on Debian based distributions).
+(for example ``apt install pip`` on Debian based distributions).
 
 Once ``pip`` is installed, you are able to install the terminal client as such: 
 
@@ -54,7 +54,7 @@ which is not an API user).
 Usage
 -----
 
-To for instance see the available images in the platform, you can run
+To for example see the available images in the platform, you can run
 
 ::
 
@@ -80,7 +80,7 @@ would show you information on the image command used above.
    The OpenStack terminal client uses the OpenStack API. If not specifying the API version to use, the
    client will default to the oldest. This might hinder you from accessing some features and in that
    case, a warning detailing this would be shown. You are then able to add an option to the
-   API (normally shown in the warning), for instance ``--os-compute-api-version 2.67``, which will
+   API (normally shown in the warning), for example ``--os-compute-api-version 2.67``, which will
    enable the feature.
 
 Generally speaking, there are the following methods in the terminal client:

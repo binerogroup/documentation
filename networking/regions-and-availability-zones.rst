@@ -17,11 +17,11 @@ hypothetical availability zone outage scenario.
 Networks and subnets
 --------------------
 
-:doc:`router/private-network/index` (and therefore :doc:`router/private-subnet/index`) stretch
+:doc:`network/index` (and therefore :doc:`subnet/index`) stretch
 between availability zones (but not between regions).
 
 This enables you to connect instances in different availability zones directly to each other
-on the same private subnet (same layer 2 broadcast domain).
+on the same network (same layer 2 broadcast domain).
 
 We do however recommend the routed approach to inter availability zone communication (more
 information in section about routers below). 
@@ -76,9 +76,9 @@ Floating IP addresses
 Because Binero cloud is does not provide anycast public IP addresses, floating IP addresses are still
 local to a single availability zone.
 
-While its possible to connect a floating IP to an instance in another availability zone using a private
-network (that stretch across zones), should the availability zone that hosts the floating IP for some
-reason fail, the floating IP will fail with it also in the second availability zone. 
+While its possible to connect a floating IP to an instance in another availability zone using a network (that
+stretch across zones), should the availability zone that hosts the floating IP for some reason fail, the floating
+IP will fail with it also in the second availability zone. 
 
 When working with public access, it is therefore recommended to connect floating IP addresses that are local
 to the instances or services they connect to, through a router that is also hosted in the same availability
@@ -91,8 +91,8 @@ Load balancer
 -------------
 
 The same way as with floating IP addresses and routers, :doc:`load-balancer/index` will be able reach instances
-in availability zones that is not local to the load balancer (because the private networks stretches across
-availability zones).
+in availability zones that is not local to the load balancer (because the networks stretches across availability
+zones).
 
 The actual load balancers, however, is still only local to a single zone and will fail in the even the zone
 should fail. That would leave the load balancer unreachable and the service down.

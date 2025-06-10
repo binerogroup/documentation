@@ -166,7 +166,7 @@ Create a redirect to the first page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you prefer to stay in the GUI, the following method will allow you to setup similar functionality
-using OpenStack Horizon, however using this method, for instance http://www.example.com/subfolder/index.html
+using OpenStack Horizon, however using this method, for example http://www.example.com/subfolder/index.html
 would redirect to https://example.com.
 
 - Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
@@ -179,7 +179,7 @@ would redirect to https://example.com.
 
 - Press **L7 Policies** tab and then **+ Create L7 policy**
 
-- Name your policy to for instance ``redirect_https`` and optionally give it a description.
+- Name your policy to for example ``redirect_https`` and optionally give it a description.
 
 - Under "action" select "REDIRECT_TO_URL".
 

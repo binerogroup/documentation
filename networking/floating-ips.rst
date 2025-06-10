@@ -7,19 +7,18 @@ Binero cloud provides two ways to use public IP addresses , using
 Floating IP addresses.
 
 Directly attached IP addresses are assigned directly on the :doc:`instances </compute/index>`
-network interface (port). This means that when you run for instance ``ip addr show``
+network interface (port). This means that when you run for example ``ip addr show``
 or ``ipconfig /all`` inside an instance operating system, you would (with a directly
 attached IP) see the public IP assigned on the interface.
 
 When using a floating IP, the result would instead be the IP from the
-:doc:`private subnet <router/private-subnet/index>` that you assigned
-to the instance.
+:doc:`subnet <subnet/index>` that you assigned to the instance.
 
 The floating IP is then diverted to and from the instance through the
 router that performs :doc:`router/nat`.
 
 Floating IP addresses are, as the name implies, not tied to a single instance but mapped to
-a port (which has an IP from a :doc:`private subnet <router/private-subnet/index>`).
+a port (which has an IP from a :doc:`subnet <subnet/index>`).
 
 They are floating in the sense that they can be moved between instances with zero
 configuration being required on the instance.
@@ -35,7 +34,7 @@ Floating IP addresses require a :doc:`router <router/index>` as its the router t
 mapping. On a technical level, :doc:`router/nat` is used and its used in both directions:
 
 - Incoming traffic from the internet would be a destination NAT (DNAT) to the
-  private subnet IP from the floating. 
+  subnet IP from the floating. 
 
 - Outgoing traffic to the internet would be a source NAT (SNAT) to appear as
   if originating from the floating IP. 
@@ -55,9 +54,9 @@ Key differences to directly attached IP addresses
 Setting up a floating IP
 ------------------------
 
-Floating IP addresses are assigned to instances (and in particular, to a private subnet IP on an
-instance). Depending on what tool is used, floating IP addresses may need to be allocated to the
-project first. 
+Floating IP addresses are assigned to instances (and in particular, to a subnet IP on an
+instance). Depending on what tool is used, floating IP addresses may need to be allocated
+to the project first. 
 
 .. important::
 
@@ -106,8 +105,9 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 
 - Press "associate IP".
 
-- Your IP should now be visible under the "Networking" tab. Remember that you might need
-  to add :doc:`security groups <router/security-groups/index>` to the instance if you cannot reach it.
+- Your IP should now be visible under the **Networking** tab. Remember that you might need
+  to add :doc:`security groups <security-groups/index>` to the instance if you cannot
+  reach it.
 
 Adding floating IP addresses using OpenStack Horizon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,19 +128,19 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 
   - Press "allocate IP".
 
-- Under "project", click "compute" and then "instances" in the sidebar menu.
+- Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
 - In the drop-down menu to the far right of the line corresponding to the instance you want to add the floating
-  IP to, press "Associate floating IP".
+  IP to, press **Associate floating IP**.
 
-- Select your new (or old, if you had one already) IP under "IP Address".
+- Select your new (or old, if you had one already) IP under **IP Address**.
 
-- Under "Ports to be associated", select the internal IP to map the floating IP to. 
+- Under **Ports to be associated**, select the internal IP to map the floating IP to. 
 
-- Press "Associate".
+- Press **Associate**
 
-- Your IP should now be visible under the "IP address" column. Remember that you might need
-  to add :doc:`security groups <router/security-groups/index>` to the instance if you cannot reach it.
+- Your IP should now be visible under the **IP address** column. Remember that you might need
+  to add :doc:`security groups <security-groups/index>` to the instance if you cannot reach it.
 
 Adding a floating IP using OpenStack terminal client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,7 +158,7 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 - If there was no available IP, assign one to the project: 
 
   - Run this command: ``openstack network list --external``. Note the name of the network that is in the
-    availability zone that you want to use the floating IP (for instance "europe-se-1-1a-net0"). 
+    availability zone that you want to use the floating IP (for example *europe-se-1-1a-net0*). 
 
   - Run this command: ``openstack floating ip create [NETWORK NAME]``, replacing [NETWORK NAME] with the
     name of the network from the previous step.
@@ -175,8 +175,8 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
   [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with
   whichever floating IP you added as per earlier step.
 
-- Your IP should now be visible under the "addresses" field when running the command ``openstack server show [NAME]``. Remember
-  that you might need to add :doc:`security groups <router/security-groups/index>` to the instance if you cannot reach it.
+- Your IP should now be visible under the **addresses** field when running the command ``openstack server show [NAME]``. Remember
+  that you might need to add :doc:`security groups <security-groups/index>` to the instance if you cannot reach it.
 
 ..  seealso::
 

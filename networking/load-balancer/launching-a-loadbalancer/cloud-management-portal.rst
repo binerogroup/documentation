@@ -11,7 +11,7 @@ Preparations
    reading our :doc:`concepts <../general-concept/index>` guide so
    as to gain a better understanding the various parts.
 
-We also recommend setting the correct :doc:`security groups <../../router/security-groups/index>`
+We also recommend setting the correct :doc:`security groups </networking/security-groups/index>`
 on the instances that should be members in the load balancer pool.
 
 Traffic from the load balancer will not come from the default group
@@ -46,11 +46,11 @@ To launch a :doc:`load balancer <../index>` from the
   - Select the :doc:`availability zone </networking/regions-and-availability-zones>`
     or leave empty to use the default europe-se-1a.
 
-  - Select a :doc:`private subnet </networking/router/private-subnet/index>` to use
-    for hosting the load balancer. We recommend using the same as the subnet where
-    you have your instances to load balancer but its not a must.
+  - Select a :doc:`subnet </networking/subnet/index>` to use for hosting the load
+    balancer. We recommend using the same as the subnet where you have your instances
+    to load balancer but its not a must.
 
-  - Press "next".
+  - Press **Next**
 
 - The second step sets up the *Listener*. More information :doc:`here <../general-concept/listeners>`.
 
@@ -66,7 +66,7 @@ To launch a :doc:`load balancer <../index>` from the
   - *Verify the port number* (it may set automatically but depending on protocol
     you may need to set it manually). Without it, creation will fail.
 
-  - Press "next".
+  - Press **Next**
 
 - The third step is to create the *Pool*. More information :doc:`here <../general-concept/pools>`.
 
@@ -79,7 +79,7 @@ To launch a :doc:`load balancer <../index>` from the
 
   - If you want session persistence, select what type (and if applicable, enter a session name).
 
-  - Press "next".
+  - Press **Next**
 
 - The fourth step assigns *members* (instances) to the pool. More
   information :doc:`here <../general-concept/pool-members>`.
@@ -120,24 +120,24 @@ Verification
 
 To verify that the health checking has added the members to the pool, follow this procedure:
 
-- Press "Networking" and then "Load balancers" in the sidebar menu.
+- Press **Networking** and then **Load balancers** in the sidebar menu.
 
-- Verify that the "provisioning status" says "Active" as well as "Online" under its name
+- Verify that the **Provisioning status** says **Active** as well as **Online** under its name
   and then press it.
 
-- Press the "pools" tab and then press the name of your pool.
+- Press the **Pools** tab and then press the name of your pool.
 
-- Press the "nodes" tab.
+- Press the **Nodes** tab.
 
-- In the list, you should now see the member(s) you've added. The column "Operational status"
+- In the list, you should now see the member(s) you've added. The column **Operational status**
   should show you if they are online or not.
 
 .. tip::
 
-   If the members are not online, make sure you have the proper :doc:`../../router/security-groups/index`
+   If the members are not online, make sure you have the proper :doc:`/networking/security-groups/index`
    configured on the them. Traffic from the load balancer will not come from the default group as the load
    balancer is not part of your instances - this means that explicit rules needs to be setup on the
-   members. If you still cant get the members online, verify (by using for instance ``tcpdump`` or by
+   members. If you still cant get the members online, verify (by using for example ``tcpdump`` or by
    reading access logs, that the traffic hits the member servers from the load balancers IP.
 
 ..  seealso::

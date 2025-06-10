@@ -20,7 +20,7 @@ in case of a failure of the primary server, can be used as a new primary server.
   zone as the primary node or you can select another zone if you want to build a geographically
   distributed application. 
 
-- Under **Alternate network**, you select the :doc:`network </networking/router/private-subnet/index>`
+- Under **Alternate network**, you select the :doc:`network </networking/network/index>`
   that the auxiliary server should connected to.
 
 - Select your instance :doc:`flavor </compute/flavors>`. We recommend sticking with the default.
@@ -30,7 +30,7 @@ in case of a failure of the primary server, can be used as a new primary server.
 
 - Under **Primary node availability zone**, select the availability zone to run your primary instance in. 
 
-- Under **Primary network**, you select the :doc:`network </networking/router/private-subnet/index>` that
+- Under **Primary network**, you select the :doc:`network </networking/network/index>` that
   the primary server should connected to.
 
 - Under **Secondary nodes**, you select the amount of auxiliary servers you want. If you select zero, no

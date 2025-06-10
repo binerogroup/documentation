@@ -35,9 +35,9 @@ The default quotas, available out of the box, are as follows:
 
 - Backup size on disk: 20000 GB
 
-- :doc:`Networks </networking/router/private-network/index>`: 100
+- :doc:`Networks </networking/network/index>`: 100
 
-- :doc:`Subnets </networking/router/private-subnet/index>`: 100
+- :doc:`Subnets </networking/subnet/index>`: 100
 
 - :doc:`Ports </networking/ports>`: 500
 
@@ -47,7 +47,7 @@ The default quotas, available out of the box, are as follows:
 
 - RBAC policies: 10
 
-- :doc:`Security groups </networking/router/security-groups/index>`: 15
+- :doc:`Security groups </networking/security-groups/index>`: 15
 
 - Security group rules: 249
 

@@ -36,7 +36,7 @@ automate them.
 The services will be setup the same way as if they where manually setup but the process is faster
 and requires less knowledge. The following services is available:
 
-- :doc:`Private network <private-network>` will create a router and a private network setup
+- :doc:`Private network <private-network>` will create a router and a network setup
   behind it.
 
 - :doc:`Schedule snapshot <schedule-snapshot>` will schedule taking a snapshot from a

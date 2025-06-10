@@ -7,11 +7,11 @@ General concept
 
 Routing in Binero cloud is managed using a :doc:`router <index>`.
 
-The router will connect to different :doc:`subnets<private-subnet/index>` using an interfaces
-that connects to a :doc:`network <private-network/index>`.
+The router will connect to different :doc:`subnets <../subnet/index>` using an interfaces
+that connects to a :doc:`network <../network/index>`.
 
 A standard router typically routes automatically between all its connected subnets (that is,
-subnets on which the router has an IP-address).
+subnets on which the router has an IP address).
 
 A router in Binero cloud works the same way, traffic received by a router destined to a connected
 network on that router will be forwarded through the router.
@@ -35,7 +35,7 @@ based on destination and its routing table.
 
 Three main scenarios exist:
 
-- Traffic destined for networks on which the instance itself has an IP-address (locally connected networks)
+- Traffic destined for networks on which the instance itself has an IP address (locally connected networks)
   will take precedence and the instance will instead use ARP to lookup the MAC address of the receiving instance
   and send traffic directly to it. 
 
@@ -87,10 +87,10 @@ Reasons for wanting to route between multiple subnets might be:
 
 - Wanting to keep a staging system and production system separated.
 
-If you use a single router, make sure its the default route for your instances (see :doc:`private-subnet/index`),
+If you use a single router, make sure its the default route for your instances (see :doc:`../subnet/index`),
 routing between the networks would then work out of the box.
 
-The typical caveat (if traffic is not flowing as expected) would be :doc:`security-groups/index` that (if
+The typical caveat (if traffic is not flowing as expected) would be :doc:`../security-groups/index` that (if
 not setup properly) blocks traffic.
 
 Multiple routers
@@ -132,21 +132,21 @@ intended on their own (potentially in several availability zones) before proceed
 When setting up routing between routers, a so called *link network* will be used. This is a standard private
 subnet that will not connect to instances, just the various routers in the setup.
 
-We recommend :doc:`choosing an IP range <private-subnet/index>` for this subnet that can be differentiated
+We recommend :doc:`choosing an IP range <../subnet/index>` for this subnet that can be differentiated
 from your production subnets. 
 
 Follow the below steps to setup routing between two (individually functioning) routers:
 
-- :doc:`Create a new private network <private-network/index>` (with a corresponding private subnet) to use as
+- :doc:`Create a new network <../network/index>` (with a corresponding subnet) to use as
   link network.
 
-- :doc:`Connect the new link-network to the routers <private-subnet/connect-subnet-to-router>`. 
+- :doc:`Connect the new link-network to the routers <../subnet/connect-subnet-to-router>`. 
 
 - :doc:`Setup static routing <static-routing>` for your destination networks to use the new link-network. This
   should be done on all routers. 
 
-- Depending on your settings, change or add :doc:`security groups <security-groups/index>` to the router interfaces
-  to allow traffic.
+- Depending on your settings, change or add :doc:`security groups <../security-groups/index>` on instance
+  facing :doc:`ports <../ports>` to allow traffic.
 
 Once the above steps are taken, you will be able to forward traffic between routers from all instances behind
 the routers. 
@@ -161,5 +161,5 @@ Binero cloud only supports static routing in the routers.
 ..  seealso::
 
     - :doc:`static-routing`
-    - :doc:`security-groups/index`
+    - :doc:`../security-groups/index`
     - :doc:`../regions-and-availability-zones`

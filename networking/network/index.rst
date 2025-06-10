@@ -1,11 +1,11 @@
-================
-Private networks
-================
+========
+Networks
+========
 
 General concept
 ---------------
 
-A private network in Binero cloud is a software-defined virtual network.
+A network in Binero cloud is a software-defined virtual network.
 
 The network will connect to :doc:`ports </networking/ports>` on routers or
 instances just as a physical server might connect to a port in a switch.
@@ -18,25 +18,24 @@ Networks are what connects the infrastructure together. Assuming you want to use
 only manual IP assignments on your infrastructure, creating networks and ports would
 be enough.
 
-The :doc:`private subnets <../private-subnet/index>` will however enable lost of
-automation and additional features in the platform and is the recommended approach
-for setting up IP configuration on networks.
+The :doc:`subnets <../subnet/index>` will however enable lost of automation and
+additional features in the platform and is the recommended approach for setting
+up IP configuration on networks.
 
-When referring to the standard OSI model for networking, a private network is equal
-to layer 2, a private subnet is (allowing for automatic configuration of) layer 3.
+When referring to the standard OSI model for networking, a network is equal to
+layer 2, a subnet is layer 3.
 
 .. note::
 
    While a network would be enough (provided you would want to manage your IP layer
    manually, its recommended to use the OpenStack approach to networking which is
-   to use private networks that in turn have private subnets configured on them as
-   it greatly improves the user experience and some services in the platform will
-   rely on doing so.
+   to use networks that in turn have subnets configured on them as it greatly improves
+   the user experience and some services in the platform will rely on doing so.
 
-Managing private networks
--------------------------
+Managing networks
+-----------------
 
-You are able to manage private networks using either of the below tools.
+You are able to manage networks using either of the below tools.
 
 - :doc:`The cloud management portal <cloud-management-portal>` is recommended and will
   get a user with limited prior knowledge from A to B quickly. The tradeoff is that

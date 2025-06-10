@@ -4,7 +4,7 @@ Site-to-site VPN
 
 A site-to-site VPN is a tunnel that connects two (or more) sites.
 
-A site can, in turn, consist of several :doc:`subnets <../router/private-subnet/index>` that
+A site can, in turn, consist of several :doc:`subnets <../subnet/index>` that
 all route over the tunnel but the standard use case is a single subnet on each side that send
 its traffic to the other site through the tunnel whereby the traffic is encrypted so it cannot
 be read by someone in transit.

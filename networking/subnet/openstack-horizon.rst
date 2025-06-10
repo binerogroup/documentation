@@ -41,7 +41,7 @@ To create a :doc:`subnet <index>` from the
   one per line, in the form. You can use any DNS servers you want though.
 
 - Under **Host routes**, you would add static routes (more information in
-  the :doc:`../routing-between-networks` article. 
+  the :doc:`../router/routing-between-networks` article. 
 
 - Press **Create**
 

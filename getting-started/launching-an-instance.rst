@@ -45,13 +45,13 @@ versatile option when growing your infrastructure as well as an additional layer
 
 .. note::
 
-   Some features of the platform, for instance load balancing, will **require** a router.
+   Some features of the platform, for example load balancing, will **require** a router.
 
    From a security perspective its also preferable to use floating IP addresses as your instances will
    be less exposed to the internet than with a directly attached IP.
 
-   Finally, when using a router with several instances, doing backend connections (for instance from
-   a web server to a database) can (and should) be done on the private network setup rather than on the
+   Finally, when using a router with several instances, doing backend connections (for example from
+   a web server to a database) can (and should) be done on the network setup rather than on the
    public IP addresses.
 
    For this reason, we recommend using a router in all use cases except when using only a single server

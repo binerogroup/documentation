@@ -60,7 +60,7 @@ Configure your client with your credentials (from the "setting up credentials" s
 	aws_access_key_id=[ACCESS_KEY]
 	aws_secret_access_key=[SECRET_KEY]
 
-When the configuration file is completed, you are now able to test reaching the cloud by for instance running
+When the configuration file is completed, you are now able to test reaching the cloud by for example running
 this command: ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-buckets`` which will list the
 buckets in the account from the non replicated endpoint of availability zone europe-se-1a.
 

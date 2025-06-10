@@ -7,7 +7,7 @@ static data. That is, once the snapshot has been completed (which is a
 fast procedure), no more writes will occur to the data in the snapshot.
 
 This means that assuming the snapshot was taken in a manner guaranteeing
-data integrity (for instance when the instance was switched off - or when
+data integrity (for example when the instance was switched off - or when
 writes where quiesced), the backup will (even though it takes much longer
 due to copying data to the auxiliary storage) also guarantee data integrity.
 

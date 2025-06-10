@@ -1,38 +1,35 @@
-===============
-Private subnets
-===============
+=======
+Subnets
+=======
 
 General concept
 ---------------
 
-A private subnet in Binero cloud is an :doc:`IP-range <subnet-format>` that is local to
-your project on the platform and therefore not reachable from outside your router
-(with :doc:`exception for routing between routers <../routing-between-networks>`).
+A subnet in Binero cloud is a :doc:`IP subnet <subnet-format>` on a :doc:`network <../network/index>`
+that is local to you and is isolated on a network and is only reachable through a :doc:`router <../router/index>`
+with the exception if you are using :doc:`directly attached IP addresses <../directly-attached-ips>`.
 
-A private subnet should not be confused with a shared, :doc:`external subnet <../../floating-ips>`
-which is used by many customers for external access to the internet.
+When creating a new instance, it is connected to a :doc:`network <../network/index>` and receives a IP address
+from a subnet on that network.
 
-When provisioning a new instance, it would typically bet connect to a private subnet
-(if using a :doc:`router <../index>` networking model).
+When you create a subnet, you add it to a :doc:`network <../network/index>`.
 
-When you create a private subnet, you assign it to a :doc:`network <../private-network/index>`.
-
-It will enable you to: 
+This will allow you to:
 
 - Use addresses from the subnet when creating instances, either by using :doc:`dhcp`
-  (which is recommended) or by manually assigning addresses from the subnet.
+  (which is recommended) or by manually assigning a fixed IP address from the subnet.
 
-- Assign an individual IP-address as the :doc:`gateway IP-address <connect-subnet-to-router>`
-  for the network, by assigning it to a router.
+- Use the subnet as a :doc:`gateway <connect-subnet-to-router>` for the network, by assigning
+  it to a router.
 
-You are also able to :doc:`route between networks <../routing-between-networks>`. This is useful
-for creating security zones or for segmenting your infrastructure in multiple subnets (for instance
+You are also able to :doc:`route between networks <../router/routing-between-networks>`. This is useful
+for creating security zones or for segmenting your infrastructure in multiple subnets (for example
 when having a production and staging system).
 
-Managing private subnets
-------------------------
+Managing subnets
+----------------
 
-You are able to manage private subnets using either of the below tools.
+You are able to manage subnets using either of the below tools.
 
 - :doc:`The cloud management portal <cloud-management-portal>` is recommended will get a user with
   limited prior knowledge from A to B quickly. The tradeoff is that advanced features are not always
@@ -45,11 +42,11 @@ You are able to manage private subnets using either of the below tools.
   giving terminal oriented users a quick way to access the cloud. The learning curve is steeper
   than the GUI implementation but the workflow will be efficient.
 
-Choosing an IP-range
+Choosing an IP range
 --------------------
 
 When IP addressing your network you would typically choose some IP-range that is reserved for internal use
-(presumably something from the `RFC1918 range <https://en.wikipedia.org/wiki/Private_network>`__).
+(presumably something from the `RFC1918 <https://en.wikipedia.org/wiki/Private_network>`__ range).
 
 In Binero cloud you are able to select whichever range you prefer for your networking but we recommend
 sticking to the ranges that are intended for internal use (according to above link) as you may otherwise

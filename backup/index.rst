@@ -57,7 +57,7 @@ Manual backup
 
 When doing a manual backup, your data would be pushed to the backup storage once upon request. This could be done for
 example, before doing a migration or upgrade (although a snapshot might also be a good alternative for this) or if you want
-to have a copy of an installed server stored offline in case of the real server for instance being deleted - and then backing
+to have a copy of an installed server stored offline in case of the real server for example being deleted - and then backing
 up the data separately.
 
 More information in our :doc:`manual-backup` article.

@@ -2,7 +2,7 @@
 Pool members
 ============
 
-A member is a compute instance that runs a service (for instance Apache).
+A member is a compute instance that runs a service (for example Apache).
 
 When load balancing, a member receives proxied requests from the listener
 through its membership in the pool.
@@ -18,7 +18,7 @@ be enabled back into the pool automatically.
 Members can have some configuration:
 
 - Explicit monitoring IP addresses and/or ports if you want to do health
-  checking on something other than the members own private IP.
+  checking on something other than the members own IP address.
 
 - Backup flag - this means that the member is a fallback server if all the
   normal members are down. For instance when doing maintenance on an
@@ -30,10 +30,11 @@ Members can have some configuration:
   is 256. We recommend keeping all members identical and as such, this
   should rarely (if ever) be used.
 
-All members should have an IP on a :doc:`private subnet <../../router/private-subnet/index>`.
+All members should have an IP on a :doc:`subnet </networking/subnet/index>`.
 
-While the private subnet does not have to be the same as the one the listener
+While the subnet does not have to be the same as the one the listener
 uses, its recommended for simplicity as well as performance.
 
 ..  seealso::
+
     - :doc:`../recommendations`
