@@ -83,7 +83,7 @@ Follow these instructions to prepare the plugin on your workstation:
   and kube_config_cluster.yml.
 
 - Use the file "kube_config_cluster.yml" with kubectl to check cluster health and perform actions
-  for instance like this: ``kubectl --cubeconfig=kube_config_cluster.yml get pods -A``.
+  for example like this: ``kubectl --cubeconfig=kube_config_cluster.yml get pods -A``.
 
 Create a Persistent Volume Claim with Cinder Service
 ----------------------------------------------------

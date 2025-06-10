@@ -42,16 +42,16 @@ surface to store data.
 HDD drives suffer from seek times, that is they have a read/write head that needs to be positioned correctly
 above the disk surface before data can be read or written.
 
-When data is read (or written) sequentially however (meaning when a large bit of data, for instance a backup
+When data is read (or written) sequentially however (meaning when a large bit of data, for example a backup
 image, is read one byte after the other from start to finish), HDD media still have good performance, i.e
 throughput but less so than SSD.
 
 HDD backed storage can be used by specifically selecting it when creating an :doc:`instance </compute/index>`
 or by choosing the proper Storage policy when provisioning an S3 bucket.
 
-When using HDD storage for instances, storage is (like SSD) three way replicated. When using HDD
-for :doc:`object storage <object-storage/index>` its also three way replicated, except for the storage
-policy *gp.archive** (which uses erasure coding).
+When using HDD , storage is (like SSD) three way replicated. When using HDD for
+:doc:`object storage <object-storage/index>` its also three way replicated, except
+for the storage policy **gp.archive** (which uses erasure coding).
 
 HDD, then, is a good option when wanting to store large amounts of data, preferably infrequently
 used (like a file server or archive solution).

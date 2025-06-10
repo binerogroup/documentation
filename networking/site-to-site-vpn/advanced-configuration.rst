@@ -3,7 +3,7 @@ Advanced configuration
 ======================
 
 While the VPN service sets up a template configuration of a site-to-site VPN with
-sane defaults, should you for instance require more IPsec flows (more subnets) or
+sane defaults, should you for example require more IPsec flows (more subnets) or
 changing settings, you will need to use the administration interface for the VPN
 itself.
 
@@ -15,7 +15,7 @@ URL that you us for managing the VPN service. Enter it into a browser.
    Remember that only the IP (range) that you added in "Admin IP ranges" when setting
    up the VPN will be allowed to login.
 
-   This is managed via a :doc:`security group </networking/router/security-groups/index>`
+   This is managed via a :doc:`security group </networking/security-groups/index>`
    which is called ``IPSec-<name>-<random string>_management``, if you've not retained the
    same IP, you may need to edit the security group.
 

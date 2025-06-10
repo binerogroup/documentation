@@ -6,12 +6,12 @@ To launch an :doc:`instance <../index>` from the :doc:`/getting-started/managing
 
 .. note::
 
-   If you don't have a :doc:`network </networking/router/private-subnet/index>` or :doc:`../ssh-keys` available in
+   If you don't have a :doc:`network </networking/subnet/index>` or :doc:`../ssh-keys` available in
    some of the steps below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>` first.
    An SSH-key setup using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` is not available in Horizon or
    the terminal client as they use `API users </getting-started/users.html#api-users>`__ to login and SSH-keys are account bound.
 
-- Identify which :doc:`network </networking/router/private-network/index>` you
+- Identify which :doc:`network </networking/network/index>` you
   want to use by running ``openstack network list``, save the name.
 
 - Identify which :doc:`SSH-key <../ssh-keys>` you want to use by
@@ -66,7 +66,7 @@ OpenStack terminal client, please see :doc:`/networking/floating-ips`.
 
 .. note::
 
-   The cloud management portal will not setup :doc:`security groups </networking/router/security-groups/index>` which
+   The cloud management portal will not setup :doc:`security groups </networking/security-groups/index>` which
    will be needed to access the instance if you are using a floating IP.
 
 .. tip::
@@ -75,4 +75,5 @@ OpenStack terminal client, please see :doc:`/networking/floating-ips`.
    ``openstack server create -h`` will show you how you can work with various options to create a server.
 
 ..  seealso::
+
     - :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`

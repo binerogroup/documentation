@@ -6,7 +6,7 @@ To launch an `instance <../index>`_ from the :doc:`/getting-started/managing-you
 
 .. note::
 
-   If you don't have a :doc:`network </networking/router/private-subnet/index>` or
+   If you don't have a :doc:`network </networking/network/index>` or
    :doc:`../ssh-keys` available in some of the steppes below, you might need to do
    some :doc:`initial configuration </getting-started/launching-an-instance>` first.
 
@@ -40,9 +40,9 @@ To launch an `instance <../index>`_ from the :doc:`/getting-started/managing-you
 - Under **Root password**, select a complicated password. Save it as it will not be saved in the
   platform after provisioning.
 
-- Under **Network**, select the network you want to connect to. This could be either a :doc:`private subnet </networking/router/private-subnet/index>`
+- Under **Network**, select the network you want to connect to. This could be either a :doc:`subnet </networking/subnet/index>`
   (if you have one setup, if so the name is whatever you chose) or a :doc:`directly attached IP </networking/directly-attached-ips>` (the name would
-  be based on the availability zone you previously chose). We recommend using a private subnet, for more information see
+  be based on the availability zone you previously chose). We recommend using a subnet, for more information see
   our :doc:`/getting-started/launching-an-instance` guide.
 
 - Press **Create** when done.
@@ -52,16 +52,17 @@ The instance will take some time to deploy. When done, it will be displayed as r
 When the instance is running, click on it and review the IP configuration under **Networking details**. There you are able
 to see its IP-address (both IPv4 and IPv6).
 
-To connect use either SSH or RDP (depending on image). If you are using a private subnet (and not a directly attached
+To connect use either SSH or RDP (depending on image). If you are using a subnet (and not a directly attached
 IP, see above), you might need to add a floating IP to be able to connect. For more information see
 our :doc:`/networking/reaching-your-instances` article.
 
 .. note::
 
-   The cloud management portal will not setup :doc:`security groups </networking/router/security-groups/index>` which
-   will be needed to access the instance if you are using a floating IP.
+   The cloud management portal will not setup :doc:`security groups </networking/security-groups/index>` which
+   will be needed to allow traffic to the instance.
 
 ..  seealso::
+
     - :doc:`/regions-and-availability-zones`
     - :doc:`/compute/flavors`
     - :doc:`/getting-started/launching-an-instance`

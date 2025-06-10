@@ -5,9 +5,9 @@ Load balancing in Binero cloud
 Load balancers consists of the following constructs:
 
 - The **Listener** is the load balanced service as its presented to users. It listens
-  for connections on a port, for instance port 80/tcp (additional listeners can be added
+  for connections on a port, for example port 80/tcp (additional listeners can be added
   to a load balancer after creation and thus allow for more than a single port). The listener
-  gets its own IP on a private subnet onto which is normally attached a :doc:`floating IP <../../floating-ips>`
+  gets its own IP on a subnet onto which is normally attached a :doc:`floating IP <../../floating-ips>`
   so as to enable it to be reached from the internet. 
 
 - The **Pool** is the active collection of member instances. It also sets the *common configuration*
@@ -28,7 +28,7 @@ which work in parallel, one active and one passive. Mostly this is important dur
 also help with issues where one load balancer for one reason or another, goes offline. 
 
 You are only able to setup configuration for one protocol (meaning service type or TCP/UDP-port) at a time, so if
-you for instance want both HTTP and HTTPS setup, you would start with one (probably HTTPS, maybe using our
+you for example want both HTTP and HTTPS setup, you would start with one (probably HTTPS, maybe using our
 :doc:`../ssl-termination` guide) and then setup the other (probably HTTP with HTTPS redirection) as a *separate listener*
 with (if applicable) a separate pool (that could well distribute load to the same pool members), a load balancer will
 support multiple protocols but they are configured one at a time.

@@ -16,9 +16,9 @@ page.
 - Give your service a name and optionally a description.
 
 - Under SSH Admin IP, add your public IP (this will allow your workstation through the
-  firewall) in :doc:`CIDR notation </networking/router/private-subnet/subnet-format>`.
+  firewall) in :doc:`CIDR notation </networking/subnet/subnet-format>`.
 
-  - If you need to change this later, this sets up a :doc:`security group </networking/router/security-groups/index>`
+  - If you need to change this later, this sets up a :doc:`security group </networking/security-groups/index>`
     on the instance.
 
   - The security group can be changed or updated as you see fit but if you want to login
@@ -35,7 +35,7 @@ page.
 
 - Select your :doc:`SSH-key </compute/ssh-keys>`. 
 
-- Under ``local_net`` select the :doc:`network </networking/router/private-subnet/index>`
+- Under ``local_net`` select the :doc:`network </networking/network/index>`
   on which you want to run the service.
 
 - If you want your service publicly available on the internet, you can assign a floating

@@ -15,7 +15,7 @@ To create a :doc:`network <index>` from :doc:`/getting-started/managing-your-clo
 
 - Check the **Enable admin state** box.
 
-- If you want to create a :doc:`subnet <../private-subnet/index>`, you could do that from this view as
+- If you want to create a :doc:`subnet <../subnet/index>`, you could do that from this view as
   well, if so leave the **Create subnet** checkbox checked, if you prefer to follow our documentation and
   do this separately, you can clear the checkbox.
 
@@ -29,7 +29,7 @@ To create a :doc:`network <index>` from :doc:`/getting-started/managing-your-clo
 .. note::
 
    In order to connect an instance or router to the network, you will also need to create
-   a :doc:`subnet <../private-subnet/index>` which you can then attach to an interface on
+   a :doc:`subnet <../subnet/index>` which you can then attach to an interface on
    a router or an instance.
 
 ..  seealso::

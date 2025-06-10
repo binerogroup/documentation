@@ -13,7 +13,7 @@ the router will be assigned a :doc:`floating IP <../floating-ips>` on its extern
 interface and when instances on the internal network wants to access the internet, the
 router will change the source IP of the request to its own floating IP. 
 
-The reason for this is that :doc:`private subnets </networking/router/private-subnet/index>`
+The reason for this is that :doc:`subnets </networking/subnet/index>`
 are normally assigned from the pool of IP addresses that are reserved for internal
 usage, according to IETF RFC1918.
 

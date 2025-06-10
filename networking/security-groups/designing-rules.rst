@@ -61,7 +61,7 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
   behaviour in a firewall. If you want to create a non stateful (stateless) rule, you can create the
   group using the :doc:`terminal client <openstack-terminal-client>` and the flag ``--stateless``. A
   stateless rule would only work in a single direction (egress or ingress). We generally recommend
-  stateful rules but for some use-cases (for instance asymmetrical routing where you would not send the
+  stateful rules but for some use-cases (for example asymmetrical routing where you would not send the
   return traffic the same path), stateless rules might be required.
 
 .. tip::
@@ -73,7 +73,7 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
    per port to 10 ms which speeds up the otherwise slow process). The output will be a list of open ports.
 
    Remember mind to scan both from the inside (using your various internal instances against their internal
-   IP addresses) as well as using for instance your workstation (against the floating IP that expose your
+   IP addresses) as well as using for example your workstation (against the floating IP that expose your
    services) to get the public internet perspective.
 
    We recommend doing scans after setting up or changing your security groups to make sure the actual result
@@ -87,27 +87,27 @@ The following section shows what parameters you can use to create security group
 parameters will be available from the GUI, some may require the :doc:`terminal client <openstack-terminal-client>`
 to use. The terminal option is added within parentheses.
 
-- Remote IP (--remote-ip) - Remote IP address or IP range (may use :doc:`CIDR notation <../private-subnet/subnet-format>`,
+- Remote IP (``--remote-ip``) - Remote IP address or IP range (may use :doc:`CIDR notation <../subnet/subnet-format>`,
   default for IPv4 rule: 0.0.0.0/0, default for IPv6 rule: ::/0).
 
-- Remote Group (--remote-group) - Remote security group (name or ID). Instead of IP, you could use a remote
+- Remote Group (``--remote-group``) - Remote security group (name or ID). Instead of IP, you could use a remote
   group to decide from where the traffic originates.
 
-- Destination port (--dst-port) - Destination port, may be a single port or a starting and ending port range 137:139. Required
-  for IP protocols TCP and UDP.
+- Destination port (``--dst-port``) - Destination port, may be a single port or a starting and ending port range
+  137:139. Required for IP protocols TCP and UDP.
 
-- Protocol (--protocol) - IP protocol – AH, DCCP, EGP, ESP, GRE, ICMP, IGMP, ipv6-encap, ipv6-frag, ipv6-icmp, ipv6-nonxt,
+- Protocol (``--protocol``) - IP protocol – AH, DCCP, EGP, ESP, GRE, ICMP, IGMP, ipv6-encap, ipv6-frag, ipv6-icmp, ipv6-nonxt,
   ipv6-opts, ipv6-route, PGM, RSVP, SCTP, TCP, UDP, UDP-Lite, VRRP or a integer representations (0-255) or any (-1), default is 
   any (all protocols).
 
-- ICMP typ (--icmp-type) - ICMP type for ICMP IP protocols.
+- ICMP typ (``--icmp-type``) - ICMP type for ICMP IP protocols.
 
-- ICMP code (--icmp-code) - ICMP code for ICMP IP protocols.
+- ICMP code (``--icmp-code``) - ICMP code for ICMP IP protocols.
 
-- Direction (--ingress / --egress) - Rule applies to incoming or outgoing network traffic (incoming is
+- Direction (``--ingress`` or ``--egress``) - Rule applies to incoming or outgoing network traffic (incoming is
   default).
 
-- IP version (--ethertype) - whether to use IPv4 or IPv6; default is based on IP protocol.
+- IP version (``--ethertype``) - whether to use IPv4 or IPv6; default is based on IP protocol.
 
 ..  seealso::
 

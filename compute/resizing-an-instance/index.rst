@@ -7,7 +7,7 @@ to much, you are able to resize it.
 
 The typical situation might be that your load has increased (maybe you have added
 customers to your service or maybe there is a temporary influx in visitors during
-for instance a campaign) to a point where your application is behaving
+for example a campaign) to a point where your application is behaving
 sluggish (or not working at all). 
 
 Methods
@@ -29,7 +29,7 @@ You have four main options for how to resize an instance. Each option has its pr
   curve is steeper than the GUI implementation but the workflow will be efficient.
 
 - :doc:`The API </compute/compute-api>` is the full OpenStack REST API. Its intended for users that
-  are either writing infrastructure as code or using a third-party application (for instance Terraform)
+  are either writing infrastructure as code or using a third-party application (for example Terraform)
   that needs to reach the cloud provisioning layer directly.
 
 .. note::
@@ -59,7 +59,7 @@ returns on adding additional performance would kick in. What the limit is, depen
 Scaling out
 ^^^^^^^^^^^
 
-The opposite method is adding parallel resources (for instance additional instances) and
+The opposite method is adding parallel resources (for example additional instances) and
 using `load balancing </networking/load-balancers>`_) to distribute load between them, this is
 called "scaling out" or ("horizontal scaling").
 
@@ -69,7 +69,7 @@ likely required.
 While there are normally bottlenecks in scale out systems as well, they are generally related to
 the amount of parts the system is broken up into. 
 
-A single application (a monolith) may for instance still be able to scale well by using multiple
+A single application (a monolith) may for example still be able to scale well by using multiple
 load balanced web servers as frontends and multiple replicated database servers as backends. The
 web servers will scale pretty much indefinitely but the database would bottleneck at some
 point (depending on solution). 

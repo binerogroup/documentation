@@ -14,13 +14,13 @@ This is enabled via Layer 7 Policies. A policy can execute some (basic) function
 
 - Redirect to pool, will send traffic to another listeners pool. This is a good thing if you
   already have a pool setup (from another listener) of the same servers and just want to add
-  another listener (for instance when adding HTTP protocol to an already configured HTTPS
+  another listener (for example when adding HTTP protocol to an already configured HTTPS
   listener). Another really useful use case could be if you want to run a separate pool for
-  your static content. You can then opt to send for instance traffic to "www.example.com/js" or
+  your static content. You can then opt to send for example traffic to "www.example.com/js" or
   "/images" to separate backends that are optimised (maybe via caching) for static content.
 
 - Redirect to URL, this will redirect (using a header: location) the request to another
-  URL. Useful when for instance requiring HTTPS.
+  URL. Useful when for example requiring HTTPS.
 
 The policies will only triggered once you setup a corresponding Layer 7 Rule on them. The rule
 decides when the policy should trigger. Various *types* of triggers are available:
@@ -35,7 +35,7 @@ decides when the policy should trigger. Various *types* of triggers are availabl
 
 - Cookie (for example ``phpsessid``)
 
-The types take keys when relevant (when specifying for instance cookie, you could specify the
+The types take keys when relevant (when specifying for example cookie, you could specify the
 cookie ``auth_token``). The type can be compared by certain methods:
 
 - ``REGEX`` (regular expressions)
@@ -49,7 +49,7 @@ cookie ``auth_token``). The type can be compared by certain methods:
 Finally, a value is specified, for example when comparing hostname, ``example.com`` could be
 specified.
 
-The entire evaluation can also be negated, for instance when looking for a non logged in
+The entire evaluation can also be negated, for example when looking for a non logged in
 user, you might redirect to login when **not** finding a cookie.
 
 If the Layer7 rule is met, the Layer7 policy will trigger.

@@ -35,8 +35,8 @@ The pool will provide a common configuration for the members:
     same member. It does not take the applications session management
     into consideration.
 
-  - Application cookie, this will use your applications (for instance PHP)
-    session management. You would reference to the cookie name, for instance
+  - Application cookie, this will use your applications (for example PHP)
+    session management. You would reference to the cookie name, for example 
     ``PHPSESSIONID``, ``ASP.NET_SessionId`` or ``JSESSIONID``. This is the
     most exact way to do persistence.
 
@@ -46,7 +46,7 @@ in the pool or not at any given time.
 .. tip::
 
    We recommend avoiding using session persistence but rather to build your
-   application stateless, that is, save any session information in for instance
+   application stateless, that is, save any session information in for example
    a database that will always be accessible no matter on which pool member
    the request ends up on.
 

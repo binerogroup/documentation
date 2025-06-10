@@ -24,7 +24,7 @@ page. Then follow these instructions:
 
 - Select your :doc:`SSH-key </compute/ssh-keys>`.
 
-- Under **Local network**, select the :doc:`network </networking/router/private-subnet/index>`
+- Under **Local network**, select the :doc:`network </networking/network/index>`
   on which you want to run the service.
 
 - If you want your service publicly available on the internet, you can assign a floating

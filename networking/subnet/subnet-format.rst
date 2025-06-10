@@ -4,7 +4,7 @@ Subnet Format
 
 A subnet is generally formatted in what is called `CIDR notation <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__.
 
-A CIDR notation might for instance look like this: **192.168.0.0/24**
+A CIDR notation might for example look like this: **192.168.0.0/24**
 
 This is a way to describe both the network ip-number (which is the part before the ``/`` symbol) and the subnet size (which is
 the part after the ``/`` symbol).
@@ -19,7 +19,7 @@ Below we outline how to select your subnet.
    If the below is something you do not want to understand but just want to know what subnet to choose, we recommend
    using /24 as mask size.
 
-   Your first subnet then, might be for instance 172.29.45.0/24, your next might be 172.29.46.0/24, and so on).
+   Your first subnet then, might be for example 172.29.45.0/24, your next might be 172.29.46.0/24, and so on).
 
 Explanation
 -----------
@@ -61,7 +61,7 @@ network (equal to a CIDR notation of /8) has 16.777.214 usable addresses.
 A B-class network has 65534 usable addresses. A C-class network has 255 usable addresses. This meant that
 addresses where most often not optimally assigned.
 
-An organisation that needed to have for instance 75.000 IP addresses  would instead get 16777214 (as a B-class network
+An organisation that needed to have for example 75.000 IP addresses  would instead get 16777214 (as a B-class network
 would have been to small).
 
 An organisation that needed 300 IP addresses would instead get 65534. This was not considered an issue in the early
@@ -83,11 +83,11 @@ This address is just used for describing the network and cannot be changed when 
 can be explained as 32 / 4 = 8, so 8 bits per octet, 24 bits then making the first 3 octets the network address (so
 192.168.0 being the first 3 octets).
 
-The remaining (up to 32) bits are the hosts addresses so for instance in the example 192.168.0.5, the last octet
+The remaining (up to 32) bits are the hosts addresses so for example in the example 192.168.0.5, the last octet
 (which is 5) is assignable to a host. 
 
 When configuring an IP-address in an operating system, some systems will want the IP-address in CIDR notation
-(so 192.168.0.5/24 for instance), some want the subnet mask specified separately, so 192.168.0.5 AND 255.255.255.0.
+(so 192.168.0.5/24 for example), some want the subnet mask specified separately, so 192.168.0.5 AND 255.255.255.0.
 
 The function is the same, the subnet mask is just another way to tell that the first 24 bits (as shown by the fact
 that 255 is the max size, so all 1s when writing in binary, of an 8 bit number is 255) are the network address and

@@ -59,8 +59,8 @@ not 100% certain to always work.
 MTU in Binero cloud
 -------------------
 
-Since Binero cloud uses virtual networking, the MTU size given when using :doc:`router/private-subnet/dhcp`
-on your :doc:`private subnet <router/private-subnet/index>` to assign addresses is 1450 bytes.
+Since Binero cloud uses virtual networking, the MTU size given when using :doc:`subnet/dhcp`
+on your :doc:`subnet <subnet/index>` to assign addresses is 1450 bytes.
 
 This is because the VXLAN encapsulation needs 50 bytes of the frames available 1500 bytes.
 

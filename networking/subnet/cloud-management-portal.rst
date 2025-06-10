@@ -14,8 +14,8 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 
 - Name your subnet.
 
-- Under **Network address** you need to input the address in CIDR notation (see the :doc:`/networking/router/private-subnet/subnet-format`
-  article for more information). For example "192.168.0.0/24.
+- Under **Network address** you need to input the address in CIDR notation (see the :doc:`/networking/subnet/subnet-format`
+  article for more information). For example ``192.168.0.0/24``.
 
 - Under **Gateway-IP** you have the option to either :doc:`set an IP as gateway <connect-subnet-to-router>` or
   not. If you want a gateway, select "Use standard gateway-IP". If you don't, select "don't use a gateway". The
@@ -34,7 +34,7 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 - Under **DNS name servers** we recommend adding our servers which are "83.168.225.225" and "83.168.226.226". You can press
   the "+" sign multiple times. You can use any DNS servers you want though. 
 
-- Under **Add route**, you would add static routes (see: `../routing-between-subnets`). 
+- Under **Add route**, you would add static routes (see: `../router/routing-between-subnets`). 
 
 - Press **Create subnet**
 

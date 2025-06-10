@@ -8,7 +8,7 @@ Launching load balancer using OpenStack Horizon
    our :doc:`concepts <../general-concept/index>` guide so as to gain a better
    understanding the various parts.
 
-We also recommend setting the correct :doc:`security groups <../../router/security-groups/index>`
+We also recommend setting the correct :doc:`security groups </networking/security-groups/index>`
 on the instances that should be members in the load balancing. Traffic from the load balancer
 will not come from the default group as the load balancer is not an instance - this means that
 explicit rules needs to be setup on the members.
@@ -41,7 +41,7 @@ To launch a :doc:`load balancer <../index>` from the
 
   - Leave the Flavor field empty as selecting a flavor is not supported.
 
-  - Select a :doc:`subnet </networking/router/private-subnet/index>` to use for hosting the load
+  - Select a :doc:`subnet </networking/subnet/index>` to use for hosting the load
     balancer. We recommend using the same as the subnet where you have your instances to load
     balancer but its not a must.
 
@@ -130,8 +130,8 @@ To verify that the health checking has added the members to the pool, follow thi
 
 .. tip::
 
-   If the members are not online, make sure you have the proper :doc:`../../router/security-groups/index`
-   configured on the them. If you still cant get the members online, verify (by using for instance ``tcpdump``
+   If the members are not online, make sure you have the proper :doc:`/networking/security-groups/index`
+   configured on the them. If you still cant get the members online, verify (by using for example ``tcpdump``
    or by reading access logs, that the traffic hits the member servers from the load balancers IP.
 
 ..  seealso::

@@ -86,7 +86,7 @@ gp.recurring
 ------------
 
 This storage policy is classified as general purpose and its intended use-case is storing large objects that are
-frequently requested (for instance video or audio material for a website). 
+frequently requested (for example video or audio material for a website). 
 
 This solution uses three-way replication (meaning each object is stored 3 times on different disks in different
 servers). The :doc:`storage media <../storage-types>` is HDD.

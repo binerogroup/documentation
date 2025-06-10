@@ -8,10 +8,10 @@ addresses and :doc:`floating-ips`.
 Directly attached IP addresses are assigned directly on the :doc:`instances </compute/index>`
 network interface (port).
 
-This means that when you run for instance ``ip addr show`` or ``ipconfig /all`` inside your instance
+This means that when you run for example ``ip addr show`` or ``ipconfig /all`` inside your instance
 operating system, you would (with a directly attached IP) see the public IP assigned on the interface.
 
-When using a floating IP, the result would instead be the IP address from the :doc:`private subnet <router/private-subnet/index>`
+When using a floating IP, the result would instead be the IP address from the :doc:`subnet <subnet/index>`
 that you assigned to the instance. The floating IP is then redirected using NAT to and from the instance in
 the router.
 
@@ -39,7 +39,7 @@ Key differences to floating IP addresses
   network. This performance will be negligible in most use-cases.
 
 - Directly attached IP addresses does not combine with the majority of the networking functions in the platform which
-  will rely on a router to work. For instance :doc:`load-balancer/index` or :doc:`router/security-groups/index`.
+  will rely on a router to work. For instance :doc:`load-balancer/index` or :doc:`security-groups/index`.
 
 .. note::
 
@@ -52,7 +52,7 @@ Setting up a directly attached IP
 
 The process for setting up a directly attached IP on an instance is not differing from any other
 :doc:`method of setting up an IP </compute/assign-ip>` in the platform except you would chose an
-IP from one of our external ranges instead of selecting one from a :doc:`private subnet <router/private-subnet/index>`.
+IP from one of our external ranges instead of selecting one from a :doc:`subnet <subnet/index>`.
 
 Which range to choose would depend on in which :doc:`availability zone <regions-and-availability-zones>` your
 instance is located:
@@ -62,7 +62,7 @@ instance is located:
 - ``europe-se-1-1b-net0`` for instances placed in *europe-se-1b* availability zone
 
 Doing so, would place a public IP directly on the interface (NIC) of the instance and you would be able to see it by
-running for instance ``ip addr show`` in Linux.
+running for example ``ip addr show`` in Linux.
 
 ..  seealso::
 

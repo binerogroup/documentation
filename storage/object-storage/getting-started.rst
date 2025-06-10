@@ -58,10 +58,10 @@ To create a container using the :doc:`/getting-started/managing-your-cloud/cloud
 .. caution::
 
    Setting your container as public means anybody with a correct URL can access your
-   data with any authentication!
+   data without any authentication!
 
 - If you check **public**, there will not be need for credentials to reach the container (good for when
-  using the object storage as a CDN for instance).
+  using the object storage as a CDN for example).
 
 - Press **Create**
 
@@ -85,10 +85,10 @@ To create a container using :doc:`/getting-started/managing-your-cloud/openstack
 .. caution::
 
    Setting your container as public means anybody with a correct URL can access your
-   data with any authentication!
+   data without any authentication!
 
 - If you select **public** under **Container Access**, there will not be need for credentials
-  to reach the container (good for when using the object storage as a CDN for instance). 
+  to reach the container (good for when using the object storage as a CDN for example). 
 
 - Press **Submit**
 

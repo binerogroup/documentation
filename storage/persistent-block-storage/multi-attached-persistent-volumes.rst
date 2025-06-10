@@ -44,7 +44,7 @@ When assigning multiple instances access to a volume, **each will assume it has 
 Normally there is no default feature in operating systems, that check for other systems accessing a volume. Storage
 is read and written to directly with an assumption that it has exclusive access to the storage media.
 
-A read only system (for instance an ISO file or DVD) can be shared as reading is a non volatile process.
+A read only system (for example an ISO file or DVD) can be shared as reading is a non volatile process.
 
 Writes (which change the data) would, however, depend on exclusive access. This is because a drive needs to do things
 in a serialized manner on the block level. If another process (unbeknownst to the first) writes, blocks can become

@@ -15,7 +15,7 @@ a cloud and Binero cloud supports this approach.
    its possible to do so, this will cause to make the network more difficult to understand.
 
    As such, rather give the instance running as a router a leg (a connection) to each of the
-   private subnets that you want to reach and manage everything within the router.
+   subnets that you want to reach and manage everything within the router.
 
 Concepts
 --------
@@ -27,14 +27,14 @@ Since the platform is (normally) aware of what IP addresses are existing behind 
 filters traffic based on what it knows.
 
 This enables it to protect from various spoofing attempts and its also a prerequisite for
-using :doc:`security groups <router/security-groups/index>`. 
+using :doc:`security groups <security-groups/index>`. 
 
 When using a custom firewall/router, the port security feature does not work as destination
 traffic is no longer meant for the instance (a router receives traffic and forwards it - the
 destination is usually something other than the router). 
 
 Aside from the above its important to note that the usual manner of IP-assignments on the
-platform is :doc:`DHCP <router/private-subnet/dhcp>` which is included on a :doc:`private subnet <router/private-subnet/index>`.
+platform is :doc:`DHCP <subnet/dhcp>` which is included on a :doc:`subnet <subnet/index>`.
 
 It might be tempting to run a DHCP server on the custom routing solution instead of using
 manual networking. While this works, this will remove cloud-init support, resulting in
@@ -44,7 +44,7 @@ Setting up a custom router/firewall
 -----------------------------------
 
 Below is a guide on how to setup a router with a public (internet facing) outside network and a
-private subnet (which will work the same as with a router) for hosting instances on the inside
+subnet (which will work the same as with a router) for hosting instances on the inside
 of the router. 
 
 .. note::
@@ -52,15 +52,15 @@ of the router.
    Since some features below are only available using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
    (or :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`), we will use Horizon below.
 
-- Create your :doc:`private networks <router/private-network/index>` and :doc:`private subnet <router/private-subnet/index>`
+- Create your :doc:`networks <network/index>` and :doc:`subnet <subnet/index>`
   for the internal network(s) unless you have already done so. 
 
 - Create a network :doc:`port <ports>` on the subnet. 
 
-  - Select fixed IP and add input the same IP as you selected as default route on the private
+  - Select fixed IP and add input the same IP as you selected as default route on the
     subnet in the previous step.
 
-  - Under :doc:`security groups <router/security-groups/index>`, add the "all-open" group (as the
+  - Under :doc:`security groups <security-groups/index>`, add the "all-open" group (as the
     traffic will not be destined to the instance because of routing). A firewall to the
     router/firewall-instance will have to be setup on the instance itself.
 

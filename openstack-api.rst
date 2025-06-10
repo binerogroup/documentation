@@ -31,7 +31,7 @@ Version
 Some of the OpenStack APIs will support multiple versions for backwards compatibility.
 
 Generally the recommended version is included in the URL (where applicable) below but in certain
-cases microversions might be required (for instance v2.1 vs v2.67 for Nova) for some functionality.
+cases microversions might be required (for example v2.1 vs v2.67 for Nova) for some functionality.
 
 Keystone
 --------

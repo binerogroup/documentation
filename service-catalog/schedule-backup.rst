@@ -16,7 +16,7 @@ Then follow these instructions:
 
 - In the "Cron in GMT" field you decide when and how often the job should be run. You can use
   hourly, daily or weekly as base. Select the one that is closest to what you want to do. If
-  you for instance want to run a backup job once per night, select "daily" and then set the
+  you for example want to run a backup job once per night, select "daily" and then set the
   "Hour(s)" field to the hour you want to run the job.
 
 - In **Age of backup deletion in days** you select how many historical backups you want to

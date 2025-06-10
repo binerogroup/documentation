@@ -18,7 +18,7 @@ chosen during the :doc:`setup process <setting-up>`.
 Additional networks
 -------------------
 
-If your cloud infrastructure contains more than a single :doc:`private subnet <../router/private-subnet/index>`
+If your cloud infrastructure contains more than a single :doc:`subnet <../subnet/index>`
 that you want to reach over the VPN, you need to manually add that subnet to the VPN servers configuration.
 
 To add a network to the VPN server, using the WebUI.
@@ -32,12 +32,12 @@ To add a network to the VPN server, using the WebUI.
 - Scroll down to the "Tunnel settings" section. 
 
 - Change the value in the field "IPv4 Local network(s)" to also include your additional network(s)
-  in :doc:`CIDR notation <../router/private-subnet/subnet-format>`. The networks are delimited by
-  a comma. Your initial private subnet should be in this field already.
+  in :doc:`CIDR notation <../subnet/subnet-format>`. The networks are delimited by
+  a comma. Your initial subnet should be in this field already.
 
 - Press "Save" at the bottom. 
 
-- When users login again, they can reach the additional private subnet(s) assuming its
+- When users login again, they can reach the additional subnet(s) assuming its
   correctly :doc:`routed <../router/routing-between-networks>` in the cloud.
 
 .. important::
@@ -51,7 +51,7 @@ VPN-server network design
 The VPN server only has a single interface. This interface, in turn, has a floating IP connected to it.
 
 Ingress from the internet is managed via the floating IP which will :doc:`DNAT <../router/nat>` traffic
-to the private IP on the private subnet.
+to the IP address on the subnet.
 
 Egress from the VPN server to the internet will SNAT traffic to originate from the floating IP. 
 
@@ -59,10 +59,10 @@ For internal traffic within the network(s), the VPN server will use the same int
 public traffic but it will not egress the platform.
 
 The VPN server will SNAT all VPN traffic (which by default will originate from the 10.0.8.0/24 range - which
-the VPN server uses for VPN clients) so as to originate from its own IP on the private subnet that it was setup on.
+the VPN server uses for VPN clients) so as to originate from its own IP on the subnet that it was setup on.
 
 This means that it will appear as if the traffic from the VPN clients originates from the VPN servers IP on
-the private subnet. 
+the subnet. 
 
 .. note::
 
@@ -73,7 +73,7 @@ the private subnet.
 When reaching other networks in the cloud, routing is used.
 
 The VPN server will use its default route (which is the upstream router) for all traffic that is located
-outside of its own private subnet.
+outside of its own subnet.
 
 The router will then route this traffic the same way it would any internal traffic in the cloud, it will
 even use the default security group.
@@ -82,5 +82,5 @@ This is a good way to reach your entire cloud infrastructure over VPN as well as
 
 .. note::
 
-   Because the VPN server uses NAT, applications working badly with NAT (for instance active mode FTP) may
+   Because the VPN server uses NAT, applications working badly with NAT (for example active mode FTP) may
    have issues over the VPN. 

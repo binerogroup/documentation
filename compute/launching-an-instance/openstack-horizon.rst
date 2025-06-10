@@ -7,8 +7,8 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 
 .. note::
 
-   If you don't have a :doc:`network </networking/router/private-subnet/index>` or :doc:`../ssh-keys` available in
-   some of the steps below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>`
+   If you don't have a :doc:`network </networking/network/index>` or :doc:`../ssh-keys` available in some of the
+   steps below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>`
    first.
 
    An SSH-key created or added in the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` is not available
@@ -56,9 +56,9 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 - Under the **Networks** tab in the dialog.
 
   - Select the network you want to connect your instance to by pressing the arrow on the right side. This could be
-    a :doc:`private network </networking/router/private-network/index>` if you have one or a
+    a :doc:`network </networking/network/index>` if you have one or a
     :doc:`directly attached IP </networking/directly-attached-ips>` in which case the availability zone is in the name of the network.
-    We recommend using a private subnet, for more information see our :doc:`/getting-started/launching-an-instance` guide.
+    We recommend using a subnet, for more information see our :doc:`/getting-started/launching-an-instance` guide.
 
 - Under the **Key Pair** tab in the dialog.
 

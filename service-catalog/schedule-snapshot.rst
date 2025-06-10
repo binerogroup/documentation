@@ -15,7 +15,7 @@ Then follow these instructions:
 - Give your service a name and optionally a description.
 
 - In the "Cron in GMT" field you decide when and how often the job should be run. You can use hourly, daily
-  or weekly as base. Select the one that is closest to what you want to do. If you for instance want to run
+  or weekly as base. Select the one that is closest to what you want to do. If you for example want to run
   a snapshot job once per night, select "daily" and then set the "Hour(s)" field to the hour you want to run the job.
 
 - In the "Age of snapshot deletion in hours" you select how many historical copies you want to keep. If you keep

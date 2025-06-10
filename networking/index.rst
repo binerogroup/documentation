@@ -7,15 +7,15 @@ networking functions ranging from routing, security groups (firewall) and high s
 VPNs (Virtual Private Networks) and load balancers.
 
 The two main methods to connect to the internet is to either assign a :doc:`directly attached IP <directly-attached-ips>`
-to your instance or setup a :doc:`router <router/index>` and connect a :doc:`private subnet <router/private-subnet/index>`
+to your instance or setup a :doc:`router <router/index>` and connect a :doc:`subnet <subnet/index>`
 to the router and your instance, then use a :doc:`floating IP <floating-ips>` to your instance (which is
 the recommended approach).
 
 The general design of networking in the platform is that :doc:`instances </compute/index>` use :doc:`ports <ports>` to
-connect to :doc:`networks <router/private-network/index>`.
+connect to :doc:`networks <network/index>`.
 
-Networks in turn, have :doc:`private subnets <router/private-subnet/index>` that assign IP addresses to ports
-used by instances.
+Networks in turn, have :doc:`subnets <subnet/index>` that assigns IP addresses to :doc:`ports <ports>` used by
+:doc:`instances </compute/index>`.
 
 :doc:`Floating IP addresses <floating-ips>` are publicly routed IP addresses that can be mapped (1:1) to a port to either
 publish services on the internet or provide servers with access to the internet. 
@@ -30,10 +30,13 @@ that will guide you through setting up a versatile solution using a single subne
   :caption: Available services
   :maxdepth: 2
 
+  network/index
+  subnet/index
+  ports
+  security-groups/index
   router/index
   floating-ips
   directly-attached-ips
-  ports
   mtu
   load-balancer/index
   reaching-your-instances

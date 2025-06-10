@@ -40,12 +40,12 @@ On the listener, you are able to configure various settings:
 
 - Timeouts for the connection to the listener, we do however recommend to leave the default values for this. 
 
-- Layer 7 (mainly HTTP) policies enabling for instance redirects or rejections directly on the
+- Layer 7 (mainly HTTP) policies enabling for example redirects or rejections directly on the
   listener, negating the need to send requests to members.
 
 - Allowed CIDR prefixes, meaning who can connect. 0.0.0.0/0 is the default and means "all networks".
 
-- HTTP headers, for instance ``x-forwarded-for``.
+- HTTP headers, for example ``x-forwarded-for``.
 
 To the listener, you would normally (unless the service is internal) connect a
 floating IP for accessing the service from the internet. The listener then becomes

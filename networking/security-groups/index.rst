@@ -12,12 +12,12 @@ Binero cloud will provide a variety of default security groups that could be com
 (or by not adding or removing, disallow) traffic to flow through the cloud.
 
 One important difference from a traditional network is that security groups are also filtering
-traffic between instances on the same :doc:`subnet </networking/router/private-subnet/index>`.
+traffic between instances on the same :doc:`subnet </networking/subnet/index>`.
 
 The default settings (see below) would however allow internal access.
 
 A security group is (as the name implies) a *group* of rules. This makes it easier to setup common
-use-cases if you have certain access-scenarios (for instance maybe you want to add HTTP, HTTPS and
+use-cases if you have certain access-scenarios (for example maybe you want to add HTTP, HTTPS and
 port 8080 from all sources and SSH from a single IP to the majority of servers, this could then be
 a single group with 4 rules in it).
 
@@ -76,7 +76,7 @@ This security group will allow all traffic but only *from other instances that a
 is, it also evaluates if the traffic was using this group to **egress** an instance in the cloud).
 
 Consequently all traffic within the same network (and also within different networks on the same router) will be
-allowed but *not* traffic that ingresses via a :doc:`/networking/floating-ips` or from :doc:`another availability zone <../routing-between-networks>`
+allowed but *not* traffic that ingresses via a :doc:`/networking/floating-ips` or from :doc:`another availability zone <../router/routing-between-networks>`
 as that traffic will not have originated behind the default group.
 
 Removing the default group could potentially remove outbound access to the internet through the router if there
@@ -87,7 +87,7 @@ are no other security groups available. Restoring it in case of any issues is fa
    An instance that does not have a floating IP connected and sits behind a router is not reachable from the internet
    and is therefore not (as) vulnerable.
 
-   A floating IP will use :doc:`../nat` to map a public IP to the instance real IP (which is not globally routed).
+   A floating IP will use :doc:`../router/nat` to map a public IP to the instance real IP (which is not globally routed).
 
    Its good practice to not have a floating IP on instances that does not need to be directly reachable from the
    internet (because they host internal services - like databases) but this will require a

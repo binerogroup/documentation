@@ -25,7 +25,7 @@ Should the router be directly connected to the network in question (local to the
 instead use Address Resolution Protocol (ARP) to map the destination IP to a hardware (MAC) address
 and forward the packet to its final destination.
 
-Static routing is the process of manually defining what private subnets (network ranges) there are and
+Static routing is the process of manually defining what subnets (network ranges) there are and
 behind what routers they are connected so that the routers are able to forward the packets.
 
 It is only needed if there is *more then a single router in the network* (as a single router would be
@@ -81,7 +81,7 @@ OpenStack Horizon
 - Press **Add static route**
 
 - In the **Destination CIDR** field, type the *destination IP range* (that is, the network behind the neighbour router that you
-  want to reach) in :doc:`CIDR format <private-subnet/subnet-format>`. 
+  want to reach) in :doc:`CIDR format <../subnet/subnet-format>`. 
 
 - In the **Next Hop** field, type the gateway address, that is the address that the neighbour router has on the network which
   it shares with the router you are adding the static route to - and to where you want to forward traffic. 
@@ -95,12 +95,12 @@ OpenStack terminal client
 
 - Run: ``openstack router add route --route destination=[DESTINATION_RANGE],gateway=[GATEWAY IP] [ROUTER NAME]``, replacing
   the items in brackets to *destination IP range* (the network behind the neighbour router that you want to reach)
-  in :doc:`CIDR format <private-subnet/subnet-format>`, the gateway address (the address that the neighbour router has on
+  in :doc:`CIDR format <../subnet/subnet-format>`, the gateway address (the address that the neighbour router has on
   the network which it shares with the router you are adding the static route to - and to where you want to forward traffic)
   and the router name (from previous step).
 
 ..  seealso::
 
-    - :doc:`private-subnet/subnet-format`
+    - :doc:`../subnet/subnet-format`
     - :doc:`routing-between-networks`
     - :doc:`index`
