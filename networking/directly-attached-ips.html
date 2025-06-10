@@ -15,7 +15,7 @@
         <link rel="prev" href="floating-ips.html">
       
       
-        <link rel="next" href="ports.html">
+        <link rel="next" href="mtu.html">
       
       
       <link rel="icon" href="../_static/binero.ico">
@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="router/index.html" class="md-nav__link">
         
   
@@ -824,30 +920,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1463,9 +1535,9 @@
 addresses and <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a>.</p>
 <p>Directly attached IP addresses are assigned directly on the <a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a>
 network interface (port).</p>
-<p>This means that when you run for instance <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span> <span class="pre">show</span></code> or <code class="docutils literal notranslate"><span class="pre">ipconfig</span> <span class="pre">/all</span></code> inside your instance
+<p>This means that when you run for example <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span> <span class="pre">show</span></code> or <code class="docutils literal notranslate"><span class="pre">ipconfig</span> <span class="pre">/all</span></code> inside your instance
 operating system, you would (with a directly attached IP) see the public IP assigned on the interface.</p>
-<p>When using a floating IP, the result would instead be the IP address from the <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>
+<p>When using a floating IP, the result would instead be the IP address from the <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a>
 that you assigned to the instance. The floating IP is then redirected using NAT to and from the instance in
 the router.</p>
 <p>Another key difference is that a directly attached IP is the only way to consume a public IPv4 <em>without</em> using
@@ -1487,7 +1559,7 @@ that want to manage their entire network stack on the instance.</p></li>
 <li><p>Directly attached IP addresses have a slight performance improvement over routers because of no NAT and no virtual
 network. This performance will be negligible in most use-cases.</p></li>
 <li><p>Directly attached IP addresses does not combine with the majority of the networking functions in the platform which
-will rely on a router to work. For instance <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> or <a class="reference internal" href="router/security-groups/index.html"><span class="doc">Security groups</span></a>.</p></li>
+will rely on a router to work. For instance <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> or <a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups</span></a>.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1498,7 +1570,7 @@ as well as publish services from an instance to be available on the internet.</p
 <h2 id="setting-up-a-directly-attached-ip">Setting up a directly attached IP<a class="headerlink" href="#setting-up-a-directly-attached-ip" title="Link to this heading">¶</a></h2>
 <p>The process for setting up a directly attached IP on an instance is not differing from any other
 <a class="reference internal" href="../compute/assign-ip.html"><span class="doc">method of setting up an IP</span></a> in the platform except you would chose an
-IP from one of our external ranges instead of selecting one from a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>.</p>
+IP from one of our external ranges instead of selecting one from a <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a>.</p>
 <p>Which range to choose would depend on in which <a class="reference internal" href="regions-and-availability-zones.html"><span class="doc">availability zone</span></a> your
 instance is located:</p>
 <ul class="simple">
@@ -1506,7 +1578,7 @@ instance is located:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">europe-se-1-1b-net0</span></code> for instances placed in <em>europe-se-1b</em> availability zone</p></li>
 </ul>
 <p>Doing so, would place a public IP directly on the interface (NIC) of the instance and you would be able to see it by
-running for instance <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span> <span class="pre">show</span></code> in Linux.</p>
+running for example <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span> <span class="pre">show</span></code> in Linux.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

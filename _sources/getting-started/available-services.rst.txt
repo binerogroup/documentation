@@ -39,7 +39,7 @@ is provisioned.
 
 This is a system that takes a request and forwards it to one of several available servers in a pool.
 
-If one server is not working (or needs to be for instance rebooted), it will be removed from the
+If one server is not working (or needs to be for example rebooted), it will be removed from the
 pool. By using a load balancer, its easier to scale out a system.
 
 Secret store

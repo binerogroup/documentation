@@ -10,7 +10,7 @@ account management portal.
 
 - Login (using single sign on) to the `cloud management portal <cloud-management-portal>`__.
 
-- Change your company information (for instance addresses)
+- Change your company information (for example addresses)
 
 - See your invoices.
 

@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="router/index.html" class="md-nav__link">
         
   
@@ -760,30 +856,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1509,8 +1581,7 @@
 <p>The different methods are discussed below.</p>
 <h2 id="floating-ip">Floating IP<a class="headerlink" href="#floating-ip" title="Link to this heading">¶</a></h2>
 <p>A floating IP is a public, globally routed, IP address that maps 1:1 with an instance.</p>
-<p>It will use DNAT (destination NAT) in combination with <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a>
-to allow traffic through the router from the internet.</p>
+<p>It will use DNAT (destination NAT) to allow traffic through the router from the internet.</p>
 <p>It is normally used for enabling services to be internet facing (reachable from the internet)
 but could just as well be used for managing instances (by enabling access to for example SSH
 to the floating IP).</p>
@@ -1550,9 +1621,9 @@ works from behind the router that connects to the cloud, so if you set it up in 
 working from home, they still need an alternate solution.</p>
 <h2 id="bounce-server">Bounce server<a class="headerlink" href="#bounce-server" title="Link to this heading">¶</a></h2>
 <p>The concept of a bounce server is that you create an instance with a floating IP to which you have your users
-connect using for instance SSH (or RDP if running Windows).</p>
+connect using for example SSH (or RDP if running Windows).</p>
 <p>This way, only the bounce server needs a floating IP. Once the users are connected to the server (preferably
-securely, for instance using SSH keys and with their own account that has not got SUDO permissions), they are
+securely, for example using SSH keys and with their own account that has not got elevated permissions), they are
 then able to connect down stream to other instances from the bounce server as the bounce server is also connected
 to the internal network(s) and is able to reach them when originating traffic from itself (there is no routing happening,
 users would work “locally” from the bounce server).</p>

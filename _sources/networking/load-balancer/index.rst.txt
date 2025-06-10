@@ -33,7 +33,7 @@ The load balancer service is available in all our
 .. note::
 
    The load balancer service requires a :doc:`router <../router/index>`
-   and members on a :doc:`private subnet <../router/private-subnet/index>` to use.
+   and members on a :doc:`subnet <../subnet/index>` to use.
 
 .. caution::
 

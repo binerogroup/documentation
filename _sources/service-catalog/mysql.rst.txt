@@ -36,7 +36,7 @@ To setup the service, first follow the general instructions on our
 
 - Select your :doc:`SSH-key </compute/ssh-keys>`. 
 
-- Under **Local network**, select the :doc:`network </networking/router/private-subnet/index>`
+- Under **Local network**, select the :doc:`network </networking/network/index>`
   on which you want to run the service.
 
 - Check the **Replication** checkbox if you want to have a auxiliary instance

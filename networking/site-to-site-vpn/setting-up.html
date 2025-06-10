@@ -701,6 +701,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../router/index.html" class="md-nav__link">
         
   
@@ -755,30 +851,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -900,7 +972,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_12" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -917,14 +989,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_12" id="__nav_3_2_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_9">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_12">
             <span class="md-nav__icon md-icon"></span>
             Site-<wbr>to-<wbr>site VPN
           </label>
@@ -1536,21 +1608,21 @@ these steps to setup site-to-site VPN using the cloud management portal:</p>
 created by this template.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">SSH</span> <span class="pre">key</span> <span class="pre">pair</span></code>: Your SSH key pair that can be used to access the pfSense
 instance by SSH.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">IP</span> <span class="pre">ranges</span></code>: IP ranges in <a class="reference internal" href="../router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>
+<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">IP</span> <span class="pre">ranges</span></code>: IP ranges in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>
 that will be allowed to access the pfSense instances WebUI and SSH server through the router.</p>
 <ul>
 <li><p>Usually this would be your offices (or like) public IP-address followed by “/32” (for example 8.8.8.8/32)
 in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN
 server, you can enter <code class="docutils literal notranslate"><span class="pre">0.0.0.0/32</span></code> here (not recommended) or leave the standard “127.0.0.1/32” which will
-not allow access other than from inside the cloud (for instance via the client-vpn). This can also be changed
+not allow access other than from inside the cloud (for example via the client-vpn). This can also be changed
 later by editing the security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code></p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Availability</span> <span class="pre">zone</span></code>: This needs to be set to the same availability zone that was used for the
-private network that you intend to use.</p></li>
+network that you intend to use.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pfSense</span> <span class="pre">instance</span> <span class="pre">flavor</span></code>: The instance flavor used for the pfSense instance. The default
 <code class="docutils literal notranslate"><span class="pre">gp.1x2</span></code> should be enough for most use cases.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">network</span></code>: The desired private network that will be exposed through IPsec.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">network</span></code>: The desired network that will be exposed through IPsec.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">pre-shared</span> <span class="pre">key</span></code>: If you want to use a specific pre-shared key you may enter that
 here. If left at default, a random key will be generated for you.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">peer</span> <span class="pre">IP</span></code>: This should contain the public gateway address for the remote IPsec

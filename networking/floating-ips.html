@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="router/index.html" class="md-nav__link">
         
   
@@ -855,30 +951,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1535,16 +1607,15 @@
 <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP addresses</span></a> or
 Floating IP addresses.</p>
 <p>Directly attached IP addresses are assigned directly on the <a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a>
-network interface (port). This means that when you run for instance <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span> <span class="pre">show</span></code>
+network interface (port). This means that when you run for example <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span> <span class="pre">show</span></code>
 or <code class="docutils literal notranslate"><span class="pre">ipconfig</span> <span class="pre">/all</span></code> inside an instance operating system, you would (with a directly
 attached IP) see the public IP assigned on the interface.</p>
 <p>When using a floating IP, the result would instead be the IP from the
-<a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> that you assigned
-to the instance.</p>
+<a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a> that you assigned to the instance.</p>
 <p>The floating IP is then diverted to and from the instance through the
 router that performs <a class="reference internal" href="router/nat.html"><span class="doc">NAT</span></a>.</p>
 <p>Floating IP addresses are, as the name implies, not tied to a single instance but mapped to
-a port (which has an IP from a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>).</p>
+a port (which has an IP from a <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a>).</p>
 <p>They are floating in the sense that they can be moved between instances with zero
 configuration being required on the instance.</p>
 <p>A floating IP is local to a project and is owned by the project, even if its not actively
@@ -1556,7 +1627,7 @@ the IP concept portable (within the platform).</p>
 mapping. On a technical level, <a class="reference internal" href="router/nat.html"><span class="doc">NAT</span></a> is used and its used in both directions:</p>
 <ul class="simple">
 <li><p>Incoming traffic from the internet would be a destination NAT (DNAT) to the
-private subnet IP from the floating.</p></li>
+subnet IP from the floating.</p></li>
 <li><p>Outgoing traffic to the internet would be a source NAT (SNAT) to appear as
 if originating from the floating IP.</p></li>
 </ul>
@@ -1570,9 +1641,9 @@ IP addresses, a floating IP would have a small performance penalty. This is insi
 IP addresses.</p></li>
 </ul>
 <h2 id="setting-up-a-floating-ip">Setting up a floating IP<a class="headerlink" href="#setting-up-a-floating-ip" title="Link to this heading">¶</a></h2>
-<p>Floating IP addresses are assigned to instances (and in particular, to a private subnet IP on an
-instance). Depending on what tool is used, floating IP addresses may need to be allocated to the
-project first.</p>
+<p>Floating IP addresses are assigned to instances (and in particular, to a subnet IP on an
+instance). Depending on what tool is used, floating IP addresses may need to be allocated
+to the project first.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
 <p>When assigning a new floating IP, make sure you assign one from the same <a class="reference internal" href="regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
@@ -1608,8 +1679,9 @@ try another internal IP.</p>
 <li><p>Select your new (or old, if you had one already) IP under <code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">IPs</span></code>.</p></li>
 <li><p>Under “available ports”, select the internal IP to map the floating IP to.</p></li>
 <li><p>Press “associate IP”.</p></li>
-<li><p>Your IP should now be visible under the “Networking” tab. Remember that you might need
-to add <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot reach it.</p></li>
+<li><p>Your IP should now be visible under the <strong>Networking</strong> tab. Remember that you might need
+to add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot
+reach it.</p></li>
 </ul>
 <h3 id="adding-floating-ip-addresses-using-openstack-horizon">Adding floating IP addresses using OpenStack Horizon<a class="headerlink" href="#adding-floating-ip-addresses-using-openstack-horizon" title="Link to this heading">¶</a></h3>
 <p>To assign a floating IP to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
@@ -1624,14 +1696,14 @@ to add <a class="reference internal" href="router/security-groups/index.html"><s
 <li><p>Press “allocate IP”.</p></li>
 </ul>
 </li>
-<li><p>Under “project”, click “compute” and then “instances” in the sidebar menu.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>In the drop-down menu to the far right of the line corresponding to the instance you want to add the floating
-IP to, press “Associate floating IP”.</p></li>
-<li><p>Select your new (or old, if you had one already) IP under “IP Address”.</p></li>
-<li><p>Under “Ports to be associated”, select the internal IP to map the floating IP to.</p></li>
-<li><p>Press “Associate”.</p></li>
-<li><p>Your IP should now be visible under the “IP address” column. Remember that you might need
-to add <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot reach it.</p></li>
+IP to, press <strong>Associate floating IP</strong>.</p></li>
+<li><p>Select your new (or old, if you had one already) IP under <strong>IP Address</strong>.</p></li>
+<li><p>Under <strong>Ports to be associated</strong>, select the internal IP to map the floating IP to.</p></li>
+<li><p>Press <strong>Associate</strong></p></li>
+<li><p>Your IP should now be visible under the <strong>IP address</strong> column. Remember that you might need
+to add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot reach it.</p></li>
 </ul>
 <h3 id="adding-a-floating-ip-using-openstack-terminal-client">Adding a floating IP using OpenStack terminal client<a class="headerlink" href="#adding-a-floating-ip-using-openstack-terminal-client" title="Link to this heading">¶</a></h3>
 <p>To assign a floating IP to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
@@ -1647,7 +1719,7 @@ command. Its important that you use a floating IP from the same availability zon
 <li><p>If there was no available IP, assign one to the project:</p>
 <ul>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">list</span> <span class="pre">--external</span></code>. Note the name of the network that is in the
-availability zone that you want to use the floating IP (for instance “europe-se-1-1a-net0”).</p></li>
+availability zone that you want to use the floating IP (for example <em>europe-se-1-1a-net0</em>).</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">create</span> <span class="pre">[NETWORK</span> <span class="pre">NAME]</span></code>, replacing [NETWORK NAME] with the
 name of the network from the previous step.</p></li>
 </ul>
@@ -1660,8 +1732,8 @@ previous step. Note which address from the “addresses” field you want to con
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">--fixed-ip-address</span> <span class="pre">[INTERNAL</span> <span class="pre">IP]</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span> <span class="pre">[FLOATING</span> <span class="pre">IP]</span></code>, replacing
 [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with
 whichever floating IP you added as per earlier step.</p></li>
-<li><p>Your IP should now be visible under the “addresses” field when running the command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">[NAME]</span></code>. Remember
-that you might need to add <a class="reference internal" href="router/security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot reach it.</p></li>
+<li><p>Your IP should now be visible under the <strong>addresses</strong> field when running the command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">[NAME]</span></code>. Remember
+that you might need to add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot reach it.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

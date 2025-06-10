@@ -38,13 +38,13 @@ To setup the service, first follow the general instructions on our :doc:`index` 
 
 - Select your :doc:`SSH-key </compute/ssh-keys>`.
 
-- Under **local network**, select the :doc:`network </networking/router/private-network/index>`
-  on which the private subnet (see below) that you want to use is located.
+- Under **local network**, select the :doc:`network </networking/network/index>`
+  on which the subnet (see below) that you want to use is located.
 
 - Under **nfs_flavor**, select your *NFS instances* :doc:`flavor </compute/flavors>`.
   We recommend sticking with the default.
 
-- Under **Subnet**, select the :doc:`network </networking/router/private-subnet/index>`
+- Under **Subnet**, select the :doc:`network </networking/subnet/index>`
   on which you want to run the service.
 
 - Under **Web count**, select the amount of load balanced web servers (instances

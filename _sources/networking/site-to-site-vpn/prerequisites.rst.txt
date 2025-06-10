@@ -23,8 +23,8 @@ Checklist to get started
 
 You will need the following information to get started:
 
-- An existing :doc:`private subnet <../router/private-subnet/index>` already setup in the
-  platform which will be the local subnet (in :doc:`CIDR notation </networking/router/private-subnet/subnet-format>`)
+- An existing :doc:`subnet <../subnet/index>` already setup in the
+  platform which will be the local subnet (in :doc:`CIDR notation </networking/subnet/subnet-format>`)
   that is routed over IPsec to the remote subnet (which would be your office or secondary
   data center, for example).
 

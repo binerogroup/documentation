@@ -47,7 +47,7 @@ The user will receive and e-mail with instructions on how to enroll themselves.
    Users created in the :doc:`/getting-started/managing-your-cloud/account-management-portal` not synced to the
    :doc:`/getting-started/managing-your-cloud/cloud-management-portal`.
 
-To instead add a contact which is mainly useful for sending out information from the platform (for instance invoices to the
+To instead add a contact which is mainly useful for sending out information from the platform (for example invoices to the
 billing department) without allowing for logging in to the portal, follow these steps: 
 
 * From the home screen click **New contact** under the **Contacts** dialog to the right.

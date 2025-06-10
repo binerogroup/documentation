@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../router/index.html" class="md-nav__link">
         
   
@@ -760,30 +856,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -905,7 +977,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_12" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -922,14 +994,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_12" id="__nav_3_2_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_9">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_12">
             <span class="md-nav__icon md-icon"></span>
             Site-<wbr>to-<wbr>site VPN
           </label>
@@ -1610,7 +1682,7 @@
 
 <h1 id="advanced-configuration">Advanced configuration<a class="headerlink" href="#advanced-configuration" title="Link to this heading">¶</a></h1>
 <p>While the VPN service sets up a template configuration of a site-to-site VPN with
-sane defaults, should you for instance require more IPsec flows (more subnets) or
+sane defaults, should you for example require more IPsec flows (more subnets) or
 changing settings, you will need to use the administration interface for the VPN
 itself.</p>
 <p>When provisioning the VPN, you will get output. The <code class="docutils literal notranslate"><span class="pre">mgmt_url</span></code> output will be the
@@ -1619,7 +1691,7 @@ URL that you us for managing the VPN service. Enter it into a browser.</p>
 <p class="admonition-title">Note</p>
 <p>Remember that only the IP (range) that you added in “Admin IP ranges” when setting
 up the VPN will be allowed to login.</p>
-<p>This is managed via a <a class="reference internal" href="../router/security-groups/index.html"><span class="doc">security group</span></a>
+<p>This is managed via a <a class="reference internal" href="../security-groups/index.html"><span class="doc">security group</span></a>
 which is called <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code>, if you’ve not retained the
 same IP, you may need to edit the security group.</p>
 </div>

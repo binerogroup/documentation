@@ -1552,13 +1552,13 @@
 <p>To launch an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in
+<p>If you don’t have a <a class="reference internal" href="../../networking/subnet/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in
 some of the steps below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.
 An SSH-key setup using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> is not available in Horizon or
 the terminal client as they use <a class="reference external" href="/getting-started/users.html#api-users">API users</a> to login and SSH-keys are account bound.</p>
 </div>
 <ul class="simple">
-<li><p>Identify which <a class="reference internal" href="../../networking/router/private-network/index.html"><span class="doc">network</span></a> you
+<li><p>Identify which <a class="reference internal" href="../../networking/network/index.html"><span class="doc">network</span></a> you
 want to use by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">list</span></code>, save the name.</p></li>
 <li><p>Identify which <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-key</span></a> you want to use by
 running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">key</span> <span class="pre">list</span></code>, save the name.</p></li>
@@ -1602,7 +1602,7 @@ IP from the subnet you specified.</p>
 OpenStack terminal client, please see <a class="reference internal" href="../../networking/floating-ips.html"><span class="doc">Floating IP addresses</span></a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/router/security-groups/index.html"><span class="doc">security groups</span></a> which
+<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/security-groups/index.html"><span class="doc">security groups</span></a> which
 will be needed to access the instance if you are using a floating IP.</p>
 </div>
 <div class="tip admonition">

@@ -48,7 +48,7 @@ on this topic.
    it, this can be done (in Linux and Linux like systems running Open SSH) by the following
    command ``ssh-keygen -p -f <your keyfile>``.
 
-   Adding a password will secure the key in case you for instance loose your laptop or
+   Adding a password will secure the key in case you for example loose your laptop or
    otherwise compromise the key. Remember that the private part of the key is as sensitive as
    a plain text password without the passphrase (and depending on your passphrase strength,
    potentially also with it) and should be stored with this in mind.

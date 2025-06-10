@@ -17,7 +17,7 @@ opening the site. Default username/password for the WebUI is ``admin``/``pfsense
    during the :doc:`setup of the VPN <setting-up>`.
 
    If you cannot reach the WebUI, its likely that you are connecting from another IP than the one you choose
-   during setup. Proceed to edit the :doc:`security group <../router/security-groups/index>` on the VPN
+   during setup. Proceed to edit the :doc:`security group <../security-groups/index>` on the VPN
    :doc:`instance </compute/index>` so that it includes your current source IP (or *temporarily* remove the
    security group, making sure to re-add it once initial configuration is done and you've downloaded the
    client configuration).

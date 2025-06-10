@@ -6,7 +6,7 @@ When :doc:`snapshotting </storage/snapshots/index>` and entire instance, the end
 an :doc:`image <index>`. Restoring from a snapshot (assuming the entire instance was restored) is
 then the same as creating an instance from a private image.
 
-When restoring an entire instance from a snapshot, which might be the case if for instance an
+When restoring an entire instance from a snapshot, which might be the case if for example an
 upgrade failed post snapshot and you want to revert to the previous state, you would create a
 new instance from the image that was generated.
 
@@ -36,7 +36,7 @@ To create a snapshot using the :doc:`/getting-started/managing-your-cloud/cloud-
 
 - If applicable choose a :doc:`SSH key </compute/ssh-keys>`
 
-- Choose a :doc:`private subnet </networking/router/private-subnet/index>`
+- Choose a :doc:`subnet </networking/subnet/index>`
 
 - Click **Create**
 

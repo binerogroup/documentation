@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="router/index.html" class="md-nav__link">
         
   
@@ -760,30 +856,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1528,10 +1600,10 @@ dependencies between the availability zones.</p>
 <p>This is key to retaining connectivity (and overall system functionality) in case of a
 hypothetical availability zone outage scenario.</p>
 <h2 id="networks-and-subnets">Networks and subnets<a class="headerlink" href="#networks-and-subnets" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="router/private-network/index.html"><span class="doc">Private networks</span></a> (and therefore <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">Private subnets</span></a>) stretch
+<p><a class="reference internal" href="network/index.html"><span class="doc">Networks</span></a> (and therefore <a class="reference internal" href="subnet/index.html"><span class="doc">Subnets</span></a>) stretch
 between availability zones (but not between regions).</p>
 <p>This enables you to connect instances in different availability zones directly to each other
-on the same private subnet (same layer 2 broadcast domain).</p>
+on the same network (same layer 2 broadcast domain).</p>
 <p>We do however recommend the routed approach to inter availability zone communication (more
 information in section about routers below).</p>
 <div class="tip admonition">
@@ -1570,9 +1642,9 @@ as this (in a scenario in which an availability zone would fail) would just brin
 <h2 id="floating-ip-addresses">Floating IP addresses<a class="headerlink" href="#floating-ip-addresses" title="Link to this heading">¶</a></h2>
 <p>Because Binero cloud is does not provide anycast public IP addresses, floating IP addresses are still
 local to a single availability zone.</p>
-<p>While its possible to connect a floating IP to an instance in another availability zone using a private
-network (that stretch across zones), should the availability zone that hosts the floating IP for some
-reason fail, the floating IP will fail with it also in the second availability zone.</p>
+<p>While its possible to connect a floating IP to an instance in another availability zone using a network (that
+stretch across zones), should the availability zone that hosts the floating IP for some reason fail, the floating
+IP will fail with it also in the second availability zone.</p>
 <p>When working with public access, it is therefore recommended to connect floating IP addresses that are local
 to the instances or services they connect to, through a router that is also hosted in the same availability
 zone.</p>
@@ -1580,8 +1652,8 @@ zone.</p>
 would be used to route traffic to all floating IP addresses.</p>
 <h2 id="load-balancer">Load balancer<a class="headerlink" href="#load-balancer" title="Link to this heading">¶</a></h2>
 <p>The same way as with floating IP addresses and routers, <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> will be able reach instances
-in availability zones that is not local to the load balancer (because the private networks stretches across
-availability zones).</p>
+in availability zones that is not local to the load balancer (because the networks stretches across availability
+zones).</p>
 <p>The actual load balancers, however, is still only local to a single zone and will fail in the even the zone
 should fail. That would leave the load balancer unreachable and the service down.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>

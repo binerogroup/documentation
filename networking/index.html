@@ -15,7 +15,7 @@
         <link rel="prev" href="../compute/compute-api.html">
       
       
-        <link rel="next" href="router/index.html">
+        <link rel="next" href="network/index.html">
       
       
       <link rel="icon" href="../_static/binero.ico">
@@ -702,6 +702,102 @@
   
   
     <li class="md-nav__item">
+      <a href="network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="router/index.html" class="md-nav__link">
         
   
@@ -756,30 +852,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1058,6 +1130,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="network/index.html" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="subnet/index.html" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      Subnets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="ports.html" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      Ports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="security-groups/index.html" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      Security groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="router/index.html" class="md-nav__link">
     
     <span class="md-ellipsis">
@@ -1082,16 +1194,6 @@
     
     <span class="md-ellipsis">
       Directly attached IP addresses
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="ports.html" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      Ports
     </span>
   </a>
   
@@ -1553,13 +1655,13 @@
 networking functions ranging from routing, security groups (firewall) and high speed internet access to
 VPNs (Virtual Private Networks) and load balancers.</p>
 <p>The two main methods to connect to the internet is to either assign a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a>
-to your instance or setup a <a class="reference internal" href="router/index.html"><span class="doc">router</span></a> and connect a <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a>
+to your instance or setup a <a class="reference internal" href="router/index.html"><span class="doc">router</span></a> and connect a <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a>
 to the router and your instance, then use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating IP</span></a> to your instance (which is
 the recommended approach).</p>
 <p>The general design of networking in the platform is that <a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a> use <a class="reference internal" href="ports.html"><span class="doc">ports</span></a> to
-connect to <a class="reference internal" href="router/private-network/index.html"><span class="doc">networks</span></a>.</p>
-<p>Networks in turn, have <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnets</span></a> that assign IP addresses to ports
-used by instances.</p>
+connect to <a class="reference internal" href="network/index.html"><span class="doc">networks</span></a>.</p>
+<p>Networks in turn, have <a class="reference internal" href="subnet/index.html"><span class="doc">subnets</span></a> that assigns IP addresses to <a class="reference internal" href="ports.html"><span class="doc">ports</span></a> used by
+<a class="reference internal" href="../compute/index.html"><span class="doc">instances</span></a>.</p>
 <p><a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a> are publicly routed IP addresses that can be mapped (1:1) to a port to either
 publish services on the internet or provide servers with access to the internet.</p>
 <p>Please see the various subsections to this article in order to get a good understanding of the networking possibilities
@@ -1569,12 +1671,35 @@ that will guide you through setting up a versatile solution using a single subne
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="network/index.html">Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/index.html#general-concept">General concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/index.html#managing-networks">Managing networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="subnet/index.html">Subnets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="subnet/index.html#general-concept">General concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subnet/index.html#managing-subnets">Managing subnets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subnet/index.html#choosing-an-ip-range">Choosing an IP range</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ports.html#create-a-port-using-the-cloud-management-portal">Create a port using the cloud management portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ports.html#create-a-port-using-openstack-horizon">Create a port using OpenStack Horizon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ports.html#create-a-port-using-openstack-terminal-client">Create a port using OpenStack terminal client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security-groups/index.html">Security groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security-groups/index.html#general-concept">General concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-groups/index.html#managing-security-groups">Managing security groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-groups/index.html#interface-direction">Interface direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-groups/index.html#default-settings">Default settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-groups/index.html#allowing-access-to-an-instance-over-floating-ip">Allowing access to an instance over floating IP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-groups/index.html#pre-configured-security-groups">Pre-configured security groups</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="router/index.html">Router</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="router/launching-a-router/index.html">Launching a router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router/private-network/index.html">Private networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router/private-subnet/index.html">Private subnets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="router/routing-between-networks.html">Routing between networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router/security-groups/index.html">Security groups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="router/nat.html">NAT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="router/static-routing.html">Static routing</a></li>
 </ul>
@@ -1587,12 +1712,6 @@ that will guide you through setting up a versatile solution using a single subne
 <li class="toctree-l1"><a class="reference internal" href="directly-attached-ips.html">Directly attached IP addresses</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="directly-attached-ips.html#key-differences-to-floating-ip-addresses">Key differences to floating IP addresses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="directly-attached-ips.html#setting-up-a-directly-attached-ip">Setting up a directly attached IP</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ports.html">Ports</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ports.html#create-a-port-using-the-cloud-management-portal">Create a port using the cloud management portal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ports.html#create-a-port-using-openstack-horizon">Create a port using OpenStack Horizon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ports.html#create-a-port-using-openstack-terminal-client">Create a port using OpenStack terminal client</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mtu.html">MTU</a><ul>

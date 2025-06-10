@@ -12,10 +12,10 @@
       
       
       
-        <link rel="prev" href="private-subnet/dhcp.html">
+        <link rel="prev" href="launching-a-router/openstack-terminal-client.html">
       
       
-        <link rel="next" href="security-groups/index.html">
+        <link rel="next" href="nat.html">
       
       
       <link rel="icon" href="../../_static/binero.ico">
@@ -702,6 +702,102 @@
                 
   
   
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -713,7 +809,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -730,14 +826,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_5">
             <span class="md-nav__icon md-icon"></span>
             Router
           </label>
@@ -757,54 +853,6 @@
   
   <span class="md-ellipsis">
     Launching a router
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="private-network/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Private networks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="private-subnet/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Private subnets
     
   </span>
   
@@ -936,30 +984,6 @@
   
   
     <li class="md-nav__item">
-      <a href="security-groups/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Security groups
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="nat.html" class="md-nav__link">
         
   
@@ -1047,30 +1071,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1719,10 +1719,10 @@
 <h1 id="routing-between-networks">Routing between networks<a class="headerlink" href="#routing-between-networks" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
 <p>Routing in Binero cloud is managed using a <a class="reference internal" href="index.html"><span class="doc">router</span></a>.</p>
-<p>The router will connect to different <a class="reference internal" href="private-subnet/index.html"><span class="doc">subnets</span></a> using an interfaces
-that connects to a <a class="reference internal" href="private-network/index.html"><span class="doc">network</span></a>.</p>
+<p>The router will connect to different <a class="reference internal" href="../subnet/index.html"><span class="doc">subnets</span></a> using an interfaces
+that connects to a <a class="reference internal" href="../network/index.html"><span class="doc">network</span></a>.</p>
 <p>A standard router typically routes automatically between all its connected subnets (that is,
-subnets on which the router has an IP-address).</p>
+subnets on which the router has an IP address).</p>
 <p>A router in Binero cloud works the same way, traffic received by a router destined to a connected
 network on that router will be forwarded through the router.</p>
 <p>If the destination network is unknown to the router, it will use its <em>default route</em> (which is
@@ -1739,7 +1739,7 @@ a router as some features in the platform depends on having one setup.</p>
 based on destination and its routing table.</p>
 <p>Three main scenarios exist:</p>
 <ul class="simple">
-<li><p>Traffic destined for networks on which the instance itself has an IP-address (locally connected networks)
+<li><p>Traffic destined for networks on which the instance itself has an IP address (locally connected networks)
 will take precedence and the instance will instead use ARP to lookup the MAC address of the receiving instance
 and send traffic directly to it.</p></li>
 <li><p>Traffic that is destined to a subnet that is in the instances routing table will be sent to the next hop
@@ -1773,9 +1773,9 @@ router.</p></li>
 <li><p>Wanting to split different applications or users in their own networks.</p></li>
 <li><p>Wanting to keep a staging system and production system separated.</p></li>
 </ul>
-<p>If you use a single router, make sure its the default route for your instances (see <a class="reference internal" href="private-subnet/index.html"><span class="doc">Private subnets</span></a>),
+<p>If you use a single router, make sure its the default route for your instances (see <a class="reference internal" href="../subnet/index.html"><span class="doc">Subnets</span></a>),
 routing between the networks would then work out of the box.</p>
-<p>The typical caveat (if traffic is not flowing as expected) would be <a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups</span></a> that (if
+<p>The typical caveat (if traffic is not flowing as expected) would be <a class="reference internal" href="../security-groups/index.html"><span class="doc">Security groups</span></a> that (if
 not setup properly) blocks traffic.</p>
 <h2 id="multiple-routers">Multiple routers<a class="headerlink" href="#multiple-routers" title="Link to this heading">¶</a></h2>
 <img alt="                                           link ┌─────────────────────────────────────┐   network │               Router1               │◄─────┐ └─────────────────────────────────────┘      │      ▲             ▲             ▲           │      │             │             │           │      │             │             │           │ ┌────┴────┐   ┌────┴────┐   ┌────┴────┐      │ │ Subnet1 │   │ Subnet2 │   │ Subnet3 │      │ └─────────┘   └─────────┘   └─────────┘      │                                              │                                              │ ┌─────────────────────────────────────┐      │ │               Router2               │◄─────┘ └─────────────────────────────────────┘      ▲             ▲             ▲      │             │             │      │             │             │ ┌────┴────┐   ┌────┴────┐   ┌────┴────┐ │ Subnet4 │   │ Subnet5 │   │ Subnet6 │ └─────────┘   └─────────┘   └─────────┘" class="svgbob" src="../../_images/svgbob-d2cece7459893742f93b9bdfbe7598010d2c16bb.svg" />
@@ -1787,17 +1787,17 @@ redundancy (but there may be other use cases).</p>
 intended on their own (potentially in several availability zones) before proceeding to route between them.</p>
 <p>When setting up routing between routers, a so called <em>link network</em> will be used. This is a standard private
 subnet that will not connect to instances, just the various routers in the setup.</p>
-<p>We recommend <a class="reference internal" href="private-subnet/index.html"><span class="doc">choosing an IP range</span></a> for this subnet that can be differentiated
+<p>We recommend <a class="reference internal" href="../subnet/index.html"><span class="doc">choosing an IP range</span></a> for this subnet that can be differentiated
 from your production subnets.</p>
 <p>Follow the below steps to setup routing between two (individually functioning) routers:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="private-network/index.html"><span class="doc">Create a new private network</span></a> (with a corresponding private subnet) to use as
+<li><p><a class="reference internal" href="../network/index.html"><span class="doc">Create a new network</span></a> (with a corresponding subnet) to use as
 link network.</p></li>
-<li><p><a class="reference internal" href="private-subnet/connect-subnet-to-router.html"><span class="doc">Connect the new link-network to the routers</span></a>.</p></li>
+<li><p><a class="reference internal" href="../subnet/connect-subnet-to-router.html"><span class="doc">Connect the new link-network to the routers</span></a>.</p></li>
 <li><p><a class="reference internal" href="static-routing.html"><span class="doc">Setup static routing</span></a> for your destination networks to use the new link-network. This
 should be done on all routers.</p></li>
-<li><p>Depending on your settings, change or add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the router interfaces
-to allow traffic.</p></li>
+<li><p>Depending on your settings, change or add <a class="reference internal" href="../security-groups/index.html"><span class="doc">security groups</span></a> on instance
+facing <a class="reference internal" href="../ports.html"><span class="doc">ports</span></a> to allow traffic.</p></li>
 </ul>
 <p>Once the above steps are taken, you will be able to forward traffic between routers from all instances behind
 the routers.</p>
@@ -1808,7 +1808,7 @@ the routers.</p>
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="static-routing.html"><span class="doc">Static routing</span></a></p></li>
-<li><p><a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups</span></a></p></li>
+<li><p><a class="reference internal" href="../security-groups/index.html"><span class="doc">Security groups</span></a></p></li>
 <li><p><a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Networking regions and availability zones</span></a></p></li>
 </ul>
 </div>

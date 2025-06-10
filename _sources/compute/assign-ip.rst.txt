@@ -8,7 +8,7 @@ General concept
 An IP address is normally assigned the instance upon :doc:`creation <launching-an-instance/index>`.
 
 This is the recommended approach to assigning an IP address (and thus, access to a network)
-as it will run cloud-init and (provided you've assigned a :doc:`private subnet </networking/router/private-subnet/index>`)
+as it will run cloud-init and (provided you've assigned a :doc:`subnet </networking/subnet/index>`)
 setup your ip-configuration for you.
 
 *This is only done on instance provisioning so any additional* :doc:`ports </networking/ports>`

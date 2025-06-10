@@ -10,9 +10,9 @@ It will, in turn, know about the remote subnet because this is part of the IPsec
 inject routes into the routing table for remove networks when the tunnel is started). 
 
 The two main ways to accomplish this routing, which to use depends on whether you have
-several :doc:`private subnets <../router/private-subnet/index>` in your platform or not.
+several :doc:`subnets <../subnet/index>` in your platform or not.
 
-The instances that are on the same private subnet as the instance running the VPN would need routes
+The instances that are on the same subnet as the instance running the VPN would need routes
 in their own table (which is done via DHCP, see below).
 
 The instances that are on a different network would use their default route to reach the router and
@@ -20,7 +20,7 @@ it would then, in turn, need a route to the instance to know where to send the t
 
 To summarize: 
 
-- If you only have a single private subnet, you just need to add routes via DHCP.
+- If you only have a single subnet, you just need to add routes via DHCP.
 
 - If you have multiple subnets, you need to add routes via both DHCP and to the router. 
 
@@ -36,7 +36,7 @@ Both actions are detailed below.
 Routing via DHCP
 ----------------
 
-Please see our section about DHCP settings, which is available :doc:`here <../router/private-subnet/dhcp>`. 
+Please see our section about DHCP settings, which is available :doc:`here <../subnet/dhcp>`. 
 
 Routing in router
 -----------------

@@ -701,6 +701,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../router/index.html" class="md-nav__link">
         
   
@@ -773,30 +869,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../mtu.html" class="md-nav__link">
         
   
@@ -828,7 +900,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -845,14 +917,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9">
             <span class="md-nav__icon md-icon"></span>
             Load Balancer
           </label>
@@ -874,7 +946,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9_1" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -891,14 +963,14 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3_2_6_1" id="__nav_3_2_6_1_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_3_2_9_1" id="__nav_3_2_9_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_6_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_9_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9_1">
             <span class="md-nav__icon md-icon"></span>
             Load balancing in Binero cloud
           </label>
@@ -1738,9 +1810,9 @@
 <p>Load balancers consists of the following constructs:</p>
 <ul class="simple">
 <li><p>The <strong>Listener</strong> is the load balanced service as its presented to users. It listens
-for connections on a port, for instance port 80/tcp (additional listeners can be added
+for connections on a port, for example port 80/tcp (additional listeners can be added
 to a load balancer after creation and thus allow for more than a single port). The listener
-gets its own IP on a private subnet onto which is normally attached a <a class="reference internal" href="../../floating-ips.html"><span class="doc">floating IP</span></a>
+gets its own IP on a subnet onto which is normally attached a <a class="reference internal" href="../../floating-ips.html"><span class="doc">floating IP</span></a>
 so as to enable it to be reached from the internet.</p></li>
 <li><p>The <strong>Pool</strong> is the active collection of member instances. It also sets the <em>common configuration</em>
 for the pool members that are included in the pool.</p></li>
@@ -1756,7 +1828,7 @@ assessing their functionality and removing or adding them automatically based on
 which work in parallel, one active and one passive. Mostly this is important during maintenance but it could
 also help with issues where one load balancer for one reason or another, goes offline.</p>
 <p>You are only able to setup configuration for one protocol (meaning service type or TCP/UDP-port) at a time, so if
-you for instance want both HTTP and HTTPS setup, you would start with one (probably HTTPS, maybe using our
+you for example want both HTTP and HTTPS setup, you would start with one (probably HTTPS, maybe using our
 <a class="reference internal" href="../ssl-termination.html"><span class="doc">SSL/TLS termination using Load Balancer</span></a> guide) and then setup the other (probably HTTP with HTTPS redirection) as a <em>separate listener</em>
 with (if applicable) a separate pool (that could well distribute load to the same pool members), a load balancer will
 support multiple protocols but they are configured one at a time.</p>

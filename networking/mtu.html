@@ -12,7 +12,7 @@
       
       
       
-        <link rel="prev" href="ports.html">
+        <link rel="prev" href="directly-attached-ips.html">
       
       
         <link rel="next" href="load-balancer/index.html">
@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="router/index.html" class="md-nav__link">
         
   
@@ -760,30 +856,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1607,8 +1679,8 @@ or PMTUD.</p>
 forwarded correctly. It relies on ICMP which not all service providers and network operators honour so its
 not 100% certain to always work.</p>
 <h2 id="mtu-in-binero-cloud">MTU in Binero cloud<a class="headerlink" href="#mtu-in-binero-cloud" title="Link to this heading">¶</a></h2>
-<p>Since Binero cloud uses virtual networking, the MTU size given when using <a class="reference internal" href="router/private-subnet/dhcp.html"><span class="doc">DHCP</span></a>
-on your <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> to assign addresses is 1450 bytes.</p>
+<p>Since Binero cloud uses virtual networking, the MTU size given when using <a class="reference internal" href="subnet/dhcp.html"><span class="doc">DHCP</span></a>
+on your <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a> to assign addresses is 1450 bytes.</p>
 <p>This is because the VXLAN encapsulation needs 50 bytes of the frames available 1500 bytes.</p>
 <p>The underlying interface on the physical servers managing compute and networking in the platform uses the standard
 of 1500 bytes and so the instances need to have a smaller MTU set in order to also provide enough room for the host

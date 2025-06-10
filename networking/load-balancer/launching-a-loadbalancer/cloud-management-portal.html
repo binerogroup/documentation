@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../router/index.html" class="md-nav__link">
         
   
@@ -778,30 +874,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../mtu.html" class="md-nav__link">
         
   
@@ -833,7 +905,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -850,14 +922,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9">
             <span class="md-nav__icon md-icon"></span>
             Load Balancer
           </label>
@@ -926,7 +998,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -943,14 +1015,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_6_3" id="__nav_3_2_6_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_9_3" id="__nav_3_2_9_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_6_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_9_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9_3">
             <span class="md-nav__icon md-icon"></span>
             Launching a load balancer
           </label>
@@ -1738,7 +1810,7 @@
 reading our <a class="reference internal" href="../general-concept/index.html"><span class="doc">concepts</span></a> guide so
 as to gain a better understanding the various parts.</p>
 </div>
-<p>We also recommend setting the correct <a class="reference internal" href="../../router/security-groups/index.html"><span class="doc">security groups</span></a>
+<p>We also recommend setting the correct <a class="reference internal" href="../../security-groups/index.html"><span class="doc">security groups</span></a>
 on the instances that should be members in the load balancer pool.</p>
 <p>Traffic from the load balancer will not come from the default group
 as the load balancer is not an instance - this means that explicit
@@ -1764,10 +1836,10 @@ description.</p></li>
 <li><p>Leave the IP field empty as an IP will be allocated automatically.</p></li>
 <li><p>Select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
 or leave empty to use the default europe-se-1a.</p></li>
-<li><p>Select a <a class="reference internal" href="../../router/private-subnet/index.html"><span class="doc">private subnet</span></a> to use
-for hosting the load balancer. We recommend using the same as the subnet where
-you have your instances to load balancer but its not a must.</p></li>
-<li><p>Press “next”.</p></li>
+<li><p>Select a <a class="reference internal" href="../../subnet/index.html"><span class="doc">subnet</span></a> to use for hosting the load
+balancer. We recommend using the same as the subnet where you have your instances
+to load balancer but its not a must.</p></li>
+<li><p>Press <strong>Next</strong></p></li>
 </ul>
 </li>
 <li><p>The second step sets up the <em>Listener</em>. More information <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">here</span></a>.</p>
@@ -1781,7 +1853,7 @@ not able to be provisioned from the cloud management portal, but will require
 OpenStack Horizon (even though its available in the menu).</p></li>
 <li><p><em>Verify the port number</em> (it may set automatically but depending on protocol
 you may need to set it manually). Without it, creation will fail.</p></li>
-<li><p>Press “next”.</p></li>
+<li><p>Press <strong>Next</strong></p></li>
 </ul>
 </li>
 <li><p>The third step is to create the <em>Pool</em>. More information <a class="reference internal" href="../general-concept/pools.html"><span class="doc">here</span></a>.</p>
@@ -1792,7 +1864,7 @@ balancer and the port to that of the service you want to load balance. Optionall
 provide a description.</p></li>
 <li><p>Select your preferred load balancing algorithm.</p></li>
 <li><p>If you want session persistence, select what type (and if applicable, enter a session name).</p></li>
-<li><p>Press “next”.</p></li>
+<li><p>Press <strong>Next</strong></p></li>
 </ul>
 </li>
 <li><p>The fourth step assigns <em>members</em> (instances) to the pool. More
@@ -1829,20 +1901,20 @@ but this is much dependant on the application.</p></li>
 <h2 id="verification">Verification<a class="headerlink" href="#verification" title="Link to this heading">¶</a></h2>
 <p>To verify that the health checking has added the members to the pool, follow this procedure:</p>
 <ul class="simple">
-<li><p>Press “Networking” and then “Load balancers” in the sidebar menu.</p></li>
-<li><p>Verify that the “provisioning status” says “Active” as well as “Online” under its name
+<li><p>Press <strong>Networking</strong> and then <strong>Load balancers</strong> in the sidebar menu.</p></li>
+<li><p>Verify that the <strong>Provisioning status</strong> says <strong>Active</strong> as well as <strong>Online</strong> under its name
 and then press it.</p></li>
-<li><p>Press the “pools” tab and then press the name of your pool.</p></li>
-<li><p>Press the “nodes” tab.</p></li>
-<li><p>In the list, you should now see the member(s) you’ve added. The column “Operational status”
+<li><p>Press the <strong>Pools</strong> tab and then press the name of your pool.</p></li>
+<li><p>Press the <strong>Nodes</strong> tab.</p></li>
+<li><p>In the list, you should now see the member(s) you’ve added. The column <strong>Operational status</strong>
 should show you if they are online or not.</p></li>
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>If the members are not online, make sure you have the proper <a class="reference internal" href="../../router/security-groups/index.html"><span class="doc">Security groups</span></a>
+<p>If the members are not online, make sure you have the proper <a class="reference internal" href="../../security-groups/index.html"><span class="doc">Security groups</span></a>
 configured on the them. Traffic from the load balancer will not come from the default group as the load
 balancer is not part of your instances - this means that explicit rules needs to be setup on the
-members. If you still cant get the members online, verify (by using for instance <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> or by
+members. If you still cant get the members online, verify (by using for example <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> or by
 reading access logs, that the traffic hits the member servers from the load balancers IP.</p>
 </div>
 <div class="seealso admonition">

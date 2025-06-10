@@ -28,11 +28,11 @@ load balancing setup in the platform (as well as in general).
 
 - Pools
 
-  - If your application relies on persistence (via for instance sessions that are local
+  - If your application relies on persistence (via for example sessions that are local
     to the member), you are able to configure this on the pool. We do however recommend
-    using some shared storage (for instance by using NFS) or to use a database for
+    using some shared storage (for example by using NFS) or to use a database for
     sessions. This ensures you wont disrupt your users during situations where it would
-    be impossible to honour persistence (for instance during maintenance).
+    be impossible to honour persistence (for example during maintenance).
 
   - From a performance perspective, assuming you don't use local caching on the members,
     using the round robin algorithm and not using persistence will likely be the best option.
@@ -79,7 +79,7 @@ load balancing setup in the platform (as well as in general).
 - Health checking
 
   - Ensure that your monitor(s) are as closely setup (protocol wise) to the listener type as
-    possible. If you are for instance using load balancing for an HTTP based service, don't
+    possible. If you are for example using load balancing for an HTTP based service, don't
     do health checking by pinging the members. Its not uncommon for a server that is
     malfunctioning to still reply to ping (or even still listen on a particular port).
 

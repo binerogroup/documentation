@@ -702,6 +702,102 @@
                 
   
   
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -713,7 +809,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -730,14 +826,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_5">
             <span class="md-nav__icon md-icon"></span>
             Router
           </label>
@@ -775,84 +871,12 @@
   
   
     <li class="md-nav__item">
-      <a href="private-network/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Private networks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="private-subnet/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Private subnets
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="routing-between-networks.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Routing between networks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="security-groups/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Security groups
     
   </span>
   
@@ -1043,30 +1067,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1725,7 +1725,7 @@ table and the router will forward the packet to the next-hop (or gateway) of tha
 <p>Should the router be directly connected to the network in question (local to the network), it will
 instead use Address Resolution Protocol (ARP) to map the destination IP to a hardware (MAC) address
 and forward the packet to its final destination.</p>
-<p>Static routing is the process of manually defining what private subnets (network ranges) there are and
+<p>Static routing is the process of manually defining what subnets (network ranges) there are and
 behind what routers they are connected so that the routers are able to forward the packets.</p>
 <p>It is only needed if there is <em>more then a single router in the network</em> (as a single router would be
 expected to be connected to all networks directly and then would manage all the routing based on that).</p>
@@ -1766,7 +1766,7 @@ or the <a class="reference internal" href="../../getting-started/managing-your-c
 <li><p>Press the <strong>Static Routes</strong> tab on the top.</p></li>
 <li><p>Press <strong>Add static route</strong></p></li>
 <li><p>In the <strong>Destination CIDR</strong> field, type the <em>destination IP range</em> (that is, the network behind the neighbour router that you
-want to reach) in <a class="reference internal" href="private-subnet/subnet-format.html"><span class="doc">CIDR format</span></a>.</p></li>
+want to reach) in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR format</span></a>.</p></li>
 <li><p>In the <strong>Next Hop</strong> field, type the gateway address, that is the address that the neighbour router has on the network which
 it shares with the router you are adding the static route to - and to where you want to forward traffic.</p></li>
 <li><p>Press “Submit”.</p></li>
@@ -1777,14 +1777,14 @@ it shares with the router you are adding the static route to - and to where you 
 connect the subnet to.</p></li>
 <li><p>Run: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">add</span> <span class="pre">route</span> <span class="pre">--route</span> <span class="pre">destination=[DESTINATION_RANGE],gateway=[GATEWAY</span> <span class="pre">IP]</span> <span class="pre">[ROUTER</span> <span class="pre">NAME]</span></code>, replacing
 the items in brackets to <em>destination IP range</em> (the network behind the neighbour router that you want to reach)
-in <a class="reference internal" href="private-subnet/subnet-format.html"><span class="doc">CIDR format</span></a>, the gateway address (the address that the neighbour router has on
+in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR format</span></a>, the gateway address (the address that the neighbour router has on
 the network which it shares with the router you are adding the static route to - and to where you want to forward traffic)
 and the router name (from previous step).</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="private-subnet/subnet-format.html"><span class="doc">Subnet Format</span></a></p></li>
+<li><p><a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">Subnet Format</span></a></p></li>
 <li><p><a class="reference internal" href="routing-between-networks.html"><span class="doc">Routing between networks</span></a></p></li>
 <li><p><a class="reference internal" href="index.html"><span class="doc">Router</span></a></p></li>
 </ul>

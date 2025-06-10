@@ -59,7 +59,7 @@ To edit a DNS zone using the :doc:`cloud management portal </getting-started/man
 
 .. note::
 
-   To edit pointers for the domains origin (for instance an MX record), use the domain itself
+   To edit pointers for the domains origin (for example an MX record), use the domain itself
    followed by a "." (dot) as subdomain.
 
 OpenStack Horizon
@@ -108,4 +108,4 @@ To add a DNS zone record using the :doc:`/getting-started/managing-your-cloud/op
 - Run this command: ``openstack recordset list [ID]``, replacing the ID with the ID from previous step.
 
 - Run this command: ``openstack recordset create --record [TARGET IP] --type [POINTER TYPE] [DOMAIN ID] [SUBDOMAIN]``, replacing
-  the items in angle brackets with correct values. Pointer Type is for instance "A" or "MX", target IP might be a CNAME (if relevant). 
+  the items in angle brackets with correct values. Pointer Type is for example ``A`` or ``MX``, target IP might be a CNAME (if relevant). 

@@ -12,7 +12,7 @@
       
       
       
-        <link rel="prev" href="security-groups/designing-rules.html">
+        <link rel="prev" href="routing-between-networks.html">
       
       
         <link rel="next" href="static-routing.html">
@@ -702,6 +702,102 @@
                 
   
   
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -713,7 +809,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -730,14 +826,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_5">
             <span class="md-nav__icon md-icon"></span>
             Router
           </label>
@@ -775,84 +871,12 @@
   
   
     <li class="md-nav__item">
-      <a href="private-network/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Private networks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="private-subnet/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Private subnets
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="routing-between-networks.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Routing between networks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="security-groups/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Security groups
     
   </span>
   
@@ -1017,30 +1041,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -1664,7 +1664,7 @@ when located behind a <a class="reference internal" href="index.html"><span clas
 the router will be assigned a <a class="reference internal" href="../floating-ips.html"><span class="doc">floating IP</span></a> on its external
 interface and when instances on the internal network wants to access the internet, the
 router will change the source IP of the request to its own floating IP.</p>
-<p>The reason for this is that <a class="reference internal" href="private-subnet/index.html"><span class="doc">private subnets</span></a>
+<p>The reason for this is that <a class="reference internal" href="../subnet/index.html"><span class="doc">subnets</span></a>
 are normally assigned from the pool of IP addresses that are reserved for internal
 usage, according to IETF RFC1918.</p>
 <p>The router is able to mask requests as coming from itself and by doing so, all instances are

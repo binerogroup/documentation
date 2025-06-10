@@ -1360,14 +1360,14 @@ be widely accessible.</p>
 surface to store data.</p>
 <p>HDD drives suffer from seek times, that is they have a read/write head that needs to be positioned correctly
 above the disk surface before data can be read or written.</p>
-<p>When data is read (or written) sequentially however (meaning when a large bit of data, for instance a backup
+<p>When data is read (or written) sequentially however (meaning when a large bit of data, for example a backup
 image, is read one byte after the other from start to finish), HDD media still have good performance, i.e
 throughput but less so than SSD.</p>
 <p>HDD backed storage can be used by specifically selecting it when creating an <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a>
 or by choosing the proper Storage policy when provisioning an S3 bucket.</p>
-<p>When using HDD storage for instances, storage is (like SSD) three way replicated. When using HDD
-for <a class="reference internal" href="object-storage/index.html"><span class="doc">object storage</span></a> its also three way replicated, except for the storage
-policy <em>gp.archive*</em> (which uses erasure coding).</p>
+<p>When using HDD , storage is (like SSD) three way replicated. When using HDD for
+<a class="reference internal" href="object-storage/index.html"><span class="doc">object storage</span></a> its also three way replicated, except
+for the storage policy <strong>gp.archive</strong> (which uses erasure coding).</p>
 <p>HDD, then, is a good option when wanting to store large amounts of data, preferably infrequently
 used (like a file server or archive solution).</p>
 <h2 id="nvme">NVMe<a class="headerlink" href="#nvme" title="Link to this heading">¶</a></h2>

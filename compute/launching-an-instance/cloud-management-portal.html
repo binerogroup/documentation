@@ -1552,7 +1552,7 @@
 <p>To launch an <a class="reference external" href="../index">instance</a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you don’t have a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">network</span></a> or
+<p>If you don’t have a <a class="reference internal" href="../../networking/network/index.html"><span class="doc">network</span></a> or
 <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in some of the steppes below, you might need to do
 some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.</p>
 </div>
@@ -1578,22 +1578,22 @@ creating you first instance (or generally if you are not sure you need to be in 
 <li><p>Under <strong>SSH-keys</strong>, select your key.</p></li>
 <li><p>Under <strong>Root password</strong>, select a complicated password. Save it as it will not be saved in the
 platform after provisioning.</p></li>
-<li><p>Under <strong>Network</strong>, select the network you want to connect to. This could be either a <a class="reference internal" href="../../networking/router/private-subnet/index.html"><span class="doc">private subnet</span></a>
+<li><p>Under <strong>Network</strong>, select the network you want to connect to. This could be either a <a class="reference internal" href="../../networking/subnet/index.html"><span class="doc">subnet</span></a>
 (if you have one setup, if so the name is whatever you chose) or a <a class="reference internal" href="../../networking/directly-attached-ips.html"><span class="doc">directly attached IP</span></a> (the name would
-be based on the availability zone you previously chose). We recommend using a private subnet, for more information see
+be based on the availability zone you previously chose). We recommend using a subnet, for more information see
 our <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">Launching an instance</span></a> guide.</p></li>
 <li><p>Press <strong>Create</strong> when done.</p></li>
 </ul>
 <p>The instance will take some time to deploy. When done, it will be displayed as running on the next page.</p>
 <p>When the instance is running, click on it and review the IP configuration under <strong>Networking details</strong>. There you are able
 to see its IP-address (both IPv4 and IPv6).</p>
-<p>To connect use either SSH or RDP (depending on image). If you are using a private subnet (and not a directly attached
+<p>To connect use either SSH or RDP (depending on image). If you are using a subnet (and not a directly attached
 IP, see above), you might need to add a floating IP to be able to connect. For more information see
 our <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">Reaching your instances</span></a> article.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/router/security-groups/index.html"><span class="doc">security groups</span></a> which
-will be needed to access the instance if you are using a floating IP.</p>
+<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/security-groups/index.html"><span class="doc">security groups</span></a> which
+will be needed to allow traffic to the instance.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

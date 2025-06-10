@@ -52,10 +52,10 @@ To set the initial password through the :doc:`/getting-started/managing-your-clo
 
 - You will be prompted to select a password.
 
-You are now able to login using your new password via an RDP client using for instance
+You are now able to login using your new password via an RDP client using for example
 a :doc:`floating IP </networking/floating-ips>`.
 
-Don't forget that you may need to add a :doc:`security group </networking/router/security-groups/index>`
+Don't forget that you may need to add a :doc:`security group </networking/security-groups/index>`
 for RDP access.
 
 OpenStack Horizon
@@ -78,10 +78,10 @@ To set the initial password through the :doc:`/getting-started/managing-your-clo
 
 - You will be prompted to select a password.
 
-You are now able to login using your new password via an RDP client using for instance
+You are now able to login using your new password via an RDP client using for example 
 a :doc:`floating IP </networking/floating-ips>`.
 
-Don't forget that you may need to add a :doc:`security group </networking/router/security-groups/index>`
+Don't forget that you may need to add a :doc:`security group </networking/security-groups/index>`
 for RDP access.
 
 .. note::
@@ -109,7 +109,7 @@ To perform the upgrade, follow this below process.
    The process involves a reboot so proceeding during a downtime window for mission critical
    instances is recommended.
 
-- Stop any application write IO towards the local disc. This means for instance shutting down
+- Stop any application write IO towards the local disc. This means for example shutting down
   a database service. You do not need to quiesce all IO towards the disk.
 
 - Download the most recent VirtIO ISO driver

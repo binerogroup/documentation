@@ -701,6 +701,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../router/index.html" class="md-nav__link">
         
   
@@ -773,30 +869,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../mtu.html" class="md-nav__link">
         
   
@@ -828,7 +900,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -845,14 +917,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9">
             <span class="md-nav__icon md-icon"></span>
             Load Balancer
           </label>
@@ -873,7 +945,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9_1" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -890,14 +962,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_6_1" id="__nav_3_2_6_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_9_1" id="__nav_3_2_9_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_6_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_6_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_9_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9_1">
             <span class="md-nav__icon md-icon"></span>
             Load balancing in Binero cloud
           </label>
@@ -1651,7 +1723,7 @@
   
 
 <h1 id="pool-members">Pool members<a class="headerlink" href="#pool-members" title="Link to this heading">¶</a></h1>
-<p>A member is a compute instance that runs a service (for instance Apache).</p>
+<p>A member is a compute instance that runs a service (for example Apache).</p>
 <p>When load balancing, a member receives proxied requests from the listener
 through its membership in the pool.</p>
 <p>Members are health checked by the pool and included in it, if they are
@@ -1663,7 +1735,7 @@ be enabled back into the pool automatically.</p>
 <p>Members can have some configuration:</p>
 <ul class="simple">
 <li><p>Explicit monitoring IP addresses and/or ports if you want to do health
-checking on something other than the members own private IP.</p></li>
+checking on something other than the members own IP address.</p></li>
 <li><p>Backup flag - this means that the member is a fallback server if all the
 normal members are down. For instance when doing maintenance on an
 application you’d might like to show a notification that your site is
@@ -1673,8 +1745,8 @@ of request. A higher weight means more requests, the maximum number
 is 256. We recommend keeping all members identical and as such, this
 should rarely (if ever) be used.</p></li>
 </ul>
-<p>All members should have an IP on a <a class="reference internal" href="../../router/private-subnet/index.html"><span class="doc">private subnet</span></a>.</p>
-<p>While the private subnet does not have to be the same as the one the listener
+<p>All members should have an IP on a <a class="reference internal" href="../../subnet/index.html"><span class="doc">subnet</span></a>.</p>
+<p>While the subnet does not have to be the same as the one the listener
 uses, its recommended for simplicity as well as performance.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

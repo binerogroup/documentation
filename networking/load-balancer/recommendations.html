@@ -701,6 +701,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../router/index.html" class="md-nav__link">
         
   
@@ -773,30 +869,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../mtu.html" class="md-nav__link">
         
   
@@ -828,7 +900,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -845,14 +917,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9">
             <span class="md-nav__icon md-icon"></span>
             Load Balancer
           </label>
@@ -1549,11 +1621,11 @@ our guide <a class="reference internal" href="ssl-termination.html"><span class=
 </li>
 <li><p>Pools</p>
 <ul>
-<li><p>If your application relies on persistence (via for instance sessions that are local
+<li><p>If your application relies on persistence (via for example sessions that are local
 to the member), you are able to configure this on the pool. We do however recommend
-using some shared storage (for instance by using NFS) or to use a database for
+using some shared storage (for example by using NFS) or to use a database for
 sessions. This ensures you wont disrupt your users during situations where it would
-be impossible to honour persistence (for instance during maintenance).</p></li>
+be impossible to honour persistence (for example during maintenance).</p></li>
 <li><p>From a performance perspective, assuming you don’t use local caching on the members,
 using the round robin algorithm and not using persistence will likely be the best option.</p></li>
 <li><p>If you use some kind of caching locally on the member, using persistence or <code class="docutils literal notranslate"><span class="pre">source_ip</span></code>
@@ -1596,7 +1668,7 @@ outage (planned or otherwise).</p></li>
 <li><p>Health checking</p>
 <ul>
 <li><p>Ensure that your monitor(s) are as closely setup (protocol wise) to the listener type as
-possible. If you are for instance using load balancing for an HTTP based service, don’t
+possible. If you are for example using load balancing for an HTTP based service, don’t
 do health checking by pinging the members. Its not uncommon for a server that is
 malfunctioning to still reply to ping (or even still listen on a particular port).</p></li>
 <li><p>Never use ping based health checking. The bare minimum should be a TCP check on the

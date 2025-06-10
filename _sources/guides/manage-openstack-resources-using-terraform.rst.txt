@@ -22,7 +22,7 @@ Start by creating an :doc:`API user </getting-started/users>` and download the o
 pressing the small arrow next to it).
 
 The information in this file is needed to configure the Terraform provider. An example configuration
-file (called for instance "demo.tf") could look like this: 
+file (called for example "demo.tf") could look like this: 
 
 :: 
 

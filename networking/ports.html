@@ -12,10 +12,10 @@
       
       
       
-        <link rel="prev" href="directly-attached-ips.html">
+        <link rel="prev" href="subnet/dhcp.html">
       
       
-        <link rel="next" href="mtu.html">
+        <link rel="next" href="security-groups/index.html">
       
       
       <link rel="icon" href="../_static/binero.ico">
@@ -706,12 +706,12 @@
   
   
     <li class="md-nav__item">
-      <a href="router/index.html" class="md-nav__link">
+      <a href="network/index.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Router
+    Networks
     
   </span>
   
@@ -730,36 +730,12 @@
   
   
     <li class="md-nav__item">
-      <a href="floating-ips.html" class="md-nav__link">
+      <a href="subnet/index.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Floating IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="directly-attached-ips.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Directly attached IP addresses
+    Subnets
     
   </span>
   
@@ -858,6 +834,102 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="floating-ips.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Floating IP addresses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="directly-attached-ips.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Directly attached IP addresses
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1479,13 +1551,18 @@
   
 
 <h1 id="ports">Ports<a class="headerlink" href="#ports" title="Link to this heading">¶</a></h1>
-<p>A port is a virtual representation of a physical switch-port.</p>
-<p>That is, a connection between a <a class="reference internal" href="router/private-network/index.html"><span class="doc">network</span></a> (does not
-have to be a private) and an instance or a router.</p>
-<p>Ports are generally created on-demand by connecting an instance to a subnet (via a network).</p>
-<p>If you for some reason need to create a port manually, that can also be done (see below). If you do,
-you also need to assign the port (explicitly) to the instance you want to connect to a network.</p>
-<p>Remember that a manually created port may not be removed when you remove an instance.</p>
+<p>A port is a virtual representation of a network port.</p>
+<p>A network port is a connection between a <a class="reference internal" href="network/index.html"><span class="doc">network</span></a>
+and a device, a device can be a instance, router or load balancer.</p>
+<p>Ports are secured by assigning one or more <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups (firewall)</span></a>
+to the port to allow traffic.</p>
+<p>Ports are generally created on-demand when creating an instance and
+selecting a network.</p>
+<p>If you for some reason need to create a port manually, that can also be
+done (see below). If you do, you also need to assign the port (explicitly)
+to the instance you want to connect to a network.</p>
+<p>Remember that a manually created port may not be removed when you remove
+an instance.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Certain special use-cases may exist where you would want to manually create a port.</p>
@@ -1502,7 +1579,7 @@ will have a port created when launched.</p>
 <p>Below we will however show how to create ports in the various tools.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Should you opt not to use <a class="reference internal" href="router/private-subnet/dhcp.html"><span class="doc">DHCP</span></a> to assign IP configuration to a new
+<p>Should you opt not to use <a class="reference internal" href="subnet/dhcp.html"><span class="doc">DHCP</span></a> to assign IP configuration to a new
 port (interface), remember that the <a class="reference internal" href="mtu.html"><span class="doc">MTU</span></a> is also set via DHCP and needs to be set manually
 in these cases.</p>
 </div>
@@ -1512,10 +1589,10 @@ in these cases.</p>
 <li><p>Press <strong>Networking</strong> and then <strong>Ports</strong> in the sidebar menu.</p></li>
 <li><p>Press the “+” icon in the bottom right corner.</p></li>
 <li><p>Name your port.</p></li>
-<li><p>Select the <a class="reference internal" href="router/private-network/index.html"><span class="doc">private network</span></a> you want to connect to under “Network”.</p></li>
+<li><p>Select the <a class="reference internal" href="network/index.html"><span class="doc">network</span></a> you want to connect to under “Network”.</p></li>
 <li><p>Select <strong>Subnet</strong> under <strong>IP address or subnet</strong>. If you would rather manage your IP-configuration
 on your instance manually (not recommended), you would instead leave “unspecified”.</p></li>
-<li><p>Select the <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> you want to use.</p></li>
+<li><p>Select the <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a> you want to use.</p></li>
 <li><p>Press <strong>Create</strong></p></li>
 </ul>
 <h2 id="create-a-port-using-openstack-horizon">Create a port using OpenStack Horizon<a class="headerlink" href="#create-a-port-using-openstack-horizon" title="Link to this heading">¶</a></h2>
@@ -1528,7 +1605,7 @@ on your instance manually (not recommended), you would instead leave “unspecif
 <li><p>Name your port.</p></li>
 <li><p>Choose <strong>Subnet</strong> under <strong>Specify IP address or subnet</strong>. If you would rather manage your
 IP-configuration on your instance manually (not recommended), you would instead leave “unspecified”.</p></li>
-<li><p>Select the <a class="reference internal" href="router/private-subnet/index.html"><span class="doc">private subnet</span></a> you want to use.</p></li>
+<li><p>Select the <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a> you want to use.</p></li>
 <li><p>Press <strong>Create</strong></p></li>
 </ul>
 <h2 id="create-a-port-using-openstack-terminal-client">Create a port using OpenStack terminal client<a class="headerlink" href="#create-a-port-using-openstack-terminal-client" title="Link to this heading">¶</a></h2>

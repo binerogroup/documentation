@@ -1416,9 +1416,9 @@ page.</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
 <li><p>Under SSH Admin IP, add your public IP (this will allow your workstation through the
-firewall) in <a class="reference internal" href="../networking/router/private-subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>.</p>
+firewall) in <a class="reference internal" href="../networking/subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>.</p>
 <ul>
-<li><p>If you need to change this later, this sets up a <a class="reference internal" href="../networking/router/security-groups/index.html"><span class="doc">security group</span></a>
+<li><p>If you need to change this later, this sets up a <a class="reference internal" href="../networking/security-groups/index.html"><span class="doc">security group</span></a>
 on the instance.</p></li>
 <li><p>The security group can be changed or updated as you see fit but if you want to login
 over the floating IP that will be setup, you will need to input your IP here.</p></li>
@@ -1431,7 +1431,7 @@ want your history stored.</p></li>
 <li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with
 the default.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
-<li><p>Under <code class="docutils literal notranslate"><span class="pre">local_net</span></code> select the <a class="reference internal" href="../networking/router/private-subnet/index.html"><span class="doc">network</span></a>
+<li><p>Under <code class="docutils literal notranslate"><span class="pre">local_net</span></code> select the <a class="reference internal" href="../networking/network/index.html"><span class="doc">network</span></a>
 on which you want to run the service.</p></li>
 <li><p>If you want your service publicly available on the internet, you can assign a floating
 IP (this can also be done later) by checking the <strong>Public access</strong> checkbox.</p>

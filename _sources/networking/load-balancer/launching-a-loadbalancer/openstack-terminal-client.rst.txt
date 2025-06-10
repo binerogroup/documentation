@@ -8,7 +8,7 @@ Launching load balancer using the OpenStack terminal client
    our :doc:`concepts <../general-concept/index>` guide so as to gain a better
    understanding the various parts.
 
-We also recommend setting the correct :doc:`security groups <../../router/security-groups/index>`
+We also recommend setting the correct :doc:`security groups </networking/security-groups/index>`
 on the instances that should be members in the load balancing.
 
 Traffic from the load balancer will not come from the default group as the load balancer
@@ -96,8 +96,8 @@ To verify that the health checking has added the members to the pool, follow thi
 
 .. tip::
 
-   If the members are not online, make sure you have the proper :doc:`../../router/security-groups/index` configured
-   on the them. If you still cant get the members online, verify (by using for instance ``tcpdump`` or by reading access
+   If the members are not online, make sure you have the proper :doc:`/networking/security-groups/index` configured
+   on the them. If you still cant get the members online, verify (by using for example ``tcpdump`` or by reading access
    logs, that the traffic hits the member servers from the load balancers IP.
 
 ..  seealso::

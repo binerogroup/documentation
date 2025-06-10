@@ -85,7 +85,7 @@ recommend reading the official documentation from your vendor on how to configur
 
 - Phase 2 configuration:
 
-  - ``Remote network``: Your local private network
+  - ``Remote network``: Your local network
 
   - ``Protocol``: ESP
 

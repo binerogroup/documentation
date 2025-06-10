@@ -706,6 +706,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../network/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subnet/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ports
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-groups/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../router/index.html" class="md-nav__link">
         
   
@@ -760,30 +856,6 @@
   
   <span class="md-ellipsis">
     Directly attached IP addresses
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ports.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Ports
     
   </span>
   
@@ -905,7 +977,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_12" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -922,14 +994,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_12" id="__nav_3_2_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_9">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_12">
             <span class="md-nav__icon md-icon"></span>
             Site-<wbr>to-<wbr>site VPN
           </label>
@@ -1615,14 +1687,14 @@ the tunnel.</p>
 <p>It will, in turn, know about the remote subnet because this is part of the IPsec protocol (to
 inject routes into the routing table for remove networks when the tunnel is started).</p>
 <p>The two main ways to accomplish this routing, which to use depends on whether you have
-several <a class="reference internal" href="../router/private-subnet/index.html"><span class="doc">private subnets</span></a> in your platform or not.</p>
-<p>The instances that are on the same private subnet as the instance running the VPN would need routes
+several <a class="reference internal" href="../subnet/index.html"><span class="doc">subnets</span></a> in your platform or not.</p>
+<p>The instances that are on the same subnet as the instance running the VPN would need routes
 in their own table (which is done via DHCP, see below).</p>
 <p>The instances that are on a different network would use their default route to reach the router and
 it would then, in turn, need a route to the instance to know where to send the traffic.</p>
 <p>To summarize:</p>
 <ul class="simple">
-<li><p>If you only have a single private subnet, you just need to add routes via DHCP.</p></li>
+<li><p>If you only have a single subnet, you just need to add routes via DHCP.</p></li>
 <li><p>If you have multiple subnets, you need to add routes via both DHCP and to the router.</p></li>
 </ul>
 <p>Both actions are detailed below.</p>
@@ -1633,7 +1705,7 @@ it would then, in turn, need a route to the instance to know where to send the t
 well as in the output of the creation, named <code class="docutils literal notranslate"><span class="pre">local_gw_ip</span></code>. You will need this IP address below.</p>
 </div>
 <h2 id="routing-via-dhcp">Routing via DHCP<a class="headerlink" href="#routing-via-dhcp" title="Link to this heading">¶</a></h2>
-<p>Please see our section about DHCP settings, which is available <a class="reference internal" href="../router/private-subnet/dhcp.html"><span class="doc">here</span></a>.</p>
+<p>Please see our section about DHCP settings, which is available <a class="reference internal" href="../subnet/dhcp.html"><span class="doc">here</span></a>.</p>
 <h2 id="routing-in-router">Routing in router<a class="headerlink" href="#routing-in-router" title="Link to this heading">¶</a></h2>
 <p>Please see our section on static routing available <a class="reference internal" href="../router/static-routing.html"><span class="doc">here</span></a>. The “Destination CIDR” field
 is in this case the remote subnet (the network on the other side of the tunnel). “Next Hop” is aforementioned gateway,

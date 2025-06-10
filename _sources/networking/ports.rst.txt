@@ -2,17 +2,23 @@
 Ports
 =====
 
-A port is a virtual representation of a physical switch-port.
+A port is a virtual representation of a network port.
 
-That is, a connection between a :doc:`network <router/private-network/index>` (does not
-have to be a private) and an instance or a router.
+A network port is a connection between a :doc:`network <network/index>`
+and a device, a device can be a instance, router or load balancer.
 
-Ports are generally created on-demand by connecting an instance to a subnet (via a network).
+Ports are secured by assigning one or more :doc:`security groups (firewall) <security-groups/index>`
+to the port to allow traffic.
 
-If you for some reason need to create a port manually, that can also be done (see below). If you do,
-you also need to assign the port (explicitly) to the instance you want to connect to a network.
+Ports are generally created on-demand when creating an instance and
+selecting a network.
 
-Remember that a manually created port may not be removed when you remove an instance.
+If you for some reason need to create a port manually, that can also be
+done (see below). If you do, you also need to assign the port (explicitly)
+to the instance you want to connect to a network.
+
+Remember that a manually created port may not be removed when you remove
+an instance.
 
 .. note::
 
@@ -35,7 +41,7 @@ Below we will however show how to create ports in the various tools.
 
 .. note::
 
-   Should you opt not to use :doc:`router/private-subnet/dhcp` to assign IP configuration to a new
+   Should you opt not to use :doc:`subnet/dhcp` to assign IP configuration to a new
    port (interface), remember that the :doc:`mtu` is also set via DHCP and needs to be set manually
    in these cases. 
 
@@ -50,12 +56,12 @@ To create a port using the :doc:`/getting-started/managing-your-cloud/cloud-mana
 
 - Name your port.
 
-- Select the :doc:`private network <router/private-network/index>` you want to connect to under "Network".
+- Select the :doc:`network <network/index>` you want to connect to under "Network".
 
 - Select **Subnet** under **IP address or subnet**. If you would rather manage your IP-configuration
   on your instance manually (not recommended), you would instead leave "unspecified".
 
-- Select the :doc:`private subnet <router/private-subnet/index>` you want to use.
+- Select the :doc:`subnet <subnet/index>` you want to use.
 
 - Press **Create**
 
@@ -77,7 +83,7 @@ To create a port using the :doc:`/getting-started/managing-your-cloud/openstack-
 - Choose **Subnet** under **Specify IP address or subnet**. If you would rather manage your
   IP-configuration on your instance manually (not recommended), you would instead leave "unspecified".
 
-- Select the :doc:`private subnet <router/private-subnet/index>` you want to use.
+- Select the :doc:`subnet <subnet/index>` you want to use.
 
 - Press **Create**
 

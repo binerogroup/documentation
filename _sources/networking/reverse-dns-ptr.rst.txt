@@ -63,7 +63,7 @@ To assign a PTR record to a floating IP using the :doc:`/getting-started/managin
 
 - On the floating IP that you want to assign the PTR to, press the small "cog" icon "set PTR".
 
-- In the "domain" field, enter the full PTR (for instance ``smtp.binero.com.``). Note the final dot in the example
+- In the "domain" field, enter the full PTR (for example ``smtp.binero.com.``). Note the final dot in the example
   which needs to be there (this is the root zone that is most often left out). 
 
 - In the description field, enter an optional description of the IP (for example "external mail relay").
@@ -89,7 +89,7 @@ To assign a PTR record to a floating IP using the :doc:`/getting-started/managin
 - In the "domain" field, enter the full PTR (for example ``smtp.binero.com.``). Note the final dot in the
   example which needs to be there (this is the root zone that is most often left out). 
 
-- In the description field, enter an optional description of the IP (for instance "external mail relay").
+- In the description field, enter an optional description of the IP (for example "external mail relay").
 
 - In the TTL field, enter the TTL (in seconds) you prefer.
 
