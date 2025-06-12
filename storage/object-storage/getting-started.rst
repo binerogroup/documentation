@@ -42,6 +42,11 @@ availability zone europe-se-1a if this meets your requirements. Below methods us
    By using any of the below methods, you will create a container/bucket without replication in the
    europe-se-1a availability zone.
 
+.. tip::
+
+   We enforce a default quota of 1000 buckets/container in the object storage, please contact our
+   support if you need more.
+
 Cloud management portal
 -----------------------
 

@@ -25,6 +25,11 @@ but use different APIs.
    In the documentation we can refer to either a container or bucket both being the same thing, a container holding
    objects, where bucket is S3 terminology and container is Swift terminology.
 
+.. tip::
+
+   We enforce a default quota of 1000 buckets/container in the object storage, please contact our
+   support if you need more.
+
 You have the ability to chose from several :doc:`storage policies <storage-policy>` of object storage to setup a
 storage solution that delivers at the lowest possible cost per GB while still meeting your requirements.
 
