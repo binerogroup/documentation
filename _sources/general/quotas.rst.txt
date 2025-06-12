@@ -51,6 +51,8 @@ The default quotas, available out of the box, are as follows:
 
 - Security group rules: 249
 
+- :doc:`Object storage </storage/object-storage/index>` buckets/container: 1000
+
 ..  seealso::
 
   - :doc:`/general/getting-support`
