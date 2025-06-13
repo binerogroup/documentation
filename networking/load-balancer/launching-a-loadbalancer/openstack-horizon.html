@@ -1816,7 +1816,7 @@ to use the default europe-se-1a.</p></li>
 <li><p>Select a <a class="reference internal" href="../../subnet/index.html"><span class="doc">subnet</span></a> to use for hosting the load
 balancer. We recommend using the same as the subnet where you have your instances to load
 balancer but its not a must.</p></li>
-<li><p>Press “next”.</p></li>
+<li><p>Press <strong>Next</strong>.</p></li>
 </ul>
 </li>
 <li><p>The second step sets up the <em>listener</em>. More information <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">here</span></a>.</p>
@@ -1827,7 +1827,7 @@ the port to that of the service you want to load balance. Optionally provide a d
 <li><p>Select the load balancer protocol.</p></li>
 <li><p><em>Verify the port number</em> (it may set automatically but depending on protocol you may need to set
 it manually). Without it, creation will fail.</p></li>
-<li><p>Press “next”.</p></li>
+<li><p>Press <strong>Next</strong>.</p></li>
 </ul>
 </li>
 <li><p>The third step is to create the <em>pool</em>. More information <a class="reference internal" href="../general-concept/pools.html"><span class="doc">here</span></a>.</p>
@@ -1837,17 +1837,17 @@ the other parts. Replace the name with the name you chose for your load balancer
 to that of the service you want to load balance. Optionally provide a description.</p></li>
 <li><p>Select your preferred load balancing algorithm.</p></li>
 <li><p>If you want session persistence, select what type (and if applicable, enter a session name).</p></li>
-<li><p>Press “next”.</p></li>
+<li><p>Press <strong>Next</strong>.</p></li>
 </ul>
 </li>
 <li><p>The fourth step assigns <em>members</em> (instances) to the pool. More
 information <a class="reference internal" href="../general-concept/pool-members.html"><span class="doc">here</span></a>.</p>
 <ul>
-<li><p>Either press “add external member” and then input the data manually or</p></li>
-<li><p>press the “add” button next to the instances you want to add in the list.</p></li>
+<li><p>Either press <strong>Add external member</strong> and then input the data manually or</p></li>
+<li><p>press the <strong>Add</strong> button next to the instances you want to add in the list.</p></li>
 <li><p>Select what (IP) port on each instance the service listens on. For instance for a web
 service, this would be either 80 or 443.</p></li>
-<li><p>When all instances that should be part of the pool are added, press “next”.</p></li>
+<li><p>When all instances that should be part of the pool are added, press <strong>Next</strong>.</p></li>
 </ul>
 </li>
 <li><p>In the fifth step, <em>health monitoring</em> will be setup. More information
@@ -1861,9 +1861,9 @@ protocol). We recommend choosing a type that is as granular (i.e. rather go with
 TCP port 80 if you want to check a web server) as possible.</p></li>
 <li><p>Choose the various options relating to your monitor, the defaults will likely suffice but this
 is much dependant on the application.</p></li>
-<li><p>If you’ve opted for “TERMINATED SSL” when setting up the listener details, you will need to
-proceed to next step to add your certificates and should then be able to click “Next”. If
-not, the “Next” option is greyed out and you should instead press “Create Load Balancer”.</p></li>
+<li><p>If you’ve opted for <strong>TERMINATED SSL</strong> when setting up the listener details, you will need to
+proceed to next step to add your certificates and should then be able to click <strong>Next</strong>. If
+not, the <strong>Next</strong> option is greyed out and you should instead press <strong>Create Load Balancer</strong>.</p></li>
 </ul>
 </li>
 <li><p>The sixth step is only relevant when creating an SSL terminating load balancer. In this step, you
@@ -1878,12 +1878,12 @@ to the secret store.</p></li>
 <h2 id="verification">Verification<a class="headerlink" href="#verification" title="Link to this heading">¶</a></h2>
 <p>To verify that the health checking has added the members to the pool, follow this procedure:</p>
 <ul class="simple">
-<li><p>Under “project”, click “Network” and then “Load balancers” in the sidebar menu.</p></li>
-<li><p>Verify that the “operating status” says “Online” as well as “provisioning status” says “Active”
-on the load balancer and then press its name.</p></li>
-<li><p>Press the “pools” tab and then press the name of your pool.</p></li>
-<li><p>Press the “members” tab.</p></li>
-<li><p>In the list, you should now see the member(s) you’ve added. The column “Operating status” should
+<li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Load balancers</strong> in the sidebar menu.</p></li>
+<li><p>Verify that the <strong>Operating status</strong> says <strong>Online</strong> as well as <strong>Provisioning status</strong>
+says <strong>Active</strong> on the load balancer and then press its name.</p></li>
+<li><p>Press the <strong>Pools</strong> tab and then press the name of your pool.</p></li>
+<li><p>Press the <strong>Members</strong> tab.</p></li>
+<li><p>In the list, you should now see the member(s) you’ve added. The column <strong>Operating status</strong> should
 show you if they are online or not.</p></li>
 </ul>
 <div class="tip admonition">

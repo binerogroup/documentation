@@ -1579,8 +1579,8 @@ which the various platform options will provide.</p>
 <p>A good command to generate a key in Linux and Linux like systems running Open SSH using
 the modern ed25519 algorithm (which may not be supported on all systems yet - but is safe
 and preferable to RSA) is <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">ed25519</span> <span class="pre">-f</span> <span class="pre">~/id_ed25519</span></code>, this will output
-the key in your home folder with filename “id_ed25519” and public key in same folder with
-filename “id_ed25519.pub”. You will be asked to provide a password for the key which we
+the key in your home folder with filename <code class="docutils literal notranslate"><span class="pre">id_ed25519</span></code> and public key in same folder with
+filename <code class="docutils literal notranslate"><span class="pre">id_ed25519.pub</span></code>. You will be asked to provide a password for the key which we
 recommend.</p>
 </div>
 <div class="tip admonition">
@@ -1597,9 +1597,9 @@ potentially also with it) and should be stored with this in mind.</p>
 <p>To create an SSH-key through the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Compute</strong> and then <strong>SSH-keys</strong> in the side menu.</p></li>
-<li><p>Press the “+” sign in lower right corner.</p></li>
+<li><p>Press the <strong>+</strong> (plus) sign in lower right corner.</p></li>
 <li><p>Choose a name.</p></li>
-<li><p>Copy/paste your key into the “key contents” field.</p></li>
+<li><p>Copy/paste your key into the <strong>Key contents</strong> field.</p></li>
 </ul>
 <p>If you don’t have a key you can instead choose to generate a new one:</p>
 <ul class="simple">
@@ -1615,7 +1615,8 @@ according to the above tips.</p></li>
 <li><p>Press <strong>Import public key</strong> in the top right corner.</p></li>
 <li><p>Choose a name.</p></li>
 <li><p>Choose <strong>SSH-key</strong> under <strong>Key type</strong></p></li>
-<li><p>Paste your <strong>public key</strong> in the “public key” form (or choose the file from the “load public key from file”.</p></li>
+<li><p>Paste your <strong>public key</strong> in the <strong>Public key</strong> form (or import the public key
+from file using the <strong>Load public key from file</strong> button)</p></li>
 <li><p>Press <strong>Import public key</strong></p></li>
 </ul>
 <p>If you don’t have a key you can instead choose to generate a new one:</p>

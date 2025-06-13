@@ -31,7 +31,7 @@ To create a backup from a snapshot using :doc:`/getting-started/managing-your-cl
 
 - Under **Project**, click **Volumes** and then **Snapshots** in the sidebar menu.
 
-- Locate the snapshot in the list and click **Create backup** from its drop down menu to the right.
+- Locate the snapshot in the list and click **Create backup** from its dropdown menu to the right.
 
 - Input a name for your backup and an optional description.
 

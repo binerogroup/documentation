@@ -21,11 +21,11 @@ it need to egress onto a network with a smaller MTU as next hop.
 
 The receiving server will later on have to reassemble the packet. This process happens in the background
 and is not something that needs to be actively managed by an administrator, however some applications does
-not work well with fragmentation so there is an option to disallow it by setting the "DF" bit on a frame. 
+not work well with fragmentation so there is an option to disallow it by setting the ``DF`` bit on a frame. 
 
 DF stands for Don't Fragment and essentially tells every router involved to avoid fragmentation. The alternative
 to fragmentation, when using a larger MTU than 1500, is that the package is dropped and an ICMP message with code
-"fragmentation needed" is returned.
+*fragmentation needed* is returned.
 
 Because of this, its important to understand the concept of MTU, especially when using an MTU different
 from 1500 bytes.
@@ -42,8 +42,8 @@ Here is an example of a package that has the DF bit set:
 
     6:30:17.621056 IP (tos 0x0, ttl 61, id 39062, offset 0, flags [DF], proto TCP (6), length 4148) 4.5.6.7.443 > 1.2.3.4.34862: Flags [P.], cksum 0x0bdb (incorrect -> 0x3f5f), seq 1:4097, ack 321, win 227, options [nop,nop,TS val 955793242 ecr 3076045005], length 4096
 
-Notice the "DF" flag - this indicates that the package should not be fragmented. Also notice the "length"
-indicating that the package is 4096 bits long and as such, will not pass a standard 1500 MTU interface (since
+Notice the ``DF`` flag - this indicates that the package should not be fragmented. Also notice the length
+indicating that the packet is 4096 bits long and as such, will not pass a standard 1500 MTU interface (since
 it cannot be fragmented).
 
 MTU discovery

@@ -50,13 +50,13 @@ To add a :doc:`security group <index>` to an instance using the :doc:`/getting-s
 - On the line of the instance you want to add a security group to, press the small arrow
   and select **Edit Security Groups**
 
-- Press the "+" sign on each security group you want to add to the instance.
+- Press the **+** (plus) sign on each security group you want to add to the instance.
 
 - Press **Save**
 
 .. note::
 
-   If you instead choose to press "Edit Port Security Groups" (in step 2 above) you are able to set
+   If you instead choose to press **Edit Port Security Groups** (in step 2 above) you are able to set
    security groups on a per interface (port) basis instead.
 
    This might be useful if you have several networks connected to your instance (which we don't

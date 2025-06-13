@@ -1819,7 +1819,7 @@ size. The remaining addresses would ideally go into the pool.</p>
 </div>
 <h2 id="routing-via-dhcp">Routing via DHCP<a class="headerlink" href="#routing-via-dhcp" title="Link to this heading">¶</a></h2>
 <p>Since DHCP provisions IP-configuration to instances, if there is a need to add :doc:static routes &lt;../static-routing&gt;` to
-instances (so called “Host routes”) for whatever reason, DHCP is a good way to accomplish this as any routes that are added
+instances (so called <strong>Host routes</strong>) for whatever reason, DHCP is a good way to accomplish this as any routes that are added
 to the DHCP subnet will get pushed to all instances on that subnet (existing as well as any new ones added).</p>
 <p>DHCP will only add routes on instances, which is only usable to route to other instances on the same subnet. To route to a
 destination outside the same subnet, the default route is normally used but a good use case for routing via DHCP is when a
@@ -1830,7 +1830,7 @@ VPN is setup on the same subnet that does not do <a class="reference internal" h
 <li><p>Press <strong>Networking</strong> and then <strong>Networks</strong> in the sidebar menu.</p></li>
 <li><p>Press the network for which you want to add the route.</p></li>
 <li><p>Press the edit icon (a small pencil) next to the subnet for which you want to add the route.</p></li>
-<li><p>Press the “+” sign above “add host route”.</p></li>
+<li><p>Press the <strong>+</strong> (plus) sign above <strong>Add host route</strong></p></li>
 <li><p>Under <strong>Destination CIDR</strong>, enter the destination network in
 <a class="reference internal" href="subnet-format.html"><span class="doc">CIDR notation</span></a>.</p></li>
 <li><p>Under <code class="docutils literal notranslate"><span class="pre">Nexthop</span> <span class="pre">(IP)</span></code> add the gateway address. This address needs to be in the subnet you are editing.</p></li>

@@ -52,14 +52,14 @@ To create a port using the :doc:`/getting-started/managing-your-cloud/cloud-mana
 
 - Press **Networking** and then **Ports** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Name your port.
 
-- Select the :doc:`network <network/index>` you want to connect to under "Network".
+- Select the :doc:`network <network/index>` you want to connect to under **Network**.
 
 - Select **Subnet** under **IP address or subnet**. If you would rather manage your IP-configuration
-  on your instance manually (not recommended), you would instead leave "unspecified".
+  on your instance manually (not recommended), you would instead leave **unspecified**.
 
 - Select the :doc:`subnet <subnet/index>` you want to use.
 
@@ -81,7 +81,7 @@ To create a port using the :doc:`/getting-started/managing-your-cloud/openstack-
 - Name your port. 
 
 - Choose **Subnet** under **Specify IP address or subnet**. If you would rather manage your
-  IP-configuration on your instance manually (not recommended), you would instead leave "unspecified".
+  IP-configuration on your instance manually (not recommended), you would instead leave **unspecified**.
 
 - Select the :doc:`subnet <subnet/index>` you want to use.
 
@@ -98,7 +98,7 @@ Create a port using OpenStack terminal client
 
 - Run this command: ``openstack port create --network [NETWORK NAME] --fixed-ip subnet=[SUBNET NAME] [PORT NAME]``, replacing
   the items in angle brackets with the information from the previous steps and the name of the port. If you want to know more
-  options, use "-h" at the end of the command.
+  options, use ``-h`` at the end of the command.
 
 .. note::
 

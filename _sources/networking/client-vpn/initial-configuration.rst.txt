@@ -13,7 +13,7 @@ opening the site. Default username/password for the WebUI is ``admin``/``pfsense
 
 .. note::
 
-   The WebUI can only be accessed from the IP-address or network that was assigned in the "admin IP ranges"
+   The WebUI can only be accessed from the IP-address or network that was assigned in the **admin IP ranges**
    during the :doc:`setup of the VPN <setting-up>`.
 
    If you cannot reach the WebUI, its likely that you are connecting from another IP than the one you choose

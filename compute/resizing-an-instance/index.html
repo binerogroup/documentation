@@ -1876,7 +1876,7 @@ performance), a <a class="reference internal" href="../../storage/retype-a-volum
 resizing) or scaling by adding parallel performance (which is normally done by some sort of load
 balancing).</p>
 <h3 id="scaling-up">Scaling up<a class="headerlink" href="#scaling-up" title="Link to this heading">¶</a></h3>
-<p>Scaling up (or “vertical scaling) is a resize of the instance and / or volumes, to instantly add
+<p>Scaling up (or vertical scaling) is a resize of the instance and / or volumes, to instantly add
 more resources (with no need to change the installation).</p>
 <p>While being quick to implement (as its purely reliant on the infrastructure platform and not the
 application design), the downside is that there is an effective performance limit before diminishing
@@ -1884,7 +1884,7 @@ returns on adding additional performance would kick in. What the limit is, depen
 <h3 id="scaling-out">Scaling out<a class="headerlink" href="#scaling-out" title="Link to this heading">¶</a></h3>
 <p>The opposite method is adding parallel resources (for example additional instances) and
 using <a class="reference external" href="/networking/load-balancers">load balancing</a>) to distribute load between them, this is
-called “scaling out” or (“horizontal scaling”).</p>
+called scaling out (or horizontal scaling).</p>
 <p>For systems which are expected to need to scale to many times their initial size, this method is
 likely required.</p>
 <p>While there are normally bottlenecks in scale out systems as well, they are generally related to

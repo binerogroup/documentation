@@ -1756,7 +1756,7 @@ insert headers, features that work on the application layer and not just layer 3
 <li><p>Timeouts for the connection to the listener, we do however recommend to leave the default values for this.</p></li>
 <li><p>Layer 7 (mainly HTTP) policies enabling for example redirects or rejections directly on the
 listener, negating the need to send requests to members.</p></li>
-<li><p>Allowed CIDR prefixes, meaning who can connect. 0.0.0.0/0 is the default and means “all networks”.</p></li>
+<li><p>Allowed CIDR prefixes, meaning who can connect. <code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> is the default and matches all networks.</p></li>
 <li><p>HTTP headers, for example <code class="docutils literal notranslate"><span class="pre">x-forwarded-for</span></code>.</p></li>
 </ul>
 <p>To the listener, you would normally (unless the service is internal) connect a

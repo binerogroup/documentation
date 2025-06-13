@@ -1896,7 +1896,7 @@ one of the services in your infrastructure) is usually sent to a randomised high
 support explicit blocking (rather its inferred, if there is not an explicit allow rule, traffic is blocked).</p>
 </div>
 <h2 id="default-settings">Default settings<a class="headerlink" href="#default-settings" title="Link to this heading">¶</a></h2>
-<p>A newly provisioned instance will have the “Default” security group provisioned.</p>
+<p>A newly provisioned instance will have the <code class="docutils literal notranslate"><span class="pre">default</span></code> security group provisioned.</p>
 <p>This security group will allow all traffic but only <em>from other instances that also have the default group</em> (that
 is, it also evaluates if the traffic was using this group to <strong>egress</strong> an instance in the cloud).</p>
 <p>Consequently all traffic within the same network (and also within different networks on the same router) will be

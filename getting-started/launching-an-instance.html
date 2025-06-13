@@ -1263,7 +1263,7 @@ with a strong local firewall in place.</p>
 <h3 id="create-a-network">Create a network<a class="headerlink" href="#create-a-network" title="Link to this heading">¶</a></h3>
 <p>To create a network, follow these steps:</p>
 <ul class="simple">
-<li><p>Press the “+” icon in the bottom right corner.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
 <li><p>Press <strong>Networking</strong> and then <strong>Network</strong> in the sidebar menu.</p></li>
 <li><p>Name the network and optionally add a description.</p></li>
 <li><p><strong>europe-se-1</strong> should be preselected as region.</p></li>
@@ -1275,21 +1275,21 @@ with a strong local firewall in place.</p>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Network</strong> in the sidebar menu. Select the network you created
 in the previous step.</p></li>
-<li><p>In the top right corner, select “Create subnet” icon.</p></li>
+<li><p>In the top right corner, select <strong>Create subnet</strong> icon.</p></li>
 <li><p>Name the subnet.</p></li>
 <li><p>Type a network address in CIDR notation. This is the network your servers will run
 on. It needs to be in one of the RFC1918 ranges (10.0.0.0/8, 172.16.0.0/12 or
-192.168.0.0/16). If you are unsure what range to use we suggest “192.168.0.0/24”.</p></li>
+192.168.0.0/16). If you are unsure what range to use we suggest <code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>.</p></li>
 <li><p>Under <strong>Gateway IP</strong>, select <strong>Set standard gateway IP</strong>, this will select the first
 address in the range for your default route.</p></li>
 <li><p>While you don’t have to use DHCP, we strongly recommend it for an easier workflow. It
 should be pre-selected.</p></li>
-<li><p>Under “Add pool”, select what pool you want in the range you choose in previous step. You
+<li><p>Under <strong>Add pool</strong>, select what pool you want in the range you choose in previous step. You
 add a start and stop, for example in the above 192.168.0.0/24 example a start might be
-“192.168.0.100” and stop “192.168.0.200” giving you 101 addresses in the pool. As the
+<code class="docutils literal notranslate"><span class="pre">192.168.0.100</span></code> and stop <code class="docutils literal notranslate"><span class="pre">192.168.0.200</span></code> giving you 101 addresses in the pool. As the
 first address (i.e. 192.168.0.1) is reserved for the gateway, you cant include that but
 can otherwise choose as you see your need.</p></li>
-<li><p>Under “Add DNS name server”, add the name servers you want your network to use. Binero
+<li><p>Under <strong>Add DNS name server</strong>, add the name servers you want your network to use. Binero
 provides DNS name servers on 83.168.225.225 and 83.168.226.226 and we recommend those but
 you can use whichever you like.</p></li>
 <li><p>Press <strong>Create subnet</strong></p></li>
@@ -1298,7 +1298,7 @@ you can use whichever you like.</p></li>
 <p>To add a router, follow these steps:</p>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Routers</strong> in the sidebar menu.</p></li>
-<li><p>Press the “+” icon in the bottom right corner.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
 <li><p><strong>europe-se-1</strong> should be preselected as region.</p></li>
 <li><p>Name the router and optionally add a description.</p></li>
 <li><p>Under <strong>Availability zone</strong>, select the same zone as the network you previously setup.</p></li>

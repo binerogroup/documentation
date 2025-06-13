@@ -13,8 +13,8 @@ Load balancers consists of the following constructs:
 - The **Pool** is the active collection of member instances. It also sets the *common configuration*
   for the pool members that are included in the pool.
 
-- The **Pool members** are also called "real servers". These are compute instances that run a particular
-  service (for example HTTPS to serve a web application) to which the load balancer redirects
+- The **Pool members** are also called backend- or real servers. These are compute instances that run a
+  particular service (for example HTTPS to serve a web application) to which the load balancer redirects
   its requests. Members are defined statically in the load balancer but it will then add and remove them
   based on their current status.
 

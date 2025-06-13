@@ -1664,21 +1664,21 @@ try another internal IP.</p>
 <p>To assign a floating IP to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Network</strong> and then <code class="docutils literal notranslate"><span class="pre">Floating</span> <span class="pre">IPs</span></code> in the sidebar menu.</p></li>
-<li><p>Verify that you have a free floating IP. It should say “Down” under the IP.</p></li>
-<li><p>If not, assign a new IP by clicking the “+” symbol in the lower right corner.</p>
+<li><p>Verify that you have a free floating IP. It should say <strong>Down</strong> under the IP.</p></li>
+<li><p>If not, assign a new IP by clicking the <strong>+</strong> (plus) symbol in the lower right corner.</p>
 <ul>
-<li><p>Under “choice of network”, select a network from the same availability zone as the instance you want to assign the IP to.</p></li>
+<li><p>Under <strong>Choice of network</strong>, select a network from the same availability zone as the instance you want to assign the IP to.</p></li>
 <li><p>Optionally give the IP a description.</p></li>
 <li><p>Press <strong>Create</strong>.</p></li>
 <li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 </ul>
 </li>
 <li><p>Press the instance that you want to add a floating IP to.</p></li>
-<li><p>Press the “more” icon (looks like three small dots) in the top right.</p></li>
-<li><p>Press “Add floating IP”.</p></li>
+<li><p>Press the <strong>more</strong> icon (looks like three small dots) in the top right.</p></li>
+<li><p>Press <strong>Add floating IP</strong>.</p></li>
 <li><p>Select your new (or old, if you had one already) IP under <code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">IPs</span></code>.</p></li>
-<li><p>Under “available ports”, select the internal IP to map the floating IP to.</p></li>
-<li><p>Press “associate IP”.</p></li>
+<li><p>Under <strong>Available ports</strong>, select the internal IP to map the floating IP to.</p></li>
+<li><p>Press <strong>Associate IP</strong>.</p></li>
 <li><p>Your IP should now be visible under the <strong>Networking</strong> tab. Remember that you might need
 to add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot
 reach it.</p></li>
@@ -1687,17 +1687,17 @@ reach it.</p></li>
 <p>To assign a floating IP to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <code class="docutils literal notranslate"><span class="pre">Floating</span> <span class="pre">IPs</span></code> in the sidebar menu.</p></li>
-<li><p>Verify that you have a free floating IP. It should say “-” under the column “mapped fixed IP address”.</p></li>
-<li><p>If not, assign a new IP by clicking the “+” symbol in the lower right corner.</p>
+<li><p>Verify that you have a free floating IP. It should say <code class="docutils literal notranslate"><span class="pre">-</span></code> under the column <strong>mapped fixed IP address</strong>.</p></li>
+<li><p>If not, assign a new IP by clicking the <strong>+</strong> (plus) symbol in the lower right corner.</p>
 <ul>
-<li><p>Press “allocate IP to project” in the top right corner.</p></li>
-<li><p>Under “pool”, select a network from the same availability zone as the instance you want to assign the IP to.</p></li>
+<li><p>Press <strong>Allocate IP to project</strong> in the top right corner.</p></li>
+<li><p>Under <strong>Pool</strong>, select a network from the same availability zone as the instance you want to assign the IP to.</p></li>
 <li><p>Optionally give the IP a description.</p></li>
-<li><p>Press “allocate IP”.</p></li>
+<li><p>Press <strong>Allocate IP</strong>.</p></li>
 </ul>
 </li>
 <li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
-<li><p>In the drop-down menu to the far right of the line corresponding to the instance you want to add the floating
+<li><p>In the dropdown menu to the far right of the line corresponding to the instance you want to add the floating
 IP to, press <strong>Associate floating IP</strong>.</p></li>
 <li><p>Select your new (or old, if you had one already) IP under <strong>IP Address</strong>.</p></li>
 <li><p>Under <strong>Ports to be associated</strong>, select the internal IP to map the floating IP to.</p></li>
@@ -1709,10 +1709,10 @@ to add <a class="reference internal" href="security-groups/index.html"><span cla
 <p>To assign a floating IP to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">list</span></code></p></li>
-<li><p>If there is an IP that says “none” under the “fixed IP address” column then that’s available.</p>
+<li><p>If there is an IP that says <code class="docutils literal notranslate"><span class="pre">none</span></code> under the <strong>fixed IP address</strong> column then that’s available.</p>
 <ul>
 <li><p>We recommend also figuring out if the floating IP is from the right availability zone, this can be done by
-running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">show</span> <span class="pre">[ID]</span></code> where ID is the UUID from the “Floating Network” column in the previous
+running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">show</span> <span class="pre">[ID]</span></code> where ID is the UUID from the <strong>Floating Network</strong> column in the previous
 command. Its important that you use a floating IP from the same availability zone.</p></li>
 </ul>
 </li>
@@ -1728,7 +1728,7 @@ name of the network from the previous step.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, note the name of the instance you want to
 assign the floating IP to.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">[NAME]</span></code>, replacing [NAME] with the name of the server from
-previous step. Note which address from the “addresses” field you want to connect the floating IP to.</p></li>
+previous step. Note which address from the <strong>addresses</strong> field you want to connect the floating IP to.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">--fixed-ip-address</span> <span class="pre">[INTERNAL</span> <span class="pre">IP]</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span> <span class="pre">[FLOATING</span> <span class="pre">IP]</span></code>, replacing
 [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with
 whichever floating IP you added as per earlier step.</p></li>

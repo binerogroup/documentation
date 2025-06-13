@@ -38,8 +38,8 @@ on this topic.
    A good command to generate a key in Linux and Linux like systems running Open SSH using
    the modern ed25519 algorithm (which may not be supported on all systems yet - but is safe
    and preferable to RSA) is ``ssh-keygen -t ed25519 -f ~/id_ed25519``, this will output
-   the key in your home folder with filename "id_ed25519" and public key in same folder with
-   filename "id_ed25519.pub". You will be asked to provide a password for the key which we
+   the key in your home folder with filename ``id_ed25519`` and public key in same folder with
+   filename ``id_ed25519.pub``. You will be asked to provide a password for the key which we
    recommend. 
 
 .. tip::
@@ -60,11 +60,11 @@ To create an SSH-key through the :doc:`/getting-started/managing-your-cloud/clou
 
 - Press **Compute** and then **SSH-keys** in the side menu. 
 
-- Press the "+" sign in lower right corner.
+- Press the **+** (plus) sign in lower right corner.
 
 - Choose a name.
 
-- Copy/paste your key into the "key contents" field.
+- Copy/paste your key into the **Key contents** field.
 
 If you don't have a key you can instead choose to generate a new one:
 
@@ -87,7 +87,8 @@ To create an SSH-key through :doc:`/getting-started/managing-your-cloud/openstac
 
 - Choose **SSH-key** under **Key type**
 
-- Paste your **public key** in the "public key" form (or choose the file from the "load public key from file".
+- Paste your **public key** in the **Public key** form (or import the public key
+  from file using the **Load public key from file** button)
 
 - Press **Import public key**
 

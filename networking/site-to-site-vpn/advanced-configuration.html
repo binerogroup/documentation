@@ -1689,14 +1689,14 @@ itself.</p>
 URL that you us for managing the VPN service. Enter it into a browser.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Remember that only the IP (range) that you added in “Admin IP ranges” when setting
+<p>Remember that only the IP (range) that you added in <strong>Admin IP ranges</strong> when setting
 up the VPN will be allowed to login.</p>
 <p>This is managed via a <a class="reference internal" href="../security-groups/index.html"><span class="doc">security group</span></a>
 which is called <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code>, if you’ve not retained the
 same IP, you may need to edit the security group.</p>
 </div>
 <p>You would also have gotten an <code class="docutils literal notranslate"><span class="pre">admin_password</span></code> output, which is a generated password for
-your instance. This, combined with the username “admin” will give you access to the portal.</p>
+your instance. This, combined with the username <cite>´admin`</cite> will give you access to the portal.</p>
 <h2 id="security-recommendations">Security recommendations<a class="headerlink" href="#security-recommendations" title="Link to this heading">¶</a></h2>
 <p>While the admin password is uniquely generated and secure it <strong>is</strong> saved as part of the
 output in the platform in plain text (a user with access to the platform can read it).</p>
@@ -1708,7 +1708,7 @@ we still advice you to set your own password.</p>
 <li><p>Login to the admin UI according to above.</p></li>
 <li><p>Press <strong>System</strong> in the main menu.</p></li>
 <li><p>Press <strong>User manager</strong> in the sub menu.</p></li>
-<li><p>Edit the “admin” user by pressing the small “pen” icon.</p></li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">admin</span></code> user by pressing the small pencil icon.</p></li>
 <li><p>Enter the new password in both password fields.</p></li>
 <li><p>Press <strong>Save</strong></p></li>
 </ul>
@@ -1729,7 +1729,7 @@ remember, the PSK need to be identical on both sides of the tunnel.</p>
 <li><p>Press <strong>VPN</strong> in the main menu.</p></li>
 <li><p>Press <strong>IPsec</strong> in the sub menu.</p></li>
 <li><p>Press the small pen icon on the only row under
-the “tunnels” (default) tab.</p></li>
+the tunnels (default) tab.</p></li>
 <li><p>Scroll down to <code class="docutils literal notranslate"><span class="pre">pre</span> <span class="pre">shared</span> <span class="pre">key</span></code> and input an
 equally long and complex string.</p></li>
 <li><p>Press <strong>Save</strong></p></li>

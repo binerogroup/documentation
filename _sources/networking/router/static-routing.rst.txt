@@ -84,8 +84,9 @@ OpenStack Horizon
   want to reach) in :doc:`CIDR format <../subnet/subnet-format>`. 
 
 - In the **Next Hop** field, type the gateway address, that is the address that the neighbour router has on the network which
-  it shares with the router you are adding the static route to - and to where you want to forward traffic. 
-- Press "Submit". 
+  it shares with the router you are adding the static route to - and to where you want to forward traffic.
+
+- Press **Submit**. 
 
 OpenStack terminal client
 ^^^^^^^^^^^^^^^^^^^^^^^^^

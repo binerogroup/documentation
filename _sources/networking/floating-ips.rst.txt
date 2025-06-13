@@ -81,11 +81,11 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 
 - Press **Network** and then ``Floating IPs`` in the sidebar menu.
 
-- Verify that you have a free floating IP. It should say "Down" under the IP.
+- Verify that you have a free floating IP. It should say **Down** under the IP.
 
-- If not, assign a new IP by clicking the "+" symbol in the lower right corner.
+- If not, assign a new IP by clicking the **+** (plus) symbol in the lower right corner.
 
-  - Under "choice of network", select a network from the same availability zone as the instance you want to assign the IP to. 
+  - Under **Choice of network**, select a network from the same availability zone as the instance you want to assign the IP to. 
 
   - Optionally give the IP a description.
 
@@ -95,15 +95,15 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 
 - Press the instance that you want to add a floating IP to.
 
-- Press the "more" icon (looks like three small dots) in the top right.
+- Press the **more** icon (looks like three small dots) in the top right.
 
-- Press "Add floating IP".
+- Press **Add floating IP**.
 
 - Select your new (or old, if you had one already) IP under ``fixed IPs``.
 
-- Under "available ports", select the internal IP to map the floating IP to. 
+- Under **Available ports**, select the internal IP to map the floating IP to. 
 
-- Press "associate IP".
+- Press **Associate IP**.
 
 - Your IP should now be visible under the **Networking** tab. Remember that you might need
   to add :doc:`security groups <security-groups/index>` to the instance if you cannot
@@ -116,21 +116,21 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 
 - Under **Project**, click **Network** and then ``Floating IPs`` in the sidebar menu.
 
-- Verify that you have a free floating IP. It should say "-" under the column "mapped fixed IP address".
+- Verify that you have a free floating IP. It should say ``-`` under the column **mapped fixed IP address**.
 
-- If not, assign a new IP by clicking the "+" symbol in the lower right corner.
+- If not, assign a new IP by clicking the **+** (plus) symbol in the lower right corner.
 
-  - Press "allocate IP to project" in the top right corner.
+  - Press **Allocate IP to project** in the top right corner.
 
-  - Under "pool", select a network from the same availability zone as the instance you want to assign the IP to. 
+  - Under **Pool**, select a network from the same availability zone as the instance you want to assign the IP to. 
 
   - Optionally give the IP a description.
 
-  - Press "allocate IP".
+  - Press **Allocate IP**.
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
-- In the drop-down menu to the far right of the line corresponding to the instance you want to add the floating
+- In the dropdown menu to the far right of the line corresponding to the instance you want to add the floating
   IP to, press **Associate floating IP**.
 
 - Select your new (or old, if you had one already) IP under **IP Address**.
@@ -149,10 +149,10 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
 
 - Run this command: ``openstack floating ip list``
 
-- If there is an IP that says "none" under the "fixed IP address" column then that's available.
+- If there is an IP that says ``none`` under the **fixed IP address** column then that's available.
 
   - We recommend also figuring out if the floating IP is from the right availability zone, this can be done by
-    running ``openstack network show [ID]`` where ID is the UUID from the "Floating Network" column in the previous
+    running ``openstack network show [ID]`` where ID is the UUID from the **Floating Network** column in the previous
     command. Its important that you use a floating IP from the same availability zone. 
 
 - If there was no available IP, assign one to the project: 
@@ -169,7 +169,7 @@ To assign a floating IP to an instance using the :doc:`/getting-started/managing
   assign the floating IP to. 
 
 - Run this command: ``openstack server show [NAME]``, replacing [NAME] with the name of the server from
-  previous step. Note which address from the "addresses" field you want to connect the floating IP to. 
+  previous step. Note which address from the **addresses** field you want to connect the floating IP to. 
 
 - Run this command: ``openstack server add floating ip --fixed-ip-address [INTERNAL IP] [INSTANCE NAME] [FLOATING IP]``, replacing
   [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with

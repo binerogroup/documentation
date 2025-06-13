@@ -77,7 +77,7 @@ To retype a volume using the :doc:`/getting-started/managing-your-cloud/openstac
   the items in angle brackets with the type name (hdd/ssd) and the ID of the volume from previous steps.
 
 - Run this command to verify: ``openstack volume show [VOLUME_ID] -c status``, when the status changes
-  from "retyping", the retype is done.
+  from retyping, the retype is done.
 
 ..  seealso::
     - :doc:`persistent-block-storage/create-volume`

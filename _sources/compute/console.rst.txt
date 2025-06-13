@@ -15,7 +15,7 @@ This is useful if you need to debug or troubleshoot your instance if it is unrea
    the root or administrator password.
 
    How to do this will vary by operating system but for the majority of Linux distributions, booting
-   into "single user mode" will enable a password-less login which can be used to reset the password
+   into single user mode will enable a password-less login which can be used to reset the password
    for the root user.
 
 Cloud management portal console
@@ -25,10 +25,10 @@ Cloud management portal console
 
 - Press the instance you want to view console output for.
 
-- Press the console icon (looks like "< >") in the top right.
+- Press the console icon (looks like ``< >``) in the top right.
 
 - A new window will appear showing the console. If the image is blank, this might be because the screen
-  is in "power save" mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
+  is in power save mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
   up.
 
 OpenStack Horizon console
@@ -40,7 +40,7 @@ OpenStack Horizon console
   to view console for, press **Console**.
 
 - A new window will appear showing the console. If the image is blank, this might be because the screen
-  is in "power save" mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
+  is in power save mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
   up.
 
 ..  seealso::

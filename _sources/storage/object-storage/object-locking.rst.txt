@@ -45,5 +45,6 @@ Objects are now protected according to the policy and days chosen. See the :doc:
 how it's enforced with versions.
 
 ..  seealso::
+
   - :doc:`/storage/object-storage/s3`
   - :doc:`/storage/object-storage/versioning`

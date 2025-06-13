@@ -47,7 +47,7 @@ To hard reboot an instance using the :doc:`/getting-started/managing-your-cloud/
 
 - Press **Hard reboot instance**
 
-- Press the confirmation button ("Hard reboot instance").
+- Press the confirmation button (**Hard reboot instance**).
 
 - Wait until the progress bar has finished.
 

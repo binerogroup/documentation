@@ -18,7 +18,7 @@ To resize an :doc:`instance <../index>` using the :doc:`/getting-started/managin
 - To resize, run the following command: ``openstack server resize --flavor [FLAVOR NAME] [INSTANCE NAME]`` where
   you replace the items in brackets to the flavor you choose in previous step and the instance name.
 
-- Run the command: ``openstack server list`` and you'll see the instance is now in Status "VERIFY_RESIZE". Login
+- Run the command: ``openstack server list`` and you'll see the instance is now in Status **VERIFY_RESIZE**. Login
   to the instance and verify that it worked as intended (meaning the instance is working as before but with the new flavor).
 
 - If you are happy with the result, run the following command: ``openstack server resize confirm [INSTANCE NAME]`` This

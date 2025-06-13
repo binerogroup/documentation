@@ -9,7 +9,7 @@ To create a :doc:`network <index>` from the :doc:`/getting-started/managing-your
 
 - Press **Networking** and then **Networks** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Under region, *europe-se-1* should be pre-selected.
 

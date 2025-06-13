@@ -65,9 +65,9 @@ To create a snapshot using :doc:`/getting-started/managing-your-cloud/openstack-
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
-- In the drop-down menu to the far right of the line corresponding to the instance you
-  want to snapshot, press "create snapshot (which is either the default option if the
-  instance is running, of in the drop-down if its not)".
+- In the dropdown menu to the far right of the line corresponding to the instance you
+  want to snapshot, press **Create snapshot** (which is either the default option if the
+  instance is running, of in the dropdown if it's not running).
 
 - Name your snapshot. 
 

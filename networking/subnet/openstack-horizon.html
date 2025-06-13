@@ -1767,10 +1767,10 @@
 <li><p>Press the name of the network to which you want to add the subnet.</p></li>
 <li><p>Press the small dropdown next to <strong>Edit network</strong> in the top right corner. Select <strong>Create subnet</strong></p></li>
 <li><p>Name your subnet.</p></li>
-<li><p>Under “Network Address” you need to input the address in CIDR notation, more
-information about this in the <a class="reference internal" href="subnet-format.html"><span class="doc">Subnet Format</span></a>. For example “192.168.0.0/24”.</p></li>
-<li><p>Under “IP Version”, keep “IPv4”.</p></li>
-<li><p>Under “Gateway-IP” you have the option to either <a class="reference internal" href="connect-subnet-to-router.html"><span class="doc">set an IP as gateway</span></a>
+<li><p>Under <strong>Network Address</strong> you need to input the address in CIDR notation, more
+information about this in the <a class="reference internal" href="subnet-format.html"><span class="doc">Subnet Format</span></a>. For example <code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>.</p></li>
+<li><p>Under <strong>IP Version</strong>, keep <strong>IPv4</strong>.</p></li>
+<li><p>Under <strong>Gateway-IP</strong> you have the option to either <a class="reference internal" href="connect-subnet-to-router.html"><span class="doc">set an IP as gateway</span></a>
 or not.</p></li>
 <li><p>If you want a gateway, choose a gateway IP and enter it in the form (we recommend the
 first IP in the range, if its available) or just leave it blank to select the first
@@ -1783,9 +1783,9 @@ available IP.</p>
 <li><p>Under <strong>Allocation pool</strong>, add the <a class="reference internal" href="dhcp.html"><span class="doc">DHCP scope</span></a>. That is, the starting and end
 addresses you want to auto-assign to hosts using DHCP. Add each pool (we recommend just
 one pool per subnet) by adding the first address, (comma) last address (with no spaces), for
-example (if you would use the 192.168.0.0/24 range) “192.168.0.20,192.168.0.254”.</p></li>
-<li><p>Under <strong>DNS name servers</strong> we recommend adding our servers which are “83.168.225.225” and “83.168.226.226”,
-one per line, in the form. You can use any DNS servers you want though.</p></li>
+example (if you would use the 192.168.0.0/24 range) <code class="docutils literal notranslate"><span class="pre">192.168.0.20,192.168.0.254</span></code>.</p></li>
+<li><p>Under <strong>DNS name servers</strong> we recommend adding our servers which are <code class="docutils literal notranslate"><span class="pre">83.168.225.225</span></code> and
+<code class="docutils literal notranslate"><span class="pre">83.168.226.226</span></code>, one per line, in the form. You can use any DNS servers you want though.</p></li>
 <li><p>Under <strong>Host routes</strong>, you would add static routes (more information in
 the <a class="reference internal" href="../router/routing-between-networks.html"><span class="doc">Routing between networks</span></a> article.</p></li>
 <li><p>Press <strong>Create</strong></p></li>
@@ -1797,8 +1797,8 @@ the <a class="reference internal" href="../router/routing-between-networks.html"
 <li><p>Press the name of the router you want to connect the subnet to.</p></li>
 <li><p>Press the <strong>Interfaces</strong> tab on the top.</p></li>
 <li><p>Press <strong>Add interface</strong></p></li>
-<li><p>Select the subnet in the “subnet” drop down.</p></li>
-<li><p>Leave the “IP address (optional)” field blank. This assumes the gateway address
+<li><p>Select the subnet in the <strong>Subnet</strong> dropdown.</p></li>
+<li><p>Leave the <strong>IP address (optional)</strong> field blank. This assumes the gateway address
 on the subnet is not in use somewhere (perhaps by some instance that is running
 as gateway). Otherwise, the IP address will have to be chosen.</p></li>
 <li><p>Press <strong>Submit</strong></p></li>

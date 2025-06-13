@@ -12,8 +12,8 @@ SSD
 ---
 
 SSD is the most versatile storage solution. It uses NAND cells to store data This technique vastly
-shortens "seek times" - a big issue with traditional drives because a mechanical read/write head needs
-to physically move into position before being able to read or write data.
+shortens latency since seek time is a big issue with traditional drives where a mechanical read/write
+head needs to physically move into position before being able to read or write data.
 
 This means SSD media have great random read/write performance with significantly lower latency than
 mechanical drives.

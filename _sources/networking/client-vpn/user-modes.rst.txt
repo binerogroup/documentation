@@ -50,17 +50,19 @@ To change the operating mode to include user authentication, using the VPN WebGU
 
 - :doc:`Login <initial-configuration>` to the VPN management interface.
 
-- Press "VPN" and then "OpenVPN" in the main menu.
+- Press **VPN** and then **OpenVPN** in the main menu.
 
-- Click the small pen symbol (edit server) on the only row (assuming you have not added more servers) under "OpenVPN servers". 
+- Click the small pen symbol (edit server) on the only row (assuming you have not added more servers)
+  under **OpenVPN servers**. 
 
-- Under section "Mode configuration" (close to the top), change "Server mode" to ``Remote Access ( SSL/TLS + User Auth )``
+- Under section **Mode configuration** (close to the top), change **Server mode**
+  to ``Remote Access ( SSL/TLS + User Auth )``
 
-- Scroll down to "Duplicate Connection" under section "Tunnel settings" and disable it (by removing the
+- Scroll down to **Duplicate Connection** under section **Tunnel settings** and disable it (by removing the
   checkbox) if you only want to allow one simultaneous connection per user. This will enforce that a single
   user is not sharing their login (willingly or otherwise) as just a single login at the time, per user account, is allowed.
 
-- Press "Save" at the bottom.
+- Press **Save** at the bottom.
 
 You are now ready to :doc:`create some users <managing-users>` to login to your VPN. 
 

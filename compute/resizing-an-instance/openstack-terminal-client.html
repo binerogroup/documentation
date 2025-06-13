@@ -1670,7 +1670,7 @@ by running command: <code class="docutils literal notranslate"><span class="pre"
 the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>.</p></li>
 <li><p>To resize, run the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">resize</span> <span class="pre">--flavor</span> <span class="pre">[FLAVOR</span> <span class="pre">NAME]</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code> where
 you replace the items in brackets to the flavor you choose in previous step and the instance name.</p></li>
-<li><p>Run the command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> and you’ll see the instance is now in Status “VERIFY_RESIZE”. Login
+<li><p>Run the command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> and you’ll see the instance is now in Status <strong>VERIFY_RESIZE</strong>. Login
 to the instance and verify that it worked as intended (meaning the instance is working as before but with the new flavor).</p></li>
 <li><p>If you are happy with the result, run the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">resize</span> <span class="pre">confirm</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code> This
 will finalize the process and make it permanent.</p></li>

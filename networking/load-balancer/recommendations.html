@@ -1655,7 +1655,7 @@ peak load. A common issue with load balancing is that when the load rise and som
 happens with a single member resulting in its removal, the remaining members are
 overwhelmed from picking up its load, resulting in more removals due to high load leading
 to slower responses and the load balancer timing out. This soon spirals out of control
-where servers “pop” in and out of the pool as the member recovers when removed but then
+where servers flaps in and out of the pool as the member recovers when removed but then
 gets overwhelmed again.</p></li>
 <li><p>Our recommendation is to have a (Linux) load 15 value of less than 1 per CPU core on the
 members (ideally 0,5) during peak with one member offline (two if high availability is

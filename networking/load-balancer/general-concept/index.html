@@ -1816,8 +1816,8 @@ gets its own IP on a subnet onto which is normally attached a <a class="referenc
 so as to enable it to be reached from the internet.</p></li>
 <li><p>The <strong>Pool</strong> is the active collection of member instances. It also sets the <em>common configuration</em>
 for the pool members that are included in the pool.</p></li>
-<li><p>The <strong>Pool members</strong> are also called “real servers”. These are compute instances that run a particular
-service (for example HTTPS to serve a web application) to which the load balancer redirects
+<li><p>The <strong>Pool members</strong> are also called backend- or real servers. These are compute instances that run a
+particular service (for example HTTPS to serve a web application) to which the load balancer redirects
 its requests. Members are defined statically in the load balancer but it will then add and remove them
 based on their current status.</p></li>
 <li><p><strong>Health monitors</strong> decide dynamically if a member should be included in the pool or not by continuously

@@ -1660,10 +1660,10 @@ tools.</p>
 <p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Network</strong> and then <code class="docutils literal notranslate"><span class="pre">Floating</span> <span class="pre">IPs</span></code> in the sidebar menu.</p></li>
-<li><p>On the floating IP that you want to assign the PTR to, press the small “cog” icon “set PTR”.</p></li>
-<li><p>In the “domain” field, enter the full PTR (for example <code class="docutils literal notranslate"><span class="pre">smtp.binero.com.</span></code>). Note the final dot in the example
+<li><p>On the floating IP that you want to assign the PTR to, press the small cog icon <strong>set PTR</strong>.</p></li>
+<li><p>In the <strong>domain</strong> field, enter the full PTR (for example <code class="docutils literal notranslate"><span class="pre">smtp.binero.com.</span></code>). Note the final dot in the example
 which needs to be there (this is the root zone that is most often left out).</p></li>
-<li><p>In the description field, enter an optional description of the IP (for example “external mail relay”).</p></li>
+<li><p>In the description field, enter an optional description of the IP (for example <em>external mail relay</em>).</p></li>
 <li><p>In the TTL field, enter the TTL (in seconds) you prefer.</p></li>
 <li><p>Press <strong>Save</strong></p></li>
 </ul>
@@ -1676,14 +1676,14 @@ done using either horizon or the terminal client, see below.</p>
 <p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>DNS</strong> and then <strong>Reverse DNS</strong> in the sidebar menu.</p></li>
-<li><p>On the floating IP that you want to assign the PTR to, press the “Set” button.</p></li>
-<li><p>In the “domain” field, enter the full PTR (for example <code class="docutils literal notranslate"><span class="pre">smtp.binero.com.</span></code>). Note the final dot in the
+<li><p>On the floating IP that you want to assign the PTR to, press the <strong>Set</strong> button.</p></li>
+<li><p>In the <strong>domain</strong> field, enter the full PTR (for example <code class="docutils literal notranslate"><span class="pre">smtp.binero.com.</span></code>). Note the final dot in the
 example which needs to be there (this is the root zone that is most often left out).</p></li>
-<li><p>In the description field, enter an optional description of the IP (for example “external mail relay”).</p></li>
+<li><p>In the description field, enter an optional description of the IP (for example <em>external mail relay</em>).</p></li>
 <li><p>In the TTL field, enter the TTL (in seconds) you prefer.</p></li>
 <li><p>Press <strong>Save</strong></p></li>
 <li><p>You are also able to unset (as in completely remove) the record using the small arrow next to
-the “Set” button according to above.</p></li>
+the <strong>Set</strong> button according to above.</p></li>
 </ul>
 <h3 id="adding-ptr-records-using-openstack-terminal-client">Adding PTR records using OpenStack terminal client<a class="headerlink" href="#adding-ptr-records-using-openstack-terminal-client" title="Link to this heading">¶</a></h3>
 <p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
@@ -1692,7 +1692,7 @@ the “Set” button according to above.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">list</span></code>. Find the row that matches the UUID from previous command. Save
 the complete id from this command (could look something like this: europe-se-1:2e6a89c0-d8ae-471e-ae28-e858c63c4c6e).</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">set</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">--ttl</span> <span class="pre">3600</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span> <span class="pre">[PTR</span> <span class="pre">DOMAIN].</span></code>. Take
-care to end the PTR name (the domain), with a dot (“.”) and replace the values within angle brackets with their corresponding
+care to end the PTR name (the domain), with a dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) and replace the values within angle brackets with their corresponding
 values. Description is optional.</p></li>
 <li><p>You are also able to unset (as in completely remove) the record using the following
 command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">unset</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span></code></p></li>

@@ -46,7 +46,7 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
   group will leave your internal networks open to each other even though they are traversing
   a router.
 
-- Create security groups based on use cases. A use case might be "web server" and another might
+- Create security groups based on use cases. A use case might be web server and another might
   be database server. The rules for each use case should be designed with the instance type in
   mind. Remember that its possible to add multiple security groups to any instance. Its easier
   (and less clear / more predictable) to have multiple, granular groups instead of a single,

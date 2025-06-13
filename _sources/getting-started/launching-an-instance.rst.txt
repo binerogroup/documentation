@@ -79,7 +79,7 @@ Create a network
 
 To create a network, follow these steps:
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Press **Networking** and then **Network** in the sidebar menu.
 
@@ -99,13 +99,13 @@ To add a subnet (an ip-range) to the network you created above, follow these ste
 - Press **Networking** and then **Network** in the sidebar menu. Select the network you created
   in the previous step.
 
-- In the top right corner, select "Create subnet" icon.
+- In the top right corner, select **Create subnet** icon.
 
 - Name the subnet.
 
 - Type a network address in CIDR notation. This is the network your servers will run
   on. It needs to be in one of the RFC1918 ranges (10.0.0.0/8, 172.16.0.0/12 or
-  192.168.0.0/16). If you are unsure what range to use we suggest "192.168.0.0/24".
+  192.168.0.0/16). If you are unsure what range to use we suggest ``192.168.0.0/24``.
 
 - Under **Gateway IP**, select **Set standard gateway IP**, this will select the first
   address in the range for your default route.
@@ -113,13 +113,13 @@ To add a subnet (an ip-range) to the network you created above, follow these ste
 - While you don't have to use DHCP, we strongly recommend it for an easier workflow. It
   should be pre-selected.
 
-- Under "Add pool", select what pool you want in the range you choose in previous step. You
+- Under **Add pool**, select what pool you want in the range you choose in previous step. You
   add a start and stop, for example in the above 192.168.0.0/24 example a start might be
-  "192.168.0.100" and stop "192.168.0.200" giving you 101 addresses in the pool. As the
+  ``192.168.0.100`` and stop ``192.168.0.200`` giving you 101 addresses in the pool. As the
   first address (i.e. 192.168.0.1) is reserved for the gateway, you cant include that but
   can otherwise choose as you see your need.
 
-- Under "Add DNS name server", add the name servers you want your network to use. Binero
+- Under **Add DNS name server**, add the name servers you want your network to use. Binero
   provides DNS name servers on 83.168.225.225 and 83.168.226.226 and we recommend those but
   you can use whichever you like.
 
@@ -132,7 +132,7 @@ To add a router, follow these steps:
 
 - Press **Networking** and then **Routers** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - **europe-se-1** should be preselected as region.
 

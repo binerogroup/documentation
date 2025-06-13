@@ -1834,14 +1834,14 @@ receives the request (from the load balancer) is listening on since the request 
 <p>To give your web application more information, there are a few headers that can be inserted
 by the load balancer:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-port</span></code> will be “443” and can be used to check that the traffic is indeed
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-port</span></code> will be 443 and can be used to check that the traffic is indeed
 arriving on the encrypted port (if you also allow pure http traffic to the same instances).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-proto</span></code> works the same was as above but will give the protocol.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for</span></code> will tell you to what IP, the visitor made the request. If you have
 several load balancers fronting the same instances, this will let you know through which
 load balancer the request was made.</p></li>
 </ul>
-<p>The headers are available from the “listener details” tab when setting up the load balancer
+<p>The headers are available from the <strong>Listener details</strong> tab when setting up the load balancer
 (or by editing the listener).</p>
 <p>We recommend adding the headers when setting up a load balancer as it implies little overhead
 to do so and the information is useful.</p>
@@ -1869,8 +1869,8 @@ the HTTPS realm.</p>
 <p>The cloud management portal cannot create just a listener but will create an entire pool as
 well.</p>
 <p>We do not recommend using it for this task but if you want to use it, navigate to your load
-balancer in the menu, click on the “listeners” tab and then press the “+” sign, after which
-you should be able to follow our <a class="reference internal" href="launching-a-loadbalancer/cloud-management-portal.html"><span class="doc">guide</span></a>.</p>
+balancer in the menu, click on the <strong>Listeners</strong> tab and then press the <strong>+</strong> plus sign, after
+which you should be able to follow our <a class="reference internal" href="launching-a-loadbalancer/cloud-management-portal.html"><span class="doc">guide</span></a>.</p>
 </div>
 <p>Documentation for creating a listener using the
 <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> is available
@@ -1878,17 +1878,17 @@ you should be able to follow our <a class="reference internal" href="launching-a
 <p>To add just a HTTP listener (as opposed to an entire load balancer with pools and health
 checking) using OpenStack Horizon, follow these steps:</p>
 <ul class="simple">
-<li><p>Under “project”, click “Network” and then “Load balancers” in the sidebar menu.</p></li>
+<li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Load balancers</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the load balancer to which you want to add the rule.</p></li>
 <li><p>Press the listener tab.</p></li>
-<li><p>Press “+ create listener”.</p></li>
+<li><p>Press <strong>+ Create listener</strong>.</p></li>
 <li><p>Name your listener. We recommend calling it <code class="docutils literal notranslate"><span class="pre">NAME_listener_http</span></code> to differentiate it
 from other listeners. Optionally provide a description.</p></li>
-<li><p>Select “HTTP” as the load balancer protocol.</p></li>
+<li><p>Select HTTP as the load balancer protocol.</p></li>
 <li><p>Ensure that the port is set to 80 (if its automatically set to 81, you already have
 a listener that listens on port 80 and should instead use that one).</p></li>
-<li><p>Under the “pool details” tab, select “no” under “create pool” section.</p></li>
-<li><p>Press “create listener”.</p></li>
+<li><p>Under the <strong>Pool details</strong> tab, select <strong>No</strong> under <strong>Create pool</strong> section.</p></li>
+<li><p>Press <strong>Create listener</strong>.</p></li>
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
@@ -1896,9 +1896,9 @@ a listener that listens on port 80 and should instead use that one).</p></li>
 for both www.example.com and example.com (assuming you use both).</p>
 </div>
 <h3 id="create-a-path-aware-redirect-policy">Create a path aware redirect policy<a class="headerlink" href="#create-a-path-aware-redirect-policy" title="Link to this heading">¶</a></h3>
-<p>The recommended way to require HTTPS is to use a “redirect prefix”. To setup this, use
-the OpenStack Terminal Client according to below. If you would rather use OpenStack Horizon or
-the cloud management portal, see below for a less accurate way to redirect.</p>
+<p>The recommended way to require HTTPS is to use a redirect prefix. To setup this, use
+the OpenStack Terminal Client according to below. If you would rather use OpenStack
+Horizon or the cloud management portal, see below for a less accurate way to redirect.</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">listener</span> <span class="pre">list</span></code>. Save the name of the listener.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">l7policy</span> <span class="pre">create</span> <span class="pre">--action</span> <span class="pre">REDIRECT_PREFIX</span> <span class="pre">--redirect-prefix</span> <span class="pre">https://[YOUR_DOMAIN]</span> <span class="pre">--name</span> <span class="pre">redirect_to_https</span> <span class="pre">[LISTENER</span> <span class="pre">NAME]</span></code> replacing
@@ -1921,13 +1921,13 @@ would redirect to <a class="reference external" href="https://example.com">https
 <li><p>Press the name of your HTTP listener.</p></li>
 <li><p>Press <strong>L7 Policies</strong> tab and then <strong>+ Create L7 policy</strong></p></li>
 <li><p>Name your policy to for example <code class="docutils literal notranslate"><span class="pre">redirect_https</span></code> and optionally give it a description.</p></li>
-<li><p>Under “action” select “REDIRECT_TO_URL”.</p></li>
-<li><p>Under “redirection URL” type <code class="docutils literal notranslate"><span class="pre">https://yourdomain.com</span></code> (replace yourdomain.com with your domain).</p></li>
-<li><p>Under “position”, type “1”.</p></li>
-<li><p>Press the name of your new policy and then the tab “L7 Rules” and then “+ Create L7 Rule”.</p></li>
-<li><p>Under “type”, select “HOST_NAME”.</p></li>
-<li><p>Under “compare type”, select “CONTAINS”.</p></li>
-<li><p>Enter your domain (same as the one you want to do redirects for) in the “value” field.</p></li>
+<li><p>Under <strong>Action</strong> select <code class="docutils literal notranslate"><span class="pre">REDIRECT_TO_URL</span></code>.</p></li>
+<li><p>Under <strong>Redirection URL</strong> type <code class="docutils literal notranslate"><span class="pre">https://yourdomain.com</span></code> (replace yourdomain.com with your domain).</p></li>
+<li><p>Under <strong>Position</strong>, type <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>Press the name of your new policy and then the tab <strong>L7 Rules</strong> and then <strong>+ Create L7 Rule</strong>.</p></li>
+<li><p>Under <strong>Type</strong>, select <code class="docutils literal notranslate"><span class="pre">HOST_NAME</span></code>.</p></li>
+<li><p>Under <strong>Compare type</strong>, select <code class="docutils literal notranslate"><span class="pre">CONTAINS</span></code>.</p></li>
+<li><p>Enter your domain (same as the one you want to do redirects for) in the value field.</p></li>
 <li><p>Press <strong>Create L7 Rule</strong></p></li>
 </ul>
 <div class="seealso admonition">

@@ -1680,8 +1680,8 @@
 <ul class="simple">
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">availability</span> <span class="pre">zone</span> <span class="pre">list</span> <span class="pre">--network</span> <span class="pre">--long</span></code>, this will give you the current
 availability zones for routers and networking, to create the router we will need to select
-an availability zone for it. Save the name of the availability zone (with zone resource “router”)
-you want to use for following step. If you are unsure, always use <em>europe-se-1a</em>.</p></li>
+an availability zone for it. Save the name of the availability zone you want to use for
+following step. If you are unsure, use <em>europe-se-1a</em>.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">network</span> <span class="pre">list</span> <span class="pre">--external</span></code>, this will show the available external networks. Save
 this for next step.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">router</span> <span class="pre">create</span> <span class="pre">--availability-zone-hint=[AVAILABILITY</span> <span class="pre">ZONE]</span> <span class="pre">--external-gateway=[NETWORK-NAME]</span> <span class="pre">[ROUTER</span> <span class="pre">NAME]</span></code>. Replace

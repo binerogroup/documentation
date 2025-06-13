@@ -1781,7 +1781,7 @@ wanted anything larger or smaller) 18 to 27 as value for the mask.</p>
 <p>This is because when the mask is incremented by one, the network size is halved (which is why when we get to 27, counting down
 from 18, we only have 30 addresses left to use from the original 16382 at /18 - bearing in mind some addresses are reserved).</p>
 <p>A standard size is /24, this mask size yields 255 usable IP addresses and would give the subnet mask setting (in the OS, this
-is really the same as the prefix length, or mask, but in another format) “255.255.255.0”.</p>
+is really the same as the prefix length, or mask, but in another format) <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code>.</p>
 <p>In Binero cloud, the platform will calculate the subnet mask for you (and it would normally be assigned using <a class="reference internal" href="dhcp.html"><span class="doc">DHCP</span></a>, so there
 is no need to understand what subnet mask a certain CIDR prefix will have.</p>
 <p>You just need to choose one that yields the right amount of usable IP addresses to suit your use-case.</p>
@@ -1810,7 +1810,7 @@ more granularly than in 3 stages.</p>
 <p>The subnet mask showed how many addresses were available in the subnet based on a number that stated how big a
 part of the <strong>IP address</strong> was the network portion vs how big a part was the host portion.</p>
 <p>An IPv4 address is a 32 bit number divided into 4 octets to make it easier to read. In the example <strong>192.168.0.0/24</strong>,
-the <em>mask</em> (“/24” in this case) states that the 24 first bits (which is 192.168.0) is the network address.</p>
+the <em>mask</em> (<code class="docutils literal notranslate"><span class="pre">/24</span></code> in this case) states that the 24 first bits (which is 192.168.0) is the network address.</p>
 <p>This address is just used for describing the network and cannot be changed when addressing hosts in the network. This
 can be explained as 32 / 4 = 8, so 8 bits per octet, 24 bits then making the first 3 octets the network address (so
 192.168.0 being the first 3 octets).</p>

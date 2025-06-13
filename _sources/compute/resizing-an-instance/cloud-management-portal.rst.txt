@@ -21,7 +21,7 @@ To resize an `instance <../index>`_ using the :doc:`/getting-started/managing-yo
 
 - You will see the status in the top left corner. 
 
-- When it says "verify resize" (and a small triangle), login to the instance
+- When it says **Verify resize** (and a small triangle), login to the instance
   and verify that it worked as intended (meaning the instance is working as
   before but with the new flavor). 
 
@@ -29,7 +29,7 @@ To resize an `instance <../index>`_ using the :doc:`/getting-started/managing-yo
   right corner. This will finalize the process and make it permanent.
 
 - If you are unhappy (for some reason the process failed), you are able to
-  instead press the small "x". This will revert the process.
+  instead press the small **x** (cross). This will revert the process.
 
 - Accept the change by pressing **Yes**
 

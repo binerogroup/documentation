@@ -1655,10 +1655,10 @@ to control).</p>
 it need to egress onto a network with a smaller MTU as next hop.</p>
 <p>The receiving server will later on have to reassemble the packet. This process happens in the background
 and is not something that needs to be actively managed by an administrator, however some applications does
-not work well with fragmentation so there is an option to disallow it by setting the “DF” bit on a frame.</p>
+not work well with fragmentation so there is an option to disallow it by setting the <code class="docutils literal notranslate"><span class="pre">DF</span></code> bit on a frame.</p>
 <p>DF stands for Don’t Fragment and essentially tells every router involved to avoid fragmentation. The alternative
 to fragmentation, when using a larger MTU than 1500, is that the package is dropped and an ICMP message with code
-“fragmentation needed” is returned.</p>
+<em>fragmentation needed</em> is returned.</p>
 <p>Because of this, its important to understand the concept of MTU, especially when using an MTU different
 from 1500 bytes.</p>
 <p>Here is an example of an ICMP reply to a package that was to big, as captured using <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code>:</p>
@@ -1669,8 +1669,8 @@ from 1500 bytes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="mi">6</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mf">17.621056</span> <span class="n">IP</span> <span class="p">(</span><span class="n">tos</span> <span class="mh">0x0</span><span class="p">,</span> <span class="n">ttl</span> <span class="mi">61</span><span class="p">,</span> <span class="nb">id</span> <span class="mi">39062</span><span class="p">,</span> <span class="n">offset</span> <span class="mi">0</span><span class="p">,</span> <span class="n">flags</span> <span class="p">[</span><span class="n">DF</span><span class="p">],</span> <span class="n">proto</span> <span class="n">TCP</span> <span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">length</span> <span class="mi">4148</span><span class="p">)</span> <span class="mf">4.5.6.7.443</span> <span class="o">&gt;</span> <span class="mf">1.2.3.4.34862</span><span class="p">:</span> <span class="n">Flags</span> <span class="p">[</span><span class="n">P</span><span class="o">.</span><span class="p">],</span> <span class="n">cksum</span> <span class="mh">0x0bdb</span> <span class="p">(</span><span class="n">incorrect</span> <span class="o">-&gt;</span> <span class="mh">0x3f5f</span><span class="p">),</span> <span class="n">seq</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4097</span><span class="p">,</span> <span class="n">ack</span> <span class="mi">321</span><span class="p">,</span> <span class="n">win</span> <span class="mi">227</span><span class="p">,</span> <span class="n">options</span> <span class="p">[</span><span class="n">nop</span><span class="p">,</span><span class="n">nop</span><span class="p">,</span><span class="n">TS</span> <span class="n">val</span> <span class="mi">955793242</span> <span class="n">ecr</span> <span class="mi">3076045005</span><span class="p">],</span> <span class="n">length</span> <span class="mi">4096</span>
 </code></pre></div>
 </div>
-<p>Notice the “DF” flag - this indicates that the package should not be fragmented. Also notice the “length”
-indicating that the package is 4096 bits long and as such, will not pass a standard 1500 MTU interface (since
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">DF</span></code> flag - this indicates that the package should not be fragmented. Also notice the length
+indicating that the packet is 4096 bits long and as such, will not pass a standard 1500 MTU interface (since
 it cannot be fragmented).</p>
 <h2 id="mtu-discovery">MTU discovery<a class="headerlink" href="#mtu-discovery" title="Link to this heading">¶</a></h2>
 <p>The standard for discovering the smallest MTU on a link called <a class="reference external" href="https://en.wikipedia.org/wiki/Path_MTU_Discovery">Path MTU Discovery</a>

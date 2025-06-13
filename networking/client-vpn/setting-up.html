@@ -1678,14 +1678,14 @@ for more information.</p>
 <p>Follow these steps to setup client VPN using the cloud management portal:</p>
 <ul class="simple">
 <li><p>Press <strong>VPN</strong> and then <strong>OpenVPN</strong> in the sidebar menu.</p></li>
-<li><p>Click the “+” symbol in the lower right corner.</p></li>
+<li><p>Click the <strong>+</strong> (plus) symbol in the lower right corner.</p></li>
 <li><p>Give your VPN service a name and optionally a description.</p></li>
 <li><p>Select your <a class="reference internal" href="../../compute/ssh-keys.html"><span class="doc">SSH-keys</span></a>.</p></li>
-<li><p>Under “Admin IP ranges”, enter the IP-ranges (can be comma delimited or a single range) that should
+<li><p>Under <strong>Admin IP ranges</strong>, enter the IP-ranges (can be comma delimited or a single range) that should
 be able to do initial VPN configuration (see below).</p>
 <ul>
 <li><p>This should be one ore more subnets in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>. We recommend
-your current public IP address. If you opt to use a single IP, it should then be suffixed by “/32”, which indicate
+your current public IP address. If you opt to use a single IP, it should then be suffixed by <code class="docutils literal notranslate"><span class="pre">/32</span></code>, which indicate
 a single address.</p></li>
 </ul>
 </li>
@@ -1706,7 +1706,7 @@ extra users. For performance oriented users, we recommend a hp.4x6 instance.</p>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The “admin IP range” value will setup a <a class="reference internal" href="../security-groups/index.html"><span class="doc">security group</span></a> that will allow access
+<p>The <strong>admin IP range</strong> value will setup a <a class="reference internal" href="../security-groups/index.html"><span class="doc">security group</span></a> that will allow access
 to the new instance for initial web-management (for example downloading the VPN client configuration).</p>
 <p>Once this is done, further management can be accomplished by first logging into the VPN.</p>
 <p>The security group can be altered from the various portals in case you would originate from another IP in the future

@@ -1611,9 +1611,9 @@ instance by SSH.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Admin</span> <span class="pre">IP</span> <span class="pre">ranges</span></code>: IP ranges in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>
 that will be allowed to access the pfSense instances WebUI and SSH server through the router.</p>
 <ul>
-<li><p>Usually this would be your offices (or like) public IP-address followed by “/32” (for example 8.8.8.8/32)
-in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN
-server, you can enter <code class="docutils literal notranslate"><span class="pre">0.0.0.0/32</span></code> here (not recommended) or leave the standard “127.0.0.1/32” which will
+<li><p>Usually this would be your offices (or like) public IP-address followed by <code class="docutils literal notranslate"><span class="pre">/32</span></code> (for example <code class="docutils literal notranslate"><span class="pre">8.8.8.8/32</span></code>)
+in which case traffic from <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> would be able to reach management. If you prefer open access to the VPN
+server, you can enter <code class="docutils literal notranslate"><span class="pre">0.0.0.0/32</span></code> here (not recommended) or leave the standard <code class="docutils literal notranslate"><span class="pre">127.0.0.1/32</span></code> which will
 not allow access other than from inside the cloud (for example via the client-vpn). This can also be changed
 later by editing the security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code></p></li>
 </ul>
@@ -1637,7 +1637,7 @@ when generating ciphers, etc.</p></li>
 <li><p>Post installation tasks:</p>
 <ul>
 <li><p>In the output of the stack, a <code class="docutils literal notranslate"><span class="pre">mgmt_url</span></code> parameter is shown. Save this, along with the
-“admin password” (the username is always “admin”). These are for doing additional configuration.</p></li>
+<code class="docutils literal notranslate"><span class="pre">admin</span> <span class="pre">password</span></code> (the username is always <code class="docutils literal notranslate"><span class="pre">admin</span></code>). These are for doing additional configuration.</p></li>
 <li><p>We recommend logging into the above URL and changing the password and pre-shared key, please
 see <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information on this.</p></li>
 <li><p>After the service creation is complete you will need to <a class="reference internal" href="adding-routing-for-vpn.html"><span class="doc">add routes to the remote subnets</span></a>

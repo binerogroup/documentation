@@ -1574,11 +1574,11 @@ for the internal network(s) unless you have already done so.</p></li>
 <ul>
 <li><p>Select fixed IP and add input the same IP as you selected as default route on the
 subnet in the previous step.</p></li>
-<li><p>Under <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a>, add the “all-open” group (as the
+<li><p>Under <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a>, add the <cite>´all-open`</cite> group (as the
 traffic will not be destined to the instance because of routing). A firewall to the
 router/firewall-instance will have to be setup on the instance itself.</p></li>
-<li><p>Edit the new port and select the “Allowed address pairs” tab</p></li>
-<li><p>Add “0.0.0.0/0” under the “IP Address or CIDR” field.</p></li>
+<li><p>Edit the new port and select the <strong>Allowed address pairs</strong> tab</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> under the <strong>IP Address or CIDR</strong> field.</p></li>
 </ul>
 </li>
 <li><p>Launch the instance using an image or install it via console.</p>
@@ -1586,7 +1586,7 @@ router/firewall-instance will have to be setup on the instance itself.</p></li>
 <li><p>Add a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a> as the outside network.</p></li>
 <li><p>Connect to the port(s). Do not connect to the inside subnet, just the port(s) that
 you already created.</p></li>
-<li><p>Select the “all-open” security group unless you want to filter traffic to the router in
+<li><p>Select the <code class="docutils literal notranslate"><span class="pre">all-open</span></code> security group unless you want to filter traffic to the router in
 the platform (its recommended to use this feature in the router/firewall as that will
 simplify working with it.</p></li>
 </ul>
@@ -1606,9 +1606,9 @@ instances.</p>
 <p>If its not working, the following are some tips to check connectivity:</p>
 <ul class="simple">
 <li><p>Verify that the router can reach the instances directly and vice versa.</p></li>
-<li><p>Verify the security groups on all instances. The firewall/router should have “all-open” on all ports
-and “default” (as well) on the internal ports). If the firewall does not have default, other instances
-will not accept traffic from it and if it does not have the all-open group, it will not access traffic
+<li><p>Verify the security groups on all instances. The firewall/router instance should have <code class="docutils literal notranslate"><span class="pre">all-open</span></code> on
+all ports and <code class="docutils literal notranslate"><span class="pre">default</span></code> on the internal ports). If the firewall does not have <code class="docutils literal notranslate"><span class="pre">default</span></code>, other instances
+will not accept traffic from it and if it does not have the <code class="docutils literal notranslate"><span class="pre">all-open</span></code> group, it will not access traffic
 from the other instances.</p></li>
 </ul>
 <div class="note admonition">

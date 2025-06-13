@@ -19,7 +19,7 @@ The pool will provide a common configuration for the members:
   - Source IP, traffic from the same source will end up on the same pool
     member when possible. This is similar to persistence (see below) but
     a more crude implementation with less guarantees. This is generally
-    called "affinity".
+    called affinity.
 
 - Session persistence will try to ensure that requests from the same
   source will end up on the same member instance. Depending on what

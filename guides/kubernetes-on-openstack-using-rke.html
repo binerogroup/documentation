@@ -1259,37 +1259,41 @@
   
 
 <h1 id="kubernetes-on-openstack-using-rke">Kubernetes on OpenStack using RKE<a class="headerlink" href="#kubernetes-on-openstack-using-rke" title="Link to this heading">¶</a></h1>
-<p>RKE is a CNCF-certified Kubernetes distribution that runs entirely in Docker containers. RKE solves the
-problem of installation complexity, a common problem in the Kubernetes community.</p>
-<p>Provided you are able to run a supported version of Docker, you can deploy and run Kubernetes with RKE.</p>
-<p>RKE supports management on different cloud providers using provider plugins. The OpenStack plugin is used
-to interact with the many resources supported by OpenStack and deploy Kubernetes on OpenStack instances, the plugin
-must be configured with the correct credentials before it can be used.</p>
+<p>RKE is a CNCF-certified Kubernetes distribution that runs entirely in Docker
+containers. RKE solves the problem of installation complexity, a common problem
+in the Kubernetes community.</p>
+<p>Provided you are able to run a supported version of Docker, you can deploy and
+run Kubernetes with RKE.</p>
+<p>RKE supports management on different cloud providers using provider plugins. The
+OpenStack plugin is used to interact with the many resources supported by OpenStack
+and deploy Kubernetes on OpenStack instances, the plugin must be configured with the
+correct credentials before it can be used.</p>
 <h2 id="installing-rke">Installing RKE<a class="headerlink" href="#installing-rke" title="Link to this heading">¶</a></h2>
 <p>We recommend following the <a class="reference external" href="https://rancher.com/docs/rke/latest/en/installation/#download-the-rke-binary">the official installation-guide</a>
 to install RKE on your workstation.</p>
 <h2 id="preparing-the-nodes">Preparing the nodes<a class="headerlink" href="#preparing-the-nodes" title="Link to this heading">¶</a></h2>
-<p>Create the virtual instances that should run as Kubernetes nodes. It is a prerequisite that Docker is
-installed on all virtual machines.</p>
+<p>Create the virtual instances that should run as Kubernetes nodes. It is a prerequisite
+that Docker is installed on all virtual machines.</p>
 <p>For a full list of prerequisites and node preparations, follow the steps in
 the <a class="reference external" href="https://rke.docs.rancher.com/os#operating-system">official requirements guide</a>.</p>
-<p>In this example two virtual machines are created where rancher-node-1 will be used as control and etcd host
-and rancher-node-2 will be used as worker host.</p>
+<p>In this example two virtual machines are created where rancher-node-1 will be used as
+control and etcd host and rancher-node-2 will be used as worker host.</p>
 <p>Run the following commands to install docker on both instances:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">https://releases.rancher.com/install-docker/20.10.sh</span> <span class="pre">&gt;</span> <span class="pre">install.sh</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">install.sh</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-aG</span> <span class="pre">docker</span> <span class="pre">$USER</span></code></p></li>
 </ul>
-<p>After re-logging into the instances, that is closing the ssh session and opening it again (to enable the
-environment), you should now be able to run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> which would tell you that docker was installed.</p>
+<p>After re-logging into the instances, that is closing the ssh session and opening it
+again (to enable the environment), you should now be able to run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> which
+would tell you that docker was installed.</p>
 <h2 id="configure-the-openstack-plugin">Configure the OpenStack plugin<a class="headerlink" href="#configure-the-openstack-plugin" title="Link to this heading">¶</a></h2>
 <p>Follow these instructions to prepare the plugin on your workstation:</p>
 <ul class="simple">
-<li><p>Create a catalog called “demo” and an empty file called “cluster.yml” in the same catalog.</p></li>
+<li><p>Create a catalog called <code class="docutils literal notranslate"><span class="pre">demo</span></code> and an empty file called <code class="docutils literal notranslate"><span class="pre">cluster.yml</span></code> in the same catalog.</p></li>
 <li><p>Run the command <code class="docutils literal notranslate"><span class="pre">rke</span> <span class="pre">config</span> <span class="pre">-name</span> <span class="pre">cluster.yml</span></code> and follow the instructions. When you get to the step
-“override hostname” enter the names of the instances you created in the previous steps.</p></li>
-<li><p>Edit the “cluster.yml” file. Under the section “cloud provider” enter the correct parameters (more info
+<strong>override hostname</strong> enter the names of the instances you created in the previous steps.</p></li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">cluster.yml</span></code> file. Under the section <strong>cloud provider</strong> enter the correct parameters (more info
 <a class="reference external" href="https://rke.docs.rancher.com/config-options/cloud-providers/openstack">here</a>. IDs and names are available
 in the platform using any of the management tools. The finished file might look something like this:</p></li>
 </ul>
@@ -1319,7 +1323,7 @@ in the platform using any of the management tools. The finished file might look 
 <li><p>When done, run the command <code class="docutils literal notranslate"><span class="pre">rke</span> <span class="pre">up</span></code> which will install the cluster.</p></li>
 <li><p>Two new files will be in the demo directory after we run this command, cluster.rkestate
 and kube_config_cluster.yml.</p></li>
-<li><p>Use the file “kube_config_cluster.yml” with kubectl to check cluster health and perform actions
+<li><p>Use the file <code class="docutils literal notranslate"><span class="pre">kube_config_cluster.yml</span></code> with kubectl to check cluster health and perform actions
 for example like this: <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">--cubeconfig=kube_config_cluster.yml</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">-A</span></code>.</p></li>
 </ul>
 <h2 id="create-a-persistent-volume-claim-with-cinder-service">Create a Persistent Volume Claim with Cinder Service<a class="headerlink" href="#create-a-persistent-volume-claim-with-cinder-service" title="Link to this heading">¶</a></h2>
@@ -1327,7 +1331,7 @@ for example like this: <code class="docutils literal notranslate"><span class="p
 <ul class="simple">
 <li><p>Export kube_config_cluster.yml to a KUBECONFIG environment variable like
 this <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">KUBECONFIG=kube_config_cluster.yml</span></code>.</p></li>
-<li><p>Create a StorageClass YAML file storageclass.yaml based on an SSD volume in availability
+<li><p>Create a StorageClass YAML file <code class="docutils literal notranslate"><span class="pre">storageclass.yaml</span></code> based on an SSD volume in availability
 zone europe-se-1a with the following content:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">kind</span><span class="p">:</span> <span class="n">PersistentVolumeClaim</span>

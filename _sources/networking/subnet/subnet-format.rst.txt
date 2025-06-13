@@ -36,7 +36,7 @@ This is because when the mask is incremented by one, the network size is halved 
 from 18, we only have 30 addresses left to use from the original 16382 at /18 - bearing in mind some addresses are reserved). 
 
 A standard size is /24, this mask size yields 255 usable IP addresses and would give the subnet mask setting (in the OS, this
-is really the same as the prefix length, or mask, but in another format) "255.255.255.0".
+is really the same as the prefix length, or mask, but in another format) ``255.255.255.0``.
 
 In Binero cloud, the platform will calculate the subnet mask for you (and it would normally be assigned using :doc:`dhcp`, so there
 is no need to understand what subnet mask a certain CIDR prefix will have.
@@ -77,7 +77,7 @@ The subnet mask showed how many addresses were available in the subnet based on 
 part of the **IP address** was the network portion vs how big a part was the host portion.
 
 An IPv4 address is a 32 bit number divided into 4 octets to make it easier to read. In the example **192.168.0.0/24**,
-the *mask* ("/24" in this case) states that the 24 first bits (which is 192.168.0) is the network address.
+the *mask* (``/24`` in this case) states that the 24 first bits (which is 192.168.0) is the network address.
 
 This address is just used for describing the network and cannot be changed when addressing hosts in the network. This
 can be explained as 32 / 4 = 8, so 8 bits per octet, 24 bits then making the first 3 octets the network address (so
