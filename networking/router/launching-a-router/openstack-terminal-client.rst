@@ -7,8 +7,8 @@ To launch a `router <../index>`_ from the
 
 - Run ``openstack availability zone list --network --long``, this will give you the current
   availability zones for routers and networking, to create the router we will need to select
-  an availability zone for it. Save the name of the availability zone (with zone resource "router")
-  you want to use for following step. If you are unsure, always use *europe-se-1a*.
+  an availability zone for it. Save the name of the availability zone you want to use for
+  following step. If you are unsure, use *europe-se-1a*.
 
 - Run ``openstack network list --external``, this will show the available external networks. Save
   this for next step.

@@ -16,7 +16,7 @@ To create a layer 7 policy using the :doc:`cloud management portal </getting-sta
 
 - Press the **L7 policies** tab.
 
-- Press the "+" button.
+- Press the **+** (plus) sign.
 
 - Name your policy and optionally provide a description.
 
@@ -36,13 +36,13 @@ it. To do this, follow these steps:
 
 - Press the **L7 Rules** tab.
 
-- Press the "+" button.
+- Press the **+** (plus) sign.
 
 - Choose the type and if applicable, also input the key value. 
 
 - Choose compare type and input value for comparison.
 
-- Check **admin state up** assuming you want the rule to go live at once.
+- Check **Admin state up** assuming you want the rule to go live at once.
 
 - Press **Create**
 

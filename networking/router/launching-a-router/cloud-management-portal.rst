@@ -7,7 +7,7 @@ To launch a :doc:`router <../index>` from the
 
 - Press **Networking** and then **Routers** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Under region, *europe-se-1* should be pre-selected.
 

@@ -49,7 +49,7 @@ balancing).
 Scaling up
 ^^^^^^^^^^
 
-Scaling up (or "vertical scaling) is a resize of the instance and / or volumes, to instantly add
+Scaling up (or vertical scaling) is a resize of the instance and / or volumes, to instantly add
 more resources (with no need to change the installation).
 
 While being quick to implement (as its purely reliant on the infrastructure platform and not the
@@ -61,7 +61,7 @@ Scaling out
 
 The opposite method is adding parallel resources (for example additional instances) and
 using `load balancing </networking/load-balancers>`_) to distribute load between them, this is
-called "scaling out" or ("horizontal scaling").
+called scaling out (or horizontal scaling).
 
 For systems which are expected to need to scale to many times their initial size, this method is
 likely required.

@@ -29,7 +29,7 @@ Routing via DHCP
 ----------------
 
 Since DHCP provisions IP-configuration to instances, if there is a need to add :doc:static routes <../static-routing>` to
-instances (so called "Host routes") for whatever reason, DHCP is a good way to accomplish this as any routes that are added
+instances (so called **Host routes**) for whatever reason, DHCP is a good way to accomplish this as any routes that are added
 to the DHCP subnet will get pushed to all instances on that subnet (existing as well as any new ones added).
 
 DHCP will only add routes on instances, which is only usable to route to other instances on the same subnet. To route to a
@@ -47,7 +47,7 @@ To add a route using the :doc:`/getting-started/managing-your-cloud/cloud-manage
 
 - Press the edit icon (a small pencil) next to the subnet for which you want to add the route.
 
-- Press the "+" sign above "add host route".
+- Press the **+** (plus) sign above **Add host route**
 
 - Under **Destination CIDR**, enter the destination network in
   :doc:`CIDR notation </networking/subnet/subnet-format>`.

@@ -25,9 +25,9 @@ To update the VPN server using the VPN WebGUI.
 
 - :doc:`Login <initial-configuration>` to the VPN management interface.
 
-- Press "System" and then "Update" in the main menu.
+- Press **System** and then **Update** in the main menu.
 
-- Ensure that the Branch is "Latest stable version".
+- Ensure that the Branch is **Latest stable version**.
 
 - Wait for the Status to indicate if the server is up to date or not. 
 
@@ -49,26 +49,26 @@ To re-issue certificates using the VPN WebGUI.
 
 - :doc:`Login <initial-configuration>` to the VPN management interface.
 
-- Press "System" and then "Cert. manager" in the main menu. 
+- Press **System** and then **Cert manager** in the main menu. 
 
-- Press the "Certificates" tab under the main heading (the default menu is the CA menu - do *not* re-issue the CA).
+- Press the **Certificates** tab under the main heading (the default menu is the CA menu - do *not* re-issue the CA).
 
-- By default there are 3 certificates installed on the system; "OpenVPN Server", "OpenVPN User",
+- By default there are 3 certificates installed on the system; **OpenVPN Server**, **OpenVPN User**,
   ``webConfigurator default``. Aside from this, if you've added users these will also be in the list. The
   first two certificates will need to be reissued.
 
-- Press the small "round arrow" (re-issue / renew) to the right of each (one at the time) of the OpenVPN server and OpenVPN User.
+- Press the small round arrow (re-issue / renew) to the right of each (one at the time) of the OpenVPN server and OpenVPN User.
 
-- Press the "Renew/Reissue" button.
+- Press the **Renew/Reissue** button.
 
-- Note that the "valid until" date is renewed.
+- Note that the **valid until** date is renewed.
 
 .. important::
 
-   The "OpenVPN User" certificate is used when using the :doc:`default mode <user-modes>` user setup. When renewing
+   The **OpenVPN User** certificate is used when using the :doc:`default mode <user-modes>` user setup. When renewing
    this certificate, new :doc:`client configurations <logging-in>` will need to be setup in the VPN users client software.
 
-   The "OpenVPN Server" certificate will not require new client configurations but renewing it will **restart the service**
+   The **OpenVPN Server** certificate will not require new client configurations but renewing it will **restart the service**
    which will disconnect active clients. 
 
 .. note::

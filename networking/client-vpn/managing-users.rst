@@ -15,9 +15,9 @@ To add a user, using the VPN WebGUI.
 
 - :doc:`Login <initial-configuration>` to the VPN management interface.
 
-- Press "System" and then "User manager" in the main menu.
+- Press **System** and then **User manager** in the main menu.
 
-- Press the "+Add" button. 
+- Press the **+Add** button. 
 
 - Enter a username (firstname.lastname is common).
 
@@ -25,11 +25,11 @@ To add a user, using the VPN WebGUI.
 
 - Enter a password and verify it. 
 
-- Check the "Click to create a user certificate" checkbox.
+- Check the **Click to create a user certificate** checkbox.
 
-- Copy the username to the "descriptive name" field under "create certificate for user".
+- Copy the username to the **descriptive name** field under **create certificate for user**.
 
-- Press "save".
+- Press **Save**.
 
 Remove a user
 -------------
@@ -38,14 +38,14 @@ To remove a user, using the VPN WebGUI.
 
 - :doc:`Login <initial-configuration>` to the VPN management interface.
 
-- Press "System" and then "User manager" in the main menu.
+- Press **System** and then **User manager** in the main menu.
 
 - Mark the checkbox in front of the user you want to remove.
 
-- Press "Delete" button on the bottom.
+- Press **Delete** button on the bottom.
 
 .. note::
 
    A deleted user will not immediately be disconnected from the VPN. If that is needed for
-   any reason, do so by pressing "Status" and then "OpenVPN" in the main menu, and then
+   any reason, do so by pressing **Status** and then **OpenVPN** in the main menu, and then
    pressing the small red X next to the user. 

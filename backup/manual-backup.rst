@@ -22,9 +22,9 @@ To create a backup of a volume using the :doc:`/getting-started/managing-your-cl
 
 - Press **Storage** and then **Backups** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** icon in the bottom right corner.
 
-- Select a volume from the drop-down menu. If you are unsure about which volume (due to IDs being used) you
+- Select a volume from the dropdown menu. If you are unsure about which volume (due to IDs being used) you
   can check the instance to see which volumes are attached to it: 
 
   - Press **Compute** and then **Instances**. 
@@ -58,9 +58,9 @@ To create a backup of a volume using :doc:`/getting-started/managing-your-cloud/
 
 - Under **Project**, click **Volumes** and then **Volumes** in the sidebar menu.
 
-- Click **Create backup** in the drop down menu to the far right on the row of the volume that you
+- Click **Create backup** in the dropdown menu to the far right on the row of the volume that you
   want to backup. You are able to see which instance the volume is attached to in the **Attached to**
-  column. 
+  column.
 
 - Give your backup a name and optionally a description.
 
@@ -74,7 +74,7 @@ OpenStack Terminal Client
 To create a volume using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack volume list``, save the ID of the volume you want to backup. Its visible
-  which instance the volumes are attached to in the "Attached to" column. 
+  which instance the volumes are attached to in the **Attached to** column. 
 
 - Run this command: ``openstack volume backup create --force --name [BACKUP_NAME] [VOLUME_ID]``, replacing
   with the name of the backup and the ID from the previous step.

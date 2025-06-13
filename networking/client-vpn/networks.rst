@@ -25,17 +25,18 @@ To add a network to the VPN server, using the WebUI.
 
 - :doc:`Login <initial-configuration>` to the VPN management interface.
 
-- Press "VPN" and then "OpenVPN" in the main menu.
+- Press **VPN** and then **OpenVPN** in the main menu.
 
-- Click the small pen symbol (edit server) on the only row (assuming you have not added more servers) under "OpenVPN servers". 
+- Click the small pen symbol (edit server) on the only row (assuming you have not added more servers)
+  under **OpenVPN servers**. 
 
-- Scroll down to the "Tunnel settings" section. 
+- Scroll down to the **Tunnel settings** section. 
 
-- Change the value in the field "IPv4 Local network(s)" to also include your additional network(s)
+- Change the value in the field **IPv4 Local network(s)** to also include your additional network(s)
   in :doc:`CIDR notation <../subnet/subnet-format>`. The networks are delimited by
   a comma. Your initial subnet should be in this field already.
 
-- Press "Save" at the bottom. 
+- Press **Save** at the bottom. 
 
 - When users login again, they can reach the additional subnet(s) assuming its
   correctly :doc:`routed <../router/routing-between-networks>` in the cloud.

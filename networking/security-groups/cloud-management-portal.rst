@@ -9,7 +9,7 @@ To create a :doc:`security group <index>` using the :doc:`/getting-started/manag
 
 - Press **Networking** and then **Security groups** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Under region, *europe-se-1* should be pre-selected.
 
@@ -29,8 +29,8 @@ To add rules to a :doc:`security group <index>` using the :doc:`/getting-started
 
 - Press **Networking** and then **Security groups** in the sidebar menu.
 
-- On the security group you want to add a rule to, press the small "create rule" icon (looks
-  like several rows of text with a small "+" sign).
+- On the security group you want to add a rule to, press the small **create rule** icon (looks
+  like several rows of text with a small **+** plus sign).
 
 - Define the rule. More info in our :doc:`designing-rules` article.
 

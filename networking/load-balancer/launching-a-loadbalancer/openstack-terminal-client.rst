@@ -37,7 +37,7 @@ option. The example below will load balance HTTP (protocol aware) and thus port 
    --name [NAME_listener_80] --default-tls-container=$(openstack secret list | awk '/ [NAME_OF_SECRET] / {print $2}') [NAME_lb]``
 
 *The brackets are for demonstrating values that need to be customised and should be removed. The suffixes
-(i.e. "_listener_80") suggested within brackets are for future clarity (with the "NAME" part to symbolise
+(i.e. ``_listener_80``) suggested within brackets are for future clarity (with the ``NAME`` part to symbolise
 a common name you pick to identify the load balancer), any name could however be chosen for each part of
 the load balancer. That said, each command will reference an earlier names chosen.*
 
@@ -92,7 +92,7 @@ To verify that the health checking has added the members to the pool, follow thi
 - Run this command: ``openstack loadbalancer member list [NAME_OF_POOL]`` (replace the name with the name
   of the pool from previous step).
 
-- Members should have "operating status" of "ONLINE" if they are accepted into the pool.
+- Members should have **Operating status** of ``ONLINE`` if they are accepted into the pool.
 
 .. tip::
 

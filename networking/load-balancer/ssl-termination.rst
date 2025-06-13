@@ -56,7 +56,7 @@ receives the request (from the load balancer) is listening on since the request 
 To give your web application more information, there are a few headers that can be inserted
 by the load balancer:
 
-- ``x-forwarded-port`` will be "443" and can be used to check that the traffic is indeed
+- ``x-forwarded-port`` will be 443 and can be used to check that the traffic is indeed
   arriving on the encrypted port (if you also allow pure http traffic to the same instances).
 
 - ``x-forwarded-proto`` works the same was as above but will give the protocol.
@@ -65,7 +65,7 @@ by the load balancer:
   several load balancers fronting the same instances, this will let you know through which
   load balancer the request was made.
 
-The headers are available from the "listener details" tab when setting up the load balancer
+The headers are available from the **Listener details** tab when setting up the load balancer
 (or by editing the listener).
 
 We recommend adding the headers when setting up a load balancer as it implies little overhead
@@ -108,8 +108,8 @@ The first step is to setup a new listener.
    well.
 
    We do not recommend using it for this task but if you want to use it, navigate to your load
-   balancer in the menu, click on the "listeners" tab and then press the "+" sign, after which
-   you should be able to follow our :doc:`guide <launching-a-loadbalancer/cloud-management-portal>`.
+   balancer in the menu, click on the **Listeners** tab and then press the **+** plus sign, after
+   which you should be able to follow our :doc:`guide <launching-a-loadbalancer/cloud-management-portal>`.
 
 Documentation for creating a listener using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` is available
@@ -118,25 +118,25 @@ Documentation for creating a listener using the
 To add just a HTTP listener (as opposed to an entire load balancer with pools and health
 checking) using OpenStack Horizon, follow these steps:
 
-- Under "project", click "Network" and then "Load balancers" in the sidebar menu.
+- Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
 
 - Press the name of the load balancer to which you want to add the rule.
 
 - Press the listener tab.
 
-- Press "+ create listener".
+- Press **+ Create listener**.
 
 - Name your listener. We recommend calling it ``NAME_listener_http`` to differentiate it
   from other listeners. Optionally provide a description.
 
-- Select "HTTP" as the load balancer protocol.
+- Select HTTP as the load balancer protocol.
 
 - Ensure that the port is set to 80 (if its automatically set to 81, you already have
   a listener that listens on port 80 and should instead use that one).
 
-- Under the "pool details" tab, select "no" under "create pool" section.
+- Under the **Pool details** tab, select **No** under **Create pool** section.
 
-- Press "create listener".
+- Press **Create listener**.
 
 .. important::
 
@@ -146,9 +146,9 @@ checking) using OpenStack Horizon, follow these steps:
 Create a path aware redirect policy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The recommended way to require HTTPS is to use a "redirect prefix". To setup this, use
-the OpenStack Terminal Client according to below. If you would rather use OpenStack Horizon or
-the cloud management portal, see below for a less accurate way to redirect.
+The recommended way to require HTTPS is to use a redirect prefix. To setup this, use
+the OpenStack Terminal Client according to below. If you would rather use OpenStack
+Horizon or the cloud management portal, see below for a less accurate way to redirect.
 
 - Run this command: ``openstack loadbalancer listener list``. Save the name of the listener.
 
@@ -181,19 +181,19 @@ would redirect to https://example.com.
 
 - Name your policy to for example ``redirect_https`` and optionally give it a description.
 
-- Under "action" select "REDIRECT_TO_URL".
+- Under **Action** select ``REDIRECT_TO_URL``.
 
-- Under "redirection URL" type ``https://yourdomain.com`` (replace yourdomain.com with your domain).
+- Under **Redirection URL** type ``https://yourdomain.com`` (replace yourdomain.com with your domain).
 
-- Under "position", type "1".
+- Under **Position**, type ``1``.
 
-- Press the name of your new policy and then the tab "L7 Rules" and then "+ Create L7 Rule".
+- Press the name of your new policy and then the tab **L7 Rules** and then **+ Create L7 Rule**.
 
-- Under "type", select "HOST_NAME".
+- Under **Type**, select ``HOST_NAME``.
 
-- Under "compare type", select "CONTAINS".
+- Under **Compare type**, select ``CONTAINS``.
 
-- Enter your domain (same as the one you want to do redirects for) in the "value" field.
+- Enter your domain (same as the one you want to do redirects for) in the value field.
 
 - Press **Create L7 Rule**
 

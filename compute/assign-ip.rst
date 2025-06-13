@@ -93,7 +93,7 @@ To assign a port to an instance using the :doc:`/getting-started/managing-your-c
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
-- In the drop-down menu to the far right of the line corresponding to the instance you want to resize,
+- In the dropdown menu to the far right of the line corresponding to the instance you want to resize,
   press **Attach Interface**
 
 - Under **Network**, select the network (it will also show subnets) you want to connect to.

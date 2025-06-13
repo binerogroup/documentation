@@ -61,12 +61,12 @@ To assign a PTR record to a floating IP using the :doc:`/getting-started/managin
 
 - Press **Network** and then ``Floating IPs`` in the sidebar menu.
 
-- On the floating IP that you want to assign the PTR to, press the small "cog" icon "set PTR".
+- On the floating IP that you want to assign the PTR to, press the small cog icon **set PTR**.
 
-- In the "domain" field, enter the full PTR (for example ``smtp.binero.com.``). Note the final dot in the example
+- In the **domain** field, enter the full PTR (for example ``smtp.binero.com.``). Note the final dot in the example
   which needs to be there (this is the root zone that is most often left out). 
 
-- In the description field, enter an optional description of the IP (for example "external mail relay").
+- In the description field, enter an optional description of the IP (for example *external mail relay*).
 
 - In the TTL field, enter the TTL (in seconds) you prefer.
 
@@ -84,19 +84,19 @@ To assign a PTR record to a floating IP using the :doc:`/getting-started/managin
 
 - Under **Project**, click **DNS** and then **Reverse DNS** in the sidebar menu.
 
-- On the floating IP that you want to assign the PTR to, press the "Set" button.
+- On the floating IP that you want to assign the PTR to, press the **Set** button.
 
-- In the "domain" field, enter the full PTR (for example ``smtp.binero.com.``). Note the final dot in the
+- In the **domain** field, enter the full PTR (for example ``smtp.binero.com.``). Note the final dot in the
   example which needs to be there (this is the root zone that is most often left out). 
 
-- In the description field, enter an optional description of the IP (for example "external mail relay").
+- In the description field, enter an optional description of the IP (for example *external mail relay*).
 
 - In the TTL field, enter the TTL (in seconds) you prefer.
 
 - Press **Save**
 
 - You are also able to unset (as in completely remove) the record using the small arrow next to
-  the "Set" button according to above.
+  the **Set** button according to above.
 
 Adding PTR records using OpenStack terminal client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -109,7 +109,7 @@ To assign a PTR record to a floating IP using the :doc:`/getting-started/managin
   the complete id from this command (could look something like this: europe-se-1:2e6a89c0-d8ae-471e-ae28-e858c63c4c6e).
 
 - Run this command: ``openstack ptr record set --description [DESCRIPTION] --ttl 3600 [FLOATING IP ID] [PTR DOMAIN].``. Take
-  care to end the PTR name (the domain), with a dot (".") and replace the values within angle brackets with their corresponding
+  care to end the PTR name (the domain), with a dot (``.``) and replace the values within angle brackets with their corresponding
   values. Description is optional.
 
 - You are also able to unset (as in completely remove) the record using the following

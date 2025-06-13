@@ -54,7 +54,7 @@ To create a container using the :doc:`/getting-started/managing-your-cloud/cloud
 
 - Press **Storage** and then **Object storage** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Name your container.
 

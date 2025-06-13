@@ -19,7 +19,8 @@ volume type. The default volume types available are:
 
 - `hdd`
 
-They both allow a volume to be connected to a single instance (after which it is considered to be "in use"). 
+They both allow a volume to be connected to a single instance (after which it is considered to
+be in-use).
 
 Multi-attach considerations
 ---------------------------

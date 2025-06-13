@@ -16,12 +16,12 @@ To create a :doc:`subnet <index>` from the
 
 - Name your subnet.
 
-- Under "Network Address" you need to input the address in CIDR notation, more
-  information about this in the :doc:`subnet-format`. For example "192.168.0.0/24".
+- Under **Network Address** you need to input the address in CIDR notation, more
+  information about this in the :doc:`subnet-format`. For example ``192.168.0.0/24``.
 
-- Under "IP Version", keep "IPv4".
+- Under **IP Version**, keep **IPv4**.
 
-- Under "Gateway-IP" you have the option to either :doc:`set an IP as gateway <connect-subnet-to-router>`
+- Under **Gateway-IP** you have the option to either :doc:`set an IP as gateway <connect-subnet-to-router>`
   or not. 
 
 - If you want a gateway, choose a gateway IP and enter it in the form (we recommend the
@@ -35,10 +35,10 @@ To create a :doc:`subnet <index>` from the
 - Under **Allocation pool**, add the :doc:`DHCP scope <dhcp>`. That is, the starting and end
   addresses you want to auto-assign to hosts using DHCP. Add each pool (we recommend just
   one pool per subnet) by adding the first address, (comma) last address (with no spaces), for
-  example (if you would use the 192.168.0.0/24 range) "192.168.0.20,192.168.0.254".
+  example (if you would use the 192.168.0.0/24 range) ``192.168.0.20,192.168.0.254``.
 
-- Under **DNS name servers** we recommend adding our servers which are "83.168.225.225" and "83.168.226.226",
-  one per line, in the form. You can use any DNS servers you want though.
+- Under **DNS name servers** we recommend adding our servers which are ``83.168.225.225`` and
+  ``83.168.226.226``, one per line, in the form. You can use any DNS servers you want though.
 
 - Under **Host routes**, you would add static routes (more information in
   the :doc:`../router/routing-between-networks` article. 
@@ -58,9 +58,9 @@ To :doc:`connect-subnet-to-router`, follow these steps:
 
 - Press **Add interface**
 
-- Select the subnet in the "subnet" drop down.
+- Select the subnet in the **Subnet** dropdown.
 
-- Leave the "IP address (optional)" field blank. This assumes the gateway address
+- Leave the **IP address (optional)** field blank. This assumes the gateway address
   on the subnet is not in use somewhere (perhaps by some instance that is running
   as gateway). Otherwise, the IP address will have to be chosen. 
 

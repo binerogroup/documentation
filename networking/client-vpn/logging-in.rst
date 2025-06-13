@@ -31,11 +31,11 @@ To download configurations from the VPN server.
   have a VPN account that works, this will have to be done from the IP address that was
   used for the initial configuration. See :doc:`setting-up` for more information.
 
-- Press "VPN" and then "OpenVPN" in the main menu.
+- Press **VPN** and then **OpenVPN** in the main menu.
 
-- Press the "Client Export" tab.
+- Press the **Client Export** tab.
 
-- Scroll down to "OpenVPN clients".
+- Scroll down to **OpenVPN clients**.
 
 - Download the appropriate client or configuration (see below). If you run the VPN with user
   based authentication, download the configuration for the proper user - they will contain
@@ -54,13 +54,13 @@ This installer will install a client software with an already included configura
 which makes it more pleasant for a user to get the VPN connection up and running.
 
 To download this configuration, follow the instructions above and select the appropriate
-(most likely 64 bit) version under "Current Windows Installer" section.
+(most likely 64 bit) version under **Current Windows Installer** section.
 
 Assuming you already have a OpenVPN client installed and prefer to use that software, instead
-download the configuration named "Most clients" under "Inline configurations" section.
+download the configuration named **Most clients** under **Inline configurations** section.
 
 This can then be imported into the client software by (usually) double clicking the file or
-right clicking it and selecting "import".
+right clicking it and selecting **import**.
 
 If neither of those works, please see relevant documentation on your specific client for how
 to import configurations into the client.
@@ -75,5 +75,5 @@ Other clients
 -------------
 
 Generally, the most clients configuration will work on most clients. To download it, follow the
-instructions under the "Downloading configuration" and select it, after which you should
+instructions under the **Downloading configuration** and select it, after which you should
 be able to import it by following the documentation from your software provider.

@@ -45,7 +45,7 @@ To launch a :doc:`load balancer <../index>` from the
     balancer. We recommend using the same as the subnet where you have your instances to load
     balancer but its not a must.
 
-  - Press "next".
+  - Press **Next**.
 
 - The second step sets up the *listener*. More information :doc:`here <../general-concept/listeners>`.
 
@@ -58,7 +58,7 @@ To launch a :doc:`load balancer <../index>` from the
   - *Verify the port number* (it may set automatically but depending on protocol you may need to set
     it manually). Without it, creation will fail.
 
-  - Press "next".
+  - Press **Next**.
 
 - The third step is to create the *pool*. More information :doc:`here <../general-concept/pools>`.
 
@@ -70,19 +70,19 @@ To launch a :doc:`load balancer <../index>` from the
 
   - If you want session persistence, select what type (and if applicable, enter a session name).
 
-  - Press "next".
+  - Press **Next**.
 
 - The fourth step assigns *members* (instances) to the pool. More
   information :doc:`here <../general-concept/pool-members>`.
 
-  - Either press "add external member" and then input the data manually or 
+  - Either press **Add external member** and then input the data manually or 
 
-  - press the "add" button next to the instances you want to add in the list.
+  - press the **Add** button next to the instances you want to add in the list.
 
   - Select what (IP) port on each instance the service listens on. For instance for a web
     service, this would be either 80 or 443.
 
-  - When all instances that should be part of the pool are added, press "next". 
+  - When all instances that should be part of the pool are added, press **Next**. 
 
 - In the fifth step, *health monitoring* will be setup. More information
   :doc:`here <../general-concept/health-monitors>`.
@@ -98,9 +98,9 @@ To launch a :doc:`load balancer <../index>` from the
   - Choose the various options relating to your monitor, the defaults will likely suffice but this
     is much dependant on the application.
 
-  - If you've opted for "TERMINATED SSL" when setting up the listener details, you will need to
-    proceed to next step to add your certificates and should then be able to click "Next". If
-    not, the "Next" option is greyed out and you should instead press "Create Load Balancer".
+  - If you've opted for **TERMINATED SSL** when setting up the listener details, you will need to
+    proceed to next step to add your certificates and should then be able to click **Next**. If
+    not, the **Next** option is greyed out and you should instead press **Create Load Balancer**.
 
 - The sixth step is only relevant when creating an SSL terminating load balancer. In this step, you
   would choose the certificate that the load balancer should use to terminate SSL connections. To do
@@ -116,16 +116,16 @@ Verification
 
 To verify that the health checking has added the members to the pool, follow this procedure:
 
-- Under "project", click "Network" and then "Load balancers" in the sidebar menu.
+- Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
 
-- Verify that the "operating status" says "Online" as well as "provisioning status" says "Active"
-  on the load balancer and then press its name.
+- Verify that the **Operating status** says **Online** as well as **Provisioning status**
+  says **Active** on the load balancer and then press its name.
 
-- Press the "pools" tab and then press the name of your pool.
+- Press the **Pools** tab and then press the name of your pool.
 
-- Press the "members" tab.
+- Press the **Members** tab.
 
-- In the list, you should now see the member(s) you've added. The column "Operating status" should
+- In the list, you should now see the member(s) you've added. The column **Operating status** should
   show you if they are online or not.
 
 .. tip::

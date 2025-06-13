@@ -43,7 +43,7 @@ On the listener, you are able to configure various settings:
 - Layer 7 (mainly HTTP) policies enabling for example redirects or rejections directly on the
   listener, negating the need to send requests to members.
 
-- Allowed CIDR prefixes, meaning who can connect. 0.0.0.0/0 is the default and means "all networks".
+- Allowed CIDR prefixes, meaning who can connect. ``0.0.0.0/0`` is the default and matches all networks.
 
 - HTTP headers, for example ``x-forwarded-for``.
 
