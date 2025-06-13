@@ -31,9 +31,9 @@ To launch a :doc:`load balancer <../index>` from the
    :doc:`OpenStack Terminal Client <openstack-terminal-client>`. We also
    recommend reading our :doc:`../ssl-termination` guide first.
 
-- Press "Networking" and then "Load balancers" in the sidebar menu.
+- Press **Networking** and then **Load balancers** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - The first step is to configure the general options for the load balancer. 
 
@@ -84,15 +84,15 @@ To launch a :doc:`load balancer <../index>` from the
 - The fourth step assigns *members* (instances) to the pool. More
   information :doc:`here <../general-concept/pool-members>`.
 
-  - Either press "add external node" and then input the data manually or 
+  - Either press **Add external node** and then input the data manually or 
 
-  - Press the small down-arrow next to "expand to see instances" and then press the
-    small "+" sign next to the instances you want to add.
+  - Press the small down-arrow next to **Expand to see instances** and then press the
+    small **+** plus sign next to the instances you want to add.
 
-  - Select what (IP) port on each instance the service listens on. For instance for
-    a web-service, this would be either 80 or 443.
+  - Select what (IP) port on each instance the service listens on. For example for
+    a web server, this would be either 80 or 443.
 
-  - When all instances that should be part of the pool are added, press "next". 
+  - When all instances that should be part of the pool are added, press **Next**. 
 
 - In the fifth and final step, *health monitoring* will be setup. More
   information :doc:`here <../general-concept/health-monitors>`.
@@ -109,7 +109,7 @@ To launch a :doc:`load balancer <../index>` from the
   - Choose the various options relating to your monitor, the defaults will likely suffice
     but this is much dependant on the application.
 
-  - Press "create load balancer". 
+  - Press **Create load balancer**. 
 
 .. note::
 

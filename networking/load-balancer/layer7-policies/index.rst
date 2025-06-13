@@ -16,8 +16,8 @@ This is enabled via Layer 7 Policies. A policy can execute some (basic) function
   already have a pool setup (from another listener) of the same servers and just want to add
   another listener (for example when adding HTTP protocol to an already configured HTTPS
   listener). Another really useful use case could be if you want to run a separate pool for
-  your static content. You can then opt to send for example traffic to "www.example.com/js" or
-  "/images" to separate backends that are optimised (maybe via caching) for static content.
+  your static content. You can then opt to send for example traffic to ``www.example.com/js``
+  or ``/images`` to separate backends that are optimised (maybe via caching) for static content.
 
 - Redirect to URL, this will redirect (using a header: location) the request to another
   URL. Useful when for example requiring HTTPS.

@@ -65,7 +65,7 @@ load balancing setup in the platform (as well as in general).
     happens with a single member resulting in its removal, the remaining members are
     overwhelmed from picking up its load, resulting in more removals due to high load leading
     to slower responses and the load balancer timing out. This soon spirals out of control
-    where servers "pop" in and out of the pool as the member recovers when removed but then
+    where servers flaps in and out of the pool as the member recovers when removed but then
     gets overwhelmed again.
 
   - Our recommendation is to have a (Linux) load 15 value of less than 1 per CPU core on the

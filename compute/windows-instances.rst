@@ -40,7 +40,7 @@ To set the initial password through the :doc:`/getting-started/managing-your-clo
 
 - Press the instance that you recently provisioned.
 
-- In the top right corner, press "Console" (its the two angle brackets "< >").
+- In the top right corner, press **Console** (its the two angle brackets ``< >``).
 
 - You will now get the visual screen output of the server. The image might be blank because
   the server puts it in power save mode when not used. Moving the cursor or pressing the
@@ -65,7 +65,7 @@ To set the initial password through the :doc:`/getting-started/managing-your-clo
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
-- In the drop-down menu to the far right of the line corresponding to the instance
+- In the dropdown menu to the far right of the line corresponding to the instance
   you want to resize, press **Console**
 
 - You will now get the visual screen output of the server. The image might be blank

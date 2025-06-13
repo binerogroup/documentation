@@ -28,7 +28,7 @@ To launch a new instance from an existing volume using
 
 - Follow our guide :doc:`/compute/launching-an-instance/openstack-horizon`, however:
 
-- On the second tab **Source**, in the **Select boot source** drop down, select **Volume**
+- On the second tab **Source**, in the **Select boot source** dropdown, select **Volume**
 
 - Press the small arrow next to the volume you want to base the instance on (available below).
 
@@ -44,7 +44,7 @@ To launch a new instance from an existing volume using the
 
 - Run this command: ``openstack volume list --status available``, save the ID of the volume to use.
 
-- Replace the server create command in the guide with the below, the "VOLUME_ID" you get from previous
+- Replace the server create command in the guide with the below, the **Volume ID** you get from previous
   command. You may also skip the steps about which image to use as when using an existing volume, an
   image is not used.
 
@@ -60,4 +60,5 @@ To launch a new instance from an existing volume using the
      [NAME OF SERVER]
 
 ..  seealso::
+
     - :doc:`create-volume`

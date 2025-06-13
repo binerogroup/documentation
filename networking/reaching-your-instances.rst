@@ -68,8 +68,8 @@ that sit connected to the (home or office) router would have their traffic autom
 routed into the tunnel.
 
 This would negate the need to login, the cloud network(s) and the office networks would be seamlessly
-connected using the tunnel and the user experience is equally seamless - the cloud becomes "local"
-to the user.
+connected using the tunnel and the user experience is equally seamless - the cloud becomes local to the
+user.
 
 The downside is that a site-to-site VPN is difficult to setup (while only having to be setup once) and only
 works from behind the router that connects to the cloud, so if you set it up in your office and have users
@@ -85,7 +85,7 @@ This way, only the bounce server needs a floating IP. Once the users are connect
 securely, for example using SSH keys and with their own account that has not got elevated permissions), they are
 then able to connect down stream to other instances from the bounce server as the bounce server is also connected
 to the internal network(s) and is able to reach them when originating traffic from itself (there is no routing happening,
-users would work "locally" from the bounce server).
+users would work through the bounce server).
 
 An upside to *not having network access directly*, but rather sending traffic through the bounce server (and using its
 authentication), is that malicious software that originate from your workstation will not be able to connect to the internal

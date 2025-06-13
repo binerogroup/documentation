@@ -77,7 +77,7 @@ to work with them:
 
 .. note::
 
-   If you instead choose to press "Edit Port Security Groups" (in step 2 above) you are able to set security
+   If you instead choose to press **Edit Port Security Groups** (in step 2 above) you are able to set security
    groups on a per interface (port) basis instead.
 
    This might be useful if you have several networks connected to your instance (which we don't recommend)

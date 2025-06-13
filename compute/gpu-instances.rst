@@ -161,7 +161,7 @@ Windows
 
 - Open the device manager by running ``devmgmt.msc``.
 
-- Under "display adapters" the device should now be available.
+- Under **Display adapters** the device should now be available.
 
 - At this point, you need a valid license which `our support </general/getting-support>`_ can provide. Its included in the
   instance monthly cost but not assigned until requested.

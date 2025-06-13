@@ -12,7 +12,7 @@ URL that you us for managing the VPN service. Enter it into a browser.
 
 .. note::
 
-   Remember that only the IP (range) that you added in "Admin IP ranges" when setting
+   Remember that only the IP (range) that you added in **Admin IP ranges** when setting
    up the VPN will be allowed to login.
 
    This is managed via a :doc:`security group </networking/security-groups/index>`
@@ -20,7 +20,7 @@ URL that you us for managing the VPN service. Enter it into a browser.
    same IP, you may need to edit the security group.
 
 You would also have gotten an ``admin_password`` output, which is a generated password for
-your instance. This, combined with the username "admin" will give you access to the portal.
+your instance. This, combined with the username `´admin`` will give you access to the portal.
 
 Security recommendations 
 ------------------------ 
@@ -40,7 +40,7 @@ To do this, follow these instructions:
 
 - Press **User manager** in the sub menu.
 
-- Edit the "admin" user by pressing the small "pen" icon.
+- Edit the ``admin`` user by pressing the small pencil icon.
 
 - Enter the new password in both password fields.
 
@@ -69,7 +69,7 @@ To do this, follow these steps:
 - Press **IPsec** in the sub menu.
 
 - Press the small pen icon on the only row under
-  the "tunnels" (default) tab.
+  the tunnels (default) tab.
 
 - Scroll down to ``pre shared key`` and input an
   equally long and complex string.

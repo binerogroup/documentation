@@ -18,9 +18,9 @@ To provision a new service using the :doc:`/getting-started/managing-your-cloud/
 
 - Press **Service Catalog** and then **Services** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
-- Select a service in the drop down. 
+- Select a service in the dropdown. 
 
 - Press **Next**
 

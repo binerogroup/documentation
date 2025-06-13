@@ -34,9 +34,9 @@ To setup an DNS zone using the :doc:`cloud management portal </getting-started/m
 
 - Press **DNS** and then **DNS zones** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
-- Input your domain-name in the "Domain" field. 
+- Input your domain-name in the **Domain** field. 
 
 - Enter your e-mail address in the e-mail field. This is for notifications.
 
@@ -51,7 +51,7 @@ To edit a DNS zone using the :doc:`cloud management portal </getting-started/man
 
 - Press the icon / row on the zone you want to edit. 
 
-- To add a pointer, press the small "+" symbol at the bottom and edit the row that will appear on the end. 
+- To add a pointer, press the small **+** (plus) symbol at the bottom and edit the row that will appear on the end. 
 
 - To edit a pointer, press the pointer name. 
 
@@ -60,7 +60,7 @@ To edit a DNS zone using the :doc:`cloud management portal </getting-started/man
 .. note::
 
    To edit pointers for the domains origin (for example an MX record), use the domain itself
-   followed by a "." (dot) as subdomain.
+   followed by a ``.`` (dot) as subdomain.
 
 OpenStack Horizon
 ^^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ To setup an DNS zone using :doc:`/getting-started/managing-your-cloud/openstack-
 
 - Click **Create zone** in the right upper corner.
 
-- Input your domain-name in the "Name" field. 
+- Input your domain-name in the **Name** field. 
 
 - Optionally enter a description.
 
@@ -97,8 +97,8 @@ OpenStack Terminal Client
 To setup an DNS zone using :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack zone create --email [EMAIL_ADDRESS] example.com.``, replacing the
-  e-mail address with your e-mail and "example.com." with your domain. Note the dot (".") at the
-  end of the domain name. 
+  e-mail address with your e-mail and ``example.com.`` with your domain. Note the dot (``.``) at
+  the end of the domain name. 
 
 To add a DNS zone record using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 

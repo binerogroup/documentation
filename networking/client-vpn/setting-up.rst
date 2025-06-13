@@ -15,17 +15,17 @@ Follow these steps to setup client VPN using the cloud management portal:
 
 - Press **VPN** and then **OpenVPN** in the sidebar menu.
 
-- Click the "+" symbol in the lower right corner.
+- Click the **+** (plus) symbol in the lower right corner.
 
 - Give your VPN service a name and optionally a description.
 
 - Select your :doc:`SSH-keys </compute/ssh-keys>`.
 
-- Under "Admin IP ranges", enter the IP-ranges (can be comma delimited or a single range) that should
+- Under **Admin IP ranges**, enter the IP-ranges (can be comma delimited or a single range) that should
   be able to do initial VPN configuration (see below).
 
   - This should be one ore more subnets in :doc:`CIDR notation <../subnet/subnet-format>`. We recommend
-    your current public IP address. If you opt to use a single IP, it should then be suffixed by "/32", which indicate
+    your current public IP address. If you opt to use a single IP, it should then be suffixed by ``/32``, which indicate
     a single address.
 
 - Under **Private network**, select the :doc:`subnet <../subnet/index>` that you want to access.
@@ -47,7 +47,7 @@ Follow these steps to setup client VPN using the cloud management portal:
 
 .. note::
 
-   The "admin IP range" value will setup a :doc:`security group <../security-groups/index>` that will allow access
+   The **admin IP range** value will setup a :doc:`security group <../security-groups/index>` that will allow access
    to the new instance for initial web-management (for example downloading the VPN client configuration).
 
    Once this is done, further management can be accomplished by first logging into the VPN.

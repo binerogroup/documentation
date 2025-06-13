@@ -51,7 +51,7 @@ available `here <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.
 
 Once its installed, you should be able to run ``aws --version`` and get an output.
 
-Configure your client with your credentials (from the "setting up credentials" step above) by creating the file
+Configure your client with your credentials (see the section above) by creating the file
 (on a Linux or MacOS based computer) ``~/.aws/credentials`` as such:
 
 :: 

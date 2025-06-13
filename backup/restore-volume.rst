@@ -24,7 +24,7 @@ To restore a backup to a volume using the :doc:`/getting-started/managing-your-c
 
 - Press **Storage** and then **Backups** in the sidebar menu.
 
-- Press the small rounded arrow "Restore backup" on the backup that you want to restore.
+- Press the small rounded arrow **Restore backup** on the backup that you want to restore.
 
 - Select the volume you just created in the dropdown **Volume**
 

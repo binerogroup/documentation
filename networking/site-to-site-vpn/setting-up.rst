@@ -20,9 +20,9 @@ these steps to setup site-to-site VPN using the cloud management portal:
   - ``Admin IP ranges``: IP ranges in :doc:`CIDR notation </networking/subnet/subnet-format>`
     that will be allowed to access the pfSense instances WebUI and SSH server through the router.
 
-    - Usually this would be your offices (or like) public IP-address followed by "/32" (for example 8.8.8.8/32)
-      in which case traffic from 8.8.8.8 would be able to reach management. If you prefer open access to the VPN
-      server, you can enter ``0.0.0.0/32`` here (not recommended) or leave the standard "127.0.0.1/32" which will
+    - Usually this would be your offices (or like) public IP-address followed by ``/32`` (for example ``8.8.8.8/32``)
+      in which case traffic from ``8.8.8.8`` would be able to reach management. If you prefer open access to the VPN
+      server, you can enter ``0.0.0.0/32`` here (not recommended) or leave the standard ``127.0.0.1/32`` which will
       not allow access other than from inside the cloud (for example via the client-vpn). This can also be changed
       later by editing the security group ``IPSec-<name>-<random string>_management``
 
@@ -50,7 +50,7 @@ these steps to setup site-to-site VPN using the cloud management portal:
 - Post installation tasks:
 
   - In the output of the stack, a ``mgmt_url`` parameter is shown. Save this, along with the
-    "admin password" (the username is always "admin"). These are for doing additional configuration.
+    ``admin password`` (the username is always ``admin``). These are for doing additional configuration.
 
   - We recommend logging into the above URL and changing the password and pre-shared key, please
     see :doc:`advanced-configuration` for more information on this.

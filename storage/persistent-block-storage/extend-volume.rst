@@ -30,9 +30,9 @@ To extend a volume using the :doc:`/getting-started/managing-your-cloud/cloud-ma
 
 - Press the name of the volume that you want to extend.
 
-- Press the "Extend volume" button (to the top right, looks like a dotted square). 
+- Press the **Extend volume** button (to the top right, looks like a dotted square). 
 
-- Enter the new size in GB and press "Extend".
+- Enter the new size in GB and press **Extend**.
 
 OpenStack Horizon
 -----------------
@@ -45,7 +45,7 @@ To extend a volume using :doc:`/getting-started/managing-your-cloud/openstack-ho
 
 - Press the name of the volume under the **Volumes Attached** section.
 
-- Press the drop down next to "edit volume" on the top right and select **Extend volume**
+- Press the dropdown next to **Edit volume** on the top right and select **Extend volume**
 
 - Enter the new size in GB and press **Extend Volume**
 
@@ -93,7 +93,7 @@ Linux
 - Run this command: ``lsblk``, verify that the new disk size is visible on the device. If its not, reboot
   your machine and try again. 
 
-- Run this command: ``growpart -u auto /dev/sda 1``, use the correct device ("/dev/sda" in the example) from
+- Run this command: ``growpart -u auto /dev/sda 1``, use the correct device (``/dev/sda`` in the example) from
   previous commands output. This may not work on all images, if not then we recommend reading the documentation
   of your Linux distribution.
 

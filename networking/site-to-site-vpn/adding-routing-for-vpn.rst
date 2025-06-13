@@ -41,8 +41,8 @@ Please see our section about DHCP settings, which is available :doc:`here <../su
 Routing in router
 -----------------
 
-Please see our section on static routing available :doc:`here <../router/static-routing>`. The "Destination CIDR" field
-is in this case the remote subnet (the network on the other side of the tunnel). "Next Hop" is aforementioned gateway,
+Please see our section on static routing available :doc:`here <../router/static-routing>`. The **Destination CIDR** field
+is in this case the remote subnet (the network on the other side of the tunnel). **Next Hop** is aforementioned gateway,
 the local IP of the instance running the VPN (or ``local_gw_ip`` in the output of creation).
 
 .. note::

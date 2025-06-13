@@ -137,8 +137,8 @@ To create an Application Credential through the :doc:`/getting-started/managing-
 
 * Input a name and optionally a description.
 
-* In the secret field, either input a secret (the "password"). If you don't, one will be generated
-  for you (which is recommended)
+* In the secret field, input a secret, if you don't one will be generated
+  for you which is recommended
 
 * Optionally provide an expiration date and time for when to (automatically) deactivate the account
 

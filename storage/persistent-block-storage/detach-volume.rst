@@ -68,7 +68,7 @@ To detach a volume using the :doc:`/getting-started/managing-your-cloud/openstac
   name with that from previous step.
 
 - Run this command: ``openstack server remove volume [INSTANCE_ID] [VOLUME_ID]``, replacing
-  the items in angle brackets with the "Server ID" and "Volume ID" from the output of the
+  the items in angle brackets with the **Server ID** and **Volume ID** from the output of the
   previous command.
 
 - If you get an error, most likely the volume is a boot volume and cannot be

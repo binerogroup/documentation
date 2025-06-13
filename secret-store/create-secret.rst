@@ -9,7 +9,7 @@ To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-c
 
 - Press **Secret management** and then **Secrets** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Select a user from the dropdown and enter the password for that user along with other details. Credentials of
   the User are required so that would make him the owner of the secret. 

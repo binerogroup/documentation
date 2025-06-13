@@ -50,11 +50,11 @@ To delete a snapshot using :doc:`/getting-started/managing-your-cloud/openstack-
 
 - Under **Project**, click **Compute** and then **Images** in the sidebar menu.
 
-- Locate the image in the list and press "Delete image" from its drop down menu to the right. 
+- Locate the image in the list and press **Delete image** from its dropdown menu to the right. 
 
 - Under **Project**, click **Volumes** and then **Snapshots** in the sidebar menu.
 
-- Locate the snapshot in the list and press "Delete snapshot" from its drop down menu to the right. 
+- Locate the snapshot in the list and press **Delete snapshot** from its dropdown menu to the right. 
 
 .. note::
 

@@ -60,13 +60,13 @@ of the router.
   - Select fixed IP and add input the same IP as you selected as default route on the
     subnet in the previous step.
 
-  - Under :doc:`security groups <security-groups/index>`, add the "all-open" group (as the
+  - Under :doc:`security groups <security-groups/index>`, add the `´all-open`` group (as the
     traffic will not be destined to the instance because of routing). A firewall to the
     router/firewall-instance will have to be setup on the instance itself.
 
-  - Edit the new port and select the "Allowed address pairs" tab
+  - Edit the new port and select the **Allowed address pairs** tab
 
-  - Add "0.0.0.0/0" under the "IP Address or CIDR" field.
+  - Add ``0.0.0.0/0`` under the **IP Address or CIDR** field.
 
 - Launch the instance using an image or install it via console. 
 
@@ -75,7 +75,7 @@ of the router.
   - Connect to the port(s). Do not connect to the inside subnet, just the port(s) that
     you already created. 
 
-  - Select the "all-open" security group unless you want to filter traffic to the router in
+  - Select the ``all-open`` security group unless you want to filter traffic to the router in
     the platform (its recommended to use this feature in the router/firewall as that will
     simplify working with it.
 
@@ -97,9 +97,9 @@ If its not working, the following are some tips to check connectivity:
 
 - Verify that the router can reach the instances directly and vice versa. 
 
-- Verify the security groups on all instances. The firewall/router should have "all-open" on all ports
-  and "default" (as well) on the internal ports). If the firewall does not have default, other instances
-  will not accept traffic from it and if it does not have the all-open group, it will not access traffic
+- Verify the security groups on all instances. The firewall/router instance should have ``all-open`` on
+  all ports and ``default`` on the internal ports). If the firewall does not have ``default``, other instances
+  will not accept traffic from it and if it does not have the ``all-open`` group, it will not access traffic
   from the other instances. 
 
 .. note::

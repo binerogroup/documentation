@@ -70,7 +70,7 @@ traffic to an interface.
 Default settings
 ----------------
 
-A newly provisioned instance will have the "Default" security group provisioned.
+A newly provisioned instance will have the ``default`` security group provisioned.
 
 This security group will allow all traffic but only *from other instances that also have the default group* (that
 is, it also evaluates if the traffic was using this group to **egress** an instance in the cloud).

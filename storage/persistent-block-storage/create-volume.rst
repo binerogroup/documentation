@@ -30,7 +30,7 @@ To create a volume using the :doc:`/getting-started/managing-your-cloud/cloud-ma
 
 - Press **Storage** and then **Volumes** in the sidebar menu.
 
-- Press the "+" icon in the bottom right corner.
+- Press the **+** (plus) icon in the bottom right corner.
 
 - Region should be *europe-se-1*.
 
