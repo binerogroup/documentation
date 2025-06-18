@@ -7,7 +7,7 @@ To launch a :doc:`router <../index>` from the
 
 - Press **Networking** and then **Routers** in the sidebar menu.
 
-- Press the **+** (plus) icon in the bottom right corner.
+- Press the **+** (plus) icon in the lower right corner.
 
 - Under region, *europe-se-1* should be pre-selected.
 
@@ -25,7 +25,7 @@ To launch a :doc:`router <../index>` from the
 
 .. note::
 
-   In order to connect instances to the router, it will also need a :doc:`network <../../network/index>`
+   To connect instances to the router, it will also need a :doc:`network <../../network/index>`
    and a :doc:`subnet <../../subnet/index>` configured.
 
 ..  seealso::

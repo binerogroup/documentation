@@ -5,17 +5,17 @@ Launching a load balancer
 .. note::
 
    Before launching your first load balancer, we strongly recommend reading
-   our :doc:`concepts <../general-concept/index>` guide so as to understand
-   the various parts.
+   our :doc:`concepts <../general-concept/index>` guide to get an understanding
+   of the parts.
 
 We also suggest our :doc:`recommendations for load balancing <../recommendations>` article
 for some general tips that might improve your load balancing implementation.
 
 To create a load balancer in Binero cloud, you have three main options as outlined in
-the links below. Each option have its pros and cons:
+the links below. Each option have its advantages and disadvantages:
 
 - :doc:`The cloud management portal <cloud-management-portal>` is recommend and will get
-  a user with limited prior knowledge from A to B quickly. The trade-off is that
+  a user with limited prior knowledge from A to B quickly. The tradeoff is that
   advanced features are not always available.
 
 - :doc:`OpenStack Horizon <openstack-horizon>` is the web interface included in

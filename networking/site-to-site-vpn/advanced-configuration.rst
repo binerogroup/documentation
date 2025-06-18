@@ -3,8 +3,8 @@ Advanced configuration
 ======================
 
 While the VPN service sets up a template configuration of a site-to-site VPN with
-sane defaults, should you for example require more IPsec flows (more subnets) or
-changing settings, you will need to use the administration interface for the VPN
+verified defaults, should you for example require more IPsec flows (more subnets)
+or changing settings, you will need to use the administration interface for the VPN
 itself.
 
 When provisioning the VPN, you will get output. The ``mgmt_url`` output will be the
@@ -13,11 +13,11 @@ URL that you us for managing the VPN service. Enter it into a browser.
 .. note::
 
    Remember that only the IP (range) that you added in **Admin IP ranges** when setting
-   up the VPN will be allowed to login.
+   up the VPN can login.
 
-   This is managed via a :doc:`security group </networking/security-groups/index>`
-   which is called ``IPSec-<name>-<random string>_management``, if you've not retained the
-   same IP, you may need to edit the security group.
+   You can update that in the :doc:`security group </networking/security-groups/index>`
+   named ``IPSec-<name>-<random string>_management``, if your public IP address has
+   changed, you may need to edit the security group.
 
 You would also have gotten an ``admin_password`` output, which is a generated password for
 your instance. This, combined with the username `´admin`` will give you access to the portal.
@@ -54,13 +54,12 @@ To do this, follow these instructions:
 While the PSK (Pre-Shared Key) is uniquely generated, it **is** saved as part of the output in the platform
 in plain text (a user with access to the platform can read it).
 
-The IPsec service is using a firewall (other than traffic from the remote gateway) so the service itself
-is protected.
+The IPsec service is using a firewall (other than traffic from the remote gateway) to secure the service.
 
-You might however still want to consider switching this from the standard output to your own string. If so, please
-remember, the PSK need to be identical on both sides of the tunnel.
+You might still want to consider switching this from the standard output to your own string. If so, remember
+that the PSK need to be identical on both sides of the tunnel.
 
-To do this, follow these steps:
+If you want to change the PSK:
 
 - Login to the admin UI according to above.
 
@@ -78,7 +77,7 @@ To do this, follow these steps:
 
 .. note::
 
-   Don't forget to also update the remove system as otherwise the tunnel will not work.
+   Remember to also update the PSK on the remote system or the tunnel will not work.
 
 Changing IPsec configuration
 ----------------------------
@@ -88,8 +87,8 @@ available `here <https://www.pfsense.org/get-involved/>`__), the most common tas
 the site-to-site appliance might be to change the IPsec configuration. Its located under the main
 menu **VPN** and then **IPsec**.
 
-The IPsec configuration is made up of two phases, phase 1 and phase 2. In phase 1 (also called quick
-mode) the settings for negotiating cryptographic parameters are set.
+The IPsec configuration consists of two phases, phase 1 and phase 2. In phase 1 (also called quick
+mode) the you configure settings for negotiating cryptographic parameters.
 
 You can press the small pencil (edit) next to the only row available (in a default installation) to
 edit it. 
@@ -97,9 +96,9 @@ edit it.
 If you want to edit phase 2 (also known as main mode), you can press **Show phase 2 entries** and then
 press the small pencil next to each line. 
 
-In order to add another flow (another subnet that is sent across the tunnel), an additional phase 2 row
-should be added. The simplest way to do so is to clone the current row by pressing the small *copy*
-button next to the pencil. Then change the relevant information.
+To add another flow (another subnet sent across the tunnel), you need to add an extra phase 2 row. The
+simplest way to do so is to clone the current row by pressing the small *copy* button next to the
+pencil. Then change the relevant information.
 
 ..  seealso::
 

@@ -5,7 +5,8 @@ Managing security groups using OpenStack Horizon
 Creating a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To create a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To create a :doc:`security group <index>` by using
+:doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Network** and then **Security Groups** in the sidebar menu.
 
@@ -23,7 +24,8 @@ To create a :doc:`security group <index>` using the :doc:`/getting-started/manag
 Adding rules to a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To add rules to a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To add rules to a :doc:`security group <index>` by using
+:doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Network** and then **Security Groups** in the sidebar menu.
 
@@ -43,7 +45,8 @@ To add rules to a :doc:`security group <index>` using the :doc:`/getting-started
 Adding a security group to an instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To add a :doc:`security group <index>` to an instance using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To add a :doc:`security group <index>` to an instance by using
+:doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
@@ -59,13 +62,12 @@ To add a :doc:`security group <index>` to an instance using the :doc:`/getting-s
    If you instead choose to press **Edit Port Security Groups** (in step 2 above) you are able to set
    security groups on a per interface (port) basis instead.
 
-   This might be useful if you have several networks connected to your instance (which we don't
-   recommend) and want to have different settings on them. 
+   This might be useful if you have many networks connected to your instance (which we don't recommend)
+   and want to have different settings on them. 
 
 .. note::
 
-   Remember: you need to add your groups to all instances, all rules are evaluated in a per
-   instance fashion.
+   Remember: you need to add your groups to all instances.
 
 ..  seealso::
 

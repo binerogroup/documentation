@@ -9,8 +9,8 @@ going to need or not, from when setting up the instance and can start small.
 
 .. caution::
 
-   While you can extent a volume, you cannot revert an extension because a volume cannot
-   be shrunk. If you need a smaller volume, create a new volume and migrate the data.
+   While you can extent a volume, you cannot revert an extension or decrease the size of
+   a volume. If you need a smaller volume, create a new volume and migrate the data.
 
 .. important::
 
@@ -20,11 +20,11 @@ going to need or not, from when setting up the instance and can start small.
 Cloud management portal
 -----------------------
 
-To extend a volume using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To extend a volume by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
-- Press **Compute** and then **instances**.
+- Press **Compute** and then **Instances**.
 
-- Press the instance to which the volume you want to extend is connected.
+- Press the instance having the volume you want to extend.
 
 - Press the **Volumes** tab. It might require scrolling the tabs to the right.
 
@@ -37,11 +37,11 @@ To extend a volume using the :doc:`/getting-started/managing-your-cloud/cloud-ma
 OpenStack Horizon
 -----------------
 
-To extend a volume using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To extend a volume by using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, press **Compute** and then **Instances** in the sidebar menu.
 
-- Press the instance to which the volume you want to extend is connected.
+- Press the instance having the volume you want to extend.
 
 - Press the name of the volume under the **Volumes Attached** section.
 
@@ -52,10 +52,10 @@ To extend a volume using :doc:`/getting-started/managing-your-cloud/openstack-ho
 OpenStack Terminal Client
 -------------------------
 
-To extend a volume using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+To extend a volume by using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
-- Run this command: ``openstack server list``, save the name of the instance to which the
-  volume you want to extend is connected.
+- Run this command: ``openstack server list``, save the name of the instance having the
+  volume you want to extend.
 
 - Run this command: ``openstack server volume list [NAME_OF_INSTANCE]``, replacing the name
   with that from previous step.
@@ -64,8 +64,8 @@ To extend a volume using the :doc:`/getting-started/managing-your-cloud/openstac
 
 .. note::
 
-   The 3.42 microversion or newer needs to be used for the Cinder API as that introduced
-   support for extending an in-use volume.
+   Use 3.42 microversion or newer for the Cinder API as that introduced support for
+   extending an in-use volume.
 
 - Run this command: ``openstack --os-volume-api-version 3.42 volume set [VOLUME_ID] --size [SIZE]``, replacing
   the values in angle brackets with the volume ID from the previous step and the size in GB.
@@ -76,11 +76,13 @@ To extend a volume using the :doc:`/getting-started/managing-your-cloud/openstac
 Operation inside operating system
 ---------------------------------
 
-Above we demonstrate the process for growing a volume in the platform but there is also a need to grow
-the disk logged into the instance. Depending on what operating system you are running and how your disks
-are laid out, this process will vary and below are just suggestions that we have found to be useful.
+Above we walked through the process for growing a volume in the platform but there is
+also a need to grow the disk and file system inside the instance.
 
-For a complete reference, please see your operating systems documentation.
+Depending on what operating system you are running this process will vary and below are
+just suggestions that we have found to be useful.
+
+For a complete reference, see your operating systems documentation.
 
 .. important::
 
@@ -94,7 +96,7 @@ Linux
   your machine and try again. 
 
 - Run this command: ``growpart -u auto /dev/sda 1``, use the correct device (``/dev/sda`` in the example) from
-  previous commands output. This may not work on all images, if not then we recommend reading the documentation
+  previous commands output. This might not work on all images, if not then we recommend reading the documentation
   of your Linux distribution.
 
 - Run this command: ``resize2fs /dev/sda1``.

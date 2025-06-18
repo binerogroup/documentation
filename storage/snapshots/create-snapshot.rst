@@ -6,12 +6,12 @@ A snapshot is a point-in-time snapshot of the state of an instance or
 a volume.
 
 You can create a snapshot of a single volume or create a snapshot of an
-instance, when creating a snapshot of an instance a snapshot is created
-for each attached volume to the instance. Metadata about the instance is
+instance, when creating a snapshot of an instance, snapshots get created
+for each volume attached to the instance. Metadata about the instance gets
 saved as an image.
 
 This part will focus on creating a snapshot of an instance. This will
-allow you to create a new, mostly, identical instance from the snapshot.
+allow you to create a new instance from the snapshot.
 
 .. note::
 
@@ -25,11 +25,10 @@ allow you to create a new, mostly, identical instance from the snapshot.
    a snapshot.
 
    Incomplete writes might otherwise impact data integrity and in result in a
-   inconsistent snapshot where your data is broken resulting in at worst data loss.
+   inconsistent snapshot with corrupt data resulting in at worst data loss.
 
-We recommend only having snapshots for limited periods of time. The more writes
-that are added to a snapshot, the longer it will take to consolidate when deleting,
-we recommend that you regularly :doc:`delete snapshots <delete-snapshot>`.
+We recommend only having snapshots for limited periods of time and recommend that you
+regularly :doc:`delete snapshots <delete-snapshot>`.
 
 .. caution::
 
@@ -53,10 +52,10 @@ To create a snapshot using the :doc:`/getting-started/managing-your-cloud/cloud-
 
 - Press **Create**
 
-Your snapshot is available in the **Snapshot** tab of the instance as well as if you
-press **Storage** and then **Snapshots** in the main menu. In the latter case, there
-will be one snapshot per volume of the instance you created the snapshots from (only
-one if the instance only had a single volume).
+Your snapshot is available in the **Snapshot** tab of the instance and if you press
+**Storage** and then **Snapshots** in the main menu. In the latter case, there will
+be one snapshot per volume of the instance you created the snapshots from (only one
+if the instance only had a single volume).
 
 OpenStack Horizon
 -----------------

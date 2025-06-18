@@ -6,7 +6,7 @@ If you need to store files on a filesystem that can be access across a
 network, using our file share service is a good option.
 
 The file share service will provision a Linux based instance on which it
-will setup either (or both of) NFS and/or Samba (SMB/CIFS). 
+will setup either (or both of) NFS and Samba (SMB / CIFS). 
 
 To setup the service, first follow the general instructions on our
 :doc:`index` page. Then follow these instructions: 

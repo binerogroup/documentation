@@ -20,7 +20,7 @@ To create a :doc:`network <index>` from :doc:`/getting-started/managing-your-clo
   do this separately, you can clear the checkbox.
 
 - Under **Availability zone (hints)**, select the availability zone that router or instance that you want
-  to connect the network to, resides.
+  to connect the network to.
 
 - Under MTU, enter the value 1450. See :doc:`MTU </networking/mtu>` for more information.
 
@@ -28,7 +28,7 @@ To create a :doc:`network <index>` from :doc:`/getting-started/managing-your-clo
 
 .. note::
 
-   In order to connect an instance or router to the network, you will also need to create
+   To connect an instance or router to the network, you will also need to create
    a :doc:`subnet <../subnet/index>` which you can then attach to an interface on
    a router or an instance.
 

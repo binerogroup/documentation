@@ -3,11 +3,11 @@ Load Balanced Linux Apache MySQL PHP (LAMP)
 ===========================================
 
 Using the popular and powerful open source tools `Linux <https://www.linux.org>`__,
-`Apache <https://httpd.apache.org>`__, MySQL (`MariaDB <https://mariadb.org>`__ will be installed)
-and `PHP <https://www.php.net>`__, a complete production suite can be provisioned.
+`Apache <https://httpd.apache.org>`__, MySQL (`MariaDB <https://mariadb.org>`__)
+and `PHP <https://www.php.net>`__, you can provision a complete production suite.
 
-Popular tools like WordPress or frameworks like CakePHP and Laravel run on LAMP
-installations. 
+Popular tools such as WordPress or frameworks like CakePHP and Laravel run on LAMP
+installations.
 
 If you want to be able to scale your LAMP installation beyond a single server, using
 this service to setup a load balanced system will be a good way to go about it.
@@ -18,10 +18,10 @@ The following will be setup for you:
 
 - A database server instance running MariaDB.
 
-- A NFS service instance for file storage that will be mounted on the web servers.
+- A NFS service instance for shared file storage.
 
-- Web servers (how many you can choose) that will sit behind the load balancer and accept
-  the web requests, running Apache and PHP.
+- Web servers (you can choose how many) that gets added as backends behind the load balancer
+  and accept the web requests, running Apache and PHP and mounts the shared file storage.
 
 To setup the service, first follow the general instructions on our :doc:`index` page.
 
@@ -39,7 +39,7 @@ To setup the service, first follow the general instructions on our :doc:`index` 
 - Select your :doc:`SSH-key </compute/ssh-keys>`.
 
 - Under **local network**, select the :doc:`network </networking/network/index>`
-  on which the subnet (see below) that you want to use is located.
+  on that you want to use.
 
 - Under **nfs_flavor**, select your *NFS instances* :doc:`flavor </compute/flavors>`.
   We recommend sticking with the default.

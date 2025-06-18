@@ -2,7 +2,7 @@
 Available services
 ==================
 
-Binero cloud is a full fledged infrastructure platform. Below are some of the
+Binero cloud is a fully fledged infrastructure platform. Below are some of the
 main services outlined.
 
 Compute
@@ -10,92 +10,101 @@ Compute
 
 One of the three core services of the platform, compute is instances (virtual
 machines) running on physical hardware, providing CPU and RAM via flavors (which
-defines amount of resources and what kind of resources a server or instance gets access to).
+defines amount of resources and what kind of resources a server or instance gets
+access to).
 
 Block storage
 -------------
 
-Another core service, block storage is the persistent storage that is used to store your
-data, i.e. the hard drive of the server.
+Another core service, block storage is the persistent storage that's used to store
+your data.
 
-This is done via volumes that can be either SSD-based or HDD-based (depending on the use case).
+This block storage service provides volumes that can be either SSD or HDD based
+depending on your use-case. Volumes supports snapshot, backups and many other features.
 
-The volumes are attached to instances at creation but can be re-attached to a new instance or shelved. 
+You can boot instances by using a volume, or attach one or more volumes to instances,
+move volumes between instances and many other features.
 
 Networking
 ----------
 
 The last core service is networking. Binero cloud supports networks, routers, load balancers,
-security groups (firewall) and other services to implement networking for you.
+security groups (firewall) and other functionality to provide you with fast networking for
+your infrastructure.
 
-To routers (and instances) its possible to connect floating IP addresses which are public IP addresses
-on the internet that you can use to provide access to your applications and services.
+You can use floating IP addresses connected (public IP addresses on the internet) to a port to
+provide access to and from your applications and services.
 
 Load balancer
 -------------
 
-To manage load distribution between servers (or to create highly available systems) a load balancer
-is provisioned.
+To manage load distribution between instances and creating highly available and redundant
+services you can use our load balancer service.
 
-This is a system that takes a request and forwards it to one of several available servers in a pool.
+This system takes incoming requests and forwards it to an instances that you
+configure in a pool.
 
-If one server is not working (or needs to be for example rebooted), it will be removed from the
-pool. By using a load balancer, its easier to scale out a system.
+If one instance is not working our system will automatically remove it from the pool. By using
+our load balancer service, you can scale out your applications and services fast and efficiently.
 
 Secret store
 ------------
 
-Using our secure secret store, you can store information securely that you want to use for
-the platform.
+Using our secure secret store, you can store information securely that you want to use
+for the platform.
 
-For instance certificate keys for terminating SSL in the load balancer or for object encryption
-when using with the object storage service. 
+For instance certificate keys for terminating SSL/TLS in the load balancer or for object
+encryption when using with the object storage service. 
 
 Client VPN
 ----------
 
-To reach your infrastructure securely, a VPN might be utilised.
+To reach your infrastructure securely, you can use a VPN.
 
-This would setup a secure tunnel, encrypting your traffic before sending it over the internet
-back and forth. Binero cloud supports OpenVPN.
+This adds a secure tunnel, by encrypting your traffic before sending it over the internet
+to your cloud infrastructure. Binero cloud different types of VPN solutions.
 
 Object storage
 --------------
 
-Object storage is a way to store objects (files of any kind) by id in the cloud using HTTPS.
+Our object storage service helps you store objects, blobs, files or data of any kind by
+talking to our secure HTTPS APIs.
 
-Binero cloud supports both S3 and Swift APIs for our object storage service.
+Binero cloud supports both the S3 and Swift API for our object storage service.
 
 NVMe storage
 ------------
 
 NVMe based storage is the most highly performing storage available with latency, throughput
-and I/O close to the speed of RAM.
+and I/O close to the speed of memory.
 
-Binero cloud supports NVMe volumes for applications that require the highest possible speed.
+Binero cloud provides different NVMe flavors for applications that require the highest
+possible throughput and lowest latency to disk.
 
 Backup
 ------
 
 Binero cloud has a built-in backup solution that you can enable for your volumes.
 
-Backup is always sent off site and stored in our S3 cloud. 
+Backup is always sent to another availability zone and stored in our object storage
+service. 
 
 GPU based compute
 -----------------
 
-For certain workloads, a CPU will not provide enough parallelism to provide an efficient workflow.
+For certain workloads, a CPU will not provide enough parallelism to provide an efficient
+workflow.
 
-A GPU is by design more limited in their use but extremely capable at doing the work they are designed
-and optimized for.
+A GPU is by design more limited in their use-cases but fast and optimized for graphics
+or AI workloads.
 
 Binero cloud provides instances with GPU compute. 
 
-Multiple availability zones
----------------------------
+Availability zones
+------------------
 
-Binero cloud is available in two physical locations, availability zones, with a metric mile between the
-them.
+Binero cloud is available in two physical locations, availability zones, with a metric mile
+between them.
 
 ..  seealso::
 

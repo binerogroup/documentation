@@ -5,9 +5,9 @@ Retype a volume
 If you created a volume with the wrong :doc:`storage type <storage-types>` you are able
 to retype it.
 
-Perhaps you've noticed that a disk was to heavily utilised causing IO-wait on your instances
-because it was placed on HDD storage and want to change it to SSD. The other scenario might
-be a volume has grown and is to expensive to host on SSD. 
+Perhaps you've noticed that a disk was to heavily utilised causing IO-wait on your instance
+because it's using HDD storage and want to change it to SSD. The other scenario might be a
+volume has grown and is to expensive to host on SSD. 
 
 .. note::
 
@@ -16,15 +16,17 @@ be a volume has grown and is to expensive to host on SSD.
    NVMe, attach your volume, move the data to the local disk, then detach and delete the
    volume. 
 
-The following two requirements *must be met* to re-type volumes that are attached to instances:
+The following two requirements **must be true** to re-type a volume attached to an instance:
 
 - The instance must be running.
 
 - There must not be :doc:`snapshots <snapshots/index>` on the volume.
 
 Any deviations will cause a silent fail. A volume that is not attached also cant have any snapshots
-but will otherwise be possible to just retype at convenience. A retype may take several hours, the
-instance is available during this time but may have reduced IO during the swap-over.
+but will otherwise be possible to just retype at convenience.
+
+A retype can take hours to complete depending on the size of the volume, the instance is available
+during this time but can have reduced IO during the swap-over.
 
 We recommend doing this procedure during the night time (when IO is likely less).
 
@@ -36,12 +38,12 @@ We recommend doing this procedure during the night time (when IO is likely less)
 Cloud management portal
 -----------------------
 
-Its currently not possible to retype volumes using the cloud management portal.
+Its currently not possible to retype volumes by using the cloud management portal.
 
 OpenStack Horizon
 -----------------
 
-To retype a volume using :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps:
+To retype a volume by using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
@@ -57,27 +59,24 @@ To retype a volume using :doc:`/getting-started/managing-your-cloud/openstack-ho
 
 - Press **Change volume type**
 
-- A progress bar will show during the retype procedure (which may take several hours).
+- A progress bar will show during the retype operation (which can take hours depending on size).
 
 OpenStack Terminal Client
 -------------------------
 
-To retype a volume using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
+To retype a volume by using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
-- Run this command: ``openstack server list``, save the name of the instance to which the volume
-  you want to extend is connected.
-
-- Run this command: ``openstack server volume list [NAME_OF_INSTANCE]``, replacing the name with
-  that from previous step.
+- Run this command: ``openstack volume list``, save the ID of the volume you want to retype.
 
 - Run this command: ``openstack volume type list``, save the name of the new volume type you want
-  to use (ssd or hdd).
+  to use (for example ``ssd`` or ``hdd``).
 
 - Run this command: ``openstack volume set --type [TYPE_NAME] [VOLUME_ID] --retype-policy on-demand``, replacing
-  the items in angle brackets with the type name (hdd/ssd) and the ID of the volume from previous steps.
+  the items in angle brackets with the volume type name and the ID of the volume.
 
 - Run this command to verify: ``openstack volume show [VOLUME_ID] -c status``, when the status changes
   from retyping, the retype is done.
 
 ..  seealso::
+
     - :doc:`persistent-block-storage/create-volume`

@@ -6,12 +6,11 @@ For assigning addresses to instances, Binero cloud uses the DHCP protocol. While
 static IP addresses in the platform, we highly recommend using it because it greatly simplifies adding
 new instances (they will become available with zero configuration needed).
 
-Instance IP allocations are saved so there is no risk that an instance (as is the case traditionally with
-DHCP - which was typically used for client computers) would suddenly get another IP address.
+IP allocations on ports are permanent so there is no risk that an instance (as is the case traditionally
+with DHCP - which was typically used for client computers) would suddenly get another IP address.
 
-A DHCP scope (or pool) is part of a network range that is reserved for the DHCP server do deliver to its
-clients. The scope is setup on a :doc:`subnet <index>` when creating it, instructions are provided under
-each management tool.
+A DHCP scope (or pool) is part of a network range that's reserved for the DHCP server to deliver to its
+clients. The scope is setup on a :doc:`subnet <index>` when creating it.
 
 DHCP, other than assigning addresses, also assigns the correct :doc:`/networking/mtu` to instances. This is
 important for networking functionality in general so if opting to not use DHCP, we recommend reading the
@@ -19,7 +18,7 @@ MTU article carefully to understand the MTU concept.
 
 .. tip::
 
-   When assigning a DHCP scope (or pool), leave some room for potential statically assigned addresses as well as
+   When assigning a DHCP scope (or pool), leave some room for potential statically assigned addresses and
    the gateway address.
 
    A typical recommendation would be to reserve the first 10-20 addresses in a subnet, depending on the subnet
@@ -28,9 +27,9 @@ MTU article carefully to understand the MTU concept.
 Routing via DHCP
 ----------------
 
-Since DHCP provisions IP-configuration to instances, if there is a need to add :doc:static routes <../static-routing>` to
-instances (so called **Host routes**) for whatever reason, DHCP is a good way to accomplish this as any routes that are added
-to the DHCP subnet will get pushed to all instances on that subnet (existing as well as any new ones added).
+Since DHCP provisions IP-configuration to instances, if there is a need to add :doc:`static routes <../router/static-routing>` to
+instances (so called **Host routes**) for whatever reason, DHCP is a good way for this as any host routes that's added
+to the subnet will get pushed to all instances on that subnet, existing and any new instances in the future.
 
 DHCP will only add routes on instances, which is only usable to route to other instances on the same subnet. To route to a
 destination outside the same subnet, the default route is normally used but a good use case for routing via DHCP is when a
@@ -39,7 +38,7 @@ VPN is setup on the same subnet that does not do :doc:`../router/nat`. See below
 Add a route using the cloud management portal
 ---------------------------------------------
 
-To add a route using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To add a route by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Networking** and then **Networks** in the sidebar menu.
 
@@ -59,7 +58,7 @@ To add a route using the :doc:`/getting-started/managing-your-cloud/cloud-manage
 Add a route using OpenStack Horizon
 ------------------------------------
 
-To add a route using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To add a route by using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Network** and then **Networks** in the sidebar menu.
 
@@ -78,7 +77,7 @@ To add a route using the :doc:`/getting-started/managing-your-cloud/openstack-ho
 Add a route using OpenStack terminal client
 --------------------------------------------
 
-To add a route using the using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+To add a route by using the using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack subnet list``. Save the name of the subnet you want to add the route to.
 

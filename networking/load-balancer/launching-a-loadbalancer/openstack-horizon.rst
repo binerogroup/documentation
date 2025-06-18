@@ -5,8 +5,8 @@ Launching load balancer using OpenStack Horizon
 .. note::
 
    Before launching your first load balancer, we strongly recommend reading
-   our :doc:`concepts <../general-concept/index>` guide so as to gain a better
-   understanding the various parts.
+   our :doc:`concepts <../general-concept/index>` guide to gain a better
+   understanding of the parts.
 
 We also recommend setting the correct :doc:`security groups </networking/security-groups/index>`
 on the instances that should be members in the load balancing. Traffic from the load balancer
@@ -21,7 +21,7 @@ To launch a :doc:`load balancer <../index>` from the
 
 .. note::
 
-   If you want to create a load balancer that terminates SSL, you first need to
+   If you want to create a load balancer that terminates SSL/TLS, you first need to
    :doc:`create the requisite certificate </secret-store/create-cert-for-loadbalancing>` in
    our secret store. We recommend reading our :doc:`../ssl-termination` guide before proceeding.
 
@@ -34,7 +34,7 @@ To launch a :doc:`load balancer <../index>` from the
   - Name your load balancer. We recommend calling it ``[NAME]_lb`` (replace the name with something
     that's relevant for you). Providing a description is optional.
 
-  - Leave the IP field empty as an IP will be allocated automatically.
+  - Leave the IP field empty, an IP address is automatically allocated.
 
   - Select the :doc:`availability zone </networking/regions-and-availability-zones>` or leave empty
     to use the default europe-se-1a.
@@ -55,8 +55,8 @@ To launch a :doc:`load balancer <../index>` from the
 
   - Select the load balancer protocol.
 
-  - *Verify the port number* (it may set automatically but depending on protocol you may need to set
-    it manually). Without it, creation will fail.
+  - *Verify the port number* (it might set automatically but depending on protocol you might need to
+    set it manually). Without it, creation will fail.
 
   - Press **Next**.
 
@@ -82,30 +82,30 @@ To launch a :doc:`load balancer <../index>` from the
   - Select what (IP) port on each instance the service listens on. For instance for a web
     service, this would be either 80 or 443.
 
-  - When all instances that should be part of the pool are added, press **Next**. 
+  - When you have added all instances to the pool, press **Next**. 
 
 - In the fifth step, *health monitoring* will be setup. More information
   :doc:`here <../general-concept/health-monitors>`.
 
-  - Name your health monitor. We recommend calling it ``[NAME]_monitor_[PORTNUMBER]`` to differentiate
+  - Name your ``health monitor``. We recommend calling it ``[NAME]_monitor_[PORTNUMBER]`` to differentiate
     it from other the parts. Replace the name with the name you chose for your load balancer and the
     port to that of the service you want to load balance. Optionally provide a description.
 
-  - Select the type. This value would depend mostly on what kind of listener you created (which
-    protocol). We recommend choosing a type that is as granular (i.e. rather go with HTTP than
-    TCP port 80 if you want to check a web server) as possible.
+  - Select the type. This value would depend on what kind of listener you created (which protocol). We
+    recommend choosing a type that is as granular (go with HTTP than TCP port 80 if you want to check a
+    web server) as possible.
 
-  - Choose the various options relating to your monitor, the defaults will likely suffice but this
+  - Choose the options relating to your ``health monitor``, the defaults will likely suffice but this
     is much dependant on the application.
 
-  - If you've opted for **TERMINATED SSL** when setting up the listener details, you will need to
+  - If you've opted for ``TERMINATED SSL`` when setting up the listener details, you will need to
     proceed to next step to add your certificates and should then be able to click **Next**. If
-    not, the **Next** option is greyed out and you should instead press **Create Load Balancer**.
+    not, the **Next** option is unavailable and you should instead click **Create Load Balancer**.
 
-- The sixth step is only relevant when creating an SSL terminating load balancer. In this step, you
-  would choose the certificate that the load balancer should use to terminate SSL connections. To do
-  this, you first need to have a :doc:`certificate </secret-store/create-cert-for-loadbalancing>` added
-  to the secret store.
+- The sixth step is only relevant when creating an SSL/TLS terminating load balancer. In this step, you
+  would choose the certificate that the load balancer should use for SSL/TLS connections. To do this, you
+  first need to have a :doc:`certificate </secret-store/create-cert-for-loadbalancing>` added to the secret
+  store.
 
 .. note::
 
@@ -118,7 +118,7 @@ To verify that the health checking has added the members to the pool, follow thi
 
 - Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
 
-- Verify that the **Operating status** says **Online** as well as **Provisioning status**
+- Verify that the **Operating status** says **Online** and **Provisioning status**
   says **Active** on the load balancer and then press its name.
 
 - Press the **Pools** tab and then press the name of your pool.

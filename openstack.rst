@@ -3,7 +3,7 @@ OpenStack
 =========
 
 Binero cloud runs on `OpenStack <https://www.openstack.org>`_ which is an umbrella ecosystem of
-open source software that together can be used to build public and private cloud infrastructure.
+open source software that you can use together to build public and private cloud infrastructure.
 
 Release
 -------

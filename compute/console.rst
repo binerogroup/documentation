@@ -2,11 +2,11 @@
 Console
 =======
 
-You are able to open the console of your instances using the instance console in
+You are able to open the console of your instances by using the instance console in
 either the :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`
 or :doc:`OpenStack Horizon </getting-started/managing-your-cloud/openstack-horizon>`.
 
-This is useful if you need to debug or troubleshoot your instance if it is unreachable.
+This is useful if you need to debug or troubleshoot your instance if it's unreachable.
 
 .. note::
 
@@ -15,7 +15,7 @@ This is useful if you need to debug or troubleshoot your instance if it is unrea
    the root or administrator password.
 
    How to do this will vary by operating system but for the majority of Linux distributions, booting
-   into single user mode will enable a password-less login which can be used to reset the password
+   into single user mode will enable a password-less login which you can use to reset the password
    for the root user.
 
 Cloud management portal console
@@ -28,8 +28,8 @@ Cloud management portal console
 - Press the console icon (looks like ``< >``) in the top right.
 
 - A new window will appear showing the console. If the image is blank, this might be because the screen
-  is in power save mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
-  up.
+  is in power save mode (operating system setting). Press the mouse cursor on the screen and press any key
+  to wake it up.
 
 OpenStack Horizon console
 -------------------------
@@ -40,8 +40,8 @@ OpenStack Horizon console
   to view console for, press **Console**.
 
 - A new window will appear showing the console. If the image is blank, this might be because the screen
-  is in power save mode (OS setting). Press the mouse cursor on the screen and press any key to wake it
-  up.
+  is in power save mode (operating system setting). Press the mouse cursor on the screen and press any
+  key to wake it up.
 
 ..  seealso::
 

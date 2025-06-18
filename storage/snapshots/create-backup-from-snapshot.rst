@@ -3,13 +3,9 @@ Create backup from snapshot
 ===========================
 
 A snapshot is a good base for creating a backup as its guaranteed to be
-static data. That is, once the snapshot has been completed (which is a
-fast procedure), no more writes will occur to the data in the snapshot.
-
-This means that assuming the snapshot was taken in a manner guaranteeing
-data integrity (for example when the instance was switched off - or when
-writes where quiesced), the backup will (even though it takes much longer
-due to copying data to the auxiliary storage) also guarantee data integrity.
+static data. That is, once the snapshot is available (which is a fast
+procedure), no more writes will occur to the data in the snapshot, this
+assumes the integrity of the data stored, see :doc:`/storage/snapshots/create-snapshot`.
 
 More information on backups (which we recommend you to read) is available in
 our :doc:`/backup/index` article.
@@ -27,7 +23,8 @@ management portal.
 OpenStack Horizon
 -----------------
 
-To create a backup from a snapshot using :doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
+To create a backup from a snapshot by using
+:doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Volumes** and then **Snapshots** in the sidebar menu.
 
@@ -44,7 +41,8 @@ To create a backup from a snapshot using :doc:`/getting-started/managing-your-cl
 OpenStack Terminal Client
 -------------------------
 
-To create a backup from a snapshot using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
+To create a backup from a snapshot by using the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack volume snapshot list``, save the ID of the snapshot you want to backup.
 

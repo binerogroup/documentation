@@ -3,10 +3,10 @@ Creating a persistent volume
 ============================
 
 If you just want a single disk attached to your instance, this will get created with the instance
-and does not need to be separately created. If you want multiple disk, then you need to create and
-attach the additional disks to the instance. 
+and does not need to be separately created. If you want more disks, then you need to create and
+attach more volumes to the instance. 
 
-New volumes can either be empty or be based on:
+New volumes can either be empty or based on:
 
 - A previous :doc:`image </images/index>`, public or private.
 
@@ -20,17 +20,22 @@ guide :doc:`creating-an-instance-from-a-volume`.
 
 .. note::
 
-   New volumes that are created and attached to an instance may not get deleted with the
-   instance - existing volumes will be billed even though not used.
+   New volumes created and attached to an instance might not get deleted with the
+   instance.
+
+.. note::
+
+   Volumes cost according to our price list even when they are not attached to
+   an instance.
 
 Cloud management portal
 -----------------------
 
-To create a volume using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To create a volume by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Storage** and then **Volumes** in the sidebar menu.
 
-- Press the **+** (plus) icon in the bottom right corner.
+- Press the **+** (plus) icon in the lower right corner.
 
 - Region should be *europe-se-1*.
 
@@ -47,7 +52,7 @@ To create a volume using the :doc:`/getting-started/managing-your-cloud/cloud-ma
 
 - Press **Create**
 
-In order to attach your volume, follow these steps:
+To attach your volume:
 
 - Press **Compute** and then **Instances**
 
@@ -62,7 +67,7 @@ In order to attach your volume, follow these steps:
 OpenStack Horizon
 -----------------
 
-To create a volume using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To create a volume by using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Volumes** and then **Volumes** in the sidebar menu.
 
@@ -82,7 +87,7 @@ To create a volume using :doc:`/getting-started/managing-your-cloud/openstack-ho
 
 - Press **Create volume**
 
-In order to attach your volume, follow these steps:
+To attach your volume:
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
@@ -96,7 +101,7 @@ In order to attach your volume, follow these steps:
 OpenStack Terminal Client
 -------------------------
 
-To create a volume using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+To create a volume by using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack volume type list``. Save the name of the volume type you
   want to use. 
@@ -107,7 +112,7 @@ To create a volume using the :doc:`/getting-started/managing-your-cloud/openstac
 - Run this command: ``openstack volume create --type [VOLUME_TYPE_NAME] --size [SIZE_IN_GB] --availability-zone [AVAILABILITY_ZONE] [VOLUME_NAME]``, replacing
   the values in angle brackets with values from previous steps and your selections.
 
-In order to attach your volume, follow these steps:
+To attach your volume:
 
 - Run this command: ``openstack volume list``, save the ID (not name) of the volume you
   want to attach.

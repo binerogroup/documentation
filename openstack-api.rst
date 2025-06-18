@@ -9,10 +9,10 @@ This is a powerful feature for users that either want to create infrastructure a
 code projects or want to integrate with third-party applications to manage your
 infrastructure.
 
-The OpenStack API is broken down into multiple projects based on what service it provides.
+The OpenStack API consists of many individual APIs based on what service it provides.
 
-They have in common that an :doc:`API user </getting-started/users>` is needed to access the
-API using any of the below endpoints.
+They have in common that an :doc:`API user </getting-started/users>` needs to be available
+for authentication to access the APIs on any of the below endpoints.
 
 We keep updated information about the release of the platform along with links to correct APIs
 available in our :doc:`OpenStack <openstack>` documentation.
@@ -28,10 +28,11 @@ available in our :doc:`OpenStack <openstack>` documentation.
 Version
 -------
 
-Some of the OpenStack APIs will support multiple versions for backwards compatibility.
+Some of the OpenStack APIs will support different versions for backwards compatibility.
 
-Generally the recommended version is included in the URL (where applicable) below but in certain
-cases microversions might be required (for example v2.1 vs v2.67 for Nova) for some functionality.
+Generally the recommended version is in the URL (where applicable) below but in certain
+cases you need to use a certain microversions (for example v2.1 compared to v2.67 for
+Nova) for some functionality.
 
 Keystone
 --------
@@ -42,8 +43,8 @@ using an :doc:`API user </getting-started/users>`.
 A good place to start is available in the official
 documentation `here <https://docs.openstack.org/keystone/latest/api_curl_examples.html>`_.
 
-Authentication is needed for all API calls, when authenticating for your token a catalog
-with endpoints is provided in the response, for verbosity it's also included below.
+You need to authenticate for all API calls, when authenticating for your token a catalog
+with endpoints is also returned in the response, for verbosity it's also included below.
 
 .. _openstack-api-endpoints:
 

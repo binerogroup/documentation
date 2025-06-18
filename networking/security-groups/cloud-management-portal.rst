@@ -5,11 +5,12 @@ Managing security groups using the Cloud management portal
 Creating a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To create a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To create a :doc:`security group <index>` by using the
+:doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Networking** and then **Security groups** in the sidebar menu.
 
-- Press the **+** (plus) icon in the bottom right corner.
+- Press the **+** (plus) icon in the lower right corner.
 
 - Under region, *europe-se-1* should be pre-selected.
 
@@ -25,12 +26,13 @@ To create a :doc:`security group <index>` using the :doc:`/getting-started/manag
 Adding rules to a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To add rules to a :doc:`security group <index>` using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To add rules to a :doc:`security group <index>` by using the
+:doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Networking** and then **Security groups** in the sidebar menu.
 
-- On the security group you want to add a rule to, press the small **create rule** icon (looks
-  like several rows of text with a small **+** plus sign).
+- On the security group you want to add a rule to, press the small **create rule** icon (rows of
+  text with a small **+** plus sign).
 
 - Define the rule. More info in our :doc:`designing-rules` article.
 
@@ -44,15 +46,17 @@ To add rules to a :doc:`security group <index>` using the :doc:`/getting-started
 Adding a security group to an instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To add a :doc:`security group <index>` to an instance using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To add a :doc:`security group <index>` to an instance by using the
+:doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Compute** and then **Instances** in the sidebar menu.
 
 - Press the instance that you want to add the security group to.
 
-- In the top tab (under the instance name), security groups menu is available when scrolling to the right. Press it.
+- In the top tab (under the instance name), security groups menu is available when scrolling
+  to the right. Press it.
 
-- Press **Allocate**
+- Press ``Allocate``
 
 - Select the group you want to add.
 
@@ -60,8 +64,7 @@ To add a :doc:`security group <index>` to an instance using the :doc:`/getting-s
 
 .. note::
 
-   Remember: you need to add your groups to all instances, all rules are evaluated in a
-   per instance fashion.
+   Remember: you need to add your security groups to all instances.
 
 ..  seealso::
 

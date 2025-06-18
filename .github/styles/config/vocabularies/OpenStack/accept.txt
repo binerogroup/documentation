@@ -6,3 +6,4 @@ APIs
 subnet|Subnet
 openrc
 unshelve|Unshelve
+Designate

@@ -16,8 +16,8 @@ To setup the service, first follow the general instructions on our :doc:`index` 
 
 - Select your instance :doc:`flavor </compute/flavors>`.
 
-- Under ``private_net_name``, select the :doc:`network </networking/network/index>` on
-  which the subnet (see below) that you want to use is located.
+- Under ``private_net_name``, select the :doc:`network </networking/network/index>` you
+  want to use.
 
 - Under ``private_subnet_name``, select the :doc:`subnet </networking/subnet/index>` on
   which you want to run the service.

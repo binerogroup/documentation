@@ -2,51 +2,47 @@
 Creating an instance from an existing volume
 ============================================
 
-If you have a bootable volume available, maybe you've created it from a snapshot or you've previously
-decommissioned an instance (but saved the volume in order to be able to re-launch it), you can launch
-a new instance using the volume. 
+If you have a bootable volume available you can launch a new instance
+using the volume.
 
 Cloud management portal
 -----------------------
 
-To launch a new instance from an existing volume using the
-:doc:`/getting-started/managing-your-cloud/cloud-management-portal`, follow these steps: 
+To launch a new instance from an existing volume by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
-- Follow our guide :doc:`/compute/launching-an-instance/cloud-management-portal`, however:
+- Follow our guide :doc:`/compute/launching-an-instance/cloud-management-portal`, but:
 
-- When selecting boot source, press the **Volumes** tab.
+  - When selecting boot source, press the **Volumes** tab.
 
-- Select your volume.
+  - Select your volume.
 
-- Proceed according to the guide.
+  - Proceed according to the guide.
 
 OpenStack Horizon
 -----------------
 
-To launch a new instance from an existing volume using
-:doc:`/getting-started/managing-your-cloud/openstack-horizon`, follow these steps: 
+To launch a new instance from an existing volume by using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
-- Follow our guide :doc:`/compute/launching-an-instance/openstack-horizon`, however:
+- Follow our guide :doc:`/compute/launching-an-instance/openstack-horizon`, but:
 
-- On the second tab **Source**, in the **Select boot source** dropdown, select **Volume**
+  - On the second tab **Source**, in the **Select boot source** dropdown, select **Volume**
 
-- Press the small arrow next to the volume you want to base the instance on (available below).
+  - Press the small arrow next to the volume you want to base the instance on (available below).
 
-- Proceed according to the guide.
+  - Proceed according to the guide.
 
 OpenStack Terminal Client
 -------------------------
 
-To launch a new instance from an existing volume using the
-:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow these steps:
+To launch a new instance from an existing volume by using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
-- Follow our guide :doc:`/compute/launching-an-instance/openstack-horizon`, however:
+- Follow our guide :doc:`/compute/launching-an-instance/openstack-horizon`, but:
 
-- Run this command: ``openstack volume list --status available``, save the ID of the volume to use.
+  - Run this command: ``openstack volume list --status available``, save the ID of the volume to use.
 
-- Replace the server create command in the guide with the below, the **Volume ID** you get from previous
-  command. You may also skip the steps about which image to use as when using an existing volume, an
-  image is not used.
+  - Replace the server create command in the guide with the below, the **Volume ID** you get from previous
+    command. You can also skip the steps about which image to use as when using an existing volume, an
+    image is not used.
 
 ::
 

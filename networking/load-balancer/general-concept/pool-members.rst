@@ -7,28 +7,24 @@ A member is a compute instance that runs a service (for example Apache).
 When load balancing, a member receives proxied requests from the listener
 through its membership in the pool.
 
-Members are health checked by the pool and included in it, if they are
-found to be working (and dynamically removed if not). This is an automated
-process, if a member should be detected to have failed for any reason it
-will be disabled in the pool.
-
-Checking continues and as soon as the member is (again) working, it will
-be enabled back into the pool automatically.
+Members in a pool have their health monitored and are only included in the
+load balancer if their health is up, if the health is down they are not
+included and thus get no traffic.
 
 Members can have some configuration:
 
-- Explicit monitoring IP addresses and/or ports if you want to do health
-  checking on something other than the members own IP address.
+- Explicit monitoring IP addresses or ports if you want to do health
+  monitoring on something other than the members own IP address.
 
-- Backup flag - this means that the member is a fallback server if all the
-  normal members are down. For instance when doing maintenance on an
-  application you'd might like to show a notification that your site is
-  down and will be back later.
+- Backup flag - this means that the member is a fallback server if all
+  the normal members are down. For instance when doing maintenance on an
+  application you can instead show a notification that your site is down
+  for maintenance and will be back later.
 
-- Weight can be set so that a member receives a disproportionate amount
-  of request. A higher weight means more requests, the maximum number
-  is 256. We recommend keeping all members identical and as such, this
-  should rarely (if ever) be used.
+- You can set a weight so that a member receives a certain amount of the
+  requests. A higher weight means more requests, the max value is 256. We
+  recommend keeping all weights on members identical for the best request
+  distribution.
 
 All members should have an IP on a :doc:`subnet </networking/subnet/index>`.
 

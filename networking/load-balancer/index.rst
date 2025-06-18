@@ -11,14 +11,14 @@ The service handles the ingress traffic and requests to your application
 with support for healthchecks. See the :doc:`general-concept/index` for more
 details on how the service works.
 
-The load balancer service is based upon well-established open source projects
-`HAProxy <https://www.haproxy.org>`_ and `Keepalived <https://www.keepalived.org>`_ and
-all load balancers created is highly available and redundant.
+The load balancer service builds on the well-established open source projects
+`HAProxy <https://www.haproxy.org>`_ and `Keepalived <https://www.keepalived.org>`_
+and all load balancers created is highly available and redundant.
 
 Binero handles security and patching of your load balancer infrastructure at
-no additional cost as it's included in the normal price.
+no extra cost and it's included in the price.
 
-You can manage your load balancers using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`,
+You can manage your load balancers by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`,
 :doc:`/getting-started/managing-your-cloud/openstack-horizon`,
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` or the API.
 
@@ -37,9 +37,9 @@ The load balancer service is available in all our
 
 .. caution::
 
-   Please note that availability zone on a :doc:`index` only selects where the load
-   balancer is located and the incoming traffic from the internet will still go through
-   the availability zone that the :doc:`/networking/router/index` is in.
+   The availability zone on a :doc:`index` only selects where to place your load
+   balancer, incoming traffic from the internet will still go through the availability
+   zone of the :doc:`/networking/router/index`.
 
 .. toctree::
   :maxdepth: 2

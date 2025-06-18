@@ -8,21 +8,22 @@ General concept
 Using our secret store, you are able to give the platform access to secrets such as certificates
 and keys in a secure manner.
 
-We support various secret formats and also incorporate ACLs (Access Control Lists) so as to be able
+We support different secret formats and also incorporate ACLs (Access Control Lists) allowing you
 to give certain :doc:`API-user </getting-started/users>` access to secrets while withholding access
-to other users.
+for other users.
 
-Here are some examples of secrets that could be saved in our secret store:
+Here are some examples of secrets that you can store in our secret store:
 
 - Symmetric Keys - Used to perform reversible encryption of data at rest, typically using the AES
-  algorithm set. This type of key is required to enable features like encrypted Swift containers
-  and Cinder volumes, encrypted Cloud Backups, etc.
+  algorithm set. This is a required type to enable features such as encrypted Swift containers
+  and Cinder volumes, encrypted Cloud Backups and so on.
 
-- Asymmetric Keys - Asymmetric key pairs (sometimes referred to as public / private keys) are used
-  in many scenarios where secure communication between parties is desired. The most common case is
-  with SSL/TLS certificates.
+- Asymmetric Keys - Asymmetric key pairs (sometimes referred to as public / private keys) has many
+  use-cases, in most scenarios it's used for securing communication between parties. The most common
+  case is with SSL/TLS certificates.
 
-- Raw Secrets - Barbican stores secrets as a base64 encoded block of data (encrypted, naturally).
+- Raw Secrets - Barbican stores secrets as a base64 encoded block of data (that is then stored
+  encrypted).
 
 Some of the services in the platform that consume secrets are:
 
@@ -37,8 +38,8 @@ Some of the services in the platform that consume secrets are:
 Secrets
 -------
 
-Secrets represent keys, credentials, and other sensitive data that is stored by the secret
-store service. Following are operations that can be performed on a secret:
+Secrets represent keys, credentials, and other sensitive data stored by the secret
+store service. The secret service supports operations such as:
 
 - :doc:`Creating secrets <create-secret>`.
 

@@ -3,12 +3,12 @@ Launch instance from image
 ==========================
 
 When :doc:`snapshotting </storage/snapshots/index>` and entire instance, the end result is
-an :doc:`image <index>`. Restoring from a snapshot (assuming the entire instance was restored) is
+an :doc:`image <index>`. Restoring from a snapshot (assuming you restore the entire instance) is
 then the same as creating an instance from a private image.
 
 When restoring an entire instance from a snapshot, which might be the case if for example an
-upgrade failed post snapshot and you want to revert to the previous state, you would create a
-new instance from the image that was generated.
+upgrade was unsuccessful post snapshot and you want to revert to the previous state, you would
+create a new instance from the image.
 
 This is a good method because it allows you to safely ensure that your new instance is up and
 running before deleting the old one (and not doing major changes to the only copy of the image).
@@ -17,7 +17,7 @@ running before deleting the old one (and not doing major changes to the only cop
           the current instance, we *do not recommend it*, but rather that you follow below guide
           to create a new instance from the image. 
 
-Please follow our below guide from creating an instance from a private image using our various tools.
+See the below guides from creating an instance from a private image.
 
 Cloud management portal
 -----------------------
@@ -67,4 +67,5 @@ To create a snapshot using the :doc:`/getting-started/managing-your-cloud/openst
   replacing the ``--image`` value from the public image in the example to your private image
 
 ..  seealso::
+
     - :doc:`index`

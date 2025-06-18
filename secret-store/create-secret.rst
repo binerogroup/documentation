@@ -9,29 +9,29 @@ To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-c
 
 - Press **Secret management** and then **Secrets** in the sidebar menu.
 
-- Press the **+** (plus) icon in the bottom right corner.
+- Press the **+** (plus) icon in the lower right corner.
 
 - Select a user from the dropdown and enter the password for that user along with other details. Credentials of
-  the User are required so that would make him the owner of the secret. 
+  the User to make it the owner of the secret. 
 
 - Enter a descriptive name of the secret.
 
-- Select what kind of payload (file or text) and input it. The Payload Data field stores the secret data which
-  will be encrypted and stored. 
+- Select what kind of payload (file or text) and input it. The Payload Data field stores the secret data to be
+  encrypted and stored.
 
 - Press **Create**. The secret is now stored.
 
 Creating a secret using the OpenStack terminal client
 -----------------------------------------------------
 
-This shows you how to create a secret :doc:`secret <../index>` using the
+This shows you how to create a secret :doc:`secret <../index>` by using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 Uploading a certificate
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This is an example of how to upload a certificate in binary format that can be used for TLS when using
-our load balancer service.
+This is an example of how to upload a certificate in binary format that's needed for TLS termination when
+using our :doc:`load balancer </networking/load-balancer/index>` service.
 
 ::
 
@@ -40,7 +40,7 @@ our load balancer service.
 Encryption key for object storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is an example of how to upload a encryption key that can be used with the SSE-KMS specification
+This is an example of how to upload a encryption key that's needed with the SSE-KMS specification
 in our :doc:`object storage </storage/object-storage/index>` service.
 
 You can use ``openssl rand -base64 32`` to generate a new encryption key that is base64 encoded.
