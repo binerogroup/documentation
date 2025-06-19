@@ -12,7 +12,8 @@ The Swift API is fully supported within the platform and you are able to run it 
 of our :doc:`../regions-and-availability-zones`, either from one availability zone at a
 time or both using :doc:`replication <replication>`.
 
-A container holding objects is called a container in Swift terminology.
+In Swift terminology a container holds objects and is the same as a
+bucket in S3 terminology.
 
 .. tip::
 
@@ -28,8 +29,8 @@ A container holding objects is called a container in Swift terminology.
 Setting up credentials
 ----------------------
 
-You are able to use the Swift API using any API-user and setting up application specific
-credentials is therefore done in the same manner.
+You are able to use the Swift API by using any API-user and setting up application specific
+credentials performed in the same manner.
 
 See our :doc:`/getting-started/users` article for more information.
 
@@ -43,10 +44,10 @@ see :doc:`getting-started`), if you want to manage swift storage in another
 the only one these tools can access), you will need the swift client. 
 
 If you read our guide :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, chances
-are that you've already installed the client, this can be tested by running ``swift --version``.
+are that you've already installed the client, you can test this by running ``swift --version``.
 
-If not, its available via your python package manager (or your OS package manager) and is usually
-called ``python-swiftclient``, so in Ubuntu you might install it as such ``apt install python-swiftclient``.
+If not, its available via your python package manager (or your operating system package manager) as
+``python-swiftclient``.
 
 To use the client, provided you are also using the OpenStack terminal client, you should be able to
 re-use the same environmental variables as it does.
@@ -69,7 +70,7 @@ flag with the new endpoint:
 
 - Run this command: ``swift --os-storage-url https://object-eu-se-1b.binero.cloud/swift/v1/AUTH_[PROJECT_ID] list``, replacing
   the [PROJECT_ID] with the ID from previous step and using the URL from the :doc:`endpoints` article to reach
-  the storage you are interested in.
+  the storage.
 
 .. note::
 
@@ -82,17 +83,17 @@ Creating a container
 To create a container via Swift, you would either use the API (not covered in this documentation) or the swift
 client.
 
-To use the latter to create a bucket, follow these steps. Add the ``--os-storage-url`` as per above
+To use the latter to create a bucket see below. Add the ``--os-storage-url`` as per above
 if you need to change API endpoint.
 
 - Decide which :doc:`storage policy <storage-policy>` you want to use. Save the name.
 
-- Decide whether or not to use :doc:`replication <replication>`.
+- Decide if you need to use :doc:`replication <replication>`.
 
 - Decide in what :doc:`availability zone <../regions-and-availability-zones>` to store your
   data, save the name.
 
-- Based on replication (or not) as well as availability zone, choose the right :doc:`endpoint <endpoints>`. Save
+- Based on replication (or not) and availability zone, choose the right :doc:`endpoint <endpoints>`. Save
   the endpoint URL.
 
 - Create your container using ``swift post -H "X-Storage-Policy:[STORAGE_POLICY_NAME]" [CONTAINER_NAME]``, add
@@ -109,13 +110,13 @@ if you need to change API endpoint.
 Deleting a container
 --------------------
 
-To delete a container using the swift client, follow these steps:
+.. caution::
+
+   Everything in the bucket will get deleted when you run the below!
+
+To delete a container by using the ``swift`` terminal client.
 
 - Run this command: ``swift list``, save the name of the bucket you want to delete.
 
 - Run this command: ``swift delete [BUCKET_NAME]``, replace [BUCKET_NAME] with the
   name of the bucket. 
-
-.. important::
-
-   You will not be asked to verify a deletion and everything in the bucket will get deleted.

@@ -27,6 +27,8 @@ CPUs
 GPUs
 vCPUs
 pCPUs
+Gbps
+Mbps
 
 # Product, services, companies
 AWS|aws

@@ -17,14 +17,14 @@ connect to :doc:`networks <network/index>`.
 Networks in turn, have :doc:`subnets <subnet/index>` that assigns IP addresses to :doc:`ports <ports>` used by
 :doc:`instances </compute/index>`.
 
-:doc:`Floating IP addresses <floating-ips>` are publicly routed IP addresses that can be mapped (1:1) to a port to either
+:doc:`Floating IP addresses <floating-ips>` are publicly routed IP addresses mapped (1:1) to a port to either
 publish services on the internet or provide servers with access to the internet. 
 
-Please see the various subsections to this article in order to get a good understanding of the networking possibilities
+See the sections in this article to get a good understanding of the networking possibilities
 in the platform.
 
-If you are looking to **get started** with networking, we recommend our :doc:`getting started guide <../getting-started/launching-an-instance>`
-that will guide you through setting up a versatile solution using a single subnet behind a router. 
+If you are looking to get started with networking, we recommend our :doc:`getting started guide <../getting-started/launching-an-instance>`
+that will guide you through setting up a versatile solution by using a single subnet behind a router. 
 
 .. toctree::
   :caption: Available services

@@ -2,7 +2,8 @@
 Resizing an instance using OpenStack Horizon
 ============================================
 
-To resize an :doc:`instance <../index>` using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To resize an :doc:`instance <../index>` by using
+:doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 .. important::
 
@@ -25,12 +26,12 @@ To resize an :doc:`instance <../index>` using :doc:`/getting-started/managing-yo
   new flavor). 
 
 - If you are happy with the result, press **Confirm Resize/Rigrate** in dropdown to
-  the far right (it should be pre-selected). This will finalize the process and make
-  it permanent.
+  the far right (it should be pre-selected). This completes the process and make the
+  resize permanent.
 
-- If you are unhappy (for some reason the process failed), you are able to instead
-  press **Revert resize/Migrate** (available in the dropdown). This will revert the
-  process.
+- If you are unhappy (or for some reason the resize was unsuccessful), you are able
+  to instead click **Revert resize/Migrate** (available in the dropdown). This will
+  revert the process.
 
 The process is now complete. 
 

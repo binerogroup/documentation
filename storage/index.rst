@@ -5,7 +5,7 @@ Storage
 Storage is a core function in the Binero cloud platform.
 
 You are able to provision both :doc:`block <persistent-block-storage/index>` and
-:doc:`object <object-storage/index>` storage directly in the platform as well as
+:doc:`object <object-storage/index>` storage directly in the platform and
 :doc:`file </service-catalog/file-share>` (using NFS) via our :doc:`../service-catalog/index`. 
 
 We provide three main :doc:`storage types <storage-types>`.
@@ -19,8 +19,8 @@ We provide three main :doc:`storage types <storage-types>`.
 You are able to use our :doc:`backup solution <../backup/index>` to backup the data of
 volumes onto our object platform in another data center. 
 
-Please see the various subsections to this article in order to get a good understanding
-of the storage possibilities in the platform.
+See the subsections to this article to get a good understanding of the storage
+possibilities in the platform.
 
 .. toctree::
   :caption: Available services

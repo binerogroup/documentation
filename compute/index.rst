@@ -21,7 +21,7 @@ You are able to :doc:`launch <launching-an-instance/index>`, :doc:`resize <resiz
 
 - :doc:`/openstack-api`
 
-More information on the various ways to manage your cloud is available in
+More information on the many ways to manage your cloud is available in
 the :doc:`/getting-started/managing-your-cloud/index` article.
 
 .. toctree::

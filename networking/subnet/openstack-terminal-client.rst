@@ -5,7 +5,7 @@ Managing subnets using OpenStack terminal client
 Create a subnet
 ---------------
 
-To create a :doc:`subnet <index>` using the
+To create a :doc:`subnet <index>` by using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run: ``openstack network list --internal``, this will give you a list of

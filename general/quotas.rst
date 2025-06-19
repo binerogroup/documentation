@@ -2,14 +2,13 @@
 Quotas
 ======
 
-Public cloud offerings are at risk for fraud and abuse accounts by individuals
-looking to consume our cloud platform at no cost.
+Public cloud providers are at risk for fraudulent and malicious actors that
+creates accounts looking to consume our cloud platform at no cost.
 
-To limit the impact of potential misuse of the cloud platform, we enforce quotas
-on the amount of resources that can be provisioned per account.
+To limit the impact of potential misuse of the cloud platform, we enforce
+quotas on the amount of resources per account.
 
-These quotas can be adjusted to accommodate your needs by
-:doc:`contacting our support </general/getting-support>`.
+If you need to raise your quotas, :doc:`contacting our support </general/getting-support>`.
 
 Please ensure that you've entered relevant details on your account and has paid
 for at least one months of usage.
@@ -17,13 +16,13 @@ for at least one months of usage.
 Default quotas
 --------------
 
-The default quotas, available out of the box, are as follows:
+The default quotas are as follows:
 
 - :doc:`vCores </compute/flavors>`: 40
 
 - :doc:`RAM </compute/flavors>`: 100 GB
 
-- Server Groups: 10
+- :doc:`Server Groups </compute/server-groups>`: 10
 
 - :doc:`Volumes </storage/persistent-block-storage/index>`: 20
 

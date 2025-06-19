@@ -2,20 +2,18 @@
 Create a volume from a snapshot
 ===============================
 
-If you want to access the data of a snapshot (without provisioning a entirely new
-identical instance :doc:`from an image </images/launch-instance-from-image>`), you
-would first need to create a new volume based on the data in the snapshot (the actual
-snapshot cannot be manipulated as there are dependencies to it within the volume that
-houses it). 
+If you want to access the data of a snapshot, without provisioning an entirely new
+identical instance :doc:`from an image </images/launch-instance-from-image>`, you
+would first need to create a new volume based with the data in the snapshot.
 
 When doing this, the new volume will be separate from the original volume and will
 forthwith provide its data in its own right.
 
-The version of the data would be from the time of when the snapshot was taken.
+The version of the data would be from the time when creating the snapshot.
 
-The new volume could be attached (see subsection of our guide :doc:`../persistent-block-storage/create-volume`
+The new volume can attach (see subsection of our guide :doc:`../persistent-block-storage/create-volume`
 for more info on attaching a volume) to any instance or used as base to create an entirely
-new instance (if it was a boot volume).
+new instance, if it's a volume with bootable media on it.
 
 .. note::
 

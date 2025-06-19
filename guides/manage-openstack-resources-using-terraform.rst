@@ -2,7 +2,7 @@
 Manage OpenStack resources using Terraform
 ==========================================
 
-Terraform is a popular tool that automates infrastructure in various platforms.
+Terraform is a popular tool that automates infrastructure in platforms.
 
 It has an OpenStack module and as such is compatible with Binero cloud. In this guide, we
 will walk through some concepts that enable you to use it with the platform. 
@@ -18,10 +18,10 @@ OpenStack provider.
 `Here <https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs>`__ is
 a good place to get information on how to do that. 
 
-Start by creating an :doc:`API user </getting-started/users>` and download the openrc file (by
+Start by creating an :doc:`API user </getting-started/users>` and download the ``openrc`` file (by
 pressing the small arrow next to it).
 
-The information in this file is needed to configure the Terraform provider. An example configuration
+You need the credentials in this file to configure the Terraform provider. An example configuration
 file (called for example ``demo.tf``) could look like this: 
 
 :: 

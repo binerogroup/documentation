@@ -2,39 +2,44 @@
 Boot from rescue image
 ======================
 
-Sometimes you need to boot your instance from a ISO image to fix things that are
-not possible to fix when the filesystem on the boot :doc:`volume </storage/persistent-block-storage/index>`
-volume is mounted.
+Sometimes you need to boot your instance from an ISO image because the mounted
+filesystem on the boot :doc:`volume </storage/persistent-block-storage/index>`
+prevents you from fixing certain issues.
 
-A rescue image can be used in these scenarios to boot an alternate operating system
-which can in turn fix the problem(s) with the volume.
+You can use a rescue image in these scenarios to boot an alternate operating
+system, which can then fix problems with the volume.
 
-While there is a function in the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`, it
-only supports mounting a rescue image on instances that are not booting from a volume (which will be the
-most common scenario).
-
-We will therefore focus on using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
-below.
+The :doc:`/getting-started/managing-your-cloud/cloud-management-portal` includes
+a rescue function, but it only lets you mount a rescue image on instances that
+don't boot from a volume. We'll focus on how to use the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+instead to workaround this limitation.
 
 OpenStack Terminal Client
 -------------------------
 
-To boot your instance from a rescue image using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+To boot your instance from a rescue image by using the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
-- We provide a public `SystemRescue <https://www.system-rescue.org>`_ image that can be used.
+- We provide a public `SystemRescue <https://www.system-rescue.org>`_ image that you can use.
 
-- You can use a custom rescue image or use our guide :doc:`here </images/create-rescue-image>` to create one.
+- You can use a custom rescue image or use our guide :doc:`here </images/create-rescue-image>`
+  to create one.
 
-- To connect the image to the instance, run this command ``openstack --os-compute-api-version 2.87 server rescue --image <ISO_NAME> <INSTANCE_NAME>``, replacing
-  the <ISO_NAME> with the name from previous step and the <INSTANCE_NAME> with the name of the instance that should mount the
-  image. It takes a few minutes for server to go through a series of states and finally start. Manage server via console.
+- To connect the image to the instance run the command ``openstack --os-compute-api-version 2.87 server rescue --image <ISO_NAME> <INSTANCE_NAME>``, replacing
+  ``<ISO_NAME>`` with the name from previous step and ``<INSTANCE_NAME>`` with the name of the
+  instance that should mount the image.
 
-- When done, remove the rescue image from the instance by running this command: ``openstack server unrescue <INSTANCE_NAME>``.
+  - It will take up to a few minutes to add the rescue image and for the instance to start. Use
+    the :doc:`console <console>` to manage the instance when it's done.
+
+- When you're done with the rescue remove the rescue image from the instance by running the
+  command ``openstack server unrescue <INSTANCE_NAME>``.
 
 .. note::
 
-   If you created a custom image and have run ``openstack server unrescue <INSTANCE_NAME>``. Remember to remove the
-   rescue image or you will be charged an hourly fee per GB of the image size, see our price list.
+   If you've created a custom image and have issued ``unrescue`` on the instance remember to
+   remove the image or you will pay an hourly fee per GB for the image, see our price list.
 
 ..  seealso::
 

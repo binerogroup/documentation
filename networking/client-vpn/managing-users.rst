@@ -2,11 +2,11 @@
 Managing users of client VPN
 ============================
 
-You are able to use various authentication mechanisms with the client VPN service.
+You are able to use different authentication mechanisms with the client VPN service.
 
 It supports both LDAP and Radius (which in turn will support many other mechanisms
-as well as 2FA, etc). The scope of this support article will however only include
-local users. 
+such as 2FA and so on). The scope of this support article will only include local
+users. 
 
 Add a user
 ----------
@@ -27,7 +27,8 @@ To add a user, using the VPN WebGUI.
 
 - Check the **Click to create a user certificate** checkbox.
 
-- Copy the username to the **descriptive name** field under **create certificate for user**.
+- Copy the username to the **descriptive name** field under **create certificate
+  for user**.
 
 - Press **Save**.
 
@@ -46,6 +47,6 @@ To remove a user, using the VPN WebGUI.
 
 .. note::
 
-   A deleted user will not immediately be disconnected from the VPN. If that is needed for
-   any reason, do so by pressing **Status** and then **OpenVPN** in the main menu, and then
-   pressing the small red X next to the user. 
+   A deleted user will not disconnect immediately from the VPN. If that's needed for
+   any reason, do so by pressing **Status** and then **OpenVPN** in the main menu, and
+   then pressing the cross (``x``) next to the user. 

@@ -48,7 +48,7 @@ To create a :doc:`subnet <index>` from the
 Assign subnet to router
 -----------------------
 
-To :doc:`connect-subnet-to-router`, follow these steps:
+To :doc:`connect-subnet-to-router`
 
 - Under **Project**, click **Network** and then **Routers** in the sidebar menu.
 
@@ -62,7 +62,7 @@ To :doc:`connect-subnet-to-router`, follow these steps:
 
 - Leave the **IP address (optional)** field blank. This assumes the gateway address
   on the subnet is not in use somewhere (perhaps by some instance that is running
-  as gateway). Otherwise, the IP address will have to be chosen. 
+  as gateway). Otherwise, you need to choose the IP address.
 
 - Press **Submit**
 

@@ -10,14 +10,14 @@ On a volume, you can:
 
 - :doc:`Change the type (for SSD and HDD volumes) <../retype-a-volume>`
 
-You are also able to :doc:`backup </backup/index>` your volumes as well as re-use
+You are also able to :doc:`backup </backup/index>` your volumes and re-use
 them as :doc:`images </images/index>`. 
 
-A volume can be saved irrespectively from the instance it was created with but the
-standard behaviour is to delete a volume when the instance is deleted.
+A volume created at the same time as an instance can have the **Delete on termination**
+set which means the volume is **permanently deleted** when deleting the instance.
 
-If you want to keep a volume you can always perform any of the
-below actions to save or clone a volume.
+If you want to keep a volume you can always perform any of the below actions
+to save or clone a volume.
 
 - Backup the volume.
 

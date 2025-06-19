@@ -7,20 +7,20 @@ To use your client VPN you will need a client software running on your computer.
 Which software will vary based on what operating system your computer is running as
 well as your preferences.
 
-Below we will demonstrate ways to get up and running but the general idea is to import
-a client configuration file that the VPN server provides into the client program.
+Below we will walk-through ways to get up and running, the general idea is to import
+a client configuration file that the VPN server provides into the client VPN application.
 
 The client configuration will contain the necessary keys, certificates and settings to
 be able to authenticate and start the tunnel
 
 .. important::
 
-   The client configuration export file contains secret information that could be used
-   by an attacker to gain access to your VPN.
+   The exported client configuration file contains sensitive information that an attacker
+   can use to gain access to your VPN.
 
-   It is to be treated as a password. We recommend not emailing the configuration to
-   users but rather put it onto a flash drive and handing it over or using a secure file
-   transfer service to distribute it.
+   You should treat it as sensitive information according to your policy. We recommend
+   that you do **not** email the configuration to users but rather put it onto a flash
+   drive or using a secure file transfer service to distribute it.
 
 Downloading configuration
 -------------------------
@@ -28,8 +28,8 @@ Downloading configuration
 To download configurations from the VPN server.
 
 - :doc:`Login <initial-configuration>` to the WebUI of the client VPN. If you don't already
-  have a VPN account that works, this will have to be done from the IP address that was
-  used for the initial configuration. See :doc:`setting-up` for more information.
+  have a VPN account that works, you will need to login from the admin IP address used in
+  the initial configuration. See :doc:`setting-up` for more information.
 
 - Press **VPN** and then **OpenVPN** in the main menu.
 
@@ -59,17 +59,17 @@ To download this configuration, follow the instructions above and select the app
 Assuming you already have a OpenVPN client installed and prefer to use that software, instead
 download the configuration named **Most clients** under **Inline configurations** section.
 
-This can then be imported into the client software by (usually) double clicking the file or
-right clicking it and selecting **import**.
+You can then import it into the client software by double clicking the file or right clicking
+it and selecting **import**.
 
-If neither of those works, please see relevant documentation on your specific client for how
-to import configurations into the client.
+If neither of those works, see relevant documentation on your specific client for how to import
+configurations into the client.
 
-Mac OS clients
---------------
+Mac clients
+-----------
 
-Clients available for Mac OS that should work well, one client is `OpenVPN Connect <https://openvpn.net/client/>`__
-and another client that is known to work is `Tunnelblick <https://tunnelblick.net>`__.
+Clients available for Mac that should work well, one client is `OpenVPN Connect <https://openvpn.net/client/>`__
+and another client is `Tunnelblick <https://tunnelblick.net>`__.
 
 Other clients
 -------------

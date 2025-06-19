@@ -5,7 +5,7 @@ Managing security groups using the OpenStack terminal client
 Creating a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To create a :doc:`security group <index>` using the
+To create a :doc:`security group <index>` by using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack security group create --description [DESCRIPTION] [NAME]``
@@ -18,7 +18,7 @@ To create a :doc:`security group <index>` using the
 Adding rules to a security group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To add rules to a :doc:`security group <index>` using the
+To add rules to a :doc:`security group <index>` by using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Running the following command will give you a detailed overview of what options are
@@ -48,7 +48,7 @@ To add rules to a :doc:`security group <index>` using the
 Adding a security group to an instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To add a :doc:`security group <index>` to an instance using the
+To add a :doc:`security group <index>` to an instance by using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack server add security group [INSTANCE NAME] [GROUP NAME]``, replace
@@ -62,11 +62,11 @@ Address groups
 ^^^^^^^^^^^^^^
 
 Address groups enable you to setup a collection of IP addresses and IP ranges that you can then use
-to apply to your groups.
+to apply to your security groups.
 
-The benefit of this, is that you could re-use them in many rules and would not have to maintain several
-lists of (the same) addresses. Address groups are only available via the terminal client, below is how
-to work with them:
+The benefit of this, is that you could re-use them in many security group rules and would not have to
+maintain different lists of (the same) addresses. Address groups are only available via the terminal
+client, below is how to work with them:
 
 - To create a group, run this command: ``openstack address group create [NAME]``
 
@@ -80,13 +80,12 @@ to work with them:
    If you instead choose to press **Edit Port Security Groups** (in step 2 above) you are able to set security
    groups on a per interface (port) basis instead.
 
-   This might be useful if you have several networks connected to your instance (which we don't recommend)
-   and want to have different settings on them. 
+   This might be useful if you have many networks connected to your instance (which we don't recommend) and want
+   to have different settings on them. 
 
 .. note::
 
-   Remember that you need to add your groups to all instances, all rules are evaluated in a
-   per instance fashion.
+   Remember that you need to add your security groups to all instances.
 
 ..  seealso::
 

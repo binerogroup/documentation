@@ -6,7 +6,7 @@ GitLab
 wide array of features.
 
 Running your own installation in your private cloud will increase your security
-as well as give you control of where your data is stored. 
+and give you control of your data.
 
 To setup the service, first follow the general instructions on our :doc:`index`
 page. Then follow these instructions: 
@@ -28,10 +28,10 @@ page. Then follow these instructions:
   on which you want to run the service.
 
 - If you want your service publicly available on the internet, you can assign a floating
-  IP (this can also be done later) by checking the **Public access** checkbox.
+  IP (you can perform this later if you prefer) by checking the **Public access** checkbox.
 
   - If you don't use a floating IP, you can only access it locally in your network or
-    by using some kind of ingress solution like a VPN.
+    by using some kind of ingress solution such as a VPN.
 
 - Press **Create**. You will get further details on how to connect to the service. 
 

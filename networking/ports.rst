@@ -7,52 +7,56 @@ A port is a virtual representation of a network port.
 A network port is a connection between a :doc:`network <network/index>`
 and a device, a device can be a instance, router or load balancer.
 
-Ports are secured by assigning one or more :doc:`security groups (firewall) <security-groups/index>`
-to the port to allow traffic.
+You secure ports by assigning one or more :doc:`security groups (firewall) <security-groups/index>`
+to the port to allow traffic. You can disable port security on a port to
+disable security groups entirely.
+
+.. important::
+
+   It's strongly advised to **not** disable port security on a port as you are
+   disabling all security groups and allowed address pairs (IP + MAC) filtering.
 
 Ports are generally created on-demand when creating an instance and
 selecting a network.
 
-If you for some reason need to create a port manually, that can also be
-done (see below). If you do, you also need to assign the port (explicitly)
+If you for some reason need to create a port manually, you can perform that
+as shown below. If you do, you also need to assign the port (explicitly)
 to the instance you want to connect to a network.
 
-Remember that a manually created port may not be removed when you remove
-an instance.
+Remember that a manually created port might not be automatically removed when
+you delete an instance.
 
 .. note::
 
-   Certain special use-cases may exist where you would want to manually create a port.
+   Certain use-cases might exist where you would want to manually create a port.
 
-   One use case is if you want to assign multiple interfaces to the same network when creating an
-   instance.
+   One use-case is if you want to assign many ports on the same network when creating
+   an instance. Its only possible to add a network once, but you can assign many ports
+   that each connect to the same network. 
 
-   Its only possible to add a network once, but many ports can be assigned that each connect
-   to the same network. 
+We recommend sticking to a single port on an instance as its generally easier to understand
+the network flow and plan security that way. You should instead use :doc:`routing <router/routing-between-networks>`.
 
-We recommend sticking to a single port (or interface) on an instance as its generally easier to
-understand the network flow and plan security that way. :doc:`Routing <router/routing-between-networks>`
-should instead be used.
+If using this network design then you should rarely need to add ports manually as an
+instance will have a port created when launched.
 
-If using this network design then adding ports  manually should rarely be needed as an instance
-will have a port created when launched.
-
-Below we will however show how to create ports in the various tools.
+Below we will show how to create ports.
 
 .. note::
 
    Should you opt not to use :doc:`subnet/dhcp` to assign IP configuration to a new
-   port (interface), remember that the :doc:`mtu` is also set via DHCP and needs to be set manually
-   in these cases. 
+   port, remember that the :doc:`mtu` is also set via DHCP and you need to set it
+   manually.
 
 Create a port using the cloud management portal
 -----------------------------------------------
 
-To create a port using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To create a port by using the
+:doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Networking** and then **Ports** in the sidebar menu.
 
-- Press the **+** (plus) icon in the bottom right corner.
+- Press the **+** (plus) icon in the lower right corner.
 
 - Name your port.
 
@@ -68,7 +72,8 @@ To create a port using the :doc:`/getting-started/managing-your-cloud/cloud-mana
 Create a port using OpenStack Horizon
 -------------------------------------
 
-To create a port using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To create a port by using the
+:doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Network** and then **Networks** in the sidebar menu.
 
@@ -102,5 +107,5 @@ Create a port using OpenStack terminal client
 
 .. note::
 
-   Your port is now available for use but remember it will also need to be
-   :doc:`assigned to an instance </compute/assign-ip>` before it can be used.
+   Your port is now available for use but remember that it also need to be
+   :doc:`assigned to an instance </compute/assign-ip>` before you can use it.

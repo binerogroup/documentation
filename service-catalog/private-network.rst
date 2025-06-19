@@ -5,7 +5,7 @@ Private Network
 If you want to provision a new :doc:`network </networking/network/index>`, this convenience
 function will help you.
 
-Additional info on how to get started with networking is in our
+More information on how to get started with networking is in our
 :doc:`/getting-started/launching-an-instance` guide. 
 
 To setup the service, first follow the general instructions on our

@@ -2,7 +2,7 @@
 Service catalog
 ===============
 
-The service catalog is a repository of installable open source software as well as convenience
+The service catalog is a repository of installable open source software and convenience
 functions for automating more complex tasks in the platform.
 
 Its only available in the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`.
@@ -14,17 +14,17 @@ and allow you to add new or **Service templates** which will show you available 
 Create service
 --------------
 
-To provision a new service using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To provision a new service by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Service Catalog** and then **Services** in the sidebar menu.
 
-- Press the **+** (plus) icon in the bottom right corner.
+- Press the **+** (plus) icon in the lower right corner.
 
 - Select a service in the dropdown. 
 
 - Press **Next**
 
-- For detailed information on each service, please see the articles for each service
+- For detailed information on each service, see the articles for each service
   in the documentation.
 
 Features
@@ -51,8 +51,8 @@ Applications
 Automated application installations are available to provide applications pre-installed on
 an instance.
 
-Aside from having the software installed, the software will also, when applicable, be configured
-for you with sane defaults. The following applications is available:
+Aside from having the software installed, the software and services will also, when applicable,
+configured for you with verified and secure defaults. The following applications is available:
 
 - :doc:`PostgreSQL <postgresql>` will install a PostgreSQL instance with the option of
   adding replication.

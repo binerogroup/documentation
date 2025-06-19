@@ -2,7 +2,8 @@
 Resizing an instance using Cloud management portal
 ==================================================
 
-To resize an `instance <../index>`_ using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To resize an `instance <../index>`_ by using the
+:doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 .. important::
 
@@ -26,10 +27,11 @@ To resize an `instance <../index>`_ using the :doc:`/getting-started/managing-yo
   before but with the new flavor). 
 
 - If you are happy with the result, press the small checkmark in the top
-  right corner. This will finalize the process and make it permanent.
+  right corner. This completes the process and make the resize permanent.
 
-- If you are unhappy (for some reason the process failed), you are able to
-  instead press the small **x** (cross). This will revert the process.
+- If you are unhappy (or for some reason the resize was unsuccessful), you
+  are able to instead click the small **x** (cross). This will revert the
+  process.
 
 - Accept the change by pressing **Yes**
 

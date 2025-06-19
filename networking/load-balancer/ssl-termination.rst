@@ -5,9 +5,8 @@ SSL/TLS termination using Load Balancer
 General concept
 ---------------
 
-When using SSL (which is more or less standard today) to provide encryption for
-visitors to a web application, managing the SSL certificates on several web servers
-might be cumbersome.
+When using SSL/TLS (which is standard today) to provide encryption for visitors to a web
+application, managing the SSL/TLS certificates on web servers might be cumbersome.
 
 When using a load balancer, an alternative is to publish the certificates on the load
 balancer instead, as a single point of ingress into the system. The traffic, that is
@@ -35,7 +34,7 @@ the load balancer.
 
 Remember to select **TERMINATED_HTTPS** as protocol of the
 :doc:`listener <general-concept/listeners>` as doing so will (in OpenStack Horizon)
-enable the **SSL Certificates** tab to appear at the end, under which you are able
+enable the ``SSL Certificates`` tab to appear at the end, under which you are able
 to select the certificate you've added.
 
 .. note::
@@ -46,15 +45,15 @@ to select the certificate you've added.
 Headers
 -------
 
-When you do termination of SSL in the load balancer, its important to remember that
+When you do termination of SSL/TLS in the load balancer, its important to remember that
 the web application that receives the request will consider it to be un-encrypted.
 
-It will also consider that the request is made out to whatever IP that the instance that
+It will also consider the request made out to whatever IP address that the instance that
 receives the request (from the load balancer) is listening on since the request is *proxied*
 (as opposed to *routed*).
 
-To give your web application more information, there are a few headers that can be inserted
-by the load balancer:
+To give your web application more information, there are a few headers that your load balancer
+can insert:
 
 - ``x-forwarded-port`` will be 443 and can be used to check that the traffic is indeed
   arriving on the encrypted port (if you also allow pure http traffic to the same instances).
@@ -68,13 +67,13 @@ by the load balancer:
 The headers are available from the **Listener details** tab when setting up the load balancer
 (or by editing the listener).
 
-We recommend adding the headers when setting up a load balancer as it implies little overhead
-to do so and the information is useful.
+We recommend adding the headers when setting up a load balancer as the performance impact
+is negligible and the information is useful for your application.
 
 Requiring HTTPS
 ---------------
 
-Web applications that have HTTPS should make sure that the user is indeed using the protocol.
+Web applications that have HTTPS should force the user to use the secure protocol.
 
 If a user is not required to use HTTPS, its possible that they inadvertently send their
 credentials over the (unencrypted) HTTP protocol.
@@ -82,7 +81,7 @@ credentials over the (unencrypted) HTTP protocol.
 Today most browsers will warn but this will be a bad user experience (as the warning will not
 mean much to most users - and even if it does, suggest that security of the site is lacking).
 
-To solve the problem you could add a second listener that listens to port 80/tcp (HTTP). On the
+To solve the problem you could add a second listener that listens on TCP port 80 (HTTP). On the
 listener, its then possible to create :doc:`layer7-policies/index` that could (among other
 things) redirect.
 
@@ -93,9 +92,8 @@ This is the recommended approach as it would always send the visitor to the corr
 the path exists). The downside is, its only configurable using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`.
 
-The second method would ensure that all requests made via HTTP would be redirected to your home
-page. If your web application is using HTTPS for linking, the user would afterwards remain in
-the HTTPS realm.
+The second method would ensure that all requests made via HTTP redirects to your home page. If your
+web application is using HTTPS for linking, the user would afterwards remain in the HTTPS realm.
 
 Create a listener
 ^^^^^^^^^^^^^^^^^
@@ -108,15 +106,15 @@ The first step is to setup a new listener.
    well.
 
    We do not recommend using it for this task but if you want to use it, navigate to your load
-   balancer in the menu, click on the **Listeners** tab and then press the **+** plus sign, after
+   balancer in the menu, click the **Listeners** tab and then press the **+** plus sign, after
    which you should be able to follow our :doc:`guide <launching-a-loadbalancer/cloud-management-portal>`.
 
-Documentation for creating a listener using the
+Documentation for creating a listener by using the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` is available
 :doc:`here <launching-a-loadbalancer/openstack-terminal-client>`.
 
 To add just a HTTP listener (as opposed to an entire load balancer with pools and health
-checking) using OpenStack Horizon, follow these steps:
+checking) using OpenStack Horizon.
 
 - Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
 
@@ -131,7 +129,7 @@ checking) using OpenStack Horizon, follow these steps:
 
 - Select HTTP as the load balancer protocol.
 
-- Ensure that the port is set to 80 (if its automatically set to 81, you already have
+- Ensure that you set the port to 80 (if its automatically set to 81, you already have
   a listener that listens on port 80 and should instead use that one).
 
 - Under the **Pool details** tab, select **No** under **Create pool** section.
@@ -159,14 +157,14 @@ Horizon or the cloud management portal, see below for a less accurate way to red
 
 .. note::
 
-   Don't add a trailing slash on your domain as that will add an additional slash
+   Don't add a trailing slash on your domain as that will add an extra slash
    in the path.
 
 Create a redirect to the first page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you prefer to stay in the GUI, the following method will allow you to setup similar functionality
-using OpenStack Horizon, however using this method, for example http://www.example.com/subfolder/index.html
+using OpenStack Horizon, using this method, for example http://www.example.com/subfolder/index.html
 would redirect to https://example.com.
 
 - Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.

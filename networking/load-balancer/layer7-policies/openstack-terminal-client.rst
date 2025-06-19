@@ -5,7 +5,8 @@ Creating a Layer7 policy using OpenStack Terminal Client
 We recommend first reading our :doc:`guide <index>` on layer 7 policies
 to get a better understanding of how they work.
 
-To create a layer 7 policy using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow the below steps.
+To create a layer 7 policy by using the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack loadbalancer listener list``. Save the name of
   the listener to which you want to add the rule.
@@ -22,5 +23,5 @@ To create a layer 7 policy using the :doc:`/getting-started/managing-your-cloud/
 
 .. note::
 
-   Above is an example of a rule which would perform a redirect. More information on the available rules
-   can be read in detail `here <https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy>`__.
+   Above is an example of a rule which would perform a redirect. You can read more information about the
+   available rules in detail `here <https://docs.openstack.org/python-octaviaclient/latest/cli/index.html#l7policy>`__.
