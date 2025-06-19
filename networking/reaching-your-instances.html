@@ -1078,7 +1078,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1578,36 +1578,38 @@
 <li><p><a class="reference internal" href="site-to-site-vpn/index.html"><span class="doc">Using a site-to-site VPN</span></a></p></li>
 <li><p>Using a bounce server</p></li>
 </ul>
-<p>The different methods are discussed below.</p>
+<p>We outline the different methods below.</p>
 <h2 id="floating-ip">Floating IP<a class="headerlink" href="#floating-ip" title="Link to this heading">¶</a></h2>
 <p>A floating IP is a public, globally routed, IP address that maps 1:1 with an instance.</p>
 <p>It will use DNAT (destination NAT) to allow traffic through the router from the internet.</p>
-<p>It is normally used for enabling services to be internet facing (reachable from the internet)
-but could just as well be used for managing instances (by enabling access to for example SSH
-to the floating IP).</p>
-<p>The downside is that a floating IP will have to be assigned to all instances which will incur a
-monthly cost, another downside is that while you are able to secure the instance using security
-groups exposing your instance to the internet is not recommended.</p>
-<div class="important tip admonition">
-<p class="admonition-title">Important</p>
-<p>Using a floating IP with wide open access to the instance SSH is strongly discouraged.</p>
+<p>It’s normally used for enabling services to be internet facing (reachable from the internet)
+but also works for managing instances (by enabling access to for example SSH to the floating
+IP).</p>
+<p>The downside with assigning a floating IP for access to the instance is that it doesn’t scale
+if you have many instances and the cost for floating IP addresses will increase when adding
+new instances, another downside is that, while you are able to secure the instance by using
+security groups it’s not recommended to expose your instance to the internet.</p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>Using a floating IP with wide open access to the instance is strongly discouraged and will
+likely lead to a compromised system used for malicious activity.</p>
 </div>
 <h2 id="client-vpn">Client VPN<a class="headerlink" href="#client-vpn" title="Link to this heading">¶</a></h2>
-<p>A client VPN is a VPN that connects from a single client (normally a laptop or a workstation computer)
-and that sets up a tunnel for a single user to a remote network.</p>
-<p>Using a client VPN is an effective way to get access to the entire inside network using routing through
-a tunnel.</p>
-<p>When able to reach the inside, it becomes possible to connect directly to the various instances, without
+<p>A client VPN is a VPN that connects from a single client (normally a laptop or a workstation
+computer) and that sets up a tunnel for a single user to a remote network.</p>
+<p>Using a client VPN is an effective way to get access to the entire inside network by using
+routing through a tunnel.</p>
+<p>When able to reach the inside, it becomes possible to connect directly to the instances, without
 the need for a floating IP for anything but the VPN server.</p>
-<p>Since a client VPN is installed on the client computer, it can also be used from anywhere where you have
-your client computer available (as well as an internet connection). This works well for working from
-multiple places.</p>
-<p>The downside is that you need to have an application installed on your computer with a secure configuration
-(which will need to be provided to you in a secure manner).</p>
-<p>To reach the infrastructure, you first need to logon to the VPN separately. You also need to maintain the
-VPN server and the users on it.</p>
-<p>Binero cloud provides a <a class="reference internal" href="client-vpn/index.html"><span class="doc">client VPN service</span></a> that would enable you to get going with
-a secure tunnel to your infrastructure quickly with minimal effort.</p>
+<p>Since you install a client VPN on the client computer, you can also use it from anywhere where
+you have your client computer available, given that you have a internet connection. This works
+well for connecting from remote locations.</p>
+<p>The downside is that you need to have an application installed on your computer with a secure
+configuration which you will need to provision to you in a secure manner.</p>
+<p>To reach the infrastructure, you first need to logon to the VPN separately. You also need to
+maintain the VPN server and the users on it.</p>
+<p>Binero cloud provides a <a class="reference internal" href="client-vpn/index.html"><span class="doc">client VPN service</span></a> that would enable you to
+get going with a secure tunnel to your infrastructure quickly with minimal effort.</p>
 <h2 id="site-to-site-vpn">Site-to-site-VPN<a class="headerlink" href="#site-to-site-vpn" title="Link to this heading">¶</a></h2>
 <p>Using a site-to-site tunnel, you would setup a tunnel between your cloud and your router.</p>
 <p>This could be the office router or a (more advanced) router based in your home. Once the tunnel is up, users
@@ -1622,25 +1624,25 @@ working from home, they still need an alternate solution.</p>
 <h2 id="bounce-server">Bounce server<a class="headerlink" href="#bounce-server" title="Link to this heading">¶</a></h2>
 <p>The concept of a bounce server is that you create an instance with a floating IP to which you have your users
 connect using for example SSH (or RDP if running Windows).</p>
-<p>This way, only the bounce server needs a floating IP. Once the users are connected to the server (preferably
-securely, for example using SSH keys and with their own account that has not got elevated permissions), they are
-then able to connect down stream to other instances from the bounce server as the bounce server is also connected
-to the internal network(s) and is able to reach them when originating traffic from itself (there is no routing happening,
-users would work through the bounce server).</p>
+<p>This way, only the bounce server needs a floating IP. Once you’ve connected your users to the server (preferably
+securely, for example by using SSH keys and with their own account that has not got elevated permissions), they are
+then able to connect to other instances from the bounce server as the bounce server is also connected to the internal
+network(s) and is able to reach them when originating traffic from itself (there is no routing happening, users would
+work through the bounce server).</p>
 <p>An upside to <em>not having network access directly</em>, but rather sending traffic through the bounce server (and using its
 authentication), is that malicious software that originate from your workstation will not be able to connect to the internal
 systems directly (as there is no network path available).</p>
-<p>The downside is that its cumbersome to for example copy a file to the cloud instances (as it will need to first be copied
-to the bounce server and then copied again from there downstream). The user experience is further lessened by having to use
-another computer than your personal workstation (the bounce server instance) to 99% of your tasks.</p>
+<p>The downside is that its cumbersome to for example copy a file to the instances (as you will first need to copy it to
+the bounce server and then copied again from there to the instance). The user experience is further lessened by having
+to use another computer than your personal workstation (the bounce server instance) to 99% of your tasks.</p>
 <p>Aside from this, the bounce servers own security becomes paramount. Updating the bounce server regularly (as well
 as locking it down using security groups) is highly recommended.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>While it might sound appealing to mix-match the above alternatives, we strongly recommend implementing a single
-strategy for cloud access and instead making sure its locked down.</p>
-<p>With multiple ways to access your cloud infrastructure, the risk that security might be compromised increases
-drastically.</p>
+strategy for cloud access and making sure its locked down.</p>
+<p>With many ways to access your cloud infrastructure, the risk of compromise increases drastically which
+decreases your security.</p>
 <p>A well rounded solution is the client VPN. This will provide a good tradeoff between security and usability
 for management of cloud infrastructure.</p>
 </div>

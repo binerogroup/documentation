@@ -1553,12 +1553,12 @@
 from <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you don’t have a <a class="reference internal" href="../../networking/network/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a> available in some of the
-steps below, you might need to do some <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a>
-first.</p>
-<p>An SSH-key created or added in the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> is not available
-in Horizon as they use <a class="reference external" href="/getting-started/users.html#api-users">API users</a> and SSH-keys are owned by the user account
-and not the project.</p>
+<p>If you don’t have a <a class="reference internal" href="../../networking/network/index.html"><span class="doc">network</span></a> or <a class="reference internal" href="../ssh-keys.html"><span class="doc">SSH-keys</span></a>
+available in some of the steps below, you might need to do some
+<a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">initial configuration</span></a> first.</p>
+<p>An SSH-key created or added in the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>
+is not available in OpenStack Horizon as they use <a class="reference external" href="/getting-started/users.html#api-users">API users</a>
+and SSH-keys is per user account and not the project.</p>
 </div>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the left side menu.</p></li>
@@ -1578,8 +1578,9 @@ same availability zone.</p>
 <li><p>Enter an <strong>Instance Name</strong> for your instance and optionally provide a description.</p></li>
 <li><p>Select an <strong>Availability Zone</strong>, see <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Regions and Availability Zones</span></a>.</p>
 <ul>
-<li><p>We recommend the default <code class="docutils literal notranslate"><span class="pre">europe-se-1a</span></code> availability zone if you are creating your first instance and
-if you are not sure that you need to use a secondary availability zone.</p></li>
+<li><p>We recommend the default <code class="docutils literal notranslate"><span class="pre">europe-se-1a</span></code> availability zone if you are creating
+your first instance and if you are not sure that you need to use a secondary
+availability zone.</p></li>
 </ul>
 </li>
 </ul>
@@ -1587,16 +1588,19 @@ if you are not sure that you need to use a secondary availability zone.</p></li>
 <li><p>Under the <strong>Sources</strong> tab in the dialog.</p>
 <ul>
 <li><p>Select <strong>Image</strong> as <strong>Boot Source</strong>.</p></li>
-<li><p>Select <strong>Yes</strong> for <strong>Create New Volume</strong> to boot your instance from a volume, we only recommend selecting <strong>No</strong> here if you intend to
-use an NVMe-based flavor.</p></li>
-<li><p>Select <strong>No</strong> for <strong>Delete Volume on Instance Delete</strong>. If you want the system to implicitly delete the volume together with
-the instance, select <strong>Yes</strong>.</p></li>
-<li><p>Select the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want to boot your instance from by pressing the arrow on the right side.</p></li>
+<li><p>Select <strong>Yes</strong> for <strong>Create New Volume</strong> to boot your instance from a
+volume, we only recommend selecting <strong>No</strong> here if you intend to use
+an NVMe-based flavor.</p></li>
+<li><p>Select <strong>No</strong> for <strong>Delete Volume on Instance Delete</strong>. If you want the system
+to implicitly delete the volume together with the instance, select <strong>Yes</strong>.</p></li>
+<li><p>Select the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want to boot your instance from
+by pressing the arrow on the right side.</p></li>
 </ul>
 </li>
 <li><p>Under the <strong>Flavour</strong> tab in the dialog.</p>
 <ul>
-<li><p>Select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want the instance to have by pressing the arrow on the right side.</p></li>
+<li><p>Select the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want the instance to have by pressing
+the arrow on the right side.</p></li>
 </ul>
 </li>
 <li><p>Under the <strong>Networks</strong> tab in the dialog.</p>
@@ -1609,15 +1613,17 @@ We recommend using a subnet, for more information see our <a class="reference in
 </li>
 <li><p>Under the <strong>Key Pair</strong> tab in the dialog.</p>
 <ul>
-<li><p>Select the SSH key you want added to the instance by pressing the arrow on the right side. This is optional and mostly
-relevant for images and operating systems containing a SSH server.</p></li>
+<li><p>Select the SSH key you want added to the instance by pressing the arrow on the
+right side. This is optional and only relevant for images and operating systems
+containing a SSH server.</p></li>
 </ul>
 </li>
-<li><p>Click the <strong>Launch Instance</strong> button in the bottom right in the dialog.</p></li>
+<li><p>Click the <strong>Launch Instance</strong> button in the lower right in the dialog.</p></li>
 </ul>
-<p>When the instance is finished its status will be <strong>Active</strong>. You can view more details about the instance by clicking the name
-in the list.</p>
-<p>To reach your instance see the <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">documentation</span></a> for that.</p>
+<p>When the instance creation is complete the status will be <strong>Active</strong>. You can view more
+details about the instance by clicking the name in the list.</p>
+<p>To reach your instance see the <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">documentation</span></a>
+for that.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

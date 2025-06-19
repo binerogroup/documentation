@@ -27,7 +27,7 @@ To launch a :doc:`router <../index>` from the
 
 .. note::
 
-   In order to connect instances to the router, it will also need a :doc:`network </networking/network/index>`
+   To connect instances to the router, it will also need a :doc:`network </networking/network/index>`
    and a :doc:`subnet </networking/subnet/index>` configured on a network.
 
 ..  seealso::

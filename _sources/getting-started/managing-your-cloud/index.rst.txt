@@ -2,7 +2,7 @@
 Managing your cloud
 ===================
 
-The Binero cloud platform has multiple interfaces to manage your services each
+The Binero cloud platform has different interfaces to manage your services each
 with its unique features and benefits.
 
 .. important::
@@ -10,7 +10,7 @@ with its unique features and benefits.
    There will be situations where the cloud management portal and OpenStack Horizon
    or the OpenStack terminal client shows different things.
 
-   This is because they use different users. We therefore recommend not altering
+   This is because they use different users. We recommend not alternating
    between tools unless needed.
 
 .. tip::
@@ -22,18 +22,18 @@ with its unique features and benefits.
   intended for the administrator of the account or users working with invoices and costs.
 
 - `Cloud management portal <cloud-management-portal>`_ - Essential cloud infrastructure,
-  intended for technical users that want to setup infrastructure with minimum effort.
+  intended for technical users that want to setup infrastructure with less effort.
 
 - `OpenStack Horizon <openstack-horizon>`_ - Advanced cloud infrastructure, intended for
-  technicians and engineers working with more advanced implementation as well as when needing
+  technicians and engineers working with more advanced implementation and when needing
   personal accounts.
 
-- `OpenStack terminal client <openstack-terminal-client>`_ - Advanced cloud infrastructure via
-  terminal, same as Horizon but terminal based.
+- `OpenStack terminal client <openstack-terminal-client>`_ - Advanced cloud infrastructure
+  via terminal, same as OpenStack Horizon but terminal based.
 
-- `OpenStack API </openstack-api>`_ - Infrastructure as code and third party implementations, intended
-  for programmers that want to implement infrastructure as code projects using the platform or when
-  using third party applications.
+- `OpenStack API </openstack-api>`_ - Infrastructure as code and third party implementations,
+  intended for programmers working with infrastructure as code projects using the platform or
+  when using third party applications.
 
 See the walk-through of the cloud management portal.
 

@@ -5,8 +5,8 @@ Detach a volume
 If you want to save a volume (when deleting the instance) for later or just remove it
 from an instance, you must first detach it.
 
-A volume used as boot disk (that is, the disk that stores the instances operating system)
-*cannot be detached*. If you want to save such a volume, the workflow would be:
+A volume used as boot disk, that is, the disk that stores the instances operating system
+from an image **cannot detach**. If you want to save such a volume, the workflow would be:
 
 - :doc:`Snapshot <../snapshots/index>` the volume.
 
@@ -26,7 +26,7 @@ OpenStack Horizon or via the OpenStack terminal client.
 Cloud management portal
 -----------------------
 
-To detach a volume using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To detach a volume by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
 - Press **Compute** and then **Instances** in the sidebar menu.
 
@@ -35,12 +35,12 @@ To detach a volume using the :doc:`/getting-started/managing-your-cloud/cloud-ma
 - Press the **Volumes** tab.
 
 - Press the small chain-link icon with a line over to the right next to the volume you want
-  to remove. If there isn't such an icon, then the volume cannot be removed.  
+  to remove. If there isn't such an icon, deleting the volume is not possible.
 
 OpenStack Horizon
 -----------------
 
-To detach a volume using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+To detach a volume by using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
 
 - Under **Project**, click **Compute** and then **Instances** in the sidebar menu.
 
@@ -59,10 +59,10 @@ To detach a volume using :doc:`/getting-started/managing-your-cloud/openstack-ho
 OpenStack Terminal Client
 -------------------------
 
-To detach a volume using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+To detach a volume by using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
-- Run this command: ``openstack server list``, save the name of the instance to which
-  the volume you want to extend is connected.
+- Run this command: ``openstack server list``, save the name of the instance having the
+  the volume you want to extend.
 
 - Run this command: ``openstack server volume list [NAME_OF_INSTANCE]``, replacing the
   name with that from previous step.

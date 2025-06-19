@@ -5,7 +5,7 @@ Static routing
 General concept
 ---------------
 
-Routing is (normally, exclusively in the context of Binero clouds implementation) done based
+Routing is, in the context of Binero clouds implementation, done based
 on destination.
 
 The two key parameters when talking about routing is:
@@ -14,22 +14,23 @@ The two key parameters when talking about routing is:
 
 - The gateway IP used as the next hop
 
-When routing packets, a router will consult a routing table that will have various network ranges
-available, each matched to a next hop (or gateway) which is the next device the packet should be
-sent to in order to reach its destination.
+When routing packets, a router will consult a routing table that will have different routes to networks
+available, each matched to a next hop (or gateway) which is the next device the packet gets sent to
+reach its destination.
 
-When routing, an IP packets destination IP will be identified as belonging to a network in the routing
-table and the router will forward the packet to the next-hop (or gateway) of that network. 
+When routing an IP packets, the destination IP belongs to a network of which we match against the
+routing table, the router will then forward the packet to the next hop (or gateway) to reach that
+network.
 
 Should the router be directly connected to the network in question (local to the network), it will
 instead use Address Resolution Protocol (ARP) to map the destination IP to a hardware (MAC) address
 and forward the packet to its final destination.
 
-Static routing is the process of manually defining what subnets (network ranges) there are and
-behind what routers they are connected so that the routers are able to forward the packets.
+Static routing is the process of manually defining what networks exists and what next hop to use when
+forwarding packets to reach that destination.
 
-It is only needed if there is *more then a single router in the network* (as a single router would be
-expected to be connected to all networks directly and then would manage all the routing based on that).
+It's only needed if there is *more then a single router in the network* as a single router normally
+connects to all networks directly and already knows how to reach all networks.
 
 If a routing entry is missing and the routers are not able to match a destination IP to a network in
 their tables, one of two things will happen:
@@ -42,8 +43,8 @@ their tables, one of two things will happen:
 
 .. note::
 
-   The next-hop of a routing entry will need to be reachable *and on a common network* (that is a network
-   to which both the sending and receiving router are connected).
+   The next hop of a routing entry will need to be reachable *and on a common network* (that is a network
+   to which both the sending and receiving router has).
 
    Routing cannot rely on routing to reach a gateway, all gateways need to be directly accessible. A link-network
    is commonly use for this (but any subnet will suffice when the routers are both connected to it), see
@@ -52,19 +53,13 @@ their tables, one of two things will happen:
 Working with static routes
 --------------------------
 
-Below is shown how to add static routes to a :doc:`router <index>` using the various tools.
+Below is how to add static routes to a :doc:`router <index>`.
 
 Since you route based on destination (but also need to account for return traffic, that is the traffic that
-a requests reply would generate), you would want to add the routes to both (or several) sides with the distinction
-that the networks defined on each router are the ones **not local** to that router.
+a reply sends), you would want to add the routes for both sides with the distinction that the networks defined
+on each router are the ones **not local** to that router.
 
-The routing entries are therefore *not the same* on any two (ore more) routers.
-
-.. important::
-
-   If you (mistakenly) add a route to a router that is already local to it (that is connected to it by an interface), the
-   affected subnet would stop working. Only add routing entries to *remote* networks. Local networks are already routed
-   by being directly connected.
+The routing entries are *not the same* on any two (or more) routers.
 
 Static routing is currently only supported using :doc:`OpenStack Horizon </getting-started/managing-your-cloud/openstack-horizon>`
 or the :doc:`OpenStack terminal client </getting-started/managing-your-cloud/openstack-terminal-client>`.

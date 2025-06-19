@@ -1154,10 +1154,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mac-os-clients" class="md-nav__link">
+  <a href="#mac-clients" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Mac OS clients
+      Mac clients
     </span>
   </a>
   
@@ -1300,7 +1300,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1754,10 +1754,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mac-os-clients" class="md-nav__link">
+  <a href="#mac-clients" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Mac OS clients
+      Mac clients
     </span>
   </a>
   
@@ -1796,24 +1796,24 @@
 <p>To use your client VPN you will need a client software running on your computer.</p>
 <p>Which software will vary based on what operating system your computer is running as
 well as your preferences.</p>
-<p>Below we will demonstrate ways to get up and running but the general idea is to import
-a client configuration file that the VPN server provides into the client program.</p>
+<p>Below we will walk-through ways to get up and running, the general idea is to import
+a client configuration file that the VPN server provides into the client VPN application.</p>
 <p>The client configuration will contain the necessary keys, certificates and settings to
 be able to authenticate and start the tunnel</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>The client configuration export file contains secret information that could be used
-by an attacker to gain access to your VPN.</p>
-<p>It is to be treated as a password. We recommend not emailing the configuration to
-users but rather put it onto a flash drive and handing it over or using a secure file
-transfer service to distribute it.</p>
+<p>The exported client configuration file contains sensitive information that an attacker
+can use to gain access to your VPN.</p>
+<p>You should treat it as sensitive information according to your policy. We recommend
+that you do <strong>not</strong> email the configuration to users but rather put it onto a flash
+drive or using a secure file transfer service to distribute it.</p>
 </div>
 <h2 id="downloading-configuration">Downloading configuration<a class="headerlink" href="#downloading-configuration" title="Link to this heading">¶</a></h2>
 <p>To download configurations from the VPN server.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the WebUI of the client VPN. If you don’t already
-have a VPN account that works, this will have to be done from the IP address that was
-used for the initial configuration. See <a class="reference internal" href="setting-up.html"><span class="doc">Setting up client VPN</span></a> for more information.</p></li>
+have a VPN account that works, you will need to login from the admin IP address used in
+the initial configuration. See <a class="reference internal" href="setting-up.html"><span class="doc">Setting up client VPN</span></a> for more information.</p></li>
 <li><p>Press <strong>VPN</strong> and then <strong>OpenVPN</strong> in the main menu.</p></li>
 <li><p>Press the <strong>Client Export</strong> tab.</p></li>
 <li><p>Scroll down to <strong>OpenVPN clients</strong>.</p></li>
@@ -1832,13 +1832,13 @@ which makes it more pleasant for a user to get the VPN connection up and running
 (most likely 64 bit) version under <strong>Current Windows Installer</strong> section.</p>
 <p>Assuming you already have a OpenVPN client installed and prefer to use that software, instead
 download the configuration named <strong>Most clients</strong> under <strong>Inline configurations</strong> section.</p>
-<p>This can then be imported into the client software by (usually) double clicking the file or
-right clicking it and selecting <strong>import</strong>.</p>
-<p>If neither of those works, please see relevant documentation on your specific client for how
-to import configurations into the client.</p>
-<h2 id="mac-os-clients">Mac OS clients<a class="headerlink" href="#mac-os-clients" title="Link to this heading">¶</a></h2>
-<p>Clients available for Mac OS that should work well, one client is <a class="reference external" href="https://openvpn.net/client/">OpenVPN Connect</a>
-and another client that is known to work is <a class="reference external" href="https://tunnelblick.net">Tunnelblick</a>.</p>
+<p>You can then import it into the client software by double clicking the file or right clicking
+it and selecting <strong>import</strong>.</p>
+<p>If neither of those works, see relevant documentation on your specific client for how to import
+configurations into the client.</p>
+<h2 id="mac-clients">Mac clients<a class="headerlink" href="#mac-clients" title="Link to this heading">¶</a></h2>
+<p>Clients available for Mac that should work well, one client is <a class="reference external" href="https://openvpn.net/client/">OpenVPN Connect</a>
+and another client is <a class="reference external" href="https://tunnelblick.net">Tunnelblick</a>.</p>
 <h2 id="other-clients">Other clients<a class="headerlink" href="#other-clients" title="Link to this heading">¶</a></h2>
 <p>Generally, the most clients configuration will work on most clients. To download it, follow the
 instructions under the <strong>Downloading configuration</strong> and select it, after which you should

@@ -1670,14 +1670,14 @@ processing unit).</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Work mostly in sequence. Several cores and good task switching give
+<tr class="row-even"><td><p>Generally work in sequence. Many cores and good task switching give
 the impression of parallelism but a CPU is fundamentally designed to run
 one task at a time.</p></td>
-<td><p>Are designed to work in parallel. A vast amount of cores and threading
+<td><p>Designed to work in parallel. A large amount of cores and threading
 managed in hardware enables GPUs to perform many calculations at once.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Are designed for task parallelism.</p></td>
-<td><p>Are designed for data parallelism.</p></td>
+<tr class="row-odd"><td><p>Designed for task parallelism.</p></td>
+<td><p>Designed for data parallelism.</p></td>
 </tr>
 <tr class="row-even"><td><p>Have a small amount of cores that can complete a single complex tasks at
 a high speed.</p></td>
@@ -1685,22 +1685,22 @@ a high speed.</p></td>
 or calculations in parallel.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Have access to a large amount of (by comparison) slow RAM at a low
-latency. CPUs are therefore latency (operation) optimised.</p></td>
+latency. CPUs are latency (operation) optimized.</p></td>
 <td><p>Have access to a (by comparison) small amount of fast RAM at a higher
-latency. GPUs are therefore throughput optimised.</p></td>
+latency. GPUs are throughput optimized.</p></td>
 </tr>
-<tr class="row-even"><td><p>Have a versatile instruction set, allowing it to execute complex tasks
-in fewer cycles but creates overhead in others.</p></td>
-<td><p>Have a limited (but highly optimised) instruction set which can execute the
-tasks its designed for efficiently.</p></td>
+<tr class="row-even"><td><p>Have a versatile instruction set, allowing it to perform complex tasks
+in fewer cycles but is bad at some other tasks.</p></td>
+<td><p>Have a limited (but highly optimized) instruction set which can perform
+the tasks its designed for efficiently.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Task switching (as a result from running the OS) creates overhead.</p></td>
-<td><p>Tasks switching is not used, serial data streams are processed in
+<tr class="row-odd"><td><p>Task switching and general use-case decreases performance.</p></td>
+<td><p>Tasks switching is not used, processes serial data streams in
 parallel from A to B.</p></td>
 </tr>
-<tr class="row-even"><td><p>Would always work for any given use case but may not provide good enough
+<tr class="row-even"><td><p>Would always work for any given use-case but might not provide good enough
 performance for some tasks.</p></td>
-<td><p>Would only be a valid choice for some use cases but would in those cases
+<td><p>Would only be a valid choice for some use-cases but would in those cases
 provide good performance.</p></td>
 </tr>
 </tbody>
@@ -1708,61 +1708,60 @@ provide good performance.</p></td>
 <p>In summary, for applications such as machine learning (ML), artificial intelligence (AI) or
 image processing, a GPU would likely provide a 50x to 200x increase in performance over a typical
 CPU doing the same work.</p>
-<p>Using a GPU, however, requires and adaptation to the APIs available from the GPU manufacturer.</p>
-<p>Binero cloud provides GPUs from NVIDIA, supporting among others OpenCL and CUDA.</p>
-<p>Binero clouds compute instances are all running on our high performance instance types. While the
-GPU is generally an <em>accelerator</em> (that is, used to speed up certain general compute processes not
-specifically relating to graphics), its also possible to use it as a graphics processing unit in an
-instance for actually accelerating 3D or high resolution 2D.</p>
+<p>Using a GPU, requires adaptation to the APIs available from the GPU manufacturer.</p>
+<p>Binero cloud provides GPUs from NVIDIA, supporting among others OpenCL and CUDA running
+on our high performance instance types.</p>
 <h2 id="setting-up-a-gpu-instance">Setting up a GPU instance<a class="headerlink" href="#setting-up-a-gpu-instance" title="Link to this heading">¶</a></h2>
-<p>A GPU instance <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">is launched</span></a> the same way as any other compute
-instance with a few things to remember:</p>
+<p>You <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">launch</span></a> a GPU instance the same way as any other
+compute instance with a few things to remember:</p>
 <ul class="simple">
 <li><p>When launching a GPU, select one of the <a class="reference internal" href="flavors.html"><span class="doc">Flavors</span></a> that include GPUs.</p></li>
 <li><p>You have the option to choose a GPU with NVMe backed storage for high performing storage. This
-is however not a requirement for GPU based compute, see <a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe storage</span></a> for more
-information.</p></li>
+is not a must for GPU based compute, see <a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe storage</span></a> for more information.</p></li>
 <li><p>We recommend using Ubuntu 24.04 as <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> for your GPU based instance. This is
 because we have tested the NVIDIA driver with this image with good result. That said, its possible to
 run a multitude of images.</p></li>
-<li><p>When the image is up and running, you will get a maximum of 10% of the GPUs performance without a license
-installed. Please see below section on installing license for more information.</p></li>
+<li><p>When the image is up and running, you will only get 10% of the GPUs performance without a license
+installed. See below section on installing license for more information.</p></li>
 </ul>
 <h2 id="installing-the-driver">Installing the driver<a class="headerlink" href="#installing-the-driver" title="Link to this heading">¶</a></h2>
-<p>In order to use the GPU functionality, a driver from NVIDIA needs to be installed on the instance that has
-access to the virtual GPU. Please follow below instructions to install the driver.</p>
-<p>The current NVIDIA vGPU Software Version that we are running is: <strong>18.1</strong>
-The current latest driver we support is <strong>Linux:570.133.20 Windows:572.83</strong></p>
+<p>To use the GPU functionality, you need to install a driver from NVIDIA on the instance that has
+access to the GPU. See the below instructions to install the driver.</p>
+<p>The current NVIDIA vGPU Software Version that we are running is: <strong>18.1</strong></p>
+<p>The current latest driver we support is <strong>Linux: 570.133.20</strong> and <strong>Windows: 572.83</strong></p>
 <p>For full list of supported versions click <a class="reference external" href="https://docs.nvidia.com/vgpu/18.0/grid-vgpu-release-notes-red-hat-el-kvm/index.html">here</a>.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>After installation of the driver, a reboot is required. Schedule the upgrade so as to allow for a reboot
-to take place.</p>
+<p>After installing the driver you must reboot your instance. Schedule the upgrade to allow for a
+reboot to take place.</p>
 </div>
 <h3 id="linux">Linux<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h3>
 <p>Follow the below steps to install the Linux driver in your instance.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>In the below example we are using Ubuntu 24.04 as operating system. For any other Linux OS, the steps would be
-equal but some commands are not identical.</p>
-<p>Please ask our support if you need assistance installing the driver on another of the images we provide.</p>
+<p>The example below is using Ubuntu 24.04 as operating system. For any other Linux based operating system, the
+steps would be equal but some commands might not be identical.</p>
+<p><a class="reference internal" href="../general/getting-support.html"><span class="doc">Contact our support</span></a> if you need help installing the driver on other
+operating systems than the example below.</p>
 </div>
 <ul class="simple">
-<li><p>Verify that the instance is able to see the graphics adapter. This can be done by running <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">nvidia</span></code> which
+<li><p>Verify that the instance is able to see the graphics adapter by running <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">nvidia</span></code> which
 would return something like <code class="docutils literal notranslate"><span class="pre">00:05.0</span> <span class="pre">VGA</span> <span class="pre">compatible</span> <span class="pre">controller:</span> <span class="pre">NVIDIA</span> <span class="pre">Corporation</span> <span class="pre">Device</span> <span class="pre">2236</span> <span class="pre">(rev</span> <span class="pre">a1)</span></code></p></li>
-<li><p>Installation of <code class="docutils literal notranslate"><span class="pre">g++</span></code>, <code class="docutils literal notranslate"><span class="pre">make</span></code> and <code class="docutils literal notranslate"><span class="pre">dkms</span></code> is required for the installation of the driver. This can be
-installed by running for example (depending on OS): <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">build-essential</span> <span class="pre">dkms</span></code></p></li>
+<li><p>You need to install the dependencies <code class="docutils literal notranslate"><span class="pre">g++</span></code>, <code class="docutils literal notranslate"><span class="pre">make</span></code> and <code class="docutils literal notranslate"><span class="pre">dkms</span></code> to installation and build the driver. This
+depends on your operating system, for example <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">build-essential</span> <span class="pre">dkms</span></code></p></li>
 <li><p>Fetch the driver by running: <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-O</span> <span class="pre">https://binero.com/downloads/nvidia-linux-grid-570_570.133.20_amd64.deb</span></code></p></li>
-<li><p>Set execute permissions by running <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">nvidia-linux-grid-570_570.133.20_amd64.deb</span></code></p></li>
+<li><p>Set executable permission by running <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">nvidia-linux-grid-570_570.133.20_amd64.deb</span></code></p></li>
 <li><p>Install the driver by running <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-i</span> <span class="pre">nvidia-linux-grid-570_570.133.20_amd64.deb</span></code></p></li>
-<li><p>Verify a successful installation by reading <code class="docutils literal notranslate"><span class="pre">/var/log/nvidia-installer.log</span></code>. The command <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> would give you
-more useful output.</p></li>
-<li><p>At this point, you need a valid license which <a class="reference external" href="/general/getting-support">our support</a> can provide. Its included in the instance
-monthly cost but not assigned until requested.</p></li>
-<li><p>The license should be pasted into <code class="docutils literal notranslate"><span class="pre">/etc/nvidia/ClientConfigToken/client_configuration_token.tok</span></code></p></li>
+<li><p>Verify a successful installation by reading <code class="docutils literal notranslate"><span class="pre">/var/log/nvidia-installer.log</span></code>. The command <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> would
+give you more useful output.</p></li>
+<li><p>At this point, you need a valid license which <a class="reference external" href="/general/getting-support">our support</a> provides you with. Its
+included in the instance cost but not assigned until requested.</p></li>
+<li><p>The license should added to file <code class="docutils literal notranslate"><span class="pre">/etc/nvidia/ClientConfigToken/client_configuration_token.tok</span></code> making sure
+to not have any extra spaces or newlines.</p></li>
 <li><p>Restart <code class="docutils literal notranslate"><span class="pre">nvidia-gridd</span></code> by running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nvidia-gridd</span></code></p></li>
 <li><p>The command <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">-q</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">License</span></code> should now return a valid license</p></li>
-<li><p>Install CUDA toolkit and CuDNN (optional, note that below instruction is for Ubuntu, other operating systems might require different packages)</p></li>
+<li><p>Install CUDA toolkit and CuDNN (optional, note that below instruction is for Ubuntu, other operating systems might
+require different packages)</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">curl</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">download</span><span class="o">.</span><span class="n">nvidia</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">cuda</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">ubuntu2404</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">libcudnn9</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">cuda</span><span class="o">-</span><span class="mf">12_9.10.1.4</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">download</span><span class="o">.</span><span class="n">nvidia</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">cuda</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">ubuntu2404</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">libcudnn9</span><span class="o">-</span><span class="n">cuda</span><span class="o">-</span><span class="mf">12_9.10.1.4</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">download</span><span class="o">.</span><span class="n">nvidia</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">cuda</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">ubuntu2404</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">libcudnn9</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="n">cuda</span><span class="o">-</span><span class="mf">12_9.10.1.4</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
 <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">libcudnn9</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="n">cuda</span><span class="o">-</span><span class="mf">12_9.10.1.4</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">libcudnn9</span><span class="o">-</span><span class="n">cuda</span><span class="o">-</span><span class="mf">12_9.10.1.4</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">libcudnn9</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">cuda</span><span class="o">-</span><span class="mf">12_9.10.1.4</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
@@ -1779,7 +1778,7 @@ monthly cost but not assigned until requested.</p></li>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Download the driver <a class="reference external" href="https://binero.com/downloads/572.83_grid_win10_win11_server2022_dch_64bit_international.exe">here</a>.</p></li>
-<li><p>Execute the file with administrative privileges and click through the installation.</p></li>
+<li><p>Run the file with administrative privileges and click through the installation.</p></li>
 <li><p>When the installation finishes, reboot the instance.</p></li>
 <li><p>Open the device manager by running <code class="docutils literal notranslate"><span class="pre">devmgmt.msc</span></code>.</p></li>
 <li><p>Under <strong>Display adapters</strong> the device should now be available.</p></li>
@@ -1792,13 +1791,13 @@ from NVIDIA is available <a class="reference external" href="https://docs.nvidia
 <p>You are now able to run GPU based computations on your instance!</p>
 <h2 id="upgrading-the-driver">Upgrading the driver<a class="headerlink" href="#upgrading-the-driver" title="Link to this heading">¶</a></h2>
 <p>From time to time, NVIDIA will release (and Binero will provide) and upgraded version of the GPU driver.</p>
-<p>This is in order to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, it
-will be required to maintain a working system) that the driver be updated on the instances running it.</p>
-<p>Please follow below instructions to upgrade the driver.</p>
-<p>The latest version of the driver that we support is ** Linux: 570.133.20 Windows: 572.83.**</p>
+<p>This is to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, you must upgrade
+to maintain a working system) that you upgrade the driver on the your instances.</p>
+<p>See below instructions to upgrade the driver.</p>
+<p>The latest version of the driver that we support is <strong>Linux: 570.133.20</strong> and <strong>Windows: 572.83</strong></p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>After installation of the driver, a reboot is required. Schedule the upgrade so as to allow for a
+<p>After upgrading the driver you must reboot your instance. Schedule the upgrade to allow for a
 reboot to take place.</p>
 </div>
 <h3 id="id2">Linux<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
@@ -1821,7 +1820,7 @@ all options.</p></li>
 <p>Follow below steps to upgrade the NVIDIA driver on a Windows based platform:</p>
 <ul class="simple">
 <li><p>Download the driver <a class="reference external" href="https://binero.com/downloads/572.83_grid_win10_win11_server2022_dch_64bit_international.exe">here</a>.</p></li>
-<li><p>Execute the file with administrative privileges.</p></li>
+<li><p>Run the file with administrative privileges.</p></li>
 <li><p>Follow the installation instructions.</p></li>
 <li><p>Reboot the system.</p></li>
 </ul>

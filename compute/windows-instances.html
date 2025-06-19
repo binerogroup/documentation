@@ -1586,26 +1586,27 @@
 <p>Windows runs great on Binero cloud! Some considerations when using a Windows
 based <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> on the platform. We outline them below.</p>
 <ul class="simple">
-<li><p>As Windows generally is quite RAM-hungry, we recommend using a
+<li><p>As Windows generally heavy on memory usage, we recommend using a
 <a class="reference internal" href="flavors.html"><span class="doc">high memory flavor</span></a> to run your windows instance on.</p></li>
 <li><p>While Microsoft says Windows server will run on the smallest instance, for a
-good user experience we recommend a minimum of 3 cores and 8 GB of RAM.</p></li>
-<li><p>A reasonable performance could be expected at 4 cores and 12-16GBs of RAM.</p></li>
-<li><p>As Windows Server is not OpenSource, there is a license cost associated with
-provisioning Windows Server. Please see our <a class="reference external" href="https://binero.com/en/it-services/cloud-services/public-cloud/price/">price list</a>
+good user experience we recommend at least 3 cores and 8 GB of memory.</p></li>
+<li><p>You can expect reasonable performance at 4 cores and 12 to 16 GB of memory.</p></li>
+<li><p>As Windows Server is not open source, there is a license cost associated with
+provisioning Windows Server. See our <a class="reference external" href="https://binero.com/en/it-services/cloud-services/public-cloud/price/">price list</a>
 for more information.</p></li>
-<li><p>While Microsoft says 32GB is the minimum disk-space to run Windows Server, we
-recommend a disk-space of at least 64GB. This does not include your actual
+<li><p>While Microsoft says 32 GB is the lower limit of disk required to run Windows
+Server, we recommend using at least 64 GB. This does not include your actual
 use-case, but for the operating system itself.</p></li>
 </ul>
 <h2 id="provisioning">Provisioning<a class="headerlink" href="#provisioning" title="Link to this heading">¶</a></h2>
-<p>Provisioning a Windows Server based instance works mostly the same as is described in
-our <a class="reference internal" href="launching-an-instance/index.html"><span class="doc">launching an instance</span></a> documentation with the
+<p>Provisioning a Windows Server based instance works the same as in our
+<a class="reference internal" href="launching-an-instance/index.html"><span class="doc">launching an instance</span></a> documentation with the
 exception that Windows Server does not support SSH-keys for login.</p>
-<p>Because of this, when you’ve provisioned your instance (and its reported as ACTIVE - that
-is it has started), you need to set the password using the console. Follow these steps:</p>
+<p>Because of this, when you’ve provisioned your instance and the status becomes
+<code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code> you need to set the password by using the console, see below.</p>
 <h3 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h3>
-<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To set the initial password through the
+<a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance that you recently provisioned.</p></li>
@@ -1615,14 +1616,15 @@ the server puts it in power save mode when not used. Moving the cursor or pressi
 screen to wake it up.</p></li>
 <li><p>Press CTRL + ALT + DELETE</p></li>
 <li><p>Press (using the cursor) the <strong>Sign in</strong> button.</p></li>
-<li><p>You will be prompted to select a password.</p></li>
+<li><p>You will get a prompt to select a password.</p></li>
 </ul>
-<p>You are now able to login using your new password via an RDP client using for example
+<p>You are now able to login using your new password via an RDP client by using for example
 a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>.</p>
-<p>Don’t forget that you may need to add a <a class="reference internal" href="../networking/security-groups/index.html"><span class="doc">security group</span></a>
+<p>Don’t forget that you might need to add a <a class="reference internal" href="../networking/security-groups/index.html"><span class="doc">security group</span></a>
 for RDP access.</p>
 <h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
-<p>To set the initial password through the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To set the initial password through
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>In the dropdown menu to the far right of the line corresponding to the instance
@@ -1632,11 +1634,11 @@ because the server puts it in power save mode when not used. Moving the cursor o
 clicking on the screen will wake it up.</p></li>
 <li><p>Press CTRL + ALT + DELETE</p></li>
 <li><p>Press (using the cursor) the <strong>Sign in</strong> button.</p></li>
-<li><p>You will be prompted to select a password.</p></li>
+<li><p>You will get a prompt to select a password.</p></li>
 </ul>
-<p>You are now able to login using your new password via an RDP client using for example
+<p>You are now able to login using your new password via an RDP client by using for example
 a <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">floating IP</span></a>.</p>
-<p>Don’t forget that you may need to add a <a class="reference internal" href="../networking/security-groups/index.html"><span class="doc">security group</span></a>
+<p>Don’t forget that you might need to add a <a class="reference internal" href="../networking/security-groups/index.html"><span class="doc">security group</span></a>
 for RDP access.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1646,17 +1648,17 @@ for RDP access.</p>
 <p>From time to time, the underlying infrastructure behaviour will change.</p>
 <p>This could result in bad IO-performance and even IO-stalls on windows instances with
 old versions of VirtIO drivers installed. Upgrading the VirtIO driver from time to
-time is therefore advisable.</p>
+time is advisable.</p>
 <p>To perform the upgrade, follow this below process.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Its advisable to backup (or at the least, <a class="reference internal" href="../storage/snapshots/create-snapshot.html"><span class="doc">snapshot</span></a>)
-your volume before upgrading the IO-driver.</p>
+<p>Its advisable to backup (or at least <a class="reference internal" href="../storage/snapshots/create-snapshot.html"><span class="doc">snapshot</span></a>)
+your volume before upgrading the VirtIO driver.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The process involves a reboot so proceeding during a downtime window for mission critical
-instances is recommended.</p>
+<p>The process involves a reboot, we recommend that you proceed during a maintenance
+window if your instance is mission critical.</p>
 </div>
 <ul class="simple">
 <li><p>Stop any application write IO towards the local disc. This means for example shutting down

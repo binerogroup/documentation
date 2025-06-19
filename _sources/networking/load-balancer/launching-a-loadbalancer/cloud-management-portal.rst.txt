@@ -8,8 +8,8 @@ Preparations
 .. note::
 
    Before launching your first load balancer, we strongly recommend
-   reading our :doc:`concepts <../general-concept/index>` guide so
-   as to gain a better understanding the various parts.
+   reading our :doc:`concepts <../general-concept/index>` guide to
+   gain a better understanding of the parts.
 
 We also recommend setting the correct :doc:`security groups </networking/security-groups/index>`
 on the instances that should be members in the load balancer pool.
@@ -33,7 +33,7 @@ To launch a :doc:`load balancer <../index>` from the
 
 - Press **Networking** and then **Load balancers** in the sidebar menu.
 
-- Press the **+** (plus) icon in the bottom right corner.
+- Press the **+** (plus) icon in the lower right corner.
 
 - The first step is to configure the general options for the load balancer. 
 
@@ -41,7 +41,7 @@ To launch a :doc:`load balancer <../index>` from the
     the name with something that's relevant for you). Optionally provide a
     description.
 
-  - Leave the IP field empty as an IP will be allocated automatically.
+  - Leave the IP field empty, as an IP is automatically allocated.
 
   - Select the :doc:`availability zone </networking/regions-and-availability-zones>`
     or leave empty to use the default europe-se-1a.
@@ -59,12 +59,12 @@ To launch a :doc:`load balancer <../index>` from the
     for your load balancer and the port to that of the service you want to load
     balance. Optionally provide a description.
 
-  - Select the load balancer protocol. Note that HTTPS with SSL/TLS termination is
-    not able to be provisioned from the cloud management portal, but will require
-    OpenStack Horizon (even though its available in the menu).
+  - Select the load balancer protocol. Note you cannot provision HTTPS with SSL/TLS termination
+    from the cloud management portal, but will require OpenStack Horizon (even though its available
+    in the menu).
 
-  - *Verify the port number* (it may set automatically but depending on protocol
-    you may need to set it manually). Without it, creation will fail.
+  - *Verify the port number* (it might set automatically but depending on protocol
+    you might need to set it manually). Without it, creation will fail.
 
   - Press **Next**
 
@@ -92,21 +92,21 @@ To launch a :doc:`load balancer <../index>` from the
   - Select what (IP) port on each instance the service listens on. For example for
     a web server, this would be either 80 or 443.
 
-  - When all instances that should be part of the pool are added, press **Next**. 
+  - When you've added all instances to the pool, press **Next**. 
 
 - In the fifth and final step, *health monitoring* will be setup. More
   information :doc:`here <../general-concept/health-monitors>`.
 
-  - Name your health monitor. We recommend calling it ``[NAME]_monitor_[PORTNUMBER]`` to
+  - Name your ``health monitor``. We recommend calling it ``[NAME]_monitor_[PORTNUMBER]`` to
     differentiate it from other the parts. Replace the name with the name you chose for
     your load balancer and the port to that of the service you want to load
     balance. Optionally provide a description.
 
-  - Select the type. This value would depend mostly on what kind of listener you created
-    (which protocol). We recommend choosing a type that is as granular (i.e. rather go
-    with HTTP than TCP port 80 if you want to check a web server) as possible.
+  - Select the type. This value would depend on what kind of listener you created
+    (which protocol). We recommend choosing a type that is as granular (go with HTTP
+    than TCP port 80 if you want to check a web server) as possible.
 
-  - Choose the various options relating to your monitor, the defaults will likely suffice
+  - Choose the options relating to your ``health monitor``, the defaults will likely suffice
     but this is much dependant on the application.
 
   - Press **Create load balancer**. 
@@ -122,14 +122,13 @@ To verify that the health checking has added the members to the pool, follow thi
 
 - Press **Networking** and then **Load balancers** in the sidebar menu.
 
-- Verify that the **Provisioning status** says **Active** as well as **Online** under its name
-  and then press it.
+- Verify that the **Provisioning status** says **Active** under its name and then click it.
 
 - Press the **Pools** tab and then press the name of your pool.
 
 - Press the **Nodes** tab.
 
-- In the list, you should now see the member(s) you've added. The column **Operational status**
+- In the list, you should now see the members you've added. The column **Operational status**
   should show you if they are online or not.
 
 .. tip::
@@ -141,6 +140,7 @@ To verify that the health checking has added the members to the pool, follow thi
    reading access logs, that the traffic hits the member servers from the load balancers IP.
 
 ..  seealso::
+
     - :doc:`../general-concept/index`
     - :doc:`../recommendations`
     - :doc:`../index`

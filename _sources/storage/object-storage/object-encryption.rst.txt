@@ -12,12 +12,12 @@ Object encryption concept
 
 .. note::
 
-   If you retrieve the object using the :doc:`Swift API <swift>` the data will still be encrypted
-   as the decryption is only when using the :doc:`S3 API <s3>`.
+   If you retrieve the object by using the :doc:`Swift API <swift>` you will still receive the
+   encrypted data as the decryption only happens when using the :doc:`S3 API <s3>`.
 
 .. note::
 
-   When using any of our portals to work with the object storage it is using the :doc:`Swift API <swift>`
+   When using any of our portals to work with the object storage it uses the :doc:`Swift API <swift>`
    and will thus not decrypt the object upon retrieval.
 
 .. important::
@@ -26,9 +26,10 @@ Object encryption concept
    objects from both ends.
 
 The object storage service in Binero cloud supports encryption your data at rest (on disk) using different
-methods. When objects are retrieved or written to they are transparently decrypted by the platform.
+methods. When retrieving or writing objects they are transparently encrypted or decrypted by the platform.
 
-The objects are secured in-transit by using HTTPS with TLS to transport the requests.
+When talking to the object storage service the traffic and thus objects gets secured in-transit by using HTTPS
+with TLS to transport the requests.
 
 The examples in below methods uses the ``aws`` CLI, to get started see our :doc:`S3 documentation <s3>`.
 
@@ -39,10 +40,10 @@ The object storage service in Binero cloud supports the customer-provided keys (
 in the :doc:`S3 API <s3>`.
 
 When using this method you are responsible for sending an encryption key for the object in each API requests to
-retrieve or write to it. This needs to be an encryption key that works with AES-256 that is used.
+retrieve or write to it. This needs to be an encryption key that works with AES-256.
 
-The data is stored at rest (on disk) with your encryption key and the encryption key is not saved by Binero. This way you don't
-have to handle the encryption or decryption of objects and only manage the encryption key sent.
+The data gets stored at rest (on disk) with your encryption key and the encryption key is not saved by Binero. This
+way you don't have to handle the encryption or decryption of objects and only manage the encryption key sent.
 
 To get started with using SSE-C, see below:
 
@@ -59,15 +60,16 @@ Using server-side encryption with SSE-KMS
 
 .. important::
 
-   If the secret in the :doc:`secret store </secret-store/index>` service is deleted, there is no way to recover
+   If you delete secret in the :doc:`secret store </secret-store/index>` service there is no way to recover
    the encrypted objects. Make sure to backup the secret and the data.
 
 The object storage service in Binero cloud also supports the SSE-KMS specification in the :doc:`S3 API <s3>`.
 
-When using this method you create an encryption key and store it in our :doc:`secret store </secret-store/index>` service and send the secret ID
-with each API request. This needs to be an encryption key that works with AES-256 that is used.
+When using this method you create an encryption key and store it in our :doc:`secret store </secret-store/index>` service
+and send the secret ID with each API request. This needs to be an encryption key that works with AES-256.
 
-The data is stored at rest (on disk) with your encryption key and the encryption is stored in the :doc:`secret store </secret-store/index>` service.
+The data gets stored at rest (on disk) with your encryption key that is using the :doc:`secret store </secret-store/index>`
+service.
 
 To get started with using SSE-KMS, see below:
 
@@ -83,7 +85,8 @@ To get started with using SSE-KMS, see below:
 - :doc:`Create a secret </secret-store/create-secret>` in our secret store and save the returned ``Secret href`` value.
 
 - To allow the platform access to your secret (so that it can handle encryption and decryption with the key) you need to add a
-  :doc:`ACL </secret-store/acl>` using the :doc:`openstack CLI </getting-started/managing-your-cloud/openstack-terminal-client>` with command ``openstack acl user add --user 23646ed0e7d240ceb56eef6ec909c2ff [SECRET_HREF]``
+  :doc:`ACL </secret-store/acl>` using the :doc:`openstack CLI </getting-started/managing-your-cloud/openstack-terminal-client>`
+  with command ``openstack acl user add --user 23646ed0e7d240ceb56eef6ec909c2ff [SECRET_HREF]``
 
 - Upload a object to the bucket with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3 cp test.txt s3://demo/test.txt --sse=aws:kms --sse-kms-key-id [SECRET_HREF_ID]``
 

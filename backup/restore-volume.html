@@ -1348,12 +1348,14 @@
 
 <h1 id="restore-volume-from-backup">Restore volume from backup<a class="headerlink" href="#restore-volume-from-backup" title="Link to this heading">¶</a></h1>
 <p>When restoring from backup, you would restore an entire volume.</p>
-<p>Restoring single files is not possible but would require an <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a> be
-setup, launched and then the files could be collected from the instance.</p>
+<p>Restoring single files is not possible and requires creating a
+new <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a> created you can then collect
+the files from the instance.</p>
 <p>To restore, you would first create a volume, restore to it and then
 <a class="reference internal" href="../storage/persistent-block-storage/creating-an-instance-from-a-volume.html"><span class="doc">create and instance from the volume</span></a>.</p>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To restore a backup to a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To restore a backup to a volume by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Storage</strong> and then <strong>Backups</strong> in the sidebar menu.</p></li>
 <li><p>Note the size of the backup you want to restore.</p></li>
@@ -1367,10 +1369,12 @@ create an empty volume of the same size as the backup. Note the name.</p></li>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>While there is an option to create a new volume when restoring a backup, this does not work due to
-not taking availability zones into consideration. Therefore you need to first create a volume.</p>
+not taking availability zones into consideration, you need to first create a new empty volume that
+you can restore to.</p>
 </div>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To restore a backup of a volume using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To restore a backup of a volume by using
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Volumes</strong> and then <strong>Backups</strong> in the sidebar menu.</p></li>
 <li><p>Note the size of the backup you want to restore.</p></li>
@@ -1383,19 +1387,21 @@ to restore.</p></li>
 <li><p>Press <strong>Restore backup to volume</strong></p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To restore a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To restore a volume by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, note the size of the backup that you want to
-restore as well as the ID.</p></li>
-<li><p>Follow the steps in our <a class="reference internal" href="../storage/persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a> guide to create an
-empty volume of the same size as the backup. Note the ID it gets. Can also be gotten by
-running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>.</p></li>
+restore and the backup ID.</p></li>
+<li><p>Follow the steps in our <a class="reference internal" href="../storage/persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a> guide to create a
+new empty volume of the same size as the backup. Note the new volume ID, of find the volume with
+command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">restore</span> <span class="pre">--force</span> <span class="pre">[BACKUP_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>As of writing this, the restore via CLI is not working as intended on all versions of the
-client. If you get issues from above command, please try a restore via one of the other options.</p>
+client. If you get issues from above command, try a newer version of the client or restore
+via one of the other options.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

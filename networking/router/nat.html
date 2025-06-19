@@ -1184,7 +1184,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1658,15 +1658,14 @@
 
 <h1 id="nat">NAT<a class="headerlink" href="#nat" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>NAT (Network Address Translation) is used to provide instances with internet access
+<p>NAT (Network Address Translation) provides instances with internet access
 when located behind a <a class="reference internal" href="index.html"><span class="doc">router</span></a>.</p>
 <p>By default, a router will have a source NAT setup when launching it. This means that
-the router will be assigned a <a class="reference internal" href="../floating-ips.html"><span class="doc">floating IP</span></a> on its external
-interface and when instances on the internal network wants to access the internet, the
-router will change the source IP of the request to its own floating IP.</p>
-<p>The reason for this is that <a class="reference internal" href="../subnet/index.html"><span class="doc">subnets</span></a>
-are normally assigned from the pool of IP addresses that are reserved for internal
-usage, according to IETF RFC1918.</p>
+the router has <a class="reference internal" href="../floating-ips.html"><span class="doc">floating IP addresses</span></a> on its external interface
+and when instances on the internal network wants to access the internet, the router will
+change the source IP on the packet to its own floating IP.</p>
+<p>The reason for this is that <a class="reference internal" href="../subnet/index.html"><span class="doc">subnets</span></a> are normally assigned
+from the pool of IP addresses reserved for internal usage, according to IETF RFC1918.</p>
 <p>The router is able to mask requests as coming from itself and by doing so, all instances are
 able to share the routers single public IP.</p>
 <p>Incoming requests to an instance can’t use the routers IP address but rather a

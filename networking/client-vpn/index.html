@@ -1348,7 +1348,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1796,23 +1796,24 @@
 <p>A client VPN is a VPN that connects individual computers to a VPN server and then
 routes some (or all) network traffic through a tunnel between the computer and the
 VPN server.</p>
-<p>The traffic is encrypted so it cannot be read by someone in transit.</p>
-<p>Generally speaking, a client VPN serves a single client (an end-user) but could be
-configured to work as a <a class="reference internal" href="../site-to-site-vpn/index.html"><span class="doc">Site-to-site VPN</span></a> as well or instead, depending
-on how the client in the other end of the tunnel is setup (the server would work
+<p>Your VPN traffic is safe from third parties as they cannot read the encrypted
+data while its in transit.</p>
+<p>Generally speaking, a client VPN serves a single client (user) but you can also
+configure it to work as a <a class="reference internal" href="../site-to-site-vpn/index.html"><span class="doc">Site-to-site VPN</span></a> instead, depending on
+how the client in the other end of the tunnel is setup (the server would work
 the same way).</p>
-<p>In Binero cloud, you are able to provision a client VPN server to which you could then
-connect and as such, reach the inside of your network through a tunnel.</p>
-<p>The service is based on OpenVPN technology, which is an open source based VPN suite
-that runs on an instance on your cloud. At no additional cost, other than the actual
+<p>In Binero cloud, you are able to provision a client VPN server to which you could
+then connect and as such, reach the inside of your network through a tunnel.</p>
+<p>The VPN service uses OpenVPN technology, which is an open source based VPN suite
+that runs on an instance on your cloud. At no extra cost, other than the actual
 instance hourly cost, to setup a VPN service in our cloud.</p>
-<p>The VPN service will come with its own management interface (web based) that enables you
-to manage users, change security settings, add 2FA authentication, etc.</p>
+<p>The VPN service will come with its own management interface (web based) that enables
+you to manage users, change security settings, add 2FA authentication and so on.</p>
 <p>Complete documentation of all the features our VPN solution provides is out of scope for
 our support pages but more information is available
-<a class="reference external" href="https://www.pfsense.org/get-involved/">here</a> as well as the web in general.</p>
-<p>Please see the subsections of this section for the most common information relating to the
-service. Our <a class="reference internal" href="../../general/getting-support.html"><span class="doc">support staff</span></a> can also help you out.</p>
+<a class="reference external" href="https://www.pfsense.org/get-involved/">here</a> and on the web in general.</p>
+<p>See the subsections of this section for the most common information relating to the
+service. Our <a class="reference internal" href="../../general/getting-support.html"><span class="doc">support</span></a> can also help you out.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>
@@ -1831,13 +1832,13 @@ service. Our <a class="reference internal" href="../../general/getting-support.h
 <li class="toctree-l1"><a class="reference internal" href="logging-in.html">Logging in to client VPN</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="logging-in.html#downloading-configuration">Downloading configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging-in.html#windows-based-clients">Windows based clients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logging-in.html#mac-os-clients">Mac OS clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging-in.html#mac-clients">Mac clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging-in.html#other-clients">Other clients</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="networks.html">Reaching cloud networks via client VPN</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="networks.html#general-concept">General concept</a></li>
-<li class="toctree-l2"><a class="reference internal" href="networks.html#additional-networks">Additional networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#adding-more-networks">Adding more networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networks.html#vpn-server-network-design">VPN-server network design</a></li>
 </ul>
 </li>

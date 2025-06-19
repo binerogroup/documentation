@@ -1294,11 +1294,11 @@
 
 <h1 id="launch-instance-from-image">Launch instance from image<a class="headerlink" href="#launch-instance-from-image" title="Link to this heading">¶</a></h1>
 <p>When <a class="reference internal" href="../storage/snapshots/index.html"><span class="doc">snapshotting</span></a> and entire instance, the end result is
-an <a class="reference internal" href="index.html"><span class="doc">image</span></a>. Restoring from a snapshot (assuming the entire instance was restored) is
+an <a class="reference internal" href="index.html"><span class="doc">image</span></a>. Restoring from a snapshot (assuming you restore the entire instance) is
 then the same as creating an instance from a private image.</p>
 <p>When restoring an entire instance from a snapshot, which might be the case if for example an
-upgrade failed post snapshot and you want to revert to the previous state, you would create a
-new instance from the image that was generated.</p>
+upgrade was unsuccessful post snapshot and you want to revert to the previous state, you would
+create a new instance from the image.</p>
 <p>This is a good method because it allows you to safely ensure that your new instance is up and
 running before deleting the old one (and not doing major changes to the only copy of the image).</p>
 <div class="note admonition">
@@ -1307,7 +1307,7 @@ running before deleting the old one (and not doing major changes to the only cop
 the current instance, we <em>do not recommend it</em>, but rather that you follow below guide
 to create a new instance from the image.</p>
 </div>
-<p>Please follow our below guide from creating an instance from a private image using our various tools.</p>
+<p>See the below guides from creating an instance from a private image.</p>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
 <p>To create a snapshot using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">

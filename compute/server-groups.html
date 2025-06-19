@@ -1584,7 +1584,7 @@
 
 <h1 id="server-groups">Server groups<a class="headerlink" href="#server-groups" title="Link to this heading">¶</a></h1>
 <p>Server groups provide a mechanism for indicating the locality of instances relative to
-other instances . They allow you to indicate whether instances should run on the same
+other instances. Allowing you to specify whether instances should run on the same
 hardware (affinity) or different hardware (anti-affinity).</p>
 <h2 id="policies">Policies<a class="headerlink" href="#policies" title="Link to this heading">¶</a></h2>
 <p>We support four different policies on a server group.</p>
@@ -1592,14 +1592,14 @@ hardware (affinity) or different hardware (anti-affinity).</p>
 <li><p><strong>affinity</strong></p>
 <ul>
 <li><p>Restricts instances belonging to the server group to the same host, affinity can
-minimize network latency since instances will be on the same hardware but will decrease
-your fault-tolerance in case of hardware failure.</p></li>
+decrease network latency since instances will be on the same hardware but will also
+decrease your fault tolerance in case of an outage.</p></li>
 </ul>
 </li>
 <li><p><strong>anti-affinity</strong></p>
 <ul>
 <li><p>Restricts instances belonging to the server group to separate hosts, anti-affinity can
-improve your load distribution and fault-tolerance in case of hardware failure.</p></li>
+improve your load distribution and fault tolerance in case of an outage.</p></li>
 </ul>
 </li>
 <li><p><strong>soft-affinity</strong></p>
@@ -1617,23 +1617,24 @@ hardware will use as many as possible.</p></li>
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>We <strong>strongly</strong> recommend using <strong>soft-affinity</strong> or <strong>soft-anti-affinity</strong>, this is because
-we do regular maintenance in our platform and when using the hard policies your instance can
-be powered off if the requirement cannot be met during scheduling.</p>
+<p>We <strong>strongly</strong> recommend using <strong>soft-affinity</strong> or <strong>soft-anti-affinity</strong>.</p>
+<p>We do regular maintenance in our platform and when using hard policies for your server
+group the system might need to power off your instance if scheduling is not possible
+due to your policy.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The anti-affinity policies in themselves does not provide high availability but make the platform
-aware on how you want your instance to be placed during scheduling, your application need to handle
-high availability by using multiple instances.</p>
+<p>The anti-affinity policies in themselves does not provide high availability but make the
+platform aware on how you want your instance placed during scheduling, your application
+need to handle high availability by using for example many instances.</p>
 </div>
 <h2 id="creating-a-server-group">Creating a server group<a class="headerlink" href="#creating-a-server-group" title="Link to this heading">¶</a></h2>
 <p>Server groups can only be create using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> or
 the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Instances cannot be added to a server group after it has been created. If you have an existing
-instance you can for example <a class="reference internal" href="recreating-an-instance-from-volume.html"><span class="doc">recreate</span></a> it.</p>
+<p>You cannot add instances to a server group after creation. If you have an existing
+instance you can for example <a class="reference internal" href="recreating-an-instance-from-volume.html"><span class="doc">re-create</span></a> it.</p>
 </div>
 <h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
 <p>See <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>.</p>
@@ -1649,8 +1650,8 @@ instance you can for example <a class="reference internal" href="recreating-an-i
 <p>See <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
 <ul class="simple">
 <li><p>Create the server group with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">group</span> <span class="pre">create</span> <span class="pre">--policy</span> <span class="pre">[POLICY]</span> <span class="pre">[NAME]</span></code></p></li>
-<li><p>Verify that the server group is listed in <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">group</span> <span class="pre">list</span></code>, you need the UUID when creating
-a instance using the CLI.</p></li>
+<li><p>Get the UUID of the server group by listing them with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">group</span> <span class="pre">list</span></code>
+or showing the group you created with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">group</span> <span class="pre">show</span> <span class="pre">[NAME]</span></code>.</p></li>
 </ul>
 <p>The server group is now available when <a class="reference internal" href="launching-an-instance/openstack-terminal-client.html"><span class="doc">creating an instance</span></a>
 using the <code class="docutils literal notranslate"><span class="pre">--hint</span> <span class="pre">group=[UUID]</span></code> parameter when using the CLI.</p>

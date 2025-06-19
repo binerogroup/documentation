@@ -1558,17 +1558,17 @@ some <a class="reference internal" href="../../getting-started/launching-an-inst
 </div>
 <ul class="simple">
 <li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
-<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the lower right corner.</p></li>
 <li><p>Name your instance.</p></li>
 <li><p>Under region, <strong>europe-se-1</strong> is pre-selected.</p></li>
 <li><p>Under <strong>Boot source</strong>, choose the <a class="reference internal" href="../../images/index.html"><span class="doc">image</span></a> you want (the operative
-system). Here you should also choose what type of storage type you want (SSD or HDD).</p>
+system). Here you should also choose the storage type you want (SSD or HDD).</p>
 <ul>
-<li><p>If you don’t select a storage type, SSD will be chosen for you</p></li>
+<li><p>If you don’t select a storage type, it defaults to SSD.</p></li>
 <li><p>When choosing a type, you also select a volume size for your persistent storage. 20 GB
 is the smallest size available, anything under that will still default to 20 GB but you
-are able to increase the size. See <a class="reference external" href="storage/persistent-block-storage">persistent storage</a> for
-more information.</p></li>
+are able to increase the size. See <a class="reference external" href="storage/persistent-block-storage">persistent storage</a>
+for more information.</p></li>
 <li><p>Press <strong>Select</strong> when done.</p></li>
 </ul>
 </li>
@@ -1576,24 +1576,24 @@ more information.</p></li>
 <li><p>Under <strong>Availability zone</strong>, select an availability zone. We recommend <strong>europe-se-1a</strong> if you are
 creating you first instance (or generally if you are not sure you need to be in europe-se-1b).</p></li>
 <li><p>Under <strong>SSH-keys</strong>, select your key.</p></li>
-<li><p>Under <strong>Root password</strong>, select a complicated password. Save it as it will not be saved in the
-platform after provisioning.</p></li>
+<li><p>Under <strong>Root password</strong>, select a complicated password. Make sure to write it down as the platform
+will not save it after provisioning.</p></li>
 <li><p>Under <strong>Network</strong>, select the network you want to connect to. This could be either a <a class="reference internal" href="../../networking/subnet/index.html"><span class="doc">subnet</span></a>
-(if you have one setup, if so the name is whatever you chose) or a <a class="reference internal" href="../../networking/directly-attached-ips.html"><span class="doc">directly attached IP</span></a> (the name would
-be based on the availability zone you previously chose). We recommend using a subnet, for more information see
+(if you have one setup, if so the name is whatever you chose) or a <a class="reference internal" href="../../networking/directly-attached-ips.html"><span class="doc">directly attached IP</span></a> (the name contains
+the availability zone name you chose earlier). We recommend using a subnet, for more information see
 our <a class="reference internal" href="../../getting-started/launching-an-instance.html"><span class="doc">Launching an instance</span></a> guide.</p></li>
 <li><p>Press <strong>Create</strong> when done.</p></li>
 </ul>
-<p>The instance will take some time to deploy. When done, it will be displayed as running on the next page.</p>
-<p>When the instance is running, click on it and review the IP configuration under <strong>Networking details</strong>. There you are able
-to see its IP-address (both IPv4 and IPv6).</p>
+<p>The instance will take some time to deploy. When done, it will say running or active on the next page.</p>
+<p>When the instance is running, click it and review the IP configuration under <strong>Networking details</strong>. There you are able
+to see its IP address (both IPv4 and IPv6).</p>
 <p>To connect use either SSH or RDP (depending on image). If you are using a subnet (and not a directly attached
 IP, see above), you might need to add a floating IP to be able to connect. For more information see
 our <a class="reference internal" href="../../networking/reaching-your-instances.html"><span class="doc">Reaching your instances</span></a> article.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The cloud management portal will not setup <a class="reference internal" href="../../networking/security-groups/index.html"><span class="doc">security groups</span></a> which
-will be needed to allow traffic to the instance.</p>
+<p>The cloud management portal will not setup the <a class="reference internal" href="../../networking/security-groups/index.html"><span class="doc">security groups</span></a>
+needed to allow traffic to the instance.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

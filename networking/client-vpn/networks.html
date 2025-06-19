@@ -1168,10 +1168,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-networks" class="md-nav__link">
+  <a href="#adding-more-networks" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Additional networks
+      Adding more networks
     </span>
   </a>
   
@@ -1290,7 +1290,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1734,10 +1734,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-networks" class="md-nav__link">
+  <a href="#adding-more-networks" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Additional networks
+      Adding more networks
     </span>
   </a>
   
@@ -1774,62 +1774,64 @@
 
 <h1 id="reaching-cloud-networks-via-client-vpn">Reaching cloud networks via client VPN<a class="headerlink" href="#reaching-cloud-networks-via-client-vpn" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>When connecting to a VPN, the VPN server will push routes for the networks that it is
-configured to reach to the client, which in turn will inject them into the clients routing
-table so that traffic to them will be routed into the tunnel instead of its default route.</p>
-<p>Exactly how the client handles routes will vary between clients and operating systems. Its therefore
-hard to guarantee a particular behaviour.</p>
-<p>The default behaviour of the VPN service, however, will push a route for the network that is
-chosen during the <a class="reference internal" href="setting-up.html"><span class="doc">setup process</span></a>.</p>
-<h2 id="additional-networks">Additional networks<a class="headerlink" href="#additional-networks" title="Link to this heading">¶</a></h2>
+<p>When connecting to a VPN, the VPN server will push routes for the networks configured
+to the client. The client will install these routes into the clients routing table so
+that traffic for the networks get sent over the VPN tunnel.</p>
+<p>Exactly how the client handles routes will vary between clients and operating
+systems. The default behaviour of the VPN service is to push a route for the
+network that you’ve chosen during the <a class="reference internal" href="setting-up.html"><span class="doc">setup process</span></a>.</p>
+<h2 id="adding-more-networks">Adding more networks<a class="headerlink" href="#adding-more-networks" title="Link to this heading">¶</a></h2>
 <p>If your cloud infrastructure contains more than a single <a class="reference internal" href="../subnet/index.html"><span class="doc">subnet</span></a>
-that you want to reach over the VPN, you need to manually add that subnet to the VPN servers configuration.</p>
+that you want to reach over the VPN, you need to manually add that subnet to the VPN
+servers configuration.</p>
 <p>To add a network to the VPN server, using the WebUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
 <li><p>Press <strong>VPN</strong> and then <strong>OpenVPN</strong> in the main menu.</p></li>
-<li><p>Click the small pen symbol (edit server) on the only row (assuming you have not added more servers)
-under <strong>OpenVPN servers</strong>.</p></li>
+<li><p>Click the small pen symbol (edit server) on the only row (assuming you have not added
+more servers) under <strong>OpenVPN servers</strong>.</p></li>
 <li><p>Scroll down to the <strong>Tunnel settings</strong> section.</p></li>
-<li><p>Change the value in the field <strong>IPv4 Local network(s)</strong> to also include your additional network(s)
-in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>. The networks are delimited by
-a comma. Your initial subnet should be in this field already.</p></li>
+<li><p>Change the value in the field <strong>IPv4 Local network(s)</strong> to include all networks comma-delimited
+and in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>. Your initial subnet should be in this
+field already.</p></li>
 <li><p>Press <strong>Save</strong> at the bottom.</p></li>
-<li><p>When users login again, they can reach the additional subnet(s) assuming its
-correctly <a class="reference internal" href="../router/routing-between-networks.html"><span class="doc">routed</span></a> in the cloud.</p></li>
+<li><p>When users login again, they can reach all the new networks assuming its correctly
+<a class="reference internal" href="../router/routing-between-networks.html"><span class="doc">routed</span></a> in the cloud.</p></li>
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Changing the VPN server configuration will <strong>restart</strong> the VPN service. This will in turn disconnect
-all active sessions. The procedure is quick but will be disruptive.</p>
+<p>Changing the VPN server configuration will <strong>restart</strong> the VPN service. This will in turn
+disconnect all active sessions. The procedure is quick but will be disruptive.</p>
 </div>
 <h2 id="vpn-server-network-design">VPN-server network design<a class="headerlink" href="#vpn-server-network-design" title="Link to this heading">¶</a></h2>
-<p>The VPN server only has a single interface. This interface, in turn, has a floating IP connected to it.</p>
-<p>Ingress from the internet is managed via the floating IP which will <a class="reference internal" href="../router/nat.html"><span class="doc">DNAT</span></a> traffic
+<p>The VPN server only has a single interface. This interface, in turn, has a floating IP connected
+to it.</p>
+<p>Ingress from the internet is via the floating IP which will <a class="reference internal" href="../router/nat.html"><span class="doc">DNAT</span></a> traffic
 to the IP address on the subnet.</p>
 <p>Egress from the VPN server to the internet will SNAT traffic to originate from the floating IP.</p>
-<p>For internal traffic within the network(s), the VPN server will use the same interface that it uses for
-public traffic but it will not egress the platform.</p>
-<p>The VPN server will SNAT all VPN traffic (which by default will originate from the 10.0.8.0/24 range - which
-the VPN server uses for VPN clients) so as to originate from its own IP on the subnet that it was setup on.</p>
-<p>This means that it will appear as if the traffic from the VPN clients originates from the VPN servers IP on
-the subnet.</p>
+<p>For internal traffic within the network(s), the VPN server will use the same interface that it
+uses for public traffic but it will not egress the platform.</p>
+<p>The VPN server will SNAT all VPN traffic, which by default will originate from the <code class="docutils literal notranslate"><span class="pre">10.0.8.0/24</span></code>
+range that the VPN server uses for VPN clients, so that the source IP is the VPN servers own
+IP address on the subnet.</p>
+<p>This means that it will appear as if the traffic from the VPN clients originates from the VPN
+servers IP on the subnet.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>This behaviour is changeable for users wanting to expose what VPN client IP the connection was from but we
-do not recommend it, as it will mean setting up routes for the 10.0.8.0/24 net on all hosts as well as on
-the router.</p>
+<p>This behaviour is changeable for users wanting to expose what VPN client IP the connection was
+from but we do not recommend it, as it will mean setting up routes for the <code class="docutils literal notranslate"><span class="pre">10.0.8.0/24</span></code>
+network on all hosts and on the router.</p>
 </div>
-<p>When reaching other networks in the cloud, routing is used.</p>
-<p>The VPN server will use its default route (which is the upstream router) for all traffic that is located
+<p>To reach other networks in the cloud, you use routing.</p>
+<p>The VPN server will use its default route (which is the upstream router) for all traffic that is
 outside of its own subnet.</p>
-<p>The router will then route this traffic the same way it would any internal traffic in the cloud, it will
-even use the default security group.</p>
-<p>This is a good way to reach your entire cloud infrastructure over VPN as well as to add additional networks.</p>
+<p>The router will then route this traffic the same way it would any internal traffic in the
+cloud, this is a good way to reach your entire cloud infrastructure over VPN.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Because the VPN server uses NAT, applications working badly with NAT (for example active mode FTP) may
-have issues over the VPN.</p>
+<p>Because the VPN server uses NAT some applications can work badly with NAT due to the
+design application or protocol itself, for example active mode FTP can have issues over
+the VPN.</p>
 </div>
 
 

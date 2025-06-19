@@ -4,7 +4,7 @@ Designate as authenticator for Lets Encrypt
 
 This guide will help you configuring ``certbot`` to work with
 plugins for OpenStack DNS (Designate) to verify Lets Encrypt
-certificates using DNS for any domain that is running in the
+certificates by using DNS for any domain that is running in the
 Binero cloud :doc:`DNS </dns>`.
 
 The guide will assume you are using a recent version of Debian or
@@ -13,11 +13,14 @@ Ubuntu but would likely be applicable for other Linux distributions.
 - Install ``certbot`` and python package manager pip by
   running ``sudo apt install certbot python3-designateclient python3-pip``. 
 
-- Using pip, install the dns-openstack authenticator-plugin
-  by running ``sudo pip3 install certbot-dns-openstack``.
+- Using pip install the ``dns-openstack`` authenticator plugin by running:
 
-- Create an :doc:``application credential </getting-started/users>`` with the
-  roles ``reader`` and ``member``. Use the following in the access-rule field:
+::
+
+    sudo pip3 install certbot-dns-openstack
+
+- Create an :doc:`application credential </getting-started/users>` with the
+  roles ``reader`` and ``member``. Use the following in the access rules:
 
 ::
 

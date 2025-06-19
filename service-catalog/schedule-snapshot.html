@@ -1407,13 +1407,13 @@
 <h1 id="schedule-snapshot">Schedule Snapshot<a class="headerlink" href="#schedule-snapshot" title="Link to this heading">¶</a></h1>
 <p>Using our service catalog, you can setup a recurring <a class="reference internal" href="../storage/snapshots/index.html"><span class="doc">snapshot</span></a> job
 for one ore more of your <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">block storage volumes</span></a>.</p>
-<p>The snapshot will be executed using our <a class="reference internal" href="../platform-automation/index.html"><span class="doc">Platform automation</span></a> tool but using this to setup
+<p>The snapshot creation is using our <a class="reference internal" href="../platform-automation/index.html"><span class="doc">Platform automation</span></a> tool but using this to setup
 recurring snapshots can be a complex task. The service catalog greatly simplifies this.</p>
 <p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page.</p>
 <p>Then follow these instructions:</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
-<li><p>In the <strong>Cron in GMT</strong> field you decide when and how often the job should be run. You can use hourly, daily
+<li><p>In the <strong>Cron in GMT</strong> field you decide when and how often the job should run. You can use hourly, daily
 or weekly as base. Select the one that is closest to what you want to do. If you for example want to run
 a snapshot job once per night, select <strong>daily</strong> and then set the <strong>Hour(s)</strong> field to the hour you want to run
 the job.</p></li>
@@ -1422,11 +1422,6 @@ the default value of 72, when taking snapshots, previous snapshots that are olde
 <li><p>In the <strong>volume</strong> field, select the volume that you want to backup.</p></li>
 <li><p>Press <strong>Launch</strong> when done.</p></li>
 </ul>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>The cron format might be difficult to understand. When your snapshot job is created, if you press it, you can find
-out the cron pattern, there are several websites that can translate the cron pattern to a textual representation.</p>
-</div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

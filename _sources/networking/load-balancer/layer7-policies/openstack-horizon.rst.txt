@@ -5,7 +5,8 @@ Creating a Layer7 policy using OpenStack Horizon
 We recommend first reading our :doc:`guide <index>` on layer 7 policies to get a
 better understanding of how they work.
 
-To create a layer 7 policy using the :doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`
+To create a layer 7 policy by using the
+:doc:`OpenStack Horizon portal </getting-started/managing-your-cloud/openstack-horizon>`
 
 - Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
 
@@ -27,7 +28,7 @@ To create a layer 7 policy using the :doc:`OpenStack Horizon portal </getting-st
 - Press **Create L7 Policy**
 
 Once you've created a policy, you will also want to create a rule which triggers
-it. To do this, follow these steps:
+it.
 
 - Press the newly created policies name. 
 

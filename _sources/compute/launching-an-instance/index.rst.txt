@@ -5,10 +5,10 @@ Launching an instance
 To launch a new compute instance in Binero cloud, you have four main options
 as outlined in the links below.
 
-Each option have its pros and cons:
+Each option have its advantages and disadvantages:
 
-- :doc:`The cloud management portal <cloud-management-portal>` is recommended and
-  will get a user with limited prior knowledge from A to B quickly. The tradeoff
+- :doc:`The cloud management portal <cloud-management-portal>` is what we recommended
+  and will get a user with limited prior knowledge from A to B quickly. The tradeoff
   is that advanced features are not always available.
 
 - :doc:`OpenStack Horizon <openstack-horizon>` is the web interface included in
@@ -25,10 +25,10 @@ Each option have its pros and cons:
 
 .. note::
 
-   In order to create an instance, you will first need to know what :doc:`flavor <../flavors>` you
-   want as well as what :doc:`image </images/index>` to boot from.
+   To create an instance, you will first need to know what :doc:`flavor <../flavors>` you
+   want and what :doc:`image </images/index>` to boot from.
 
-   If you have not configured SSH-keys (for Linux) or networking yet, you may want to
+   If you have not configured SSH-keys (for Linux) or networking yet, you might want to
    do :doc:`some initial configuration first </getting-started/launching-an-instance>`.
 
 .. toctree::

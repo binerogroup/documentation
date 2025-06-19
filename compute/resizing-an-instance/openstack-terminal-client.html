@@ -1657,25 +1657,26 @@
   
 
 <h1 id="resizing-an-instance-using-openstack-terminal-client">Resizing an instance using OpenStack terminal client<a class="headerlink" href="#resizing-an-instance-using-openstack-terminal-client" title="Link to this heading">¶</a></h1>
-<p>To resize an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To resize an <a class="reference internal" href="../index.html"><span class="doc">instance</span></a> by using the
+<a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
 <p>Resizing an instance will cause the instance to shut off during the
 process. We recommend doing a backup of your data before proceeding.</p>
 </div>
 <ul class="simple">
-<li><p>Identify the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want. This can be done
-by running command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span></code>.</p></li>
-<li><p>Identify the instance you want to resize. This can be done by running
-the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>.</p></li>
+<li><p>Identify the <a class="reference internal" href="../flavors.html"><span class="doc">flavor</span></a> you want. You can list all
+flavors with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span></code>.</p></li>
+<li><p>Identify the instance you want to resize. You can list all your
+instances with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>.</p></li>
 <li><p>To resize, run the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">resize</span> <span class="pre">--flavor</span> <span class="pre">[FLAVOR</span> <span class="pre">NAME]</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code> where
 you replace the items in brackets to the flavor you choose in previous step and the instance name.</p></li>
 <li><p>Run the command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> and you’ll see the instance is now in Status <strong>VERIFY_RESIZE</strong>. Login
 to the instance and verify that it worked as intended (meaning the instance is working as before but with the new flavor).</p></li>
-<li><p>If you are happy with the result, run the following command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">resize</span> <span class="pre">confirm</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code> This
-will finalize the process and make it permanent.</p></li>
-<li><p>If you are unhappy (for some reason the process failed), you are able to instead run the
-command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">resize</span> <span class="pre">revert</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code>. This will revert the process.</p></li>
+<li><p>If you are happy with the result, confirm the resize with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">resize</span> <span class="pre">confirm</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code>,
+this completes the process and make the resize permanent.</p></li>
+<li><p>If you are unhappy (or for some reason the resize was unsuccessful), you are able to instead
+run the command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">resize</span> <span class="pre">revert</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span></code>. This will revert the process.</p></li>
 </ul>
 <p>The process is now complete.</p>
 <div class="seealso admonition">

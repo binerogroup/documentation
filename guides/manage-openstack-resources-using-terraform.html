@@ -1217,7 +1217,7 @@
   
 
 <h1 id="manage-openstack-resources-using-terraform">Manage OpenStack resources using Terraform<a class="headerlink" href="#manage-openstack-resources-using-terraform" title="Link to this heading">¶</a></h1>
-<p>Terraform is a popular tool that automates infrastructure in various platforms.</p>
+<p>Terraform is a popular tool that automates infrastructure in platforms.</p>
 <p>It has an OpenStack module and as such is compatible with Binero cloud. In this guide, we
 will walk through some concepts that enable you to use it with the platform.</p>
 <h2 id="prepare-terraform">Prepare Terraform<a class="headerlink" href="#prepare-terraform" title="Link to this heading">¶</a></h2>
@@ -1226,9 +1226,9 @@ will walk through some concepts that enable you to use it with the platform.</p>
 OpenStack provider.</p>
 <p><a class="reference external" href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs">Here</a> is
 a good place to get information on how to do that.</p>
-<p>Start by creating an <a class="reference internal" href="../getting-started/users.html"><span class="doc">API user</span></a> and download the openrc file (by
+<p>Start by creating an <a class="reference internal" href="../getting-started/users.html"><span class="doc">API user</span></a> and download the <code class="docutils literal notranslate"><span class="pre">openrc</span></code> file (by
 pressing the small arrow next to it).</p>
-<p>The information in this file is needed to configure the Terraform provider. An example configuration
+<p>You need the credentials in this file to configure the Terraform provider. An example configuration
 file (called for example <code class="docutils literal notranslate"><span class="pre">demo.tf</span></code>) could look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># Define required providers</span>
 <span class="n">terraform</span> <span class="p">{</span>

@@ -13,9 +13,11 @@ sluggish (or not working at all).
 Methods
 -------
 
-Resizing (which is the Binero cloud way to scale up) is done by switching :doc:`flavor <../flavors>` .
+Resizing (which is the Binero cloud way to scale up) is changing the :doc:`flavor <../flavors>`
+on your instance.
 
-You have four main options for how to resize an instance. Each option has its pros and cons:
+You have four main options for how to resize an instance. Each option has its advantages
+and disadvantages:
 
 - :doc:`The cloud management portal <cloud-management-portal>` is recommend and will get a
   user with limited prior knowledge from A to B quickly. The tradeoff is that advanced
@@ -34,7 +36,7 @@ You have four main options for how to resize an instance. Each option has its pr
 
 .. note::
 
-   Storage performance is also important. If you've opted for our HDD based storage (which is cost
+   Storage performance is also important. If you've opted for our HDD based storage (which is more cost
    effective and a good choice for use cases that require storage space that is infrequently accessed)
    and notice that your application is experiencing IO wait (which translates to load and slow
    performance), a :doc:`retype </storage/retype-a-volume>` might be the solution.
@@ -42,46 +44,45 @@ You have four main options for how to resize an instance. Each option has its pr
 Scaling methods
 ---------------
 
-The two main ways are scaling by increasing performance by adding more CPU/RAM (which is done by
-resizing) or scaling by adding parallel performance (which is normally done by some sort of load
-balancing).
+The two main ways are scaling by increasing performance by increasing resources such as CPU or memory
+by resizing instances or scaling by adding parallel performance by creating more instances and spreading
+out the workload with for example a load balancer.
 
 Scaling up
 ^^^^^^^^^^
 
-Scaling up (or vertical scaling) is a resize of the instance and / or volumes, to instantly add
-more resources (with no need to change the installation).
+Scaling up (or vertical scaling) is resizing your instance to instantly add more resources to your
+existing infrastructure.
 
-While being quick to implement (as its purely reliant on the infrastructure platform and not the
+While being quick to perform (as its purely reliant on the infrastructure platform and not the
 application design), the downside is that there is an effective performance limit before diminishing
-returns on adding additional performance would kick in. What the limit is, depends on the use-case. 
+returns on adding more performance would kick in. What the limit is, depends on the use-case. 
 
 Scaling out
 ^^^^^^^^^^^
 
-The opposite method is adding parallel resources (for example additional instances) and
-using `load balancing </networking/load-balancers>`_) to distribute load between them, this is
-called scaling out (or horizontal scaling).
+The opposite method is adding parallel resources (for example more instances) and
+using `load balancing </networking/load-balancers>`_) to distribute load between them, this method
+is scaling out (or horizontal scaling).
 
-For systems which are expected to need to scale to many times their initial size, this method is
+For systems that expects the need to scale many times their initial size, this method is
 likely required.
 
 While there are normally bottlenecks in scale out systems as well, they are generally related to
-the amount of parts the system is broken up into. 
+the specific components that make up the system.
 
-A single application (a monolith) may for example still be able to scale well by using multiple
-load balanced web servers as frontends and multiple replicated database servers as backends. The
-web servers will scale pretty much indefinitely but the database would bottleneck at some
-point (depending on solution). 
+A single application (a monolith) might for example still be able to scale well by using load balanced
+web servers as frontends and replicated database servers as backends. The web servers will scale pretty
+much indefinitely but the database would bottleneck at some point (depending on solution). 
 
-The same system broken into micro services would scale by adding additional containers to the
-parts of the system that needed them. A single micro service would (likely) not hit a performance
+The same system broken into micro services instead scales by adding more resource for the specific
+component in the system that needs it. A single micro service would (likely) not hit a performance
 ceiling given the proper limitations in its scope. The performance of the application as a whole
-is made up of the performance of its micro services. 
+is then dependent on the performance of its micro services. 
 
-While containerized microservices is the modern approach to application design (also providing
-additional management upsides), systems that are not expected to grow to users in the millions,
-might still work well with only load balancing or on a single server, that could be scaled up.
+While microservices is the modern approach to application design (also providing management upsides),
+systems that are not expected to grow to users in the millions, might still work well with only load
+balancing or on a single server, that instead scales up.
 
 .. toctree::
   :caption: Available services

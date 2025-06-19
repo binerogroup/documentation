@@ -1511,8 +1511,8 @@
 <h1 id="detach-a-volume">Detach a volume<a class="headerlink" href="#detach-a-volume" title="Link to this heading">¶</a></h1>
 <p>If you want to save a volume (when deleting the instance) for later or just remove it
 from an instance, you must first detach it.</p>
-<p>A volume used as boot disk (that is, the disk that stores the instances operating system)
-<em>cannot be detached</em>. If you want to save such a volume, the workflow would be:</p>
+<p>A volume used as boot disk, that is, the disk that stores the instances operating system
+from an image <strong>cannot detach</strong>. If you want to save such a volume, the workflow would be:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../snapshots/index.html"><span class="doc">Snapshot</span></a> the volume.</p></li>
 <li><p><a class="reference internal" href="../snapshots/create-volume-from-snapshot.html"><span class="doc">Create a new volume from the snapshot</span></a>.</p></li>
@@ -1527,16 +1527,16 @@ OpenStack Horizon or via the OpenStack terminal client.</p>
 impact the data integrity if its not properly unmounted in the operating system.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To detach a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To detach a volume by using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance that you want to resize.</p></li>
 <li><p>Press the <strong>Volumes</strong> tab.</p></li>
 <li><p>Press the small chain-link icon with a line over to the right next to the volume you want
-to remove. If there isn’t such an icon, then the volume cannot be removed.</p></li>
+to remove. If there isn’t such an icon, deleting the volume is not possible.</p></li>
 </ul>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To detach a volume using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To detach a volume by using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the instance from which you want to remove a volume.</p></li>
@@ -1548,10 +1548,10 @@ to detach.</p></li>
 detached (see above).</p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To detach a volume using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To detach a volume by using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which
-the volume you want to extend is connected.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance having the
+the volume you want to extend.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the
 name with that from previous step.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">remove</span> <span class="pre">volume</span> <span class="pre">[INSTANCE_ID]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing

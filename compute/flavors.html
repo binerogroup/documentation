@@ -1823,46 +1823,46 @@
   
 
 <h1 id="flavors">Flavors<a class="headerlink" href="#flavors" title="Link to this heading">¶</a></h1>
-<p>Binero cloud provides various flavors of compute instances. A flavor defines the compute, memory,
+<p>Binero cloud provides different flavors of compute instances. A flavor defines the compute, memory,
 storage capacity for some flavors (see NVMe flavors below) and other hardware configuration that
 allows you to customize for performance or features needed by your application.</p>
 <p>We provide different groups of flavors and each group has different performance characteristics
-and is optimized for different use-cases.</p>
+and optimizations for different use-cases.</p>
 <p>Each group of flavors has a version number meaning the higher version number the newer the
 hardware giving a performance advantage on previous versions, for flavors without an explicit
-version number in the name is implied to be version 1.</p>
-<p>A flavor can have specific features such as NVMe storage, GPU, Pinned CPU. A CPU vendor identifier is
-added as a suffix to the flavor name, the CPU vendor identifiers is listed below.</p>
+version number in the name it implies version 1.</p>
+<p>A flavor can have specific features such as NVMe storage, GPU, Pinned CPU. We add a CPU vendor
+identifier as a suffix to the flavor name, see the CPU vendor identifiers list below.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> for AMD (amd64)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> for Intel (x86_64) – <strong>Intel is implied for version 1</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> for Intel (x86_64) – <strong>Version 1 implies Intel</strong></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">r</span></code> for ARM (ARM64/AARCH64)</p></li>
 </ul>
 <p>An overview of the flavor groups and their types looks like below.</p>
 <ul class="simple">
 <li><p>General purpose</p>
 <ul>
-<li><p>version 1 (flavors without a version number) where Intel is implied, example <code class="docutils literal notranslate"><span class="pre">gp.2x4</span></code></p>
+<li><p>Version 1 (flavors without a version number) implies Intel, example <code class="docutils literal notranslate"><span class="pre">gp.2x4</span></code></p>
 <ul>
 <li><p>Pinned CPU for CPU intensive workload (dedicated CPU), example <code class="docutils literal notranslate"><span class="pre">gp.4x8-pinned</span></code></p></li>
 </ul>
 </li>
-<li><p>version 2 with AMD (CPU vendor identifier is <code class="docutils literal notranslate"><span class="pre">a</span></code>), example <code class="docutils literal notranslate"><span class="pre">gp-v2a.2x4</span></code></p></li>
+<li><p>Version 2 with AMD (CPU vendor identifier is <code class="docutils literal notranslate"><span class="pre">a</span></code>), example <code class="docutils literal notranslate"><span class="pre">gp-v2a.2x4</span></code></p></li>
 </ul>
 </li>
 <li><p>High memory</p>
 <ul>
-<li><p>version 1 (flavors without a version number) where Intel is implied, example <code class="docutils literal notranslate"><span class="pre">hm.2x8</span></code></p>
+<li><p>Version 1 (flavors without a version number) implies Intel, example <code class="docutils literal notranslate"><span class="pre">hm.2x8</span></code></p>
 <ul>
 <li><p>Pinned CPU for CPU intensive workload (dedicated CPU), example <code class="docutils literal notranslate"><span class="pre">hm.8x32-pinned</span></code></p></li>
 </ul>
 </li>
-<li><p>version 2 with AMD (CPU vendor identifier is <code class="docutils literal notranslate"><span class="pre">a</span></code>), example <code class="docutils literal notranslate"><span class="pre">hm-v2a.2x8</span></code></p></li>
+<li><p>Version 2 with AMD (CPU vendor identifier is <code class="docutils literal notranslate"><span class="pre">a</span></code>), example <code class="docutils literal notranslate"><span class="pre">hm-v2a.2x8</span></code></p></li>
 </ul>
 </li>
 <li><p>High performance</p>
 <ul>
-<li><p>version 1 (flavors without a version number) where Intel is implied, example <code class="docutils literal notranslate"><span class="pre">hp.8x32</span></code></p>
+<li><p>Version 1 (flavors without a version number) implies Intel, example <code class="docutils literal notranslate"><span class="pre">hp.8x32</span></code></p>
 <ul>
 <li><p>GPU, example <code class="docutils literal notranslate"><span class="pre">hp.8x24-gpu4</span></code> where the number after GPU means 4 GB vRAM</p></li>
 <li><p>NVMe storage, example <code class="docutils literal notranslate"><span class="pre">hp.4x8-nvme50</span></code> where the number after NVMe means 50 GB disk</p></li>
@@ -1872,25 +1872,25 @@ added as a suffix to the flavor name, the CPU vendor identifiers is listed below
 </ul>
 </li>
 </ul>
-<p>The names are designed to be clear and well structured, for example the flavor <code class="docutils literal notranslate"><span class="pre">hm.8x48</span></code> is
-a High memory (hm) version 1 using Intel CPUs with 8 vCPUs and 48 GB memory.</p>
+<p>Te flavor <code class="docutils literal notranslate"><span class="pre">hm.8x48</span></code> is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs
+and 48 GB memory.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">hp.12x64-gpu8-nvme50</span></code> flavor is High performance (hp) version 1 with 12 vCPUs,
 64 GB memory, 8 GB GPU vRAM and 50 GB of local NVMe storage.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">gp-v2a.8x16</span></code> flavor is Generala purpose (gp) version 2 with 8 vCPUs and 16 GB
 memory.</p>
-<p>The flavors are presented more in detail below, you can also see them in the various portals
-or by listing them using the OpenStack terminal client with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span> <span class="pre">--sort-column</span> <span class="pre">Name</span></code></p>
+<p>See the list of flavors more in detail below, you can also see them in the portals or by listing
+them using the OpenStack terminal client with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">flavor</span> <span class="pre">list</span> <span class="pre">--sort-column</span> <span class="pre">Name</span></code></p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>All gigahertz (GHz) specifications for processors is based on base clock
+<p>All gigahertz (GHz) specifications for processors is the base clock
 frequency in the product specification and does not take into account that
 your workload can be faster due to Intel Turbo boost or AMD Boost clock
-functionality provided by processors.</p>
+functionality provided by the processors.</p>
 </div>
 <h2 id="general-purpose">General purpose<a class="headerlink" href="#general-purpose" title="Link to this heading">¶</a></h2>
 <p>This general purpose flavor group has a well rounded combination of CPU and memory and is suitable
 for most general application use-cases that does not have heavy or intensive CPU requirements.</p>
-<p>This flavor group provides a good cost for performance and is recommended for use-cases
+<p>This flavor group provides a good cost for performance and we recommend it for use-cases
 with low to medium usage requirements.</p>
 <h3 id="version-1-with-intel-cpu">Version 1 with Intel CPU<a class="headerlink" href="#version-1-with-intel-cpu" title="Link to this heading">¶</a></h3>
 <p>The version number 1 (implied in the flavor names) is using Intel as CPU vendor
@@ -1987,18 +1987,19 @@ use-case.</p>
 </tbody>
 </table>
 <h4 id="pinned-cpu">Pinned CPU<a class="headerlink" href="#pinned-cpu" title="Link to this heading">¶</a></h4>
-<p>These flavors gives you gives you a pinned CPU, this means that your vCPU is pinned to a
-dedicated CPU core (pCPU) giving you exclusive access to the computation time on that core.</p>
+<p>These flavors gives you gives you a pinned CPU, this means that we pin your vCPU to a
+dedicated CPU core (pCPU) giving you exclusive access to the computation time on that
+core.</p>
 <p>In certain use-cases guaranteeing low-latency and fast access to CPU computation time is
-critical for time sensitive applications that would normally suffer when scheduling of CPU
-time to shared CPU cores takes more time than the requirement causing the application to
-experience lag or higher tail latencies due to for example noisy neighbours.</p>
-<p>We also guarantee that the allocated CPU core thread siblings is allocated so that you’re
+critical for time sensitive applications that suffers when scheduling of CPU time to shared
+CPU cores takes more time causing the application to experience lag or higher tail latencies
+due to for example noisy neighbours.</p>
+<p>We also guarantee that your allocation also get the CPU core thread siblings so that you’re
 never exposed to any transient execution CPU vulnerabilities.</p>
-<p>We allocate pinned CPUs across all NUMA nodes to optimize CPU usage but due to memory being
-local to a NUMA node we recommend ultra sensitive workloads to not run its workload on
-multiple different cores if low-latency memory access is a requirement as that will traverse
-NUMA nodes to read memory.</p>
+<p>When allocating pinned CPUs we reach across all NUMA nodes to optimize CPU usage but due to
+memory being local to a NUMA node we recommend ultra sensitive workloads to not run its workload
+on different cores if you need low-latency memory access as that will traverse NUMA nodes to
+read memory.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>See the High memory version 1 pinned CPU flavors for the same feature but with
@@ -2143,10 +2144,10 @@ than version 1 depending on your use-case.</p>
 </tbody>
 </table>
 <h2 id="high-memory">High memory<a class="headerlink" href="#high-memory" title="Link to this heading">¶</a></h2>
-<p>This high memory flavor group is optimized to provide the best value for applications that
-needs a larger amount of memory compared to more CPU cores that is provided by general purpose.</p>
-<p>The flavor group can be used for more memory heavy use-cases such as a database application with
-heavy caching of the data set in memory that doesn’t have a intensive requirement on CPU computation.</p>
+<p>The high memory flavor group has optimizations to provide the best value for applications that
+needs a larger amount of memory compared to more CPU cores that as provided by general purpose.</p>
+<p>The flavor group targets more memory heavy use-cases such as a database application with heavy
+caching of the data set in memory that doesn’t have a high or intensive computation need.</p>
 <h3 id="version-1-with-intel">Version 1 with Intel<a class="headerlink" href="#version-1-with-intel" title="Link to this heading">¶</a></h3>
 <p>The version number 1 (implied in the flavor names) is using Intel as CPU vendor
 with Intel Xeon Gold 6138 2.0 GHz processors from the Intel Xeon Scalable Processors
@@ -2446,13 +2447,12 @@ than version 1 depending on your use-case.</p>
 </tbody>
 </table>
 <h2 id="high-performance">High performance<a class="headerlink" href="#high-performance" title="Link to this heading">¶</a></h2>
-<p>This high performance flavor group is optimized for applications with a heavy and/or intensive
-CPU requirements. This results in faster task completion, a faster and more predictable access
-to both memory and storage giving you a lower latency.</p>
-<p>The flavor group can be used for more CPU intensive applications causing your workload to
-run and complete faster improving serial throughput, use-cases such as caching servers or
-heavily utilized database applications or other application that needs more performance
-and lower latency.</p>
+<p>The high performance flavor group has optimizations for applications with either or both heavy
+and intensive CPU requirements. This results in faster task completion, a faster and more predictable
+access to both memory and storage giving you a lower latency.</p>
+<p>The flavor group targets more CPU intensive applications causing your workload to run and complete
+faster improving serial throughput, use-cases such as caching servers or heavily utilized database
+applications or other application that needs more performance and lower latency.</p>
 <p>The flavor sizes is more rounded to being equal in CPU and memory.</p>
 <h3 id="id3">Version 1 with Intel<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>The version number 1 (implied in the flavor names) is using Intel as CPU vendor
@@ -2461,7 +2461,7 @@ product family.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>The High performance version 1 has a 50% higher base clock frequency than version 1
-of General purpose and High memory flavor groups and can significantly improve your
+of the General purpose and High memory flavor groups and which greatly improves
 performance for CPU heavy or latency sensitive workloads.</p>
 </div>
 <table class="docutils data align-default">
@@ -2590,9 +2590,10 @@ is no data redundancy.</p>
 <div class="caution warning admonition">
 <p class="admonition-title">Caution</p>
 <p>The NVMe based storage is local to the hypervisor that is running your
-instance and is backed by a single physical disk, though NVMe based
-enterprise solid state drives has an extremely good lifetime expectancy it’s
-important that you consider this fact and <strong>backup your data</strong> regularly.</p>
+instance is using a single physical disk, though NVMe based enterprise
+solid state drives has an high lifetime expectancy it’s important that
+you consider this fact and <strong>backup your data</strong> regularly.</p>
+<p>See <a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe storage</span></a> for more information.</p>
 </div>
 <p>This flavor provides the best possible storage performance for IO intensive workloads
 that needs to write to disk and is great for ephemeral storage or as disk if you
@@ -2670,7 +2671,7 @@ have an application with data replication or redundancy already built-in.</p>
 </table>
 <h4 id="gpu">GPU<a class="headerlink" href="#gpu" title="Link to this heading">¶</a></h4>
 <p>These flavors provides <a class="reference internal" href="gpu-instances.html"><span class="doc">GPU based compute</span></a> and allows gives you a
-GPU allocated to your instance with the specified vRAM/vMEM memory.</p>
+GPU allocated to your instance with the specified vRAM / vMEM memory.</p>
 <p>This gives you access to a NVIDIA A10 GPU that you can use for rendering, image
 processing, AI, ML and inference workloads that can run 50-200x faster on a GPU
 than a CPU.</p>

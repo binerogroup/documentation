@@ -1263,7 +1263,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1740,17 +1740,14 @@
 <p>A network in Binero cloud is a software-defined virtual network.</p>
 <p>The network will connect to <a class="reference internal" href="../ports.html"><span class="doc">ports</span></a> on routers or
 instances just as a physical server might connect to a port in a switch.</p>
-<p>Networks, therefore, are the carriers of network traffic in your infrastructure
-and would normally terminate in a router (for routing to another network or the
-internet) or an <a class="reference internal" href="../../compute/index.html"><span class="doc">instance</span></a>.</p>
+<p>Networks are the carriers of traffic in your infrastructure and would normally
+enter or leave through a <a class="reference internal" href="../router/index.html"><span class="doc">router</span></a> (for
+routing to another network or the internet) or an <a class="reference internal" href="../../compute/index.html"><span class="doc">instance</span></a>.</p>
 <p>Networks are what connects the infrastructure together. Assuming you want to use
 only manual IP assignments on your infrastructure, creating networks and ports would
 be enough.</p>
-<p>The <a class="reference internal" href="../subnet/index.html"><span class="doc">subnets</span></a> will however enable lost of automation and
-additional features in the platform and is the recommended approach for setting
-up IP configuration on networks.</p>
-<p>When referring to the standard OSI model for networking, a network is equal to
-layer 2, a subnet is layer 3.</p>
+<p>You add one or more <a class="reference internal" href="../subnet/index.html"><span class="doc">subnets</span></a> to a network to provide IP
+addressing for ports.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>While a network would be enough (provided you would want to manage your IP layer
@@ -1759,11 +1756,11 @@ to use networks that in turn have subnets configured on them as it greatly impro
 the user experience and some services in the platform will rely on doing so.</p>
 </div>
 <h2 id="managing-networks">Managing networks<a class="headerlink" href="#managing-networks" title="Link to this heading">¶</a></h2>
-<p>You are able to manage networks using either of the below tools.</p>
+<p>You are able to manage networks by using either of the below tools.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is recommended and will
-get a user with limited prior knowledge from A to B quickly. The tradeoff is that
-advanced features are not always available.</p></li>
+<li><p><a class="reference internal" href="cloud-management-portal.html"><span class="doc">The cloud management portal</span></a> is what we recommended
+and will get a user with limited prior knowledge from A to B quickly. The tradeoff
+is that advanced features are not always available.</p></li>
 <li><p><a class="reference internal" href="openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> is the web interface included in
 OpenStack. Some advanced features might only have a GUI implementation here.</p></li>
 <li><p><a class="reference internal" href="openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a> is a command line

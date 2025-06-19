@@ -2,15 +2,15 @@
 Object storage endpoints
 ========================
 
-When using the object storage service in Binero cloud you connect to a HTTP based API endpoint using
+When using the object storage service in Binero cloud you connect to a HTTP based API endpoint to
 any of the available APIs (S3 or Swift API).
 
 This is how you interact with the object storage service by sending HTTP API requests to for example
 get an object or put an object into the object storage.
 
-The object storage is provided over four different HTTP based endpoints per :doc:`availability zone <../regions-and-availability-zones>`,
+We provide the object storage over four different HTTP based endpoints per :doc:`availability zone <../regions-and-availability-zones>`,
 two per API (:doc:`S3 API <s3>` and :doc:`Swift API <swift>`), one is standalone (without replication)
-and one is with replication, using replication will cause your bucket to be replicated between the availability
+and one is with replication, using replication will enable replication for your bucket between the availability
 zones in the same region.
 
 If you want to use :doc:`replication <replication>`, you would use the replicated endpoints. If you just want

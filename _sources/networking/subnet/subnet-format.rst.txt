@@ -2,9 +2,9 @@
 Subnet Format
 =============
 
-A subnet is generally formatted in what is called `CIDR notation <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__.
+A subnet is generally formatted in what we known as `CIDR notation <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__.
 
-A CIDR notation might for example look like this: **192.168.0.0/24**
+A CIDR notation might for example look like this: ``192.168.0.0/24``
 
 This is a way to describe both the network ip-number (which is the part before the ``/`` symbol) and the subnet size (which is
 the part after the ``/`` symbol).
@@ -24,22 +24,22 @@ Below we outline how to select your subnet.
 Explanation
 -----------
 
-After the ``/`` sign, the numeric value is called subnet mask.
+After the ``/`` sign, the numeric value we refer to as subnet mask.
 
-You could select anything between (realistically - or at least you would be expected to already understand subnet math if you
+You could select anything between (or at least you would need to already understand subnet math if you
 wanted anything larger or smaller) 18 to 27 as value for the mask.
 
-If you chose 18 (so 192.168.0.0/18, according to above example), you will get 16382 IP addresses in the subnet. If you select 27
-(so 192.168.0.0/27, according to above example), you would get 30 addresses.
+If you chose 18 (``192.168.0.0/18``, according to above example), you will get 16382 IP addresses in the subnet. If you select 27
+(``192.168.0.0/27``, according to above example), you would get 30 addresses.
 
-This is because when the mask is incremented by one, the network size is halved (which is why when we get to 27, counting down
-from 18, we only have 30 addresses left to use from the original 16382 at /18 - bearing in mind some addresses are reserved). 
+This is because when the mask increments by one, the network size halves (which is why when we get to 27, counting down
+from 18, we only have 30 addresses left to use from the original 16382 at ``/18``, bearing in mind reserved addresses). 
 
-A standard size is /24, this mask size yields 255 usable IP addresses and would give the subnet mask setting (in the OS, this
-is really the same as the prefix length, or mask, but in another format) ``255.255.255.0``.
+A standard size is ``/24``, this mask size yields 255 usable IP addresses and would give the subnet mask setting (in the operating
+system, this is really the same as the prefix length, or mask, but in another format) ``255.255.255.0``.
 
-In Binero cloud, the platform will calculate the subnet mask for you (and it would normally be assigned using :doc:`dhcp`, so there
-is no need to understand what subnet mask a certain CIDR prefix will have.
+In Binero cloud, the platform will calculate the subnet mask for you and is normally assigned using :doc:`dhcp`, so there is no need
+to understand what subnet mask a certain CIDR prefix will have.
 
 You just need to choose one that yields the right amount of usable IP addresses to suit your use-case. 
 
@@ -55,44 +55,43 @@ You just need to choose one that yields the right amount of usable IP addresses 
 Advanced explanation
 --------------------
 
-Early IP-address allocations were given to providers in on of 3 address classes; A, B and C. An A-class
-network (equal to a CIDR notation of /8) has 16.777.214 usable addresses.
+Early IP address allocations given to providers in on of 3 address classes; **A**, **B** and **C**. An A-class
+network (equal to a CIDR notation of ``/8``) has 16.777.214 usable addresses.
 
 A B-class network has 65534 usable addresses. A C-class network has 255 usable addresses. This meant that
 addresses where most often not optimally assigned.
 
-An organisation that needed to have for example 75.000 IP addresses  would instead get 16777214 (as a B-class network
+An organisation that needed to have for example 75.000 IP addresses would instead get 16777214 (as a B-class network
 would have been to small).
 
 An organisation that needed 300 IP addresses would instead get 65534. This was not considered an issue in the early
 days as the total IPv4 pool of 4,294,967,296 addresses seemed large at the time.
 
-When the internet grew, it was realised that the total pool would get depleted fast if nothing was done.
+When the internet grew, it became clear that the total pool would get depleted fast.
 
-To solve this, Classless Inter Domain Routing or `CIDR <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__
-was introduced, enabling the use of a subnet *mask* that would make it possible to decide the size of a given network
-more granularly than in 3 stages.
+To solve this, we introduced Classless Inter Domain Routing or `CIDR <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__, enabling
+the use of a subnet *mask* that would make it possible to decide the size of a given network more granularly than in 3 stages.
 
 The subnet mask showed how many addresses were available in the subnet based on a number that stated how big a
-part of the **IP address** was the network portion vs how big a part was the host portion.
+part of the **IP address** was the network bits compared to how big a part was the host bits.
 
-An IPv4 address is a 32 bit number divided into 4 octets to make it easier to read. In the example **192.168.0.0/24**,
-the *mask* (``/24`` in this case) states that the 24 first bits (which is 192.168.0) is the network address.
+An IPv4 address is a 32 bit number divided into 4 octets to make it easier to read. In the example ``192.168.0.0/24``,
+the *mask* (``/24`` in this case) states that the 24 first bits (which is ``192.168.0``) is the network address.
 
-This address is just used for describing the network and cannot be changed when addressing hosts in the network. This
-can be explained as 32 / 4 = 8, so 8 bits per octet, 24 bits then making the first 3 octets the network address (so
-192.168.0 being the first 3 octets).
+This address is just used for describing the network and is unusable when addressing hosts in the network. Explained as
+``32 / 4 = 8``, so 8 bits per octet, 24 bits then making the first 3 octets the network address (so ``192.168.0`` being
+the first 3 octets).
 
-The remaining (up to 32) bits are the hosts addresses so for example in the example 192.168.0.5, the last octet
+The remaining (up to 32) bits are the hosts addresses so for example in the example ``192.168.0.5``, the last octet
 (which is 5) is assignable to a host. 
 
-When configuring an IP-address in an operating system, some systems will want the IP-address in CIDR notation
-(so 192.168.0.5/24 for example), some want the subnet mask specified separately, so 192.168.0.5 AND 255.255.255.0.
+When configuring an IP address in an operating system, some systems will want the IP-address in CIDR notation
+(so ``192.168.0.5/24`` for example), some want the subnet mask specified separately, so ``192.168.0.5`` and ``255.255.255.0``
 
 The function is the same, the subnet mask is just another way to tell that the first 24 bits (as shown by the fact
 that 255 is the max size, so all 1s when writing in binary, of an 8 bit number is 255) are the network address and
-the last 8 bits are the host address (the mask then is not the IP-address, it just describes *what part* of the IP
-address is the network and what part is meant for hosts.
+the last 8 bits are the host address (the mask then is not the IP address, it just describes *what part* of the IP
+address is the network bits what part is the host bits.
 
 The previous network sizes (A, B and C) corresponds to /8, /16 and /24 in CIDR notation that uses even octets, if we
 want to use an smaller subnet it's a bit more complicated.
@@ -100,8 +99,8 @@ want to use an smaller subnet it's a bit more complicated.
 For example, where one might want to have 3578 IP addresses , consulting a CIDR chart or using ``ipcalc`` software would
 show that the closest network size that has more addresses then 3578 would be a /20 network that has 4094 addresses.
 
-The principle is the same, the CIDR notation becomes 192.168.0.0/20 instead. The subnet mask would be 255.255.240.0
-(because only the first 20 bits are the network address, some additional bits are available for hosts).
+The principle is the same, the CIDR notation becomes ``192.168.0.0/20`` instead. The subnet mask would be ``255.255.240.0``
+(because only the first 20 bits are the network address, giving some extra bits available for hosts).
 
 In conclusion, if you have more advanced requirements with regards to wanting to use a specific subnet or needing a
 specific subnet size, Binero cloud will be able to cater to your need.

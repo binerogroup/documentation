@@ -1358,47 +1358,48 @@ get more information about the backup system.</p>
 the backup storage.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To create a backup of a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To create a backup of a volume by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Storage</strong> and then <strong>Backups</strong> in the sidebar menu.</p></li>
-<li><p>Press the <strong>+</strong> icon in the bottom right corner.</p></li>
-<li><p>Select a volume from the dropdown menu. If you are unsure about which volume (due to IDs being used) you
-can check the instance to see which volumes are attached to it:</p>
+<li><p>Press the <strong>+</strong> icon in the lower right corner.</p></li>
+<li><p>Select a volume from the dropdown menu. If you are unsure about which volume (ID) you
+can check the instance to see which volumes is currently attached to it:</p>
 <ul>
 <li><p>Press <strong>Compute</strong> and then <strong>Instances</strong>.</p></li>
 <li><p>Press the instance you want to backup.</p></li>
 <li><p>Press the <strong>Volumes</strong> tab.</p></li>
-<li><p>Note the name of the attached volumes (there may be several).</p></li>
+<li><p>Note the name of the attached volumes (there might be many).</p></li>
 </ul>
 </li>
 <li><p>Give your backup a name.</p></li>
-<li><p>Press <strong>Force</strong> if the volume is attached to an instance or else the backup will
-not be allowed and will error.</p></li>
+<li><p>Press <strong>Force</strong> if the volume is currently attached to an instance or else the backup
+will give an error.</p></li>
 <li><p>Optionally, give your backup a description.</p></li>
 <li><p>Press <strong>Create backup</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>An option for doing incremental backups exists but the platform will not keep track of the full backups.</p>
-<p>Our recommendation is therefore that you only do full backups as deleting the full dump would invalidate
-the incremental backups that are tied to it.</p>
 </div>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To create a backup of a volume using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To create a backup of a volume by using
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Volumes</strong> and then <strong>Volumes</strong> in the sidebar menu.</p></li>
 <li><p>Click <strong>Create backup</strong> in the dropdown menu to the far right on the row of the volume that you
-want to backup. You are able to see which instance the volume is attached to in the <strong>Attached to</strong>
-column.</p></li>
+want to backup. You are able to see which instance the volume is currently attached to in the
+<strong>Attached to</strong> column.</p></li>
 <li><p>Give your backup a name and optionally a description.</p></li>
 <li><p>Optionally select a snapshot if you want to backup based on a snapshot and not the entire disk.</p></li>
 <li><p>Press the <strong>Create volume backup</strong> button.</p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To create a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To create a volume by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, save the ID of the volume you want to backup. Its visible
-which instance the volumes are attached to in the <strong>Attached to</strong> column.</p></li>
+which instance the volumes is currently attached to in the <strong>Attached to</strong> column.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--force</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing
 with the name of the backup and the ID from the previous step.</p></li>
 <li><p>If you want to backup a snapshot, you could instead first list the snapshots by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>

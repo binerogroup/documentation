@@ -2,23 +2,23 @@
 Flavors
 =======
 
-Binero cloud provides various flavors of compute instances. A flavor defines the compute, memory,
+Binero cloud provides different flavors of compute instances. A flavor defines the compute, memory,
 storage capacity for some flavors (see NVMe flavors below) and other hardware configuration that
 allows you to customize for performance or features needed by your application.
 
 We provide different groups of flavors and each group has different performance characteristics
-and is optimized for different use-cases.
+and optimizations for different use-cases.
 
 Each group of flavors has a version number meaning the higher version number the newer the
 hardware giving a performance advantage on previous versions, for flavors without an explicit
-version number in the name is implied to be version 1.
+version number in the name it implies version 1.
 
-A flavor can have specific features such as NVMe storage, GPU, Pinned CPU. A CPU vendor identifier is
-added as a suffix to the flavor name, the CPU vendor identifiers is listed below.
+A flavor can have specific features such as NVMe storage, GPU, Pinned CPU. We add a CPU vendor
+identifier as a suffix to the flavor name, see the CPU vendor identifiers list below.
 
 - ``a`` for AMD (amd64)
 
-- ``i`` for Intel (x86_64) – **Intel is implied for version 1**
+- ``i`` for Intel (x86_64) – **Version 1 implies Intel**
 
 - ``r`` for ARM (ARM64/AARCH64)
 
@@ -26,23 +26,23 @@ An overview of the flavor groups and their types looks like below.
 
 - General purpose
 
-  - version 1 (flavors without a version number) where Intel is implied, example ``gp.2x4``
+  - Version 1 (flavors without a version number) implies Intel, example ``gp.2x4``
 
     - Pinned CPU for CPU intensive workload (dedicated CPU), example ``gp.4x8-pinned``
 
-  - version 2 with AMD (CPU vendor identifier is ``a``), example ``gp-v2a.2x4``
+  - Version 2 with AMD (CPU vendor identifier is ``a``), example ``gp-v2a.2x4``
 
 - High memory
 
-  - version 1 (flavors without a version number) where Intel is implied, example ``hm.2x8``
+  - Version 1 (flavors without a version number) implies Intel, example ``hm.2x8``
 
     - Pinned CPU for CPU intensive workload (dedicated CPU), example ``hm.8x32-pinned``
 
-  - version 2 with AMD (CPU vendor identifier is ``a``), example ``hm-v2a.2x8``
+  - Version 2 with AMD (CPU vendor identifier is ``a``), example ``hm-v2a.2x8``
 
 - High performance
 
-  - version 1 (flavors without a version number) where Intel is implied, example ``hp.8x32``
+  - Version 1 (flavors without a version number) implies Intel, example ``hp.8x32``
 
     - GPU, example ``hp.8x24-gpu4`` where the number after GPU means 4 GB vRAM
 
@@ -50,8 +50,8 @@ An overview of the flavor groups and their types looks like below.
 
     - GPU and NVMe, example ``hp.12x64-gpu8-nvme250``
 
-The names are designed to be clear and well structured, for example the flavor ``hm.8x48`` is
-a High memory (hm) version 1 using Intel CPUs with 8 vCPUs and 48 GB memory.
+Te flavor ``hm.8x48`` is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs
+and 48 GB memory.
 
 The ``hp.12x64-gpu8-nvme50`` flavor is High performance (hp) version 1 with 12 vCPUs,
 64 GB memory, 8 GB GPU vRAM and 50 GB of local NVMe storage.
@@ -59,15 +59,15 @@ The ``hp.12x64-gpu8-nvme50`` flavor is High performance (hp) version 1 with 12 v
 The ``gp-v2a.8x16`` flavor is Generala purpose (gp) version 2 with 8 vCPUs and 16 GB
 memory.
 
-The flavors are presented more in detail below, you can also see them in the various portals
-or by listing them using the OpenStack terminal client with ``openstack flavor list --sort-column Name``
+See the list of flavors more in detail below, you can also see them in the portals or by listing
+them using the OpenStack terminal client with ``openstack flavor list --sort-column Name``
 
 .. note::
 
-   All gigahertz (GHz) specifications for processors is based on base clock
+   All gigahertz (GHz) specifications for processors is the base clock
    frequency in the product specification and does not take into account that
    your workload can be faster due to Intel Turbo boost or AMD Boost clock
-   functionality provided by processors.
+   functionality provided by the processors.
 
 General purpose
 ---------------
@@ -75,7 +75,7 @@ General purpose
 This general purpose flavor group has a well rounded combination of CPU and memory and is suitable
 for most general application use-cases that does not have heavy or intensive CPU requirements.
 
-This flavor group provides a good cost for performance and is recommended for use-cases
+This flavor group provides a good cost for performance and we recommend it for use-cases
 with low to medium usage requirements.
 
 Version 1 with Intel CPU
@@ -168,21 +168,26 @@ product family.
 Pinned CPU
 ^^^^^^^^^^
 
-These flavors gives you gives you a pinned CPU, this means that your vCPU is pinned to a
-dedicated CPU core (pCPU) giving you exclusive access to the computation time on that core.
+These flavors gives you gives you a pinned CPU, this means that we pin your vCPU to a
+dedicated CPU core (pCPU) giving you exclusive access to the computation time on that
+core.
 
 In certain use-cases guaranteeing low-latency and fast access to CPU computation time is
-critical for time sensitive applications that would normally suffer when scheduling of CPU
-time to shared CPU cores takes more time than the requirement causing the application to
-experience lag or higher tail latencies due to for example noisy neighbours.
+critical for time sensitive applications that suffers when scheduling of CPU time to shared
+CPU cores takes more time causing the application to experience lag or higher tail latencies
+due to for example noisy neighbours.
 
-We also guarantee that the allocated CPU core thread siblings is allocated so that you're
+.. vale off
+
+We also guarantee that your allocation also get the CPU core thread siblings so that you're
 never exposed to any transient execution CPU vulnerabilities.
 
-We allocate pinned CPUs across all NUMA nodes to optimize CPU usage but due to memory being
-local to a NUMA node we recommend ultra sensitive workloads to not run its workload on
-multiple different cores if low-latency memory access is a requirement as that will traverse
-NUMA nodes to read memory.
+.. vale on
+
+When allocating pinned CPUs we reach across all NUMA nodes to optimize CPU usage but due to
+memory being local to a NUMA node we recommend ultra sensitive workloads to not run its workload
+on different cores if you need low-latency memory access as that will traverse NUMA nodes to
+read memory.
 
 .. tip::
 
@@ -314,11 +319,11 @@ than version 1 depending on your use-case.
 High memory
 -----------
 
-This high memory flavor group is optimized to provide the best value for applications that
-needs a larger amount of memory compared to more CPU cores that is provided by general purpose.
+The high memory flavor group has optimizations to provide the best value for applications that
+needs a larger amount of memory compared to more CPU cores that as provided by general purpose.
 
-The flavor group can be used for more memory heavy use-cases such as a database application with
-heavy caching of the data set in memory that doesn't have a intensive requirement on CPU computation.
+The flavor group targets more memory heavy use-cases such as a database application with heavy
+caching of the data set in memory that doesn't have a high or intensive computation need.
 
 Version 1 with Intel
 ~~~~~~~~~~~~~~~~~~~~
@@ -602,14 +607,13 @@ than version 1 depending on your use-case.
 High performance
 ----------------
 
-This high performance flavor group is optimized for applications with a heavy and/or intensive
-CPU requirements. This results in faster task completion, a faster and more predictable access
-to both memory and storage giving you a lower latency.
+The high performance flavor group has optimizations for applications with either or both heavy
+and intensive CPU requirements. This results in faster task completion, a faster and more predictable
+access to both memory and storage giving you a lower latency.
 
-The flavor group can be used for more CPU intensive applications causing your workload to
-run and complete faster improving serial throughput, use-cases such as caching servers or
-heavily utilized database applications or other application that needs more performance
-and lower latency.
+The flavor group targets more CPU intensive applications causing your workload to run and complete
+faster improving serial throughput, use-cases such as caching servers or heavily utilized database
+applications or other application that needs more performance and lower latency.
 
 The flavor sizes is more rounded to being equal in CPU and memory.
 
@@ -623,7 +627,7 @@ product family.
 .. tip::
 
    The High performance version 1 has a 50% higher base clock frequency than version 1
-   of General purpose and High memory flavor groups and can significantly improve your
+   of the General purpose and High memory flavor groups and which greatly improves
    performance for CPU heavy or latency sensitive workloads.
 
 .. list-table::
@@ -745,9 +749,11 @@ is no data redundancy.
 .. caution::
 
    The NVMe based storage is local to the hypervisor that is running your
-   instance and is backed by a single physical disk, though NVMe based
-   enterprise solid state drives has an extremely good lifetime expectancy it's
-   important that you consider this fact and **backup your data** regularly.
+   instance is using a single physical disk, though NVMe based enterprise
+   solid state drives has an high lifetime expectancy it's important that
+   you consider this fact and **backup your data** regularly.
+
+   See :doc:`/storage/nvme-storage` for more information.
 
 This flavor provides the best possible storage performance for IO intensive workloads
 that needs to write to disk and is great for ephemeral storage or as disk if you
@@ -817,7 +823,7 @@ GPU
 ^^^
 
 These flavors provides :doc:`GPU based compute <gpu-instances>` and allows gives you a
-GPU allocated to your instance with the specified vRAM/vMEM memory.
+GPU allocated to your instance with the specified vRAM / vMEM memory.
 
 This gives you access to a NVIDIA A10 GPU that you can use for rendering, image
 processing, AI, ML and inference workloads that can run 50-200x faster on a GPU

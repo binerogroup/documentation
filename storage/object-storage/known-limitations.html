@@ -1588,18 +1588,18 @@
 <p>This documentation tracks any compatibility issues that the <a class="reference internal" href="index.html"><span class="doc">object storage</span></a> service in Binero cloud
 exhibits compared to other implementations and interoperability between the <a class="reference internal" href="s3.html"><span class="doc">S3</span></a> and <a class="reference internal" href="swift.html"><span class="doc">Swift</span></a> APIs.</p>
 <h2 id="browser-uploads-and-chunked-uploads-in-s3-api">Browser Uploads and Chunked Uploads in S3 API<a class="headerlink" href="#browser-uploads-and-chunked-uploads-in-s3-api" title="Link to this heading">¶</a></h2>
-<p>The authentication backend used for Binero cloud does not implement all required details from the AWSv4 specification and
-therefore the Browser Uploads and Chunked Uploads features in the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> is unsupported.</p>
+<p>The authentication backend used for Binero cloud does not support all details from the AWSv4 specification and
+features such as Browser Uploads and Chunked Uploads in the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> is not unsupported.</p>
 <p>This is normally not an issue but we’ve had customers utilizing the official AWS C# SDK encountering the issue
-with Chunked Uploads because <code class="docutils literal notranslate"><span class="pre">UseChunkEncoding</span></code> in the <code class="docutils literal notranslate"><span class="pre">PutObjectRequest</span></code> methods defaults to true, this needs to
-be set to false.</p>
+with Chunked Uploads because <code class="docutils literal notranslate"><span class="pre">UseChunkEncoding</span></code> in the <code class="docutils literal notranslate"><span class="pre">PutObjectRequest</span></code> methods defaults to true, this needs
+to be false for it to work.</p>
 <h2 id="using-the-swift-api-to-download-a-s3-api-multipart-upload">Using the Swift API to download a S3 API multipart upload<a class="headerlink" href="#using-the-swift-api-to-download-a-s3-api-multipart-upload" title="Link to this heading">¶</a></h2>
-<p>A single upload of a file is limited to 5 GB by design and to upload a larger file than that the multipart upload
-features in for example the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> is used. This is usually handled by the client or library that you
-use and is not something that you need to thing about, this splits your file into multiple parts and then uploads
-them concurrently and the parts is assembled in the platform.</p>
-<p>If you upload a large file using the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and then try to download that using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> you
-will get an error like <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">downloading</span> <span class="pre">[object-name]:</span> <span class="pre">md5sum</span> <span class="pre">!=</span> <span class="pre">etag</span></code> indicating the operation failed, but the
+<p>You can only upload objects of a max size up to 5 GB for a single upload by design and to upload a larger file than that
+you must use the multipart upload features in for example the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a>.</p>
+<p>This gets handled by the client or library that you use and is not something that you need to thing about, this splits
+your file into parts and then uploads them concurrently, the parts is then assembled in the platform.</p>
+<p>If you upload a large file by using the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and then try to download that using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>
+you will get an error such as <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">downloading</span> <span class="pre">[object-name]:</span> <span class="pre">md5sum</span> <span class="pre">!=</span> <span class="pre">etag</span></code> indicating the operation failed, but the
 object is successfully downloaded. We recommend that you select one API to use for your application and not combining
 the usage unless absolutely neccesary.</p>
 

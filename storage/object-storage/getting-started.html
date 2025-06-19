@@ -1652,37 +1652,37 @@ storage or not.</p>
 <a class="reference internal" href="endpoints.html"><span class="doc">endpoint</span></a>, which would also depend on what <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
 you want to run your requests from.</p>
 <p>If you are unsure what availability zone to use, select <strong>europe-se-1a</strong> as endpoint. The combination
-of replication (or not) and availability zone will result in an endpoint URL as is defined in our
+of replication (or not) and availability zone will result in an endpoint URL according to our
 <a class="reference internal" href="endpoints.html"><span class="doc">endpoint</span></a> article, you will use this endpoint to reach the proper storage backend.</p>
 <h2 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Link to this heading">¶</a></h2>
-<p>To get started with storing objects (either S3 or Swift), you create a container/bucket to store the objects in.</p>
-<p>Creating a container/bucket can be done as either S3 or Swift, the concept is the same and both protocols can use
-each others containers/buckets.</p>
-<p>You can use the two GUI portals (the cloud management portal or OpenStack Horizon) to create the container/bucket
-(they will use the Swift protocol) <em>however they are only able to create un-replicated containers/buckets in
-availability zone europe-se-1a</em> (since you cannot specify which endpoint to access).</p>
-<p>Because of this, we recommend using the protocols own command line to create the container/bucket:</p>
+<p>To get started with storing objects (either S3 or Swift), you create a container or bucket to store the objects in.</p>
+<p>You can create container or bucket by using either S3 or Swift, the concept is the same and both APIs can manage
+all containers or buckets.</p>
+<p>You can use the two GUI portals (the cloud management portal or OpenStack Horizon) to create the container or bucket
+(they will use the Swift API), <em>they are only able to create un-replicated containers or buckets in availability zone
+europe-se-1a</em> (since you cannot specify which endpoint to access).</p>
+<p>Because of this, we recommend using the protocols own command line to create the container or bucket:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="s3.html"><span class="doc">S3 object storage</span></a></p></li>
 <li><p><a class="reference internal" href="swift.html"><span class="doc">Swift object storage</span></a></p></li>
 </ul>
-<p>Above said, its possible to use the following methods to setup a new container/bucket without replication in the
+<p>Above said, its possible to use the following methods to setup a new container or bucket without replication in the
 availability zone europe-se-1a if this meets your requirements. Below methods use the Swift API.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>By using any of the below methods, you will create a container/bucket without replication in the
+<p>By using any of the below methods, you will create a container or bucket without replication in the
 europe-se-1a availability zone.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>We enforce a default quota of 1000 buckets/container in the object storage, please contact our
-support if you need more.</p>
+<p>We enforce a default quota of 1000 buckets or container in the object storage, contact our support if
+you need more.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>To create a container using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To create a container by using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Storage</strong> and then <strong>Object storage</strong> in the sidebar menu.</p></li>
-<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the lower right corner.</p></li>
 <li><p>Name your container.</p></li>
 <li><p>Select your <a class="reference internal" href="storage-policy.html"><span class="doc">storage policy</span></a>.</p></li>
 </ul>
@@ -1692,15 +1692,15 @@ support if you need more.</p>
 data without any authentication!</p>
 </div>
 <ul class="simple">
-<li><p>If you check <strong>public</strong>, there will not be need for credentials to reach the container (good for when
+<li><p>If you check <strong>public</strong>, users will not need any credentials reach the container (good for when
 using the object storage as a CDN for example).</p></li>
 <li><p>Press <strong>Create</strong></p></li>
 </ul>
-<p>You are now able to upload objects using the portal, by pressing the container icon and then pressing <strong>Upload file</strong>
+<p>You are now able to upload objects by using the portal, by pressing the container icon and then pressing <strong>Upload file</strong>
 or <strong>Create folder</strong>. You are also able to use the container via external access, see each protocol sub-article
 for more information.</p>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To create a container using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To create a container by using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Object Store</strong> and then <strong>Containers</strong> in the sidebar menu.</p></li>
 <li><p>Click <strong>+ Container</strong></p></li>
@@ -1713,16 +1713,16 @@ for more information.</p>
 data without any authentication!</p>
 </div>
 <ul class="simple">
-<li><p>If you select <strong>public</strong> under <strong>Container Access</strong>, there will not be need for credentials
+<li><p>If you select <strong>public</strong> under <strong>Container Access</strong>, users will not any credentials
 to reach the container (good for when using the object storage as a CDN for example).</p></li>
 <li><p>Press <strong>Submit</strong></p></li>
 </ul>
-<p>You are now able to upload objects using the portal, by pressing the container name and then pressing
+<p>You are now able to upload objects by using the portal, by pressing the container name and then pressing
 the upload icon (looks like a small upwards facing arrow) or <strong>+ Folder</strong> to create a folder.</p>
 <p>You are also able to use the container via external access, see each protocol sub-article for more
 information.</p>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To create a container using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To create a container by using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Decide which <a class="reference internal" href="storage-policy.html"><span class="doc">storage policy</span></a> you want to use.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">container</span> <span class="pre">create</span> <span class="pre">--storage-policy</span> <span class="pre">[STORAGE_POLICY_NAME]</span> <span class="pre">[CONTAINER_NAME]</span></code>, replacing
@@ -1730,8 +1730,7 @@ the values in angle brackets.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>All of the above methods will result in an container without replication being created in availability
-zone europe-se-1a.</p>
+<p>The above methods will create an container without replication in availability zone europe-se-1a.</p>
 </div>
 
 

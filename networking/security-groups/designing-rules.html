@@ -1238,7 +1238,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1723,62 +1723,65 @@ that are not needed to be provide as your service. Only leave rules that give
 access to internet facing services from any source.</p></li>
 <li><p>Use the custom rules that enables you to add a destination port. Don’t use the
 all open security group even if its internal. Its a large gain in security to
-just add access to the services that in fact need to be reached on all hosts as
-vulnerable services are one of the biggest reasons for security breaches. The
-fewer exposed, the better, including on internal networks.</p></li>
+just add access to the services that’s needed as vulnerable services are one of
+the biggest reasons for security breaches. The fewer exposed, the better, including
+on internal networks.</p></li>
 <li><p>Since you apply your security groups per instance you wont set a destination when
-creating rules. The destination (or source if its an egress rule) is defined by what
+creating rules. The destination (or source if its an egress rule) depends on which
 instances you add your security groups to. Take care to not add a rule to an instance
 that gives to much access. Rather create more security groups with more granular rules
-so that you minimize your instances exposure.</p></li>
+so that you reduce your instances exposure.</p></li>
 <li><p>Remember egress or ingress (more info on the <a class="reference internal" href="index.html"><span class="doc">Security groups</span></a> page). Generally speaking, the
-security is lessened by adding ingress rules that provide access so design these to have a
-specific purpose.</p></li>
+you should add as few ingress rules as possible since security becomes worse when providing
+ingress access, we recommend that you design to have few and that they have a specific purpose.</p></li>
 <li><p>If you still have the <a class="reference external" href="index.html#default-settings">default group</a> activated on your
 instances, you do not also need to provide access for your internal systems to reach each
 other. For an easier setup, we recommend keeping the default group (as it will emulate a
 traditional network where all local machines will reach each other). For a more secure
-solution, we recommend also adding security groups for internal access and removing the
+solution, we also recommend adding security groups for internal access and removing the
 default group. <strong>We do not recommending mixing the two options as that will be a less
-predictable (and therefore harder to understand) design</strong>.</p></li>
-<li><p>When doing multiple subnets to allow for different security zones (the need for this is
+predictable (and more complex to understand) design</strong>.</p></li>
+<li><p>When doing many subnets to allow for different security zones (the need for this is
 negated by using proper security groups that replace the default group as that will give
 you security between your instances on the same network as well), remember that the default
 group will leave your internal networks open to each other even though they are traversing
 a router.</p></li>
-<li><p>Create security groups based on use cases. A use case might be web server and another might
-be database server. The rules for each use case should be designed with the instance type in
-mind. Remember that its possible to add multiple security groups to any instance. Its easier
-(and less clear / more predictable) to have multiple, granular groups instead of a single,
-complex group.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> means <em>all of the internet</em> when using it as a destination. We only recommend using
-this to provide access to a service that should indeed be globally reachable.</p></li>
-<li><p>Rules are by default stateful. This means that if a request is sent and accepted, the
-<em>return traffic</em> (that is: the traffic that the answering service sends as a reply to the request)
-is also allowed, irrespectively of wether that traffic flow is explicitly defined. This is a standard
-behaviour in a firewall. If you want to create a non stateful (stateless) rule, you can create the
-group using the <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">terminal client</span></a> and the flag <code class="docutils literal notranslate"><span class="pre">--stateless</span></code>. A
-stateless rule would only work in a single direction (egress or ingress). We generally recommend
-stateful rules but for some use-cases (for example asymmetrical routing where you would not send the
-return traffic the same path), stateless rules might be required.</p></li>
+<li><p>Create security groups based on use cases. A use case might be a web server and another might
+be a database server. You should design the rules for each use case with the instance type in
+mind. Remember that its possible to add many security groups to any instance. Its much easier
+to have many granular security groups instead of a single complex security group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> means <em>the entire internet</em> when using it as a destination. We only recommend
+using this to provide access to a service that should indeed be globally reachable.</p></li>
+<li><p>Rules are by default stateful. This means when we receive an ingress request and it’s accepted,
+the <em>return traffic</em> (the traffic that the answering service sends as a reply to the request) is
+also allowed, irrespectively of wether that traffic flow is explicitly defined.</p>
+<ul>
+<li><p>This is a standard behaviour in a firewall. If you want to create a non stateful (stateless)
+rule, you can create the group using the <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">terminal client</span></a> and
+the flag <code class="docutils literal notranslate"><span class="pre">--stateless</span></code>. A stateless rule would only work in a single direction (egress or
+ingress). We generally recommend stateful rules but for some use-cases (for example asymmetrical
+routing where you would not send the return traffic the same path), stateless rules might be
+required.</p></li>
+</ul>
+</li>
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>The best way to ensure that you have correctly applied your rules is by testing. This can be done using
+<p>The best way to ensure that you have correctly applied your rules is by testing. You can test by using
 the <code class="docutils literal notranslate"><span class="pre">nmap</span></code> command that can perform a port scan.</p>
 <p>For instance <code class="docutils literal notranslate"><span class="pre">nmap</span> <span class="pre">-T4</span> <span class="pre">1.2.3.4</span></code> would scan the server with IP 1.2.3.4 (the -T4 flag limits the timeout
 per port to 10 ms which speeds up the otherwise slow process). The output will be a list of open ports.</p>
-<p>Remember mind to scan both from the inside (using your various internal instances against their internal
-IP addresses) as well as using for example your workstation (against the floating IP that expose your
-services) to get the public internet perspective.</p>
+<p>Remember to scan both from the inside (using your internal instances against their internal IP addresses)
+and by using for example your workstation (against the floating IP that expose your services) to get the
+public internet perspective.</p>
 <p>We recommend doing scans after setting up or changing your security groups to make sure the actual result
-was what was expected. Binero protects it’s network against abuse, we don’t recommend doing excessive
-port scanning as that can trigger our intrusion detection system to block you.</p>
+corresponds with your expectations. Binero protects it’s network against malicious traffic, we don’t
+recommend doing excessive port scanning as that can trigger our intrusion detection system to block you.</p>
 </div>
 <h2 id="available-parameters">Available parameters<a class="headerlink" href="#available-parameters" title="Link to this heading">¶</a></h2>
-<p>The following section shows what parameters you can use to create security groups. Please note that not all
-parameters will be available from the GUI, some may require the <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">terminal client</span></a>
-to use. The terminal option is added within parentheses.</p>
+<p>The following section shows what parameters you can use to create security groups. Note that not all
+parameters will be available from the GUI, some might require using the <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">terminal client</span></a></p>
+<p>We provide the parameters to the terminal client in the parenthesis below.</p>
 <ul class="simple">
 <li><p>Remote IP (<code class="docutils literal notranslate"><span class="pre">--remote-ip</span></code>) - Remote IP address or IP range (may use <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>,
 default for IPv4 rule: 0.0.0.0/0, default for IPv6 rule: ::/0).</p></li>

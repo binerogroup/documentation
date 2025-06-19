@@ -5,7 +5,8 @@ Managing networks using OpenStack terminal client
 Create a network
 ----------------
 
-To create a :doc:`network <index>` using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+To create a :doc:`network <index>` by using the
+:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run ``openstack availability zone list --network --long``, this will give you the current availability
   zones for routers and networking. Save this for following step.
@@ -17,9 +18,9 @@ To create a :doc:`network <index>` using the :doc:`/getting-started/managing-you
 
 .. note::
 
-   In order to connect an instance or router to the network, you will also need to create
-   a :doc:`subnet </networking/subnet/index>` which you can then attach to an interface on
-   a router or an instance.
+   To connect an instance or router to the network, you will also need to create
+   a :doc:`subnet </networking/subnet/index>` which you can then attach to an
+   interface on a router or an instance.
 
 ..  seealso::
 

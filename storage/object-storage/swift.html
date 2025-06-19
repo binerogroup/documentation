@@ -1664,7 +1664,8 @@ Swift API.</p>
 <p>The Swift API is fully supported within the platform and you are able to run it from any
 of our <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">Storage regions and availability zones</span></a>, either from one availability zone at a
 time or both using <a class="reference internal" href="replication.html"><span class="doc">replication</span></a>.</p>
-<p>A container holding objects is called a container in Swift terminology.</p>
+<p>In Swift terminology a container holds objects and is the same as a
+bucket in S3 terminology.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>The Swift implementation does not have as broad support as the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> among
@@ -1677,8 +1678,8 @@ going with the <a class="reference internal" href="s3.html"><span class="doc">S3
 and interoperability between the <a class="reference internal" href="s3.html"><span class="doc">S3</span></a> and <a class="reference internal" href="#"><span class="doc">Swift</span></a> APIs.</p>
 </div>
 <h2 id="setting-up-credentials">Setting up credentials<a class="headerlink" href="#setting-up-credentials" title="Link to this heading">¶</a></h2>
-<p>You are able to use the Swift API using any API-user and setting up application specific
-credentials is therefore done in the same manner.</p>
+<p>You are able to use the Swift API by using any API-user and setting up application specific
+credentials performed in the same manner.</p>
 <p>See our <a class="reference internal" href="../../getting-started/users.html"><span class="doc">Users</span></a> article for more information.</p>
 <h2 id="swift-client">Swift client<a class="headerlink" href="#swift-client" title="Link to this heading">¶</a></h2>
 <p>While you can use the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> or
@@ -1687,9 +1688,9 @@ see <a class="reference internal" href="getting-started.html"><span class="doc">
 <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> than <em>europe-se-1a</em> (which is
 the only one these tools can access), you will need the swift client.</p>
 <p>If you read our guide <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, chances
-are that you’ve already installed the client, this can be tested by running <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">--version</span></code>.</p>
-<p>If not, its available via your python package manager (or your OS package manager) and is usually
-called <code class="docutils literal notranslate"><span class="pre">python-swiftclient</span></code>, so in Ubuntu you might install it as such <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python-swiftclient</span></code>.</p>
+are that you’ve already installed the client, you can test this by running <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">--version</span></code>.</p>
+<p>If not, its available via your python package manager (or your operating system package manager) as
+<code class="docutils literal notranslate"><span class="pre">python-swiftclient</span></code>.</p>
 <p>To use the client, provided you are also using the OpenStack terminal client, you should be able to
 re-use the same environmental variables as it does.</p>
 <p>That means if you are able to run for example <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code> in a terminal, you should also
@@ -1705,7 +1706,7 @@ flag with the new endpoint:</p>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">project</span> <span class="pre">list</span></code>, save the ID of the project.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">--os-storage-url</span> <span class="pre">https://object-eu-se-1b.binero.cloud/swift/v1/AUTH_[PROJECT_ID]</span> <span class="pre">list</span></code>, replacing
 the [PROJECT_ID] with the ID from previous step and using the URL from the <a class="reference internal" href="endpoints.html"><span class="doc">Object storage endpoints</span></a> article to reach
-the storage you are interested in.</p></li>
+the storage.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1715,14 +1716,14 @@ availability zone <strong>europe-se-1a</strong>.</p>
 <h2 id="creating-a-container">Creating a container<a class="headerlink" href="#creating-a-container" title="Link to this heading">¶</a></h2>
 <p>To create a container via Swift, you would either use the API (not covered in this documentation) or the swift
 client.</p>
-<p>To use the latter to create a bucket, follow these steps. Add the <code class="docutils literal notranslate"><span class="pre">--os-storage-url</span></code> as per above
+<p>To use the latter to create a bucket see below. Add the <code class="docutils literal notranslate"><span class="pre">--os-storage-url</span></code> as per above
 if you need to change API endpoint.</p>
 <ul class="simple">
 <li><p>Decide which <a class="reference internal" href="storage-policy.html"><span class="doc">storage policy</span></a> you want to use. Save the name.</p></li>
-<li><p>Decide whether or not to use <a class="reference internal" href="replication.html"><span class="doc">replication</span></a>.</p></li>
+<li><p>Decide if you need to use <a class="reference internal" href="replication.html"><span class="doc">replication</span></a>.</p></li>
 <li><p>Decide in what <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> to store your
 data, save the name.</p></li>
-<li><p>Based on replication (or not) as well as availability zone, choose the right <a class="reference internal" href="endpoints.html"><span class="doc">endpoint</span></a>. Save
+<li><p>Based on replication (or not) and availability zone, choose the right <a class="reference internal" href="endpoints.html"><span class="doc">endpoint</span></a>. Save
 the endpoint URL.</p></li>
 <li><p>Create your container using <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">post</span> <span class="pre">-H</span> <span class="pre">&quot;X-Storage-Policy:[STORAGE_POLICY_NAME]&quot;</span> <span class="pre">[CONTAINER_NAME]</span></code>, add
 the correct information in the command, you can skip specifying a <a class="reference internal" href="storage-policy.html"><span class="doc">storage policy</span></a> in
@@ -1735,16 +1736,16 @@ which case it will use the default.</p></li>
 should you need to use something other than non-replicated storage in availability zone <em>europe-se-1a</em>.</p>
 </div>
 <h2 id="deleting-a-container">Deleting a container<a class="headerlink" href="#deleting-a-container" title="Link to this heading">¶</a></h2>
-<p>To delete a container using the swift client, follow these steps:</p>
+<div class="caution warning admonition">
+<p class="admonition-title">Caution</p>
+<p>Everything in the bucket will get deleted when you run the below!</p>
+</div>
+<p>To delete a container by using the <code class="docutils literal notranslate"><span class="pre">swift</span></code> terminal client.</p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">list</span></code>, save the name of the bucket you want to delete.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">delete</span> <span class="pre">[BUCKET_NAME]</span></code>, replace [BUCKET_NAME] with the
 name of the bucket.</p></li>
 </ul>
-<div class="important tip admonition">
-<p class="admonition-title">Important</p>
-<p>You will not be asked to verify a deletion and everything in the bucket will get deleted.</p>
-</div>
 
 
 

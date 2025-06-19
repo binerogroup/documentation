@@ -3,7 +3,7 @@ Grafana
 =======
 
 `Grafana <https://grafana.com>`__ is an observability platform that enables
-visualising and graphing various source data in a powerful way.
+visualising and graphing data from one or many data sources in a powerful way.
 
 You also have the option to install a local (to the instance)
 `InfluxDB time series database <https://www.influxdata.com>`__ to
@@ -34,7 +34,7 @@ To setup the service, first follow the general instructions on our
   on which you want to run the service.
 
 - If you want your service publicly available on the internet, you can assign a floating
-  IP (this can also be done later) by checking the **Public access** checkbox.
+  IP (you can assign one later if you prefer) by checking the **Public access** checkbox.
 
   - If you don't use a floating IP , you can only access it locally in your network or
     by using some kind of ingress solutions such as a VPN.

@@ -2,7 +2,7 @@
 Setting up automatic backup
 ===========================
 
-To setup an :doc:`automated backup job <index>` using the
+To setup an :doc:`automated backup job <index>` by using the
 :doc:`cloud management portal </getting-started/managing-your-cloud/cloud-management-portal>`
 
 - Press **Service catalog** and then **Service templates** in the sidebar menu.

@@ -1320,7 +1320,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1807,8 +1807,8 @@
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Before launching your first load balancer, we strongly recommend
-reading our <a class="reference internal" href="../general-concept/index.html"><span class="doc">concepts</span></a> guide so
-as to gain a better understanding the various parts.</p>
+reading our <a class="reference internal" href="../general-concept/index.html"><span class="doc">concepts</span></a> guide to
+gain a better understanding of the parts.</p>
 </div>
 <p>We also recommend setting the correct <a class="reference internal" href="../../security-groups/index.html"><span class="doc">security groups</span></a>
 on the instances that should be members in the load balancer pool.</p>
@@ -1827,13 +1827,13 @@ recommend reading our <a class="reference internal" href="../ssl-termination.htm
 </div>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Load balancers</strong> in the sidebar menu.</p></li>
-<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the lower right corner.</p></li>
 <li><p>The first step is to configure the general options for the load balancer.</p>
 <ul>
 <li><p>Name your load balancer. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_lb</span></code> (replace
 the name with something that’s relevant for you). Optionally provide a
 description.</p></li>
-<li><p>Leave the IP field empty as an IP will be allocated automatically.</p></li>
+<li><p>Leave the IP field empty, as an IP is automatically allocated.</p></li>
 <li><p>Select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
 or leave empty to use the default europe-se-1a.</p></li>
 <li><p>Select a <a class="reference internal" href="../../subnet/index.html"><span class="doc">subnet</span></a> to use for hosting the load
@@ -1848,11 +1848,11 @@ to load balancer but its not a must.</p></li>
 differentiate it from the other parts. Replace the name with the name you chose
 for your load balancer and the port to that of the service you want to load
 balance. Optionally provide a description.</p></li>
-<li><p>Select the load balancer protocol. Note that HTTPS with SSL/TLS termination is
-not able to be provisioned from the cloud management portal, but will require
-OpenStack Horizon (even though its available in the menu).</p></li>
-<li><p><em>Verify the port number</em> (it may set automatically but depending on protocol
-you may need to set it manually). Without it, creation will fail.</p></li>
+<li><p>Select the load balancer protocol. Note you cannot provision HTTPS with SSL/TLS termination
+from the cloud management portal, but will require OpenStack Horizon (even though its available
+in the menu).</p></li>
+<li><p><em>Verify the port number</em> (it might set automatically but depending on protocol
+you might need to set it manually). Without it, creation will fail.</p></li>
 <li><p>Press <strong>Next</strong></p></li>
 </ul>
 </li>
@@ -1875,20 +1875,20 @@ information <a class="reference internal" href="../general-concept/pool-members.
 small <strong>+</strong> plus sign next to the instances you want to add.</p></li>
 <li><p>Select what (IP) port on each instance the service listens on. For example for
 a web server, this would be either 80 or 443.</p></li>
-<li><p>When all instances that should be part of the pool are added, press <strong>Next</strong>.</p></li>
+<li><p>When you’ve added all instances to the pool, press <strong>Next</strong>.</p></li>
 </ul>
 </li>
 <li><p>In the fifth and final step, <em>health monitoring</em> will be setup. More
 information <a class="reference internal" href="../general-concept/health-monitors.html"><span class="doc">here</span></a>.</p>
 <ul>
-<li><p>Name your health monitor. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_monitor_[PORTNUMBER]</span></code> to
+<li><p>Name your <code class="docutils literal notranslate"><span class="pre">health</span> <span class="pre">monitor</span></code>. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_monitor_[PORTNUMBER]</span></code> to
 differentiate it from other the parts. Replace the name with the name you chose for
 your load balancer and the port to that of the service you want to load
 balance. Optionally provide a description.</p></li>
-<li><p>Select the type. This value would depend mostly on what kind of listener you created
-(which protocol). We recommend choosing a type that is as granular (i.e. rather go
-with HTTP than TCP port 80 if you want to check a web server) as possible.</p></li>
-<li><p>Choose the various options relating to your monitor, the defaults will likely suffice
+<li><p>Select the type. This value would depend on what kind of listener you created
+(which protocol). We recommend choosing a type that is as granular (go with HTTP
+than TCP port 80 if you want to check a web server) as possible.</p></li>
+<li><p>Choose the options relating to your <code class="docutils literal notranslate"><span class="pre">health</span> <span class="pre">monitor</span></code>, the defaults will likely suffice
 but this is much dependant on the application.</p></li>
 <li><p>Press <strong>Create load balancer</strong>.</p></li>
 </ul>
@@ -1902,11 +1902,10 @@ but this is much dependant on the application.</p></li>
 <p>To verify that the health checking has added the members to the pool, follow this procedure:</p>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Load balancers</strong> in the sidebar menu.</p></li>
-<li><p>Verify that the <strong>Provisioning status</strong> says <strong>Active</strong> as well as <strong>Online</strong> under its name
-and then press it.</p></li>
+<li><p>Verify that the <strong>Provisioning status</strong> says <strong>Active</strong> under its name and then click it.</p></li>
 <li><p>Press the <strong>Pools</strong> tab and then press the name of your pool.</p></li>
 <li><p>Press the <strong>Nodes</strong> tab.</p></li>
-<li><p>In the list, you should now see the member(s) you’ve added. The column <strong>Operational status</strong>
+<li><p>In the list, you should now see the members you’ve added. The column <strong>Operational status</strong>
 should show you if they are online or not.</p></li>
 </ul>
 <div class="tip admonition">

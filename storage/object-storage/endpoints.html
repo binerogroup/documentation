@@ -1585,13 +1585,13 @@
   
 
 <h1 id="object-storage-endpoints">Object storage endpoints<a class="headerlink" href="#object-storage-endpoints" title="Link to this heading">¶</a></h1>
-<p>When using the object storage service in Binero cloud you connect to a HTTP based API endpoint using
+<p>When using the object storage service in Binero cloud you connect to a HTTP based API endpoint to
 any of the available APIs (S3 or Swift API).</p>
 <p>This is how you interact with the object storage service by sending HTTP API requests to for example
 get an object or put an object into the object storage.</p>
-<p>The object storage is provided over four different HTTP based endpoints per <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>,
+<p>We provide the object storage over four different HTTP based endpoints per <a class="reference internal" href="../regions-and-availability-zones.html"><span class="doc">availability zone</span></a>,
 two per API (<a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>), one is standalone (without replication)
-and one is with replication, using replication will cause your bucket to be replicated between the availability
+and one is with replication, using replication will enable replication for your bucket between the availability
 zones in the same region.</p>
 <p>If you want to use <a class="reference internal" href="replication.html"><span class="doc">replication</span></a>, you would use the replicated endpoints. If you just want
 to store objects in one availability zone or are unsure on what to choose, you would use the standalone endpoints.</p>

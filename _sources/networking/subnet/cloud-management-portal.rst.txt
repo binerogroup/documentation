@@ -9,8 +9,8 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 
 - Press **Networking** and then **Networks** in the sidebar menu.
 
-- On the network to which you want to add the subnet, press the **Create subnet** icon (looking
-  like multiple rows of text with a small **+** plus sign).
+- On the network to which you want to add the subnet, press the **Create subnet** icon (rows of text with a small
+  **+** plus sign).
 
 - Name your subnet.
 
@@ -22,17 +22,16 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
   last option **enter gateway manually** will enable you to choose a specific IP as your gateway. If you are unsure, we
   recommend **Use standard gateway**.
 
-- IPv4 should be selected. 
+- Select IPv4.
 
-- If you want to use IPv4, we recommend using DHCP to assign addresses to hosts (as you wont have to login to a host
-  via terminal to set them up). The checkbox should be checked.
+- If you want to use IPv4, we recommend using DHCP to assign IP addresses to hosts.
 
 - Under **Add pool**, add the :doc:`DHCP scope <dhcp>`. That is, the starting and end addresses you want to auto-assign
   to hosts using DHCP. Press the **+** (plus) sign above **Add pool** and enter start and end addresses. For example
   ``192.168.0.10`` and ``192.168.0.254`` if your range is ``192.169.0.0/24``.
 
 - Under **DNS name servers** we recommend adding our servers which are ``83.168.225.225`` and ``83.168.226.226``. You can
-  press the **+** (plus) sign multiple times. You can use any DNS servers you want though. 
+  press the **+** (plus) sign repeatedly to add more servers.
 
 - Under **Add route**, you would add static routes (see: `../router/routing-between-subnets`). 
 
@@ -47,10 +46,10 @@ To :doc:`connect the subnet to a router <connect-subnet-to-router>`
 
 - Press the network you want to connect to your router.
 
-- Under **Subnet** section, check what **Gateway-IP** is assigned to the subnet you want
-  to connect. Usually, this would be the first IP in the range. If there is not gateway IP,
-  this will need to be set first, using the **Edit** (small pencil icon) next to the subnets
-  row. Save the Gateway-IP for upcoming steps.
+- Under **Subnet** section, check what **Gateway-IP** you have set on the subnet you want
+  to add to the router . This would normally be the first IP in the range. If there is not
+  gateway IP, you need to set one first, using the **Edit** (small pencil icon) next to the
+  subnets row. Save the Gateway-IP for upcoming steps.
 
 - Press **Networking** and then **Routers** in the sidebar menu.
 

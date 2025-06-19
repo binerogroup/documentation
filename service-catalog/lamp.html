@@ -1406,10 +1406,9 @@
 
 <h1 id="linux-apache-mysql-php-stack-lamp">Linux Apache MySQL PHP stack (LAMP)<a class="headerlink" href="#linux-apache-mysql-php-stack-lamp" title="Link to this heading">¶</a></h1>
 <p>Using the popular and powerful open source tools <a class="reference external" href="https://www.linux.org">Linux</a>,
-<a class="reference external" href="https://httpd.apache.org">Apache</a>, MySQL (<a class="reference external" href="https://mariadb.org">MariaDB</a> will
-be installed) and <a class="reference external" href="https://www.php.net">PHP</a>, a complete production suite can be
-provisioned.</p>
-<p>Popular tools like WordPress or frameworks like CakePHP and Laravel run on
+<a class="reference external" href="https://httpd.apache.org">Apache</a>, MySQL (<a class="reference external" href="https://mariadb.org">MariaDB</a>)
+and <a class="reference external" href="https://www.php.net">PHP</a>, you can provision a complete production suite.</p>
+<p>Popular tools such as WordPress or frameworks like CakePHP and Laravel run on
 LAMP installations.</p>
 <p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a>
 page.</p>
@@ -1420,7 +1419,7 @@ firewall) in <a class="reference internal" href="../networking/subnet/subnet-for
 <ul>
 <li><p>If you need to change this later, this sets up a <a class="reference internal" href="../networking/security-groups/index.html"><span class="doc">security group</span></a>
 on the instance.</p></li>
-<li><p>The security group can be changed or updated as you see fit but if you want to login
+<li><p>You can change or update the security group as you see fit but if you want to login
 over the floating IP that will be setup, you will need to input your IP here.</p></li>
 </ul>
 </li>
@@ -1434,14 +1433,14 @@ the default.</p></li>
 <li><p>Under <code class="docutils literal notranslate"><span class="pre">local_net</span></code> select the <a class="reference internal" href="../networking/network/index.html"><span class="doc">network</span></a>
 on which you want to run the service.</p></li>
 <li><p>If you want your service publicly available on the internet, you can assign a floating
-IP (this can also be done later) by checking the <strong>Public access</strong> checkbox.</p>
+IP (you can assign one later if you prefer) by checking the <strong>Public access</strong> checkbox.</p>
 <ul>
 <li><p>If you don’t use a floating IP, you can only access it locally on your network or
-over some kind of ingress solution like a VPN.</p></li>
+over some kind of ingress solution such as a VPN.</p></li>
 </ul>
 </li>
 <li><p>Under <strong>Volume size</strong>, select the size (in GB) of the volume of the server. Take into
-consideration that you will store files as well as a database on the server. We recommend
+consideration that you will store files and a database on the server. We recommend
 at least 100 GB.</p></li>
 <li><p>Press <strong>Create</strong>. You will get further details on how to connect to the service.</p></li>
 </ul>

@@ -1405,29 +1405,30 @@
   
 
 <h1 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Link to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.postgresql.org">PostgreSQL</a> is a popular open-source relational database.</p>
+<p><a class="reference external" href="https://www.postgresql.org">PostgreSQL</a> is a popular open source relational database.</p>
 <p>Binero cloud enables you to provision PostgreSQL as a standalone installation or with
-replication. If you select with replication, a auxiliary instance will be setup that
-will copy all writes.</p>
-<p>This server can be used for database reads (to alleviate load on the master server) and
-in case of a failure of the primary server, can be used as a new primary server.</p>
+replication.</p>
+<p>If you select with replication, a auxiliary instance will be setup that will copy all
+writes. This server is good for database reads (to reduce load on the primary server) and
+in case of an issue with the primary server, the auxiliary instance can become the new
+primary.</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
 <li><p>Under <strong>Secondary node availability zone</strong> dropdown, you are able to select which availability
-zone to place the slave node in (if you choose to replicate). You can choose to use the same
+zone to place the auxiliary node in (if you choose to replicate). You can choose to use the same
 zone as the primary node or you can select another zone if you want to build a geographically
 distributed application.</p></li>
 <li><p>Under <strong>Alternate network</strong>, you select the <a class="reference internal" href="../networking/network/index.html"><span class="doc">network</span></a>
 that the auxiliary server should connected to.</p></li>
 <li><p>Select your instance <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>. We recommend sticking with the default.</p></li>
-<li><p>Select the volume size for the instance. The volume can be extended later, see the
+<li><p>Select the volume size for the instance. You can extend this volume later, see the
 <a class="reference internal" href="../storage/persistent-block-storage/extend-volume.html"><span class="doc">Extend a persistent volume</span></a> article.</p></li>
 <li><p>Under <strong>Primary node availability zone</strong>, select the availability zone to run your primary instance in.</p></li>
 <li><p>Under <strong>Primary network</strong>, you select the <a class="reference internal" href="../networking/network/index.html"><span class="doc">network</span></a> that
 the primary server should connected to.</p></li>
 <li><p>Under <strong>Secondary nodes</strong>, you select the amount of auxiliary servers you want. If you select zero, no
-replication will be done.</p></li>
+replication will be setup.</p></li>
 <li><p>Press <strong>Create</strong>. You will get further details on how to connect to the service.</p></li>
 </ul>
 <div class="seealso admonition">

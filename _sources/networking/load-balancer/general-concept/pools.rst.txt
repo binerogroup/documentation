@@ -14,11 +14,11 @@ The pool will provide a common configuration for the members:
   - Least connections, traffic will end up on the pool members that
     currently has the least connections.
 
-  - Round robin, traffic is spread evenly among pool members. 
+  - Round robin, spreading traffic evenly among pool members. 
 
   - Source IP, traffic from the same source will end up on the same pool
-    member when possible. This is similar to persistence (see below) but
-    a more crude implementation with less guarantees. This is generally
+    member when possible. This is a form of persistence (see below) but
+    a more crude implementation with less guarantees. This is also
     called affinity.
 
 - Session persistence will try to ensure that requests from the same
@@ -26,9 +26,9 @@ The pool will provide a common configuration for the members:
   listener protocol you will want to use, there are three variants
   of session persistence:
 
-  - Source IP, this uses the source IP of the request, much like
-    the source IP algorithm. Since a source IP is shared among several
-    users, this is a crude way to do persistence.
+  - Source IP, this uses the source IP of the request, same as the source
+    IP algorithm. Many users can share a source IP which makes this a crude
+    way to do persistence.
 
   - HTTP cookie, the load balancer will create a standard HTTP cookie on
     the client computer and use that information to send the user to the
@@ -51,4 +51,5 @@ in the pool or not at any given time.
    the request ends up on.
 
 ..  seealso::
+
     - :doc:`../recommendations`

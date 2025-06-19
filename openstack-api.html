@@ -1142,9 +1142,9 @@ in your cloud account.</p>
 <p>This is a powerful feature for users that either want to create infrastructure as
 code projects or want to integrate with third-party applications to manage your
 infrastructure.</p>
-<p>The OpenStack API is broken down into multiple projects based on what service it provides.</p>
-<p>They have in common that an <a class="reference internal" href="getting-started/users.html"><span class="doc">API user</span></a> is needed to access the
-API using any of the below endpoints.</p>
+<p>The OpenStack API consists of many individual APIs based on what service it provides.</p>
+<p>They have in common that an <a class="reference internal" href="getting-started/users.html"><span class="doc">API user</span></a> needs to be available
+for authentication to access the APIs on any of the below endpoints.</p>
 <p>We keep updated information about the release of the platform along with links to correct APIs
 available in our <a class="reference internal" href="openstack.html"><span class="doc">OpenStack</span></a> documentation.</p>
 <ul class="simple">
@@ -1155,16 +1155,17 @@ in the official API docks.</p></li>
 <li><p>API endpoint - the information on where to connect to consume the APIs.</p></li>
 </ul>
 <h2 id="version">Version<a class="headerlink" href="#version" title="Link to this heading">¶</a></h2>
-<p>Some of the OpenStack APIs will support multiple versions for backwards compatibility.</p>
-<p>Generally the recommended version is included in the URL (where applicable) below but in certain
-cases microversions might be required (for example v2.1 vs v2.67 for Nova) for some functionality.</p>
+<p>Some of the OpenStack APIs will support different versions for backwards compatibility.</p>
+<p>Generally the recommended version is in the URL (where applicable) below but in certain
+cases you need to use a certain microversions (for example v2.1 compared to v2.67 for
+Nova) for some functionality.</p>
 <h2 id="keystone">Keystone<a class="headerlink" href="#keystone" title="Link to this heading">¶</a></h2>
 <p>Keystone is the identity service in the OpenStack ecosystem that you use to authenticate
 using an <a class="reference internal" href="getting-started/users.html"><span class="doc">API user</span></a>.</p>
 <p>A good place to start is available in the official
 documentation <a class="reference external" href="https://docs.openstack.org/keystone/latest/api_curl_examples.html">here</a>.</p>
-<p>Authentication is needed for all API calls, when authenticating for your token a catalog
-with endpoints is provided in the response, for verbosity it’s also included below.</p>
+<p>You need to authenticate for all API calls, when authenticating for your token a catalog
+with endpoints is also returned in the response, for verbosity it’s also included below.</p>
 <h2 id="endpoints"><span id="openstack-api-endpoints"></span>Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading">¶</a></h2>
 <table class="docutils data align-default">
 <colgroup>

@@ -1310,7 +1310,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1786,8 +1786,8 @@
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Before launching your first load balancer, we strongly recommend reading
-our <a class="reference internal" href="../general-concept/index.html"><span class="doc">concepts</span></a> guide so as to gain a better
-understanding the various parts.</p>
+our <a class="reference internal" href="../general-concept/index.html"><span class="doc">concepts</span></a> guide to gain a better
+understanding of the parts.</p>
 </div>
 <p>We also recommend setting the correct <a class="reference internal" href="../../security-groups/index.html"><span class="doc">security groups</span></a>
 on the instances that should be members in the load balancing. Traffic from the load balancer
@@ -1798,7 +1798,7 @@ explicit rules needs to be setup on the members.</p>
 <a class="reference internal" href="../../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon portal</span></a></p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you want to create a load balancer that terminates SSL, you first need to
+<p>If you want to create a load balancer that terminates SSL/TLS, you first need to
 <a class="reference internal" href="../../../secret-store/create-cert-for-loadbalancing.html"><span class="doc">create the requisite certificate</span></a> in
 our secret store. We recommend reading our <a class="reference internal" href="../ssl-termination.html"><span class="doc">SSL/TLS termination using Load Balancer</span></a> guide before proceeding.</p>
 </div>
@@ -1809,7 +1809,7 @@ our secret store. We recommend reading our <a class="reference internal" href=".
 <ul>
 <li><p>Name your load balancer. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_lb</span></code> (replace the name with something
 that’s relevant for you). Providing a description is optional.</p></li>
-<li><p>Leave the IP field empty as an IP will be allocated automatically.</p></li>
+<li><p>Leave the IP field empty, an IP address is automatically allocated.</p></li>
 <li><p>Select the <a class="reference internal" href="../../regions-and-availability-zones.html"><span class="doc">availability zone</span></a> or leave empty
 to use the default europe-se-1a.</p></li>
 <li><p>Leave the Flavor field empty as selecting a flavor is not supported.</p></li>
@@ -1825,8 +1825,8 @@ balancer but its not a must.</p></li>
 it from the other parts. Replace the name with the name you chose for your load balancer and
 the port to that of the service you want to load balance. Optionally provide a description.</p></li>
 <li><p>Select the load balancer protocol.</p></li>
-<li><p><em>Verify the port number</em> (it may set automatically but depending on protocol you may need to set
-it manually). Without it, creation will fail.</p></li>
+<li><p><em>Verify the port number</em> (it might set automatically but depending on protocol you might need to
+set it manually). Without it, creation will fail.</p></li>
 <li><p>Press <strong>Next</strong>.</p></li>
 </ul>
 </li>
@@ -1847,29 +1847,29 @@ information <a class="reference internal" href="../general-concept/pool-members.
 <li><p>press the <strong>Add</strong> button next to the instances you want to add in the list.</p></li>
 <li><p>Select what (IP) port on each instance the service listens on. For instance for a web
 service, this would be either 80 or 443.</p></li>
-<li><p>When all instances that should be part of the pool are added, press <strong>Next</strong>.</p></li>
+<li><p>When you have added all instances to the pool, press <strong>Next</strong>.</p></li>
 </ul>
 </li>
 <li><p>In the fifth step, <em>health monitoring</em> will be setup. More information
 <a class="reference internal" href="../general-concept/health-monitors.html"><span class="doc">here</span></a>.</p>
 <ul>
-<li><p>Name your health monitor. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_monitor_[PORTNUMBER]</span></code> to differentiate
+<li><p>Name your <code class="docutils literal notranslate"><span class="pre">health</span> <span class="pre">monitor</span></code>. We recommend calling it <code class="docutils literal notranslate"><span class="pre">[NAME]_monitor_[PORTNUMBER]</span></code> to differentiate
 it from other the parts. Replace the name with the name you chose for your load balancer and the
 port to that of the service you want to load balance. Optionally provide a description.</p></li>
-<li><p>Select the type. This value would depend mostly on what kind of listener you created (which
-protocol). We recommend choosing a type that is as granular (i.e. rather go with HTTP than
-TCP port 80 if you want to check a web server) as possible.</p></li>
-<li><p>Choose the various options relating to your monitor, the defaults will likely suffice but this
+<li><p>Select the type. This value would depend on what kind of listener you created (which protocol). We
+recommend choosing a type that is as granular (go with HTTP than TCP port 80 if you want to check a
+web server) as possible.</p></li>
+<li><p>Choose the options relating to your <code class="docutils literal notranslate"><span class="pre">health</span> <span class="pre">monitor</span></code>, the defaults will likely suffice but this
 is much dependant on the application.</p></li>
-<li><p>If you’ve opted for <strong>TERMINATED SSL</strong> when setting up the listener details, you will need to
+<li><p>If you’ve opted for <code class="docutils literal notranslate"><span class="pre">TERMINATED</span> <span class="pre">SSL</span></code> when setting up the listener details, you will need to
 proceed to next step to add your certificates and should then be able to click <strong>Next</strong>. If
-not, the <strong>Next</strong> option is greyed out and you should instead press <strong>Create Load Balancer</strong>.</p></li>
+not, the <strong>Next</strong> option is unavailable and you should instead click <strong>Create Load Balancer</strong>.</p></li>
 </ul>
 </li>
-<li><p>The sixth step is only relevant when creating an SSL terminating load balancer. In this step, you
-would choose the certificate that the load balancer should use to terminate SSL connections. To do
-this, you first need to have a <a class="reference internal" href="../../../secret-store/create-cert-for-loadbalancing.html"><span class="doc">certificate</span></a> added
-to the secret store.</p></li>
+<li><p>The sixth step is only relevant when creating an SSL/TLS terminating load balancer. In this step, you
+would choose the certificate that the load balancer should use for SSL/TLS connections. To do this, you
+first need to have a <a class="reference internal" href="../../../secret-store/create-cert-for-loadbalancing.html"><span class="doc">certificate</span></a> added to the secret
+store.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1879,7 +1879,7 @@ to the secret store.</p></li>
 <p>To verify that the health checking has added the members to the pool, follow this procedure:</p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Load balancers</strong> in the sidebar menu.</p></li>
-<li><p>Verify that the <strong>Operating status</strong> says <strong>Online</strong> as well as <strong>Provisioning status</strong>
+<li><p>Verify that the <strong>Operating status</strong> says <strong>Online</strong> and <strong>Provisioning status</strong>
 says <strong>Active</strong> on the load balancer and then press its name.</p></li>
 <li><p>Press the <strong>Pools</strong> tab and then press the name of your pool.</p></li>
 <li><p>Press the <strong>Members</strong> tab.</p></li>

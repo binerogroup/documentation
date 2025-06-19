@@ -7,13 +7,13 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 
 .. note::
 
-   If you don't have a :doc:`network </networking/network/index>` or :doc:`../ssh-keys` available in some of the
-   steps below, you might need to do some :doc:`initial configuration </getting-started/launching-an-instance>`
-   first.
+   If you don't have a :doc:`network </networking/network/index>` or :doc:`../ssh-keys`
+   available in some of the steps below, you might need to do some
+   :doc:`initial configuration </getting-started/launching-an-instance>` first.
 
-   An SSH-key created or added in the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` is not available
-   in Horizon as they use `API users </getting-started/users.html#api-users>`__ and SSH-keys are owned by the user account
-   and not the project.
+   An SSH-key created or added in the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+   is not available in OpenStack Horizon as they use `API users </getting-started/users.html#api-users>`__
+   and SSH-keys is per user account and not the project.
 
 - Under **Project**, click **Compute** and then **Instances** in the left side menu.
 
@@ -34,24 +34,28 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 
   - Select an **Availability Zone**, see :doc:`Regions and Availability Zones <../regions-and-availability-zones>`.
 
-    - We recommend the default ``europe-se-1a`` availability zone if you are creating your first instance and
-      if you are not sure that you need to use a secondary availability zone.
+    - We recommend the default ``europe-se-1a`` availability zone if you are creating
+      your first instance and if you are not sure that you need to use a secondary
+      availability zone.
 
 - Under the **Sources** tab in the dialog.
 
   - Select **Image** as **Boot Source**.
 
-  - Select **Yes** for **Create New Volume** to boot your instance from a volume, we only recommend selecting **No** here if you intend to
-    use an NVMe-based flavor.
+  - Select **Yes** for **Create New Volume** to boot your instance from a
+    volume, we only recommend selecting **No** here if you intend to use
+    an NVMe-based flavor.
 
-  - Select **No** for **Delete Volume on Instance Delete**. If you want the system to implicitly delete the volume together with
-    the instance, select **Yes**.
+  - Select **No** for **Delete Volume on Instance Delete**. If you want the system
+    to implicitly delete the volume together with the instance, select **Yes**.
 
-  - Select the :doc:`image </images/index>` you want to boot your instance from by pressing the arrow on the right side.
+  - Select the :doc:`image </images/index>` you want to boot your instance from
+    by pressing the arrow on the right side.
 
 - Under the **Flavour** tab in the dialog.
 
-  - Select the :doc:`flavor <../flavors>` you want the instance to have by pressing the arrow on the right side.
+  - Select the :doc:`flavor <../flavors>` you want the instance to have by pressing
+    the arrow on the right side.
 
 - Under the **Networks** tab in the dialog.
 
@@ -62,15 +66,17 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 
 - Under the **Key Pair** tab in the dialog.
 
-  - Select the SSH key you want added to the instance by pressing the arrow on the right side. This is optional and mostly
-    relevant for images and operating systems containing a SSH server.
+  - Select the SSH key you want added to the instance by pressing the arrow on the
+    right side. This is optional and only relevant for images and operating systems
+    containing a SSH server.
 
-- Click the **Launch Instance** button in the bottom right in the dialog.
+- Click the **Launch Instance** button in the lower right in the dialog.
 
-When the instance is finished its status will be **Active**. You can view more details about the instance by clicking the name
-in the list.
+When the instance creation is complete the status will be **Active**. You can view more
+details about the instance by clicking the name in the list.
 
-To reach your instance see the :doc:`documentation </networking/reaching-your-instances>` for that.
+To reach your instance see the :doc:`documentation </networking/reaching-your-instances>`
+for that.
 
 ..  seealso::
 

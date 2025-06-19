@@ -1152,7 +1152,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1598,12 +1598,12 @@
 
 <h1 id="configuring-the-remote-end">Configuring the remote end<a class="headerlink" href="#configuring-the-remote-end" title="Link to this heading">¶</a></h1>
 <p>Part of the tunnel runs on Binero cloud but the other part runs on the site that you want to connect to.</p>
-<p>It is difficult to write a comprehensive documentation on how to setup the remote part of the tunnel as
+<p>It’s difficult to write a comprehensive documentation on how to setup the remote part of the tunnel as
 the equipment used could vary but normally the options that need editing are the same.</p>
 <p>IPsec will only work with identical settings on both ends so take care to setup the remove end point
 with <strong>exactly</strong> the same settings (as outlined below).</p>
-<p>Remember that for your tunnel to be able to initiate from both ends, you will need to allow traffic from
-the remote endpoint to your firewall.</p>
+<p>Remember that for your tunnel to establish and be able to connect from both ends, you will need to allow
+traffic from the remote endpoint to your firewall.</p>
 <p>Either open up from all traffic from the remote endpoint IP (and <em>protocols</em> as IPsec uses more than a
 single protocol) or do a selective firewall opening for the following:</p>
 <ul class="simple">
@@ -1612,8 +1612,8 @@ single protocol) or do a selective firewall opening for the following:</p>
 <li><p>Port 4500/UDP</p></li>
 <li><p>Port 500/UDP</p></li>
 </ul>
-<p>The below steps should provide the information needed to get a tunnel up and running, however we
-recommend reading the official documentation from your vendor on how to configure.</p>
+<p>The below steps should provide the information needed to get a tunnel up and running, we recommend reading
+the official documentation from your vendor on how to configure.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">exchange</span> <span class="pre">version</span></code>: IKEv2</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">gateway</span></code> + <code class="docutils literal notranslate"><span class="pre">Peer</span> <span class="pre">identifier</span></code>: The floating IP address of our local pfSense instance (provided
@@ -1624,9 +1624,9 @@ instance (provided by the output value <code class="docutils literal notranslate
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Binero cloud supports (by default) two options for phase 1 encryption. We recommend the first option as it is
+<p>Binero cloud supports (by default) two options for phase 1 encryption. We recommend the first option as it’s
 more secure but we provide support for a second option for compatibility with older hardware.</p>
-<p>If you need to change to an even more insecure cipher, please edit the phase 1 configuration in the management
+<p>If you need to change to an even more insecure cipher, edit the phase 1 configuration in the management
 interface. See <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information.</p>
 </div>
 <ul class="simple">
@@ -1640,7 +1640,7 @@ interface. See <a class="reference internal" href="advanced-configuration.html">
 <li><p><code class="docutils literal notranslate"><span class="pre">Cipher</span></code>: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Pseudo-random</span> <span class="pre">function</span> <span class="pre">(PRF)</span></code>: Auto / SHA2_384 (this can often be left as auto, if there is not an option
 for it available, assume its automatically chosen).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(Integrity)</span> <span class="pre">Hash</span></code>: SHA2_384 (may not be required by all vendors)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(Integrity)</span> <span class="pre">Hash</span></code>: SHA2_384 (All vendors might not require this)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Diffie-Hellman</span> <span class="pre">(DH)-Group</span></code>: 20 (NIST ecp384)</p></li>
 </ul>
 </li>
@@ -1657,9 +1657,9 @@ for it available, assume its automatically chosen).</p></li>
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Binero cloud supports (by default) two options for phase 2 encryption. We recommend the first option as it is more secure
+<p>Binero cloud supports (by default) two options for phase 2 encryption. We recommend the first option as it’s  more secure
 but we provide support for a second option for compatibility with older hardware.</p>
-<p>If you need to change to an even more insecure cipher, please edit the phase 2 configuration in the management
+<p>If you need to change to an even more insecure cipher, edit the phase 2 configuration in the management
 interface. See <a class="reference internal" href="advanced-configuration.html"><span class="doc">Advanced configuration</span></a> for more information.</p>
 </div>
 <ul class="simple">
@@ -1672,7 +1672,7 @@ interface. See <a class="reference internal" href="advanced-configuration.html">
 <li><p>Alterative 1:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Cipher</span></code>: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(Integrity)</span> <span class="pre">Hash</span></code>: SHA2_384 (may not be required by all vendors)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(Integrity)</span> <span class="pre">Hash</span></code>: SHA2_384 (All vendors might not require this)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Perfect</span> <span class="pre">Forward</span> <span class="pre">Secrecy</span> <span class="pre">(PFS)</span> <span class="pre">key</span> <span class="pre">group</span></code>: 15 (modp3072)</p></li>
 </ul>
 </li>

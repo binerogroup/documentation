@@ -1191,34 +1191,39 @@
 <h1 id="dns">DNS<a class="headerlink" href="#dns" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
 <p>Using our DNS feature, you can use the platform to control your DNS (domain) zones.</p>
-<p>In order to start using the feature, first add one or more zones, add the pointers (A, MX, etc) and
-finally change the NS pointers at your DNS registrar for your domain to our DNS servers.</p>
+<p>To start using the feature, first add one or more zones, add the pointers (A, MX and
+so on) and finally change the NS pointers at your DNS registrar for your domain to our
+DNS servers.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ns.binero.eu</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ns.binero.se</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ns.binero.com</span></code></p></li>
 </ul>
-<p>The DNS registrar is the company you pay to register and renew your domain name. <strong>Binero does not DNS registrar services</strong>.</p>
+<p>The DNS registrar is the company you pay to register and renew your domain name. <strong>Binero
+does not have DNS registrar services</strong>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The DNS name servers provided by Binero (that is, the servers that answer the DNS queries) are not hosted with Binero but
-with <a class="reference external" href="https://www.netnod.se/dns/dns-anycast">Netnod</a>. By default, the DNS service does not provide anycast capabilities
-but if you need that, please contact our support and we can help enable it for your DNS zone(s).</p>
+<p>The DNS name servers provided by Binero (that is, the servers that answer the DNS
+queries) are not hosted with Binero but with <a class="reference external" href="https://www.netnod.se/dns/dns-anycast">Netnod</a>.</p>
+<p>By default, the DNS service does not provide anycast capabilities but if you need that, contact
+our support and we can help enable it for your DNS zones.</p>
 </div>
 <h2 id="create-a-zone">Create a zone<a class="headerlink" href="#create-a-zone" title="Link to this heading">¶</a></h2>
-<p>To create a zone, please follow the guide below to the system you want to use:</p>
+<p>To create a zone, see the guide below to the system you want to use.</p>
 <h3 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h3>
-<p>To setup an DNS zone using the <a class="reference internal" href="getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a></p>
+<p>To setup an DNS zone by using the
+<a class="reference internal" href="getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>DNS</strong> and then <strong>DNS zones</strong> in the sidebar menu.</p></li>
-<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
-<li><p>Input your domain-name in the <strong>Domain</strong> field.</p></li>
-<li><p>Enter your e-mail address in the e-mail field. This is for notifications.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the lower right corner.</p></li>
+<li><p>Input your domain name in the <strong>Domain</strong> field.</p></li>
+<li><p>Enter your email address in the email field. This is for notifications.</p></li>
 <li><p>Optionally enter a description.</p></li>
-<li><p>In the IP-address field, add an IP-address that you want your <cite>www.domain.com</cite> to point to (among other things). If you are
-unsure, please leave this field blank.</p></li>
+<li><p>In the IP-address field, add an IP-address that you want your <cite>www.domain.com</cite> to point to (among
+other things). If you are unsure, leave this field blank.</p></li>
 </ul>
-<p>To edit a DNS zone using the <a class="reference internal" href="getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a></p>
+<p>To edit a DNS zone by using the
+<a class="reference internal" href="getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>DNS</strong> and then <strong>DNS zones</strong> in the sidebar menu.</p></li>
 <li><p>Press the icon / row on the zone you want to edit.</p></li>
@@ -1232,16 +1237,18 @@ unsure, please leave this field blank.</p></li>
 followed by a <code class="docutils literal notranslate"><span class="pre">.</span></code> (dot) as subdomain.</p>
 </div>
 <h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
-<p>To setup an DNS zone using <a class="reference internal" href="getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To setup an DNS zone by using
+<a class="reference internal" href="getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>DNS</strong> and then <strong>Zones</strong> in the sidebar menu.</p></li>
 <li><p>Click <strong>Create zone</strong> in the right upper corner.</p></li>
-<li><p>Input your domain-name in the <strong>Name</strong> field.</p></li>
+<li><p>Input your domain name in the <strong>Name</strong> field.</p></li>
 <li><p>Optionally enter a description.</p></li>
-<li><p>Enter your e-mail address in the e-mail field. This is for notifications.</p></li>
+<li><p>Enter your email address in the email field. This is for notifications.</p></li>
 <li><p>Press <strong>Submit</strong></p></li>
 </ul>
-<p>To edit a DNS zone using the <a class="reference internal" href="getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To edit a DNS zone by using
+<a class="reference internal" href="getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>DNS</strong> and then <strong>Zones</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the zone you want to edit.</p></li>
@@ -1250,13 +1257,15 @@ followed by a <code class="docutils literal notranslate"><span class="pre">.</sp
 <li><p>To edit a pointer, press <strong>Update</strong> next to the right on the row of the pointer.</p></li>
 </ul>
 <h3 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h3>
-<p>To setup an DNS zone using <a class="reference internal" href="getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To setup an DNS zone by using
+<a class="reference internal" href="getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">zone</span> <span class="pre">create</span> <span class="pre">--email</span> <span class="pre">[EMAIL_ADDRESS]</span> <span class="pre">example.com.</span></code>, replacing the
-e-mail address with your e-mail and <code class="docutils literal notranslate"><span class="pre">example.com.</span></code> with your domain. Note the dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) at
+email address with your email and <code class="docutils literal notranslate"><span class="pre">example.com.</span></code> with your domain. Note the dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) at
 the end of the domain name.</p></li>
 </ul>
-<p>To add a DNS zone record using the <a class="reference internal" href="getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To add a DNS zone record by using the
+<a class="reference internal" href="getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">zone</span> <span class="pre">list</span></code>, save the UUID from the zone that you want to add/list
 records on.</p></li>

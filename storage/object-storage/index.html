@@ -1645,18 +1645,14 @@
   
 
 <h1 id="object-storage">Object storage<a class="headerlink" href="#object-storage" title="Link to this heading">¶</a></h1>
-<p>Object storage is a good way to store unstructured data. Unlike a filesystem (where you would have a structured
-tree of files and folder) or block storage (where you would use a filesystem that kept track of stored blocks),
-object storage stores arbitrary objects.</p>
-<p>Each object would typically contain the data that is stored, a varying amount of metadata (that is, information
-about the stored object) as well as a globally (for the platform) unique ID that reference the object.</p>
-<p>Object storage is optimized for storing data that needs to be written once and then read (and re-read).</p>
-<p>While there is support for committing changes to objects, this is generally avoided. As such, object storage is
-often used for storing and serving static data, for example images, documents or backups.</p>
+<p>Object storage is a good way to store unstructured data. Unlike a file system where you would have a structured
+tree of files and directories or block storage upon which you can use a file system, object storage stores arbitrary
+objects.</p>
+<p>Each object consists of the data stored and a varying amount of metadata, that is, information about the stored object.</p>
 <p>The <a class="reference internal" href="../../backup/index.html"><span class="doc">backup service</span></a> in Binero cloud uses our object storage to save the backup data.</p>
-<p>In Binero cloud you are able to consume the object storage service using both the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and the
-<a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>. Both are served from the same underlying storage platform and can reach the same data
-but use different APIs.</p>
+<p>In Binero cloud you are able to consume the object storage service by using both the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and the
+<a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>, both from the same underlying storage platform and can reach the same data but use
+different APIs.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>In the documentation we can refer to either a container or bucket both being the same thing, a container holding
@@ -1664,15 +1660,15 @@ objects, where bucket is S3 terminology and container is Swift terminology.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>We enforce a default quota of 1000 buckets/container in the object storage, please contact our
+<p>We enforce a default quota of 1000 buckets or containers in the object storage, contact our
 support if you need more.</p>
 </div>
-<p>You have the ability to chose from several <a class="reference internal" href="storage-policy.html"><span class="doc">storage policies</span></a> of object storage to setup a
+<p>You have the ability to choose from different <a class="reference internal" href="storage-policy.html"><span class="doc">storage policies</span></a> of object storage to setup a
 storage solution that delivers at the lowest possible cost per GB while still meeting your requirements.</p>
-<p>We also enable <a class="reference internal" href="replication.html"><span class="doc">replication</span></a> if you want to have your data available in multiple data centers,
-for example as part of a multi data center high availability solution.</p>
-<p>We recommend reading through our <a class="reference internal" href="getting-started.html"><span class="doc">Getting started with object storage</span></a> guide if you are not previously used to working with object
-storage in an OpenStack based platform.</p>
+<p>We also enable <a class="reference internal" href="replication.html"><span class="doc">replication</span></a> if you want to have your data available in more than one
+availability zone for example as part of a multi data center high availability solution.</p>
+<p>We recommend reading through our <a class="reference internal" href="getting-started.html"><span class="doc">Getting started with object storage</span></a> guide to get starting using our
+object storage service.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Available services</span></p>
 <ul>

@@ -1587,23 +1587,27 @@
 <h1 id="object-locking">Object locking<a class="headerlink" href="#object-locking" title="Link to this heading">¶</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p><a class="reference internal" href="versioning.html"><span class="doc">Versioning</span></a> of objects are implicitly enabled when object locking is enabled, locking
-is enforced for the version of the object.</p>
+<p><a class="reference internal" href="versioning.html"><span class="doc">Versioning</span></a> of objects are implicitly enabled when using object locking.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Locking an object enforces on the version of the object, deleting an object is still possible but will
+cause a DeleteMarker thus preserving your data even on deletion. See <a class="reference internal" href="versioning.html"><span class="doc">Versioning</span></a>.</p>
 </div>
 <h2 id="object-locking-concept">Object locking concept<a class="headerlink" href="#object-locking-concept" title="Link to this heading">¶</a></h2>
-<p>Object storage is often used in use-cases where objects are stored once and read many times. The objects saved
-are seldom (if ever) edited but should remain available.</p>
-<p>To guarantee that an object is not (accidentally or intentionally) deleted, locking can be configured. When setting
-up locking, it becomes impossible (even for an administrator) to delete the object.</p>
-<p>Combined with the high availability and data durability of the object storage platform, this adds an additional
+<p>Object storage is often used in use-cases where objects gets stored once and read many times. The objects saved
+are seldom, if ever, updated but should remain available and protected against accidental or malicious deletions.</p>
+<p>To guarantee that an object is not accidentally or intentionally deleted, enable locking. When setting up
+locking, it becomes impossible, even for a cloud operator, to delete the object.</p>
+<p>Combined with the high availability and data durability of the object storage platform, this adds an extra
 layer of data security in the platform.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Object locking can be setup for a certain time. Remember that depending on the mode, you cannot delete the data/objects
+<p>Object locking can be setup for a certain time. Remember that depending on the mode, you cannot delete the objects
 until the time passes, meaning you will need to pay for the storage of the object until the locking has expired.</p>
 </div>
 <h2 id="using-object-locking">Using object locking<a class="headerlink" href="#using-object-locking" title="Link to this heading">¶</a></h2>
-<p>To create a bucket with support for locking, follow these steps:</p>
+<p>To create a bucket with support for locking.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Below guide will use the s3 object storage and the <cite>aws</cite> client. We suggest you read
@@ -1612,7 +1616,7 @@ until the time passes, meaning you will need to pay for the storage of the objec
 <ul class="simple">
 <li><p>Run this command to create the bucket: <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">create-bucket</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--create-bucket-configuration</span> <span class="pre">LocationConstraint=europe-se-1:gp.recurring</span> <span class="pre">--object-lock-enabled-for-bucket</span></code></p></li>
 <li><p>Select either <strong>COMPLIANCE</strong> or <strong>GOVERNANCE</strong> as retention mode. COMPLIANCE will enforce the settings for all users
-(also administrators), GOVERNANCE will allow users with special privileges to remove objects or change the retention days.</p></li>
+(also administrators), GOVERNANCE will allow users with privileges to remove objects or change the retention days.</p></li>
 <li><p>Run this command to setup locking on the bucket: <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">put-object-lock-configuration</span> <span class="pre">--bucket</span> <span class="pre">[BUCKET_NAME]</span> <span class="pre">--object-lock-configuration</span> <span class="pre">'{</span> <span class="pre">&quot;ObjectLockEnabled&quot;:</span> <span class="pre">&quot;Enabled&quot;,</span> <span class="pre">&quot;Rule&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;DefaultRetention&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;Mode&quot;:</span> <span class="pre">&quot;COMPLIANCE&quot;,</span> <span class="pre">&quot;Days&quot;:</span> <span class="pre">1</span> <span class="pre">}}}'</span></code></p></li>
 </ul>
 <p>Objects are now protected according to the policy and days chosen. See the <a class="reference internal" href="versioning.html"><span class="doc">versioning</span></a> documentation on

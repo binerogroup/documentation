@@ -999,7 +999,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1627,37 +1627,37 @@
 <p>A PTR (or reverse DNS) record is a DNS record that returns a name from a question containing an IP address.</p>
 <p>DNS would normally do the opposite, that is return an IP-address from a domain name. Thus, when having the
 IP address but not knowing the name, reverse DNS comes into play.</p>
-<p>The most common use-case for reverse DNS is when setting up an e-mail relay. This is because e-mail servers
+<p>The most common use-case for reverse DNS is when setting up an email relay. This is because email servers
 normally use their domain name when communicating with each other via the so called HELO (or EHLO) message.</p>
 <p>For anti spam purposes, its common on the internet to require that the HELO message (which might be for
 example <code class="docutils literal notranslate"><span class="pre">smtp.binero.com</span></code>) comes from an IP-address that in turn has the same PTR record.</p>
-<p>By comparing HELO with the PTR and with a forward lookup (so basically asking what IP-address <code class="docutils literal notranslate"><span class="pre">smpt.binero.com</span></code>
-points to), its less likely that the e-mail is SPAM.</p>
+<p>By comparing HELO with the PTR and with a forward lookup (asking what IP-address <code class="docutils literal notranslate"><span class="pre">smpt.binero.com</span></code>
+points to), its less likely that the email is spam.</p>
 <p>Aside from this, when doing a traceroute (or other diagnostics involving IP addresses and routing) its good
 practice to add a PTR record to understand the routing path by using more human naming.</p>
 <h2 id="using-ptr-in-binero-cloud">Using PTR in Binero cloud<a class="headerlink" href="#using-ptr-in-binero-cloud" title="Link to this heading">¶</a></h2>
 <p>PTR is (via the platform) only available on <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a> (not on <a class="reference internal" href="directly-attached-ips.html"><span class="doc">Directly attached IP addresses</span></a>).</p>
-<p>While you would be able to setup a local DNS server on your project to service PTR records for your various
-internal IP addresses (as well as directly attached IP addresses), those would not be publicly available on
-the internet (since they are on private IP space that many people use).</p>
+<p>While you would be able to setup a local DNS server on your project to service PTR records for your internal
+IP addresses, those would not be publicly available on the internet (since they are on private IP space that
+many people use).</p>
 <h3 id="ttl">TTL<a class="headerlink" href="#ttl" title="Link to this heading">¶</a></h3>
 <p>When adding a PTR record, you will also need to select a TTL (short for <em>Time To Live</em>).</p>
-<p>This is a value that regulates how long a DNS record should be cached. What this means is that when a PTR record
-is looked up by a resolver (which is the server that the end-user would use to lookup DNS names), that resolver
-will cache the record for this period of time (in seconds).</p>
-<p>This has many advantages, load is distributed and concurrent DNS resolutions of the same domain is done much faster
-improving the user experience.</p>
+<p>The TTL determines how long DNS servers should cache the DNS record. What this means is that when a lookup of
+the PTR record by a resolver, which is the server that the end-user would use to lookup DNS names, that resolver
+will cache the record for this amount of time, in seconds.</p>
+<p>This has many advantages, load becomes distributed and concurrent DNS resolutions of the same domain is much
+faster improving the user experience.</p>
 <p>The downside is that when changing a DNS record, it will take this long before you can be sure that the change
 is visible worldwide. We recommend an hour (3600 seconds) as a well rounded TTL.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Setting less than 3600 seconds might appear to work but would be changed to 3600 in the backend as this is
+<p>Setting less than 3600 seconds might appear to work but our backend changes this to 3600 as this is
 the smallest number we allow.</p>
 </div>
-<p>Please see below for information on how to setup a PTR record on a floating IP using the various management
-tools.</p>
+<p>Please see below for information on how to setup a PTR record on a floating IP.</p>
 <h3 id="adding-ptr-records-using-the-cloud-management-portal">Adding PTR records using the cloud management portal<a class="headerlink" href="#adding-ptr-records-using-the-cloud-management-portal" title="Link to this heading">¶</a></h3>
-<p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To assign a PTR record to a floating IP by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Network</strong> and then <code class="docutils literal notranslate"><span class="pre">Floating</span> <span class="pre">IPs</span></code> in the sidebar menu.</p></li>
 <li><p>On the floating IP that you want to assign the PTR to, press the small cog icon <strong>set PTR</strong>.</p></li>
@@ -1669,11 +1669,12 @@ which needs to be there (this is the root zone that is most often left out).</p>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>You are not able to unset a DNS record using the cloud management portal (but you can change it). This can be
+<p>You are not able to unset a DNS record by using the cloud management portal (but you can change it). This can be
 done using either horizon or the terminal client, see below.</p>
 </div>
 <h3 id="adding-ptr-records-using-openstack-horizon">Adding PTR records using OpenStack Horizon<a class="headerlink" href="#adding-ptr-records-using-openstack-horizon" title="Link to this heading">¶</a></h3>
-<p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To assign a PTR record to a floating IP by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>DNS</strong> and then <strong>Reverse DNS</strong> in the sidebar menu.</p></li>
 <li><p>On the floating IP that you want to assign the PTR to, press the <strong>Set</strong> button.</p></li>
@@ -1682,25 +1683,27 @@ example which needs to be there (this is the root zone that is most often left o
 <li><p>In the description field, enter an optional description of the IP (for example <em>external mail relay</em>).</p></li>
 <li><p>In the TTL field, enter the TTL (in seconds) you prefer.</p></li>
 <li><p>Press <strong>Save</strong></p></li>
-<li><p>You are also able to unset (as in completely remove) the record using the small arrow next to
+<li><p>You are also able to unset (as in remove) the record using the small arrow next to
 the <strong>Set</strong> button according to above.</p></li>
 </ul>
 <h3 id="adding-ptr-records-using-openstack-terminal-client">Adding PTR records using OpenStack terminal client<a class="headerlink" href="#adding-ptr-records-using-openstack-terminal-client" title="Link to this heading">¶</a></h3>
-<p>To assign a PTR record to a floating IP using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To assign a PTR record to a floating IP by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">list</span></code>. Save the UUID (id column) of the IP you want to set PTR on.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">list</span></code>. Find the row that matches the UUID from previous command. Save
-the complete id from this command (could look something like this: europe-se-1:2e6a89c0-d8ae-471e-ae28-e858c63c4c6e).</p></li>
+the complete ID from this command (such as <code class="docutils literal notranslate"><span class="pre">europe-se-1:2e6a89c0-d8ae-471e-ae28-e858c63c4c6e</span></code>).</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">set</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">--ttl</span> <span class="pre">3600</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span> <span class="pre">[PTR</span> <span class="pre">DOMAIN].</span></code>. Take
 care to end the PTR name (the domain), with a dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) and replace the values within angle brackets with their corresponding
 values. Description is optional.</p></li>
-<li><p>You are also able to unset (as in completely remove) the record using the following
+<li><p>You are also able to unset (as in remove) the record using the following
 command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">unset</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span></code></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>To be able to run above terminal client commands, you may need to add support for the designate API to the OpenStack
-terminal client. This could be done on many platforms by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-openstackclient</span> <span class="pre">python-designateclient</span></code></p>
+<p>To be able to run above terminal client commands, you might need to install the Designate client to add the
+commands to the OpenStack terminal client.</p>
+<p>You can do this by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-openstackclient</span> <span class="pre">python-designateclient</span></code>.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

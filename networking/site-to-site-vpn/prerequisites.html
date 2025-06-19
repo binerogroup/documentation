@@ -1218,7 +1218,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1701,12 +1701,8 @@
   
 
 <h1 id="prerequisites-for-site-2-site-vpn">Prerequisites for site-2-site VPN<a class="headerlink" href="#prerequisites-for-site-2-site-vpn" title="Link to this heading">¶</a></h1>
-<p>Site-to-site VPN can only be provisioned from the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>.</p>
-<p>If you normally work via either OpenStack Horizon or the OpenStack API, its
-possible to execute a <a class="reference internal" href="../../orchestration/index.html"><span class="doc">HEAT template manually</span></a> but
-we recommend the cloud management portal.</p>
-<p>Remember that there may be discrepancies (for example on SSH keys and logins) between
-it and the other management options.</p>
+<p>You can only create site-to-site VPNs from the
+<a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>.</p>
 <p>Please see <a class="reference internal" href="../../getting-started/managing-your-cloud/index.html"><span class="doc">Managing your cloud</span></a> for more information.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1718,14 +1714,14 @@ and the remote locations is the site to which you want to connect.</p>
 <ul class="simple">
 <li><p>An existing <a class="reference internal" href="../subnet/index.html"><span class="doc">subnet</span></a> already setup in the
 platform which will be the local subnet (in <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>)
-that is routed over IPsec to the remote subnet (which would be your office or secondary
+that’s sent over IPsec to the remote subnet (which would be your office or secondary
 data center, for example).</p></li>
-<li><p>The IP address of the remote gateway (your public IP that would normally be provided
-to you by your ISP) for the tunnel.</p></li>
-<li><p>The remote subnet (in CIDR notation) that will be tunneled (meaning the network on which
-the computers or servers that should be able to connect to resources in the cloud using
-the tunnel, are situated on).</p></li>
-<li><p>A management IP which will be allowed access to managing the VPN over the internet.</p>
+<li><p>The IP address of the remote gateway (your public IP that your internet service provider
+provides to you) for the tunnel.</p></li>
+<li><p>The remote subnet (in CIDR notation) that’s tunneled (meaning the network on which the
+computers or servers that should be able to connect to resources in the cloud using the
+tunnel are on).</p></li>
+<li><p>A management IP that you allowed access to managing the VPN over the internet.</p>
 <ul>
 <li><p>If you have another means of accessing the internal network (where the VPN server will
 be running), for example our <a class="reference internal" href="../client-vpn/index.html"><span class="doc">client VPN</span></a>, this is
@@ -1737,29 +1733,29 @@ management IP is the same as the local gateway.</p></li>
 <h2 id="sizing-guidelines">Sizing guidelines<a class="headerlink" href="#sizing-guidelines" title="Link to this heading">¶</a></h2>
 <p>Our tests show that CPU time and CPU clock-speed are the two main factors in getting a high
 throughput from the VPN.</p>
-<p>Using <code class="docutils literal notranslate"><span class="pre">iperf3</span></code> we’ve measured 1+ Gbit/s through the service using a standard hp.2x4
-<a class="reference internal" href="../../compute/flavors.html"><span class="doc">flavor</span></a> which we believe is a good choice (and is the default option).</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">iperf3</span></code> we’ve measured 1+ Gbps through the service by using a standard <strong>hp.2x4</strong>
+<a class="reference internal" href="../../compute/flavors.html"><span class="doc">flavor</span></a> which we believe is a good choice, and is the default option.</p>
 <p>If cost is your main concern, scaling down to a gp.1x2 will still run the VPN with no issues
-but expect throughput around 100 Mbit/s (which is enough for many use-cases).</p>
-<p>Scaling up further to more than two CPU cores, speed gain will be minimum. Prioritize the high
-performance flavors to get greater CPU clock speeds.</p>
+but expect throughput around 100 Mbps (which is enough for many use-cases).</p>
+<p>Scaling up further to more than two CPU cores is not recommended as the speed gain is minimal
+instead make sure to use the high performance flavors to get greater CPU clock speeds.</p>
 <p>If you want your tunnel 100% consistent, we also recommend our gp.4x8-pinned flavor which will
 grant all the capacity of the four cores to the VPN.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Performance is equally based on the other end of the tunnel as well as your remote bandwidth. Take care
+<p>Performance is equally based on the other end of the tunnel and your remote bandwidth. Take care
 when measuring the capacity of your bandwidth, if you don’t get the throughput you expect, consult the
-manufacturer of your IPsec equipment to ascertain what its rated for.</p>
+manufacturer of your IPsec equipment about what its rated for.</p>
 </div>
 <h2 id="remote-equipment">Remote equipment<a class="headerlink" href="#remote-equipment" title="Link to this heading">¶</a></h2>
-<p>In order to run a site-2-site tunnel to Binero cloud, you will need a remote router/firewall that is
+<p>To run a site-2-site tunnel to Binero cloud, you will need a remote router or firewall that is
 capable of IPsec.</p>
 <p>This standard is well supported in hardware (and software) from a wide variety of manufacturers.</p>
-<p>We recommend using the central firewall/router as remote endpoint as that will greatly simplify
-routing, however its possible to also forward the correct ports to a server (virtual or physical)
-on the inside of the firewall as Binero cloud support the <code class="docutils literal notranslate"><span class="pre">NAT-T</span></code> extension of the IPSec protocol.</p>
-<p>This will however make the routing more difficult as, depending on architecture, you may need to add
-routes to the various computers/servers directly.</p>
+<p>We recommend using the central firewall or router as remote endpoint as that will greatly simplify
+routing, its possible to also forward the correct ports to a server (virtual or physical) on the
+inside of the firewall as Binero cloud support the <code class="docutils literal notranslate"><span class="pre">NAT-T</span></code> extension of the IPSec protocol.</p>
+<p>This will make the routing more difficult as, depending on architecture, you might need to add
+routes to the different computers and servers directly.</p>
 <p>If investing in a new router, Binero has good experience from the <a class="reference external" href="https://www.pfsense.org">pfSense solution</a>
 which is available in both hardware and software versions.</p>
 <div class="seealso admonition">

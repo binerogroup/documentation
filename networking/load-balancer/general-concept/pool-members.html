@@ -1278,7 +1278,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1726,24 +1726,21 @@
 <p>A member is a compute instance that runs a service (for example Apache).</p>
 <p>When load balancing, a member receives proxied requests from the listener
 through its membership in the pool.</p>
-<p>Members are health checked by the pool and included in it, if they are
-found to be working (and dynamically removed if not). This is an automated
-process, if a member should be detected to have failed for any reason it
-will be disabled in the pool.</p>
-<p>Checking continues and as soon as the member is (again) working, it will
-be enabled back into the pool automatically.</p>
+<p>Members in a pool have their health monitored and are only included in the
+load balancer if their health is up, if the health is down they are not
+included and thus get no traffic.</p>
 <p>Members can have some configuration:</p>
 <ul class="simple">
-<li><p>Explicit monitoring IP addresses and/or ports if you want to do health
-checking on something other than the members own IP address.</p></li>
-<li><p>Backup flag - this means that the member is a fallback server if all the
-normal members are down. For instance when doing maintenance on an
-application you’d might like to show a notification that your site is
-down and will be back later.</p></li>
-<li><p>Weight can be set so that a member receives a disproportionate amount
-of request. A higher weight means more requests, the maximum number
-is 256. We recommend keeping all members identical and as such, this
-should rarely (if ever) be used.</p></li>
+<li><p>Explicit monitoring IP addresses or ports if you want to do health
+monitoring on something other than the members own IP address.</p></li>
+<li><p>Backup flag - this means that the member is a fallback server if all
+the normal members are down. For instance when doing maintenance on an
+application you can instead show a notification that your site is down
+for maintenance and will be back later.</p></li>
+<li><p>You can set a weight so that a member receives a certain amount of the
+requests. A higher weight means more requests, the max value is 256. We
+recommend keeping all weights on members identical for the best request
+distribution.</p></li>
 </ul>
 <p>All members should have an IP on a <a class="reference internal" href="../../subnet/index.html"><span class="doc">subnet</span></a>.</p>
 <p>While the subnet does not have to be the same as the one the listener

@@ -1511,30 +1511,38 @@
   
 
 <h1 id="boot-from-rescue-image">Boot from rescue image<a class="headerlink" href="#boot-from-rescue-image" title="Link to this heading">¶</a></h1>
-<p>Sometimes you need to boot your instance from a ISO image to fix things that are
-not possible to fix when the filesystem on the boot <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volume</span></a>
-volume is mounted.</p>
-<p>A rescue image can be used in these scenarios to boot an alternate operating system
-which can in turn fix the problem(s) with the volume.</p>
-<p>While there is a function in the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>, it
-only supports mounting a rescue image on instances that are not booting from a volume (which will be the
-most common scenario).</p>
-<p>We will therefore focus on using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>
-below.</p>
+<p>Sometimes you need to boot your instance from an ISO image because the mounted
+filesystem on the boot <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volume</span></a>
+prevents you from fixing certain issues.</p>
+<p>You can use a rescue image in these scenarios to boot an alternate operating
+system, which can then fix problems with the volume.</p>
+<p>The <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> includes
+a rescue function, but it only lets you mount a rescue image on instances that
+don’t boot from a volume. We’ll focus on how to use the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>
+instead to workaround this limitation.</p>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To boot your instance from a rescue image using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To boot your instance from a rescue image by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>We provide a public <a class="reference external" href="https://www.system-rescue.org">SystemRescue</a> image that can be used.</p></li>
-<li><p>You can use a custom rescue image or use our guide <a class="reference internal" href="../images/create-rescue-image.html"><span class="doc">here</span></a> to create one.</p></li>
-<li><p>To connect the image to the instance, run this command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">--os-compute-api-version</span> <span class="pre">2.87</span> <span class="pre">server</span> <span class="pre">rescue</span> <span class="pre">--image</span> <span class="pre">&lt;ISO_NAME&gt;</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>, replacing
-the &lt;ISO_NAME&gt; with the name from previous step and the &lt;INSTANCE_NAME&gt; with the name of the instance that should mount the
-image. It takes a few minutes for server to go through a series of states and finally start. Manage server via console.</p></li>
-<li><p>When done, remove the rescue image from the instance by running this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unrescue</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>.</p></li>
+<li><p>We provide a public <a class="reference external" href="https://www.system-rescue.org">SystemRescue</a> image that you can use.</p></li>
+<li><p>You can use a custom rescue image or use our guide <a class="reference internal" href="../images/create-rescue-image.html"><span class="doc">here</span></a>
+to create one.</p></li>
+<li><p>To connect the image to the instance run the command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">--os-compute-api-version</span> <span class="pre">2.87</span> <span class="pre">server</span> <span class="pre">rescue</span> <span class="pre">--image</span> <span class="pre">&lt;ISO_NAME&gt;</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>, replacing
+<code class="docutils literal notranslate"><span class="pre">&lt;ISO_NAME&gt;</span></code> with the name from previous step and <code class="docutils literal notranslate"><span class="pre">&lt;INSTANCE_NAME&gt;</span></code> with the name of the
+instance that should mount the image.</p>
+<ul>
+<li><p>It will take up to a few minutes to add the rescue image and for the instance to start. Use
+the <a class="reference internal" href="console.html"><span class="doc">console</span></a> to manage the instance when it’s done.</p></li>
+</ul>
+</li>
+<li><p>When you’re done with the rescue remove the rescue image from the instance by running the
+command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unrescue</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you created a custom image and have run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">unrescue</span> <span class="pre">&lt;INSTANCE_NAME&gt;</span></code>. Remember to remove the
-rescue image or you will be charged an hourly fee per GB of the image size, see our price list.</p>
+<p>If you’ve created a custom image and have issued <code class="docutils literal notranslate"><span class="pre">unrescue</span></code> on the instance remember to
+remove the image or you will pay an hourly fee per GB for the image, see our price list.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

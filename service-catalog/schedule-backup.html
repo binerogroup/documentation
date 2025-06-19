@@ -1413,22 +1413,16 @@ setup recurring backups can be a complex task. The service catalog greatly simpl
 <p>Then follow these instructions:</p>
 <ul class="simple">
 <li><p>Give your service a name and optionally a description.</p></li>
-<li><p>In the <strong>Cron in GMT</strong> field you decide when and how often the job should be run. You can use
+<li><p>In the <strong>Cron in GMT</strong> field you decide when and how often the job should run. You can use
 hourly, daily or weekly as base. Select the one that is closest to what you want to do. If
 you for example want to run a backup job once per night, select <strong>daily</strong> and then set the
 <strong>Hour(s)</strong> field to the hour you want to run the job.</p></li>
 <li><p>In <strong>Age of backup deletion in days</strong> you select how many historical backups you want to
 keep. If you keep the default value of 10, when creating backups, previous backups that
-are older than 10 days will be deleted.</p></li>
+are older than 10 days gets deleted.</p></li>
 <li><p>In the <strong>Volume</strong> field, select the volume that you want to backup.</p></li>
 <li><p>Press <strong>Launch</strong> when done.</p></li>
 </ul>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>The cron format might be difficult to understand. When your backup is created, if you press
-it, you can find out the cron pattern, there are several websites that can translate the
-cron pattern to a textual representation.</p>
-</div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

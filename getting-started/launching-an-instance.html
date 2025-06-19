@@ -1217,40 +1217,44 @@ on Binero cloud. The available methods to launch an instance are:</p>
 <li><p><a class="reference external" href="/compute/launching-an-instance/openstack-terminal-client">OpenStack CLI</a></p></li>
 <li><p><a class="reference external" href="/compute/compute-api">API</a></p></li>
 </ul>
-<p>For users starting out, we recommend using our cloud management portal as this provides an
-better experience to get to know the cloud platform and will take you from 0-100 in the shortest
-time possible with little prior understanding of working with public clouds.</p>
-<p>More information on working using the other methods are available under the respective subsections
-for each service in this documentation.</p>
+<p>For users starting out, we recommend using our cloud management portal as this provides
+an better experience to get to know the cloud platform and will take you from 0-100 in
+the shortest time possible with little prior understanding of working with public clouds.</p>
+<p>More information on using the other methods are available under the sections for each
+service in this documentation.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>More information on how to access the various portals is
-available <a class="reference external" href="/getting-started/managing-your-cloud">here</a></p>
+<p>More information on how to access the portals is
+available <a class="reference internal" href="managing-your-cloud/index.html"><span class="doc">here</span></a>.</p>
 </div>
 <h2 id="general-first-steps">General first steps<a class="headerlink" href="#general-first-steps" title="Link to this heading">¶</a></h2>
-<p>When starting out in the platform there are some tasks that normally only need to be completed once.</p>
-<p>While there are multiple ways for you to accomplish these one time tasks, we will use the cloud
+<p>When starting out in the platform there are some tasks that you normally only need to
+perform once.</p>
+<p>While there are many ways for you to perform these one time tasks, we will use the cloud
 management portal in the following examples.</p>
-<p>The two main ways to connect your infrastructure (and in this case, your first instance) to the internet:</p>
+<p>The two main ways to connect your infrastructure (and in this case, your first instance)
+to the internet:</p>
 <ul class="simple">
 <li><p>Setup an instances to use a public IP directly (see <a class="reference external" href="/networking/directly-attached-ips">directly attached IP addresses</a>,
-which is not to be confused with floating IP addresses.</p></li>
-<li><p>Setup a <a class="reference internal" href="../networking/router/index.html"><span class="doc">Router</span></a> and use <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">Floating IP addresses</span></a> through the router.</p></li>
+which is not the same as floating IP addresses).</p></li>
+<li><p>Setup a <a class="reference internal" href="../networking/router/index.html"><span class="doc">Router</span></a> and use <a class="reference internal" href="../networking/floating-ips.html"><span class="doc">Floating IP addresses</span></a> with
+the router.</p></li>
 </ul>
-<p>We will cover the second option (router + floating IP) in this quick start guide as it will provide a more
-versatile option when growing your infrastructure as well as an additional layer of security.</p>
+<p>We will cover the second option (router + floating IP) in this quick start guide as it will
+provide a more versatile option when growing your infrastructure and add an extra layer of
+security.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Some features of the platform, for example load balancing, will <strong>require</strong> a router.</p>
-<p>From a security perspective its also preferable to use floating IP addresses as your instances will
-be less exposed to the internet than with a directly attached IP.</p>
-<p>Finally, when using a router with several instances, doing backend connections (for example from
-a web server to a database) can (and should) be done on the network setup rather than on the
-public IP addresses.</p>
-<p>For this reason, we recommend using a router in all use cases except when using only a single server
-with a strong local firewall in place.</p>
+<p>From a security perspective its also preferable to use floating IP addresses as your instances
+will be less exposed to the internet than with a directly attached IP.</p>
+<p>Finally, when using a router with many instances, doing backend connections (for example from
+a web server to a database) can (and should) on the local network rather than on the public
+IP addresses.</p>
+<p>For this reason, we recommend using a router in all use cases except when using only a single
+instance with a strong local firewall in place.</p>
 </div>
-<p>The following tasks are recommended to complete before launching your first instance:</p>
+<p>We recommend the following tasks to complete before launching your first instance:</p>
 <ul class="simple">
 <li><p>Add your SSH-key to the platform (if provisioning Linux-based instances).</p></li>
 <li><p>Create a network.</p></li>
@@ -1261,60 +1265,63 @@ with a strong local firewall in place.</p>
 <h3 id="add-an-ssh-key">Add an SSH-key<a class="headerlink" href="#add-an-ssh-key" title="Link to this heading">¶</a></h3>
 <p>Please see <a class="reference external" href="/compute/ssh-keys">this section</a> for information on how to add an SSH key.</p>
 <h3 id="create-a-network">Create a network<a class="headerlink" href="#create-a-network" title="Link to this heading">¶</a></h3>
-<p>To create a network, follow these steps:</p>
+<p>To create a network:</p>
 <ul class="simple">
-<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the lower right corner.</p></li>
 <li><p>Press <strong>Networking</strong> and then <strong>Network</strong> in the sidebar menu.</p></li>
 <li><p>Name the network and optionally add a description.</p></li>
-<li><p><strong>europe-se-1</strong> should be preselected as region.</p></li>
+<li><p><strong>europe-se-1</strong> is pre-selected as region.</p></li>
 <li><p>Under <strong>Availability zone</strong>, select a zone, we recommend <strong>europe-se-1a</strong></p></li>
 <li><p>Press <strong>Create</strong></p></li>
 </ul>
 <h3 id="add-a-subnet">Add a subnet<a class="headerlink" href="#add-a-subnet" title="Link to this heading">¶</a></h3>
-<p>To add a subnet (an ip-range) to the network you created above, follow these steps:</p>
+<p>To add a <a class="reference internal" href="../networking/subnet/index.html"><span class="doc">subnet</span></a> to the <a class="reference internal" href="../networking/network/index.html"><span class="doc">network</span></a>
+you created above.</p>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Network</strong> in the sidebar menu. Select the network you created
 in the previous step.</p></li>
 <li><p>In the top right corner, select <strong>Create subnet</strong> icon.</p></li>
 <li><p>Name the subnet.</p></li>
 <li><p>Type a network address in CIDR notation. This is the network your servers will run
-on. It needs to be in one of the RFC1918 ranges (10.0.0.0/8, 172.16.0.0/12 or
-192.168.0.0/16). If you are unsure what range to use we suggest <code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>.</p></li>
+on. It needs to be in one of the RFC1918 ranges (<code class="docutils literal notranslate"><span class="pre">10.0.0.0/8</span></code>, <code class="docutils literal notranslate"><span class="pre">172.16.0.0/12</span></code>
+or <code class="docutils literal notranslate"><span class="pre">192.168.0.0/16</span></code>). If you are unsure what range to use we suggest <code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>.</p></li>
 <li><p>Under <strong>Gateway IP</strong>, select <strong>Set standard gateway IP</strong>, this will select the first
 address in the range for your default route.</p></li>
 <li><p>While you don’t have to use DHCP, we strongly recommend it for an easier workflow. It
 should be pre-selected.</p></li>
 <li><p>Under <strong>Add pool</strong>, select what pool you want in the range you choose in previous step. You
-add a start and stop, for example in the above 192.168.0.0/24 example a start might be
+add a start and stop, for example in the above <code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code> example a start might be
 <code class="docutils literal notranslate"><span class="pre">192.168.0.100</span></code> and stop <code class="docutils literal notranslate"><span class="pre">192.168.0.200</span></code> giving you 101 addresses in the pool. As the
-first address (i.e. 192.168.0.1) is reserved for the gateway, you cant include that but
-can otherwise choose as you see your need.</p></li>
+first address (<code class="docutils literal notranslate"><span class="pre">192.168.0.1</span></code>) is the gateway, you cant include that but can otherwise
+choose as you see your need.</p></li>
 <li><p>Under <strong>Add DNS name server</strong>, add the name servers you want your network to use. Binero
-provides DNS name servers on 83.168.225.225 and 83.168.226.226 and we recommend those but
-you can use whichever you like.</p></li>
+provides DNS name servers on <code class="docutils literal notranslate"><span class="pre">83.168.225.225</span></code> and <code class="docutils literal notranslate"><span class="pre">83.168.226.226</span></code> and we recommend
+those but you can use any DNS servers.</p></li>
 <li><p>Press <strong>Create subnet</strong></p></li>
 </ul>
 <h3 id="create-a-router">Create a router<a class="headerlink" href="#create-a-router" title="Link to this heading">¶</a></h3>
-<p>To add a router, follow these steps:</p>
+<p>To create a <a class="reference internal" href="../networking/router/index.html"><span class="doc">router</span></a>.</p>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Routers</strong> in the sidebar menu.</p></li>
-<li><p>Press the <strong>+</strong> (plus) icon in the bottom right corner.</p></li>
-<li><p><strong>europe-se-1</strong> should be preselected as region.</p></li>
+<li><p>Press the <strong>+</strong> (plus) icon in the lower right corner.</p></li>
+<li><p><strong>europe-se-1</strong> is the pre-selected as region.</p></li>
 <li><p>Name the router and optionally add a description.</p></li>
-<li><p>Under <strong>Availability zone</strong>, select the same zone as the network you previously setup.</p></li>
-<li><p>Under <strong>Choose external network</strong>, select the network with same name as the availability zone you choose.</p></li>
+<li><p>Under <strong>Availability zone</strong>, select the same availability zone as the
+network you setup in the previous step.</p></li>
+<li><p>Under <strong>Choose external network</strong>, select the network with same name as
+the availability zone you choose.</p></li>
 <li><p>Press <strong>Create</strong></p></li>
 </ul>
 <h3 id="connect-router-to-subnet">Connect router to subnet<a class="headerlink" href="#connect-router-to-subnet" title="Link to this heading">¶</a></h3>
-<p>To connect your router to your subnet (to enable networking for the subnet through the
-router), follow these steps:</p>
+<p>To connect your <a class="reference internal" href="../networking/router/index.html"><span class="doc">router</span></a> on your <a class="reference internal" href="../networking/subnet/index.html"><span class="doc">subnet</span></a>
+(to enable networking for the subnet through the router).</p>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Routers</strong> in the sidebar menu. Select the router
 you created in the previous step.</p></li>
 <li><p>In the top right corner, select <strong>Create interface</strong> icon.</p></li>
-<li><p>The subnet you previously created should be pre-selected, if not select it.</p></li>
-<li><p>In the IP for, enter the first IP in the subnet you previously created. If you
-choose 192.168.0.0/24, the first usable address is 192.168.0.1.</p></li>
+<li><p>The subnet you just created should be pre-selected, if not select it.</p></li>
+<li><p>In the IP for, enter the first IP in the subnet you just created. If you
+choose <code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>, the first usable address is <code class="docutils literal notranslate"><span class="pre">192.168.0.1</span></code></p></li>
 <li><p>Press <strong>Create</strong></p></li>
 </ul>
 <p>At this point you are ready to provision your first compute instance!</p>
@@ -1325,7 +1332,7 @@ choose 192.168.0.0/24, the first usable address is 192.168.0.1.</p></li>
 <li><p><a class="reference external" href="/compute/launching-an-instance/openstack-terminal-client">OpenStack CLI</a></p></li>
 <li><p><a class="reference external" href="/compute/compute-api">API</a></p></li>
 </ul>
-<p>For users starting out in the platform and/or users that are not used to working with
+<p>For users starting out in the platform or users that are not used to working with
 public clouds, we recommend our cloud management portal.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

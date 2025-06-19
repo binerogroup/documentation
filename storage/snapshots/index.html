@@ -1444,24 +1444,23 @@
 <p>A snapshot is a point-in-time snapshot of a filesystem on a volume.</p>
 <p>Snapshots are pretty much instant because they don’t move any data but
 only creates a checkpoint from where it tracks changes. A revert to a
-snapshot is also fast as no data needs to be moved.</p>
+snapshot is also fast.</p>
 <p>Snapshots are hierarchal in the sense that each snapshot will reference the
 previous snapshots.</p>
 <p>The most common use-case for a snapshot is for testing out something in a
-production system. For example upgrades or other invasive actions if something
-goes wrong the snapshot can be used to revert.</p>
+production system. For example upgrades or other invasive actions and if
+something goes wrong you can revert to the snapshot.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>We recommend that you are conservative in the usage of snapshots and
-instead implement best practices to test your changes before going
-any invasive actions.</p>
+<p>We recommend that you are restrictive in the usage of snapshots and
+instead use best practices to test your changes before doing any invasive
+actions.</p>
 </div>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>A snapshot is <strong>NOT</strong> a <a class="reference internal" href="../../backup/index.html"><span class="doc">backup</span></a>. While it might seem like
-a good approach to just take recurring snapshots, so that its possible to revert
-to an older stage, no data is moved so in case of an issue with the underlying
-platform, all snapshots would be lost.</p>
+<p>A snapshot is <strong>NOT</strong> a <a class="reference internal" href="../../backup/index.html"><span class="doc">backup</span></a>. While it might be tempting
+to take recurring snapshots for safety, all data for snapshots is in the same storage
+platform as your primary data and does not protect you in case of an unexpected outage.</p>
 </div>
 <p>If you want to access the data of a snapshot, the recommended approach is to
 <a class="reference internal" href="create-volume-from-snapshot.html"><span class="doc">Create a volume from a snapshot</span></a> and attach it to an instance (or base a new

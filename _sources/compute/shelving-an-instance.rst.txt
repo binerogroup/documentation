@@ -7,8 +7,8 @@ the allocated resources required to run the instance and decrease the price you
 pay for resource you're don't currently need.
 
 Shelving an instance saves your data by uploading it to the image service and
-storage such as volumes are not touched. The metadata about your instance is
-saved and any compute allocations is released.
+storage such as volumes are not touched. The system saves the metadata about
+your instance and releases any compute allocations.
 
 You can at any time unshelve the instance and start it again.
 
@@ -25,38 +25,42 @@ You can at any time unshelve the instance and start it again.
 Shelve an instance using Cloud portal
 -------------------------------------
 
-To shelve an `instance <index>`_ from the :doc:`/getting-started/managing-your-cloud/cloud-management-portal`
+To shelve an `instance <index>`_ from the
+:doc:`/getting-started/managing-your-cloud/cloud-management-portal`
 
-- Click **Compute** -> **Instances** in the sidebar menu.
+- Click **Compute** then **Instances** in the sidebar menu.
 
 - On the card for the instance click the dropdown menu and click the **Shelve** action
 
 Shelve an instance using OpenStack Horizon
 ------------------------------------------
 
-- Click **Project** -> **Compute** -> **Instances** in the sidebar menu.
+- Click **Project**, then **Compute**, then **Instances** in the sidebar menu.
 
 - In the dropdown menu to the right for the instance, click **Shelve instance**.
 
-The instance will be powered off (if its in a running state) and then the shelving process
-will start.
+If the instance is running, the system will power it off and then start the
+shelving process.
 
-To unshelve the instance repeat the same process but click **Unshelve instance** in the
-dropdown menu.
+To unshelve the instance repeat the same process but click **Unshelve instance**
+in the dropdown menu.
 
 Shelve an instance using OpenStack Terminal client
 --------------------------------------------------
 
-To shelve an `instance <index>`_ using the OpenStack terminal client.
+To shelve an `instance <index>` by using the OpenStack terminal client.
 
-- Identify the instance you want to shelve. This can be done by listing existing instance with ``openstack server list``
+- Identify the instance you want to shelve. You can find it by listing existing
+  instance with ``openstack server list``
 
-- To shelve the instance run ``openstack server shelve [NAME]``. Replace the values within brackets with the name of the
-  instance from the previous step.
+- To shelve the instance run ``openstack server shelve [NAME]``. Replace the values
+  within brackets with the name of the instance from the previous step.
 
-The instance will be powered off (if its in a running state) and then the shelving process will start.
+If the instance is running, the system will power it off and then start the
+shelving process.
 
-To unshelve the instance repeat the same process but instead run ``openstack server unshelve [NAME]``
+To unshelve the instance repeat the same process but instead
+run ``openstack server unshelve [NAME]``
 
 .. seealso::
 

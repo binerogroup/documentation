@@ -1280,7 +1280,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1753,10 +1753,10 @@
   
 
 <h1 id="managing-users-of-client-vpn">Managing users of client VPN<a class="headerlink" href="#managing-users-of-client-vpn" title="Link to this heading">¶</a></h1>
-<p>You are able to use various authentication mechanisms with the client VPN service.</p>
+<p>You are able to use different authentication mechanisms with the client VPN service.</p>
 <p>It supports both LDAP and Radius (which in turn will support many other mechanisms
-as well as 2FA, etc). The scope of this support article will however only include
-local users.</p>
+such as 2FA and so on). The scope of this support article will only include local
+users.</p>
 <h2 id="add-a-user">Add a user<a class="headerlink" href="#add-a-user" title="Link to this heading">¶</a></h2>
 <p>To add a user, using the VPN WebGUI.</p>
 <ul class="simple">
@@ -1767,7 +1767,8 @@ local users.</p>
 <li><p>Enter a full name.</p></li>
 <li><p>Enter a password and verify it.</p></li>
 <li><p>Check the <strong>Click to create a user certificate</strong> checkbox.</p></li>
-<li><p>Copy the username to the <strong>descriptive name</strong> field under <strong>create certificate for user</strong>.</p></li>
+<li><p>Copy the username to the <strong>descriptive name</strong> field under <strong>create certificate
+for user</strong>.</p></li>
 <li><p>Press <strong>Save</strong>.</p></li>
 </ul>
 <h2 id="remove-a-user">Remove a user<a class="headerlink" href="#remove-a-user" title="Link to this heading">¶</a></h2>
@@ -1780,9 +1781,9 @@ local users.</p>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>A deleted user will not immediately be disconnected from the VPN. If that is needed for
-any reason, do so by pressing <strong>Status</strong> and then <strong>OpenVPN</strong> in the main menu, and then
-pressing the small red X next to the user.</p>
+<p>A deleted user will not disconnect immediately from the VPN. If that’s needed for
+any reason, do so by pressing <strong>Status</strong> and then <strong>OpenVPN</strong> in the main menu, and
+then pressing the cross (<code class="docutils literal notranslate"><span class="pre">x</span></code>) next to the user.</p>
 </div>
 
 

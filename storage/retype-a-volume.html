@@ -1337,9 +1337,9 @@
 <h1 id="retype-a-volume">Retype a volume<a class="headerlink" href="#retype-a-volume" title="Link to this heading">¶</a></h1>
 <p>If you created a volume with the wrong <a class="reference internal" href="storage-types.html"><span class="doc">storage type</span></a> you are able
 to retype it.</p>
-<p>Perhaps you’ve noticed that a disk was to heavily utilised causing IO-wait on your instances
-because it was placed on HDD storage and want to change it to SSD. The other scenario might
-be a volume has grown and is to expensive to host on SSD.</p>
+<p>Perhaps you’ve noticed that a disk was to heavily utilised causing IO-wait on your instance
+because it’s using HDD storage and want to change it to SSD. The other scenario might be a
+volume has grown and is to expensive to host on SSD.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>NVMe volumes are different, they are a local resource on the hypervisors and cannot be
@@ -1347,14 +1347,15 @@ retyped. If you need to move to NVMe, you would need to setup a new instance bas
 NVMe, attach your volume, move the data to the local disk, then detach and delete the
 volume.</p>
 </div>
-<p>The following two requirements <em>must be met</em> to re-type volumes that are attached to instances:</p>
+<p>The following two requirements <strong>must be true</strong> to re-type a volume attached to an instance:</p>
 <ul class="simple">
 <li><p>The instance must be running.</p></li>
 <li><p>There must not be <a class="reference internal" href="snapshots/index.html"><span class="doc">snapshots</span></a> on the volume.</p></li>
 </ul>
 <p>Any deviations will cause a silent fail. A volume that is not attached also cant have any snapshots
-but will otherwise be possible to just retype at convenience. A retype may take several hours, the
-instance is available during this time but may have reduced IO during the swap-over.</p>
+but will otherwise be possible to just retype at convenience.</p>
+<p>A retype can take hours to complete depending on the size of the volume, the instance is available
+during this time but can have reduced IO during the swap-over.</p>
 <p>We recommend doing this procedure during the night time (when IO is likely less).</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
@@ -1362,9 +1363,9 @@ instance is available during this time but may have reduced IO during the swap-o
 first <a class="reference internal" href="../backup/index.html"><span class="doc">backing</span></a> it up before proceeding.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
-<p>Its currently not possible to retype volumes using the cloud management portal.</p>
+<p>Its currently not possible to retype volumes by using the cloud management portal.</p>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
-<p>To retype a volume using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, follow these steps:</p>
+<p>To retype a volume by using <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the instance from which you want to remove a volume.</p></li>
@@ -1373,19 +1374,16 @@ first <a class="reference internal" href="../backup/index.html"><span class="doc
 <li><p>Select the new type.</p></li>
 <li><p>In migration policy dropdown, select <strong>On-demand</strong>.</p></li>
 <li><p>Press <strong>Change volume type</strong></p></li>
-<li><p>A progress bar will show during the retype procedure (which may take several hours).</p></li>
+<li><p>A progress bar will show during the retype operation (which can take hours depending on size).</p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
-<p>To retype a volume using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>, follow these steps:</p>
+<p>To retype a volume by using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance to which the volume
-you want to extend is connected.</p></li>
-<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the name with
-that from previous step.</p></li>
+<li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">list</span></code>, save the ID of the volume you want to retype.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">type</span> <span class="pre">list</span></code>, save the name of the new volume type you want
-to use (ssd or hdd).</p></li>
+to use (for example <code class="docutils literal notranslate"><span class="pre">ssd</span></code> or <code class="docutils literal notranslate"><span class="pre">hdd</span></code>).</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">set</span> <span class="pre">--type</span> <span class="pre">[TYPE_NAME]</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">--retype-policy</span> <span class="pre">on-demand</span></code>, replacing
-the items in angle brackets with the type name (hdd/ssd) and the ID of the volume from previous steps.</p></li>
+the items in angle brackets with the volume type name and the ID of the volume.</p></li>
 <li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">show</span> <span class="pre">[VOLUME_ID]</span> <span class="pre">-c</span> <span class="pre">status</span></code>, when the status changes
 from retyping, the retype is done.</p></li>
 </ul>

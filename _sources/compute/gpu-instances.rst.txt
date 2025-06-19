@@ -16,14 +16,14 @@ The key differences between GPUs and CPUs are:
    * - CPUs
      - GPUs
 
-   * - Work mostly in sequence. Several cores and good task switching give
+   * - Generally work in sequence. Many cores and good task switching give
        the impression of parallelism but a CPU is fundamentally designed to run
        one task at a time.
-     - Are designed to work in parallel. A vast amount of cores and threading
+     - Designed to work in parallel. A large amount of cores and threading
        managed in hardware enables GPUs to perform many calculations at once. 
 
-   * - Are designed for task parallelism.
-     - Are designed for data parallelism.
+   * - Designed for task parallelism.
+     - Designed for data parallelism.
 
    * - Have a small amount of cores that can complete a single complex tasks at
        a high speed.
@@ -31,71 +31,67 @@ The key differences between GPUs and CPUs are:
        or calculations in parallel.
 
    * - Have access to a large amount of (by comparison) slow RAM at a low
-       latency. CPUs are therefore latency (operation) optimised.
+       latency. CPUs are latency (operation) optimized.
      - Have access to a (by comparison) small amount of fast RAM at a higher
-       latency. GPUs are therefore throughput optimised.
+       latency. GPUs are throughput optimized.
 
-   * - Have a versatile instruction set, allowing it to execute complex tasks
-       in fewer cycles but creates overhead in others.
-     - Have a limited (but highly optimised) instruction set which can execute the
-       tasks its designed for efficiently.
+   * - Have a versatile instruction set, allowing it to perform complex tasks
+       in fewer cycles but is bad at some other tasks.
+     - Have a limited (but highly optimized) instruction set which can perform
+       the tasks its designed for efficiently.
 
-   * - Task switching (as a result from running the OS) creates overhead. 
-     - Tasks switching is not used, serial data streams are processed in
+   * - Task switching and general use-case decreases performance. 
+     - Tasks switching is not used, processes serial data streams in
        parallel from A to B.
 
-   * - Would always work for any given use case but may not provide good enough
+   * - Would always work for any given use-case but might not provide good enough
        performance for some tasks.
-     - Would only be a valid choice for some use cases but would in those cases
+     - Would only be a valid choice for some use-cases but would in those cases
        provide good performance.
 
 In summary, for applications such as machine learning (ML), artificial intelligence (AI) or
 image processing, a GPU would likely provide a 50x to 200x increase in performance over a typical
 CPU doing the same work.
 
-Using a GPU, however, requires and adaptation to the APIs available from the GPU manufacturer.
+Using a GPU, requires adaptation to the APIs available from the GPU manufacturer.
 
-Binero cloud provides GPUs from NVIDIA, supporting among others OpenCL and CUDA. 
-
-Binero clouds compute instances are all running on our high performance instance types. While the
-GPU is generally an *accelerator* (that is, used to speed up certain general compute processes not
-specifically relating to graphics), its also possible to use it as a graphics processing unit in an
-instance for actually accelerating 3D or high resolution 2D. 
+Binero cloud provides GPUs from NVIDIA, supporting among others OpenCL and CUDA running
+on our high performance instance types.
 
 Setting up a GPU instance
 -------------------------
 
-A GPU instance :doc:`is launched <launching-an-instance/index>` the same way as any other compute
-instance with a few things to remember:
+You :doc:`launch <launching-an-instance/index>` a GPU instance the same way as any other
+compute instance with a few things to remember:
 
 - When launching a GPU, select one of the :doc:`flavors` that include GPUs. 
 
 - You have the option to choose a GPU with NVMe backed storage for high performing storage. This
-  is however not a requirement for GPU based compute, see :doc:`/storage/nvme-storage` for more
-  information.
+  is not a must for GPU based compute, see :doc:`/storage/nvme-storage` for more information.
 
 - We recommend using Ubuntu 24.04 as :doc:`image </images/index>` for your GPU based instance. This is
   because we have tested the NVIDIA driver with this image with good result. That said, its possible to
   run a multitude of images.
 
-- When the image is up and running, you will get a maximum of 10% of the GPUs performance without a license
-  installed. Please see below section on installing license for more information.
+- When the image is up and running, you will only get 10% of the GPUs performance without a license
+  installed. See below section on installing license for more information.
 
 Installing the driver
 ---------------------
 
-In order to use the GPU functionality, a driver from NVIDIA needs to be installed on the instance that has
-access to the virtual GPU. Please follow below instructions to install the driver.
+To use the GPU functionality, you need to install a driver from NVIDIA on the instance that has
+access to the GPU. See the below instructions to install the driver.
 
 The current NVIDIA vGPU Software Version that we are running is: **18.1**
-The current latest driver we support is **Linux:570.133.20 Windows:572.83** 
+
+The current latest driver we support is **Linux: 570.133.20** and **Windows: 572.83** 
 
 For full list of supported versions click `here <https://docs.nvidia.com/vgpu/18.0/grid-vgpu-release-notes-red-hat-el-kvm/index.html>`__.
 
 .. important::
 
-   After installation of the driver, a reboot is required. Schedule the upgrade so as to allow for a reboot
-   to take place. 
+   After installing the driver you must reboot your instance. Schedule the upgrade to allow for a
+   reboot to take place. 
 
 Linux
 ^^^^^
@@ -104,37 +100,39 @@ Follow the below steps to install the Linux driver in your instance.
 
 .. note::
 
-   In the below example we are using Ubuntu 24.04 as operating system. For any other Linux OS, the steps would be
-   equal but some commands are not identical.
+   The example below is using Ubuntu 24.04 as operating system. For any other Linux based operating system, the
+   steps would be equal but some commands might not be identical.
 
-   Please ask our support if you need assistance installing the driver on another of the images we provide.
+   :doc:`Contact our support </general/getting-support>` if you need help installing the driver on other
+   operating systems than the example below.
 
-- Verify that the instance is able to see the graphics adapter. This can be done by running ``lspci | grep -i nvidia`` which
+- Verify that the instance is able to see the graphics adapter by running ``lspci | grep -i nvidia`` which
   would return something like ``00:05.0 VGA compatible controller: NVIDIA Corporation Device 2236 (rev a1)``
 
-- Installation of ``g++``, ``make`` and ``dkms`` is required for the installation of the driver. This can be
-  installed by running for example (depending on OS): ``sudo apt update && sudo apt -y install build-essential dkms``
-
+- You need to install the dependencies ``g++``, ``make`` and ``dkms`` to installation and build the driver. This
+  depends on your operating system, for example ``sudo apt update && sudo apt -y install build-essential dkms``
 
 - Fetch the driver by running: ``curl -O https://binero.com/downloads/nvidia-linux-grid-570_570.133.20_amd64.deb``
 
-- Set execute permissions by running ``chmod +x nvidia-linux-grid-570_570.133.20_amd64.deb``
+- Set executable permission by running ``chmod +x nvidia-linux-grid-570_570.133.20_amd64.deb``
 
 - Install the driver by running ``dpkg -i nvidia-linux-grid-570_570.133.20_amd64.deb``
 
-- Verify a successful installation by reading ``/var/log/nvidia-installer.log``. The command ``nvidia-smi`` would give you
-  more useful output.
+- Verify a successful installation by reading ``/var/log/nvidia-installer.log``. The command ``nvidia-smi`` would
+  give you more useful output.
 
-- At this point, you need a valid license which `our support </general/getting-support>`_ can provide. Its included in the instance
-  monthly cost but not assigned until requested.
+- At this point, you need a valid license which `our support </general/getting-support>`_ provides you with. Its
+  included in the instance cost but not assigned until requested.
 
-- The license should be pasted into ``/etc/nvidia/ClientConfigToken/client_configuration_token.tok``
+- The license should added to file ``/etc/nvidia/ClientConfigToken/client_configuration_token.tok`` making sure
+  to not have any extra spaces or newlines.
 
 - Restart ``nvidia-gridd`` by running ``sudo systemctl restart nvidia-gridd``
 
 - The command ``nvidia-smi -q | grep License`` should now return a valid license
 
-- Install CUDA toolkit and CuDNN (optional, note that below instruction is for Ubuntu, other operating systems might require different packages)
+- Install CUDA toolkit and CuDNN (optional, note that below instruction is for Ubuntu, other operating systems might
+  require different packages)
 
 ::
 
@@ -155,7 +153,7 @@ Windows
 
 - Download the driver `here <https://binero.com/downloads/572.83_grid_win10_win11_server2022_dch_64bit_international.exe>`__.
 
-- Execute the file with administrative privileges and click through the installation.
+- Run the file with administrative privileges and click through the installation.
 
 - When the installation finishes, reboot the instance. 
 
@@ -178,16 +176,16 @@ Upgrading the driver
 
 From time to time, NVIDIA will release (and Binero will provide) and upgraded version of the GPU driver.
 
-This is in order to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, it
-will be required to maintain a working system) that the driver be updated on the instances running it.
+This is to correct potential bugs and keep the software secure. When this happens, Binero strongly recommends (and in some cases, you must upgrade
+to maintain a working system) that you upgrade the driver on the your instances.
 
-Please follow below instructions to upgrade the driver.
+See below instructions to upgrade the driver.
 
-The latest version of the driver that we support is ** Linux: 570.133.20 Windows: 572.83.**
+The latest version of the driver that we support is **Linux: 570.133.20** and **Windows: 572.83**
 
 .. important::
 
-   After installation of the driver, a reboot is required. Schedule the upgrade so as to allow for a
+   After upgrading the driver you must reboot your instance. Schedule the upgrade to allow for a
    reboot to take place. 
 
 Linux
@@ -220,7 +218,7 @@ Follow below steps to upgrade the NVIDIA driver on a Windows based platform:
 
 - Download the driver `here <https://binero.com/downloads/572.83_grid_win10_win11_server2022_dch_64bit_international.exe>`__.
 
-- Execute the file with administrative privileges.
+- Run the file with administrative privileges.
 
 - Follow the installation instructions. 
 

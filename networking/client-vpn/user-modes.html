@@ -1280,7 +1280,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1753,35 +1753,36 @@
   
 
 <h1 id="user-modes">User modes<a class="headerlink" href="#user-modes" title="Link to this heading">¶</a></h1>
-<p>While there are several modes of operation possible on the VPN, there are two main modes that
+<p>While there are many modes of operation possible on the VPN, there are two main modes that
 we recommend, the difference being wether to require individual user authentication.</p>
 <p>Both modes will provide <a class="reference internal" href="security-settings.html"><span class="doc">strong encryption</span></a> but aims to provide
 solutions for different use-cases.</p>
 <h2 id="default-configuration">Default configuration<a class="headerlink" href="#default-configuration" title="Link to this heading">¶</a></h2>
 <p>In its default configuration, the VPN service does not rely on user accounts but rather a
-certificate and a TLS key which is shared among its clients.</p>
-<p>This is a good starting point as a VPN configuration can be shared among users and will be identical
-to all, no user management is required and getting one or more users enrolled to the VPN is as
-quick as importing the configuration into the client and hitting connect.</p>
+certificate and a TLS key shared among its clients.</p>
+<p>This is a good starting point as you can share the VPN configuration among users and is identical
+for all users, you don’t need any user management and getting one or more users enrolled to the
+VPN is as fast as importing the configuration into the client and connecting.</p>
 <p>Once connected, it will provide a secure communication to the inside network where authentication
 would (most likely) still enforce a username and password (or key).</p>
 <p>Having a VPN greatly simplifies <a class="reference internal" href="../reaching-your-instances.html"><span class="doc">connecting to your instances</span></a>
 and communication is secure.</p>
 <p>A potential downside to this setup is that its impossible to deactivate a user from the VPN that
-have the configuration already setup without changing the certificates and/or the TLS key for
-all users that should retain connectivity.</p>
+already have the configuration without changing the certificates or the TLS key for all users.</p>
 <p>In case the internal authentication protocols (once connected to the VPN) are not considered a
 strong enough security level, this then becomes a cumbersome process when for example an employee
 leaves or a consultant stops working on a project where, had there been user authentication, you would
 normally remove the user and disconnect any existing sessions.</p>
-<p>Its worth to mention, however, that a security minded organisation will roll certificates and keys
-from time to time anyhow, which would result in new client configuration having to be imported on
-the end users computers.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Remember that it’s best practice to renew certificates and keys at a regular interval which
+further makes this a cumbersome solution.</p>
+</div>
 <h2 id="individual-users">Individual users<a class="headerlink" href="#individual-users" title="Link to this heading">¶</a></h2>
 <p>An alternative way to authenticate users is by setting up individual users with passwords and unique
-certificates for another layer of security.</p>
-<p>A user can then be removed should the need arise and there is then no need to replace the certificates
-and keys for all users.</p>
+certificates to increase the layers of security.</p>
+<p>This allows you to remove a user should the need arise and there is then no need to replace the
+certificates and keys for all users.</p>
 <p>To change the operating mode to include user authentication, using the VPN WebGUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
@@ -1792,20 +1793,22 @@ under <strong>OpenVPN servers</strong>.</p></li>
 to <code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">Access</span> <span class="pre">(</span> <span class="pre">SSL/TLS</span> <span class="pre">+</span> <span class="pre">User</span> <span class="pre">Auth</span> <span class="pre">)</span></code></p></li>
 <li><p>Scroll down to <strong>Duplicate Connection</strong> under section <strong>Tunnel settings</strong> and disable it (by removing the
 checkbox) if you only want to allow one simultaneous connection per user. This will enforce that a single
-user is not sharing their login (willingly or otherwise) as just a single login at the time, per user account, is allowed.</p></li>
+user is not sharing their login (willingly or otherwise) as just a single login at the time per user account
+is possible.</p></li>
 <li><p>Press <strong>Save</strong> at the bottom.</p></li>
 </ul>
 <p>You are now ready to <a class="reference internal" href="managing-users.html"><span class="doc">create some users</span></a> to login to your VPN.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>If you’ve previously used the default mode, you will need to ensure that you also <a class="reference internal" href="logging-in.html"><span class="doc">update your client configuration</span></a>
-before logging in again.</p>
-<p>The configuration will be different on the client side and other certificates will be used.</p>
+<p>If you’ve changed from using the default mode, you will need to ensure that you
+also <a class="reference internal" href="logging-in.html"><span class="doc">update your client configuration</span></a> before logging in again.</p>
+<p>The configuration will be different on the client side with new per user certificates.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>When removing a user, it will not automatically be disconnected logged out but rather cannot log back in once
-disconnected. It is however possible to do manual disconnect via the web interface under <strong>Status</strong> and then <strong>OpenVPN</strong>.</p>
+<p>When removing a user, the user will not disconnect or logout automatically but rather
+cannot log back in once disconnected. It’s possible to manually disconnect a user via
+the web interface under <strong>Status</strong> and then <strong>OpenVPN</strong>.</p>
 </div>
 
 

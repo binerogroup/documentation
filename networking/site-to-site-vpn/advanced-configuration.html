@@ -1208,7 +1208,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1682,18 +1682,18 @@
 
 <h1 id="advanced-configuration">Advanced configuration<a class="headerlink" href="#advanced-configuration" title="Link to this heading">¶</a></h1>
 <p>While the VPN service sets up a template configuration of a site-to-site VPN with
-sane defaults, should you for example require more IPsec flows (more subnets) or
-changing settings, you will need to use the administration interface for the VPN
+verified defaults, should you for example require more IPsec flows (more subnets)
+or changing settings, you will need to use the administration interface for the VPN
 itself.</p>
 <p>When provisioning the VPN, you will get output. The <code class="docutils literal notranslate"><span class="pre">mgmt_url</span></code> output will be the
 URL that you us for managing the VPN service. Enter it into a browser.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Remember that only the IP (range) that you added in <strong>Admin IP ranges</strong> when setting
-up the VPN will be allowed to login.</p>
-<p>This is managed via a <a class="reference internal" href="../security-groups/index.html"><span class="doc">security group</span></a>
-which is called <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code>, if you’ve not retained the
-same IP, you may need to edit the security group.</p>
+up the VPN can login.</p>
+<p>You can update that in the <a class="reference internal" href="../security-groups/index.html"><span class="doc">security group</span></a>
+named <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_management</span></code>, if your public IP address has
+changed, you may need to edit the security group.</p>
 </div>
 <p>You would also have gotten an <code class="docutils literal notranslate"><span class="pre">admin_password</span></code> output, which is a generated password for
 your instance. This, combined with the username <cite>´admin`</cite> will give you access to the portal.</p>
@@ -1719,11 +1719,10 @@ on the instance.</p>
 </div>
 <p>While the PSK (Pre-Shared Key) is uniquely generated, it <strong>is</strong> saved as part of the output in the platform
 in plain text (a user with access to the platform can read it).</p>
-<p>The IPsec service is using a firewall (other than traffic from the remote gateway) so the service itself
-is protected.</p>
-<p>You might however still want to consider switching this from the standard output to your own string. If so, please
-remember, the PSK need to be identical on both sides of the tunnel.</p>
-<p>To do this, follow these steps:</p>
+<p>The IPsec service is using a firewall (other than traffic from the remote gateway) to secure the service.</p>
+<p>You might still want to consider switching this from the standard output to your own string. If so, remember
+that the PSK need to be identical on both sides of the tunnel.</p>
+<p>If you want to change the PSK:</p>
 <ul class="simple">
 <li><p>Login to the admin UI according to above.</p></li>
 <li><p>Press <strong>VPN</strong> in the main menu.</p></li>
@@ -1736,22 +1735,22 @@ equally long and complex string.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Don’t forget to also update the remove system as otherwise the tunnel will not work.</p>
+<p>Remember to also update the PSK on the remote system or the tunnel will not work.</p>
 </div>
 <h2 id="changing-ipsec-configuration">Changing IPsec configuration<a class="headerlink" href="#changing-ipsec-configuration" title="Link to this heading">¶</a></h2>
 <p>While this guide does not exhaustively cover all the features of the VPN service (more information
 available <a class="reference external" href="https://www.pfsense.org/get-involved/">here</a>), the most common task you might face with
 the site-to-site appliance might be to change the IPsec configuration. Its located under the main
 menu <strong>VPN</strong> and then <strong>IPsec</strong>.</p>
-<p>The IPsec configuration is made up of two phases, phase 1 and phase 2. In phase 1 (also called quick
-mode) the settings for negotiating cryptographic parameters are set.</p>
+<p>The IPsec configuration consists of two phases, phase 1 and phase 2. In phase 1 (also called quick
+mode) the you configure settings for negotiating cryptographic parameters.</p>
 <p>You can press the small pencil (edit) next to the only row available (in a default installation) to
 edit it.</p>
 <p>If you want to edit phase 2 (also known as main mode), you can press <strong>Show phase 2 entries</strong> and then
 press the small pencil next to each line.</p>
-<p>In order to add another flow (another subnet that is sent across the tunnel), an additional phase 2 row
-should be added. The simplest way to do so is to clone the current row by pressing the small <em>copy</em>
-button next to the pencil. Then change the relevant information.</p>
+<p>To add another flow (another subnet sent across the tunnel), you need to add an extra phase 2 row. The
+simplest way to do so is to clone the current row by pressing the small <em>copy</em> button next to the
+pencil. Then change the relevant information.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

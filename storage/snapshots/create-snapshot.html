@@ -1464,11 +1464,11 @@
 <p>A snapshot is a point-in-time snapshot of the state of an instance or
 a volume.</p>
 <p>You can create a snapshot of a single volume or create a snapshot of an
-instance, when creating a snapshot of an instance a snapshot is created
-for each attached volume to the instance. Metadata about the instance is
+instance, when creating a snapshot of an instance, snapshots get created
+for each volume attached to the instance. Metadata about the instance gets
 saved as an image.</p>
 <p>This part will focus on creating a snapshot of an instance. This will
-allow you to create a new, mostly, identical instance from the snapshot.</p>
+allow you to create a new instance from the snapshot.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Creating a new instance from the image created from a snapshot will
@@ -1480,11 +1480,10 @@ instance ports (and thus not any IP addressing).</p>
 <p>For data integrity reasons, we recommend shutting of the instance before taking
 a snapshot.</p>
 <p>Incomplete writes might otherwise impact data integrity and in result in a
-inconsistent snapshot where your data is broken resulting in at worst data loss.</p>
+inconsistent snapshot with corrupt data resulting in at worst data loss.</p>
 </div>
-<p>We recommend only having snapshots for limited periods of time. The more writes
-that are added to a snapshot, the longer it will take to consolidate when deleting,
-we recommend that you regularly <a class="reference internal" href="delete-snapshot.html"><span class="doc">delete snapshots</span></a>.</p>
+<p>We recommend only having snapshots for limited periods of time and recommend that you
+regularly <a class="reference internal" href="delete-snapshot.html"><span class="doc">delete snapshots</span></a>.</p>
 <div class="caution warning admonition">
 <p class="admonition-title">Caution</p>
 <p>Snapshots is <strong>NOT</strong> backups and are does not provide any more data safety or
@@ -1500,10 +1499,10 @@ guarantee than the underlying storage used for the volume does.</p>
 <li><p>Name your snapshot.</p></li>
 <li><p>Press <strong>Create</strong></p></li>
 </ul>
-<p>Your snapshot is available in the <strong>Snapshot</strong> tab of the instance as well as if you
-press <strong>Storage</strong> and then <strong>Snapshots</strong> in the main menu. In the latter case, there
-will be one snapshot per volume of the instance you created the snapshots from (only
-one if the instance only had a single volume).</p>
+<p>Your snapshot is available in the <strong>Snapshot</strong> tab of the instance and if you press
+<strong>Storage</strong> and then <strong>Snapshots</strong> in the main menu. In the latter case, there will
+be one snapshot per volume of the instance you created the snapshots from (only one
+if the instance only had a single volume).</p>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
 <p>To create a snapshot using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">

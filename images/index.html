@@ -1395,15 +1395,15 @@
 
 <h1 id="images">Images<a class="headerlink" href="#images" title="Link to this heading">¶</a></h1>
 <p>The image service in Binero cloud allows you to store and retrieve virtual machine images that
-you can be used to populate a <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volume</span></a> or boot
-an <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a> from.</p>
-<p>The pricing for uploaded images is per gigabyte hour (GB/h) for the combined used space for
-all your private images. See our pricing list for more details.</p>
+you can populate a <a class="reference internal" href="../storage/persistent-block-storage/index.html"><span class="doc">volume</span></a> or boot an
+<a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a> from.</p>
+<p>The pricing for uploaded images is per gigabyte hour for the combined used space for all your
+private images. See our pricing list for more details.</p>
 <h2 id="public-images">Public images<a class="headerlink" href="#public-images" title="Link to this heading">¶</a></h2>
 <p>Binero cloud provides images of popular virtual machine images and operating systems from
 official sources that are publicly available in the platform so that you can get started quickly.</p>
-<p>Each image is configured to honor <a class="reference internal" href="cloud-init.html"><span class="doc">cloud-init</span></a>. Images is always used
-as a source from volumes or instances and the images themselves are never written to.</p>
+<p>All images uses <a class="reference internal" href="cloud-init.html"><span class="doc">cloud-init</span></a>. Images is always used as a source for volumes
+or instances and the images themselves are never written to.</p>
 <h2 id="private-images">Private images<a class="headerlink" href="#private-images" title="Link to this heading">¶</a></h2>
 <p>You can upload and store images that only you have access to on your account. You can create a
 image from an existing <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a>, this can be useful if you already have
@@ -1416,32 +1416,32 @@ already have a image that you want to use in Binero cloud as well.</p>
 <p>Customers can only upload private images and cannot set image visibility to public
 or community as that would open up a security vulnerability for malicious images.</p>
 </div>
-<p>To upload an image using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To upload an image by using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Compute</strong> and then <strong>Images</strong> in the sidebar menu</p></li>
-<li><p>Click the plus sign (+) in the bottom right corner</p></li>
+<li><p>Click the plus sign (+) in the lower right corner</p></li>
 <li><p>Specify a image name</p></li>
 <li><p>Select the disk format that the image has</p></li>
 <li><p>Select a operating system and version that matches what your image contains</p></li>
 <li><p>Set the architecture to x86_64 as this is the only supported architecture</p></li>
 <li><p>Set the visibility to private</p></li>
-<li><p>You can upload a image either using an URL that will be downloaded or
+<li><p>You can upload a image either using an URL that’s downloaded or
 from a file on your computer, select what you prefer.</p></li>
 <li><p>You can leave any remaining fields empty unless you want to fill them
 in as well.</p>
 <ul>
 <li><p>If you want to prevent your image from being accidentally deleted you
-can set the image as protected which means it will need to be unprotected
-in order for a delete on the image to be successful.</p></li>
+can set the image as protected which means you need to un-protect it
+before you can delete the image.</p></li>
 </ul>
 </li>
 <li><p>Click <strong>Create Image</strong></p></li>
 </ul>
 <h3 id="creating-image-from-instance">Creating image from instance<a class="headerlink" href="#creating-image-from-instance" title="Link to this heading">¶</a></h3>
-<p>Creating a private image from an existing instance that is available in the cloud
-is done with the snapshot instance feature.</p>
+<p>You can create a private image from an existing instance that is available in the cloud
+with the snapshot instance feature.</p>
 <p>See the <a class="reference internal" href="../storage/snapshots/create-snapshot.html"><span class="doc">Create snapshot</span></a> documentation that details creating
-an instance snapshot that can then be uploaded as an image.</p>
+an instance snapshot that you can then upload as an image.</p>
 <h2 id="create-instance-from-image">Create instance from image<a class="headerlink" href="#create-instance-from-image" title="Link to this heading">¶</a></h2>
 <p>To create a new compute instance from an image, see the <a class="reference internal" href="launch-instance-from-image.html"><span class="doc">Launch instance from image</span></a>
 documentation.</p>

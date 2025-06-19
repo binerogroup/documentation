@@ -999,7 +999,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1597,70 +1597,71 @@ availability zones.</p>
 <p>If you are looking to deploy a geographically redundant network, understanding the base
 design principles will help you create a resilient and highly available system with no
 dependencies between the availability zones.</p>
-<p>This is key to retaining connectivity (and overall system functionality) in case of a
-hypothetical availability zone outage scenario.</p>
+<p>This is key to retaining connectivity (and system functionality) in case of a hypothetical
+availability zone outage scenario.</p>
 <h2 id="networks-and-subnets">Networks and subnets<a class="headerlink" href="#networks-and-subnets" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="network/index.html"><span class="doc">Networks</span></a> (and therefore <a class="reference internal" href="subnet/index.html"><span class="doc">Subnets</span></a>) stretch
-between availability zones (but not between regions).</p>
+<p><a class="reference internal" href="network/index.html"><span class="doc">Networks</span></a> (and <a class="reference internal" href="subnet/index.html"><span class="doc">Subnets</span></a>) is available in all availability zones in the
+region, but <strong>not</strong> between regions.</p>
 <p>This enables you to connect instances in different availability zones directly to each other
 on the same network (same layer 2 broadcast domain).</p>
-<p>We do however recommend the routed approach to inter availability zone communication (more
+<p>We do recommend the routed approach to inter availability zone communication (more
 information in section about routers below).</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>A valid use case for using the same subnet in more then one availability zone would be a non
 routed back network.</p>
-<p>This might be used for backups, database connections, access from bounce server, etc. If its
-only used for traffic within the platform and not for ingress/egress to or from the platform,
-it will not introduce dependencies on a specific zone.</p>
-<p>This is a solution but usually implies multi homing instances (adding more than one port/nic)
-which would negate the gain by having to maintain more firewall rules, separate
-IP networks and harder to troubleshoot.</p>
-<p>Our recommendation therefore, is to use routing to communicate between availability
+<p>You could use this for backups, database connections, access from bounce server, and so on.</p>
+<p>If its only used for traffic within the platform and not for ingress or egress to the
+platform, it will not introduce dependencies on a specific zone.</p>
+<p>This is a solution but implies multi homing instances (adding more than one port) which would
+negate the gain by having to maintain more firewall rules, separate IP networks and more
+complex to troubleshoot.</p>
+<p>Our recommendation is to use routing to communicate between availability
 zones. More on this below.</p>
 </div>
 <h2 id="routers">Routers<a class="headerlink" href="#routers" title="Link to this heading">¶</a></h2>
 <p>Routers are always local to an availability zone even though its possible to provision multi-zone
-routers using the terminal or horizon.</p>
+routers by using the OpenStack terminal client or OpenStack Horizon.</p>
 <p>The reason for this is that Binero cloud does not provide anycast public IP addresses, see section
 on <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a> below for more information on this subject.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Provisioning a router in multiple availability zones will, silently, still provision in just
-the first zone of the region.</p>
+<p>Selecting more than one Availability Zone Hint when provisioning a router will, silently, still
+provision in just the first zone of the region.</p>
 </div>
-<p>Therefore when using multiple availability zones, take care to have at least one router per zone and
+<p>When using many availability zones, take care to have at least one router per zone and
 always connect your instances or services to the router that is local to them.</p>
 <p>While its possible to connect a port on an instance to a router in a different availability zone via
 a network (as outline above), the router is not provisioned with high availability between zones (meaning
 the router would go offline should the zone its placed in go offline).</p>
-<p>All traffic flowing through a router will go through the same availability zone (regardless of where the
-instances behind the router are located).</p>
-<p>When setting up systems with geo-redundancy using more then one availability zone, its therefore recommended
+<p>All traffic flowing through a router will go through the same availability zone (regardless of the
+location of the instances behind the router).</p>
+<p>When setting up systems with geographic redundancy by using more then one availability zone, its recommended
 to setup a router in each availability zone and <a class="reference internal" href="router/routing-between-networks.html"><span class="doc">route traffic between them</span></a>
-as this (in a scenario in which an availability zone would fail) would just bring down the one availability zone.</p>
+as this (in a scenario in which an availability zone becomes unavailable) would just bring down the one availability
+zone.</p>
 <h2 id="floating-ip-addresses">Floating IP addresses<a class="headerlink" href="#floating-ip-addresses" title="Link to this heading">¶</a></h2>
 <p>Because Binero cloud is does not provide anycast public IP addresses, floating IP addresses are still
 local to a single availability zone.</p>
-<p>While its possible to connect a floating IP to an instance in another availability zone using a network (that
+<p>While its possible to connect a floating IP to an instance in another availability zone by using a network (that
 stretch across zones), should the availability zone that hosts the floating IP for some reason fail, the floating
 IP will fail with it also in the second availability zone.</p>
-<p>When working with public access, it is therefore recommended to connect floating IP addresses that are local
-to the instances or services they connect to, through a router that is also hosted in the same availability
-zone.</p>
-<p>To send access to both (or several) sites, a <a class="reference external" href="/regions-and-availability-zones.html#global-load-balancing">global load balancer</a>
-would be used to route traffic to all floating IP addresses.</p>
+<p>When working with public access, it’s recommended to connect floating IP addresses that are local to the instances
+or services they connect to, through a router that is also hosted in the same availability zone.</p>
+<p>To send traffic to one or more availability zones, a <a class="reference external" href="/regions-and-availability-zones.html#global-load-balancing">global load balancer</a>
+would route traffic to all floating IP addresses.</p>
 <h2 id="load-balancer">Load balancer<a class="headerlink" href="#load-balancer" title="Link to this heading">¶</a></h2>
 <p>The same way as with floating IP addresses and routers, <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> will be able reach instances
 in availability zones that is not local to the load balancer (because the networks stretches across availability
 zones).</p>
-<p>The actual load balancers, however, is still only local to a single zone and will fail in the even the zone
+<p>The actual load balancers, are still only local to a single zone and will fail in the even the zone
 should fail. That would leave the load balancer unreachable and the service down.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
-<p>When working with networking in multiple availability zones, care must be taken to not introduce dependencies
+<p>When working with networking in many availability zones, you should take care to not introduce dependencies
 between the zones.</p>
-<p>A dependency would bring down networking across multiple zones should the wrong zone fail. This would negate
-your efforts to setup a geo-redundant network when they matter the most - at the time of an actual outage.</p>
+<p>A dependency would bring down networking across availability zones should the availability zone with being
+dependent on become unavailable. This would negate your efforts to setup a geographically redundant network
+when it matter the most.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

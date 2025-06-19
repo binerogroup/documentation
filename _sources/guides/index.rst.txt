@@ -1,7 +1,9 @@
 ======
 Guides
 ======
-On this page we provide some guides for various use cases in the platform. 
+
+On this page we provide some guides to get started with some
+use-cases in the platform. 
 
 
 .. toctree::

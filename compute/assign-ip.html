@@ -1608,33 +1608,24 @@
 <p>This is the recommended approach to assigning an IP address (and thus, access to a network)
 as it will run cloud-init and (provided you’ve assigned a <a class="reference internal" href="../networking/subnet/index.html"><span class="doc">subnet</span></a>)
 setup your ip-configuration for you.</p>
-<p><em>This is only done on instance provisioning so any additional</em> <a class="reference internal" href="../networking/ports.html"><span class="doc">ports</span></a>
+<p><em>This is only done on instance provisioning so any extra</em> <a class="reference internal" href="../networking/ports.html"><span class="doc">ports</span></a>
 <em>you assign, will have to be manually configured in the operating system</em>.</p>
-<p>Aside from the single IP that is normally setup during provisioning, two main use-cases for connecting
-additional IP addresses to an instance exists:</p>
+<p>Aside from the single IP that is normally setup during provisioning, two main use-cases for
+connecting extra IP addresses to an instance exists:</p>
 <ul class="simple">
-<li><p>If your instances needs to be connected to several different networks, this is possible to
-do when provisioning a new instance as several networks can be chosen.</p></li>
-<li><p>If your instance needs to have additional IP addresses from the same network, this is doable when
-launching an instance using OpenStack Horizon or the OpenStack terminal client by first
-manually creating one ore more additional <a class="reference internal" href="../networking/ports.html"><span class="doc">ports</span></a> and assigning
-them instead of (or as compliment to) the network (which can only be assigned once). A port
-is always connected to a network (even when not assigned to an instance) - assigning a port
-is therefore the same thing as assigning a network or IP, the difference being whether or not
-the port is also created in process.</p></li>
+<li><p>If your instances needs connect to different networks, this is possible to do when
+provisioning a new instance as you can add one or more ports.</p></li>
+<li><p>If your instance needs to have extra IP addresses from the same network, this is possible when
+launching an instance using OpenStack Horizon or the OpenStack terminal client by first manually
+creating one or more <a class="reference internal" href="../networking/ports.html"><span class="doc">ports</span></a> and assigning them.</p></li>
 </ul>
-<p>More information on the overall concepts of networking in our <a class="reference internal" href="../networking/index.html"><span class="doc">networking section</span></a>.</p>
+<p>More information on the concepts of networking in our <a class="reference internal" href="../networking/index.html"><span class="doc">networking section</span></a>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Adding an additional IP using the platform is analogous to adding a <a class="reference internal" href="../networking/ports.html"><span class="doc">port</span></a> and
+<p>Adding an extra IP address by using the platform is analogous to adding a <a class="reference internal" href="../networking/ports.html"><span class="doc">port</span></a> and
 connecting it to the instance.</p>
-<p>This would be required if you wanted your instance to access more then one network. If, however, you
-want an additional IP on your instance from a network its <em>already connected to</em> and you do manual
-IP addressing (as might be required when adding a second port in any case), you could use a virtual
-interface (or alias) on your instance instead.</p>
-<p>How to do this depends on your operating system but the concept means adding an additional IP to an
-already active interface. This would mean keeping a single port but using several IP addresses on it
-(which is an easier network design to maintain).</p>
+<p>You need to add more ports to your instance to access more then one network, if the network is
+already connected through an existing port you can use that.</p>
 </div>
 <h2 id="assigning-an-ip-after-instance-creation">Assigning an IP after instance creation<a class="headerlink" href="#assigning-an-ip-after-instance-creation" title="Link to this heading">¶</a></h2>
 <p>To add an IP after creating your instance, the process consists of either creating a <a class="reference internal" href="../networking/ports.html"><span class="doc">port</span></a>
@@ -1642,20 +1633,21 @@ and then assigning it to an instance or, as the below guide will detail, connect
 by doing so, creating a port in the process).</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>When adding additional ports to your instances, its possible that your instance might loose its network connectivity
+<p>When adding more ports to your instances, its possible that your instance might loose its network connectivity
 when taking the IP configuration live in the operating system.</p>
-<p>Its also possible that floating IP addresses might need to be re-assigned to the new interface depending on if the
-default route on the instance is affected. We recommend doing changes to interfaces network configuration during a
-service window.</p>
+<p>Its also possible that floating IP addresses might need to be re-assigned to the new port depending on if the
+default route on the instance changes. We recommend doing changes to interfaces network configuration during a
+maintenance window.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Below will demonstrate how to add networks which will add a port automatically. If you prefer to create the ports
+<p>Below is an example on how to add networks which will add a port automatically. If you prefer to create the ports
 yourself (more information in the <a class="reference internal" href="../networking/ports.html"><span class="doc">Ports</span></a> article), another option is to assign an already created
 port.</p>
 </div>
 <h3 id="assigning-a-port-using-the-cloud-management-portal">Assigning a port using the cloud management portal<a class="headerlink" href="#assigning-a-port-using-the-cloud-management-portal" title="Link to this heading">¶</a></h3>
-<p>To assign a port to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To assign a port to an instance by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the instance you want to assign the port to.</p></li>
@@ -1664,10 +1656,10 @@ port.</p>
 <li><p>Choose the network and subnet you want to connect to.</p></li>
 <li><p>Press <strong>Add port</strong></p></li>
 </ul>
-<p>The port will be added to the instance but may not be active as it may not have operating system configuration
-on it.</p>
+<p>Your port might not be active in your operating system until it’s configured there.</p>
 <h3 id="assigning-a-port-using-the-openstack-horizon-portal">Assigning a port using the OpenStack Horizon portal<a class="headerlink" href="#assigning-a-port-using-the-openstack-horizon-portal" title="Link to this heading">¶</a></h3>
-<p>To assign a port to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
+<p>To assign a port to an instance by using
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>In the dropdown menu to the far right of the line corresponding to the instance you want to resize,
@@ -1675,10 +1667,10 @@ press <strong>Attach Interface</strong></p></li>
 <li><p>Under <strong>Network</strong>, select the network (it will also show subnets) you want to connect to.</p></li>
 <li><p>Press <strong>Attach interface</strong></p></li>
 </ul>
-<p>The port will be added to the instance but may not be active as it may not have operating system
-configuration on it.</p>
+<p>Your port might not be active in your operating system until it’s configured there.</p>
 <h3 id="assigning-a-port-using-the-openstack-terminal-client">Assigning a port using the OpenStack terminal client<a class="headerlink" href="#assigning-a-port-using-the-openstack-terminal-client" title="Link to this heading">¶</a></h3>
-<p>To assign a port to an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To assign a port to an instance by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>. Save the name of the instance you want to assign
 the port to.</p></li>
@@ -1687,15 +1679,13 @@ to the instance.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">fixed</span> <span class="pre">ip</span> <span class="pre">[SERVER</span> <span class="pre">NAME]</span> <span class="pre">[NETWORK</span> <span class="pre">NAME]</span></code>, replacing the
 values in angle brackets by the information from the previous steps.</p></li>
 </ul>
-<p>The port will be added to the instance but may not be active as it may not have operating system
-configuration on it.</p>
+<p>Your port might not be active in your operating system until it’s configured there.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>If you remove a current interface and add a new one, you might have problems with udev persistent rules because
-of new mac addresses. This is dependent on the operating system, the interface will have been added but udev rules
-need to be removed before the new interface will work.</p>
-<p>We would recommend making sure that you have <a class="reference internal" href="console.html"><span class="doc">console access</span></a> to your instance and a
-password to login with, before proceeding.</p>
+<p>If you remove an existing port and add a new one, you might have problems with udev persistent
+rules because of new MAC address depending on the operating system.</p>
+<p>We would recommend making sure that you have <a class="reference internal" href="console.html"><span class="doc">console access</span></a> to your instance
+and a password to login with when changing networking.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

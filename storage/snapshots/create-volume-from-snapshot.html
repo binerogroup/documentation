@@ -1461,17 +1461,15 @@
   
 
 <h1 id="create-a-volume-from-a-snapshot">Create a volume from a snapshot<a class="headerlink" href="#create-a-volume-from-a-snapshot" title="Link to this heading">¶</a></h1>
-<p>If you want to access the data of a snapshot (without provisioning a entirely new
-identical instance <a class="reference internal" href="../../images/launch-instance-from-image.html"><span class="doc">from an image</span></a>), you
-would first need to create a new volume based on the data in the snapshot (the actual
-snapshot cannot be manipulated as there are dependencies to it within the volume that
-houses it).</p>
+<p>If you want to access the data of a snapshot, without provisioning an entirely new
+identical instance <a class="reference internal" href="../../images/launch-instance-from-image.html"><span class="doc">from an image</span></a>, you
+would first need to create a new volume based with the data in the snapshot.</p>
 <p>When doing this, the new volume will be separate from the original volume and will
 forthwith provide its data in its own right.</p>
-<p>The version of the data would be from the time of when the snapshot was taken.</p>
-<p>The new volume could be attached (see subsection of our guide <a class="reference internal" href="../persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a>
+<p>The version of the data would be from the time when creating the snapshot.</p>
+<p>The new volume can attach (see subsection of our guide <a class="reference internal" href="../persistent-block-storage/create-volume.html"><span class="doc">Creating a persistent volume</span></a>
 for more info on attaching a volume) to any instance or used as base to create an entirely
-new instance (if it was a boot volume).</p>
+new instance, if it’s a volume with bootable media on it.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>If your intent is to create a new instance based on a volume, using OpenStack Horizon there is

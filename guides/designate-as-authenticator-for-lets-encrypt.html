@@ -1137,17 +1137,21 @@
 <h1 id="designate-as-authenticator-for-lets-encrypt">Designate as authenticator for Lets Encrypt<a class="headerlink" href="#designate-as-authenticator-for-lets-encrypt" title="Link to this heading">¶</a></h1>
 <p>This guide will help you configuring <code class="docutils literal notranslate"><span class="pre">certbot</span></code> to work with
 plugins for OpenStack DNS (Designate) to verify Lets Encrypt
-certificates using DNS for any domain that is running in the
+certificates by using DNS for any domain that is running in the
 Binero cloud <a class="reference internal" href="../dns.html"><span class="doc">DNS</span></a>.</p>
 <p>The guide will assume you are using a recent version of Debian or
 Ubuntu but would likely be applicable for other Linux distributions.</p>
 <ul class="simple">
 <li><p>Install <code class="docutils literal notranslate"><span class="pre">certbot</span></code> and python package manager pip by
 running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">certbot</span> <span class="pre">python3-designateclient</span> <span class="pre">python3-pip</span></code>.</p></li>
-<li><p>Using pip, install the dns-openstack authenticator-plugin
-by running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">certbot-dns-openstack</span></code>.</p></li>
-<li><p>Create an :doc:<code class="docutils literal notranslate"><span class="pre">application</span> <span class="pre">credential</span> <span class="pre">&lt;/getting-started/users&gt;</span></code> with the
-roles <code class="docutils literal notranslate"><span class="pre">reader</span></code> and <code class="docutils literal notranslate"><span class="pre">member</span></code>. Use the following in the access-rule field:</p></li>
+<li><p>Using pip install the <code class="docutils literal notranslate"><span class="pre">dns-openstack</span></code> authenticator plugin by running:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">certbot</span><span class="o">-</span><span class="n">dns</span><span class="o">-</span><span class="n">openstack</span>
+</code></pre></div>
+</div>
+<ul class="simple">
+<li><p>Create an <a class="reference internal" href="../getting-started/users.html"><span class="doc">application credential</span></a> with the
+roles <code class="docutils literal notranslate"><span class="pre">reader</span></code> and <code class="docutils literal notranslate"><span class="pre">member</span></code>. Use the following in the access rules:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="o">-</span> <span class="n">service</span><span class="p">:</span> <span class="n">dns</span>
   <span class="n">method</span><span class="p">:</span> <span class="n">GET</span>

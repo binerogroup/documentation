@@ -3,11 +3,11 @@ Launching a router
 ==================
 
 To create a router in Binero cloud, you have four main options as outlined in
-the links below. Each option have its pros and cons:
+the links below. Each option have its advantages and disadvantages:
 
-- :doc:`The cloud management portal <cloud-management-portal>` is recommended and will
-  get a user with limited prior knowledge from A to B quickly. The tradeoff is that
-  advanced features are not always available.
+- :doc:`The cloud management portal <cloud-management-portal>` is what we recommended
+  and will get a user with limited prior knowledge from A to B quickly. The tradeoff is
+  that advanced features are not always available.
 
 - :doc:`OpenStack Horizon <openstack-horizon>` is the web interface included in
   OpenStack. Some advanced features might only have a GUI implementation here.
@@ -23,8 +23,8 @@ the links below. Each option have its pros and cons:
 
 .. note::
 
-   In order to create your router, you will first need to know in
-   what :doc:`availability zone  </networking/regions-and-availability-zones>`
+   To create your router, you will first need to know in what
+   :doc:`availability zone  </networking/regions-and-availability-zones>`
    to create it.
 
 .. toctree::

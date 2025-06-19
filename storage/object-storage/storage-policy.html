@@ -1625,9 +1625,9 @@
   
 
 <h1 id="storage-policy">Storage policy<a class="headerlink" href="#storage-policy" title="Link to this heading">¶</a></h1>
-<p>Binero cloud provides various storage policies for you to place your container/bucket on.</p>
+<p>Binero cloud provides different storage policies for you to place your container or bucket on.</p>
 <p>A storage policy is using an underlying <a class="reference internal" href="../storage-types.html"><span class="doc">storage type</span></a> and
-additional features to accommodate different use-cases.</p>
+other features to accommodate different use-cases.</p>
 <p>The intent is to allow users to select on a more granular level on what they need for
 their use-case such as:</p>
 <ul class="simple">
@@ -1640,58 +1640,58 @@ their use-case such as:</p>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The default storage policy on a container/bucket is <code class="docutils literal notranslate"><span class="pre">gp.recurring</span></code> unless other is
+<p>The default storage policy on a container or bucket is <code class="docutils literal notranslate"><span class="pre">gp.recurring</span></code> unless other is
 specified upon creation.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The storage policies available when using replication might differ, please
+<p>The storage policies available when using replication might differ,
 see <a class="reference internal" href="replication.html"><span class="doc">replication</span></a></p>
 </div>
 <p>The storage policies available are:</p>
 <ul class="simple">
-<li><p>gp.archive</p></li>
-<li><p>gp.intermittent</p></li>
-<li><p>gp.recurring</p></li>
-<li><p>hp.intensive</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gp.archive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gp.intermittent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gp.recurring</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hp.intensive</span></code></p></li>
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>Plan the storage policy you use based on your use-case as this will have an impact on
-your performance as well as pricing and retrieval fees.</p>
+your performance and also on your cost and retrieval fees.</p>
 </div>
-<p>The various storage policies have different intended use-cases as presented in detail below.</p>
-<p>Their respective price points for usage and retrieval is available in our <a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">price list</a>
+<p>The different storage policies have different intended use-cases as presented in detail below.</p>
+<p>Their price points for usage and retrieval is available in our <a class="reference external" href="https://binero.com/public-cloud-platform/publikt-moln/pris/">price list</a>
 where the pricing is different for each storage policy.</p>
-<p>The pricing for usage is based on the combined size in gigabytes (GB) of objects you store in
-all your buckets/containers.</p>
-<p>The pricing for retrieval per gigabyte (GB) is also applied on some storage policies, this is
-based on the bytes sent to you when for example downloading objects or listing objects in a
-bucket, this is to keep a low price point for data set that require massive amount of usage
-but infrequent access.</p>
+<p>The pricing for usage is the combined size in gigabytes (GB) of objects you store in
+all your containers or buckets.</p>
+<p>The pricing for retrieval per gigabyte (GB) is also applied on some storage policies, this cost
+is the bytes sent to you when for example downloading objects or listing objects in a container or
+bucket, this is to keep a low price point for data set that require massive amount of usage but
+infrequent access.</p>
 <h2 id="gp-archive">gp.archive<a class="headerlink" href="#gp-archive" title="Link to this heading">¶</a></h2>
-<p>This storage policy is classified as general purpose (gp) and its intended use-case is archiving, that
+<p>This storage policy is general purpose (gp) and its intended use-case is archiving, that
 is a long term storage for cold data, for example backups (our <a class="reference internal" href="../../backup/index.html"><span class="doc">backup service</span></a> use
 this policy).</p>
-<p>In order to keep the price down, this solution uses erasure coding which is a way to store data redundantly
-with minimum overhead.</p>
+<p>To keep the price down, this solution uses erasure coding which is a way to store data redundantly
+but using minimal space.</p>
 <p>This method is somewhat less secure from a data integrity standpoint than replication (which all the other
-storage policies use) but can in turn be provided at a lower price point per GB. The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
+storage policies use) but can in turn provide a lower price point per GB. The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
 <h2 id="gp-intermittent">gp.intermittent<a class="headerlink" href="#gp-intermittent" title="Link to this heading">¶</a></h2>
-<p>This storage policy is classified as general purpose and its intended use-case is storing data that is seldom
+<p>This storage policy is general purpose and its intended use-case is storing data that is seldom
 requested but that requires a higher security than erasure coding.</p>
-<p>This solution uses 3-way replication (meaning each object is stored 3 times on different disks in different
-servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
+<p>This solution uses three-way replication (meaning each object gets stored three times on different disks
+in different servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
 <h2 id="gp-recurring">gp.recurring<a class="headerlink" href="#gp-recurring" title="Link to this heading">¶</a></h2>
-<p>This storage policy is classified as general purpose and its intended use-case is storing large objects that are
+<p>This storage policy is general purpose and its intended use-case is storing large objects that are
 frequently requested (for example video or audio material for a website).</p>
-<p>This solution uses three-way replication (meaning each object is stored 3 times on different disks in different
-servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
+<p>This solution uses three-way replication (meaning each object gets stored three times on different disks
+in different servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is HDD.</p>
 <h2 id="hp-intensive">hp.intensive<a class="headerlink" href="#hp-intensive" title="Link to this heading">¶</a></h2>
-<p>This storage policy is classified as high performance and its intended use-case is storing objects that are frequently
-requested and when user experience (i.e. latency of download) is important.</p>
-<p>This solution uses three-way replication (meaning each object is stored 3 times on different disks in different
-servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is SSD.</p>
+<p>This storage policy is high performance and its intended use-case is storing objects that are frequently
+requested and when user experience (for example latency and speed) is important.</p>
+<p>This solution uses three-way replication (meaning each object gets stored three times on different disks
+in different servers). The <a class="reference internal" href="../storage-types.html"><span class="doc">storage media</span></a> is SSD.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

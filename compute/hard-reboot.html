@@ -931,14 +931,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#executing-a-hard-reboot" class="md-nav__link">
+  <a href="#doing-a-hard-reboot" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Executing a hard reboot
+      Doing a hard reboot
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Executing a hard reboot">
+    <nav class="md-nav" aria-label="Doing a hard reboot">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1528,14 +1528,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#executing-a-hard-reboot" class="md-nav__link">
+  <a href="#doing-a-hard-reboot" class="md-nav__link">
     
     <span class="md-ellipsis">
-      Executing a hard reboot
+      Doing a hard reboot
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Executing a hard reboot">
+    <nav class="md-nav" aria-label="Doing a hard reboot">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1584,7 +1584,7 @@
 
 <h1 id="hard-reboot">Hard reboot<a class="headerlink" href="#hard-reboot" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>If an instance is hung (does not reply to commands), a hard reboot of the instance
+<p>If an instance is unresponsive (does not reply to commands), a hard reboot of the instance
 is the same as pulling the power cord on a physical computer, a soft reboot sends a
 signal to the operating system and waits for it to try to reboot on its own.</p>
 <div class="tip admonition">
@@ -1593,22 +1593,23 @@ signal to the operating system and waits for it to try to reboot on its own.</p>
 on the hypervisor.</p>
 <p>This means that the instance will get the latest hardware version in the platform which is
 good for keeping compatible with the evolving ecosystem of OpenStack.</p>
-<p>Doing an occasional hard reboot with the instance in powered off mode is therefore
-recommended.</p>
+<p>We recommend doing an occasional hard reboot when the instance is already powered off.</p>
 </div>
-<h2 id="executing-a-hard-reboot">Executing a hard reboot<a class="headerlink" href="#executing-a-hard-reboot" title="Link to this heading">¶</a></h2>
+<h2 id="doing-a-hard-reboot">Doing a hard reboot<a class="headerlink" href="#doing-a-hard-reboot" title="Link to this heading">¶</a></h2>
 <p>The hard reboot option is only available via <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>
 or <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
 <p>We recommend checking out our guides on working with these platforms if you normally only work
 with the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>.</p>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Please note that a hard reboot will not care about the state of the operating system. Any current writes
-to the disk in the middle of a hard reboot will get interrupted, potentially causing data loss.</p>
-<p>We recommend this action as a last resort, or to be executed after the operating system has halted.</p>
+<p>Be careful when doing a hard reboot as it will not care about the state of the operating system or
+your applications, for example any writes to the disk in the middle of a hard reboot will get
+interrupted, potentially causing data loss.</p>
+<p>We recommend this action as a last resort, or that you hard reboot after the operating system has halted.</p>
 </div>
 <h3 id="hard-reboot-using-the-openstack-horizon-portal">Hard reboot using the OpenStack Horizon portal<a class="headerlink" href="#hard-reboot-using-the-openstack-horizon-portal" title="Link to this heading">¶</a></h3>
-<p>To hard reboot an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
+<p>To hard reboot an instance by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Compute</strong> and then <strong>Instances</strong> in the sidebar menu.</p></li>
 <li><p>Press the dropdown button <strong>Actions</strong></p></li>
@@ -1618,7 +1619,8 @@ to the disk in the middle of a hard reboot will get interrupted, potentially cau
 </ul>
 <p>The instance will start again (even if hard rebooted from a powered off state).</p>
 <h3 id="hard-reboot-using-the-openstack-terminal-client">Hard reboot using the OpenStack terminal client<a class="headerlink" href="#hard-reboot-using-the-openstack-terminal-client" title="Link to this heading">¶</a></h3>
-<p>To hard reboot an instance using the <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
+<p>To hard reboot an instance by using the
+<a class="reference internal" href="../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>. Save the name of the instance you want to
 hard reboot.</p></li>

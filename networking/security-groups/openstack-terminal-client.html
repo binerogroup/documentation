@@ -1258,7 +1258,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1752,7 +1752,7 @@
 
 <h1 id="managing-security-groups-using-the-openstack-terminal-client">Managing security groups using the OpenStack terminal client<a class="headerlink" href="#managing-security-groups-using-the-openstack-terminal-client" title="Link to this heading">¶</a></h1>
 <h2 id="creating-a-security-group">Creating a security group<a class="headerlink" href="#creating-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the
+<p>To create a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> by using the
 <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">create</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">[NAME]</span></code></p></li>
@@ -1763,7 +1763,7 @@
 rules, follow next step.</p>
 </div>
 <h2 id="adding-rules-to-a-security-group">Adding rules to a security group<a class="headerlink" href="#adding-rules-to-a-security-group" title="Link to this heading">¶</a></h2>
-<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> using the
+<p>To add rules to a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> by using the
 <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Running the following command will give you a detailed overview of what options are
@@ -1788,7 +1788,7 @@ items in angle brackets with corresponding data.</p></li>
 you can also tweak them as you see fit.</p>
 </div>
 <h2 id="adding-a-security-group-to-an-instance">Adding a security group to an instance<a class="headerlink" href="#adding-a-security-group-to-an-instance" title="Link to this heading">¶</a></h2>
-<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance using the
+<p>To add a <a class="reference internal" href="index.html"><span class="doc">security group</span></a> to an instance by using the
 <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">security</span> <span class="pre">group</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span> <span class="pre">[GROUP</span> <span class="pre">NAME]</span></code>, replace
@@ -1799,10 +1799,10 @@ the items within angle brackets with corresponding data.</p></li>
 </ul>
 <h2 id="address-groups">Address groups<a class="headerlink" href="#address-groups" title="Link to this heading">¶</a></h2>
 <p>Address groups enable you to setup a collection of IP addresses and IP ranges that you can then use
-to apply to your groups.</p>
-<p>The benefit of this, is that you could re-use them in many rules and would not have to maintain several
-lists of (the same) addresses. Address groups are only available via the terminal client, below is how
-to work with them:</p>
+to apply to your security groups.</p>
+<p>The benefit of this, is that you could re-use them in many security group rules and would not have to
+maintain different lists of (the same) addresses. Address groups are only available via the terminal
+client, below is how to work with them:</p>
 <ul class="simple">
 <li><p>To create a group, run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">address</span> <span class="pre">group</span> <span class="pre">create</span> <span class="pre">[NAME]</span></code></p></li>
 <li><p>To add addresses to the group, run <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">address</span> <span class="pre">group</span> <span class="pre">set</span> <span class="pre">--address</span> <span class="pre">[x.x.x.x/y]</span> <span class="pre">[NAME]</span></code>. Address
@@ -1813,13 +1813,12 @@ could be both a range or a single address.</p></li>
 <p class="admonition-title">Note</p>
 <p>If you instead choose to press <strong>Edit Port Security Groups</strong> (in step 2 above) you are able to set security
 groups on a per interface (port) basis instead.</p>
-<p>This might be useful if you have several networks connected to your instance (which we don’t recommend)
-and want to have different settings on them.</p>
+<p>This might be useful if you have many networks connected to your instance (which we don’t recommend) and want
+to have different settings on them.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Remember that you need to add your groups to all instances, all rules are evaluated in a
-per instance fashion.</p>
+<p>Remember that you need to add your security groups to all instances.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

@@ -1280,7 +1280,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1753,23 +1753,23 @@
   
 
 <h1 id="vpn-server-maintenance">VPN server maintenance<a class="headerlink" href="#vpn-server-maintenance" title="Link to this heading">¶</a></h1>
-<p>In order to remain a secure solution as well as to keep working as
-intended, we recommend maintaining the VPN server from time to time.</p>
+<p>To remain a secure solution and to keep working as intended, we recommend
+maintaining and updating the VPN server.</p>
 <p>Below we show some important tasks and how to manage them.</p>
 <h2 id="updating-the-vpn-server">Updating the VPN server<a class="headerlink" href="#updating-the-vpn-server" title="Link to this heading">¶</a></h2>
-<p>The VPN server software is based on <a class="reference external" href="https://www.pfsense.org">pfSense</a> which
-in turn is running on FreeBSD operating system.</p>
-<p>pfSense will provide updates that will include security fixes and additional functionality.</p>
-<p>We strongly recommend updating the VPN server once new releases are available to keep it
-secure over time.</p>
-<p>If your installation is left un-updated your risk falling to far behind to be able
-to update and be vulnerable to security exploits.</p>
-<p>To update the VPN server using the VPN WebGUI.</p>
+<p>The VPN server software is <a class="reference external" href="https://www.pfsense.org">pfSense</a> which in turn
+is running on the FreeBSD operating system.</p>
+<p>pfSense will provide updates that will include security fixes and new functionality.</p>
+<p>We strongly recommend updating the VPN server once new releases are available to keep
+it secure over time.</p>
+<p>If you do not update your installation you risk falling to far behind to be able to
+update and be vulnerable to security vulnerabilities.</p>
+<p>To update the VPN server by using the VPN WebGUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
 <li><p>Press <strong>System</strong> and then <strong>Update</strong> in the main menu.</p></li>
 <li><p>Ensure that the Branch is <strong>Latest stable version</strong>.</p></li>
-<li><p>Wait for the Status to indicate if the server is up to date or not.</p></li>
+<li><p>Wait for the Status field to say that the server is up to date or not.</p></li>
 <li><p>If the server is not up to date, follow the instructions to update.</p></li>
 </ul>
 <div class="note admonition">
@@ -1778,32 +1778,36 @@ to update and be vulnerable to security exploits.</p>
 server in case the update should fail or something should not work afterwards.</p>
 </div>
 <h2 id="re-issue-certificates">Re-issue certificates<a class="headerlink" href="#re-issue-certificates" title="Link to this heading">¶</a></h2>
-<p>The VPN server will be created with newly issued certificates but because some clients does not
-allow certificates which are valid for longer than a year, these certificates will need to be
-reissued on a yearly basis.</p>
-<p>To re-issue certificates using the VPN WebGUI.</p>
+<p>When you created the VPN server it generated new certificates but because some clients
+doesn’t allow certificates valid for longer than a year, you need to reissue these on
+a yearly basis.</p>
+<p>To re-issue certificates by using the VPN WebGUI.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="initial-configuration.html"><span class="doc">Login</span></a> to the VPN management interface.</p></li>
 <li><p>Press <strong>System</strong> and then <strong>Cert manager</strong> in the main menu.</p></li>
-<li><p>Press the <strong>Certificates</strong> tab under the main heading (the default menu is the CA menu - do <em>not</em> re-issue the CA).</p></li>
-<li><p>By default there are 3 certificates installed on the system; <strong>OpenVPN Server</strong>, <strong>OpenVPN User</strong>,
-<code class="docutils literal notranslate"><span class="pre">webConfigurator</span> <span class="pre">default</span></code>. Aside from this, if you’ve added users these will also be in the list. The
-first two certificates will need to be reissued.</p></li>
-<li><p>Press the small round arrow (re-issue / renew) to the right of each (one at the time) of the OpenVPN server and OpenVPN User.</p></li>
+<li><p>Press the <strong>Certificates</strong> tab under the main heading (the default menu is the CA
+menu, do <strong>not</strong> re-issue the CA).</p></li>
+<li><p>By default there are three certificates installed on the system; <strong>OpenVPN Server</strong>,
+<strong>OpenVPN User</strong> and <code class="docutils literal notranslate"><span class="pre">webConfigurator</span> <span class="pre">default</span></code>. Aside from this, if you’ve added
+users these will also be in the list. You need to reissue the first two certificates.</p></li>
+<li><p>Press the small round arrow (re-issue / renew) to the right of each (one at the time)
+of the OpenVPN server and OpenVPN User.</p></li>
 <li><p>Press the <strong>Renew/Reissue</strong> button.</p></li>
-<li><p>Note that the <strong>valid until</strong> date is renewed.</p></li>
+<li><p>Verify the <strong>Valid until</strong> date.</p></li>
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>The <strong>OpenVPN User</strong> certificate is used when using the <a class="reference internal" href="user-modes.html"><span class="doc">default mode</span></a> user setup. When renewing
-this certificate, new <a class="reference internal" href="logging-in.html"><span class="doc">client configurations</span></a> will need to be setup in the VPN users client software.</p>
-<p>The <strong>OpenVPN Server</strong> certificate will not require new client configurations but renewing it will <strong>restart the service</strong>
-which will disconnect active clients.</p>
+<p>The <strong>OpenVPN User</strong> certificate is for the <a class="reference internal" href="user-modes.html"><span class="doc">default mode</span></a> user
+setup. When renewing this certificate, new <a class="reference internal" href="logging-in.html"><span class="doc">client configurations</span></a>
+will need to be setup in the VPN users client software.</p>
+<p>The <strong>OpenVPN Server</strong> certificate will not require new client configurations but
+renewing it will <strong>restart the service</strong> which will disconnect active clients.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>User certificates will have a 10 year life-span. In case they expire, they will also need to be renewed. This will also
-require new VPN configuration for the users who use their certificates.</p>
+<p>User certificates is valid for 10 years. When they expire, you will also need to
+renew them. This will also require new VPN configuration for the users who use the
+certificates.</p>
 </div>
 
 

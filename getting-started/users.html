@@ -1252,40 +1252,42 @@
 <p>The Binero cloud platform has four main user types:</p>
 <ul class="simple">
 <li><p>Main user</p></li>
-<li><p><a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a> users (same as the main user or a newly create one)</p></li>
-<li><p><a class="reference internal" href="managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> user (the same as the main user)</p></li>
+<li><p><a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a> users (same
+as the main user or a newly create one)</p></li>
+<li><p><a class="reference internal" href="managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> user (the
+same as the main user)</p></li>
 <li><p>API users (created from the <a class="reference internal" href="managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>)</p></li>
 <li><p><a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> (created from <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> or
 the <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> with an API user)</p></li>
 </ul>
-<p>The main user is the user you registered when signing up for the service. It will be an e-mail address, probably of
-the person that setup the account.</p>
-<p>The main user can be used to login to both the <a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a> and the
-<a class="reference internal" href="managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> but cannot be used for either <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>,
+<p>The main user is the user you registered when signing up for the service. It will be
+an email address, probably of the person that setup the account.</p>
+<p>The main user can login to both the <a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a> and the
+<a class="reference internal" href="managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a> but cannot use <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>,
 the <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a> or the API which all require an API user.</p>
 <p>For more details, see information on each section below.</p>
 <h2 id="account-management-portal">Account management portal<a class="headerlink" href="#account-management-portal" title="Link to this heading">¶</a></h2>
-<p>To create a user through the <a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a>, follow these steps:</p>
+<p>To create a user in the <a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a></p>
 <ul class="simple">
 <li><p>From the home screen click <strong>New contact</strong> under the <strong>Contacts</strong> dialog to the right.</p></li>
 <li><p>Click <strong>User management</strong>, again to the right.</p></li>
 <li><p>Click <strong>Invite new user</strong>. Here you are able to select what permissions the new user
 should have in the account management portal or select all available permissions.</p></li>
-<li><p>Input the users e-mail address.</p></li>
+<li><p>Input the users email address.</p></li>
 <li><p>Click <strong>Send invite</strong></p></li>
 </ul>
-<p>The user will receive and e-mail with instructions on how to enroll themselves.</p>
+<p>The user will receive and email with instructions on how to enroll themselves.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>Users created in the <a class="reference internal" href="managing-your-cloud/account-management-portal.html"><span class="doc">Account management portal</span></a> not synced to the
 <a class="reference internal" href="managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a>.</p>
 </div>
 <p>To instead add a contact which is mainly useful for sending out information from the platform (for example invoices to the
-billing department) without allowing for logging in to the portal, follow these steps:</p>
+billing department) without allowing for logging in to the portal.</p>
 <ul class="simple">
 <li><p>From the home screen click <strong>New contact</strong> under the <strong>Contacts</strong> dialog to the right.</p></li>
 <li><p>Input the contact details.</p></li>
-<li><p>Under e-mail settings, choose what types of e-mails the new contact should receive.</p></li>
+<li><p>Under email settings, choose what types of emails the new contact should receive.</p></li>
 <li><p>Click <strong>Save changes</strong></p></li>
 </ul>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
@@ -1295,7 +1297,7 @@ billing department) without allowing for logging in to the portal, follow these 
 to the cloud management portal from the account management portal.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Because you may want to limit access to your infrastructure, a good first step is to setup additional users in
+<p>Because you might want to limit access to your infrastructure, a good first step is to add more users in
 the account management portal and reserve the main login for those that need access to the infrastructure in
 the cloud management portal.</p>
 </div>
@@ -1312,50 +1314,55 @@ these steps:</p>
 <ul class="simple">
 <li><p>Under <strong>Access and security</strong> in the main menu, click <strong>API users</strong></p></li>
 <li><p>Click the plus sign (+) icon in the lower right corner.</p></li>
-<li><p>Select a username (part of the username will be selected for you), password and optionally add a description.</p></li>
+<li><p>Select a username (part of the username is automatically selected for you), password and optionally add a description.</p></li>
 <li><p>Click <strong>Create</strong></p></li>
 </ul>
-<p>The API user will be created with the username style <strong>mainuser&#64;domain.com_choosenusername</strong> (that is, the username
-you chose when creating the user will only be part of the total username).</p>
+<p>The new API user has the username such as <strong>mainuser&#64;domain.com_choosenusername</strong> (that is, the username
+you choose when creating the user will only be part of the total username).</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>Provided you want to only use the Horizon interface or work via API, its possible to setup API users as personal
-users for the people managing the infrastructure. The main user should then be limited to the super admin which
-would use it, only to provision API users.</p>
+<p>Provided you only want to use the OpenStack Horizon interface or work via API, its possible to setup API users
+as personal users for the people managing the infrastructure. The main user is then the super admin which would
+is only needed to provision API users.</p>
 </div>
 <h2 id="application-credentials"><span id="application-credentials-label"></span>Application Credentials<a class="headerlink" href="#application-credentials" title="Link to this heading">¶</a></h2>
-<div class="warning admonition">
-<p class="admonition-title">Warning</p>
-<p>If you enable <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> all Application Credentials for your API user will be enforced to use MFA.</p>
+<div class="important tip admonition">
+<p class="admonition-title">Important</p>
+<p>If you enable <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> for an API user that also applies on all Application Credentials for
+that API user.</p>
 </div>
 <p>Using an Application Credentials makes it possible to grant specific access to your application(s) as a user without
 sharing the credentials for that user.</p>
-<p>The scope of an Application Credential is the same as the user that created it but can be limited by selecting
-specific roles or access rules, the resource is owned by the user when created as is tied to it’s lifetime.</p>
+<p>The scope of an Application Credential is the same as the user that created it, you can limit it by selecting
+specific roles or access rules, the user that created the Application Credentials owns the resource and it’s
+tied to the lifetime of the user unless explicitly deleted.</p>
 <p>You can read more about Application Credentials in the official OpenStack documentation
 <a class="reference external" href="https://docs.openstack.org/keystone/latest/user/application_credentials.html">here</a>.</p>
-<p>Application Credentials can be created using <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>
+<p>You can create Application Credentials by using the <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>
 or <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>.</p>
-<p>To create an Application Credential through the <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>, see steps below:</p>
+<p>To create an Application Credential through <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
 <ul class="simple">
 <li><p>Under <strong>Identity</strong> in the main menu, click <strong>Application Credentials</strong></p></li>
 <li><p>Click the <strong>+Create application credentials</strong> button in the top right</p></li>
 <li><p>Input a name and optionally a description.</p></li>
-<li><p>In the secret field, input a secret, if you don’t one will be generated
-for you which is recommended</p></li>
-<li><p>Optionally provide an expiration date and time for when to (automatically) deactivate the account</p></li>
-<li><p>Under roles, select the appropriate roles. If you don’t select a level, the same level as your account will be
-used (member). Creator will allow creation of some objects (secrets) where as reader is read-only.</p></li>
-<li><p>Under access rules you are able to give even more granular accesses to various API calls. See the information on how
-this works in the dialog. If you don’t enter anything here, your user will not be restricted to specific API calls.</p></li>
-<li><p>The <strong>Unrestricted</strong> box will allow the Application Credential to create additional users. This is <strong>NOT</strong> recommended.</p></li>
+<li><p>In the secret field, input a secret, if you don’t we will generate a
+secret for you which we recommended.</p></li>
+<li><p>Optionally you can provide a <code class="docutils literal notranslate"><span class="pre">expiration</span> <span class="pre">date</span></code> and time for when to (automatically) deactivate
+the application credential.</p></li>
+<li><p>Under roles, select the appropriate roles. If you don’t select a role, the same role as your account will be
+used (member). Creator will allow creation of some objects (secrets) where as the reader role allows read-only
+in most services.</p></li>
+<li><p>Under access rules you are able to give even more granular accesses to API calls. See the information on how
+this works in the dialog. If you don’t enter anything here, your user is not restricted to any specific API
+calls.</p></li>
+<li><p>The <strong>Unrestricted</strong> box will allow the Application Credential to create API users. This is <strong>NOT</strong> recommended.</p></li>
 <li><p>Finally, click <strong>Create Application Credential</strong></p></li>
 </ul>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>Once you’ve created the Application Credential, you will be given a one-time opportunity to save the credential by
-copying it or downloading it in openrc or YAML format. Once you’ve pressed close, you will not be able to retrieve
-the secret again.</p>
+<p>Once you’ve created the Application Credential, you have a one-time opportunity to save the credential by
+copying it or downloading it in the openrc or YAML format. Once you’ve closed it, you will never be able
+to retrieve the secret again.</p>
 </div>
 <h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Link to this heading">¶</a></h2>
 <div class="important tip admonition">
@@ -1367,24 +1374,24 @@ tied to a user, see the <a class="reference internal" href="../secret-store/inde
 a service that has it’s own authentication.</p>
 <p>For example the <a class="reference internal" href="../storage/object-storage/s3.html"><span class="doc">S3 object storage</span></a> implementation for the <a class="reference internal" href="../storage/object-storage/index.html"><span class="doc">Object storage</span></a>
 service or storing user related credentials such as a TOTP secret for <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">MFA</span></a>.</p>
-<p>Credentials can only be managed using the <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
+<p>You can only manage Credentials by using the <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
-<p>When listing credentials they are shown in plain text and contains sensitive information.</p>
+<p>When listing credentials they are in plain text and contains sensitive information.</p>
 </div>
 <p>You can list all the credentials stored for your API user with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">credential</span> <span class="pre">list</span></code>.</p>
 <h3 id="ec2-credential"><span id="ec2-credential-label"></span>EC2 Credential<a class="headerlink" href="#ec2-credential" title="Link to this heading">¶</a></h3>
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
-<p>A EC2 credential will continue to work even if <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> is enabled on the API user. This
-can be used to bypass MFA, make sure that you audit or remove all EC2 credentials if you don’t need them
-and have MFA enabled.</p>
+<p>An EC2 credential will continue to work even if you enable <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> on the API user. This
+means the credential can bypass MFA, make sure that you audit or remove all EC2 credentials if you don’t
+need them and have MFA enabled.</p>
 </div>
 <p>A EC2 credential is a credential with type set to <code class="docutils literal notranslate"><span class="pre">ec2</span></code> and contains a blob of JSON data with an access
 and secret key.</p>
-<p>This access and secret key can then be used to obtain a token scoped to the user that created the EC2
-credentials or be used to authenticate against the <a class="reference internal" href="../storage/object-storage/s3.html"><span class="doc">S3 object storage</span></a> service.</p>
-<p>You can list existing EC2 credentials using <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">credential</span> <span class="pre">list</span> <span class="pre">--type</span> <span class="pre">ec2</span></code>. If you want to create
+<p>You can then use this access and secret key to retrieve a token scoped to the user that created the EC2
+credentials or used it to authenticate against the <a class="reference internal" href="../storage/object-storage/s3.html"><span class="doc">S3 object storage</span></a> service.</p>
+<p>You can list existing EC2 credentials by using <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">credential</span> <span class="pre">list</span> <span class="pre">--type</span> <span class="pre">ec2</span></code>. If you want to create
 a new EC2 credential you can use <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ec2</span> <span class="pre">credentials</span> <span class="pre">create</span></code>.</p>
 <h3 id="totp-credential">TOTP Credential<a class="headerlink" href="#totp-credential" title="Link to this heading">¶</a></h3>
 <p>A TOTP credential is a credential with type set to <code class="docutils literal notranslate"><span class="pre">totp</span></code> that Keystone will use when you
@@ -1394,8 +1401,8 @@ rely on the flow as described in the <a class="reference internal" href="#mfa-us
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
 <p>If you list TOTP credentials it will show your TOTP secret in plain text, this secret
-key is used to generate valid TOTP passcodes for your API user when doing MFA and must
-be kept safe.</p>
+key is whats used to generate valid TOTP passcodes for your API user when doing MFA,
+you must keep this secret safe.</p>
 </div>
 <h2 id="multifactor-authentication-mfa-for-api-user"><span id="mfa-users-label"></span>Multifactor authentication (MFA) for API user<a class="headerlink" href="#multifactor-authentication-mfa-for-api-user" title="Link to this heading">¶</a></h2>
 <div class="note admonition">
@@ -1414,32 +1421,30 @@ Application Credentials and EC2 credentials that you’ve created.</p>
 use the API, terminal client or remove MFA without entering a TOTP passcode.</p></li>
 <li><p>If you lose access to your TOTP application or device you will lose access to your API user, we
 recommend that you keep a backup of your TOTP secret.</p></li>
-<li><p>All <a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> for this user will be enforced
-to use MFA.</p></li>
+<li><p>All <a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> for your user is also protected and enforced to use MFA.</p></li>
 <li><p><a class="reference internal" href="#ec2-credential-label"><span class="std std-ref">EC2 credentials</span></a> for this user will continue to work
-and MFA will <strong>NOT</strong> be enforced, make sure to audit your EC2 credentials.</p></li>
-<li><p>Enabling MFA on your API user will invalidate all existing tokens that has not
-been issued with MFA enabled.</p></li>
+and is <strong>NOT</strong> protected or enforced to use MFA, make sure to audit your EC2 credentials.</p></li>
+<li><p>Enabling MFA on your API user will invalidate all tokens not issued with MFA enabled.</p></li>
 </ul>
 <p>Please make sure to read through the bullet points above carefully and consider the impact
 on your cloud account in the platform before continuing.</p>
 <ul class="simple">
-<li><p>Login to <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> in the top right click on
+<li><p>Login to <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> in the top right click
 your username and in the dropdown go to <strong>Settings</strong>.</p></li>
 <li><p>In the menu to the left you will now see a Settings with <strong>User Settings</strong> selected,
-click on <strong>MFA Settings</strong></p></li>
+click <strong>MFA Settings</strong></p></li>
 <li><p>Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
 <strong>View All Details</strong> to show the TOTP secret in plain text.</p></li>
 <li><p>Enter a valid passcode and click <strong>Submit</strong></p>
 <ul>
-<li><p>If you enter an invalid passcode the page will be refreshed and you will get a new TOTP
+<li><p>If you enter an incorrect passcode the page refreshes and you will get a new TOTP
 secret and need to go through the same procedure again.</p></li>
-<li><p>If you enter a valid passcode, you will be logged out and MFA is now enabled.</p></li>
+<li><p>If you enter a valid passcode, you’re logged out and MFA is now enabled.</p></li>
 </ul>
 </li>
 </ul>
 <p>If you ever want to remove MFA on your API user you can go back to the <strong>MFA Settings</strong>
-page, enter a valid passcode, click <strong>Submit</strong> and MFA will be removed from your API user.</p>
+page, enter a valid passcode, click <strong>Submit</strong> and MFA is then removed from your API user.</p>
 <p>You can read more <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html#mfa-terminal-label"><span class="std std-ref">here</span></a> if you want to use MFA with the
 <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
 <p>When using <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> you will get prompted

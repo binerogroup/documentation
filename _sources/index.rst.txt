@@ -1,6 +1,6 @@
-========================
-Welcome to Binero cloud!
-========================
+=======================
+Welcome to Binero cloud
+=======================
 
 Get your own **virtual data center** today on `Binero cloud <https://binero.com/public-cloud-platform/public-cloud/>`_!
 
@@ -9,20 +9,20 @@ and your account will include 1000 SEK credits to get you started which is enoug
 
 .. youtube:: wfsCY6GCQ9I
 
-You can then manage your account using the :doc:`/getting-started/managing-your-cloud/account-management-portal` and control your
-cloud infrastructure using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` or using the :doc:`/getting-started/managing-your-cloud/openstack-horizon`
-dashboard logging in with an API user created from the cloud portal.
+You can then manage your account by using the :doc:`/getting-started/managing-your-cloud/account-management-portal` and control your
+cloud infrastructure by using the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` or using :doc:`/getting-started/managing-your-cloud/openstack-horizon`
+logging in with an API user created from the cloud portal.
 
-If you are unfamiliar with the :doc:`/getting-started/managing-your-cloud/openstack-horizon` dashboard,
-we recommended you use the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` as it will
-greatly simplify your user experience.
+If you are unfamiliar with :doc:`/getting-started/managing-your-cloud/openstack-horizon` we
+recommended you use the :doc:`/getting-started/managing-your-cloud/cloud-management-portal` as
+it will greatly simplify your user experience.
 
 Advanced features (as described in this documentation) in the platform that will require using
 :doc:`/getting-started/managing-your-cloud/openstack-horizon`, the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client` or the :doc:`/openstack-api`.
 
-The Horizon dashboard is documented in great detail `here <https://docs.openstack.org/horizon/latest/user/index.html>`__ and
-will not be covered exhaustively in this documentation.
+You can see the OpenStack Horizon dashboard documentation in great detail `here <https://docs.openstack.org/horizon/latest/user/index.html>`__ as
+we will not cover all details in this documentation.
 
 .. toctree::
   :caption: General

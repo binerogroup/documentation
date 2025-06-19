@@ -5,17 +5,16 @@ NAT
 General concept
 ---------------
 
-NAT (Network Address Translation) is used to provide instances with internet access
+NAT (Network Address Translation) provides instances with internet access
 when located behind a :doc:`router <index>`.
 
 By default, a router will have a source NAT setup when launching it. This means that
-the router will be assigned a :doc:`floating IP <../floating-ips>` on its external
-interface and when instances on the internal network wants to access the internet, the
-router will change the source IP of the request to its own floating IP. 
+the router has :doc:`floating IP addresses<../floating-ips>` on its external interface
+and when instances on the internal network wants to access the internet, the router will
+change the source IP on the packet to its own floating IP.
 
-The reason for this is that :doc:`subnets </networking/subnet/index>`
-are normally assigned from the pool of IP addresses that are reserved for internal
-usage, according to IETF RFC1918.
+The reason for this is that :doc:`subnets </networking/subnet/index>` are normally assigned
+from the pool of IP addresses reserved for internal usage, according to IETF RFC1918.
 
 The router is able to mask requests as coming from itself and by doing so, all instances are
 able to share the routers single public IP.

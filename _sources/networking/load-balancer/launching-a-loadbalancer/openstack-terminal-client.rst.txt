@@ -5,8 +5,8 @@ Launching load balancer using the OpenStack terminal client
 .. note::
 
    Before launching your first load balancer, we strongly recommend reading
-   our :doc:`concepts <../general-concept/index>` guide so as to gain a better
-   understanding the various parts.
+   our :doc:`concepts <../general-concept/index>` guide to gain a better
+   understanding of the parts.
 
 We also recommend setting the correct :doc:`security groups </networking/security-groups/index>`
 on the instances that should be members in the load balancing.
@@ -20,37 +20,45 @@ Configuration
 To launch a `load balancer <../index>`_ from the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`, follow
 the below steps.
 
-We recommend checking OpenStack Horizon for what additional options are available or using
+We recommend checking OpenStack Horizon for what options are available or using
 the ``-h`` option of the terminal client for more information.
 
 More information is also available `here <https://docs.openstack.org/octavia/latest/user/guides/basic-cookbook.html>`__.
 
 This documentation aims to show how to get going, not display exhaustive information on each available
-option. The example below will load balance HTTP (protocol aware) and thus port 80, this can be adapted.
+option. The example below will load balance HTTP (protocol aware) and thus port 80.
 
 .. note::
 
-   If you want to create a load balancer that terminates SSL, you first need to :doc:`create the requisite
+   If you want to create a load balancer that terminates SSL/TLS, you first need to :doc:`create the requisite
    certificate </secret-store/create-cert-for-loadbalancing>` in our secret store. We recommend reading
-   our :doc:`../ssl-termination` guide before proceeding. Step 4 below could thereafter be replaced by
-   this command: ``openstack loadbalancer listener create --protocol-port 443 --protocol TERMINATED_HTTPS
-   --name [NAME_listener_80] --default-tls-container=$(openstack secret list | awk '/ [NAME_OF_SECRET] / {print $2}') [NAME_lb]``
+   our :doc:`../ssl-termination` guide before proceeding. 
 
-*The brackets are for demonstrating values that need to be customised and should be removed. The suffixes
-(i.e. ``_listener_80``) suggested within brackets are for future clarity (with the ``NAME`` part to symbolise
-a common name you pick to identify the load balancer), any name could however be chosen for each part of
-the load balancer. That said, each command will reference an earlier names chosen.*
+.. note::
+
+   The brackets in below example commands are for demonstrating values that you need to change.
+
+   The suffixes, for example ``_listener_80``, suggested within brackets are for clarity, with
+   the ``NAME`` part to symbolise a common name you pick to identify the load balancer.
+
+   You can use any name for each part of the load balancer. That said, each command will reference
+   an earlier example names.
 
 - Run this command: ``openstack subnet list``, save the name of the subnet that your members are on. We
   suggest using the same subnet for the load balancer but if you would rather use another subnet (or have
-  members in several), then also save the other subnet names.
+  members in many subnets), then also save the other subnet names.
 
 - Run this command to create the load balancer: ``openstack loadbalancer create --name [NAME_lb] --vip-subnet-id [SUBNET_NAME]`` replacing
-  the subnet name with that from previous step, use ``--availability-zone`` to select a available, if not given europe-se-1a will be used by default.
+  the subnet name with that from previous step, use ``--availability-zone`` to select a available, if not given
+  europe-se-1a will be used by default.
 
 - Run this command until it says that the ``operating_status`` is ``ONLINE``: ``openstack loadbalancer show [NAME_OF_LB]``
 
-- Run this command to setup the :doc:`listener <../general-concept/listeners>`: ``openstack loadbalancer listener create --name [NAME_listener_80] --protocol HTTP --protocol-port 80 [NAME_lb]``.
+- Create a :doc:`listener <../general-concept/listeners>`
+
+  - If you want to create a HTTP listener you can use ``openstack loadbalancer listener create --name [NAME_listener_80] --protocol HTTP --protocol-port 80 [NAME_lb]``.
+
+  - If you want to create a HTTP listener with SSL/TLS termination you can use: ``openstack loadbalancer listener create --protocol-port 443 --protocol TERMINATED_HTTPS --name [NAME_listener_80] --default-tls-container=$(openstack secret list | awk '/ [NAME_OF_SECRET] / {print $2}') [NAME_lb]``
 
 - Run this command to setup the :doc:`pool <../general-concept/pools>`: ``openstack loadbalancer pool create --name [NAME_pool_80] --lb-algorithm ROUND_ROBIN --listener [NAME_listener_80] --protocol HTTP``.
 
@@ -65,15 +73,14 @@ the load balancer. That said, each command will reference an earlier names chose
    The load balancer will take some time to start as its a complex process to create it, this particularly
    applies after the second command above.
 
-If you want to assign a :doc:`floating IP <../../floating-ips>` (which is likely), this can be done by
-following these steps:
+If you want to assign a :doc:`floating IP <../../floating-ips>` to your load balancer.
 
 - Run this command: ``openstack loadbalancer list``, save the name of the load balancer you want to verify.
 
 - Run this command: ``openstack loadbalancer show [NAME]``. Replace [NAME] with the name from previous step. Save
   the value of the ``vip_port_id`` of the load balancer.
 
-- Run this command: ``openstack floating ip list``, save an un-assigned floating IP.
+- Run this command: ``openstack floating ip list``, save an unassigned floating IP.
 
 - If you don't have an unassigned floating IP, follow the steps in the :doc:`floating IP addresses <../../floating-ips>`
   article to assign one to the project.
@@ -92,12 +99,12 @@ To verify that the health checking has added the members to the pool, follow thi
 - Run this command: ``openstack loadbalancer member list [NAME_OF_POOL]`` (replace the name with the name
   of the pool from previous step).
 
-- Members should have **Operating status** of ``ONLINE`` if they are accepted into the pool.
+- Members have **Operating status** of ``ONLINE`` when they are online in the pool.
 
 .. tip::
 
    If the members are not online, make sure you have the proper :doc:`/networking/security-groups/index` configured
-   on the them. If you still cant get the members online, verify (by using for example ``tcpdump`` or by reading access
+   on the them. If you still cant get the members online, verify by using for example ``tcpdump`` or by reading access
    logs, that the traffic hits the member servers from the load balancers IP.
 
 ..  seealso::

@@ -1286,7 +1286,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1763,8 +1763,8 @@
 <p>To create a <a class="reference internal" href="index.html"><span class="doc">subnet</span></a> from the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Networks</strong> in the sidebar menu.</p></li>
-<li><p>On the network to which you want to add the subnet, press the <strong>Create subnet</strong> icon (looking
-like multiple rows of text with a small <strong>+</strong> plus sign).</p></li>
+<li><p>On the network to which you want to add the subnet, press the <strong>Create subnet</strong> icon (rows of text with a small
+<strong>+</strong> plus sign).</p></li>
 <li><p>Name your subnet.</p></li>
 <li><p>Under <strong>Network address</strong> you need to input the address in CIDR notation (see the <a class="reference internal" href="subnet-format.html"><span class="doc">Subnet Format</span></a>
 article for more information). For example <code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>.</p></li>
@@ -1772,14 +1772,13 @@ article for more information). For example <code class="docutils literal notrans
 not. If you want a gateway, select <strong>Use standard gateway-IP</strong>. If you don’t, select <strong>don’t use a gateway</strong>. The
 last option <strong>enter gateway manually</strong> will enable you to choose a specific IP as your gateway. If you are unsure, we
 recommend <strong>Use standard gateway</strong>.</p></li>
-<li><p>IPv4 should be selected.</p></li>
-<li><p>If you want to use IPv4, we recommend using DHCP to assign addresses to hosts (as you wont have to login to a host
-via terminal to set them up). The checkbox should be checked.</p></li>
+<li><p>Select IPv4.</p></li>
+<li><p>If you want to use IPv4, we recommend using DHCP to assign IP addresses to hosts.</p></li>
 <li><p>Under <strong>Add pool</strong>, add the <a class="reference internal" href="dhcp.html"><span class="doc">DHCP scope</span></a>. That is, the starting and end addresses you want to auto-assign
 to hosts using DHCP. Press the <strong>+</strong> (plus) sign above <strong>Add pool</strong> and enter start and end addresses. For example
 <code class="docutils literal notranslate"><span class="pre">192.168.0.10</span></code> and <code class="docutils literal notranslate"><span class="pre">192.168.0.254</span></code> if your range is <code class="docutils literal notranslate"><span class="pre">192.169.0.0/24</span></code>.</p></li>
 <li><p>Under <strong>DNS name servers</strong> we recommend adding our servers which are <code class="docutils literal notranslate"><span class="pre">83.168.225.225</span></code> and <code class="docutils literal notranslate"><span class="pre">83.168.226.226</span></code>. You can
-press the <strong>+</strong> (plus) sign multiple times. You can use any DNS servers you want though.</p></li>
+press the <strong>+</strong> (plus) sign repeatedly to add more servers.</p></li>
 <li><p>Under <strong>Add route</strong>, you would add static routes (see: <cite>../router/routing-between-subnets</cite>).</p></li>
 <li><p>Press <strong>Create subnet</strong></p></li>
 </ul>
@@ -1788,10 +1787,10 @@ press the <strong>+</strong> (plus) sign multiple times. You can use any DNS ser
 <ul class="simple">
 <li><p>Press <strong>Networking</strong> and then <strong>Networks</strong> in the sidebar menu.</p></li>
 <li><p>Press the network you want to connect to your router.</p></li>
-<li><p>Under <strong>Subnet</strong> section, check what <strong>Gateway-IP</strong> is assigned to the subnet you want
-to connect. Usually, this would be the first IP in the range. If there is not gateway IP,
-this will need to be set first, using the <strong>Edit</strong> (small pencil icon) next to the subnets
-row. Save the Gateway-IP for upcoming steps.</p></li>
+<li><p>Under <strong>Subnet</strong> section, check what <strong>Gateway-IP</strong> you have set on the subnet you want
+to add to the router . This would normally be the first IP in the range. If there is not
+gateway IP, you need to set one first, using the <strong>Edit</strong> (small pencil icon) next to the
+subnets row. Save the Gateway-IP for upcoming steps.</p></li>
 <li><p>Press <strong>Networking</strong> and then <strong>Routers</strong> in the sidebar menu.</p></li>
 <li><p>Press the <strong>Create interface</strong> on the router you want to connect the subnet to. Its a small
 icon that looks like rows of text with a <strong>+</strong> (plus) sign.</p></li>

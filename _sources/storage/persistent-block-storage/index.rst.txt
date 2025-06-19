@@ -8,10 +8,9 @@ This comes in the form of **Volumes**, which can use either of our :doc:`../stor
 backing media to save data permanently. 
 
 Binero cloud will not provision an instance without a volume attached (unless using NVMe) and the smallest
-volume allowed will be the size of the :doc:`image </images/index>` or :doc:`flavor </compute/flavors>` that
-you want to provision your instance using.
+volume size allowed is the size of the :doc:`image </images/index>` or disk specified in the :doc:`flavor </compute/flavors>`.
 
-The image is the operating system image that is copied onto a volume, you can also create a raw volume
+The image is the operating system image copied onto a volume, you can also create a raw volume
 and add a filesystem on the volume and attach it to an instance for other use-cases.
 
 .. toctree::

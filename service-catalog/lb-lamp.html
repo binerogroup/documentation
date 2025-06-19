@@ -1406,9 +1406,9 @@
 
 <h1 id="load-balanced-linux-apache-mysql-php-lamp">Load Balanced Linux Apache MySQL PHP (LAMP)<a class="headerlink" href="#load-balanced-linux-apache-mysql-php-lamp" title="Link to this heading">¶</a></h1>
 <p>Using the popular and powerful open source tools <a class="reference external" href="https://www.linux.org">Linux</a>,
-<a class="reference external" href="https://httpd.apache.org">Apache</a>, MySQL (<a class="reference external" href="https://mariadb.org">MariaDB</a> will be installed)
-and <a class="reference external" href="https://www.php.net">PHP</a>, a complete production suite can be provisioned.</p>
-<p>Popular tools like WordPress or frameworks like CakePHP and Laravel run on LAMP
+<a class="reference external" href="https://httpd.apache.org">Apache</a>, MySQL (<a class="reference external" href="https://mariadb.org">MariaDB</a>)
+and <a class="reference external" href="https://www.php.net">PHP</a>, you can provision a complete production suite.</p>
+<p>Popular tools such as WordPress or frameworks like CakePHP and Laravel run on LAMP
 installations.</p>
 <p>If you want to be able to scale your LAMP installation beyond a single server, using
 this service to setup a load balanced system will be a good way to go about it.</p>
@@ -1416,9 +1416,9 @@ this service to setup a load balanced system will be a good way to go about it.<
 <ul class="simple">
 <li><p>A <a class="reference internal" href="../networking/load-balancer/index.html"><span class="doc">Load Balancer</span></a></p></li>
 <li><p>A database server instance running MariaDB.</p></li>
-<li><p>A NFS service instance for file storage that will be mounted on the web servers.</p></li>
-<li><p>Web servers (how many you can choose) that will sit behind the load balancer and accept
-the web requests, running Apache and PHP.</p></li>
+<li><p>A NFS service instance for shared file storage.</p></li>
+<li><p>Web servers (you can choose how many) that gets added as backends behind the load balancer
+and accept the web requests, running Apache and PHP and mounts the shared file storage.</p></li>
 </ul>
 <p>To setup the service, first follow the general instructions on our <a class="reference internal" href="index.html"><span class="doc">Service catalog</span></a> page.</p>
 <ul class="simple">
@@ -1431,7 +1431,7 @@ We recommend sticking with the default.</p></li>
 article for more information. We recommend SSD.</p></li>
 <li><p>Select your <a class="reference internal" href="../compute/ssh-keys.html"><span class="doc">SSH-key</span></a>.</p></li>
 <li><p>Under <strong>local network</strong>, select the <a class="reference internal" href="../networking/network/index.html"><span class="doc">network</span></a>
-on which the subnet (see below) that you want to use is located.</p></li>
+on that you want to use.</p></li>
 <li><p>Under <strong>nfs_flavor</strong>, select your <em>NFS instances</em> <a class="reference internal" href="../compute/flavors.html"><span class="doc">flavor</span></a>.
 We recommend sticking with the default.</p></li>
 <li><p>Under <strong>Subnet</strong>, select the <a class="reference internal" href="../networking/subnet/index.html"><span class="doc">network</span></a>

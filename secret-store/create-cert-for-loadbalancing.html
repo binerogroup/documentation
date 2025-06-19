@@ -1274,9 +1274,9 @@
 
 <h1 id="creating-a-certificate-for-ssl-tls-termination-using-load-balancer">Creating a certificate for SSL/TLS termination using Load Balancer<a class="headerlink" href="#creating-a-certificate-for-ssl-tls-termination-using-load-balancer" title="Link to this heading">¶</a></h1>
 <p>When using the <a class="reference internal" href="../networking/load-balancer/index.html"><span class="doc">Load Balancer</span></a> service in Binero cloud
-you can terminate SSL/TLS connections directly, you need to have a certificate
-saved in our <a class="reference internal" href="index.html"><span class="doc">secret store</span></a>.</p>
-<p>The certificate needs to be created in <em>PKCS#12 format</em> to work with the
+you can perform SSL/TLS termination for connections directly, you need to have
+a certificate saved in our <a class="reference internal" href="index.html"><span class="doc">secret store</span></a>.</p>
+<p>The certificate needs to be in the <em>PKCS#12 format</em> to work with the
 load balancer.</p>
 <h2 id="converting-to-pkcs-12">Converting to PKCS#12<a class="headerlink" href="#converting-to-pkcs-12" title="Link to this heading">¶</a></h2>
 <p>Follow the below steps to create a PKCS#12 certificate for use with
@@ -1286,15 +1286,15 @@ the <a class="reference internal" href="../networking/load-balancer/index.html">
 <ul>
 <li><p>For a LetsEncrypt certificates there is the file <code class="docutils literal notranslate"><span class="pre">/etc/letsencrypt/live/yourdomain.com/fullchain.pem</span></code>
 that is already prepared for this.</p></li>
-<li><p>If you don’t use LetsEncrypt then you need to make sure you have the full chain
-of your certificate available and copy it into the same file, for example like
-this: <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/ssl/cert.crt</span> <span class="pre">/etc/ssl/chain.crt</span> <span class="pre">&gt;</span> <span class="pre">new_cert.crt</span></code></p></li>
+<li><p>If you don’t use LetsEncrypt you need to make sure you have the full chain
+of your certificate available and copy it into the same file, for example
+as such: <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/ssl/cert.crt</span> <span class="pre">/etc/ssl/chain.crt</span> <span class="pre">&gt;</span> <span class="pre">new_cert.crt</span></code></p></li>
 </ul>
 </li>
 <li><p>Make sure you have your key available.</p></li>
 <li><p>Run the following command, replacing the items in angle brackets to the correct
 file names according to previous steps: <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">pkcs12</span> <span class="pre">-export</span> <span class="pre">-in</span> <span class="pre">[CERT_FILE_NAME.PEM]</span> <span class="pre">-inkey</span> <span class="pre">[YOUR_KEY.KEY]</span> <span class="pre">-out</span> <span class="pre">lb-cert.p12</span> <span class="pre">-passout</span> <span class="pre">pass:</span></code></p></li>
-<li><p>The new cert (that also includes the key) is stored as <code class="docutils literal notranslate"><span class="pre">lb-cert.p12</span></code></p></li>
+<li><p>The new cert (that also includes the key) is then stored in the file <code class="docutils literal notranslate"><span class="pre">lb-cert.p12</span></code></p></li>
 </ul>
 <h2 id="uploading-the-certificate-to-the-secret-store">Uploading the certificate to the secret store<a class="headerlink" href="#uploading-the-certificate-to-the-secret-store" title="Link to this heading">¶</a></h2>
 <p>You are able to follow the <a class="reference internal" href="create-secret.html"><span class="doc">guides for uploading the certificate</span></a>

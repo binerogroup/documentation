@@ -1449,14 +1449,14 @@
 <h1 id="boot-instances-using-uefi">Boot instances using UEFI<a class="headerlink" href="#boot-instances-using-uefi" title="Link to this heading">¶</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>We do not currently support UEFI Secure Boot, please <a class="reference internal" href="../general/getting-support.html"><span class="doc">contact our support</span></a>
+<p>We do not currently support UEFI Secure Boot, <a class="reference internal" href="../general/getting-support.html"><span class="doc">contact our support</span></a>
 and let us know you need this feature.</p>
 </div>
-<p>We support booting instances using UEFI instead of legacy BIOS, to use it you
-need to set the properties <code class="docutils literal notranslate"><span class="pre">hw_firmware_type</span></code> to <code class="docutils literal notranslate"><span class="pre">uefi</span></code> and <code class="docutils literal notranslate"><span class="pre">hw_machine_type</span></code>
-to <code class="docutils literal notranslate"><span class="pre">q35</span></code> on your <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> or in the volume metadata.</p>
-<p>When creating a volume with an image the properties on the image is copied into
-the volume metadata.</p>
+<p>We support booting instances by using <code class="docutils literal notranslate"><span class="pre">UEFI</span></code> instead of legacy <code class="docutils literal notranslate"><span class="pre">BIOS</span></code>. To use it you
+need to set the properties <code class="docutils literal notranslate"><span class="pre">hw_firmware_type</span></code> to <code class="docutils literal notranslate"><span class="pre">uefi</span></code> and <code class="docutils literal notranslate"><span class="pre">hw_machine_type</span></code> to
+<code class="docutils literal notranslate"><span class="pre">q35</span></code> on your <a class="reference internal" href="../images/index.html"><span class="doc">image</span></a> or in the volume metadata.</p>
+<p>The system copies the image properties into the volume metadata when it creates
+a volume with an image.</p>
 
 
 

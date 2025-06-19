@@ -1210,7 +1210,7 @@
   
   
   <span class="md-ellipsis">
-    Custom firewall/router
+    Custom firewall or router
     
   </span>
   
@@ -1710,25 +1710,26 @@
 
 <h1 id="static-routing">Static routing<a class="headerlink" href="#static-routing" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
-<p>Routing is (normally, exclusively in the context of Binero clouds implementation) done based
+<p>Routing is, in the context of Binero clouds implementation, done based
 on destination.</p>
 <p>The two key parameters when talking about routing is:</p>
 <ul class="simple">
 <li><p>The destination IP</p></li>
 <li><p>The gateway IP used as the next hop</p></li>
 </ul>
-<p>When routing packets, a router will consult a routing table that will have various network ranges
-available, each matched to a next hop (or gateway) which is the next device the packet should be
-sent to in order to reach its destination.</p>
-<p>When routing, an IP packets destination IP will be identified as belonging to a network in the routing
-table and the router will forward the packet to the next-hop (or gateway) of that network.</p>
+<p>When routing packets, a router will consult a routing table that will have different routes to networks
+available, each matched to a next hop (or gateway) which is the next device the packet gets sent to
+reach its destination.</p>
+<p>When routing an IP packets, the destination IP belongs to a network of which we match against the
+routing table, the router will then forward the packet to the next hop (or gateway) to reach that
+network.</p>
 <p>Should the router be directly connected to the network in question (local to the network), it will
 instead use Address Resolution Protocol (ARP) to map the destination IP to a hardware (MAC) address
 and forward the packet to its final destination.</p>
-<p>Static routing is the process of manually defining what subnets (network ranges) there are and
-behind what routers they are connected so that the routers are able to forward the packets.</p>
-<p>It is only needed if there is <em>more then a single router in the network</em> (as a single router would be
-expected to be connected to all networks directly and then would manage all the routing based on that).</p>
+<p>Static routing is the process of manually defining what networks exists and what next hop to use when
+forwarding packets to reach that destination.</p>
+<p>It’s only needed if there is <em>more then a single router in the network</em> as a single router normally
+connects to all networks directly and already knows how to reach all networks.</p>
 <p>If a routing entry is missing and the routers are not able to match a destination IP to a network in
 their tables, one of two things will happen:</p>
 <ul class="simple">
@@ -1739,24 +1740,18 @@ networks and would drop the packet.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The next-hop of a routing entry will need to be reachable <em>and on a common network</em> (that is a network
-to which both the sending and receiving router are connected).</p>
+<p>The next hop of a routing entry will need to be reachable <em>and on a common network</em> (that is a network
+to which both the sending and receiving router has).</p>
 <p>Routing cannot rely on routing to reach a gateway, all gateways need to be directly accessible. A link-network
 is commonly use for this (but any subnet will suffice when the routers are both connected to it), see
 our <a class="reference internal" href="routing-between-networks.html"><span class="doc">Routing between networks</span></a> for more information.</p>
 </div>
 <h2 id="working-with-static-routes">Working with static routes<a class="headerlink" href="#working-with-static-routes" title="Link to this heading">¶</a></h2>
-<p>Below is shown how to add static routes to a <a class="reference internal" href="index.html"><span class="doc">router</span></a> using the various tools.</p>
+<p>Below is how to add static routes to a <a class="reference internal" href="index.html"><span class="doc">router</span></a>.</p>
 <p>Since you route based on destination (but also need to account for return traffic, that is the traffic that
-a requests reply would generate), you would want to add the routes to both (or several) sides with the distinction
-that the networks defined on each router are the ones <strong>not local</strong> to that router.</p>
-<p>The routing entries are therefore <em>not the same</em> on any two (ore more) routers.</p>
-<div class="important tip admonition">
-<p class="admonition-title">Important</p>
-<p>If you (mistakenly) add a route to a router that is already local to it (that is connected to it by an interface), the
-affected subnet would stop working. Only add routing entries to <em>remote</em> networks. Local networks are already routed
-by being directly connected.</p>
-</div>
+a reply sends), you would want to add the routes for both sides with the distinction that the networks defined
+on each router are the ones <strong>not local</strong> to that router.</p>
+<p>The routing entries are <em>not the same</em> on any two (or more) routers.</p>
 <p>Static routing is currently only supported using <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>
 or the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack terminal client</span></a>.</p>
 <h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
