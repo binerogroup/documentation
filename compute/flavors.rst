@@ -206,22 +206,22 @@ read memory.
      - CPU vendor
 
    * - gp.4x8-pinned
-     - 8192
      - 4
+     - 8192
      - General purpose with pinned CPU
      - Version 1
      - Intel
 
    * - gp.8x16-pinned
-     - 16384
      - 8
+     - 16384
      - General purpose with pinned CPU
      - Version 1
      - Intel
 
    * - gp.16x32-pinned
-     - 32768
      - 16
+     - 32768
      - General purpose with pinned CPU
      - Version 1
      - Intel
@@ -465,22 +465,22 @@ of these flavors. These are the same but with a higher memory to CPU ratio.
      - CPU vendor
 
    * - hm.4x16-pinned
-     - 16384
      - 4
+     - 16384
      - High memory with pinned CPU
      - Version 1
      - Intel
 
    * - hm.8x32-pinned
-     - 32768
      - 8
+     - 32768
      - High memory with pinned CPU
      - Version 1
      - Intel
 
    * - hm.16x64-pinned
-     - 65536
      - 16
+     - 65536
      - High memory with pinned CPU
      - Version 1
      - Intel
@@ -642,99 +642,99 @@ product family.
      - CPU vendor
 
    * - hp.2x4
-     - 4096
      - 2
+     - 4096
      - High performance
      - Version 1
      - Intel
 
    * - hp.2x6
-     - 6144
      - 2
+     - 6144
      - High performance
      - Version 1
      - Intel
 
    * - hp.2x8
-     - 8192
      - 2
+     - 8192
      - High performance
      - Version 1
      - Intel
 
    * - hp.4x6
-     - 6144
      - 4
+     - 6144
      - High performance
      - Version 1
      - Intel
 
    * - hp.4x8
-     - 8192
      - 4
+     - 8192
      - High performance
      - Version 1
      - Intel
 
    * - hp.4x16
-     - 16384
      - 4
+     - 16384
      - High performance
      - Version 1
      - Intel
 
    * - hp.6x12
-     - 12288
      - 6
+     - 12288
      - High performance
      - Version 1
      - Intel
 
    * - hp.8x24
-     - 24576
      - 8
+     - 24576
      - High performance
      - Version 1
      - Intel
 
    * - hp.8x32
-     - 32768
      - 8
+     - 32768
      - High performance
      - Version 1
      - Intel
 
    * - hp.8x64
-     - 65536
      - 8
+     - 65536
      - High performance
      - Version 1
      - Intel
 
    * - hp.8x128
-     - 131072
      - 8
+     - 131072
      - High performance
      - Version 1
      - Intel
 
    * - hp.12x32
-     - 32768
      - 12
+     - 32768
      - High performance
      - Version 1
      - Intel
 
    * - hp.12x64
-     - 65536
      - 12
+     - 65536
      - High performance
      - Version 1
      - Intel
 
    * - hp.12x128
-     - 131072
      - 12
+     - 131072
      - High performance
      - Version 1
      - Intel
@@ -780,8 +780,8 @@ have an application with data replication or redundancy already built-in.
      - Intel
 
    * - hp.4x8-nvme250
-     - 8192
      - 4
+     - 8192
      - 250
      - High performance with NVMe
      - Version 1
