@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install tox
         run: sudo apt install -y tox
       - name: Run tox pep8 env
@@ -16,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install tox
         run: sudo apt install -y tox
       - name: Run tox docs env
@@ -24,6 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install docutils
         run: sudo apt-get install -y docutils
       - uses: errata-ai/vale-action@v2.1.1
