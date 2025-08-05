@@ -35,9 +35,9 @@ would have a versatile networking setup that will enable you to scale out your i
 
 .. seealso::
 
-  ../network/index
-  ../subnet/index
-  ../security-groups/index
+  - :doc:`../network/index`
+  - :doc:`../subnet/index`
+  - :doc:`../security-groups/index`
 
 .. toctree::
   :caption: Available services
