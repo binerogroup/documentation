@@ -1230,17 +1230,34 @@ reachability between them.</p>
 the same region.</p>
 <p>Storage services are also autonomous to other availability zones and do not share anything, we
 provide different replication options that can help you copy data between availability zones.</p>
-<p>Binero cloud provides two public availability zones (<em>a</em> and <em>b</em>) in the <em>europe-se-1</em> region
-and we refer to them as below:</p>
-<ul class="simple">
-<li><p>europe-se-1a</p></li>
-<li><p>europe-se-1b</p></li>
-</ul>
+<p>Binero cloud provides two public availability zones (<strong>a</strong> and <strong>b</strong>) in the <strong>europe-se-1</strong>
+region and we refer to them as <strong>europe-se-1a</strong> and <strong>europe-se-1b</strong>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
 <p>We recommend using the availability zone <strong>europe-se-1a</strong> to start with (or if you only need
 a single AZ) as the cost is slightly higher in <em>europe-se-1b</em></p>
 </div>
+<table class="docutils data align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Availability Zone</p></th>
+<th class="head"><p>Region</p></th>
+<th class="head"><p>Geography</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>europe-se-1a</p></td>
+<td><p>europe-se-1</p></td>
+<td><p>Stockholm, Sweden</p></td>
+</tr>
+<tr class="row-odd"><td><p>b</p></td>
+<td><p>europe-se-1b</p></td>
+<td><p>europe-se-1</p></td>
+<td><p>Stockholm, Sweden</p></td>
+</tr>
+</tbody>
+</table>
 <h3 id="availability-zones-networking">Availability zones networking<a class="headerlink" href="#availability-zones-networking" title="Link to this heading">¶</a></h3>
 <p>Its important to understand the networking concepts used to ensure a functioning system
 in case of a unforeseen disruption to a single availability zone - which in a geographically

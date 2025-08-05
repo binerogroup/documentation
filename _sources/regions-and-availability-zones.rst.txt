@@ -67,17 +67,31 @@ the same region.
 Storage services are also autonomous to other availability zones and do not share anything, we
 provide different replication options that can help you copy data between availability zones.
 
-Binero cloud provides two public availability zones (*a* and *b*) in the *europe-se-1* region
-and we refer to them as below:
-
-- europe-se-1a
-
-- europe-se-1b
+Binero cloud provides two public availability zones (**a** and **b**) in the **europe-se-1**
+region and we refer to them as **europe-se-1a** and **europe-se-1b**.
 
 .. tip::
 
    We recommend using the availability zone **europe-se-1a** to start with (or if you only need
    a single AZ) as the cost is slightly higher in *europe-se-1b*
+
+.. list-table::
+   :header-rows: 1
+
+   * - ID
+     - Availability Zone
+     - Region
+     - Geography
+
+   * - a
+     - europe-se-1a
+     - europe-se-1
+     - Stockholm, Sweden
+
+   * - b
+     - europe-se-1b
+     - europe-se-1
+     - Stockholm, Sweden
 
 Availability zones networking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
