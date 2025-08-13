@@ -235,6 +235,10 @@ EPYC 7002 series.
 Performance testing has indicated that General purpose version 2 has 1-4x better performance
 than version 1 depending on your use-case.
 
+.. note::
+
+   :doc:`windows-instances` is not supported on version 2 flavors.
+
 .. list-table::
    :widths: 25 20 20 40 40 20
    :header-rows: 1
@@ -494,6 +498,10 @@ EPYC 7002 series.
 
 Performance testing has indicated that High memory version 2 has 1-4x better performance
 than version 1 depending on your use-case.
+
+.. note::
+
+   :doc:`windows-instances` is not supported on version 2 flavors.
 
 .. list-table::
    :widths: 25 20 20 40 40 20
