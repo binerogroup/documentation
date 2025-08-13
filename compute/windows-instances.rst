@@ -6,7 +6,8 @@ Windows runs great on Binero cloud! Some considerations when using a Windows
 based :doc:`image </images/index>` on the platform. We outline them below. 
 
 - As Windows generally heavy on memory usage, we recommend using a
-  :doc:`high memory flavor <flavors>` to run your windows instance on.
+  :doc:`high memory flavor version 1 (hm) <flavors>` to run your windows
+  instance on.
 
 - While Microsoft says Windows server will run on the smallest instance, for a
   good user experience we recommend at least 3 cores and 8 GB of memory.
@@ -20,6 +21,11 @@ based :doc:`image </images/index>` on the platform. We outline them below.
 - While Microsoft says 32 GB is the lower limit of disk required to run Windows
   Server, we recommend using at least 64 GB. This does not include your actual
   use-case, but for the operating system itself. 
+
+Supported flavors
+-----------------
+
+Only version 1 :doc:`flavors <flavors>` support Windows.
 
 Provisioning
 ------------
