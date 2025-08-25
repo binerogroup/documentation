@@ -25,7 +25,8 @@ different APIs.
    support if you need more.
 
 You have the ability to choose from different :doc:`storage policies <storage-policy>` of object storage to setup a
-storage solution that delivers at the lowest possible cost per GB while still meeting your requirements.
+storage solution that delivers at the lowest possible cost per GB while still meeting your requirements. You cannot
+change storage policy on an existing bucket/container.
 
 We also enable :doc:`replication <replication>` if you want to have your data available in more than one
 availability zone for example as part of a multi data center high availability solution.
