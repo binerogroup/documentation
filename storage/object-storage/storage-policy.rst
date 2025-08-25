@@ -5,7 +5,8 @@ Storage policy
 Binero cloud provides different storage policies for you to place your container or bucket on.
 
 A storage policy is using an underlying :doc:`storage type <../storage-types>` and
-other features to accommodate different use-cases.
+other features to accommodate different use-cases. You cannot change storage policy
+on an existing bucket/container.
 
 The intent is to allow users to select on a more granular level on what they need for
 their use-case such as:

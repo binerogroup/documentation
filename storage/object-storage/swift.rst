@@ -86,6 +86,10 @@ client.
 To use the latter to create a bucket see below. Add the ``--os-storage-url`` as per above
 if you need to change API endpoint.
 
+.. note::
+
+   You cannot change storage policy on the bucket after creation.
+
 - Decide which :doc:`storage policy <storage-policy>` you want to use. Save the name.
 
 - Decide if you need to use :doc:`replication <replication>`.
