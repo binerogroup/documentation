@@ -74,6 +74,10 @@ Creating a bucket
 To create a bucket via S3, you would either use the API (not covered in this documentation) or the S3
 client. To use the latter to create a bucket:
 
+.. note::
+
+   You cannot change storage policy on the bucket after creation.
+
 - Decide which :doc:`storage policy <storage-policy>` you want to use. Save the name.
 
 - Decide if you need to use :doc:`replication <replication>` or not.
