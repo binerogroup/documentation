@@ -61,3 +61,4 @@ passcode
 passcodes
 multifactor|Multifactor
 udev
+nordic
