@@ -44,7 +44,7 @@ support and we will help you get started.
 
 .. tip::
 
-   By our premium anycast DNS service you can lower the response time of DNS queries
+   By using our premium anycast DNS service you can lower the response time of DNS queries
    to your DNS zones from all around the world. Contact our support to get started.
 
 Create a zone
