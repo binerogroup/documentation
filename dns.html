@@ -932,6 +932,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#standard-anycast" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Standard anycast</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premium-anycast" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Premium anycast</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-a-zone" class="md-nav__link">
     
     <span class="md-ellipsis">
@@ -1124,6 +1144,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#standard-anycast" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Standard anycast</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premium-anycast" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Premium anycast</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-a-zone" class="md-nav__link">
     
     <span class="md-ellipsis">
@@ -1191,8 +1231,8 @@
 <h1 id="dns">DNS<a class="headerlink" href="#dns" title="Link to this heading">¶</a></h1>
 <h2 id="general-concept">General concept<a class="headerlink" href="#general-concept" title="Link to this heading">¶</a></h2>
 <p>Using our DNS feature, you can use the platform to control your DNS (domain) zones.</p>
-<p>To start using the feature, first add one or more zones, add the pointers (A, MX and
-so on) and finally change the NS pointers at your DNS registrar for your domain to our
+<p>To start using the feature, first add one or more zones, add the records (A, MX and
+so on) and finally change the NS records at your DNS registrar for your domain to our
 DNS servers.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ns.binero.eu</span></code></p></li>
@@ -1205,8 +1245,20 @@ does not have DNS registrar services</strong>.</p>
 <p class="admonition-title">Note</p>
 <p>The DNS name servers provided by Binero (that is, the servers that answer the DNS
 queries) are not hosted with Binero but with <a class="reference external" href="https://www.netnod.se/dns/dns-anycast">Netnod</a>.</p>
-<p>By default, the DNS service does not provide anycast capabilities but if you need that, contact
-our support and we can help enable it for your DNS zones.</p>
+<p>Netnod has been providing anycast DNS services for more than 20 years and also hosts one
+of the worlds DNS root name servers.</p>
+</div>
+<h2 id="standard-anycast">Standard anycast<a class="headerlink" href="#standard-anycast" title="Link to this heading">¶</a></h2>
+<p>By default the DNS service provides standard anycast for your DNS zone. This provides you
+with anycast DNS in the nordic region and Stockholm.</p>
+<h2 id="premium-anycast">Premium anycast<a class="headerlink" href="#premium-anycast" title="Link to this heading">¶</a></h2>
+<p>If you want a global DNS service we also provide premium anycast that gives you global anycast
+DNS with locations all around the world, if you want to use our premium anycast, contact our
+support and we will help you get started.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>By our premium anycast DNS service you can lower the response time of DNS queries
+to your DNS zones from all around the world. Contact our support to get started.</p>
 </div>
 <h2 id="create-a-zone">Create a zone<a class="headerlink" href="#create-a-zone" title="Link to this heading">¶</a></h2>
 <p>To create a zone, see the guide below to the system you want to use.</p>
@@ -1227,13 +1279,13 @@ other things). If you are unsure, leave this field blank.</p></li>
 <ul class="simple">
 <li><p>Press <strong>DNS</strong> and then <strong>DNS zones</strong> in the sidebar menu.</p></li>
 <li><p>Press the icon / row on the zone you want to edit.</p></li>
-<li><p>To add a pointer, press the small <strong>+</strong> (plus) symbol at the bottom and edit the row that will appear on the end.</p></li>
-<li><p>To edit a pointer, press the pointer name.</p></li>
+<li><p>To add a record, press the small <strong>+</strong> (plus) symbol at the bottom and edit the row that will appear on the end.</p></li>
+<li><p>To edit a record, press the record name.</p></li>
 <li><p>When done, press <strong>Save all changes</strong></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>To edit pointers for the domains origin (for example an MX record), use the domain itself
+<p>To edit records for the domains origin (for example an MX record), use the domain itself
 followed by a <code class="docutils literal notranslate"><span class="pre">.</span></code> (dot) as subdomain.</p>
 </div>
 <h3 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h3>
@@ -1253,8 +1305,8 @@ followed by a <code class="docutils literal notranslate"><span class="pre">.</sp
 <li><p>Under <strong>Project</strong>, click <strong>DNS</strong> and then <strong>Zones</strong> in the sidebar menu.</p></li>
 <li><p>Press the name of the zone you want to edit.</p></li>
 <li><p>Press the <strong>Record sets</strong> tab.</p></li>
-<li><p>To add a pointer, press the <strong>Create record set</strong> button to the top right.</p></li>
-<li><p>To edit a pointer, press <strong>Update</strong> next to the right on the row of the pointer.</p></li>
+<li><p>To add a record, press the <strong>Create record set</strong> button to the top right.</p></li>
+<li><p>To edit a record, press <strong>Update</strong> next to the right on the row of the record.</p></li>
 </ul>
 <h3 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h3>
 <p>To setup an DNS zone by using

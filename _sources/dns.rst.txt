@@ -7,8 +7,8 @@ General concept
 
 Using our DNS feature, you can use the platform to control your DNS (domain) zones.
 
-To start using the feature, first add one or more zones, add the pointers (A, MX and
-so on) and finally change the NS pointers at your DNS registrar for your domain to our
+To start using the feature, first add one or more zones, add the records (A, MX and
+so on) and finally change the NS records at your DNS registrar for your domain to our
 DNS servers.
 
 - ``ns.binero.eu``
@@ -25,8 +25,27 @@ does not have DNS registrar services**.
    The DNS name servers provided by Binero (that is, the servers that answer the DNS
    queries) are not hosted with Binero but with `Netnod <https://www.netnod.se/dns/dns-anycast>`__.
 
-   By default, the DNS service does not provide anycast capabilities but if you need that, contact
-   our support and we can help enable it for your DNS zones.
+   Netnod has been providing anycast DNS services for more than 20 years and also hosts one
+   of the worlds DNS root name servers.
+
+
+Standard anycast
+----------------
+
+By default the DNS service provides standard anycast for your DNS zone. This provides you
+with anycast DNS in the nordic region and Stockholm.
+
+Premium anycast
+---------------
+
+If you want a global DNS service we also provide premium anycast that gives you global anycast
+DNS with locations all around the world, if you want to use our premium anycast, contact our
+support and we will help you get started.
+
+.. tip::
+
+   By our premium anycast DNS service you can lower the response time of DNS queries
+   to your DNS zones from all around the world. Contact our support to get started.
 
 Create a zone
 -------------
@@ -59,15 +78,15 @@ To edit a DNS zone by using the
 
 - Press the icon / row on the zone you want to edit. 
 
-- To add a pointer, press the small **+** (plus) symbol at the bottom and edit the row that will appear on the end. 
+- To add a record, press the small **+** (plus) symbol at the bottom and edit the row that will appear on the end. 
 
-- To edit a pointer, press the pointer name. 
+- To edit a record, press the record name.
 
 - When done, press **Save all changes**
 
 .. note::
 
-   To edit pointers for the domains origin (for example an MX record), use the domain itself
+   To edit records for the domains origin (for example an MX record), use the domain itself
    followed by a ``.`` (dot) as subdomain.
 
 OpenStack Horizon
@@ -97,9 +116,9 @@ To edit a DNS zone by using
 
 - Press the **Record sets** tab.
 
-- To add a pointer, press the **Create record set** button to the top right. 
+- To add a record, press the **Create record set** button to the top right. 
 
-- To edit a pointer, press **Update** next to the right on the row of the pointer.
+- To edit a record, press **Update** next to the right on the row of the record.
 
 OpenStack Terminal Client
 ^^^^^^^^^^^^^^^^^^^^^^^^^
