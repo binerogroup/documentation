@@ -50,13 +50,13 @@ An overview of the flavor groups and their types looks like below.
 
     - GPU and NVMe, example ``hp.12x64-gpu8-nvme250``
 
-Te flavor ``hm.8x48`` is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs
+The flavor ``hm.8x48`` is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs
 and 48 GB memory.
 
 The ``hp.12x64-gpu8-nvme50`` flavor is High performance (hp) version 1 with 12 vCPUs,
 64 GB memory, 8 GB GPU vRAM and 50 GB of local NVMe storage.
 
-The ``gp-v2a.8x16`` flavor is Generala purpose (gp) version 2 with 8 vCPUs and 16 GB
+The ``gp-v2a.8x16`` flavor is General purpose (gp) version 2 with 8 vCPUs and 16 GB
 memory.
 
 See the list of flavors more in detail below, you can also see them in the portals or by listing
@@ -757,7 +757,7 @@ is no data redundancy.
 .. caution::
 
    The NVMe based storage is local to the hypervisor that is running your
-   instance is using a single physical disk, though NVMe based enterprise
+   instance and is using a single physical disk, though NVMe based enterprise
    solid state drives has an high lifetime expectancy it's important that
    you consider this fact and **backup your data** regularly.
 
