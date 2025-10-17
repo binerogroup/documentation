@@ -77,8 +77,6 @@ configured for you with verified and secure defaults. The following applications
 - :doc:`Redis <redis>` will install a `Redis <https://redis.io>`__ in-memory data
   structure store.
 
-- :doc:`Grafana <grafana>` will install a Grafana Dashboard.
- 
 .. toctree::
   :caption: Available services
   :maxdepth: 2
