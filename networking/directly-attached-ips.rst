@@ -24,27 +24,40 @@ instance facing the router. This is not a recommended approach.
 
 .. note::
 
-   Directly attached IP addresses are not designed to work well with routers but for a single
-   instance that just want a direct internet connection and nothing else. 
+   Directly attached IP addresses are not designed to work well with :doc:`routers </networking/router/index>`
+   but for a single instance that want a direct internet connection and nothing else. 
+
+.. warning::
+
+   A port with a directly attached IP address has its lifecycle tied to the instance, when you detach
+   the interface or delete the instance the port gets released back into the pool.
+
+   If need a more permanent IP address allocation use a :doc:`Floating IP <floating-ips>`.
 
 Key differences to floating IP addresses
 ----------------------------------------
 
-- Since a directly attached IP is setup on the instance, nothing is in front of the IP. No NAT or firewall (unless
-  using security groups). This might be an upside for some applications that does not work well through NAT or admins
-  that want to manage their entire network stack on the instance. 
+- Since a port with a directly attached IP is setup on the instance, there is no need for NAT. This might be an upside
+  for some applications that does not work well through NAT or admins that want to manage their entire network stack
+  on the instance.
 
-- Directly attached IP addresses have a slight performance improvement over routers because of no NAT and no virtual
-  network. This performance will be negligible in most use-cases.
+- Directly attached IP addresses have a slight performance improvement over :doc:`routers </networking/router/index>`
+  because of no NAT and no :doc:`network </networking/network/index>`. This performance will be negligible in most
+  use-cases.
 
 - Directly attached IP addresses does not combine with the majority of the networking functions in the platform which
-  will rely on a router to work. For instance :doc:`load-balancer/index` or :doc:`security-groups/index`.
+  will rely on a router to work, for instance the :doc:`load-balancer/index` service.
+
+- Instances associates directly attached IP addresses with its lifetime, so removing the interface or deleting the
+  instance releases the port and IP allocation, use a :doc:`floating IP </networking/floating-ips>` if you a more
+  permanent IP allocation.
 
 .. note::
 
-   For a more versatile approach to networking, we recommend using :doc:`floating-ips`. The primary use-case for
-   directly attached IP addresses are single instances that need a less complicated method to reach the internet
-   and publish services from an instance to be available on the internet.
+   For a more versatile approach to networking where you keep the IP allocation, we recommend using :doc:`floating-ips`.
+
+   The primary use-case for directly attached IP addresses are single instances that need a less complicated method to
+   reach the internet and publish services from an instance to be available on the internet.
 
 Setting up a directly attached IP
 ---------------------------------
