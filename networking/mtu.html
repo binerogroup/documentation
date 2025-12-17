@@ -1679,7 +1679,7 @@ or PMTUD.</p>
 correctly. It relies on ICMP which not all service providers and network operators honour so its not 100% certain
 that it will work.</p>
 <h2 id="mtu-in-binero-cloud">MTU in Binero cloud<a class="headerlink" href="#mtu-in-binero-cloud" title="Link to this heading">¶</a></h2>
-<p>Since Binero cloud uses virtual networking, the MTU size given when using <a class="reference internal" href="subnet/dhcp.html"><span class="doc">DHCP</span></a> on your
+<p>Since Binero cloud uses software-defined networking, the MTU size given when using <a class="reference internal" href="subnet/dhcp.html"><span class="doc">DHCP</span></a> on your
 <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a> to assign addresses is 1450 bytes.</p>
 <p>This is because the VXLAN (network virtualization used) encapsulation needs 50 bytes of the frames
 available 1500 bytes.</p>

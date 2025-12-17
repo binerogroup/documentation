@@ -1547,24 +1547,34 @@ default route, it will require configuration of the instance to use a manual IP 
 instance facing the router. This is not a recommended approach.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Directly attached IP addresses are not designed to work well with routers but for a single
-instance that just want a direct internet connection and nothing else.</p>
+<p>Directly attached IP addresses are not designed to work well with <a class="reference internal" href="router/index.html"><span class="doc">routers</span></a>
+but for a single instance that want a direct internet connection and nothing else.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>A port with a directly attached IP address has its lifecycle tied to the instance, when you detach
+the interface or delete the instance the port gets released back into the pool.</p>
+<p>If need a more permanent IP address allocation use a <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP</span></a>.</p>
 </div>
 <h2 id="key-differences-to-floating-ip-addresses">Key differences to floating IP addresses<a class="headerlink" href="#key-differences-to-floating-ip-addresses" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Since a directly attached IP is setup on the instance, nothing is in front of the IP. No NAT or firewall (unless
-using security groups). This might be an upside for some applications that does not work well through NAT or admins
-that want to manage their entire network stack on the instance.</p></li>
-<li><p>Directly attached IP addresses have a slight performance improvement over routers because of no NAT and no virtual
-network. This performance will be negligible in most use-cases.</p></li>
+<li><p>Since a port with a directly attached IP is setup on the instance, there is no need for NAT. This might be an upside
+for some applications that does not work well through NAT or admins that want to manage their entire network stack
+on the instance.</p></li>
+<li><p>Directly attached IP addresses have a slight performance improvement over <a class="reference internal" href="router/index.html"><span class="doc">routers</span></a>
+because of no NAT and no <a class="reference internal" href="network/index.html"><span class="doc">network</span></a>. This performance will be negligible in most
+use-cases.</p></li>
 <li><p>Directly attached IP addresses does not combine with the majority of the networking functions in the platform which
-will rely on a router to work. For instance <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> or <a class="reference internal" href="security-groups/index.html"><span class="doc">Security groups</span></a>.</p></li>
+will rely on a router to work, for instance the <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> service.</p></li>
+<li><p>Instances associates directly attached IP addresses with its lifetime, so removing the interface or deleting the
+instance releases the port and IP allocation, use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating IP</span></a> if you a more
+permanent IP allocation.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>For a more versatile approach to networking, we recommend using <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a>. The primary use-case for
-directly attached IP addresses are single instances that need a less complicated method to reach the internet
-and publish services from an instance to be available on the internet.</p>
+<p>For a more versatile approach to networking where you keep the IP allocation, we recommend using <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a>.</p>
+<p>The primary use-case for directly attached IP addresses are single instances that need a less complicated method to
+reach the internet and publish services from an instance to be available on the internet.</p>
 </div>
 <h2 id="setting-up-a-directly-attached-ip">Setting up a directly attached IP<a class="headerlink" href="#setting-up-a-directly-attached-ip" title="Link to this heading">¶</a></h2>
 <p>The process for setting up a directly attached IP on an instance is not differing from any other
