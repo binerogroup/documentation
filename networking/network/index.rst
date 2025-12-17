@@ -5,7 +5,7 @@ Networks
 General concept
 ---------------
 
-A network in Binero cloud is a software-defined virtual network.
+A network in Binero cloud is a software-defined network.
 
 The network will connect to :doc:`ports </networking/ports>` on routers or
 instances just as a physical server might connect to a port in a switch.
@@ -23,10 +23,9 @@ addressing for ports.
 
 .. note::
 
-   While a network would be enough (provided you would want to manage your IP layer
-   manually, its recommended to use the OpenStack approach to networking which is
-   to use networks that in turn have subnets configured on them as it greatly improves
-   the user experience and some services in the platform will rely on doing so.
+   You can manage IP addressing manually with a single network, but using OpenStack
+   networks with configured subnets provides a better user experience and some platform
+   services depend on it.
 
 Managing networks
 -----------------
