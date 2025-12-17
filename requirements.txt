@@ -1,4 +1,7 @@
-sphinx # BSD
+# TODO(tobias-urdin): Pin sphinx<9.0.0 until the
+# sphinx-immaterial theme support it.
+# https://github.com/jbms/sphinx-immaterial/issues/475
+sphinx<9.0.0 # BSD
 sphinx-immaterial # MIT
 sphinx-sitemap # MIT
 sphinxcontrib-youtube # BSD
