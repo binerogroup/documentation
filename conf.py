@@ -42,6 +42,7 @@ extensions = [
     'sphinx_sitemap',
     'sphinxcontrib.youtube',
     'sphinxcontrib.svgbob',
+    'sphinx_llms_txt',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
