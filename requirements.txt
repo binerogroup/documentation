@@ -6,3 +6,4 @@ sphinx-immaterial # MIT
 sphinx-sitemap # MIT
 sphinxcontrib-youtube # BSD
 sphinxcontrib-svgbob # MIT
+sphinx-llms-txt # MIT
