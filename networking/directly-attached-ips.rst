@@ -13,9 +13,9 @@ operating system, you would (with a directly attached IP) see the public IP assi
 
 When using a floating IP, the result would instead be the IP address from the :doc:`subnet <subnet/index>`
 that you assigned to the instance. The floating IP is then redirected using NAT to and from the instance in
-the router.
+the :doc:`router <router/index>`.
 
-Another key difference is that a directly attached IP is the only way to consume a public IPv4 *without* using
+Another key difference is that a directly attached IP is the only way to consume a public IPv4 **without** using
 a :doc:`router <router/index>`. A router cannot use a directly attached IP or route traffic for one.
 
 Its possible to connect a router to an instance that has a directly attached IP but since they will both provide a
@@ -29,10 +29,12 @@ instance facing the router. This is not a recommended approach.
 
 .. warning::
 
-   A port with a directly attached IP address has its lifecycle tied to the instance, when you detach
-   the interface or delete the instance the port gets released back into the pool.
+   If you create an :doc:`instance </compute/index>` and don't specify an existing :doc:`port </networking/ports>` we
+   will create one for your instance but it's tied to the lifecycle of the instance, if you detach the interface or
+   delete the instance the port together with the IP address gets released back into the pool.
 
-   If need a more permanent IP address allocation use a :doc:`Floating IP <floating-ips>`.
+   If you need a more permanent IP address allocation use a :doc:`Floating IP <floating-ips>` or create a
+   :doc:`port </networking/ports>` manually and don't let the service create it for you.
 
 Key differences to floating IP addresses
 ----------------------------------------
@@ -48,16 +50,17 @@ Key differences to floating IP addresses
 - Directly attached IP addresses does not combine with the majority of the networking functions in the platform which
   will rely on a router to work, for instance the :doc:`load-balancer/index` service.
 
-- Instances associates directly attached IP addresses with its lifetime, so removing the interface or deleting the
-  instance releases the port and IP allocation, use a :doc:`floating IP </networking/floating-ips>` if you a more
-  permanent IP allocation.
+- If you let the service create the port for your instance it's tied to the instance lifetime, so detaching the interface
+  or deleting the instance releases the port and IP allocation, use a :doc:`floating IP </networking/floating-ips>` or
+  create a :doc:`port </networking/ports>` manually if you a more permanent IP allocation.
 
 .. note::
 
-   For a more versatile approach to networking where you keep the IP allocation, we recommend using :doc:`floating-ips`.
+   For a more versatile approach to networking where you keep the IP allocation, we recommend that you always
+   prefer :doc:`floating-ips` and only in edge cases create a :doc:`port </networking/ports>` manually.
 
    The primary use-case for directly attached IP addresses are single instances that need a less complicated method to
-   reach the internet and publish services from an instance to be available on the internet.
+   reach or publish services to the internet.
 
 Setting up a directly attached IP
 ---------------------------------
@@ -69,11 +72,11 @@ IP from one of our external ranges instead of selecting one from a :doc:`subnet 
 Which network to choose would depend on in which :doc:`availability zone <regions-and-availability-zones>`
 your instance is running in.
 
-- ``europe-se-1-1a-net0`` for instances placed in *europe-se-1a* availability zone
+- ``europe-se-1-1a-net0`` for instances placed in **europe-se-1a** availability zone
 
-- ``europe-se-1-1b-net0`` for instances placed in *europe-se-1b* availability zone
+- ``europe-se-1-1b-net0`` for instances placed in **europe-se-1b** availability zone
 
-Doing so, would place a public IP directly on the interface (NIC) of the instance and you would be able to see it by
+Doing so, would place a public IP directly on the network interface of the instance and you would be able to see it by
 running for example ``ip addr show`` in Linux.
 
 ..  seealso::
