@@ -4967,7 +4967,7 @@ Key differences to floating IP addresses
 
 - If you let the service create the port for your instance it's tied to the instance lifetime, so detaching the interface
   or deleting the instance releases the port and IP allocation, use a :doc:`floating IP </networking/floating-ips>` or
-  create a :doc:`port </networking/ports>` manually if you a more permanent IP allocation.
+  create a :doc:`port </networking/ports>` manually if you need a more permanent IP allocation.
 
 .. note::
 
