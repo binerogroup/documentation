@@ -1539,8 +1539,8 @@ for <a class="reference internal" href="../compute/index.html"><span class="doc"
 operating system, you would (with a directly attached IP) see the public IP assigned on the interface.</p>
 <p>When using a floating IP, the result would instead be the IP address from the <a class="reference internal" href="subnet/index.html"><span class="doc">subnet</span></a>
 that you assigned to the instance. The floating IP is then redirected using NAT to and from the instance in
-the router.</p>
-<p>Another key difference is that a directly attached IP is the only way to consume a public IPv4 <em>without</em> using
+the <a class="reference internal" href="router/index.html"><span class="doc">router</span></a>.</p>
+<p>Another key difference is that a directly attached IP is the only way to consume a public IPv4 <strong>without</strong> using
 a <a class="reference internal" href="router/index.html"><span class="doc">router</span></a>. A router cannot use a directly attached IP or route traffic for one.</p>
 <p>Its possible to connect a router to an instance that has a directly attached IP but since they will both provide a
 default route, it will require configuration of the instance to use a manual IP and also use static routes on the
@@ -1552,9 +1552,11 @@ but for a single instance that want a direct internet connection and nothing els
 </div>
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
-<p>A port with a directly attached IP address has its lifecycle tied to the instance, when you detach
-the interface or delete the instance the port gets released back into the pool.</p>
-<p>If need a more permanent IP address allocation use a <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP</span></a>.</p>
+<p>If you create an <a class="reference internal" href="../compute/index.html"><span class="doc">instance</span></a> and don’t specify an existing <a class="reference internal" href="ports.html"><span class="doc">port</span></a> we
+will create one for your instance but it’s tied to the lifecycle of the instance, if you detach the interface or
+delete the instance the port together with the IP address gets released back into the pool.</p>
+<p>If you need a more permanent IP address allocation use a <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP</span></a> or create a
+<a class="reference internal" href="ports.html"><span class="doc">port</span></a> manually and don’t let the service create it for you.</p>
 </div>
 <h2 id="key-differences-to-floating-ip-addresses">Key differences to floating IP addresses<a class="headerlink" href="#key-differences-to-floating-ip-addresses" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -1566,15 +1568,16 @@ because of no NAT and no <a class="reference internal" href="network/index.html"
 use-cases.</p></li>
 <li><p>Directly attached IP addresses does not combine with the majority of the networking functions in the platform which
 will rely on a router to work, for instance the <a class="reference internal" href="load-balancer/index.html"><span class="doc">Load Balancer</span></a> service.</p></li>
-<li><p>Instances associates directly attached IP addresses with its lifetime, so removing the interface or deleting the
-instance releases the port and IP allocation, use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating IP</span></a> if you a more
-permanent IP allocation.</p></li>
+<li><p>If you let the service create the port for your instance it’s tied to the instance lifetime, so detaching the interface
+or deleting the instance releases the port and IP allocation, use a <a class="reference internal" href="floating-ips.html"><span class="doc">floating IP</span></a> or
+create a <a class="reference internal" href="ports.html"><span class="doc">port</span></a> manually if you a more permanent IP allocation.</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>For a more versatile approach to networking where you keep the IP allocation, we recommend using <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a>.</p>
+<p>For a more versatile approach to networking where you keep the IP allocation, we recommend that you always
+prefer <a class="reference internal" href="floating-ips.html"><span class="doc">Floating IP addresses</span></a> and only in edge cases create a <a class="reference internal" href="ports.html"><span class="doc">port</span></a> manually.</p>
 <p>The primary use-case for directly attached IP addresses are single instances that need a less complicated method to
-reach the internet and publish services from an instance to be available on the internet.</p>
+reach or publish services to the internet.</p>
 </div>
 <h2 id="setting-up-a-directly-attached-ip">Setting up a directly attached IP<a class="headerlink" href="#setting-up-a-directly-attached-ip" title="Link to this heading">¶</a></h2>
 <p>The process for setting up a directly attached IP on an instance is not differing from any other
@@ -1583,10 +1586,10 @@ IP from one of our external ranges instead of selecting one from a <a class="ref
 <p>Which network to choose would depend on in which <a class="reference internal" href="regions-and-availability-zones.html"><span class="doc">availability zone</span></a>
 your instance is running in.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">europe-se-1-1a-net0</span></code> for instances placed in <em>europe-se-1a</em> availability zone</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">europe-se-1-1b-net0</span></code> for instances placed in <em>europe-se-1b</em> availability zone</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">europe-se-1-1a-net0</span></code> for instances placed in <strong>europe-se-1a</strong> availability zone</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">europe-se-1-1b-net0</span></code> for instances placed in <strong>europe-se-1b</strong> availability zone</p></li>
 </ul>
-<p>Doing so, would place a public IP directly on the interface (NIC) of the instance and you would be able to see it by
+<p>Doing so, would place a public IP directly on the network interface of the instance and you would be able to see it by
 running for example <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span> <span class="pre">show</span></code> in Linux.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
