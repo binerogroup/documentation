@@ -168,6 +168,10 @@ product family.
 Pinned CPU
 ^^^^^^^^^^
 
+.. note::
+
+   :doc:`windows-instances` is not supported on pinned flavors.
+
 These flavors gives you gives you a pinned CPU, this means that we pin your vCPU to a
 dedicated CPU core (pCPU) giving you exclusive access to the computation time on that
 core.
@@ -453,6 +457,10 @@ product family.
 
 Pinned CPU
 ^^^^^^^^^^
+
+.. note::
+
+   :doc:`windows-instances` is not supported on pinned flavors.
 
 See the pinned CPU section in General purpose version 1 for a detailed explanation
 of these flavors. These are the same but with a higher memory to CPU ratio.
