@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # Configuration file for the Sphinx documentation builder.
 #
 # This file does only contain a selection of the most common options. For a
@@ -19,14 +17,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'Binero Documentation'
-copyright = u'Binero Group AB'
-author = u''
+project = 'Binero Documentation'
+copyright = 'Binero Group AB'
+author = ''
 
 # The short X.Y version
-version = u'1.0'
+version = '1.0'
 # The full version, including alpha/beta/rc tags
-release = u'1'
+release = '1'
 
 # -- General configuration ---------------------------------------------------
 
@@ -67,7 +65,8 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', '.tox']
+exclude_patterns = [
+    '_build', 'Thumbs.db', '.DS_Store', '.tox', '.venv', 'venv', 'env']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -83,7 +82,7 @@ sitemap_url_scheme = "{link}"
 # a list of builtin themes.
 #
 html_theme = 'sphinx_immaterial'
-html_logo = '_static/logo.png'
+html_logo = '_static/logo.svg'
 html_favicon = '_static/binero.ico'
 html_title = 'Binero Documentation'
 

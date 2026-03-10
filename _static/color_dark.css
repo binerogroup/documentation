@@ -11,11 +11,6 @@ button[data-md-color-primary] {
     cursor: pointer
 }
 
-[data-md-color-primary=binero-dark] .md-container {
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 button[data-md-color-accent]:hover,
 button[data-md-color-primary]:hover {
     opacity: .75
@@ -31,7 +26,16 @@ button[data-md-color-primary=binero-dark] {
 
 [data-md-color-primary=binero-dark] .md-header,
 [data-md-color-primary=binero-dark] .md-hero {
-    background-color: #000000;
+    background-color: rgb(20,42,83);
+}
+
+[data-md-color-primary=binero-dark] .md-footer,
+[data-md-color-primary=binero-dark] .md-footer-meta {
+    background-color: rgb(20,42,83);
+}
+
+[data-md-color-primary=binero-dark] .md-main {
+    background-color: rgb(23,51,103);
 }
 
 [data-md-color-primary=binero-dark] .md-nav__link--active,

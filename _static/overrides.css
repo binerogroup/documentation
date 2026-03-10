@@ -1,10 +1,5 @@
-.mjjd-container {
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 .md-header-nav__title {
-  display: none;
+    display: none;
 }
 
 .md-nav--primary .md-nav__title {
