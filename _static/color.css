@@ -13,12 +13,6 @@ button[data-md-color-primary] {
     cursor: pointer
 }
 
-[data-md-color-primary=binero] .md-container {
-  background: linear-gradient(58deg, rgba(255,255,255,1) 62%, rgba(247,176,91,1) 85%) !important;
-  background-attachment: fixed !important;
-  background-size: cover !important;
-}
-
 button[data-md-color-accent]:hover,
 button[data-md-color-primary]:hover {
     opacity: .75
@@ -34,7 +28,12 @@ button[data-md-color-primary=binero] {
 
 [data-md-color-primary=binero] .md-header,
 [data-md-color-primary=binero] .md-hero {
-    background-color: #000000;
+    background-color: rgb(20,42,83);
+}
+
+[data-md-color-primary=binero] .md-footer,
+[data-md-color-primary=binero] .md-footer-meta {
+    background-color: rgb(20,42,83);
 }
 
 [data-md-color-primary=binero] .md-nav__link--active,
@@ -141,4 +140,3 @@ button[data-md-color-accent=binero] {
     background: none !important;
     box-shadow: none !important;
 }
-
