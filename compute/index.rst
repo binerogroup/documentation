@@ -40,7 +40,6 @@ the :doc:`/getting-started/managing-your-cloud/index` article.
   shelving-an-instance
   boot-from-rescue
   windows-instances
-  gpu-instances
   boot-instances-using-uefi
   regions-and-availability-zones
   compute-api
