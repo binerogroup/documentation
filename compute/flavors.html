@@ -888,26 +888,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#gpu" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>GPU</span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gpu-and-nvme-storage" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>GPU and NVMe storage</span>
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1157,30 +1137,6 @@
   
   <span class="md-ellipsis">
     <span>Windows instances</span>
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="gpu-instances.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    <span>GPU instances</span>
     
   </span>
   
@@ -1773,26 +1729,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#gpu" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>GPU</span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gpu-and-nvme-storage" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>GPU and NVMe storage</span>
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1831,7 +1767,7 @@ and optimizations for different use-cases.</p>
 <p>Each group of flavors has a version number meaning the higher version number the newer the
 hardware giving a performance advantage on previous versions, for flavors without an explicit
 version number in the name it implies version 1.</p>
-<p>A flavor can have specific features such as NVMe storage, GPU, Pinned CPU. We add a CPU vendor
+<p>A flavor can have specific features such as NVMe storage or Pinned CPU. We add a CPU vendor
 identifier as a suffix to the flavor name, see the CPU vendor identifiers list below.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> for AMD (amd64)</p></li>
@@ -1864,9 +1800,7 @@ identifier as a suffix to the flavor name, see the CPU vendor identifiers list b
 <ul>
 <li><p>Version 1 (flavors without a version number) implies Intel, example <code class="docutils literal notranslate"><span class="pre">hp.8x32</span></code></p>
 <ul>
-<li><p>GPU, example <code class="docutils literal notranslate"><span class="pre">hp.8x24-gpu4</span></code> where the number after GPU means 4 GB vRAM</p></li>
 <li><p>NVMe storage, example <code class="docutils literal notranslate"><span class="pre">hp.4x8-nvme50</span></code> where the number after NVMe means 50 GB disk</p></li>
-<li><p>GPU and NVMe, example <code class="docutils literal notranslate"><span class="pre">hp.12x64-gpu8-nvme250</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -1874,8 +1808,6 @@ identifier as a suffix to the flavor name, see the CPU vendor identifiers list b
 </ul>
 <p>The flavor <code class="docutils literal notranslate"><span class="pre">hm.8x48</span></code> is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs
 and 48 GB memory.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">hp.12x64-gpu8-nvme50</span></code> flavor is High performance (hp) version 1 with 12 vCPUs,
-64 GB memory, 8 GB GPU vRAM and 50 GB of local NVMe storage.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">gp-v2a.8x16</span></code> flavor is General purpose (gp) version 2 with 8 vCPUs and 16 GB
 memory.</p>
 <p>See the list of flavors more in detail below, you can also see them in the portals or by listing
@@ -2685,306 +2617,9 @@ have an application with data replication or redundancy already built-in.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="gpu">GPU<a class="headerlink" href="#gpu" title="Link to this heading">¶</a></h4>
-<p>These flavors provides <a class="reference internal" href="gpu-instances.html"><span class="doc">GPU based compute</span></a> and allows gives you a
-GPU allocated to your instance with the specified vRAM / vMEM memory.</p>
-<p>This gives you access to a NVIDIA A10 GPU that you can use for rendering, image
-processing, AI, ML and inference workloads that can run 50-200x faster on a GPU
-than a CPU.</p>
-<div class="tip admonition">
-<p class="admonition-title">Tip</p>
-<p>If you also need local NVMe storage for your GPU workload, see the GPU with NVMe
-flavors further down.</p>
-</div>
-<table class="docutils data align-default">
-<colgroup>
-<col style="width: 13.5%" />
-<col style="width: 10.8%" />
-<col style="width: 10.8%" />
-<col style="width: 10.8%" />
-<col style="width: 21.6%" />
-<col style="width: 21.6%" />
-<col style="width: 10.8%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>vCPUs</p></th>
-<th class="head"><p>Memory (MB)</p></th>
-<th class="head"><p>GPU vRAM/vMEM (GB)</p></th>
-<th class="head"><p>Flavor group</p></th>
-<th class="head"><p>Version</p></th>
-<th class="head"><p>CPU vendor</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>hp.4x8-gpu4</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.4x8-gpu8</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.4x8-gpu24</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.8x24-gpu4</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.8x24-gpu8</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.8x24-gpu24</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.12x64-gpu4</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.12x64-gpu8</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.12x64-gpu24</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-</tbody>
-</table>
-<h4 id="gpu-and-nvme-storage">GPU and NVMe storage<a class="headerlink" href="#gpu-and-nvme-storage" title="Link to this heading">¶</a></h4>
-<p>These flavors provides both GPU and NVMe storage and is great when you need
-to read or write fast to local NVMe storage for your GPU workload.</p>
-<table class="docutils data align-default">
-<colgroup>
-<col style="width: 12.2%" />
-<col style="width: 9.8%" />
-<col style="width: 9.8%" />
-<col style="width: 9.8%" />
-<col style="width: 9.8%" />
-<col style="width: 19.5%" />
-<col style="width: 19.5%" />
-<col style="width: 9.8%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>vCPUs</p></th>
-<th class="head"><p>Memory (MB)</p></th>
-<th class="head"><p>Disk (GB)</p></th>
-<th class="head"><p>GPU vRAM/vMEM</p></th>
-<th class="head"><p>Flavor group</p></th>
-<th class="head"><p>Version</p></th>
-<th class="head"><p>CPU vendor</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>hp.4x8-gpu4-nvme50</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>50</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.4x8-gpu4-nvme250</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>250</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.4x8-gpu8-nvme250</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>250</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.4x8-gpu8-nvme50</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>50</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.4x8-gpu24-nvme50</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>50</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.4x8-gpu24-nvme250</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>250</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.8x24-gpu4-nvme50</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>50</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.8x24-gpu4-nvme250</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>250</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.8x24-gpu8-nvme50</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>50</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.8x24-gpu8-nvme250</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>250</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.8x24-gpu24-nvme50</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>50</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.8x24-gpu24-nvme250</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>250</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.12x64-gpu4-nvme50</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>50</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.12x64-gpu4-nvme250</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>250</p></td>
-<td><p>4</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.12x64-gpu8-nvme50</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>50</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.12x64-gpu8-nvme250</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>250</p></td>
-<td><p>8</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.12x64-gpu24-nvme50</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>50</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.12x64-gpu24-nvme250</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>250</p></td>
-<td><p>24</p></td>
-<td><p>High performance with GPU and NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-</tbody>
-</table>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="gpu-instances.html"><span class="doc">GPU instances</span></a></p></li>
 <li><p><a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe storage</span></a></p></li>
 </ul>
 </div>

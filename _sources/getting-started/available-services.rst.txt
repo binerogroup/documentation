@@ -89,17 +89,6 @@ Binero cloud has a built-in backup solution that you can enable for your volumes
 Backup is always sent to another availability zone and stored in our object storage
 service. 
 
-GPU based compute
------------------
-
-For certain workloads, a CPU will not provide enough parallelism to provide an efficient
-workflow.
-
-A GPU is by design more limited in their use-cases but fast and optimized for graphics
-or AI workloads.
-
-Binero cloud provides instances with GPU compute. 
-
 Availability zones
 ------------------
 
@@ -117,5 +106,4 @@ between them.
   - :doc:`/storage/object-storage/index`
   - :doc:`/storage/nvme-storage`
   - :doc:`/backup/index`
-  - :doc:`/compute/gpu-instances`
   - :doc:`/regions-and-availability-zones`

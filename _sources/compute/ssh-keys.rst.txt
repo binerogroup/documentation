@@ -117,5 +117,4 @@ stored in the platform. We recommend setting a passphrase on the key according t
 
 ..  seealso::
 
-    - :doc:`/compute/gpu-instances`
     - :doc:`/storage/nvme-storage`

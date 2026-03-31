@@ -27,7 +27,6 @@
 - [Manage compute using the OpenStack API](https://docs.binero.com/_sources/compute/compute-api.rst.txt)
 - [Console](https://docs.binero.com/_sources/compute/console.rst.txt)
 - [Flavors](https://docs.binero.com/_sources/compute/flavors.rst.txt)
-- [GPU instances](https://docs.binero.com/_sources/compute/gpu-instances.rst.txt)
 - [Hard reboot](https://docs.binero.com/_sources/compute/hard-reboot.rst.txt)
 - [Launching instances using the cloud management portal](https://docs.binero.com/_sources/compute/launching-an-instance/cloud-management-portal.rst.txt)
 - [Launching an instance](https://docs.binero.com/_sources/compute/launching-an-instance/index.rst.txt)
