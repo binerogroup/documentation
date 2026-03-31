@@ -14,7 +14,7 @@ You can at any time unshelve the instance and start it again.
 
 .. tip::
 
-   Shelving also works for our GPU and NVMe based flavors.
+   Shelving also works for our NVMe based flavors.
 
 .. note::
 
