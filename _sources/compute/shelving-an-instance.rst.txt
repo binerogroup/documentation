@@ -12,10 +12,6 @@ your instance and releases any compute allocations.
 
 You can at any time unshelve the instance and start it again.
 
-.. tip::
-
-   Shelving also works for our NVMe based flavors.
-
 .. note::
 
    Shelved instances reduces your cost for allocated resources for the

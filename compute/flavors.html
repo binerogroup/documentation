@@ -875,22 +875,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Version 1 with Intel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nvme-storage" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>NVMe storage</span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1716,22 +1700,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Version 1 with Intel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nvme-storage" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>NVMe storage</span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1759,16 +1727,16 @@
   
 
 <h1 id="flavors">Flavors<a class="headerlink" href="#flavors" title="Link to this heading">¶</a></h1>
-<p>Binero cloud provides different flavors of compute instances. A flavor defines the compute, memory,
-storage capacity for some flavors (see NVMe flavors below) and other hardware configuration that
-allows you to customize for performance or features needed by your application.</p>
+<p>Binero cloud provides different flavors of compute instances. A flavor defines the compute and memory
+capacity and other hardware configuration that allows you to customize for performance or features
+needed by your application.</p>
 <p>We provide different groups of flavors and each group has different performance characteristics
 and optimizations for different use-cases.</p>
 <p>Each group of flavors has a version number meaning the higher version number the newer the
 hardware giving a performance advantage on previous versions, for flavors without an explicit
 version number in the name it implies version 1.</p>
-<p>A flavor can have specific features such as NVMe storage or Pinned CPU. We add a CPU vendor
-identifier as a suffix to the flavor name, see the CPU vendor identifiers list below.</p>
+<p>A flavor can have specific features such as Pinned CPU. We add a CPU vendor identifier as a suffix
+to the flavor name, see the CPU vendor identifiers list below.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> for AMD (amd64)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> for Intel (x86_64) – <strong>Version 1 implies Intel</strong></p></li>
@@ -1798,11 +1766,7 @@ identifier as a suffix to the flavor name, see the CPU vendor identifiers list b
 </li>
 <li><p>High performance</p>
 <ul>
-<li><p>Version 1 (flavors without a version number) implies Intel, example <code class="docutils literal notranslate"><span class="pre">hp.8x32</span></code></p>
-<ul>
-<li><p>NVMe storage, example <code class="docutils literal notranslate"><span class="pre">hp.4x8-nvme50</span></code> where the number after NVMe means 50 GB disk</p></li>
-</ul>
-</li>
+<li><p>Version 1 (flavors without a version number) implies Intel, example <code class="docutils literal notranslate"><span class="pre">hp.8x32</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -2531,98 +2495,6 @@ performance for CPU heavy or latency sensitive workloads.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="nvme-storage">NVMe storage<a class="headerlink" href="#nvme-storage" title="Link to this heading">¶</a></h4>
-<p>These flavors provides local ephemeral <a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe based storage</span></a> with
-high performance and low-latency access times, with the limitation of being local there
-is no data redundancy.</p>
-<div class="caution warning admonition">
-<p class="admonition-title">Caution</p>
-<p>The NVMe based storage is local to the hypervisor that is running your
-instance and is using a single physical disk, though NVMe based enterprise
-solid state drives has an high lifetime expectancy it’s important that
-you consider this fact and <strong>backup your data</strong> regularly.</p>
-<p>See <a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe storage</span></a> for more information.</p>
-</div>
-<p>This flavor provides the best possible storage performance for IO intensive workloads
-that needs to write to disk and is great for ephemeral storage or as disk if you
-have an application with data replication or redundancy already built-in.</p>
-<table class="docutils data align-default">
-<colgroup>
-<col style="width: 13.5%" />
-<col style="width: 10.8%" />
-<col style="width: 10.8%" />
-<col style="width: 10.8%" />
-<col style="width: 21.6%" />
-<col style="width: 21.6%" />
-<col style="width: 10.8%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>vCPUs</p></th>
-<th class="head"><p>Memory (MB)</p></th>
-<th class="head"><p>Local disk (GB)</p></th>
-<th class="head"><p>Flavor group</p></th>
-<th class="head"><p>Version</p></th>
-<th class="head"><p>CPU vendor</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>hp.4x8-nvme50</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>50</p></td>
-<td><p>High performance with NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.4x8-nvme250</p></td>
-<td><p>4</p></td>
-<td><p>8192</p></td>
-<td><p>250</p></td>
-<td><p>High performance with NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.8x24-nvme50</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>50</p></td>
-<td><p>High performance with NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.8x24-nvme250</p></td>
-<td><p>8</p></td>
-<td><p>24576</p></td>
-<td><p>250</p></td>
-<td><p>High performance with NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-even"><td><p>hp.12x64-nvme50</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>50</p></td>
-<td><p>High performance with NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-<tr class="row-odd"><td><p>hp.12x64-nvme250</p></td>
-<td><p>12</p></td>
-<td><p>65536</p></td>
-<td><p>250</p></td>
-<td><p>High performance with NVMe</p></td>
-<td><p>Version 1</p></td>
-<td><p>Intel</p></td>
-</tr>
-</tbody>
-</table>
-<div class="seealso admonition">
-<p class="admonition-title">See also</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../storage/nvme-storage.html"><span class="doc">NVMe storage</span></a></p></li>
-</ul>
-</div>
 
 
 

@@ -265,15 +265,6 @@ talking to our secure HTTPS APIs.
 
 Binero cloud supports both the S3 and Swift API for our object storage service.
 
-NVMe storage
-------------
-
-NVMe based storage is the most highly performing storage available with latency, throughput
-and I/O close to the speed of memory.
-
-Binero cloud provides different NVMe flavors for applications that require the highest
-possible throughput and lowest latency to disk.
-
 Backup
 ------
 
@@ -297,7 +288,6 @@ between them.
   - :doc:`/secret-store/index`
   - :doc:`/networking/client-vpn/index`
   - :doc:`/storage/object-storage/index`
-  - :doc:`/storage/nvme-storage`
   - :doc:`/backup/index`
   - :doc:`/regions-and-availability-zones`
 
@@ -1476,10 +1466,6 @@ stored in the platform. We recommend setting a passphrase on the key according t
    If you have issues with an SSH-key not provisioning correctly on your new instance, check your IP
    network configuration. You can see in the instances console log what keys cloud-init has installed.
 
-..  seealso::
-
-    - :doc:`/storage/nvme-storage`
-
 
 ========================
 Assigning IP to instance
@@ -1747,9 +1733,9 @@ OpenStack Horizon console
 Flavors
 =======
 
-Binero cloud provides different flavors of compute instances. A flavor defines the compute, memory,
-storage capacity for some flavors (see NVMe flavors below) and other hardware configuration that
-allows you to customize for performance or features needed by your application.
+Binero cloud provides different flavors of compute instances. A flavor defines the compute and memory
+capacity and other hardware configuration that allows you to customize for performance or features
+needed by your application.
 
 We provide different groups of flavors and each group has different performance characteristics
 and optimizations for different use-cases.
@@ -1758,8 +1744,8 @@ Each group of flavors has a version number meaning the higher version number the
 hardware giving a performance advantage on previous versions, for flavors without an explicit
 version number in the name it implies version 1.
 
-A flavor can have specific features such as NVMe storage or Pinned CPU. We add a CPU vendor
-identifier as a suffix to the flavor name, see the CPU vendor identifiers list below.
+A flavor can have specific features such as Pinned CPU. We add a CPU vendor identifier as a suffix
+to the flavor name, see the CPU vendor identifiers list below.
 
 - ``a`` for AMD (amd64)
 
@@ -1788,8 +1774,6 @@ An overview of the flavor groups and their types looks like below.
 - High performance
 
   - Version 1 (flavors without a version number) implies Intel, example ``hp.8x32``
-
-    - NVMe storage, example ``hp.4x8-nvme50`` where the number after NVMe means 50 GB disk
 
 The flavor ``hm.8x48`` is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs
 and 48 GB memory.
@@ -2492,90 +2476,6 @@ product family.
      - Version 1
      - Intel
 
-NVMe storage
-^^^^^^^^^^^^
-
-These flavors provides local ephemeral :doc:`NVMe based storage </storage/nvme-storage>` with
-high performance and low-latency access times, with the limitation of being local there
-is no data redundancy.
-
-.. caution::
-
-   The NVMe based storage is local to the hypervisor that is running your
-   instance and is using a single physical disk, though NVMe based enterprise
-   solid state drives has an high lifetime expectancy it's important that
-   you consider this fact and **backup your data** regularly.
-
-   See :doc:`/storage/nvme-storage` for more information.
-
-This flavor provides the best possible storage performance for IO intensive workloads
-that needs to write to disk and is great for ephemeral storage or as disk if you
-have an application with data replication or redundancy already built-in.
-
-.. list-table::
-   :widths: 25 20 20 20 40 40 20
-   :header-rows: 1
-
-   * - Name
-     - vCPUs
-     - Memory (MB)
-     - Local disk (GB)
-     - Flavor group
-     - Version
-     - CPU vendor
-
-   * - hp.4x8-nvme50
-     - 4
-     - 8192
-     - 50
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.4x8-nvme250
-     - 4
-     - 8192
-     - 250
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.8x24-nvme50
-     - 8
-     - 24576
-     - 50
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.8x24-nvme250
-     - 8
-     - 24576
-     - 250
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.12x64-nvme50
-     - 12
-     - 65536
-     - 50
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.12x64-nvme250
-     - 12
-     - 65536
-     - 250
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-..  seealso::
-
-    - :doc:`/storage/nvme-storage`
-
 
 ===========
 Hard reboot
@@ -2805,8 +2705,7 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
   - Select **Image** as **Boot Source**.
 
   - Select **Yes** for **Create New Volume** to boot your instance from a
-    volume, we only recommend selecting **No** here if you intend to use
-    an NVMe-based flavor.
+    volume, we never recommend selecting **No** here.
 
   - Select **No** for **Delete Volume on Instance Delete**. If you want the system
     to implicitly delete the volume together with the instance, select **Yes**.
@@ -2939,8 +2838,7 @@ Recreating an instance from volume
 
 .. note::
 
-   This assumes that you have booted your instance from a volume and
-   not using local storage such as with the NVMe :doc:`flavors <flavors>`.
+   This assumes that you have booted your instance from a volume.
 
 You can re-create an instance that's spawned from a volume by creating a snapshot
 on the volume, creating a new volume from that snapshot and then create a new
@@ -3350,10 +3248,6 @@ storage such as volumes are not touched. The system saves the metadata about
 your instance and releases any compute allocations.
 
 You can at any time unshelve the instance and start it again.
-
-.. tip::
-
-   Shelving also works for our NVMe based flavors.
 
 .. note::
 
@@ -8744,8 +8638,6 @@ We provide three main :doc:`storage types <storage-types>`.
 
 - HDD (mechanical), throughput and space optimized highly available storage
 
-- NVMe (PCI-E attached high performance flash), performance optimized local storage.
-
 You are able to use our :doc:`backup solution <../backup/index>` to backup the data of
 volumes onto our object platform in another data center. 
 
@@ -8761,7 +8653,6 @@ possibilities in the platform.
   snapshots/index
   retype-a-volume
   object-storage/index
-  nvme-storage
   regions-and-availability-zones
 
 
@@ -8769,8 +8660,8 @@ possibilities in the platform.
 Storage types
 =============
 
-By storage type, we refer to the media used to store data. Binero cloud has three main storage
-types, namely SSD, HDD and NVMe.
+By storage type, we refer to the media used to store data. Binero cloud has two main storage
+types, namely SSD (flash) and HDD (mechanical).
 
 You are able to :doc:`retype <retype-a-volume>` a volume later on if you are using either SSD or
 HDD (to the other type).
@@ -8820,110 +8711,10 @@ it's also three-way replicated, except for the storage policy **gp.archive** (wh
 HDD is a good option when wanting to store large amounts of data, preferably infrequently used as with
 use-cases for file servers, archive or backup solutions.
 
-NVMe
-----
-
-NVMe is the fastest, highest performing storage in the platform. It's based on enterprise grade NAND-flash
-cells such as our SSD type. The difference is the access, NVMe disks connect directly on the PCI-Express bus
-on the hypervisor running your instance.
-
-That means that the path from CPU to storage is much faster and you get access times more closer to memory. This
-lowers the *latency* (the time from CPU requesting data until its delivered from storage) to microseconds where
-other storage media gets measured in milliseconds.
-
-Faster access to storage is particularly important when reading (or writing) random data. The downside is
-that NVMe storage, since its physically located in a hypervisor node, is not redundantly setup.
-
-NVMe based storage is only available in specific instance flavors and has some disadvantages that you need to
-be aware of, read more in our :doc:`nvme-storage` article.
-
-NVMe is a strong option for situations where you need fast access to disk, beyond what SSD can deliver.
-
 ..  seealso::
 
-    - :doc:`nvme-storage`
     - :doc:`persistent-block-storage/index`
     - :doc:`object-storage/index`
-
-
-============
-NVMe storage
-============
-
-General concept
-----------------
-
-NVMe based storage is the fastest available persistent storage in the platform. This is due to:
-
-- NVMe uses flash (SSD) cells connected close to the CPU of the computer (on
-  the PCI Express bus directly - similar, but not identical, to RAM).
-
-- NVMe storage in Binero cloud is local to the hypervisor, meaning networking is not used to reach
-  the storage. 
-
-- NVMe storage is **NOT** replicated, meaning there is no added latency when writing data.
-
-These attributes combine to dramatically lower the latency from request to response (for both reads
-and writes) to the storage layer.
-
-NVMe storage measures in microseconds as opposed to other storage that is generally measured in
-milliseconds. As latency is arguably the most important factor in storage performance, reducing it
-will certainly have an impact on storage intensive applications where CPU will not have to idle while
-waiting for IO as much.
-
-How to use
-----------
-
-When provisioning an :doc:`instance </compute/index>` that is including NVMe in its name (for more
-information, see our list of :doc:`flavors </compute/flavors>`), the platform will schedule
-the instance onto hypervisors with local NVMe disks attached. 
-
-With NVMe, you are only able to select between 50 GB or 250 GB disk sizes, the reason for this is because
-NVMe disks by design are local and does not provide the same flexibility as our block storage service.
-
-You are not able to grow a disk or :doc:`retype it <retype-a-volume>` either for the same reason. Because
-of this, we recommend choosing an NVMe disk that fits your need. 
-
-.. note::
-
-   Should you need more NVMe storage than 250GB, :doc:`contact us </general/getting-support>` and we
-   can discuss the available options.
-
-Differences to standard storage
--------------------------------
-
-Since NVMe-based storage is setup differently than our standard :doc:`SSD and HDD <storage-types>` storage
-types, there are some caveats that a consumer of NVMe storage should be aware of: 
-
-- NVMe storage is **NOT** redundantly setup. We deliver NVMe storage from the same hypervisor that runs the
-  instance to provide the performance that NVMe disks does, they are not using RAID nor are they replicated. That
-  said, they are high enterprise grade disks.
-
-- NVMe storage cannot be live migrated. Live migration is a technique that our administrators use when doing system
-  maintenance to evacuate parts of the platform to allow for maintenance with zero downtime. Since NVMe uses a local
-  resource, its not possible to live migrate. Because of this, when doing maintenance, instances based on NVMe is 
-  powered off for the duration of the maintenance. Please see our :doc:`/general/outages` article that details how to
-  get noticed in case of planned maintenance. 
-
-- NVMe-based storage cannot be :doc:`extended <persistent-block-storage/extend-volume>` through the platform, if
-  you think you will ever need more than 50 GB we recommend going with 250 GB. If you need more than 250 GB,
-  :doc:`contact us </general/getting-support>` to discuss a solution.
-
-- NVMe-based storage cannot be :doc:`retyped <retype-a-volume>`. You can add one or more extra HDD or SSD volumes to
-  the same instance and copy the data. Since the NVMe volume is the boot disk, we recommend doing a migration to
-  another instance if you need to retype.
-
-- Since we need to write images to the local NVMe disk on the hypervisor, it takes longer to provision an NVMe
-  based instance.
-
-- NVMe based storage is currently only available in the *europe-se-1a* :doc:`availability zone <regions-and-availability-zones>`.
-
-- Because NVMe is generally used only when performance is critical to the application, we only have our High Performance
-  :doc:`/compute/flavors` available with NVMe.
-
-.. important::
-
-   For above reasons, we strongly recommend you to regularly backup your data if you are using NVMe based storage.
 
 
 ========================
@@ -10250,8 +10041,8 @@ Persistent block storage provides a block based storage media to a :doc:`compute
 This comes in the form of **Volumes**, which can use either of our :doc:`../storage-types` as
 backing media to save data permanently. 
 
-Binero cloud will not provision an instance without a volume attached (unless using NVMe) and the smallest
-volume size allowed is the size of the :doc:`image </images/index>` or disk specified in the :doc:`flavor </compute/flavors>`.
+Binero cloud will not provision an instance without a volume attached and the smallest volume size
+allowed is the size of the :doc:`image </images/index>` or disk specified in the :doc:`flavor </compute/flavors>`.
 
 The image is the operating system image copied onto a volume, you can also create a raw volume
 and add a filesystem on the volume and attach it to an instance for other use-cases.
@@ -10469,11 +10260,6 @@ for the user as the platform manages the entire replication.
 The user needs to take care to connect to the endpoint that is local to the application, we recommend using the
 europe-se-1a availability zone when connecting from the internet.
 
-NVMe storage
-------------
-
-NVMe storage is not replicated and is currently only available in the europe-se-1a availability zone. 
-
 Snapshots
 ---------
 
@@ -10496,13 +10282,6 @@ to retype it.
 Perhaps you've noticed that a disk was to heavily utilised causing IO-wait on your instance
 because it's using HDD storage and want to change it to SSD. The other scenario might be a
 volume has grown and is to expensive to host on SSD. 
-
-.. note::
-
-   NVMe volumes are different, they are a local resource on the hypervisors and cannot be
-   retyped. If you need to move to NVMe, you would need to setup a new instance based with
-   NVMe, attach your volume, move the data to the local disk, then detach and delete the
-   volume. 
 
 The following two requirements **must be true** to re-type a volume attached to an instance:
 

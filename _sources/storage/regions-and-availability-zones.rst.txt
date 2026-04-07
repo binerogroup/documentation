@@ -48,11 +48,6 @@ for the user as the platform manages the entire replication.
 The user needs to take care to connect to the endpoint that is local to the application, we recommend using the
 europe-se-1a availability zone when connecting from the internet.
 
-NVMe storage
-------------
-
-NVMe storage is not replicated and is currently only available in the europe-se-1a availability zone. 
-
 Snapshots
 ---------
 

@@ -43,8 +43,7 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
   - Select **Image** as **Boot Source**.
 
   - Select **Yes** for **Create New Volume** to boot your instance from a
-    volume, we only recommend selecting **No** here if you intend to use
-    an NVMe-based flavor.
+    volume, we never recommend selecting **No** here.
 
   - Select **No** for **Delete Volume on Instance Delete**. If you want the system
     to implicitly delete the volume together with the instance, select **Yes**.

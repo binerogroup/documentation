@@ -9,13 +9,6 @@ Perhaps you've noticed that a disk was to heavily utilised causing IO-wait on yo
 because it's using HDD storage and want to change it to SSD. The other scenario might be a
 volume has grown and is to expensive to host on SSD. 
 
-.. note::
-
-   NVMe volumes are different, they are a local resource on the hypervisors and cannot be
-   retyped. If you need to move to NVMe, you would need to setup a new instance based with
-   NVMe, attach your volume, move the data to the local disk, then detach and delete the
-   volume. 
-
 The following two requirements **must be true** to re-type a volume attached to an instance:
 
 - The instance must be running.

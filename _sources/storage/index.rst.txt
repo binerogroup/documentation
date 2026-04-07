@@ -14,8 +14,6 @@ We provide three main :doc:`storage types <storage-types>`.
 
 - HDD (mechanical), throughput and space optimized highly available storage
 
-- NVMe (PCI-E attached high performance flash), performance optimized local storage.
-
 You are able to use our :doc:`backup solution <../backup/index>` to backup the data of
 volumes onto our object platform in another data center. 
 
@@ -31,5 +29,4 @@ possibilities in the platform.
   snapshots/index
   retype-a-volume
   object-storage/index
-  nvme-storage
   regions-and-availability-zones

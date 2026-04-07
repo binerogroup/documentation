@@ -919,30 +919,6 @@
   
   
     <li class="md-nav__item">
-      <a href="nvme-storage.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    <span>NVMe storage</span>
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="regions-and-availability-zones.html" class="md-nav__link">
         
   
@@ -1340,13 +1316,6 @@ to retype it.</p>
 <p>Perhaps you’ve noticed that a disk was to heavily utilised causing IO-wait on your instance
 because it’s using HDD storage and want to change it to SSD. The other scenario might be a
 volume has grown and is to expensive to host on SSD.</p>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>NVMe volumes are different, they are a local resource on the hypervisors and cannot be
-retyped. If you need to move to NVMe, you would need to setup a new instance based with
-NVMe, attach your volume, move the data to the local disk, then detach and delete the
-volume.</p>
-</div>
 <p>The following two requirements <strong>must be true</strong> to re-type a volume attached to an instance:</p>
 <ul class="simple">
 <li><p>The instance must be running.</p></li>

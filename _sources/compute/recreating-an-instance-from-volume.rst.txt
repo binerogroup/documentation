@@ -4,8 +4,7 @@ Recreating an instance from volume
 
 .. note::
 
-   This assumes that you have booted your instance from a volume and
-   not using local storage such as with the NVMe :doc:`flavors <flavors>`.
+   This assumes that you have booted your instance from a volume.
 
 You can re-create an instance that's spawned from a volume by creating a snapshot
 on the volume, creating a new volume from that snapshot and then create a new

@@ -72,15 +72,6 @@ talking to our secure HTTPS APIs.
 
 Binero cloud supports both the S3 and Swift API for our object storage service.
 
-NVMe storage
-------------
-
-NVMe based storage is the most highly performing storage available with latency, throughput
-and I/O close to the speed of memory.
-
-Binero cloud provides different NVMe flavors for applications that require the highest
-possible throughput and lowest latency to disk.
-
 Backup
 ------
 
@@ -104,6 +95,5 @@ between them.
   - :doc:`/secret-store/index`
   - :doc:`/networking/client-vpn/index`
   - :doc:`/storage/object-storage/index`
-  - :doc:`/storage/nvme-storage`
   - :doc:`/backup/index`
   - :doc:`/regions-and-availability-zones`

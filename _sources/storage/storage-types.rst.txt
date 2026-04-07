@@ -2,8 +2,8 @@
 Storage types
 =============
 
-By storage type, we refer to the media used to store data. Binero cloud has three main storage
-types, namely SSD, HDD and NVMe.
+By storage type, we refer to the media used to store data. Binero cloud has two main storage
+types, namely SSD (flash) and HDD (mechanical).
 
 You are able to :doc:`retype <retype-a-volume>` a volume later on if you are using either SSD or
 HDD (to the other type).
@@ -53,27 +53,7 @@ it's also three-way replicated, except for the storage policy **gp.archive** (wh
 HDD is a good option when wanting to store large amounts of data, preferably infrequently used as with
 use-cases for file servers, archive or backup solutions.
 
-NVMe
-----
-
-NVMe is the fastest, highest performing storage in the platform. It's based on enterprise grade NAND-flash
-cells such as our SSD type. The difference is the access, NVMe disks connect directly on the PCI-Express bus
-on the hypervisor running your instance.
-
-That means that the path from CPU to storage is much faster and you get access times more closer to memory. This
-lowers the *latency* (the time from CPU requesting data until its delivered from storage) to microseconds where
-other storage media gets measured in milliseconds.
-
-Faster access to storage is particularly important when reading (or writing) random data. The downside is
-that NVMe storage, since its physically located in a hypervisor node, is not redundantly setup.
-
-NVMe based storage is only available in specific instance flavors and has some disadvantages that you need to
-be aware of, read more in our :doc:`nvme-storage` article.
-
-NVMe is a strong option for situations where you need fast access to disk, beyond what SSD can deliver.
-
 ..  seealso::
 
-    - :doc:`nvme-storage`
     - :doc:`persistent-block-storage/index`
     - :doc:`object-storage/index`

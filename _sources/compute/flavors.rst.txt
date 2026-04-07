@@ -2,9 +2,9 @@
 Flavors
 =======
 
-Binero cloud provides different flavors of compute instances. A flavor defines the compute, memory,
-storage capacity for some flavors (see NVMe flavors below) and other hardware configuration that
-allows you to customize for performance or features needed by your application.
+Binero cloud provides different flavors of compute instances. A flavor defines the compute and memory
+capacity and other hardware configuration that allows you to customize for performance or features
+needed by your application.
 
 We provide different groups of flavors and each group has different performance characteristics
 and optimizations for different use-cases.
@@ -13,8 +13,8 @@ Each group of flavors has a version number meaning the higher version number the
 hardware giving a performance advantage on previous versions, for flavors without an explicit
 version number in the name it implies version 1.
 
-A flavor can have specific features such as NVMe storage or Pinned CPU. We add a CPU vendor
-identifier as a suffix to the flavor name, see the CPU vendor identifiers list below.
+A flavor can have specific features such as Pinned CPU. We add a CPU vendor identifier as a suffix
+to the flavor name, see the CPU vendor identifiers list below.
 
 - ``a`` for AMD (amd64)
 
@@ -43,8 +43,6 @@ An overview of the flavor groups and their types looks like below.
 - High performance
 
   - Version 1 (flavors without a version number) implies Intel, example ``hp.8x32``
-
-    - NVMe storage, example ``hp.4x8-nvme50`` where the number after NVMe means 50 GB disk
 
 The flavor ``hm.8x48`` is a High memory (hm) version 1 using Intel CPUs with 8 vCPUs
 and 48 GB memory.
@@ -747,87 +745,3 @@ product family.
      - High performance
      - Version 1
      - Intel
-
-NVMe storage
-^^^^^^^^^^^^
-
-These flavors provides local ephemeral :doc:`NVMe based storage </storage/nvme-storage>` with
-high performance and low-latency access times, with the limitation of being local there
-is no data redundancy.
-
-.. caution::
-
-   The NVMe based storage is local to the hypervisor that is running your
-   instance and is using a single physical disk, though NVMe based enterprise
-   solid state drives has an high lifetime expectancy it's important that
-   you consider this fact and **backup your data** regularly.
-
-   See :doc:`/storage/nvme-storage` for more information.
-
-This flavor provides the best possible storage performance for IO intensive workloads
-that needs to write to disk and is great for ephemeral storage or as disk if you
-have an application with data replication or redundancy already built-in.
-
-.. list-table::
-   :widths: 25 20 20 20 40 40 20
-   :header-rows: 1
-
-   * - Name
-     - vCPUs
-     - Memory (MB)
-     - Local disk (GB)
-     - Flavor group
-     - Version
-     - CPU vendor
-
-   * - hp.4x8-nvme50
-     - 4
-     - 8192
-     - 50
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.4x8-nvme250
-     - 4
-     - 8192
-     - 250
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.8x24-nvme50
-     - 8
-     - 24576
-     - 50
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.8x24-nvme250
-     - 8
-     - 24576
-     - 250
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.12x64-nvme50
-     - 12
-     - 65536
-     - 50
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-   * - hp.12x64-nvme250
-     - 12
-     - 65536
-     - 250
-     - High performance with NVMe
-     - Version 1
-     - Intel
-
-..  seealso::
-
-    - :doc:`/storage/nvme-storage`

@@ -108,7 +108,6 @@
 - [Subnet Format](https://docs.binero.com/_sources/networking/subnet/subnet-format.rst.txt)
 - [Storage](https://docs.binero.com/_sources/storage/index.rst.txt)
 - [Storage types](https://docs.binero.com/_sources/storage/storage-types.rst.txt)
-- [NVMe storage](https://docs.binero.com/_sources/storage/nvme-storage.rst.txt)
 - [Object storage endpoints](https://docs.binero.com/_sources/storage/object-storage/endpoints.rst.txt)
 - [Getting started with object storage](https://docs.binero.com/_sources/storage/object-storage/getting-started.rst.txt)
 - [Object storage](https://docs.binero.com/_sources/storage/object-storage/index.rst.txt)

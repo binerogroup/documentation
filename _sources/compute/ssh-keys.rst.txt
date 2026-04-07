@@ -114,7 +114,3 @@ stored in the platform. We recommend setting a passphrase on the key according t
 
    If you have issues with an SSH-key not provisioning correctly on your new instance, check your IP
    network configuration. You can see in the instances console log what keys cloud-init has installed.
-
-..  seealso::
-
-    - :doc:`/storage/nvme-storage`

@@ -796,16 +796,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#nvme" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>NVMe</span>
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -901,30 +891,6 @@
   
   <span class="md-ellipsis">
     <span>Object storage</span>
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="nvme-storage.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    <span>NVMe storage</span>
     
   </span>
   
@@ -1305,16 +1271,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#nvme" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>NVMe</span>
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1335,8 +1291,8 @@
   
 
 <h1 id="storage-types">Storage types<a class="headerlink" href="#storage-types" title="Link to this heading">¶</a></h1>
-<p>By storage type, we refer to the media used to store data. Binero cloud has three main storage
-types, namely SSD, HDD and NVMe.</p>
+<p>By storage type, we refer to the media used to store data. Binero cloud has two main storage
+types, namely SSD (flash) and HDD (mechanical).</p>
 <p>You are able to <a class="reference internal" href="retype-a-volume.html"><span class="doc">retype</span></a> a volume later on if you are using either SSD or
 HDD (to the other type).</p>
 <h2 id="ssd">SSD<a class="headerlink" href="#ssd" title="Link to this heading">¶</a></h2>
@@ -1367,22 +1323,9 @@ proper Storage policy when provisioning an object storage container or bucket.</
 it’s also three-way replicated, except for the storage policy <strong>gp.archive</strong> (which uses erasure coding).</p>
 <p>HDD is a good option when wanting to store large amounts of data, preferably infrequently used as with
 use-cases for file servers, archive or backup solutions.</p>
-<h2 id="nvme">NVMe<a class="headerlink" href="#nvme" title="Link to this heading">¶</a></h2>
-<p>NVMe is the fastest, highest performing storage in the platform. It’s based on enterprise grade NAND-flash
-cells such as our SSD type. The difference is the access, NVMe disks connect directly on the PCI-Express bus
-on the hypervisor running your instance.</p>
-<p>That means that the path from CPU to storage is much faster and you get access times more closer to memory. This
-lowers the <em>latency</em> (the time from CPU requesting data until its delivered from storage) to microseconds where
-other storage media gets measured in milliseconds.</p>
-<p>Faster access to storage is particularly important when reading (or writing) random data. The downside is
-that NVMe storage, since its physically located in a hypervisor node, is not redundantly setup.</p>
-<p>NVMe based storage is only available in specific instance flavors and has some disadvantages that you need to
-be aware of, read more in our <a class="reference internal" href="nvme-storage.html"><span class="doc">NVMe storage</span></a> article.</p>
-<p>NVMe is a strong option for situations where you need fast access to disk, beyond what SSD can deliver.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="nvme-storage.html"><span class="doc">NVMe storage</span></a></p></li>
 <li><p><a class="reference internal" href="persistent-block-storage/index.html"><span class="doc">Persistent storage (block)</span></a></p></li>
 <li><p><a class="reference internal" href="object-storage/index.html"><span class="doc">Object storage</span></a></p></li>
 </ul>
