@@ -62,3 +62,4 @@ passcodes
 multifactor|Multifactor
 udev
 nordic
+unrescue|Unrescue
