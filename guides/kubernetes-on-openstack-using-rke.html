@@ -1298,15 +1298,15 @@ in the platform using any of the management tools. The finished file looks like 
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># Configure the OpenStack Provider</span>
  <span class="n">cloud_provider</span><span class="p">:</span>
-   <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;openstack&quot;</span>
+   <span class="n">name</span><span class="p">:</span> <span class="s2">"openstack"</span>
    <span class="n">openstackCloudProvider</span><span class="p">:</span>
      <span class="k">global</span><span class="p">:</span>
-       <span class="n">username</span><span class="p">:</span> <span class="s1">&#39;demo-user&#39;</span>
-       <span class="n">password</span><span class="p">:</span> <span class="s1">&#39;demopass&#39;</span>
+       <span class="n">username</span><span class="p">:</span> <span class="s1">'demo-user'</span>
+       <span class="n">password</span><span class="p">:</span> <span class="s1">'demopass'</span>
        <span class="n">auth</span><span class="o">-</span><span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">auth</span><span class="o">.</span><span class="n">binero</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">v3</span>
-       <span class="n">tenant</span><span class="o">-</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;demo-project&#39;</span>
-       <span class="n">domain</span><span class="o">-</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Default&#39;</span>
-       <span class="n">region</span><span class="p">:</span> <span class="s1">&#39;europe-se-1&#39;</span>
+       <span class="n">tenant</span><span class="o">-</span><span class="n">name</span><span class="p">:</span> <span class="s1">'demo-project'</span>
+       <span class="n">domain</span><span class="o">-</span><span class="n">name</span><span class="p">:</span> <span class="s1">'Default'</span>
+       <span class="n">region</span><span class="p">:</span> <span class="s1">'europe-se-1'</span>
      <span class="n">load_balancer</span><span class="p">:</span>
        <span class="n">use</span><span class="o">-</span><span class="n">octavia</span><span class="p">:</span> <span class="n">true</span>
        <span class="n">subnet</span><span class="o">-</span><span class="nb">id</span><span class="p">:</span> <span class="n">demo</span><span class="o">-</span><span class="n">subnet</span><span class="o">-</span><span class="nb">id</span>
@@ -1338,7 +1338,7 @@ zone europe-se-1a with the following content:</p></li>
 <span class="n">metadata</span><span class="p">:</span>
   <span class="n">name</span><span class="p">:</span> <span class="n">cinder</span><span class="o">-</span><span class="n">claim</span>
   <span class="n">annotations</span><span class="p">:</span>
-    <span class="n">volume</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">storage</span><span class="o">-</span><span class="n">class</span><span class="p">:</span> <span class="s2">&quot;ssd-demo&quot;</span>
+    <span class="n">volume</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">storage</span><span class="o">-</span><span class="n">class</span><span class="p">:</span> <span class="s2">"ssd-demo"</span>
 <span class="n">spec</span><span class="p">:</span>
   <span class="n">accessModes</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">ReadWriteOnce</span>

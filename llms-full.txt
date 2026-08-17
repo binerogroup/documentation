@@ -1681,9 +1681,9 @@ Boot instances using UEFI
 
 We support booting instances by using ``UEFI`` instead of legacy ``BIOS``. To use it you
 need to set the properties ``hw_firmware_type`` to ``uefi`` and ``hw_machine_type`` to
-``q35`` on your :doc:`image </images/index>` or in the volume metadata.
+``q35`` on your :doc:`image </images/index>` or in the volume image metadata.
 
-The system copies the image properties into the volume metadata when it creates
+The system copies the image properties into the volume image metadata when it creates
 a volume with an image.
 
 
