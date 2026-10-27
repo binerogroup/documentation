@@ -28,6 +28,13 @@ guide :doc:`creating-an-instance-from-a-volume`.
    Volumes cost according to our price list even when they are not attached to
    an instance.
 
+.. note::
+
+   If you create the volume from a private image, the volume becomes a copy-on-write
+   clone of that image. You cannot delete the source image until you delete or
+   flatten the volume. See :ref:`deleting a private image <deleting-a-private-image>`
+   for more.
+
 Cloud management portal
 -----------------------
 
