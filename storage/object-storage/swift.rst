@@ -83,7 +83,7 @@ Creating a container
 To create a container via Swift, you would either use the API (not covered in this documentation) or the swift
 client.
 
-To use the latter to create a bucket see below. Add the ``--os-storage-url`` as per above
+To use the latter to create a bucket see below. Add the ``--os-storage-url`` as above
 if you need to change API endpoint.
 
 .. note::
@@ -100,7 +100,7 @@ if you need to change API endpoint.
 - Based on replication (or not) and availability zone, choose the right :doc:`endpoint <endpoints>`. Save
   the endpoint URL.
 
-- Create your container using ``swift post -H "X-Storage-Policy:[STORAGE_POLICY_NAME]" [CONTAINER_NAME]``, add
+- Create your container by using ``swift post -H "X-Storage-Policy:[STORAGE_POLICY_NAME]" [CONTAINER_NAME]``, add
   the correct information in the command, you can skip specifying a :doc:`storage policy <storage-policy>` in
   which case it will use the default.
 

@@ -61,15 +61,15 @@ of the router.
   - Select fixed IP and add input the same IP as you selected as default route on the
     subnet in the previous step.
 
-  - Under :doc:`security groups <security-groups/index>`, add the ``all-open`` group (as the
-    traffic will not be destined to the instance because of routing). A firewall to the
+  - Under :doc:`security groups <security-groups/index>`, add the ``all-open`` group (as the routing
+    means that the traffic will not reach the instance). A firewall to the
     router/firewall-instance will have to be setup on the instance itself.
 
   - Edit the new port and select the **Allowed address pairs** tab
 
   - Add ``0.0.0.0/0`` under the **IP Address or CIDR** field.
 
-- Launch the instance using an image or install it via console. 
+- Launch the instance by using an image, or install it via console.
 
   - Add a :doc:`directly attached IP <directly-attached-ips>` as the outside network.
 

@@ -18,7 +18,7 @@ Default quotas
 
 The default quotas are as follows:
 
-- :doc:`vCores </compute/flavors>`: 40
+- :doc:`vCPUs </compute/flavors>`: 40
 
 - :doc:`RAM </compute/flavors>`: 100 GB
 

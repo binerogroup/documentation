@@ -34,8 +34,8 @@ these steps to setup site-to-site VPN by using the cloud management portal:
 
   - ``Private network``: The network that's exposed through IPsec.
 
-  - ``IPSec pre-shared key``: If you want to use a specific pre-shared key you may enter that
-    here. If left at default, a random key will be generated for you.
+  - ``IPSec pre-shared key``: If you want to use a specific pre-shared key you can enter that
+    here. If left at default, the platform generates a random key for you.
 
   - ``IPSec peer IP``: This should contain the public gateway address for the remote IPsec
     endpoint. It should not be a DNS name but an IP-address.
@@ -60,7 +60,7 @@ these steps to setup site-to-site VPN by using the cloud management portal:
     to get traffic flowing over VPN.
 
   - Add the newly created security group ``IPSec-<name>-<random string>_access`` to all instances
-    that should be accessible from the remote end of the IPSec tunnel.
+    that should be accessible from the remote end of the IPsec tunnel.
 
   - Once you are ready, proceed to configure :doc:`the remote end <configure-remote>` of the tunnel.
 

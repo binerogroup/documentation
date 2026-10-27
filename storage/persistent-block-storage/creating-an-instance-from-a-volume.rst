@@ -3,7 +3,7 @@ Creating an instance from an existing volume
 ============================================
 
 If you have a bootable volume available you can launch a new instance
-using the volume.
+by using the volume.
 
 Cloud management portal
 -----------------------

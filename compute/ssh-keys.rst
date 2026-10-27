@@ -33,7 +33,7 @@ on this topic.
 
    We do recommend using ``ssh-keygen`` to generate the key on your computer. This
    is because you are then able to choose one of the modern keying methods instead of RSA
-   which the various platform options will provide.
+   which the platform options will provide.
 
    We recommend that you use the new modern ED25519 algorithm when creating your SSH
    key and that you use a passphrase for the key.
@@ -67,8 +67,8 @@ If you don't have a key you can instead choose to generate a new one:
 
 - Press **Generate new key**
 
-- Copy the **private** part of the new key to a file on your workstation as this will **not** be
-  saved in the platform. We recommend setting a passphrase on the key according to the above tips. 
+- Copy the **private** part of the new key to a file on your workstation, as the platform will **not** save it. We
+  recommend setting a passphrase on the key according to the above tips.
 
 OpenStack Horizon
 -----------------
@@ -84,7 +84,7 @@ To create an SSH-key through :doc:`/getting-started/managing-your-cloud/openstac
 - Choose **SSH-key** under **Key type**
 
 - Paste your **public key** in the **Public key** form (or import the public key
-  from file using the **Load public key from file** button)
+  from file by using the **Load public key from file** button)
 
 - Press **Import public key**
 

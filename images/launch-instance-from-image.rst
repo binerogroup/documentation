@@ -2,7 +2,7 @@
 Launch instance from image
 ==========================
 
-When :doc:`snapshotting </storage/snapshots/index>` and entire instance, the end result is
+When :doc:`taking a snapshot </storage/snapshots/index>` of an entire instance, the end result is
 an :doc:`image <index>`. Restoring from a snapshot (assuming you restore the entire instance) is
 then the same as creating an instance from a private image.
 

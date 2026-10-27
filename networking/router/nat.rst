@@ -46,7 +46,7 @@ connections (SNAT):
   command: ``openstack router list`` to get a list of your routers
 
   - Followed by ``openstack router show [ROUTER NAME] -c external_gateway_info -f yaml`` which
-    will give you a yaml formatted list of the outbound SNAT IP.
+    will give you a YAML formatted list of the outbound SNAT IP.
 
 ..  seealso::
 

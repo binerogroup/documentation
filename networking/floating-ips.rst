@@ -176,7 +176,7 @@ To assign a floating IP to an instance by using the
 
 - Run this command: ``openstack server add floating ip --fixed-ip-address [INTERNAL IP] [INSTANCE NAME] [FLOATING IP]``, replacing
   [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with
-  whichever floating IP you added as per earlier step.
+  whichever floating IP you added in the earlier step.
 
 - Your IP should now be visible under the **addresses** field when running the command ``openstack server show [NAME]``. Remember
   that you might need to add :doc:`security groups <security-groups/index>` to the instance if you cannot reach it.

@@ -109,7 +109,7 @@ you want to access.
 
 The two most common types of access to manage operating systems are SSH (for Linux and its derivatives) and RDP (for Windows).
 
-Binero cloud includes security groups for SSH (``bin-ssh``) and RDP (``bin-remote-desktop-protocol``) preconfigured so you just
+Binero cloud includes security groups for SSH (``bin-ssh``) and RDP (``bin-remote-desktop-protocol``) that are already configured, so you just
 need to add them to your instances.
 
 See above for guides on how to add a security group by using the tool you prefer.

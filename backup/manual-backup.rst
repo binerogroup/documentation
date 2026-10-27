@@ -80,11 +80,11 @@ To create a volume by using the
   with the name of the backup and the ID from the previous step.
 
 - If you want to backup a snapshot, you could instead first list the snapshots by running ``openstack volume snapshot list``
-  and then backup using ``openstack volume backup create --force --name [BACKUP_NAME] --snapshot [SNAPSHOT_ID] [VOLUME_ID]``
+  and then create the backup with ``openstack volume backup create --force --name [BACKUP_NAME] --snapshot [SNAPSHOT_ID] [VOLUME_ID]``
 
 .. note:: 
 
-   The ``--force`` is only required if the volume is attached to an instance.
+   The ``--force`` flag is only required if you have attached the volume to an instance.
 
 ..  seealso::
 

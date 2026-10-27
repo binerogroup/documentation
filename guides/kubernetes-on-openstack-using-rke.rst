@@ -16,7 +16,7 @@ Kubernetes on OpenStack instances, the plugin needs credentials to work.
 Installing RKE
 --------------
 
-We recommend following the `the official installation-guide <https://rancher.com/docs/rke/latest/en/installation/#download-the-rke-binary>`__
+We recommend following `the official installation-guide <https://rancher.com/docs/rke/latest/en/installation/#download-the-rke-binary>`__
 to install RKE on your workstation.
 
 Preparing the nodes
@@ -55,7 +55,7 @@ Follow these instructions to prepare the plugin on your workstation:
 
 * Edit the ``cluster.yml`` file. Under the section **cloud provider** enter the correct parameters (more info
   `here <https://rke.docs.rancher.com/config-options/cloud-providers/openstack>`__. IDs and names are available
-  in the platform using any of the management tools. The finished file looks like this:
+  in the platform by using any of the management tools. The finished file looks like this:
 
 ::
 	

@@ -55,14 +55,14 @@ receives the request (from the load balancer) is listening on since the request 
 To give your web application more information, there are a few headers that your load balancer
 can insert:
 
-- ``x-forwarded-port`` will be 443 and can be used to check that the traffic is indeed
-  arriving on the encrypted port (if you also allow pure http traffic to the same instances).
+- ``x-forwarded-port`` will be 443 and you can use it to check that the traffic really
+  arrives on the encrypted port (if you also allow pure HTTP traffic to the same instances).
 
 - ``x-forwarded-proto`` works the same was as above but will give the protocol.
 
 - ``x-forwarded-for`` will tell you to what IP, the visitor made the request. If you have
-  several load balancers fronting the same instances, this will let you know through which
-  load balancer the request was made.
+  more than one load balancer fronting the same instances, this will let you know which
+  load balancer handled the request.
 
 The headers are available from the **Listener details** tab when setting up the load balancer
 (or by editing the listener).
@@ -164,7 +164,7 @@ Create a redirect to the first page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you prefer to stay in the GUI, the following method will allow you to setup similar functionality
-using OpenStack Horizon, using this method, for example http://www.example.com/subfolder/index.html
+by using OpenStack Horizon, using this method, for example http://www.example.com/subfolder/index.html
 would redirect to https://example.com.
 
 - Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.

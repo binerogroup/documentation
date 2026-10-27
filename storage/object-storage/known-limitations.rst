@@ -25,6 +25,6 @@ This gets handled by the client or library that you use and is not something tha
 your file into parts and then uploads them concurrently, the parts is then assembled in the platform.
 
 If you upload a large file by using the :doc:`S3 API <s3>` and then try to download that using the :doc:`Swift API <swift>`
-you will get an error such as ``Error downloading [object-name]: md5sum != etag`` indicating the operation failed, but the
+you will get an error such as ``Error downloading [object-name]: md5sum != etag`` indicating the operation was unsuccessful, but the
 object is successfully downloaded. We recommend that you select one API to use for your application and not combining
-the usage unless absolutely neccesary.
+the usage unless absolutely necessary.
