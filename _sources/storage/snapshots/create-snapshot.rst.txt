@@ -87,7 +87,7 @@ To create a snapshot using the :doc:`/getting-started/managing-your-cloud/openst
 
 - Run this command: ``openstack server image create --name [SNAPSHOT_NAME] [INSTANCE_NAME]``, replacing
   the items in angle brackets with a descriptive name (this is optional, if omitted the instance name
-  will be used) and and the name of the instance you want to snapshot.
+  will apply) and the name of the instance you want to snapshot.
 
 - Run this command to verify: ``openstack image list --private``
 

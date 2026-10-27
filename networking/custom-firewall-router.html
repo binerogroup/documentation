@@ -1575,14 +1575,14 @@ for the internal network(s) unless you have already done so.</p></li>
 <ul>
 <li><p>Select fixed IP and add input the same IP as you selected as default route on the
 subnet in the previous step.</p></li>
-<li><p>Under <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a>, add the <code class="docutils literal notranslate"><span class="pre">all-open</span></code> group (as the
-traffic will not be destined to the instance because of routing). A firewall to the
+<li><p>Under <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a>, add the <code class="docutils literal notranslate"><span class="pre">all-open</span></code> group (as the routing
+means that the traffic will not reach the instance). A firewall to the
 router/firewall-instance will have to be setup on the instance itself.</p></li>
 <li><p>Edit the new port and select the <strong>Allowed address pairs</strong> tab</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> under the <strong>IP Address or CIDR</strong> field.</p></li>
 </ul>
 </li>
-<li><p>Launch the instance using an image or install it via console.</p>
+<li><p>Launch the instance by using an image, or install it via console.</p>
 <ul>
 <li><p>Add a <a class="reference internal" href="directly-attached-ips.html"><span class="doc">directly attached IP</span></a> as the outside network.</p></li>
 <li><p>Connect to the port(s). Do not connect to the inside subnet, just the port(s) that

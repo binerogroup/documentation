@@ -18,7 +18,7 @@ load balancing setup in the platform and in general.
 
   - Aside from above, if you want to use different backend pools, it's possible to create
     a Layer 7 rule that forward traffic from a certain domain to a different pool. That
-    way, using domain names you could host many web applications using different backends
+    way, using domain names you could host many web applications that use different backends
     on the same load balancer.
 
   - Terminating HTTPS in the load balancer is a good way to simplify configuration on the
@@ -60,8 +60,8 @@ load balancing setup in the platform and in general.
 
   - Make sure you have enough free capacity to loose a member (or even better, two) during
     peak load. A common issue with load balancing is that when the load rise and something
-    happens with a single member resulting in its removal, the remaining members are
-    overwhelmed from picking up its load, resulting in more removals due to high load leading
+    happens with a single member resulting in its removal, the remaining members
+    struggle to pick up its load, resulting in more removals due to high load leading
     to slower responses and the load balancer timing out. This soon spirals out of control
     where servers flaps in and out of the pool as the member recovers when removed but then
     gets overwhelmed again.
@@ -77,7 +77,7 @@ load balancing setup in the platform and in general.
 - Health checking
 
   - Ensure that your monitors are as closely setup (protocol wise) to the listener type as
-    possible. If you are for example using load balancing for an HTTP based service, don't
+    possible. If you are, for example, using load balancing for an HTTP based service, don't
     do health checking by pinging the members. Its not uncommon for a server that is
     malfunctioning to still reply to ping (or even still listen on a particular port).
 

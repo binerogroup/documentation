@@ -1734,7 +1734,7 @@ assign the floating IP to.</p></li>
 previous step. Note which address from the <strong>addresses</strong> field you want to connect the floating IP to.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">add</span> <span class="pre">floating</span> <span class="pre">ip</span> <span class="pre">--fixed-ip-address</span> <span class="pre">[INTERNAL</span> <span class="pre">IP]</span> <span class="pre">[INSTANCE</span> <span class="pre">NAME]</span> <span class="pre">[FLOATING</span> <span class="pre">IP]</span></code>, replacing
 [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with
-whichever floating IP you added as per earlier step.</p></li>
+whichever floating IP you added in the earlier step.</p></li>
 <li><p>Your IP should now be visible under the <strong>addresses</strong> field when running the command <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">show</span> <span class="pre">[NAME]</span></code>. Remember
 that you might need to add <a class="reference internal" href="security-groups/index.html"><span class="doc">security groups</span></a> to the instance if you cannot reach it.</p></li>
 </ul>

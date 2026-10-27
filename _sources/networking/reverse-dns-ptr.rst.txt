@@ -74,8 +74,8 @@ To assign a PTR record to a floating IP by using the
 
 .. note::
 
-   You are not able to unset a DNS record by using the cloud management portal (but you can change it). This can be
-   done using either horizon or the terminal client, see below.
+   You are not able to unset a DNS record by using the cloud management portal (but you can change it). You can do
+   this with either horizon or the terminal client, see below.
 
 Adding PTR records using OpenStack Horizon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,7 +96,7 @@ To assign a PTR record to a floating IP by using the
 
 - Press **Save**
 
-- You are also able to unset (as in remove) the record using the small arrow next to
+- You are also able to unset (as in remove) the record by using the small arrow next to
   the **Set** button according to above.
 
 Adding PTR records using OpenStack terminal client
@@ -114,7 +114,7 @@ To assign a PTR record to a floating IP by using the
   care to end the PTR name (the domain), with a dot (``.``) and replace the values within angle brackets with their corresponding
   values. Description is optional.
 
-- You are also able to unset (as in remove) the record using the following
+- You are also able to unset (as in remove) the record by using the following
   command: ``openstack ptr record unset [FLOATING IP ID]``
 
 .. note::

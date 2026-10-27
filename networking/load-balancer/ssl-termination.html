@@ -1833,12 +1833,12 @@ receives the request (from the load balancer) is listening on since the request 
 <p>To give your web application more information, there are a few headers that your load balancer
 can insert:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-port</span></code> will be 443 and can be used to check that the traffic is indeed
-arriving on the encrypted port (if you also allow pure http traffic to the same instances).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-port</span></code> will be 443 and you can use it to check that the traffic really
+arrives on the encrypted port (if you also allow pure HTTP traffic to the same instances).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-proto</span></code> works the same was as above but will give the protocol.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for</span></code> will tell you to what IP, the visitor made the request. If you have
-several load balancers fronting the same instances, this will let you know through which
-load balancer the request was made.</p></li>
+more than one load balancer fronting the same instances, this will let you know which
+load balancer handled the request.</p></li>
 </ul>
 <p>The headers are available from the <strong>Listener details</strong> tab when setting up the load balancer
 (or by editing the listener).</p>
@@ -1910,7 +1910,7 @@ in the path.</p>
 </div>
 <h3 id="create-a-redirect-to-the-first-page">Create a redirect to the first page<a class="headerlink" href="#create-a-redirect-to-the-first-page" title="Link to this heading">¶</a></h3>
 <p>If you prefer to stay in the GUI, the following method will allow you to setup similar functionality
-using OpenStack Horizon, using this method, for example <a class="reference external" href="http://www.example.com/subfolder/index.html">http://www.example.com/subfolder/index.html</a>
+by using OpenStack Horizon, using this method, for example <a class="reference external" href="http://www.example.com/subfolder/index.html">http://www.example.com/subfolder/index.html</a>
 would redirect to <a class="reference external" href="https://example.com">https://example.com</a>.</p>
 <ul class="simple">
 <li><p>Under <strong>Project</strong>, click <strong>Network</strong> and then <strong>Load balancers</strong> in the sidebar menu.</p></li>

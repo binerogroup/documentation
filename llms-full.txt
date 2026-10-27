@@ -123,7 +123,7 @@ Default quotas
 
 The default quotas are as follows:
 
-- :doc:`vCores </compute/flavors>`: 40
+- :doc:`vCPUs </compute/flavors>`: 40
 
 - :doc:`RAM </compute/flavors>`: 100 GB
 
@@ -582,7 +582,7 @@ with its unique features and benefits.
   via terminal, same as OpenStack Horizon but terminal based.
 
 - `OpenStack API </openstack-api>`_ - Infrastructure as code and third party implementations,
-  intended for programmers working with infrastructure as code projects using the platform or
+  intended for programmers working with infrastructure as code projects that use the platform, or
   when using third party applications.
 
 See the walk-through of the cloud management portal.
@@ -977,8 +977,8 @@ To create an Application Credential through :doc:`/getting-started/managing-your
 * Optionally you can provide a ``expiration date`` and time for when to (automatically) deactivate
   the application credential.
 
-* Under roles, select the appropriate roles. If you don't select a role, the same role as your account will be
-  used (member). Creator will allow creation of some objects (secrets) where as the reader role allows read-only
+* Under roles, select the appropriate roles. If you don't select a role, the same role as your account will apply
+  (member). Creator will allow creation of some objects (secrets) where as the reader role allows read-only
   in most services.
 
 * Under access rules you are able to give even more granular accesses to API calls. See the information on how
@@ -1384,7 +1384,7 @@ on this topic.
 
    We do recommend using ``ssh-keygen`` to generate the key on your computer. This
    is because you are then able to choose one of the modern keying methods instead of RSA
-   which the various platform options will provide.
+   which the platform options will provide.
 
    We recommend that you use the new modern ED25519 algorithm when creating your SSH
    key and that you use a passphrase for the key.
@@ -1418,8 +1418,8 @@ If you don't have a key you can instead choose to generate a new one:
 
 - Press **Generate new key**
 
-- Copy the **private** part of the new key to a file on your workstation as this will **not** be
-  saved in the platform. We recommend setting a passphrase on the key according to the above tips. 
+- Copy the **private** part of the new key to a file on your workstation, as the platform will **not** save it. We
+  recommend setting a passphrase on the key according to the above tips.
 
 OpenStack Horizon
 -----------------
@@ -1435,7 +1435,7 @@ To create an SSH-key through :doc:`/getting-started/managing-your-cloud/openstac
 - Choose **SSH-key** under **Key type**
 
 - Paste your **public key** in the **Public key** form (or import the public key
-  from file using the **Load public key from file** button)
+  from file by using the **Load public key from file** button)
 
 - Press **Import public key**
 
@@ -1490,7 +1490,7 @@ connecting extra IP addresses to an instance exists:
   provisioning a new instance as you can add one or more ports.
 
 - If your instance needs to have extra IP addresses from the same network, this is possible when
-  launching an instance using OpenStack Horizon or the OpenStack terminal client by first manually
+  launching an instance by using OpenStack Horizon or the OpenStack terminal client, first manually
   creating one or more :doc:`ports </networking/ports>` and assigning them.
 
 More information on the concepts of networking in our :doc:`networking section </networking/index>`.
@@ -1649,7 +1649,7 @@ OpenStack Horizon
 OpenStack Terminal Client
 -------------------------
 
-- Run the rescue action for the instance using the image UUID or image name
+- Run the rescue action for the instance by using the image UUID or image name
 
 ::
 
@@ -2709,7 +2709,7 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 .. caution::
 
    If you want to create an instance in the ``europe-se-1b`` availability zone (any availability zone that is not the default
-   ``europe-se-1a``) youneed to :doc:`create the volume <../../storage/persistent-block-storage/create-volume>` in that availability
+   ``europe-se-1a``) you need to :doc:`create the volume <../../storage/persistent-block-storage/create-volume>` in that availability
    zone beforehand and in the **Sources** step select **Boot Source** as **Volume**.
 
    This is because we do not support attaching volumes across availability zones and the instance and volume must be in the
@@ -4257,15 +4257,15 @@ of the router.
   - Select fixed IP and add input the same IP as you selected as default route on the
     subnet in the previous step.
 
-  - Under :doc:`security groups <security-groups/index>`, add the ``all-open`` group (as the
-    traffic will not be destined to the instance because of routing). A firewall to the
+  - Under :doc:`security groups <security-groups/index>`, add the ``all-open`` group (as the routing
+    means that the traffic will not reach the instance). A firewall to the
     router/firewall-instance will have to be setup on the instance itself.
 
   - Edit the new port and select the **Allowed address pairs** tab
 
   - Add ``0.0.0.0/0`` under the **IP Address or CIDR** field.
 
-- Launch the instance using an image or install it via console. 
+- Launch the instance by using an image, or install it via console.
 
   - Add a :doc:`directly attached IP <directly-attached-ips>` as the outside network.
 
@@ -4571,7 +4571,7 @@ To assign a floating IP to an instance by using the
 
 - Run this command: ``openstack server add floating ip --fixed-ip-address [INTERNAL IP] [INSTANCE NAME] [FLOATING IP]``, replacing
   [INTERNAL IP] with the instances IP from the previous step, [INSTANCE NAME] with the name of the instance and [FLOATING IP] with
-  whichever floating IP you added as per earlier step.
+  whichever floating IP you added in the earlier step.
 
 - Your IP should now be visible under the **addresses** field when running the command ``openstack server show [NAME]``. Remember
   that you might need to add :doc:`security groups <security-groups/index>` to the instance if you cannot reach it.
@@ -4890,7 +4890,7 @@ load balancing setup in the platform and in general.
 
   - Aside from above, if you want to use different backend pools, it's possible to create
     a Layer 7 rule that forward traffic from a certain domain to a different pool. That
-    way, using domain names you could host many web applications using different backends
+    way, using domain names you could host many web applications that use different backends
     on the same load balancer.
 
   - Terminating HTTPS in the load balancer is a good way to simplify configuration on the
@@ -4932,8 +4932,8 @@ load balancing setup in the platform and in general.
 
   - Make sure you have enough free capacity to loose a member (or even better, two) during
     peak load. A common issue with load balancing is that when the load rise and something
-    happens with a single member resulting in its removal, the remaining members are
-    overwhelmed from picking up its load, resulting in more removals due to high load leading
+    happens with a single member resulting in its removal, the remaining members
+    struggle to pick up its load, resulting in more removals due to high load leading
     to slower responses and the load balancer timing out. This soon spirals out of control
     where servers flaps in and out of the pool as the member recovers when removed but then
     gets overwhelmed again.
@@ -4949,7 +4949,7 @@ load balancing setup in the platform and in general.
 - Health checking
 
   - Ensure that your monitors are as closely setup (protocol wise) to the listener type as
-    possible. If you are for example using load balancing for an HTTP based service, don't
+    possible. If you are, for example, using load balancing for an HTTP based service, don't
     do health checking by pinging the members. Its not uncommon for a server that is
     malfunctioning to still reply to ping (or even still listen on a particular port).
 
@@ -5353,7 +5353,7 @@ option. The example below will load balance HTTP (protocol aware) and thus port 
 
 - Run this command to create the load balancer: ``openstack loadbalancer create --name [NAME_lb] --vip-subnet-id [SUBNET_NAME]`` replacing
   the subnet name with that from previous step, use ``--availability-zone`` to select a available, if not given
-  europe-se-1a will be used by default.
+  the platform uses europe-se-1a by default.
 
 - Run this command until it says that the ``operating_status`` is ``ONLINE``: ``openstack loadbalancer show [NAME_OF_LB]``
 
@@ -5702,14 +5702,14 @@ receives the request (from the load balancer) is listening on since the request 
 To give your web application more information, there are a few headers that your load balancer
 can insert:
 
-- ``x-forwarded-port`` will be 443 and can be used to check that the traffic is indeed
-  arriving on the encrypted port (if you also allow pure http traffic to the same instances).
+- ``x-forwarded-port`` will be 443 and you can use it to check that the traffic really
+  arrives on the encrypted port (if you also allow pure HTTP traffic to the same instances).
 
 - ``x-forwarded-proto`` works the same was as above but will give the protocol.
 
 - ``x-forwarded-for`` will tell you to what IP, the visitor made the request. If you have
-  several load balancers fronting the same instances, this will let you know through which
-  load balancer the request was made.
+  more than one load balancer fronting the same instances, this will let you know which
+  load balancer handled the request.
 
 The headers are available from the **Listener details** tab when setting up the load balancer
 (or by editing the listener).
@@ -5811,7 +5811,7 @@ Create a redirect to the first page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you prefer to stay in the GUI, the following method will allow you to setup similar functionality
-using OpenStack Horizon, using this method, for example http://www.example.com/subfolder/index.html
+by using OpenStack Horizon, using this method, for example http://www.example.com/subfolder/index.html
 would redirect to https://example.com.
 
 - Under **Project**, click **Network** and then **Load balancers** in the sidebar menu.
@@ -6064,7 +6064,7 @@ To create a :doc:`network <index>` by using the
   zones for routers and networking. Save this for following step.
 
 - Run ``openstack network create --availability-zone-hint=[AVAILABILITY ZONE] [NETWORK-NAME]``. Replace the
-  items within brackets with the values from previous section as well as the name of the router. Remember to
+  items within brackets with the values from previous section and the name of the router. Remember to
   use the network that corresponds to the availability zone you chose. If you are not sure what availability
   zone to use, we recommend using *europe-se-1a*.
 
@@ -6508,8 +6508,8 @@ To assign a PTR record to a floating IP by using the
 
 .. note::
 
-   You are not able to unset a DNS record by using the cloud management portal (but you can change it). This can be
-   done using either horizon or the terminal client, see below.
+   You are not able to unset a DNS record by using the cloud management portal (but you can change it). You can do
+   this with either horizon or the terminal client, see below.
 
 Adding PTR records using OpenStack Horizon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -6530,7 +6530,7 @@ To assign a PTR record to a floating IP by using the
 
 - Press **Save**
 
-- You are also able to unset (as in remove) the record using the small arrow next to
+- You are also able to unset (as in remove) the record by using the small arrow next to
   the **Set** button according to above.
 
 Adding PTR records using OpenStack terminal client
@@ -6548,7 +6548,7 @@ To assign a PTR record to a floating IP by using the
   care to end the PTR name (the domain), with a dot (``.``) and replace the values within angle brackets with their corresponding
   values. Description is optional.
 
-- You are also able to unset (as in remove) the record using the following
+- You are also able to unset (as in remove) the record by using the following
   command: ``openstack ptr record unset [FLOATING IP ID]``
 
 .. note::
@@ -6743,7 +6743,7 @@ To launch a `router <../index>`_ from the
   this for next step.
 
 - Run ``openstack router create --availability-zone-hint=[AVAILABILITY ZONE] --external-gateway=[NETWORK-NAME] [ROUTER NAME]``. Replace
-  the items within brackets with the values from previous sections as well as the name of the router. Remember to use the network that
+  the items within brackets with the values from previous sections and the name of the router. Remember to use the network that
   corresponds to the availability zone you chose. If you are not sure what availability zone to use, we recommend using *europe-se-1a*.
 
 .. note::
@@ -6973,7 +6973,7 @@ connections (SNAT):
   command: ``openstack router list`` to get a list of your routers
 
   - Followed by ``openstack router show [ROUTER NAME] -c external_gateway_info -f yaml`` which
-    will give you a yaml formatted list of the outbound SNAT IP.
+    will give you a YAML formatted list of the outbound SNAT IP.
 
 ..  seealso::
 
@@ -7200,9 +7200,9 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
   default group. **We do not recommending mixing the two options as that will be a less
   predictable (and more complex to understand) design**.
 
-- When doing many subnets to allow for different security zones (the need for this is
-  negated by using proper security groups that replace the default group as that will give
-  you security between your instances on the same network as well), remember that the default
+- When doing many subnets to allow for different security zones (proper security groups negate
+  the need for this, since they replace the default group and give you security between your
+  instances on the same network), remember that the default
   group will leave your internal networks open to each other even though they are traversing
   a router.
 
@@ -7219,11 +7219,11 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
   also allowed, irrespectively of wether that traffic flow is explicitly defined.
 
   - This is a standard behaviour in a firewall. If you want to create a non stateful (stateless)
-    rule, you can create the group using the :doc:`terminal client <openstack-terminal-client>` and
+    rule, you can create the group by using the :doc:`terminal client <openstack-terminal-client>` and
     the flag ``--stateless``. A stateless rule would only work in a single direction (egress or
     ingress). We generally recommend stateful rules but for some use-cases (for example asymmetrical
-    routing where you would not send the return traffic the same path), stateless rules might be
-    required.
+    routing where you would not send the return traffic the same path), you might require
+    stateless rules.
 
 .. tip::
 
@@ -7231,7 +7231,7 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
    the ``nmap`` command that can perform a port scan.
 
    For instance ``nmap -T4 1.2.3.4`` would scan the server with IP 1.2.3.4 (the -T4 flag limits the timeout
-   per port to 10 ms which speeds up the otherwise slow process). The output will be a list of open ports.
+   per port to 10 ms which accelerates the otherwise slow process). The output will be a list of open ports.
 
    Remember to scan both from the inside (using your internal instances against their internal IP addresses)
    and by using for example your workstation (against the floating IP that expose your services) to get the
@@ -7249,13 +7249,13 @@ parameters will be available from the GUI, some might require using the :doc:`te
 
 We provide the parameters to the terminal client in the parenthesis below.
 
-- Remote IP (``--remote-ip``) - Remote IP address or IP range (may use :doc:`CIDR notation <../subnet/subnet-format>`,
+- Remote IP (``--remote-ip``) - Remote IP address or IP range (can use :doc:`CIDR notation <../subnet/subnet-format>`,
   default for IPv4 rule: 0.0.0.0/0, default for IPv6 rule: ::/0).
 
 - Remote Group (``--remote-group``) - Remote security group (name or ID). Instead of IP, you could use a remote
   group to decide from where the traffic originates.
 
-- Destination port (``--dst-port``) - Destination port, may be a single port or a starting and ending port range
+- Destination port (``--dst-port``) - Destination port, can be a single port or a starting and ending port range
   137:139. Required for IP protocols TCP and UDP.
 
 - Protocol (``--protocol``) - IP protocol – AH, DCCP, EGP, ESP, GRE, ICMP, IGMP, ipv6-encap, ipv6-frag, ipv6-icmp, ipv6-nonxt,
@@ -7269,7 +7269,7 @@ We provide the parameters to the terminal client in the parenthesis below.
 - Direction (``--ingress`` or ``--egress``) - Rule applies to incoming or outgoing network traffic (incoming is
   default).
 
-- IP version (``--ethertype``) - whether to use IPv4 or IPv6; default is based on IP protocol.
+- IP version (``--ethertype``) - whether to use IPv4 or IPv6; the default depends on the IP protocol.
 
 ..  seealso::
 
@@ -7387,7 +7387,7 @@ you want to access.
 
 The two most common types of access to manage operating systems are SSH (for Linux and its derivatives) and RDP (for Windows).
 
-Binero cloud includes security groups for SSH (``bin-ssh``) and RDP (``bin-remote-desktop-protocol``) preconfigured so you just
+Binero cloud includes security groups for SSH (``bin-ssh``) and RDP (``bin-remote-desktop-protocol``) that are already configured, so you just
 need to add them to your instances.
 
 See above for guides on how to add a security group by using the tool you prefer.
@@ -7533,7 +7533,7 @@ To add rules to a :doc:`security group <index>` by using the
 - Define the rule. More info in our :doc:`designing-rules` article. By using the help output
   from above, you are able to match your rule to the needed parameters. 
 
-- An example command to create a security rule that allows SSH using the terminal. Replace the
+- An example command, run in the terminal, to create a security rule that allows SSH. Replace the
   items in angle brackets with corresponding data. 
 
 ::
@@ -7676,7 +7676,7 @@ URL that you us for managing the VPN service. Enter it into a browser.
 
    You can update that in the :doc:`security group </networking/security-groups/index>`
    named ``IPSec-<name>-<random string>_management``, if your public IP address has
-   changed, you may need to edit the security group.
+   changed, you might need to edit the security group.
 
 You would also have gotten an ``admin_password`` output, which is a generated password for
 your instance. This, combined with the username `´admin`` will give you access to the portal.
@@ -7684,8 +7684,8 @@ your instance. This, combined with the username `´admin`` will give you access 
 Security recommendations 
 ------------------------ 
 
-While the admin password is uniquely generated and secure it **is** saved as part of the
-output in the platform in plain text (a user with access to the platform can read it).
+While the admin password is uniquely generated and secure, the platform saves it as part of
+the output in plain text (a user with access to the platform can read it).
 
 While only users with access to the platform could read it and it can likewise be reset
 via access to the console of the instance (which users with access to the platform has),
@@ -7710,8 +7710,8 @@ To do this, follow these instructions:
    Should you loose your password, it can be reset via :doc:`console output </compute/console>`
    on the instance.
 
-While the PSK (Pre-Shared Key) is uniquely generated, it **is** saved as part of the output in the platform
-in plain text (a user with access to the platform can read it).
+While the PSK (Pre-Shared Key) is uniquely generated, the platform saves it as part of the
+output in plain text (a user with access to the platform can read it).
 
 The IPsec service is using a firewall (other than traffic from the remote gateway) to secure the service.
 
@@ -7824,7 +7824,7 @@ the official documentation from your vendor on how to configure.
 
     - ``Cipher``: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)
 
-    - ``Pseudo-random function (PRF)``: Auto / SHA2_384 (this can often be left as auto, if there is not an option
+    - ``Pseudo-random function (PRF)``: Auto / SHA2_384 (you can often leave this as auto, if there is not an option
       for it available, assume its automatically chosen).
 
     - ``(Integrity) Hash``: SHA2_384 (All vendors might not require this)
@@ -7962,7 +7962,7 @@ You will need the following information to get started:
   provides to you) for the tunnel.
 
 - The remote subnet (in CIDR notation) that's tunneled (meaning the network on which the
-  computers or servers that should be able to connect to resources in the cloud using the
+  computers or servers that should be able to connect to resources in the cloud through the
   tunnel are on).
 
 - A management IP that you allowed access to managing the VPN over the internet.
@@ -8006,7 +8006,7 @@ This standard is well supported in hardware (and software) from a wide variety o
 
 We recommend using the central firewall or router as remote endpoint as that will greatly simplify
 routing, its possible to also forward the correct ports to a server (virtual or physical) on the
-inside of the firewall as Binero cloud support the ``NAT-T`` extension of the IPSec protocol.
+inside of the firewall as Binero cloud support the ``NAT-T`` extension of the IPsec protocol.
 
 This will make the routing more difficult as, depending on architecture, you might need to add
 routes to the different computers and servers directly. 
@@ -8056,8 +8056,8 @@ these steps to setup site-to-site VPN by using the cloud management portal:
 
   - ``Private network``: The network that's exposed through IPsec.
 
-  - ``IPSec pre-shared key``: If you want to use a specific pre-shared key you may enter that
-    here. If left at default, a random key will be generated for you.
+  - ``IPSec pre-shared key``: If you want to use a specific pre-shared key you can enter that
+    here. If left at default, the platform generates a random key for you.
 
   - ``IPSec peer IP``: This should contain the public gateway address for the remote IPsec
     endpoint. It should not be a DNS name but an IP-address.
@@ -8082,7 +8082,7 @@ these steps to setup site-to-site VPN by using the cloud management portal:
     to get traffic flowing over VPN.
 
   - Add the newly created security group ``IPSec-<name>-<random string>_access`` to all instances
-    that should be accessible from the remote end of the IPSec tunnel.
+    that should be accessible from the remote end of the IPsec tunnel.
 
   - Once you are ready, proceed to configure :doc:`the remote end <configure-remote>` of the tunnel.
 
@@ -8131,7 +8131,7 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 - If you want to use IPv4, we recommend using DHCP to assign IP addresses to hosts.
 
 - Under **Add pool**, add the :doc:`DHCP scope <dhcp>`. That is, the starting and end addresses you want to auto-assign
-  to hosts using DHCP. Press the **+** (plus) sign above **Add pool** and enter start and end addresses. For example
+  to hosts that use DHCP. Press the **+** (plus) sign above **Add pool** and enter start and end addresses. For example
   ``192.168.0.10`` and ``192.168.0.254`` if your range is ``192.169.0.0/24``.
 
 - Under **DNS name servers** we recommend adding our servers which are ``83.168.225.225`` and ``83.168.226.226``. You can
@@ -8433,7 +8433,7 @@ To create a :doc:`subnet <index>` from the
 - Press **Next**
 
 - Under **Allocation pool**, add the :doc:`DHCP scope <dhcp>`. That is, the starting and end
-  addresses you want to auto-assign to hosts using DHCP. Add each pool (we recommend just
+  addresses you want to auto-assign to hosts that use DHCP. Add each pool (we recommend just
   one pool per subnet) by adding the first address, (comma) last address (with no spaces), for
   example (if you would use the 192.168.0.0/24 range) ``192.168.0.20,192.168.0.254``.
 
@@ -9110,9 +9110,9 @@ This gets handled by the client or library that you use and is not something tha
 your file into parts and then uploads them concurrently, the parts is then assembled in the platform.
 
 If you upload a large file by using the :doc:`S3 API <s3>` and then try to download that using the :doc:`Swift API <swift>`
-you will get an error such as ``Error downloading [object-name]: md5sum != etag`` indicating the operation failed, but the
+you will get an error such as ``Error downloading [object-name]: md5sum != etag`` indicating the operation was unsuccessful, but the
 object is successfully downloaded. We recommend that you select one API to use for your application and not combining
-the usage unless absolutely neccesary.
+the usage unless absolutely necessary.
 
 
 =================
@@ -9202,7 +9202,7 @@ To get started with using SSE-KMS, see below:
 - :doc:`Create a secret </secret-store/create-secret>` in our secret store and save the returned ``Secret href`` value.
 
 - To allow the platform access to your secret (so that it can handle encryption and decryption with the key) you need to add a
-  :doc:`ACL </secret-store/acl>` using the :doc:`openstack CLI </getting-started/managing-your-cloud/openstack-terminal-client>`
+  :doc:`ACL </secret-store/acl>` using the :doc:`OpenStack CLI </getting-started/managing-your-cloud/openstack-terminal-client>`
   with command ``openstack acl user add --user 23646ed0e7d240ceb56eef6ec909c2ff [SECRET_HREF]``
 
 - Upload a object to the bucket with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3 cp test.txt s3://demo/test.txt --sse=aws:kms --sse-kms-key-id [SECRET_HREF_ID]``
@@ -9360,8 +9360,8 @@ their use-case such as:
 
 .. note::
 
-   The default storage policy on a container or bucket is ``gp.recurring`` unless other is
-   specified upon creation.
+   The default storage policy on a container or bucket is ``gp.recurring`` unless you specify
+   another one upon creation.
 
 .. note::
 
@@ -9528,7 +9528,7 @@ Creating a container
 To create a container via Swift, you would either use the API (not covered in this documentation) or the swift
 client.
 
-To use the latter to create a bucket see below. Add the ``--os-storage-url`` as per above
+To use the latter to create a bucket see below. Add the ``--os-storage-url`` as above
 if you need to change API endpoint.
 
 .. note::
@@ -9545,7 +9545,7 @@ if you need to change API endpoint.
 - Based on replication (or not) and availability zone, choose the right :doc:`endpoint <endpoints>`. Save
   the endpoint URL.
 
-- Create your container using ``swift post -H "X-Storage-Policy:[STORAGE_POLICY_NAME]" [CONTAINER_NAME]``, add
+- Create your container by using ``swift post -H "X-Storage-Policy:[STORAGE_POLICY_NAME]" [CONTAINER_NAME]``, add
   the correct information in the command, you can skip specifying a :doc:`storage policy <storage-policy>` in
   which case it will use the default.
 
@@ -9664,7 +9664,7 @@ Swift API and versioning
 You cannot handle bucket versioning using the :doc:`Swift API <swift>` but the functionality for versioning and DeleteMarkers still apply.
 
 If you upload an object with ``swift upload versioning-demo test.txt`` and then for example delete it with ``swift delete versioning-demo test.txt`` a
-DeleteMarker is created and you can view it with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-object-versions --bucket versioning-demo``.
+DeleteMarker gets created and you can view it with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-object-versions --bucket versioning-demo``.
 
 ..  seealso::
   - :doc:`/storage/object-storage/s3`
@@ -9808,7 +9808,7 @@ Creating an instance from an existing volume
 ============================================
 
 If you have a bootable volume available you can launch a new instance
-using the volume.
+by using the volume.
 
 Cloud management portal
 -----------------------
@@ -9920,8 +9920,7 @@ To detach a volume by using :doc:`/getting-started/managing-your-cloud/openstack
 
 - Press **Detach volume** on the row of the instance. 
 
-- If you get an error, most likely the volume is a boot volume and cannot be
-  detached (see above).
+- If you get an error, most likely the volume is a boot volume, which you cannot detach (see above).
 
 OpenStack Terminal Client
 -------------------------
@@ -9929,7 +9928,7 @@ OpenStack Terminal Client
 To detach a volume by using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack server list``, save the name of the instance having the
-  the volume you want to extend.
+  volume you want to extend.
 
 - Run this command: ``openstack server volume list [NAME_OF_INSTANCE]``, replacing the
   name with that from previous step.
@@ -9938,8 +9937,7 @@ To detach a volume by using the :doc:`/getting-started/managing-your-cloud/opens
   the items in angle brackets with the **Server ID** and **Volume ID** from the output of the
   previous command.
 
-- If you get an error, most likely the volume is a boot volume and cannot be
-  detached (see above).
+- If you get an error, most likely the volume is a boot volume, which you cannot detach (see above).
 
 ..  seealso::
 
@@ -10374,7 +10372,7 @@ To retype a volume by using the :doc:`/getting-started/managing-your-cloud/opens
   the items in angle brackets with the volume type name and the ID of the volume.
 
 - Run this command to verify: ``openstack volume show [VOLUME_ID] -c status``, when the status changes
-  from retyping, the retype is done.
+  from retyping, the retype is complete.
 
 ..  seealso::
 
@@ -10433,7 +10431,7 @@ To create a backup from a snapshot by using the
   with the id from previous command. Save the volume ID of the snapshot.
 
 - Run this command: ``openstack volume backup create --snapshot [SNAPSHOT_ID] --name [BACKUP_NAME] [VOLUME_ID]``, replacing
-  the items in angle brackets with the values from previous two commands as well as a name for the backup-job.
+  the items in angle brackets with the values from previous two commands and a name for the backup-job.
 
 - Run this command to verify: ``openstack volume backup list``, the status field on the backup will
   change from creating to available when done.
@@ -10532,7 +10530,7 @@ To create a snapshot using the :doc:`/getting-started/managing-your-cloud/openst
 
 - Run this command: ``openstack server image create --name [SNAPSHOT_NAME] [INSTANCE_NAME]``, replacing
   the items in angle brackets with a descriptive name (this is optional, if omitted the instance name
-  will be used) and and the name of the instance you want to snapshot.
+  will apply) and the name of the instance you want to snapshot.
 
 - Run this command to verify: ``openstack image list --private``
 
@@ -10919,11 +10917,11 @@ To create a volume by using the
   with the name of the backup and the ID from the previous step.
 
 - If you want to backup a snapshot, you could instead first list the snapshots by running ``openstack volume snapshot list``
-  and then backup using ``openstack volume backup create --force --name [BACKUP_NAME] --snapshot [SNAPSHOT_ID] [VOLUME_ID]``
+  and then create the backup with ``openstack volume backup create --force --name [BACKUP_NAME] --snapshot [SNAPSHOT_ID] [VOLUME_ID]``
 
 .. note:: 
 
-   The ``--force`` is only required if the volume is attached to an instance.
+   The ``--force`` flag is only required if you have attached the volume to an instance.
 
 ..  seealso::
 
@@ -11122,16 +11120,16 @@ To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-c
 
 - Enter a descriptive name of the secret.
 
-- Select what kind of payload (file or text) and input it. The Payload Data field stores the secret data to be
-  encrypted and stored.
+- Select what kind of payload (file or text) and input it. The Payload Data field stores the secret data, which the
+  platform then encrypts and stores.
 
 - Press **Create**. The secret is now stored.
 
 Creating a secret using the OpenStack terminal client
 -----------------------------------------------------
 
-This shows you how to create a secret :doc:`secret <../index>` by using the
-:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+This shows you how to create a secret by using the
+:doc:`OpenStack terminal client </getting-started/managing-your-cloud/openstack-terminal-client>`
 
 Uploading a certificate
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -11313,7 +11311,7 @@ configured for you with verified and secure defaults. The following applications
 - :doc:`LAMP <lamp>` will install a Linux Apache MySQL PHP stack on a single instance.
 
 - :doc:`Load balanced LAMP <lb-lamp>` will install a load balanced, using the Binero cloud load balancer service,
-  Linux Apache MySQL PHP stack using separate instances for each component.
+  Linux Apache MySQL PHP stack that uses separate instances for each component.
 
 - :doc:`OpenVPN <openvpn>` sets up VPN, see :doc:`/networking/client-vpn/index`.
 
@@ -11957,7 +11955,7 @@ documentation.
 Launch instance from image
 ==========================
 
-When :doc:`snapshotting </storage/snapshots/index>` and entire instance, the end result is
+When :doc:`taking a snapshot </storage/snapshots/index>` of an entire instance, the end result is
 an :doc:`image <index>`. Restoring from a snapshot (assuming you restore the entire instance) is
 then the same as creating an instance from a private image.
 
@@ -12504,7 +12502,7 @@ Kubernetes on OpenStack instances, the plugin needs credentials to work.
 Installing RKE
 --------------
 
-We recommend following the `the official installation-guide <https://rancher.com/docs/rke/latest/en/installation/#download-the-rke-binary>`__
+We recommend following `the official installation-guide <https://rancher.com/docs/rke/latest/en/installation/#download-the-rke-binary>`__
 to install RKE on your workstation.
 
 Preparing the nodes
@@ -12543,7 +12541,7 @@ Follow these instructions to prepare the plugin on your workstation:
 
 * Edit the ``cluster.yml`` file. Under the section **cloud provider** enter the correct parameters (more info
   `here <https://rke.docs.rancher.com/config-options/cloud-providers/openstack>`__. IDs and names are available
-  in the platform using any of the management tools. The finished file looks like this:
+  in the platform by using any of the management tools. The finished file looks like this:
 
 ::
 	
@@ -12656,8 +12654,8 @@ file (called for example ``demo.tf``) could look like this:
       endpoint_type = "public"
     }
 
-Working with Binero.Cloud through Terraform
--------------------------------------------
+Working with the Binero cloud through Terraform
+-----------------------------------------------
 
 Covering Terraform in-depth is out-of-scope for this guide. Generally speaking, Terraform will
 support data sources (information about whats available in the cloud) and resources (objects managed

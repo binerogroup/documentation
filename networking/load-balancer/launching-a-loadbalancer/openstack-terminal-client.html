@@ -1821,7 +1821,7 @@ suggest using the same subnet for the load balancer but if you would rather use 
 members in many subnets), then also save the other subnet names.</p></li>
 <li><p>Run this command to create the load balancer: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">[NAME_lb]</span> <span class="pre">--vip-subnet-id</span> <span class="pre">[SUBNET_NAME]</span></code> replacing
 the subnet name with that from previous step, use <code class="docutils literal notranslate"><span class="pre">--availability-zone</span></code> to select a available, if not given
-europe-se-1a will be used by default.</p></li>
+the platform uses europe-se-1a by default.</p></li>
 <li><p>Run this command until it says that the <code class="docutils literal notranslate"><span class="pre">operating_status</span></code> is <code class="docutils literal notranslate"><span class="pre">ONLINE</span></code>: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">loadbalancer</span> <span class="pre">show</span> <span class="pre">[NAME_OF_LB]</span></code></p></li>
 <li><p>Create a <a class="reference internal" href="../general-concept/listeners.html"><span class="doc">listener</span></a></p>
 <ul>

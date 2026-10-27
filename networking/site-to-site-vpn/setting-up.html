@@ -1623,8 +1623,8 @@ network that you intend to use.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pfSense</span> <span class="pre">instance</span> <span class="pre">flavor</span></code>: The instance flavor used for the pfSense instance. The default
 <code class="docutils literal notranslate"><span class="pre">gp.1x2</span></code> should be enough for most use cases.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">network</span></code>: The network that’s exposed through IPsec.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">pre-shared</span> <span class="pre">key</span></code>: If you want to use a specific pre-shared key you may enter that
-here. If left at default, a random key will be generated for you.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">pre-shared</span> <span class="pre">key</span></code>: If you want to use a specific pre-shared key you can enter that
+here. If left at default, the platform generates a random key for you.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">peer</span> <span class="pre">IP</span></code>: This should contain the public gateway address for the remote IPsec
 endpoint. It should not be a DNS name but an IP-address.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IPSec</span> <span class="pre">remote</span> <span class="pre">network</span></code>: This should contain the network address (in CIDR notation) for
@@ -1644,7 +1644,7 @@ configuration.</p></li>
 <li><p>After the service creation is complete you will need to <a class="reference internal" href="adding-routing-for-vpn.html"><span class="doc">add routes to the remote subnets</span></a>
 to get traffic flowing over VPN.</p></li>
 <li><p>Add the newly created security group <code class="docutils literal notranslate"><span class="pre">IPSec-&lt;name&gt;-&lt;random</span> <span class="pre">string&gt;_access</span></code> to all instances
-that should be accessible from the remote end of the IPSec tunnel.</p></li>
+that should be accessible from the remote end of the IPsec tunnel.</p></li>
 <li><p>Once you are ready, proceed to configure <a class="reference internal" href="configure-remote.html"><span class="doc">the remote end</span></a> of the tunnel.</p></li>
 </ul>
 </li>

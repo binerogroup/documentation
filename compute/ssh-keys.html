@@ -1551,7 +1551,7 @@ the API if you want to use either of these in the future.</p>
 methods.</p>
 <p>We do recommend using <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> to generate the key on your computer. This
 is because you are then able to choose one of the modern keying methods instead of RSA
-which the various platform options will provide.</p>
+which the platform options will provide.</p>
 <p>We recommend that you use the new modern ED25519 algorithm when creating your SSH
 key and that you use a passphrase for the key.</p>
 <p>Use the command <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">ed25519</span> <span class="pre">-f</span> <span class="pre">~/id_ed25519</span></code> to create your new SSH
@@ -1576,8 +1576,8 @@ private key is as sensitive as a plain text password without a passphrase.</p>
 <p>If you don’t have a key you can instead choose to generate a new one:</p>
 <ul class="simple">
 <li><p>Press <strong>Generate new key</strong></p></li>
-<li><p>Copy the <strong>private</strong> part of the new key to a file on your workstation as this will <strong>not</strong> be
-saved in the platform. We recommend setting a passphrase on the key according to the above tips.</p></li>
+<li><p>Copy the <strong>private</strong> part of the new key to a file on your workstation, as the platform will <strong>not</strong> save it. We
+recommend setting a passphrase on the key according to the above tips.</p></li>
 </ul>
 <h2 id="openstack-horizon">OpenStack Horizon<a class="headerlink" href="#openstack-horizon" title="Link to this heading">¶</a></h2>
 <p>To create an SSH-key through <a class="reference internal" href="../getting-started/managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a></p>
@@ -1587,7 +1587,7 @@ saved in the platform. We recommend setting a passphrase on the key according to
 <li><p>Choose a name.</p></li>
 <li><p>Choose <strong>SSH-key</strong> under <strong>Key type</strong></p></li>
 <li><p>Paste your <strong>public key</strong> in the <strong>Public key</strong> form (or import the public key
-from file using the <strong>Load public key from file</strong> button)</p></li>
+from file by using the <strong>Load public key from file</strong> button)</p></li>
 <li><p>Press <strong>Import public key</strong></p></li>
 </ul>
 <p>If you don’t have a key you can instead choose to generate a new one:</p>

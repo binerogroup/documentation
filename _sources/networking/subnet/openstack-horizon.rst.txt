@@ -33,7 +33,7 @@ To create a :doc:`subnet <index>` from the
 - Press **Next**
 
 - Under **Allocation pool**, add the :doc:`DHCP scope <dhcp>`. That is, the starting and end
-  addresses you want to auto-assign to hosts using DHCP. Add each pool (we recommend just
+  addresses you want to auto-assign to hosts that use DHCP. Add each pool (we recommend just
   one pool per subnet) by adding the first address, (comma) last address (with no spaces), for
   example (if you would use the 192.168.0.0/24 range) ``192.168.0.20,192.168.0.254``.
 

@@ -1664,7 +1664,7 @@ versions and delete them.</p>
 <h2 id="swift-api-and-versioning">Swift API and versioning<a class="headerlink" href="#swift-api-and-versioning" title="Link to this heading">¶</a></h2>
 <p>You cannot handle bucket versioning using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a> but the functionality for versioning and DeleteMarkers still apply.</p>
 <p>If you upload an object with <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">upload</span> <span class="pre">versioning-demo</span> <span class="pre">test.txt</span></code> and then for example delete it with <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">delete</span> <span class="pre">versioning-demo</span> <span class="pre">test.txt</span></code> a
-DeleteMarker is created and you can view it with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">list-object-versions</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code>.</p>
+DeleteMarker gets created and you can view it with <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--endpoint=https://object-eu-se-1a.binero.cloud</span> <span class="pre">s3api</span> <span class="pre">list-object-versions</span> <span class="pre">--bucket</span> <span class="pre">versioning-demo</span></code>.</p>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <ul class="simple">

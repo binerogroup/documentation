@@ -1692,7 +1692,7 @@ availability zone <strong>europe-se-1a</strong>.</p>
 <h2 id="creating-a-container">Creating a container<a class="headerlink" href="#creating-a-container" title="Link to this heading">¶</a></h2>
 <p>To create a container via Swift, you would either use the API (not covered in this documentation) or the swift
 client.</p>
-<p>To use the latter to create a bucket see below. Add the <code class="docutils literal notranslate"><span class="pre">--os-storage-url</span></code> as per above
+<p>To use the latter to create a bucket see below. Add the <code class="docutils literal notranslate"><span class="pre">--os-storage-url</span></code> as above
 if you need to change API endpoint.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
@@ -1705,7 +1705,7 @@ if you need to change API endpoint.</p>
 data, save the name.</p></li>
 <li><p>Based on replication (or not) and availability zone, choose the right <a class="reference internal" href="endpoints.html"><span class="doc">endpoint</span></a>. Save
 the endpoint URL.</p></li>
-<li><p>Create your container using <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">post</span> <span class="pre">-H</span> <span class="pre">&quot;X-Storage-Policy:[STORAGE_POLICY_NAME]&quot;</span> <span class="pre">[CONTAINER_NAME]</span></code>, add
+<li><p>Create your container by using <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">post</span> <span class="pre">-H</span> <span class="pre">&quot;X-Storage-Policy:[STORAGE_POLICY_NAME]&quot;</span> <span class="pre">[CONTAINER_NAME]</span></code>, add
 the correct information in the command, you can skip specifying a <a class="reference internal" href="storage-policy.html"><span class="doc">storage policy</span></a> in
 which case it will use the default.</p></li>
 <li><p>Verify by running the following command <code class="docutils literal notranslate"><span class="pre">swift</span> <span class="pre">stat</span> <span class="pre">[CONTAINER_NAME]</span></code></p></li>

@@ -1403,11 +1403,11 @@ which instance the volumes is currently attached to in the <strong>Attached to</
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--force</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing
 with the name of the backup and the ID from the previous step.</p></li>
 <li><p>If you want to backup a snapshot, you could instead first list the snapshots by running <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">list</span></code>
-and then backup using <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--force</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
+and then create the backup with <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--force</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">[VOLUME_ID]</span></code></p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">--force</span></code> is only required if the volume is attached to an instance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--force</span></code> flag is only required if you have attached the volume to an instance.</p>
 </div>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

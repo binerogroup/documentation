@@ -1669,8 +1669,8 @@ which needs to be there (this is the root zone that is most often left out).</p>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>You are not able to unset a DNS record by using the cloud management portal (but you can change it). This can be
-done using either horizon or the terminal client, see below.</p>
+<p>You are not able to unset a DNS record by using the cloud management portal (but you can change it). You can do
+this with either horizon or the terminal client, see below.</p>
 </div>
 <h3 id="adding-ptr-records-using-openstack-horizon">Adding PTR records using OpenStack Horizon<a class="headerlink" href="#adding-ptr-records-using-openstack-horizon" title="Link to this heading">¶</a></h3>
 <p>To assign a PTR record to a floating IP by using the
@@ -1683,7 +1683,7 @@ example which needs to be there (this is the root zone that is most often left o
 <li><p>In the description field, enter an optional description of the IP (for example <em>external mail relay</em>).</p></li>
 <li><p>In the TTL field, enter the TTL (in seconds) you prefer.</p></li>
 <li><p>Press <strong>Save</strong></p></li>
-<li><p>You are also able to unset (as in remove) the record using the small arrow next to
+<li><p>You are also able to unset (as in remove) the record by using the small arrow next to
 the <strong>Set</strong> button according to above.</p></li>
 </ul>
 <h3 id="adding-ptr-records-using-openstack-terminal-client">Adding PTR records using OpenStack terminal client<a class="headerlink" href="#adding-ptr-records-using-openstack-terminal-client" title="Link to this heading">¶</a></h3>
@@ -1696,7 +1696,7 @@ the complete ID from this command (such as <code class="docutils literal notrans
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">set</span> <span class="pre">--description</span> <span class="pre">[DESCRIPTION]</span> <span class="pre">--ttl</span> <span class="pre">3600</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span> <span class="pre">[PTR</span> <span class="pre">DOMAIN].</span></code>. Take
 care to end the PTR name (the domain), with a dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) and replace the values within angle brackets with their corresponding
 values. Description is optional.</p></li>
-<li><p>You are also able to unset (as in remove) the record using the following
+<li><p>You are also able to unset (as in remove) the record by using the following
 command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">ptr</span> <span class="pre">record</span> <span class="pre">unset</span> <span class="pre">[FLOATING</span> <span class="pre">IP</span> <span class="pre">ID]</span></code></p></li>
 </ul>
 <div class="note admonition">

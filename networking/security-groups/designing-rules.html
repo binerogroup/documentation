@@ -1741,9 +1741,9 @@ traditional network where all local machines will reach each other). For a more 
 solution, we also recommend adding security groups for internal access and removing the
 default group. <strong>We do not recommending mixing the two options as that will be a less
 predictable (and more complex to understand) design</strong>.</p></li>
-<li><p>When doing many subnets to allow for different security zones (the need for this is
-negated by using proper security groups that replace the default group as that will give
-you security between your instances on the same network as well), remember that the default
+<li><p>When doing many subnets to allow for different security zones (proper security groups negate
+the need for this, since they replace the default group and give you security between your
+instances on the same network), remember that the default
 group will leave your internal networks open to each other even though they are traversing
 a router.</p></li>
 <li><p>Create security groups based on use cases. A use case might be a web server and another might
@@ -1757,11 +1757,11 @@ the <em>return traffic</em> (the traffic that the answering service sends as a r
 also allowed, irrespectively of wether that traffic flow is explicitly defined.</p>
 <ul>
 <li><p>This is a standard behaviour in a firewall. If you want to create a non stateful (stateless)
-rule, you can create the group using the <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">terminal client</span></a> and
+rule, you can create the group by using the <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">terminal client</span></a> and
 the flag <code class="docutils literal notranslate"><span class="pre">--stateless</span></code>. A stateless rule would only work in a single direction (egress or
 ingress). We generally recommend stateful rules but for some use-cases (for example asymmetrical
-routing where you would not send the return traffic the same path), stateless rules might be
-required.</p></li>
+routing where you would not send the return traffic the same path), you might require
+stateless rules.</p></li>
 </ul>
 </li>
 </ul>
@@ -1770,7 +1770,7 @@ required.</p></li>
 <p>The best way to ensure that you have correctly applied your rules is by testing. You can test by using
 the <code class="docutils literal notranslate"><span class="pre">nmap</span></code> command that can perform a port scan.</p>
 <p>For instance <code class="docutils literal notranslate"><span class="pre">nmap</span> <span class="pre">-T4</span> <span class="pre">1.2.3.4</span></code> would scan the server with IP 1.2.3.4 (the -T4 flag limits the timeout
-per port to 10 ms which speeds up the otherwise slow process). The output will be a list of open ports.</p>
+per port to 10 ms which accelerates the otherwise slow process). The output will be a list of open ports.</p>
 <p>Remember to scan both from the inside (using your internal instances against their internal IP addresses)
 and by using for example your workstation (against the floating IP that expose your services) to get the
 public internet perspective.</p>
@@ -1783,11 +1783,11 @@ recommend doing excessive port scanning as that can trigger our intrusion detect
 parameters will be available from the GUI, some might require using the <a class="reference internal" href="openstack-terminal-client.html"><span class="doc">terminal client</span></a></p>
 <p>We provide the parameters to the terminal client in the parenthesis below.</p>
 <ul class="simple">
-<li><p>Remote IP (<code class="docutils literal notranslate"><span class="pre">--remote-ip</span></code>) - Remote IP address or IP range (may use <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>,
+<li><p>Remote IP (<code class="docutils literal notranslate"><span class="pre">--remote-ip</span></code>) - Remote IP address or IP range (can use <a class="reference internal" href="../subnet/subnet-format.html"><span class="doc">CIDR notation</span></a>,
 default for IPv4 rule: 0.0.0.0/0, default for IPv6 rule: ::/0).</p></li>
 <li><p>Remote Group (<code class="docutils literal notranslate"><span class="pre">--remote-group</span></code>) - Remote security group (name or ID). Instead of IP, you could use a remote
 group to decide from where the traffic originates.</p></li>
-<li><p>Destination port (<code class="docutils literal notranslate"><span class="pre">--dst-port</span></code>) - Destination port, may be a single port or a starting and ending port range
+<li><p>Destination port (<code class="docutils literal notranslate"><span class="pre">--dst-port</span></code>) - Destination port, can be a single port or a starting and ending port range
 137:139. Required for IP protocols TCP and UDP.</p></li>
 <li><p>Protocol (<code class="docutils literal notranslate"><span class="pre">--protocol</span></code>) - IP protocol – AH, DCCP, EGP, ESP, GRE, ICMP, IGMP, ipv6-encap, ipv6-frag, ipv6-icmp, ipv6-nonxt,
 ipv6-opts, ipv6-route, PGM, RSVP, SCTP, TCP, UDP, UDP-Lite, VRRP or a integer representations (0-255) or any (-1), default is
@@ -1796,7 +1796,7 @@ any (all protocols).</p></li>
 <li><p>ICMP code (<code class="docutils literal notranslate"><span class="pre">--icmp-code</span></code>) - ICMP code for ICMP IP protocols.</p></li>
 <li><p>Direction (<code class="docutils literal notranslate"><span class="pre">--ingress</span></code> or <code class="docutils literal notranslate"><span class="pre">--egress</span></code>) - Rule applies to incoming or outgoing network traffic (incoming is
 default).</p></li>
-<li><p>IP version (<code class="docutils literal notranslate"><span class="pre">--ethertype</span></code>) - whether to use IPv4 or IPv6; default is based on IP protocol.</p></li>
+<li><p>IP version (<code class="docutils literal notranslate"><span class="pre">--ethertype</span></code>) - whether to use IPv4 or IPv6; the default depends on the IP protocol.</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

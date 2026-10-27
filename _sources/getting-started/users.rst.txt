@@ -147,8 +147,8 @@ To create an Application Credential through :doc:`/getting-started/managing-your
 * Optionally you can provide a ``expiration date`` and time for when to (automatically) deactivate
   the application credential.
 
-* Under roles, select the appropriate roles. If you don't select a role, the same role as your account will be
-  used (member). Creator will allow creation of some objects (secrets) where as the reader role allows read-only
+* Under roles, select the appropriate roles. If you don't select a role, the same role as your account will apply
+  (member). Creator will allow creation of some objects (secrets) where as the reader role allows read-only
   in most services.
 
 * Under access rules you are able to give even more granular accesses to API calls. See the information on how

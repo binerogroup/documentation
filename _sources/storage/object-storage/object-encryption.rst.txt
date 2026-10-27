@@ -85,7 +85,7 @@ To get started with using SSE-KMS, see below:
 - :doc:`Create a secret </secret-store/create-secret>` in our secret store and save the returned ``Secret href`` value.
 
 - To allow the platform access to your secret (so that it can handle encryption and decryption with the key) you need to add a
-  :doc:`ACL </secret-store/acl>` using the :doc:`openstack CLI </getting-started/managing-your-cloud/openstack-terminal-client>`
+  :doc:`ACL </secret-store/acl>` using the :doc:`OpenStack CLI </getting-started/managing-your-cloud/openstack-terminal-client>`
   with command ``openstack acl user add --user 23646ed0e7d240ceb56eef6ec909c2ff [SECRET_HREF]``
 
 - Upload a object to the bucket with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3 cp test.txt s3://demo/test.txt --sse=aws:kms --sse-kms-key-id [SECRET_HREF_ID]``

@@ -91,7 +91,7 @@ Swift API and versioning
 You cannot handle bucket versioning using the :doc:`Swift API <swift>` but the functionality for versioning and DeleteMarkers still apply.
 
 If you upload an object with ``swift upload versioning-demo test.txt`` and then for example delete it with ``swift delete versioning-demo test.txt`` a
-DeleteMarker is created and you can view it with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-object-versions --bucket versioning-demo``.
+DeleteMarker gets created and you can view it with ``aws --endpoint=https://object-eu-se-1a.binero.cloud s3api list-object-versions --bucket versioning-demo``.
 
 ..  seealso::
   - :doc:`/storage/object-storage/s3`

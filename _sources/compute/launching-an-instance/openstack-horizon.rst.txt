@@ -22,7 +22,7 @@ from :doc:`/getting-started/managing-your-cloud/openstack-horizon`.
 .. caution::
 
    If you want to create an instance in the ``europe-se-1b`` availability zone (any availability zone that is not the default
-   ``europe-se-1a``) youneed to :doc:`create the volume <../../storage/persistent-block-storage/create-volume>` in that availability
+   ``europe-se-1a``) you need to :doc:`create the volume <../../storage/persistent-block-storage/create-volume>` in that availability
    zone beforehand and in the **Sources** step select **Boot Source** as **Volume**.
 
    This is because we do not support attaching volumes across availability zones and the instance and volume must be in the

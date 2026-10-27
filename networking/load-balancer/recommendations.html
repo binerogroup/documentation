@@ -1611,7 +1611,7 @@ per TCP or UDP port so if you for some reason need to have more than one applica
 that use the same port, then that would require more than a single load balancer.</p></li>
 <li><p>Aside from above, if you want to use different backend pools, it’s possible to create
 a Layer 7 rule that forward traffic from a certain domain to a different pool. That
-way, using domain names you could host many web applications using different backends
+way, using domain names you could host many web applications that use different backends
 on the same load balancer.</p></li>
 <li><p>Terminating HTTPS in the load balancer is a good way to simplify configuration on the
 instances since you do certificate management in the load balancer only. See our guide
@@ -1650,8 +1650,8 @@ the compute instance) than with many.</p></li>
 </li>
 <li><p>Make sure you have enough free capacity to loose a member (or even better, two) during
 peak load. A common issue with load balancing is that when the load rise and something
-happens with a single member resulting in its removal, the remaining members are
-overwhelmed from picking up its load, resulting in more removals due to high load leading
+happens with a single member resulting in its removal, the remaining members
+struggle to pick up its load, resulting in more removals due to high load leading
 to slower responses and the load balancer timing out. This soon spirals out of control
 where servers flaps in and out of the pool as the member recovers when removed but then
 gets overwhelmed again.</p></li>
@@ -1666,7 +1666,7 @@ outage (planned or otherwise).</p></li>
 <li><p>Health checking</p>
 <ul>
 <li><p>Ensure that your monitors are as closely setup (protocol wise) to the listener type as
-possible. If you are for example using load balancing for an HTTP based service, don’t
+possible. If you are, for example, using load balancing for an HTTP based service, don’t
 do health checking by pinging the members. Its not uncommon for a server that is
 malfunctioning to still reply to ping (or even still listen on a particular port).</p></li>
 <li><p>Never use ping based health checking. You should at least check the transport protocol

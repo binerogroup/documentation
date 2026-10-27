@@ -70,7 +70,7 @@ configured for you with verified and secure defaults. The following applications
 - :doc:`LAMP <lamp>` will install a Linux Apache MySQL PHP stack on a single instance.
 
 - :doc:`Load balanced LAMP <lb-lamp>` will install a load balanced, using the Binero cloud load balancer service,
-  Linux Apache MySQL PHP stack using separate instances for each component.
+  Linux Apache MySQL PHP stack that uses separate instances for each component.
 
 - :doc:`OpenVPN <openvpn>` sets up VPN, see :doc:`/networking/client-vpn/index`.
 

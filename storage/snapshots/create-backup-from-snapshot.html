@@ -1469,7 +1469,7 @@ management portal.</p>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">snapshot</span> <span class="pre">show</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">-c</span> <span class="pre">volume_id</span></code>, replace the SNAPSHOT_ID
 with the id from previous command. Save the volume ID of the snapshot.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">create</span> <span class="pre">--snapshot</span> <span class="pre">[SNAPSHOT_ID]</span> <span class="pre">--name</span> <span class="pre">[BACKUP_NAME]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing
-the items in angle brackets with the values from previous two commands as well as a name for the backup-job.</p></li>
+the items in angle brackets with the values from previous two commands and a name for the backup-job.</p></li>
 <li><p>Run this command to verify: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">volume</span> <span class="pre">backup</span> <span class="pre">list</span></code>, the status field on the backup will
 change from creating to available when done.</p></li>
 </ul>

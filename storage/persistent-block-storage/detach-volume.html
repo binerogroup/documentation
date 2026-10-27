@@ -1520,21 +1520,19 @@ to remove. If there isn’t such an icon, deleting the volume is not possible.</
 to detach.</p></li>
 <li><p>At the top right, press the dropdown and select <strong>Manage Attachments</strong></p></li>
 <li><p>Press <strong>Detach volume</strong> on the row of the instance.</p></li>
-<li><p>If you get an error, most likely the volume is a boot volume and cannot be
-detached (see above).</p></li>
+<li><p>If you get an error, most likely the volume is a boot volume, which you cannot detach (see above).</p></li>
 </ul>
 <h2 id="openstack-terminal-client">OpenStack Terminal Client<a class="headerlink" href="#openstack-terminal-client" title="Link to this heading">¶</a></h2>
 <p>To detach a volume by using the <a class="reference internal" href="../../getting-started/managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a></p>
 <ul class="simple">
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">list</span></code>, save the name of the instance having the
-the volume you want to extend.</p></li>
+volume you want to extend.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">volume</span> <span class="pre">list</span> <span class="pre">[NAME_OF_INSTANCE]</span></code>, replacing the
 name with that from previous step.</p></li>
 <li><p>Run this command: <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">server</span> <span class="pre">remove</span> <span class="pre">volume</span> <span class="pre">[INSTANCE_ID]</span> <span class="pre">[VOLUME_ID]</span></code>, replacing
 the items in angle brackets with the <strong>Server ID</strong> and <strong>Volume ID</strong> from the output of the
 previous command.</p></li>
-<li><p>If you get an error, most likely the volume is a boot volume and cannot be
-detached (see above).</p></li>
+<li><p>If you get an error, most likely the volume is a boot volume, which you cannot detach (see above).</p></li>
 </ul>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>

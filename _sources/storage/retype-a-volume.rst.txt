@@ -68,7 +68,7 @@ To retype a volume by using the :doc:`/getting-started/managing-your-cloud/opens
   the items in angle brackets with the volume type name and the ID of the volume.
 
 - Run this command to verify: ``openstack volume show [VOLUME_ID] -c status``, when the status changes
-  from retyping, the retype is done.
+  from retyping, the retype is complete.
 
 ..  seealso::
 

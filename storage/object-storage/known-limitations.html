@@ -1575,9 +1575,9 @@ you must use the multipart upload features in for example the <a class="referenc
 <p>This gets handled by the client or library that you use and is not something that you need to thing about, this splits
 your file into parts and then uploads them concurrently, the parts is then assembled in the platform.</p>
 <p>If you upload a large file by using the <a class="reference internal" href="s3.html"><span class="doc">S3 API</span></a> and then try to download that using the <a class="reference internal" href="swift.html"><span class="doc">Swift API</span></a>
-you will get an error such as <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">downloading</span> <span class="pre">[object-name]:</span> <span class="pre">md5sum</span> <span class="pre">!=</span> <span class="pre">etag</span></code> indicating the operation failed, but the
+you will get an error such as <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">downloading</span> <span class="pre">[object-name]:</span> <span class="pre">md5sum</span> <span class="pre">!=</span> <span class="pre">etag</span></code> indicating the operation was unsuccessful, but the
 object is successfully downloaded. We recommend that you select one API to use for your application and not combining
-the usage unless absolutely neccesary.</p>
+the usage unless absolutely necessary.</p>
 
 
 

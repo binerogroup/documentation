@@ -32,7 +32,7 @@ with its unique features and benefits.
   via terminal, same as OpenStack Horizon but terminal based.
 
 - `OpenStack API </openstack-api>`_ - Infrastructure as code and third party implementations,
-  intended for programmers working with infrastructure as code projects using the platform or
+  intended for programmers working with infrastructure as code projects that use the platform, or
   when using third party applications.
 
 See the walk-through of the cloud management portal.
