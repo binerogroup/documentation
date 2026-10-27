@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.8152679e99bcaf25c.min.css?v=18ccbaa1" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.06f0b7514b945429f.min.css?v=ce81c086" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1107,6 +1107,16 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#deleting-a-private-image" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="deleting-a-private-image (reference label)"><span>Deleting a private image</span></span>
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1359,6 +1369,16 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#deleting-a-private-image" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="deleting-a-private-image (reference label)"><span>Deleting a private image</span></span>
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1442,6 +1462,21 @@ before you can delete the image.</p></li>
 with the snapshot instance feature.</p>
 <p>See the <a class="reference internal" href="../storage/snapshots/create-snapshot.html"><span class="doc">Create snapshot</span></a> documentation that details creating
 an instance snapshot that you can then upload as an image.</p>
+<h3 id="deleting-a-private-image"><span id="id1"></span>Deleting a private image<a class="headerlink" href="#deleting-a-private-image" title="Link to this heading">¶</a></h3>
+<p>If you create a <a class="reference internal" href="../storage/persistent-block-storage/create-volume.html"><span class="doc">volume</span></a>
+from one of your private images, the volume becomes a copy-on-write (CoW) clone of
+the image. While that volume exists, the backend storage keeps the source image in
+use and you cannot delete it.</p>
+<p>To delete the image, you can either:</p>
+<ul class="simple">
+<li><p><strong>Delete the volume.</strong> If you no longer need the volumes created from the image,
+delete them. Once you remove the last clone of the image, you can delete the
+image.</p></li>
+<li><p><strong>Flatten the volume.</strong> If you want to keep the volume but remove the dependency on
+the image, <a class="reference internal" href="../general/getting-support.html"><span class="doc">contact our support</span></a> to <em>flatten</em> the
+volume. Flattening makes it a standalone volume that no longer depends on the
+source image. You cannot do this yourself.</p></li>
+</ul>
 <h2 id="create-instance-from-image">Create instance from image<a class="headerlink" href="#create-instance-from-image" title="Link to this heading">¶</a></h2>
 <p>To create a new compute instance from an image, see the <a class="reference internal" href="launch-instance-from-image.html"><span class="doc">Launch instance from image</span></a>
 documentation.</p>

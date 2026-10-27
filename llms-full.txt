@@ -9701,6 +9701,13 @@ guide :doc:`creating-an-instance-from-a-volume`.
    Volumes cost according to our price list even when they are not attached to
    an instance.
 
+.. note::
+
+   If you create the volume from a private image, the volume becomes a copy-on-write
+   clone of that image. You cannot delete the source image until you delete or
+   flatten the volume. See :ref:`deleting a private image <deleting-a-private-image>`
+   for more.
+
 Cloud management portal
 -----------------------
 
@@ -11909,6 +11916,27 @@ with the snapshot instance feature.
 
 See the :doc:`/storage/snapshots/create-snapshot` documentation that details creating
 an instance snapshot that you can then upload as an image.
+
+.. _deleting-a-private-image:
+
+Deleting a private image
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you create a :doc:`volume </storage/persistent-block-storage/create-volume>`
+from one of your private images, the volume becomes a copy-on-write (CoW) clone of
+the image. While that volume exists, the backend storage keeps the source image in
+use and you cannot delete it.
+
+To delete the image, you can either:
+
+- **Delete the volume.** If you no longer need the volumes created from the image,
+  delete them. Once you remove the last clone of the image, you can delete the
+  image.
+
+- **Flatten the volume.** If you want to keep the volume but remove the dependency on
+  the image, :doc:`contact our support </general/getting-support>` to *flatten* the
+  volume. Flattening makes it a standalone volume that no longer depends on the
+  source image. You cannot do this yourself.
 
 Create instance from image
 --------------------------

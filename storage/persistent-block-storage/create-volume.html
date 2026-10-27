@@ -59,7 +59,7 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Inter"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.8152679e99bcaf25c.min.css?v=18ccbaa1" />
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.06f0b7514b945429f.min.css?v=ce81c086" />
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1506,6 +1506,13 @@ instance.</p>
 <p class="admonition-title">Note</p>
 <p>Volumes cost according to our price list even when they are not attached to
 an instance.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>If you create the volume from a private image, the volume becomes a copy-on-write
+clone of that image. You cannot delete the source image until you delete or
+flatten the volume. See <a class="reference internal" href="../../images/index.html#deleting-a-private-image"><span class="std std-ref">deleting a private image</span></a>
+for more.</p>
 </div>
 <h2 id="cloud-management-portal">Cloud management portal<a class="headerlink" href="#cloud-management-portal" title="Link to this heading">¶</a></h2>
 <p>To create a volume by using the <a class="reference internal" href="../../getting-started/managing-your-cloud/cloud-management-portal.html"><span class="doc">Cloud management portal</span></a></p>
