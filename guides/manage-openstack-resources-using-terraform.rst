@@ -47,8 +47,8 @@ file (called for example ``demo.tf``) could look like this:
       endpoint_type = "public"
     }
 
-Working with Binero.Cloud through Terraform
--------------------------------------------
+Working with the Binero cloud through Terraform
+-----------------------------------------------
 
 Covering Terraform in-depth is out-of-scope for this guide. Generally speaking, Terraform will
 support data sources (information about whats available in the cloud) and resources (objects managed

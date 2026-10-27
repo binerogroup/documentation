@@ -17,7 +17,7 @@ URL that you us for managing the VPN service. Enter it into a browser.
 
    You can update that in the :doc:`security group </networking/security-groups/index>`
    named ``IPSec-<name>-<random string>_management``, if your public IP address has
-   changed, you may need to edit the security group.
+   changed, you might need to edit the security group.
 
 You would also have gotten an ``admin_password`` output, which is a generated password for
 your instance. This, combined with the username `´admin`` will give you access to the portal.
@@ -25,8 +25,8 @@ your instance. This, combined with the username `´admin`` will give you access 
 Security recommendations 
 ------------------------ 
 
-While the admin password is uniquely generated and secure it **is** saved as part of the
-output in the platform in plain text (a user with access to the platform can read it).
+While the admin password is uniquely generated and secure, the platform saves it as part of
+the output in plain text (a user with access to the platform can read it).
 
 While only users with access to the platform could read it and it can likewise be reset
 via access to the console of the instance (which users with access to the platform has),
@@ -51,8 +51,8 @@ To do this, follow these instructions:
    Should you loose your password, it can be reset via :doc:`console output </compute/console>`
    on the instance.
 
-While the PSK (Pre-Shared Key) is uniquely generated, it **is** saved as part of the output in the platform
-in plain text (a user with access to the platform can read it).
+While the PSK (Pre-Shared Key) is uniquely generated, the platform saves it as part of the
+output in plain text (a user with access to the platform can read it).
 
 The IPsec service is using a firewall (other than traffic from the remote gateway) to secure the service.
 

@@ -53,8 +53,7 @@ To detach a volume by using :doc:`/getting-started/managing-your-cloud/openstack
 
 - Press **Detach volume** on the row of the instance. 
 
-- If you get an error, most likely the volume is a boot volume and cannot be
-  detached (see above).
+- If you get an error, most likely the volume is a boot volume, which you cannot detach (see above).
 
 OpenStack Terminal Client
 -------------------------
@@ -62,7 +61,7 @@ OpenStack Terminal Client
 To detach a volume by using the :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
 
 - Run this command: ``openstack server list``, save the name of the instance having the
-  the volume you want to extend.
+  volume you want to extend.
 
 - Run this command: ``openstack server volume list [NAME_OF_INSTANCE]``, replacing the
   name with that from previous step.
@@ -71,8 +70,7 @@ To detach a volume by using the :doc:`/getting-started/managing-your-cloud/opens
   the items in angle brackets with the **Server ID** and **Volume ID** from the output of the
   previous command.
 
-- If you get an error, most likely the volume is a boot volume and cannot be
-  detached (see above).
+- If you get an error, most likely the volume is a boot volume, which you cannot detach (see above).
 
 ..  seealso::
 

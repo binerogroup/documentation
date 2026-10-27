@@ -26,7 +26,7 @@ You will need the following information to get started:
   provides to you) for the tunnel.
 
 - The remote subnet (in CIDR notation) that's tunneled (meaning the network on which the
-  computers or servers that should be able to connect to resources in the cloud using the
+  computers or servers that should be able to connect to resources in the cloud through the
   tunnel are on).
 
 - A management IP that you allowed access to managing the VPN over the internet.
@@ -70,7 +70,7 @@ This standard is well supported in hardware (and software) from a wide variety o
 
 We recommend using the central firewall or router as remote endpoint as that will greatly simplify
 routing, its possible to also forward the correct ports to a server (virtual or physical) on the
-inside of the firewall as Binero cloud support the ``NAT-T`` extension of the IPSec protocol.
+inside of the firewall as Binero cloud support the ``NAT-T`` extension of the IPsec protocol.
 
 This will make the routing more difficult as, depending on architecture, you might need to add
 routes to the different computers and servers directly. 

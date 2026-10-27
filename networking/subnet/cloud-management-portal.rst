@@ -27,7 +27,7 @@ To create a :doc:`subnet <index>` from the :doc:`/getting-started/managing-your-
 - If you want to use IPv4, we recommend using DHCP to assign IP addresses to hosts.
 
 - Under **Add pool**, add the :doc:`DHCP scope <dhcp>`. That is, the starting and end addresses you want to auto-assign
-  to hosts using DHCP. Press the **+** (plus) sign above **Add pool** and enter start and end addresses. For example
+  to hosts that use DHCP. Press the **+** (plus) sign above **Add pool** and enter start and end addresses. For example
   ``192.168.0.10`` and ``192.168.0.254`` if your range is ``192.169.0.0/24``.
 
 - Under **DNS name servers** we recommend adding our servers which are ``83.168.225.225`` and ``83.168.226.226``. You can

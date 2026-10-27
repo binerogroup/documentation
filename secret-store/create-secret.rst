@@ -16,16 +16,16 @@ To create a `secret <../index>`_ from the :doc:`/getting-started/managing-your-c
 
 - Enter a descriptive name of the secret.
 
-- Select what kind of payload (file or text) and input it. The Payload Data field stores the secret data to be
-  encrypted and stored.
+- Select what kind of payload (file or text) and input it. The Payload Data field stores the secret data, which the
+  platform then encrypts and stores.
 
 - Press **Create**. The secret is now stored.
 
 Creating a secret using the OpenStack terminal client
 -----------------------------------------------------
 
-This shows you how to create a secret :doc:`secret <../index>` by using the
-:doc:`/getting-started/managing-your-cloud/openstack-terminal-client`
+This shows you how to create a secret by using the
+:doc:`OpenStack terminal client </getting-started/managing-your-cloud/openstack-terminal-client>`
 
 Uploading a certificate
 ^^^^^^^^^^^^^^^^^^^^^^^

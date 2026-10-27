@@ -21,7 +21,7 @@ connecting extra IP addresses to an instance exists:
   provisioning a new instance as you can add one or more ports.
 
 - If your instance needs to have extra IP addresses from the same network, this is possible when
-  launching an instance using OpenStack Horizon or the OpenStack terminal client by first manually
+  launching an instance by using OpenStack Horizon or the OpenStack terminal client, first manually
   creating one or more :doc:`ports </networking/ports>` and assigning them.
 
 More information on the concepts of networking in our :doc:`networking section </networking/index>`.

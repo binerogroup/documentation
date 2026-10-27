@@ -51,7 +51,7 @@ OpenStack Horizon
 OpenStack Terminal Client
 -------------------------
 
-- Run the rescue action for the instance using the image UUID or image name
+- Run the rescue action for the instance by using the image UUID or image name
 
 ::
 

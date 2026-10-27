@@ -58,7 +58,7 @@ the official documentation from your vendor on how to configure.
 
     - ``Cipher``: AES-256-GCM with 128-bit ICV (also known as AES-GCM-16)
 
-    - ``Pseudo-random function (PRF)``: Auto / SHA2_384 (this can often be left as auto, if there is not an option
+    - ``Pseudo-random function (PRF)``: Auto / SHA2_384 (you can often leave this as auto, if there is not an option
       for it available, assume its automatically chosen).
 
     - ``(Integrity) Hash``: SHA2_384 (All vendors might not require this)

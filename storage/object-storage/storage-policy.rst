@@ -25,8 +25,8 @@ their use-case such as:
 
 .. note::
 
-   The default storage policy on a container or bucket is ``gp.recurring`` unless other is
-   specified upon creation.
+   The default storage policy on a container or bucket is ``gp.recurring`` unless you specify
+   another one upon creation.
 
 .. note::
 

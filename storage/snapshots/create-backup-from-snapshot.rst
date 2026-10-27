@@ -50,7 +50,7 @@ To create a backup from a snapshot by using the
   with the id from previous command. Save the volume ID of the snapshot.
 
 - Run this command: ``openstack volume backup create --snapshot [SNAPSHOT_ID] --name [BACKUP_NAME] [VOLUME_ID]``, replacing
-  the items in angle brackets with the values from previous two commands as well as a name for the backup-job.
+  the items in angle brackets with the values from previous two commands and a name for the backup-job.
 
 - Run this command to verify: ``openstack volume backup list``, the status field on the backup will
   change from creating to available when done.

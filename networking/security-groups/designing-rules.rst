@@ -40,9 +40,9 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
   default group. **We do not recommending mixing the two options as that will be a less
   predictable (and more complex to understand) design**.
 
-- When doing many subnets to allow for different security zones (the need for this is
-  negated by using proper security groups that replace the default group as that will give
-  you security between your instances on the same network as well), remember that the default
+- When doing many subnets to allow for different security zones (proper security groups negate
+  the need for this, since they replace the default group and give you security between your
+  instances on the same network), remember that the default
   group will leave your internal networks open to each other even though they are traversing
   a router.
 
@@ -59,11 +59,11 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
   also allowed, irrespectively of wether that traffic flow is explicitly defined.
 
   - This is a standard behaviour in a firewall. If you want to create a non stateful (stateless)
-    rule, you can create the group using the :doc:`terminal client <openstack-terminal-client>` and
+    rule, you can create the group by using the :doc:`terminal client <openstack-terminal-client>` and
     the flag ``--stateless``. A stateless rule would only work in a single direction (egress or
     ingress). We generally recommend stateful rules but for some use-cases (for example asymmetrical
-    routing where you would not send the return traffic the same path), stateless rules might be
-    required.
+    routing where you would not send the return traffic the same path), you might require
+    stateless rules.
 
 .. tip::
 
@@ -71,7 +71,7 @@ rules (firewall rules) in Binero cloud that will lead to a more secure applicati
    the ``nmap`` command that can perform a port scan.
 
    For instance ``nmap -T4 1.2.3.4`` would scan the server with IP 1.2.3.4 (the -T4 flag limits the timeout
-   per port to 10 ms which speeds up the otherwise slow process). The output will be a list of open ports.
+   per port to 10 ms which accelerates the otherwise slow process). The output will be a list of open ports.
 
    Remember to scan both from the inside (using your internal instances against their internal IP addresses)
    and by using for example your workstation (against the floating IP that expose your services) to get the
@@ -89,13 +89,13 @@ parameters will be available from the GUI, some might require using the :doc:`te
 
 We provide the parameters to the terminal client in the parenthesis below.
 
-- Remote IP (``--remote-ip``) - Remote IP address or IP range (may use :doc:`CIDR notation <../subnet/subnet-format>`,
+- Remote IP (``--remote-ip``) - Remote IP address or IP range (can use :doc:`CIDR notation <../subnet/subnet-format>`,
   default for IPv4 rule: 0.0.0.0/0, default for IPv6 rule: ::/0).
 
 - Remote Group (``--remote-group``) - Remote security group (name or ID). Instead of IP, you could use a remote
   group to decide from where the traffic originates.
 
-- Destination port (``--dst-port``) - Destination port, may be a single port or a starting and ending port range
+- Destination port (``--dst-port``) - Destination port, can be a single port or a starting and ending port range
   137:139. Required for IP protocols TCP and UDP.
 
 - Protocol (``--protocol``) - IP protocol – AH, DCCP, EGP, ESP, GRE, ICMP, IGMP, ipv6-encap, ipv6-frag, ipv6-icmp, ipv6-nonxt,
@@ -109,7 +109,7 @@ We provide the parameters to the terminal client in the parenthesis below.
 - Direction (``--ingress`` or ``--egress``) - Rule applies to incoming or outgoing network traffic (incoming is
   default).
 
-- IP version (``--ethertype``) - whether to use IPv4 or IPv6; default is based on IP protocol.
+- IP version (``--ethertype``) - whether to use IPv4 or IPv6; the default depends on the IP protocol.
 
 ..  seealso::
 

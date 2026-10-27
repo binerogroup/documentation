@@ -27,7 +27,7 @@ To add rules to a :doc:`security group <index>` by using the
 - Define the rule. More info in our :doc:`designing-rules` article. By using the help output
   from above, you are able to match your rule to the needed parameters. 
 
-- An example command to create a security rule that allows SSH using the terminal. Replace the
+- An example command, run in the terminal, to create a security rule that allows SSH. Replace the
   items in angle brackets with corresponding data. 
 
 ::

@@ -50,7 +50,7 @@ option. The example below will load balance HTTP (protocol aware) and thus port 
 
 - Run this command to create the load balancer: ``openstack loadbalancer create --name [NAME_lb] --vip-subnet-id [SUBNET_NAME]`` replacing
   the subnet name with that from previous step, use ``--availability-zone`` to select a available, if not given
-  europe-se-1a will be used by default.
+  the platform uses europe-se-1a by default.
 
 - Run this command until it says that the ``operating_status`` is ``ONLINE``: ``openstack loadbalancer show [NAME_OF_LB]``
 

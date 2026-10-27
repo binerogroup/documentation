@@ -14,7 +14,7 @@ To launch a `router <../index>`_ from the
   this for next step.
 
 - Run ``openstack router create --availability-zone-hint=[AVAILABILITY ZONE] --external-gateway=[NETWORK-NAME] [ROUTER NAME]``. Replace
-  the items within brackets with the values from previous sections as well as the name of the router. Remember to use the network that
+  the items within brackets with the values from previous sections and the name of the router. Remember to use the network that
   corresponds to the availability zone you chose. If you are not sure what availability zone to use, we recommend using *europe-se-1a*.
 
 .. note::
