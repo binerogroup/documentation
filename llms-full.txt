@@ -1096,15 +1096,25 @@ on your cloud account in the platform before continuing.
 - Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
   **View All Details** to show the TOTP secret in plain text.
 
-- Enter a valid passcode and click **Submit**
+- Enter a valid passcode from your TOTP application and your current password, then click **Submit**
 
-  - If you enter an incorrect passcode the page refreshes and you will get a new TOTP
-    secret and need to go through the same procedure again.
+  - If you enter an incorrect passcode or password you will get an error and can try again with the
+    same QR code.
 
-  - If you enter a valid passcode, you're logged out and MFA is now enabled.
+  - The QR code is valid for 15 minutes, if it has expired you must reload the page and scan the new
+    QR code.
+
+  - If the passcode and password are correct, you're logged out and MFA is now enabled.
 
 If you ever want to remove MFA on your API user you can go back to the **MFA Settings**
-page, enter a valid passcode, click **Submit** and MFA is then removed from your API user.
+page, enter a valid passcode from your TOTP application and your current password, then click **Submit**.
+MFA is then removed from your API user, the TOTP credential for your API user is deleted and you're logged out.
+If the TOTP credential could not be deleted you will be asked to contact support.
+
+.. note::
+
+   After too many failed attempts to enter a passcode or password on the **MFA Settings** page you're
+   temporarily blocked from enabling or removing MFA, wait a few minutes and try again.
 
 You can read more :ref:`here <mfa-terminal-label>` if you want to use MFA with the
 :doc:`/getting-started/managing-your-cloud/openstack-terminal-client`.

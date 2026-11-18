@@ -1435,16 +1435,25 @@ your username and in the dropdown go to <strong>Settings</strong>.</p></li>
 click <strong>MFA Settings</strong></p></li>
 <li><p>Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
 <strong>View All Details</strong> to show the TOTP secret in plain text.</p></li>
-<li><p>Enter a valid passcode and click <strong>Submit</strong></p>
+<li><p>Enter a valid passcode from your TOTP application and your current password, then click <strong>Submit</strong></p>
 <ul>
-<li><p>If you enter an incorrect passcode the page refreshes and you will get a new TOTP
-secret and need to go through the same procedure again.</p></li>
-<li><p>If you enter a valid passcode, you’re logged out and MFA is now enabled.</p></li>
+<li><p>If you enter an incorrect passcode or password you will get an error and can try again with the
+same QR code.</p></li>
+<li><p>The QR code is valid for 15 minutes, if it has expired you must reload the page and scan the new
+QR code.</p></li>
+<li><p>If the passcode and password are correct, you’re logged out and MFA is now enabled.</p></li>
 </ul>
 </li>
 </ul>
 <p>If you ever want to remove MFA on your API user you can go back to the <strong>MFA Settings</strong>
-page, enter a valid passcode, click <strong>Submit</strong> and MFA is then removed from your API user.</p>
+page, enter a valid passcode from your TOTP application and your current password, then click <strong>Submit</strong>.
+MFA is then removed from your API user, the TOTP credential for your API user is deleted and you’re logged out.
+If the TOTP credential could not be deleted you will be asked to contact support.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>After too many failed attempts to enter a passcode or password on the <strong>MFA Settings</strong> page you’re
+temporarily blocked from enabling or removing MFA, wait a few minutes and try again.</p>
+</div>
 <p>You can read more <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html#mfa-terminal-label"><span class="std std-ref">here</span></a> if you want to use MFA with the
 <a class="reference internal" href="managing-your-cloud/openstack-terminal-client.html"><span class="doc">OpenStack Terminal Client</span></a>.</p>
 <p>When using <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a> you will get prompted
@@ -1518,7 +1527,7 @@ for a TOTP passcode when you login.</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.instant", "navigation.top", "search.share", "toc.follow", "toc.sticky", "content.tabs.link", "announce.dismiss"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
       
-        <script src="../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+        <script src="../_static/sphinx_immaterial_theme.ce3f826234c1e494c.min.js?v=6917d573"></script>
     
   </body>
 </html>
