@@ -117,8 +117,9 @@ Application Credentials
 
 .. important::
 
-   If you enable :ref:`mfa-users-label` for an API user that also applies on all Application Credentials for
-   that API user.
+   If you enable :ref:`mfa-users-label` for an API user it also applies on all Application Credentials for
+   that API user by default. You can choose to not require a TOTP passcode for Application Credentials
+   when you enable MFA, :ref:`read more here <mfa-users-label>`.
 
 Using an Application Credentials makes it possible to grant specific access to your application(s) as a user without
 sharing the credentials for that user.
@@ -242,12 +243,14 @@ Before enabling MFA it's important to understand the impact on your API user and
 Application Credentials and EC2 credentials that you've created.
 
 - You will not be able to login to :doc:`/getting-started/managing-your-cloud/openstack-horizon`,
-  use the API, terminal client or remove MFA without entering a TOTP passcode.
+  use the API or terminal client with your password or remove MFA without entering a TOTP passcode.
 
 - If you lose access to your TOTP application or device you will lose access to your API user, we
   recommend that you keep a backup of your TOTP secret.
 
-- All :ref:`application-credentials-label` for your user is also protected and enforced to use MFA.
+- By default all :ref:`application-credentials-label` for your user is also protected and enforced
+  to use MFA. You can choose to not require a TOTP passcode for Application Credentials when you enable
+  MFA, see below.
 
 - :ref:`EC2 credentials <ec2-credential-label>` for this user will continue to work
   and is **NOT** protected or enforced to use MFA, make sure to audit your EC2 credentials.
@@ -266,6 +269,18 @@ on your cloud account in the platform before continuing.
 - Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
   **View All Details** to show the TOTP secret in plain text.
 
+- Choose if your :ref:`application-credentials-label` should require a TOTP passcode with the
+  **Require TOTP for application credentials** checkbox, it is checked by default.
+
+  - If checked, all Application Credentials for your user must be used together with a TOTP passcode.
+
+  - If unchecked, Application Credentials can authenticate with only the Application Credential secret.
+    This is useful for applications and automation that cannot provide a TOTP passcode, but it means that
+    anyone with the secret has access without MFA, make sure to keep your Application Credential secrets
+    safe and limit their access with roles and access rules.
+
+  - Logging in with your password always requires a TOTP passcode regardless of this setting.
+
 - Enter a valid passcode from your TOTP application and your current password, then click **Submit**
 
   - If you enter an incorrect passcode or password you will get an error and can try again with the
@@ -280,6 +295,12 @@ If you ever want to remove MFA on your API user you can go back to the **MFA Set
 page, enter a valid passcode from your TOTP application and your current password, then click **Submit**.
 MFA is then removed from your API user, the TOTP credential for your API user is deleted and you're logged out.
 If the TOTP credential could not be deleted you will be asked to contact support.
+
+.. note::
+
+   The **Require TOTP for application credentials** setting can only be selected when you enable MFA.
+   If you want to change it you need to remove MFA and then enable it again with the new setting,
+   this creates a new TOTP secret that you need to scan into your TOTP application.
 
 .. note::
 
