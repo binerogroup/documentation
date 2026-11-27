@@ -102,6 +102,10 @@ the auth methods to be ``v3password`` and ``v3totp`` or if you are using an
 :ref:`Application Credential <application-credentials-label>` you must use ``v3applicationcredential``
 and ``v3totp`` as auth methods.
 
+If you unchecked **Require TOTP for application credentials** when you enabled MFA your
+Application Credentials do not need a TOTP passcode, use them with the ``v3applicationcredential``
+auth type as usual and skip the ``binero-cloud-mfa-appcred`` example below.
+
 When you've enabled MFA you need to enter a TOTP passcode every time to authenticate to get a token so
 instead of authenticating every request we save the token and use that for commands instead.
 
@@ -111,7 +115,7 @@ TOTP and another one that only uses a token.
 Use below as an template and replace with correct information. The project name is your customer
 number.
 
-When using an :ref:`Application Credential <application-credentials-label>` with MFA you must give
+When using an :ref:`Application Credential <application-credentials-label>` that requires TOTP you must give
 the user ID, you can find your user ID by issuing a token ``openstack token issue -f value -c user_id``
 
 ::

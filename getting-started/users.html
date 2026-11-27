@@ -1328,8 +1328,9 @@ is only needed to provision API users.</p>
 <h2 id="application-credentials"><span id="application-credentials-label"></span>Application Credentials<a class="headerlink" href="#application-credentials" title="Link to this heading">¶</a></h2>
 <div class="important tip admonition">
 <p class="admonition-title">Important</p>
-<p>If you enable <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> for an API user that also applies on all Application Credentials for
-that API user.</p>
+<p>If you enable <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">Multifactor authentication (MFA) for API user</span></a> for an API user it also applies on all Application Credentials for
+that API user by default. You can choose to not require a TOTP passcode for Application Credentials
+when you enable MFA, <a class="reference internal" href="#mfa-users-label"><span class="std std-ref">read more here</span></a>.</p>
 </div>
 <p>Using an Application Credentials makes it possible to grant specific access to your application(s) as a user without
 sharing the credentials for that user.</p>
@@ -1418,10 +1419,12 @@ password and a TOTP passcode, for successful authentication.</p>
 Application Credentials and EC2 credentials that you’ve created.</p>
 <ul class="simple">
 <li><p>You will not be able to login to <a class="reference internal" href="managing-your-cloud/openstack-horizon.html"><span class="doc">OpenStack Horizon</span></a>,
-use the API, terminal client or remove MFA without entering a TOTP passcode.</p></li>
+use the API or terminal client with your password or remove MFA without entering a TOTP passcode.</p></li>
 <li><p>If you lose access to your TOTP application or device you will lose access to your API user, we
 recommend that you keep a backup of your TOTP secret.</p></li>
-<li><p>All <a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> for your user is also protected and enforced to use MFA.</p></li>
+<li><p>By default all <a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> for your user is also protected and enforced
+to use MFA. You can choose to not require a TOTP passcode for Application Credentials when you enable
+MFA, see below.</p></li>
 <li><p><a class="reference internal" href="#ec2-credential-label"><span class="std std-ref">EC2 credentials</span></a> for this user will continue to work
 and is <strong>NOT</strong> protected or enforced to use MFA, make sure to audit your EC2 credentials.</p></li>
 <li><p>Enabling MFA on your API user will invalidate all tokens not issued with MFA enabled.</p></li>
@@ -1435,6 +1438,17 @@ your username and in the dropdown go to <strong>Settings</strong>.</p></li>
 click <strong>MFA Settings</strong></p></li>
 <li><p>Scan the QR code with your TOTP application (such as Google Authenticator) or device, or click
 <strong>View All Details</strong> to show the TOTP secret in plain text.</p></li>
+<li><p>Choose if your <a class="reference internal" href="#application-credentials-label"><span class="std std-ref">Application Credentials</span></a> should require a TOTP passcode with the
+<strong>Require TOTP for application credentials</strong> checkbox, it is checked by default.</p>
+<ul>
+<li><p>If checked, all Application Credentials for your user must be used together with a TOTP passcode.</p></li>
+<li><p>If unchecked, Application Credentials can authenticate with only the Application Credential secret.
+This is useful for applications and automation that cannot provide a TOTP passcode, but it means that
+anyone with the secret has access without MFA, make sure to keep your Application Credential secrets
+safe and limit their access with roles and access rules.</p></li>
+<li><p>Logging in with your password always requires a TOTP passcode regardless of this setting.</p></li>
+</ul>
+</li>
 <li><p>Enter a valid passcode from your TOTP application and your current password, then click <strong>Submit</strong></p>
 <ul>
 <li><p>If you enter an incorrect passcode or password you will get an error and can try again with the
@@ -1449,6 +1463,12 @@ QR code.</p></li>
 page, enter a valid passcode from your TOTP application and your current password, then click <strong>Submit</strong>.
 MFA is then removed from your API user, the TOTP credential for your API user is deleted and you’re logged out.
 If the TOTP credential could not be deleted you will be asked to contact support.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>The <strong>Require TOTP for application credentials</strong> setting can only be selected when you enable MFA.
+If you want to change it you need to remove MFA and then enable it again with the new setting,
+this creates a new TOTP secret that you need to scan into your TOTP application.</p>
+</div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>After too many failed attempts to enter a passcode or password on the <strong>MFA Settings</strong> page you’re

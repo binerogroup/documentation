@@ -1352,13 +1352,16 @@ point to understand each command.</p>
 the auth methods to be <code class="docutils literal notranslate"><span class="pre">v3password</span></code> and <code class="docutils literal notranslate"><span class="pre">v3totp</span></code> or if you are using an
 <a class="reference internal" href="../users.html#application-credentials-label"><span class="std std-ref">Application Credential</span></a> you must use <code class="docutils literal notranslate"><span class="pre">v3applicationcredential</span></code>
 and <code class="docutils literal notranslate"><span class="pre">v3totp</span></code> as auth methods.</p>
+<p>If you unchecked <strong>Require TOTP for application credentials</strong> when you enabled MFA your
+Application Credentials do not need a TOTP passcode, use them with the <code class="docutils literal notranslate"><span class="pre">v3applicationcredential</span></code>
+auth type as usual and skip the <code class="docutils literal notranslate"><span class="pre">binero-cloud-mfa-appcred</span></code> example below.</p>
 <p>When you’ve enabled MFA you need to enter a TOTP passcode every time to authenticate to get a token so
 instead of authenticating every request we save the token and use that for commands instead.</p>
 <p>Configure two clouds in the <code class="docutils literal notranslate"><span class="pre">~/.config/openstack/clouds.yaml</span></code> file, one that uses your password and
 TOTP and another one that only uses a token.</p>
 <p>Use below as an template and replace with correct information. The project name is your customer
 number.</p>
-<p>When using an <a class="reference internal" href="../users.html#application-credentials-label"><span class="std std-ref">Application Credential</span></a> with MFA you must give
+<p>When using an <a class="reference internal" href="../users.html#application-credentials-label"><span class="std std-ref">Application Credential</span></a> that requires TOTP you must give
 the user ID, you can find your user ID by issuing a token <code class="docutils literal notranslate"><span class="pre">openstack</span> <span class="pre">token</span> <span class="pre">issue</span> <span class="pre">-f</span> <span class="pre">value</span> <span class="pre">-c</span> <span class="pre">user_id</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">clouds</span><span class="p">:</span>
   <span class="n">binero</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">mfa</span><span class="p">:</span>
